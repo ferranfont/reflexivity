@@ -47,38 +47,41 @@ def build_html(df: pd.DataFrame, palette: list):
     sector_color = {s: palette[i % len(palette)] for i, s in enumerate(sectors)}
 
     html_parts = []
-    html_parts.append("""
-    <!doctype html>
-    <html lang="es">
-    <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tendencias por sector</title>
-    <style>
-      body { font-family: Arial, Helvetica, sans-serif; margin: 20px; }
-      table { border-collapse: collapse; width: 100%; }
-      th, td { padding: 8px 10px; border: 1px solid #ddd; }
-      tr.sector-header td { font-weight: bold; font-size: 1.05rem; }
-      tr.item-row:nth-child(even) { background: #fbfbfb; }
-      .sector-count { font-size: 0.9rem; opacity: 0.9; margin-left: 8px; }
-    </style>
-    </head>
-    <body>
-    <h1>Tendencias por sector</h1>
-    <p>Paleta usada para cabeceras (aprox.): {}</p>
-    <table>
-      <colgroup>
-        <col style="width:8%">
-        <col style="width:92%">
-      </colgroup>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Tendencia</th>
-        </tr>
-      </thead>
-      <tbody>
-    """ .format(', '.join(palette)) )
+    palette_str = ', '.join(palette)
+    html_parts.append(
+        """
+        <!doctype html>
+        <html lang="es">
+        <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tendencias por sector</title>
+        <style>
+          body { font-family: Arial, Helvetica, sans-serif; margin: 20px; }
+          table { border-collapse: collapse; width: 100%; }
+          th, td { padding: 8px 10px; border: 1px solid #ddd; }
+          tr.sector-header td { font-weight: bold; font-size: 1.05rem; }
+          tr.item-row:nth-child(even) { background: #fbfbfb; }
+          .sector-count { font-size: 0.9rem; opacity: 0.9; margin-left: 8px; }
+        </style>
+        </head>
+        <body>
+        <h1>Tendencias por sector</h1>
+        <p>Paleta usada para cabeceras (aprox.): """ + palette_str + """</p>
+        <table>
+          <colgroup>
+            <col style="width:8%">
+            <col style="width:92%">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Tendencia</th>
+            </tr>
+          </thead>
+          <tbody>
+        """
+    )
 
     # For each sector, add a sector header row (full-width via colspan) and then rows
     for sector in sectors:
