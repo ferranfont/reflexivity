@@ -14,6 +14,7 @@ from pathlib import Path
 import pandas as pd
 import webbrowser
 import os
+import unicodedata
 
 # Paleta aproximada (extraída visualmente del PNG proporcionado)
 PALETTE = [
@@ -23,6 +24,20 @@ PALETTE = [
     "#F7EDE6",  # melocotón muy claro
     "#CBB0A0",  # marrón claro
 ]
+
+# Optional mapping from exact sector name to a prefix. Edit if you want specific prefixes
+# e.g. "Agricultura": "agr", "Automoción": "aut"
+PREFIX_MAP = {
+    # "Some Sector": "agr",
+}
+
+
+def make_prefix(sector: str) -> str:
+    """Normalize a sector name to a short 3-letter prefix (lowercase, no accents)."""
+    s = unicodedata.normalize("NFKD", sector)
+    s = "".join(c for c in s if c.isalnum())
+    s = s.lower()
+    return s[:3] if len(s) >= 3 else s
 
 CSV_PATH = Path(__file__).parent / "data" / "tendencias_inversion_por_sector.csv"
 OUTPUT_DIR = Path(__file__).parent / "outputs"
@@ -47,7 +62,6 @@ def build_html(df: pd.DataFrame, palette: list):
     sector_color = {s: palette[i % len(palette)] for i, s in enumerate(sectors)}
 
     html_parts = []
-    palette_str = ', '.join(palette)
     html_parts.append(
         """
         <!doctype html>
@@ -58,6 +72,7 @@ def build_html(df: pd.DataFrame, palette: list):
         <title>Tendencias por sector</title>
         <style>
           body { font-family: Arial, Helvetica, sans-serif; margin: 20px; }
+          .container { max-width: 900px; margin: 0 auto; }
           table { border-collapse: collapse; width: 100%; }
           th, td { padding: 8px 10px; border: 1px solid #ddd; }
           tr.sector-header td { font-weight: bold; font-size: 1.05rem; }
@@ -66,8 +81,8 @@ def build_html(df: pd.DataFrame, palette: list):
         </style>
         </head>
         <body>
+        <div class="container">
         <h1>Tendencias por sector</h1>
-        <p>Paleta usada para cabeceras (aprox.): """ + palette_str + """</p>
         <table>
           <colgroup>
             <col style="width:8%">
@@ -89,20 +104,24 @@ def build_html(df: pd.DataFrame, palette: list):
         txt_color = text_color_for_bg(color)
         sector_rows = df[df["SECTOR"] == sector]
         count = len(sector_rows)
+        # determine prefix (configurable via PREFIX_MAP, else auto-generate)
+        prefix = PREFIX_MAP.get(sector, make_prefix(sector))
         # Sector header
         html_parts.append(
             f"<tr class=\"sector-header\" style=\"background:{color};color:{txt_color};\"><td colspan=\"2\">{sector} <span class=\"sector-count\">({count})</span></td></tr>"
         )
-        for _, row in sector_rows.iterrows():
+        for idx, (_, row) in enumerate(sector_rows.iterrows(), start=1):
             # escape HTML minimally
             trend = str(row.get("TENDENCIA", "")).replace("&", "&amp;").replace("<", "&lt;")
+            id_str = f"{prefix}{idx}"
             html_parts.append(
-                f"<tr class=\"item-row\"><td>{row.get('ID','')}</td><td>{trend}</td></tr>"
+                f"<tr class=\"item-row\"><td>{id_str}</td><td>{trend}</td></tr>"
             )
 
     html_parts.append("""
       </tbody>
     </table>
+    </div>
     </body>
     </html>
     """)
