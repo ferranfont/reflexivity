@@ -17,7 +17,9 @@ import webbrowser
 import unicodedata
 
 # Palette imported from central config
-from config import PALETTE
+from config import PALETTE, EXPANDED_PALETTE
+# use expanded palette to color sector headers with more variety
+PALETTE_TO_USE = EXPANDED_PALETTE
 
 # Optional mapping from exact sector name to a prefix. Edit if you want specific prefixes
 # e.g. "Agricultura": "agr", "Automoción": "aut"
@@ -70,7 +72,9 @@ def text_color_for_bg(hex_color: str):
 
 def build_html(df: pd.DataFrame, palette: list):
     sectors = sorted(df["SECTOR"].unique())
-    sector_color = {s: palette[i % len(palette)] for i, s in enumerate(sectors)}
+    # Prefer the expanded palette for better color variety
+    color_source = PALETTE_TO_USE if 'PALETTE_TO_USE' in globals() else palette
+    sector_color = {s: color_source[i % len(color_source)] for i, s in enumerate(sectors)}
 
     html_parts = []
     html_parts.append(

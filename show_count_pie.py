@@ -16,7 +16,7 @@ import webbrowser
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from config import PALETTE
+from config import PALETTE, EXPANDED_PALETTE
 
 # Paths
 ROOT = Path(__file__).parent
@@ -48,13 +48,23 @@ def build_pie(counts, svg_path: Path):
 
     # If too many sectors, limit label size font
     fig, ax = plt.subplots(figsize=(10, 10))
-    # Use project palette, repeating colors if needed
-    colors = [PALETTE[i % len(PALETTE)] for i in range(len(sizes))]
+    # Use expanded palette to reduce repeated colors
+    colors = [EXPANDED_PALETTE[i % len(EXPANDED_PALETTE)] for i in range(len(sizes))]
+
+    # autopct function that shows percent and absolute count
+    def make_autopct(sizes):
+        total = sum(sizes)
+        def inner(pct):
+            # round to nearest integer for count
+            val = int(round(pct * total / 100.0))
+            return f"{pct:.1f}%\n({val})"
+        return inner
+
     wedges, texts, autotexts = ax.pie(
         sizes,
         labels=labels,
         colors=colors,
-        autopct="%1.1f%%",
+        autopct=make_autopct(sizes),
         startangle=140,
         textprops={"fontsize": 8},
     )
