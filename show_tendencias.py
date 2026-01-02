@@ -16,14 +16,8 @@ import pandas as pd
 import webbrowser
 import unicodedata
 
-# Paleta aproximada (extraída visualmente del PNG proporcionado)
-PALETTE = [
-    "#EDDCCF",  # beige
-    "#C9D6C5",  # soft green
-    "#EDEFF1",  # light gray
-    "#F7EDE6",  # very light peach
-    "#CBB0A0",  # light brown
-]
+# Palette imported from central config
+from config import PALETTE
 
 # Optional mapping from exact sector name to a prefix. Edit if you want specific prefixes
 # e.g. "Agricultura": "agr", "Automoción": "aut"
