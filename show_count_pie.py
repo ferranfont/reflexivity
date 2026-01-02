@@ -69,7 +69,7 @@ def build_pie(counts, svg_path: Path):
         textprops={"fontsize": 8},
     )
     ax.axis("equal")
-    plt.title("Trends count by sector")
+    plt.title("Trends count by Industry")
 
     # Save SVG for embedding
     fig.savefig(svg_path, format="svg", bbox_inches="tight")
@@ -84,7 +84,7 @@ def write_html_with_svg(svg_path: Path, out_html: Path):
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Sector distribution (pie)</title>
+      <title>Trends by Industry (count)</title>
       <style>
         body {{ font-family: Arial, Helvetica, sans-serif; margin: 20px; }}
         .container {{ max-width: 1000px; margin: 0 auto; text-align: center; }}
@@ -93,7 +93,7 @@ def write_html_with_svg(svg_path: Path, out_html: Path):
     </head>
     <body>
       <div class="container">
-        <h1>Trends by Sector (count)</h1>
+        <h1>Trends by Industry (count)</h1>
         {svg_content}
       </div>
     </body>

@@ -15,6 +15,9 @@ from pathlib import Path
 import pandas as pd
 import webbrowser
 import unicodedata
+import argparse
+import re
+import sys
 
 # Palette imported from central config
 from config import PALETTE, EXPANDED_PALETTE
@@ -84,7 +87,7 @@ def build_html(df: pd.DataFrame, palette: list):
         <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Trends</title>
+        <title>Trends by Industry</title>
         <style>
           body { font-family: Arial, Helvetica, sans-serif; margin: 20px; }
           .container { max-width: 900px; margin: 0 auto; }
@@ -97,7 +100,7 @@ def build_html(df: pd.DataFrame, palette: list):
         </head>
         <body>
         <div class="container">
-        <h1>Trends</h1>
+        <h1>Trends by Industry</h1>
         <table>
           <colgroup>
             <col style="width:12%">
@@ -154,11 +157,71 @@ HTML_DIR.mkdir(parents=True, exist_ok=True)
 OUTPUT_HTML = HTML_DIR / "trends_by_sector.html"
 
 
+def validate_data(input_path: Path):
+    """Validate trends CSV and print a short report.
+
+    Returns True if all checks pass, otherwise False.
+    Checks: columns, missing values, id format, duplicate ids, exact duplicate rows, missing trend names.
+    """
+    df = pd.read_csv(input_path)
+    issues = []
+
+    rows = len(df)
+    cols = list(df.columns)
+    print(f"ROWS: {rows}")
+    print(f"COLUMNS: {cols}")
+
+    print("\nSample:")
+    print(df.head().to_string(index=False))
+
+    # Missing
+    print("\nMissing per column:")
+    print(df.isna().sum())
+
+    # ID format
+    pattern = re.compile(r'^[a-z]{1,}[0-9]+$')
+    id_ok = df['id'].astype(str).str.match(pattern)
+    bad_ids = (~id_ok).sum()
+    print(f"\nIDs that do not match prefix+number pattern: {bad_ids}")
+    if bad_ids:
+        print(df.loc[~id_ok, ['id']].head().to_string(index=False))
+        issues.append('bad_id_format')
+
+    # Duplicate ids
+    dup_ids = df['id'].duplicated().sum()
+    print(f"\nDuplicate id count: {dup_ids}")
+    if dup_ids:
+        print(df[df['id'].duplicated(keep=False)].sort_values('id').to_string(index=False))
+        issues.append('duplicate_ids')
+
+    # Exact duplicate rows
+    dup_rows = df.duplicated().sum()
+    print(f"\nExact duplicate rows: {dup_rows}")
+    if dup_rows:
+        issues.append('duplicate_rows')
+
+    # Missing trend names
+    missing_trends = df['trend'].isna().sum()
+    print(f"\nMissing trend names: {missing_trends}")
+    if missing_trends:
+        issues.append('missing_trend_names')
+
+    # Sector counts
+    print('\nTop sectors (by count):')
+    print(df['sector'].value_counts().head(20).to_string())
+
+    all_ok = len(issues) == 0
+    print('\nAll good checks:')
+    print(all_ok)
+    return all_ok
+
+
 def main():
     if not CSV_PATH.exists():
         print(f"No se encuentra el CSV en: {CSV_PATH}")
         return
 
+    # Default behavior: generate cleaned CSV and HTML
     df = pd.read_csv(CSV_PATH)
 
     # Build cleaned CSV with per-sector prefixed IDs and English sector names
@@ -181,6 +244,20 @@ def main():
     OUTPUT_HTML.write_text(html, encoding="utf-8")
     print(f"HTML generado en: {OUTPUT_HTML}")
     webbrowser.open(OUTPUT_HTML.resolve().as_uri())
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Show trends or validate data")
+    parser.add_argument("--validate", action="store_true", help="Run data validation and exit")
+    args = parser.parse_args()
+
+    if args.validate:
+        # Prefer the cleaned CSV if present
+        inp = DATA_TRENDS if DATA_TRENDS.exists() else CSV_PATH
+        ok = validate_data(inp)
+        sys.exit(0 if ok else 2)
+    else:
+        main()
 
 
 if __name__ == "__main__":
