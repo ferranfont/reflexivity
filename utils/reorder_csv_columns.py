@@ -6,7 +6,7 @@ import glob
 THEMES_DIR = "data/all_themes"
 
 def reorder_columns_in_csvs():
-    print("--- Bulk Reordering Columns (Symbol First) in Theme CSVs ---")
+    print("--- Bulk Reordering Columns (Symbol First, Theme_ID Second) in Theme CSVs ---")
     
     if not os.path.exists(THEMES_DIR):
         print(f"Directory not found: {THEMES_DIR}")
@@ -24,33 +24,42 @@ def reorder_columns_in_csvs():
             # Read CSV
             df = pd.read_csv(filepath)
             
-            # Identify symbol column (handle case sensitivity if needed, but prefer 'symbol')
-            # Based on previous tasks, valid col should be 'symbol'
-            target_col = 'symbol'
-            
-            if target_col not in df.columns:
-                # Try fallback just in case
-                if 'Symbol' in df.columns:
-                    target_col = 'Symbol'
-                else:
-                    # print(f"Skipping {os.path.basename(filepath)}: 'symbol' column not found.")
-                    skipped += 1
-                    continue
-            
-            # Reorder
             cols = df.columns.tolist()
             
-            # Only reorder if not already first
-            if cols[0] != target_col:
-                cols.remove(target_col)
-                cols.insert(0, target_col)
+            # Find key columns
+            symbol_col = None
+            if 'symbol' in cols:
+                symbol_col = 'symbol'
+            elif 'Symbol' in cols:
+                symbol_col = 'Symbol'
                 
-                df = df[cols]
+            theme_id_col = None
+            if 'theme_id' in cols:
+                theme_id_col = 'theme_id'
+            
+            # Logic to reorder
+            new_order = []
+            
+            # 1. Symbol
+            if symbol_col:
+                new_order.append(symbol_col)
+                
+            # 2. Theme ID
+            if theme_id_col:
+                new_order.append(theme_id_col)
+                
+            # 3. Rest
+            for c in cols:
+                if c != symbol_col and c != theme_id_col:
+                    new_order.append(c)
+            
+            # Only save if order changed or we just want to ensure consistency
+            if new_order != cols:
+                df = df[new_order]
                 df.to_csv(filepath, index=False)
                 count += 1
             else:
-                # Already first
-                pass
+                skipped += 1
             
         except Exception as e:
             print(f"Error processing {os.path.basename(filepath)}: {e}")
@@ -59,7 +68,7 @@ def reorder_columns_in_csvs():
         if (count + skipped + errors) % 50 == 0:
             print(f"Processed {count + skipped + errors} files...")
 
-    print(f"Done. Reordered {count} files. Skipped {skipped}. Errors: {errors}")
+    print(f"Done. Reordered {count} files. Skipped {skipped} (already correct). Errors: {errors}")
 
 if __name__ == "__main__":
     reorder_columns_in_csvs()
