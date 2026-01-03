@@ -1,264 +1,476 @@
-﻿# -*- coding: utf-8 -*-
+﻿
+# -*- coding: utf-8 -*-
 """show_trends.py
 
-Generates an HTML with trends grouped by sector and opens it in the browser.
-- Reads `data/tendencias_inversion_por_sector.csv`
-- Groups by `SECTOR`, assigns header colors and generates a cleaned CSV `data/trends_by_sector.csv`.
-
-Usage:
-    python show_trends.py
-
-Requirements: pandas
+Updates the browser visualization to use the offline industry classification
+and display company details for each theme.
 """
 
-from pathlib import Path
+import os
 import pandas as pd
+import json
 import webbrowser
-import unicodedata
-import argparse
-import re
-import sys
+from pathlib import Path
 
-# Palette imported from central config
-from config import PALETTE, EXPANDED_PALETTE
-# use expanded palette to color sector headers with more variety
-PALETTE_TO_USE = EXPANDED_PALETTE
+# --- Configuration ---
+BASE_DIR = Path(__file__).parent
+OUTPUTS_DIR = BASE_DIR / "outputs"
+DATA_THEMES_DIR = BASE_DIR / "data" / "all_themes"
+SUMMARY_FILE = OUTPUTS_DIR / "industry_summary_offline.csv"
+HTML_DIR = BASE_DIR / "html"
+HTML_FILE = HTML_DIR / "industry_explorer.html"
 
-# Optional mapping from exact sector name to a prefix. Edit if you want specific prefixes
-# e.g. "Agricultura": "agr", "Automoción": "aut"
-PREFIX_MAP = {
-    # "Some Sector": "agr",
-}
+# --- HTML Template ---
+HTML_TEMPLATE = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflexivity: Industry Explorer</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --light-bg: #ecf0f1;
+            --border-color: #bdc3c7;
+            --text-color: #2c3e50;
+        }
 
-# Mapping from Spanish sector names to English display names used in headers
-SECTOR_TRANSLATIONS = {
-    "Tecnología": "Technology",
-    "Energía y Utilities": "Energy and Utilities",
-    "Financiero": "Financials",
-    "Salud": "Health",
-    "Industrial": "Industrial",
-    "Consumo y Retail": "Consumer and Retail",
-    "Inmobiliario": "Real Estate",
-    "Materiales y Minería": "Materials and Mining",
-    "Transporte y Logística": "Transportation and Logistics",
-    "Automotive": "Automotive",
-    "Automotriz": "Automotive",
-    "Entretenimiento y Medios": "Entertainment and Media",
-    "Agricultura": "Agriculture",
-    "Defensa y Aeroespacial": "Defense and Aerospace",
-    "Telecomunicaciones": "Telecommunications",
-    "Hospitalidad": "Hospitality",
-    "Servicios Profesionales": "Professional Services",
-    "Otros": "Other",
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            color: var(--text-color);
+            overflow: hidden;
+        }
 
+        /* Sidebar: Industries & Themes */
+        #sidebar {
+            width: 350px;
+            background-color: var(--light-bg);
+            border-right: 1px solid var(--border-color);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
 
-def make_prefix(sector: str) -> str:
-    """Normalize a sector name to a short 3-letter prefix (lowercase, no accents)."""
-    s = unicodedata.normalize("NFKD", sector)
-    s = "".join(c for c in s if c.isalnum())
-    s = s.lower()
-    return s[:3] if len(s) >= 3 else s
+        .sidebar-header {
+            padding: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
 
+        .industry-group {
+            border-bottom: 1px solid var(--border-color);
+        }
 
-def hex_to_rgb(hex_color: str):
-    hex_color = hex_color.lstrip("#")
-    return tuple(int(hex_color[i : i + 2], 16) for i in (0, 2, 4))
+        .industry-title {
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            background-color: #fff;
+            transition: background-color 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
+        .industry-title:hover {
+            background-color: #f9f9f9;
+        }
 
-def text_color_for_bg(hex_color: str):
-    r, g, b = hex_to_rgb(hex_color)
-    # Perceived luminance
-    lum = (0.299 * r + 0.587 * g + 0.114 * b) / 255
-    return "#000" if lum > 0.6 else "#fff"
+        .industry-title.active {
+            background-color: #e8f4fc;
+            color: var(--accent-color);
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .company-count-badge {
+            background-color: #eee;
+            color: #666;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+        }
 
+        .theme-list {
+            display: none;
+            background-color: #fcfcfc;
+        }
 
-def build_html(df: pd.DataFrame, palette: list):
-    sectors = sorted(df["SECTOR"].unique())
-    # Prefer the expanded palette for better color variety
-    color_source = PALETTE_TO_USE if 'PALETTE_TO_USE' in globals() else palette
-    sector_color = {s: color_source[i % len(color_source)] for i, s in enumerate(sectors)}
+        .theme-item {
+            padding: 10px 20px 10px 40px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.2s;
+        }
 
-    html_parts = []
-    html_parts.append(
-        """
-        <!doctype html>
-        <html lang="en">
-        <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Trends by Industry</title>
-        <style>
-          body { font-family: Arial, Helvetica, sans-serif; margin: 20px; }
-          .container { max-width: 900px; margin: 0 auto; }
-          table { border-collapse: collapse; width: 100%; }
-          th, td { padding: 8px 10px; border: 1px solid #ddd; }
-          tr.sector-header td { font-weight: bold; font-size: 1.05rem; }
-          tr.item-row:nth-child(even) { background: #fbfbfb; }
-          .sector-count { font-size: 0.9rem; opacity: 0.9; margin-left: 8px; }
-        </style>
-        </head>
-        <body>
-        <div class="container">
-        <h1>Trends by Industry</h1>
-        <table>
-          <colgroup>
-            <col style="width:12%">
-            <col style="width:88%">
-          </colgroup>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Trend</th>
-            </tr>
-          </thead>
-          <tbody>
-        """
-    )
+        .theme-item:hover {
+            background-color: #fff;
+            color: var(--accent-color);
+            padding-left: 45px;
+        }
+        
+        .theme-item.selected {
+            background-color: var(--accent-color);
+            color: white;
+        }
 
-    # For each sector, add a sector header row (full-width via colspan) and then rows
-    for sector in sectors:
-        color = sector_color[sector]
-        txt_color = text_color_for_bg(color)
-        sector_rows = df[df["SECTOR"] == sector]
-        count = len(sector_rows)
-        # determine prefix (configurable via PREFIX_MAP, else auto-generate)
-        prefix = PREFIX_MAP.get(sector, make_prefix(sector))
-        # Sector header (use English display name if available)
-        display_name = SECTOR_TRANSLATIONS.get(sector, sector)
-        html_parts.append(
-            f"<tr class=\"sector-header\" style=\"background:{color};color:{txt_color};\"><td colspan=\"2\">{display_name} <span class=\"sector-count\">({count})</span></td></tr>"
-        )
-        for idx, (_, row) in enumerate(sector_rows.iterrows(), start=1):
-            # escape HTML minimally
-            trend = str(row.get("TENDENCIA", "")).replace("&", "&amp;").replace("<", "&lt;")
-            id_str = f"{prefix}{idx}"
-            html_parts.append(
-                f"<tr class=\"item-row\"><td>{id_str}</td><td>{trend}</td></tr>"
-            )
+        /* Main Content: Company Table */
+        #main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
 
-    html_parts.append("""
-      </tbody>
-    </table>
+        #header-bar {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        #current-selection {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        #table-container {
+            flex: 1;
+            overflow: auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            position: sticky;
+            top: 0;
+            font-weight: 600;
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .stats-card {
+            display: inline-block;
+            margin-right: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        #empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #999;
+            text-align: center;
+        }
+        
+        .search-box {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 90%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="sidebar">
+        <div class="sidebar-header">Reflexivity Explorer</div>
+        <input type="text" id="filter-input" class="search-box" placeholder="Filter industries or themes..." onkeyup="filterSidebar()">
+        <div id="industry-list">
+            <!-- Content injected by JS -->
+        </div>
     </div>
-    </body>
-    </html>
-    """
-    )
 
-    return "\n".join(html_parts)
+    <div id="main-content">
+        <div id="header-bar">
+            <div id="current-selection">Select a Theme</div>
+            <div id="stats-container"></div>
+        </div>
+        <div id="table-container">
+            <div id="empty-state">
+                <h2>Welcome to the Investment Theme Explorer</h2>
+                <p>Select an Industry and a Theme from the sidebar to view companies.</p>
+            </div>
+            <table id="company-table" style="display:none;">
+                <thead>
+                    <tr id="table-head-row">
+                        <!-- Headers injected by JS -->
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- Rows injected by JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
 
+    <script>
+        // --- DATA INJECTION POINT ---
+        const ALL_DATA = {{JSON_DATA}};
+        // ----------------------------
 
-# Paths
-CSV_PATH = Path(__file__).parent / "data" / "tendencias_inversion_por_sector.csv"
-DATA_TRENDS = Path(__file__).parent / "data" / "trends_by_sector.csv"
-HTML_DIR = Path(__file__).parent / "html"
-HTML_DIR.mkdir(parents=True, exist_ok=True)
-OUTPUT_HTML = HTML_DIR / "trends_by_sector.html"
+        const industryListEl = document.getElementById('industry-list');
+        const companyTableEl = document.getElementById('company-table');
+        const tableHeadRowEl = document.getElementById('table-head-row');
+        const tableBodyEl = document.getElementById('table-body');
+        const currentSelectionEl = document.getElementById('current-selection');
+        const emptyStateEl = document.getElementById('empty-state');
+        const statsContainerEl = document.getElementById('stats-container');
 
+        // Initial Render
+        renderSidebar(ALL_DATA);
 
-def validate_data(input_path: Path):
-    """Validate trends CSV and print a short report.
+        function renderSidebar(data) {
+            industryListEl.innerHTML = '';
+            
+            // Sort industries alphabetically
+            const industries = Object.keys(data).sort();
+            
+            industries.forEach(indName => {
+                // Determine total companies in industry for badge (approx)
+                let indCompanyCount = 0;
+                Object.values(data[indName]).forEach(themeArray => indCompanyCount += themeArray.length);
 
-    Returns True if all checks pass, otherwise False.
-    Checks: columns, missing values, id format, duplicate ids, exact duplicate rows, missing trend names.
-    """
-    df = pd.read_csv(input_path)
-    issues = []
+                const groupDiv = document.createElement('div');
+                groupDiv.className = 'industry-group';
+                
+                // Title Row
+                const titleDiv = document.createElement('div');
+                titleDiv.className = 'industry-title';
+                titleDiv.innerHTML = `
+                    <span>${indName}</span>
+                    <span class="company-count-badge">${indCompanyCount}</span>
+                `;
+                titleDiv.onclick = () => toggleIndustry(groupDiv);
+                
+                // Theme List Container
+                const themeListDiv = document.createElement('div');
+                themeListDiv.className = 'theme-list';
+                
+                // Sort themes
+                const themes = Object.keys(data[indName]).sort();
+                
+                themes.forEach(themeName => {
+                    const themeItem = document.createElement('div');
+                    themeItem.className = 'theme-item';
+                    const compCount = data[indName][themeName].length;
+                    themeItem.innerText = `${themeName} (${compCount})`;
+                    themeItem.onclick = (e) => {
+                        e.stopPropagation();
+                        selectTheme(themeItem, indName, themeName, data[indName][themeName]);
+                    };
+                    themeListDiv.appendChild(themeItem);
+                });
 
-    rows = len(df)
-    cols = list(df.columns)
-    print(f"ROWS: {rows}")
-    print(f"COLUMNS: {cols}")
+                groupDiv.appendChild(titleDiv);
+                groupDiv.appendChild(themeListDiv);
+                industryListEl.appendChild(groupDiv);
+            });
+        }
 
-    print("\nSample:")
-    print(df.head().to_string(index=False))
+        function toggleIndustry(groupDiv) {
+            const list = groupDiv.querySelector('.theme-list');
+            const title = groupDiv.querySelector('.industry-title');
+            
+            // Close others (optional, maybe keep multi-open)
+            // document.querySelectorAll('.theme-list').forEach(el => el.style.display = 'none');
+            
+            if (list.style.display === 'block') {
+                list.style.display = 'none';
+                title.classList.remove('active');
+            } else {
+                list.style.display = 'block';
+                title.classList.add('active');
+            }
+        }
 
-    # Missing
-    print("\nMissing per column:")
-    print(df.isna().sum())
+        function selectTheme(el, industry, theme, companies) {
+            // Highlight styling
+            document.querySelectorAll('.theme-item').forEach(i => i.classList.remove('selected'));
+            el.classList.add('selected');
 
-    # ID format
-    pattern = re.compile(r'^[a-z]{1,}[0-9]+$')
-    id_ok = df['id'].astype(str).str.match(pattern)
-    bad_ids = (~id_ok).sum()
-    print(f"\nIDs that do not match prefix+number pattern: {bad_ids}")
-    if bad_ids:
-        print(df.loc[~id_ok, ['id']].head().to_string(index=False))
-        issues.append('bad_id_format')
+            // Update Header
+            currentSelectionEl.innerText = `${industry} > ${theme}`;
+            emptyStateEl.style.display = 'none';
+            companyTableEl.style.display = 'table';
+            
+            // Build Table
+            buildTable(companies);
+        }
 
-    # Duplicate ids
-    dup_ids = df['id'].duplicated().sum()
-    print(f"\nDuplicate id count: {dup_ids}")
-    if dup_ids:
-        print(df[df['id'].duplicated(keep=False)].sort_values('id').to_string(index=False))
-        issues.append('duplicate_ids')
+        function buildTable(companies) {
+            tableHeadRowEl.innerHTML = '';
+            tableBodyEl.innerHTML = '';
 
-    # Exact duplicate rows
-    dup_rows = df.duplicated().sum()
-    print(f"\nExact duplicate rows: {dup_rows}")
-    if dup_rows:
-        issues.append('duplicate_rows')
+            if (!companies || companies.length === 0) {
+                tableBodyEl.innerHTML = '<tr><td colspan="5">No data available</td></tr>';
+                return;
+            }
 
-    # Missing trend names
-    missing_trends = df['trend'].isna().sum()
-    print(f"\nMissing trend names: {missing_trends}")
-    if missing_trends:
-        issues.append('missing_trend_names')
+            // Define columns we want to show
+            // available: type, key, name, rank, description, evidence, conid, currency, symbol, exchange, assetType, ...
+            const columns = ['name', 'symbol', 'currency', 'rank', 'description'];
+            const headers = ['Company Name', 'Symbol', 'Currency', 'Rank', 'Description'];
 
-    # Sector counts
-    print('\nTop sectors (by count):')
-    print(df['sector'].value_counts().head(20).to_string())
+            headers.forEach(h => {
+                const th = document.createElement('th');
+                th.innerText = h;
+                tableHeadRowEl.appendChild(th);
+            });
 
-    all_ok = len(issues) == 0
-    print('\nAll good checks:')
-    print(all_ok)
-    return all_ok
+            companies.forEach(company => {
+                const tr = document.createElement('tr');
+                columns.forEach(col => {
+                    const td = document.createElement('td');
+                    td.innerText = company[col] || '';
+                    if (col === 'description' && company[col] && company[col].length > 100) {
+                        td.title = company[col]; // tooltip
+                        td.innerText = company[col].substring(0, 100) + '...';
+                    }
+                    tr.appendChild(td);
+                });
+                tableBodyEl.appendChild(tr);
+            });
+            
+            statsContainerEl.innerText = `${companies.length} Companies`;
+        }
+        
+        function filterSidebar() {
+            const term = document.getElementById('filter-input').value.toLowerCase();
+            const industryGroups = document.querySelectorAll('.industry-group');
+            
+            industryGroups.forEach(group => {
+                const industryName = group.querySelector('.industry-title span').innerText.toLowerCase();
+                const themeItems = group.querySelectorAll('.theme-item');
+                let hasVisibleTheme = false;
+                
+                themeItems.forEach(item => {
+                    const txt = item.innerText.toLowerCase();
+                    if (txt.includes(term)) {
+                        item.style.display = 'block';
+                        hasVisibleTheme = true;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                if (industryName.includes(term) || hasVisibleTheme) {
+                    group.style.display = 'block';
+                    // Auto expand if searching
+                    if (term.length > 0) {
+                        group.querySelector('.theme-list').style.display = 'block';
+                    } else {
+                        group.querySelector('.theme-list').style.display = 'none';
+                    }
+                } else {
+                    group.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+"""
 
-
-def main():
-    if not CSV_PATH.exists():
-        print(f"No se encuentra el CSV en: {CSV_PATH}")
+def generate_explorer():
+    print("Generating Offline Industry Explorer...")
+    
+    # 1. Load Summary Structure
+    if not SUMMARY_FILE.exists():
+        print(f"Error: {SUMMARY_FILE} not found. Run classify_themes_offline.py first.")
         return
 
-    # Default behavior: generate cleaned CSV and HTML
-    df = pd.read_csv(CSV_PATH)
+    summary_df = pd.read_csv(SUMMARY_FILE)
+    
+    # 2. Build the Big Data Object
+    # Structure: { "IndustryName": { "ThemeName": [ {company_data}, ... ] } }
+    
+    final_data = {}
+    
+    total_files = len(summary_df)
+    print(f"Processing {total_files} themes...")
+    
+    for idx, row in summary_df.iterrows():
+        industry = row['Industry']
+        theme = row['Theme']
+        filename = row['Filename']
+        
+        if pd.isna(filename) or filename == "Not Found":
+            continue
+            
+        csv_path = DATA_THEMES_DIR / filename
+        
+        companies_list = []
+        if csv_path.exists():
+            try:
+                # Read company CSV
+                # Ensure we handle bad lines just in case
+                comp_df = pd.read_csv(csv_path, on_bad_lines='skip')
+                # Clean column headers (strip whitespace)
+                comp_df.columns = comp_df.columns.str.strip()
+                # Convert to record list
+                companies_list = comp_df.to_dict(orient='records')
+            except Exception as e:
+                print(f"Error reading {filename}: {e}")
+        
+        if industry not in final_data:
+            final_data[industry] = {}
+        
+        final_data[industry][theme] = companies_list
 
-    # Build cleaned CSV with per-sector prefixed IDs and English sector names
-    rows = []
-    for sector in sorted(df["SECTOR"].unique()):
-        prefix = PREFIX_MAP.get(sector, make_prefix(sector))
-        sector_rows = df[df["SECTOR"] == sector]
-        for idx, (_, row) in enumerate(sector_rows.iterrows(), start=1):
-            id_str = f"{prefix}{idx}"
-            trend = row.get("TENDENCIA", "")
-            display_sector = SECTOR_TRANSLATIONS.get(sector, sector)
-            rows.append({"id": id_str, "sector": display_sector, "trend": trend, "original_id": row.get("ID")})
-
-    df_clean = pd.DataFrame(rows)
-    df_clean.to_csv(DATA_TRENDS, index=False, encoding="utf-8")
-    print(f"Clean CSV written to: {DATA_TRENDS}")
-
-    # Generate and write HTML to the html/ directory
-    html = build_html(df, PALETTE)
-    OUTPUT_HTML.write_text(html, encoding="utf-8")
-    print(f"HTML generado en: {OUTPUT_HTML}")
-    webbrowser.open(OUTPUT_HTML.resolve().as_uri())
-
+    # 3. Inject to HTML
+    json_str = json.dumps(final_data, ensure_ascii=False) # allow unicode
+    
+    html_content = HTML_TEMPLATE.replace("{{JSON_DATA}}", json_str)
+    
+    if not HTML_DIR.exists():
+        HTML_DIR.mkdir()
+        
+    with open(HTML_FILE, 'w', encoding='utf-8') as f:
+        f.write(html_content)
+        
+    print(f"Successfully generated: {HTML_FILE}")
+    print(f"Total Industries: {len(final_data)}")
+    
+    # 4. Open in Browser
+    folder_path = HTML_FILE.resolve().parent
+    print(f"Opening {HTML_FILE.name}...")
+    webbrowser.open(HTML_FILE.as_uri())
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Show trends or validate data")
-    parser.add_argument("--validate", action="store_true", help="Run data validation and exit")
-    args = parser.parse_args()
-
-    if args.validate:
-        # Prefer the cleaned CSV if present
-        inp = DATA_TRENDS if DATA_TRENDS.exists() else CSV_PATH
-        ok = validate_data(inp)
-        sys.exit(0 if ok else 2)
-    else:
-        main()
-
-
-if __name__ == "__main__":
-    main()
+    generate_explorer()
