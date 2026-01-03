@@ -6,7 +6,7 @@ import os
 # --- Configuration ---
 # Path setup assuming this script is in d:/PYTHON/ALGOS/reflexivity/
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-SUMMARY_FILE = os.path.join(BASE_DIR, 'outputs', 'industry_summary_offline.csv')
+SUMMARY_FILE = os.path.join(BASE_DIR, 'data', 'industry_summary_offline.csv')
 THEMES_DIR = os.path.join(BASE_DIR, 'data', 'all_themes')
 
 st.set_page_config(layout="wide", page_title="Reflexivity Explorer")

@@ -6,7 +6,7 @@ from fuzzywuzzy import process
 # --- CONFIGURATION ---
 REFERENCE_FILE = "data/trends_by_sector.csv"
 THEMES_DIR = "data/all_themes"
-OUTPUT_FILE = "outputs/industry_summary_offline.csv"
+OUTPUT_FILE = "data/industry_summary_offline.csv"
 
 def normalize_text(text):
     """Normalize text for better matching: lowercase, remove special chars."""

@@ -16,7 +16,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).parent
 OUTPUTS_DIR = BASE_DIR / "outputs"
 DATA_THEMES_DIR = BASE_DIR / "data" / "all_themes"
-SUMMARY_FILE = OUTPUTS_DIR / "industry_summary_offline.csv"
+SUMMARY_FILE = BASE_DIR / "data" / "industry_summary_offline.csv"
 HTML_DIR = BASE_DIR / "html"
 HTML_FILE = HTML_DIR / "industry_explorer.html"
 
