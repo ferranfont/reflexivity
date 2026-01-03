@@ -1,5 +1,8 @@
 """Project configuration values shared across scripts."""
 
+#===============================================================
+# PALETTE
+#=====================================================================
 PALETTE = [
     "#EDDCCF",  # beige
     "#C9D6C5",  # soft green
