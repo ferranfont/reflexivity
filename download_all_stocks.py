@@ -17,7 +17,7 @@ DB_PORT = "3306"
 DB_NAME = "reflexivity"
 TABLE_NAME = "stock_prices"
 SYMBOLS_FILE = "data/unique_symbols.csv"
-DELAY_SECONDS = 30
+DELAY_SECONDS = 15
 
 def sort_stock_prices_table():
     """
@@ -127,12 +127,12 @@ if __name__ == "__main__":
     print(f"\n{'='*60}")
     print("⚠️  WARNING: This will download data for ALL symbols")
     print(f"   Total symbols: ~2429")
-    print(f"   Estimated time: ~20 hours (with 30s delay)")
+    print(f"   Estimated time: ~10 hours (with 15s delay)")
     print(f"{'='*60}\n")
     
     response = input("Do you want to continue? (yes/no): ").strip().lower()
     
-    if response == 'yes':
+    if response in ['yes', 'y']:
         download_all_symbols()
     else:
         print("\n❌ Operation cancelled by user\n")
