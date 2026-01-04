@@ -2,13 +2,18 @@ import yfinance as yf
 import pandas as pd
 from sqlalchemy import create_engine, text
 from datetime import datetime
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # --- CONFIGURATION ---
-DB_USER = "root"
-DB_PASS = "Plus7070"
-DB_HOST = "localhost"
-DB_PORT = "3306"
-DB_NAME = "reflexivity"
+DB_USER = os.getenv("DB_USER")
+DB_PASS = os.getenv("DB_PASS")
+DB_HOST = os.getenv("DB_HOST")
+DB_PORT = os.getenv("DB_PORT")
+DB_NAME = os.getenv("DB_NAME")
 TABLE_NAME = "stock_prices"
 
 def download_and_upload_stock_data(symbol):
