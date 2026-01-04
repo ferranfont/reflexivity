@@ -31,6 +31,23 @@ body {
     font-size: 1.5rem;
     font-weight: bold;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content {
+    flex: 1;
+}
+
+.header-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    background-color: white;
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 .company-subtitle {
@@ -38,6 +55,18 @@ body {
     font-weight: normal;
     opacity: 0.9;
     margin-top: 5px;
+}
+
+.company-subtitle a {
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(255,255,255,0.5);
+    transition: all 0.3s;
+}
+
+.company-subtitle a:hover {
+    border-bottom: 1px solid white;
+    opacity: 1;
 }
 
 .container {
@@ -182,8 +211,16 @@ tr:hover {
     font-weight: 600;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     transition: background-color 0.2s;
+    gap: 10px;
+}
+
+.evidence-header span:first-child {
+    flex: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.4;
 }
 
 .evidence-header:hover {
@@ -222,8 +259,13 @@ tr:hover {
 </head>
 <body>
     <div class="header">
-        AAPL - APPLE INC
-        <div class="company-subtitle">Company Investment Profile</div>
+        <div class="header-content">
+            AAPL - APPLE INC
+            <div class="company-subtitle">
+                <a href="https://apple.com" target="_blank">🌐 apple.com</a>
+            </div>
+        </div>
+        <img src="data:image/png;base64,/9j/2wCEAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf/AABEIAHgAeAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AP7+KKKKACiiigAooooAKKKqX9/ZaXZXmpaleWmn6fp9rcXt9f31zDZ2VlZ2kL3F1d3l1cPHBbWttbxyT3FxM6RQwxvLIyorEAFHxH4j8P8Ag/w/rnizxbrujeF/C3hnSNR1/wASeJfEWqWOieH/AA9oOj2k2oatreuazqc9rp2k6RpVhbz32palf3NvZ2NnBNc3M0cMTuP5Ef2/P+Dw39ir9nnW9a+Hn7Hfw78RftneNNJmutNvfiAmuSfCr4A2V9Ebi0lfQvFmoaHrnjf4jtpWoW5Mz+H/AAZovg3X9PlgvfDHxE1K2uUu4v5hf+Dhv/gvR49/4KR/F/xV+zl+z/4t1Xw7+wX8MvE02l6Hp+k3N1ph/aT8R+GtSGz4s+OoVMNzeeCv7Wsk1L4UeCdUVYbHT7fSvG3iLS7XxjeQaZ4X/mJ5YgcliQBz+AHP4AelAH+sD/wbn/8ABar9pn/gsHqv7a837QPw7+B/w+0n9n1v2dh8PLL4OaH460y4uIfiw/x0PiBfGGo+N/H/AIzbXLq2j+HHh9dLuNIsPDUEHmam1zZ3Ju7c2v8ATtX8kf8AwZ3fsia18DP+Cc3jb9onxZpM2k6/+2D8XLnxP4ZE8TW9xe/B34S2Nz4B8D3t3azxx3UDal40m+Kmsaa8iiDUvD1/oms2LSWeowzz/wBblABRRRQAUUUUAFFFFABRRSFgOO/YAZPXAOB0Ge5wB3IoAWivza+Pf/BYT/gl/wDsy6jqWh/Gf9uf9m/wz4m0W5lstb8HaV8RtK8e+OdEvYSRLZ6z4I+HH/CX+LNKukI+a3v9Ht5un7s8V5T8Jf8Agvj/AMEdvjXq/wDYfgr/AIKBfAHT9QLiKNfibq+v/BG1nlYhUhtNR+NXh74faZeTSuQkMNreyyTuypCruyqQD9e6/mZ/4Ot/22tb/ZN/4Jb+J/h34E1mXSPiH+2F4zsv2dYLuwuGg1bS/hhqGiat4q+M+p2w/wBXPY6x4P0WH4Y6uhzNHZfEwz2wSWMXNt/SdoXiHQfE+jab4i8N61pXiDw/rNnDqGka7omo2eraNqlhcgG2vNN1XT5rnT761nUhoJ7W4lilUhkdgc1/Jp/wdRf8EvP27v8AgpbafsKaf+xf8KLb4qaf8Ib/APaUuPipbXfxM+GHw7g0Gbx7bfAuDwJqDr8SPF/hX+2Vnh8JeNrcnQU1W507GLyCBL+3kcA/y62O4knqew6AdgOTgAcAdgAK/aX/AIIl/wDBHn4s/wDBWf8Aaa0rwvDY634U/Zf+GusaPq/7SXxigtmgt9G8Neel0fh34O1C5hksLr4p+PbSGfTPD9uY7+PwvYzXnjXWNNvtP0ePS9V/ef8AYU/4Mw/jj4k8R6P4v/4KE/HbwZ8K/h3aNBqGp/Cj4A6m3jz4p63CiO13oeufEXW9EsPh18OTE/kXDavoNl8VmvLRbmygi0qeaPVLX+qHSv8Agoz/AMEIv+CTPwq8Ofs0+C/2oP2Xvgp4C+HPn6VD8Lvg/wCINV+NvivR9YXamq3njvS/hLZ/FD4gXvjXUpoVuPEHiDx89z4s1q5K3ur393NKkjgH7M/Dz4f+DPhR4C8E/C/4c+HNM8H/AA/+HPhLw54D8DeEtFhNvo/hfwf4R0iz0Dw14e0qBmdodO0bRrCz0+zjZ3ZYLdAzM2Sexr8GfCn/AAc2/wDBD/xhqsOjad+3NomnXtzMkEEniz4J/tJ+C9KJkO1ZJ9f8U/B7S9CsYO7S3+o2qRj5pSindX62fAj9qb9mr9qLQrnxN+zf8ffg38edBsfIXU9U+EHxK8H/ABEttHnuV3Q2etjwtq+pz6LfFfv2OrQWV3EwZJYUdHVQD3qikBBGQQQehByD+IpaACiiigAoorD8T+JdA8GeG/EHjDxZrOneHPC3hTRNW8SeJfEOsXUVjpGg+H9CsLjVNZ1nVb2dkgs9O0vTbS5vr26ndIYLaCSWR1RSQAfGf/BQv/goj+zV/wAEzf2eNc/aJ/aW8UzabotvM2i+CPBGgpaX/wAQvit41mtprnTvBHw/0K6u7KPUdYuo4ZLi9vr27sdB8PaZFcaz4h1TTtMtpJ6/yy/+Cof/AAcJ/t8f8FMdb8SeGNS8c6r+z3+zHqMl7Z6V+zN8IPEmpaZ4d1HQbmSRVtfi/wCNrCDQ/E3xr1Ke1Fgup2/iNNO+Hi6jp0Wq+Gfhx4Zuri7a48d/4LWf8FSfHn/BVb9tHxn8YbrUNYsPgR4FutX8A/sw/Dy9kmtrXwj8KbPU3+z+JL/Rt32e08f/ABRltrfxl4+vX+26jFPPo/g4axqHhzwV4ais/wAhaAJBK4+6xTgA7MJnHTOwLnHqcnk+po82Q4y7MAc4c71z7q2VP4g1HRQB9j/sn/8ABQb9tX9hrXx4h/ZP/aV+K/wSlfUF1XUNA8KeJZp/h/4g1COPyYbnxf8AC/X49Z+G3jIwRZjhj8UeFNWjjXhAuAR/Qj4T/wCDyz/gqj4f+Hj+Etc8Bfsg+OvFqWSWVt8U/Efwq8fab4omleORLrV9W8O+Dvix4a8AXmr7mSey/s3w1oeiwTx5vNE1C3ka2X+SeigD9J/2x/8Agr3/AMFHv29RqOnftN/tYfFHxp4L1IlZvhXoGo2vw1+DzQRTNLYR3fwq+G9p4W8E63c6YreRZ6z4l0nXPEBi3Ndavc3E1xPN+bnmyc4YrnqExGD9VQKP0qOigB4kkHSRx9GYfyNd78Mviv8AE74LeNdE+JHwf+Ifjf4V/ELw1O1z4e8d/DjxVrngfxjodxIvlyT6V4m8M32m6zYySRlopGgvFEkTvHIro7KfP6UAkgAEknAA6k0Af6Ff/BCv/g6r1z4leMvBX7IX/BT3XtBi1/xReWfhf4Wftfiz03wvYajr17NHa6F4V/aC0vTobHw5pUmq3MqaNpPxb0Oz0bSYbj+x4viFosC3Gu/ENP7zK/yw/wDggX/wbd+Lf+Cj9vo37Vn7WFz4n+GH7Fdpqk6+E9E0UnR/iH+0pfaNeyWmoWPhjU7mCU+EPhTZanbXGl+KPiBDbXGs67cWepeE/Aa2OpHUPGnhH/UR8CeCfDfw18EeDvh14NsrjTfCPgHwr4e8FeFtOu9W1jXruw8OeFdIs9C0Oyutc8Q3+q6/rVza6XYWsE+ra5qmpaxqUkbXmp395ezTXEgB1dFFFABX81//AAdaftZap+zL/wAEkviR4T8ManNpXiz9q7x74P8A2ZrO9sboRahZ+EvEtrrnjj4pObfINxpOu/DzwHrfgDWMgxLb+OFido5biAt/ShX8D/8AwfF+MdQtPD3/AATd8BW1yV0rW9a/av8AF+r2YLBZdR8N6Z8AtB8P3TL9xmgtPFfiWFGILIJ3CkB2yAf59DHcSemTnA6D2A7AdAOw4pKKKACiiigAooooAKKKKACv03/4I9/sFT/8FI/+Cg/7Pv7Ll81/afD3xB4iufGPxp1jTnlgudI+DHw9s38U/EBLbUIA8mkat4p0+zg8A+GdXaC5g07xX4u0O6urea2iljb8yK/ts/4Mkvh5puqftb/tm/FaWOM6t4J/Zx8GfD+xZlDOtj8T/ilba9qpTcSVLv8ACnTI2dcEKdvRiGAP9GfwZ4O8K/Dvwh4V8AeBfD2k+EfBPgfw3oXg/wAHeFNAsoNN0Lwx4V8MaXa6J4e8PaJp1sqWun6RoukWNnpum2NtHHb2tpbRQwoqKAOloooAKKKKACv4Bv8Ag+R0K5Zf+CZ3iSKCR7SM/th6Je3IA8mC4mT9mvUdMgY5z5l1DBq8iDGClm5yK/v5r+RD/g8v+Bd18QP+CaPwx+Mmk6dJc3/7P/7Tvg7UPEGohS0Wj/D34peE/Fvw91eaQiNtgu/Hk/wxsw5dIw0wUhpZIcAH+XtRRRQAUUUUAFFFFABRRRQAV/Y9/wAGXHxr0rwZ/wAFBPj58FdW1C308/G39mO/1Pw5FPKFk1zxj8JPH/hrXYtFsoj80t5/whPibxvrZABCWWg30mcqFP8AHDX1L+xP+1j8RP2Gf2rPgV+1l8KzHL41+B3j7TPGFnpVxdS2Nj4p0QxXOjeNPAuq3tvFNc2mh/EHwTqniHwTrtxaRm7i0nXruW1ZLhI5FAP91Oivmf8AY+/a0+Cn7cf7Onwx/ad/Z+8TxeJ/hp8T/D8GracztAmteHNWiH2fxB4K8W2EFxdDSPGPg7WI7vQPEmlm4uI4NSspJbO6vdPns765+mKACiiigAr4X/4KZfsoQ/txfsC/tYfsrC2trrWfi98GvFOk+B1vpY4LG2+KWhRReMfhHqd/NJhI7LSPid4c8J6ncsWjPkWsgWaFiJU+6KQjII/I8HkcgjORkHkZ7igD/AV1GxvdMv7zT9StLrT9Rsrme0v7C+tpbO8sr61meC9s7u0uEjntrm0uo5ree3mjSWGWJ45EVlIFKv6Qf+Doj/gnxefsS/8ABTHx78RPDGhtp/wQ/bLbV/2hfhzd28Dppth441S/hT48+CEuCsVu2oaJ8RL9/G0Wm6fAllong/4leDtORnkgmI/m+oAKKKKACiiigAooooAKKKKAP2M/4JC/8Fpv2nP+CRfxUvta+Gwi+JvwF8dalZ3fxh/Zy8Ua1d6X4U8Yy2yRWg8UeFdZjtdVf4efEu20yJdNtPGdhpGq2d/ZQ2Nh4u8PeJ9O0vSraw/1N/8AgmT/AMFZ/wBkX/gq98M/Enjz9mLXvFcXiD4dR+E4vi/8L/H3hTUfDfjX4Xap41TxC/hmx1m7jW+8G+IrfXY/CniC60vV/BHifxHpzWtiU1F9L1LzdNh/xPlG4gZwOST1wAMscd8AE4HJxgc1/r1/8G0H7A17+wt/wS++FsvjXRDo/wAZf2nr0/tL/E21vLfy9V0O18c6Ppdr8L/Bt2Zki1Cyk8PfC7TvDV/q/h/UI4p/D3jTxH4wsXhjnNy0gB/QXRRRQAUUUUAfjj/wXK/4Je6P/wAFUv2GPGfwc0eDS7H4+/Dy5k+Kn7NXinUHgso7L4n6Jpd7aN4M1fVXaF7Twh8UNDur7wZr/wBouTpWmajd+HPGl5Yald+DdNt6/wAbjxh4R8T+APFnifwL420DV/CnjLwX4g1rwn4t8LeILG40vXvDPifw5qVzo/iDw9rmmXccN3pusaLq1nd6bqdhdQw3NpeW00M0SOjKP99Wv4af+Dp3/ghBqvxntfEH/BTD9jzwTJqXxQ8PaIJ/2sfhP4Y05rjUviN4Y0GzSKz+OXhLTLONp7nxv4Q0e2TTfiRotpDN/wAJX4QsNM8U2MNn4g8M+IW8ZAH+c7RQRj/PX3HtRQAUUoBYgKCxPQAEk/QDk04Rsf7g9mkjU/iGYEH2PNADKKeY2GeMgDJKlXA9NxQsFz7n19DTKACiivrn9hz9iT4+/wDBQj9pL4f/ALMH7OXhWTxF478b3qzajq12lzD4T+HfguxubSPxR8S/iHrFvb3Q8P8AgbwlbXcU+p35guL7U7+fTPC/hrTtb8Xa/oGg6mAfrJ/wbif8EmtQ/wCClv7bOi+J/iR4Zkvv2Sf2ZdQ0D4j/ABzutRtN+h+O9ahvRefD74Gx+dFLFqD+PtTsJdS8ZWojWC3+Gug+J4ZdT0vWda8MLf8A+u0Bgep5JPIyTyepJAz0GTgADnFfDX/BOf8AYD+Cv/BNP9lD4d/sq/BC1a40jwtFPrfjfxve2MFh4i+K3xP1yCyHjL4meKkgluSNW1+axs7PTrCS9v08M+FNJ8OeD9PvJNJ8PaeF+5qACiiigAooooAKKKKAP5Df+CsX/Bpr+zr+2b408T/H79jbxvo/7JXxw8U3V3rXjLwBfeGrjWf2ePiN4ku5ZJZ9ai0nQJbfxB8HPEGrXFwbrxFq/hGy8U+FdTazimj+HFhrmp634kv/AMEvBn/BlV/wUfv/ABJb2nj/APaL/Yp8L+FFuUi1LXPDHiv44eONcjtSy+ZdaN4XvPgl4GttSkjQsVttT8T6EZJEVWlRHaVP9N4dW+v9BVdP9c31f+ZoA/k9/Yw/4M/f+Cb/AMAIrLXP2mtd+Iv7a3jqBYmlg8WXl58Hfg7b3VtKk9rf6X8M/hzr7eKbmf70GoWfjX4reMtB1GFUR9BhBmM/77eB/wDgm5/wT3+GumJpHgH9hv8AZE8I2KwLbyx6F+zh8ILKa8RV2btRvB4Qe+1Od1z51zqFzdXE5JaaV2JJ+1aKAPyU/aL/AOCFP/BJT9p/RrrS/iH+wp8BPD1/OJ5YvFvwX8I2/wAAfG0GoyxukWqTeJ/gw3gi+1u5tZHW4htfE413SZpIo477Tby1DW7fy7/tWf8ABkrBPqeo63+xN+2QLLTZ5ANM+G/7UXhCa8lstwZ5pbn4yfCi0je7hEhEdpaS/BmOeCBR9p1S8lyzf350jdD9D/KgD/Nl+C//AAZM/tn6t4vs7f8AaG/a2/Zd+H/gMTh77VvgxafFr4xeL5Iojva2tPD/AI38C/BLQrZrsKYBfXfiO6Sy3i5On35j+xy/2/8A/BNz/gld+yD/AMEsfhLdfDH9l/wPc22seJmsLr4nfF/xpcWev/F74sanpkc0WmXHjPxRbWGm20WkaLHc3SeHfBvhrTdB8F+H5L3VdR0zQYtb17xDq2rfovF0b6n+bVLQAUUUUAFFFFAH/9k=" alt="APPLE INC Logo" class="header-logo" />
     </div>
 
     <div class="container">
@@ -241,13 +283,17 @@ tr:hover {
 
         <!-- Company Details Section -->
         <div class="section">
-            <div class="section-header">Company Details</div>
+            <div class="section-header">Company Details and Performance</div>
             <div class="section-content">
                 
     <div class="info-grid">
         <div class="info-card">
             <div class="info-label">Symbol</div>
             <div class="info-value">AAPL</div>
+        </div>
+        <div class="info-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <div class="info-label" style="color: rgba(255,255,255,0.9);">Last Close</div>
+            <div class="info-value" style="color: white; font-size: 1.4rem;">$271.01</div>
         </div>
         <div class="info-card">
             <div class="info-label">Currency</div>
@@ -263,6 +309,67 @@ tr:hover {
         </div>
     </div>
     
+                
+        <div style="margin-top: 25px; padding-top: 20px; border-top: 2px solid #ecf0f1;">
+            <h3 style="margin: 0 0 15px 0; font-size: 1.1rem; color: var(--primary-color);">Performance Metrics</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-label">Day Change</div>
+                    <div class="info-value"><span style="color: #e74c3c; font-weight: bold;">-0.31%</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">1 Month</div>
+                    <div class="info-value"><span style="color: #e74c3c; font-weight: bold;">-4.62%</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">Year to Date</div>
+                    <div class="info-value"><span style="color: #e74c3c; font-weight: bold;">-0.31%</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">12 Months</div>
+                    <div class="info-value"><span style="color: #27ae60; font-weight: bold;">+11.64%</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">3 Years</div>
+                    <div class="info-value"><span style="color: #27ae60; font-weight: bold;">+119.96%</span></div>
+                </div>
+            </div>
+            <h3 style="margin: 20px 0 15px 0; font-size: 1.1rem; color: var(--primary-color);">Volatility (Annualized)</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-label">30 Days</div>
+                    <div class="info-value" style="color: #e67e22;">9.67%</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">90 Days</div>
+                    <div class="info-value" style="color: #e67e22;">17.67%</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">180 Days</div>
+                    <div class="info-value" style="color: #e67e22;">20.89%</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">1 Year</div>
+                    <div class="info-value" style="color: #e67e22;">31.91%</div>
+                </div>
+            </div>
+            <h3 style="margin: 20px 0 15px 0; font-size: 1.1rem; color: var(--primary-color);">52-Week Range</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-label">52-Week High</div>
+                    <div class="info-value" style="color: #27ae60;">$286.19</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">52-Week Low</div>
+                    <div class="info-value" style="color: #e74c3c;">$171.83</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">From 52w High</div>
+                    <div class="info-value"><span style="color: #e74c3c; font-weight: bold;">-5.30%</span></div>
+                </div>
+            </div>
+        </div>
+        
             </div>
         </div>
 
@@ -614,7 +721,7 @@ tr:hover {
                 
             <div class="evidence-item">
                 <div class="evidence-header" onclick="toggleEvidence(0)">
-                    <span>Evidence #1 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q4 2024)</span></span>
+                    <span>Evidence #1 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q4 2024)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Apple tiene como objetivo hacer accesibles las tecnologías avanzadas, con m</span></span>
                     <span class="toggle-icon" id="icon-0">▼</span>
                 </div>
                 <div class="evidence-content" id="content-0">

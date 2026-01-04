@@ -25,9 +25,9 @@ TABLE_NAME = "evidence"
 
 # BART Configuration
 MODEL_NAME = "facebook/bart-large-cnn"
-MAX_TITLE_LENGTH = 100  # Maximum characters for title
-MIN_SUMMARY_LENGTH = 10  # Minimum words for BART summary
-MAX_SUMMARY_LENGTH = 30  # Maximum words for BART summary
+MAX_TITLE_LENGTH = 200  # Maximum characters for title (increased from 100)
+MIN_SUMMARY_LENGTH = 15  # Minimum words for BART summary (increased from 10)
+MAX_SUMMARY_LENGTH = 50  # Maximum words for BART summary (increased from 30)
 
 
 def setup_summarizer():
