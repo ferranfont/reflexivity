@@ -79,7 +79,7 @@ def get_theme_symbols(theme_name):
                 fname = f.lower()[:-4].replace("-", "_")
                 if fname == target or theme_name.lower() in fname:
                     try:
-                        df = pd.read_csv(THEMES_DIR / f)
+                        df = pd.read_csv(THEMES_DIR / f, on_bad_lines='skip')
                         # Flexible column search
                         for col in df.columns:
                             if 'symbol' in col.lower() or 'ticker' in col.lower():

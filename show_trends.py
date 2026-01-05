@@ -434,17 +434,38 @@ HTML_TEMPLATE = """
                 
                 if (industryName.includes(term) || hasVisibleTheme) {
                     group.style.display = 'block';
-                    // Auto expand if searching
+                    // Auto expand if searching or filtering
                     if (term.length > 0) {
                         group.querySelector('.theme-list').style.display = 'block';
+                        // If exact match on industry, maybe highlight the header?
+                        if (industryName === term) {
+                            group.querySelector('.industry-title').style.backgroundColor = '#e8f0fe';
+                        }
                     } else {
                         group.querySelector('.theme-list').style.display = 'none';
+                        group.querySelector('.industry-title').style.backgroundColor = '';
                     }
                 } else {
                     group.style.display = 'none';
                 }
             });
         }
+
+        // Auto-filter from URL params (simulating filtered page)
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const filterParam = params.get('industry') || params.get('filter');
+            
+            if (filterParam) {
+                // Decode URI component (e.g. %20 -> space) and clean
+                const cleanFilter = decodeURIComponent(filterParam).trim();
+                document.getElementById('filter-input').value = cleanFilter;
+                filterSidebar();
+                
+                // Update title to look like a specific page
+                document.title = `Industry: ${cleanFilter} - Reflexivity`;
+            }
+        });
     </script>
 </body>
 </html>

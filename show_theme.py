@@ -25,10 +25,11 @@ def find_theme_csv(theme_name):
     if not DATA_DIR.exists():
         return None
     target = theme_name.lower().replace(' ', '_')
+    target_and = target.replace('&', 'and')
     for f in DATA_DIR.iterdir():
         if f.suffix.lower() == '.csv':
             name = f.stem.lower()
-            if name == target or name.replace('-', '_') == target:
+            if name == target or name.replace('-', '_') == target or name == target_and or name.replace('-', '_') == target_and:
                 return f
     # fallback: search CSVs for a theme column match
     for f in DATA_DIR.glob('*.csv'):
@@ -49,7 +50,7 @@ def load_theme(theme_name):
     if not csv:
         print(f"Theme CSV for '{theme_name}' not found in {DATA_DIR}")
         return None
-    df = pd.read_csv(csv)
+    df = pd.read_csv(csv, on_bad_lines='skip')
     # ensure columns
     df.columns = [c.strip() for c in df.columns]
     # expected: symbol, name, rank, description maybe
@@ -58,6 +59,13 @@ def load_theme(theme_name):
     if 'rank' not in df.columns:
         df['rank'] = range(1, len(df)+1)
     df = df[['symbol', 'name', 'rank'] + [c for c in df.columns if c not in ('symbol','name','rank')]]
+    
+    # Sanitize Rank: Coerce to numeric, fill NaNs with safe defaults
+    df['rank'] = pd.to_numeric(df['rank'], errors='coerce').fillna(0).astype(int)
+    # If all ranks are 0 (bad parse), regenerate
+    if (df['rank'] == 0).all():
+        df['rank'] = range(1, len(df) + 1)
+        
     return df
 
 def get_company_info(symbol):

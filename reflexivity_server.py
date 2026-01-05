@@ -77,7 +77,7 @@ class ReflexivityHandler(http.server.SimpleHTTPRequestHandler):
         # (Be careful not to overwrite the static logic heavily if not needed)
         
         # Map requests to HTML_DIR
-        file_path = HTML_DIR / self.path.lstrip("/")
+        file_path = HTML_DIR / path.lstrip("/")
         
         if file_path.exists() and file_path.is_file():
             # serve file from html dir

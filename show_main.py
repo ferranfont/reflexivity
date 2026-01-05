@@ -53,7 +53,7 @@ body {
     align-items: center;
 }
 .navbar-brand {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 700;
 }
 .navbar-subtitle {
@@ -238,7 +238,7 @@ def generate_html(industries, themes):
     for ind in industries:
         # Link to explorer (simple)
         ind_html += f"""
-        <a href="industry_explorer.html" class="card">
+        <a href="industry_explorer.html?industry={ind}" class="card">
             <div class="card-title">{ind}</div>
         </a>
         """
@@ -250,7 +250,9 @@ def generate_html(industries, themes):
     for theme in themes:
         # Use the dynamic server route so pages are auto-generated if missing
         # The server expects /theme/Theme_Name and will replace _ with space to run the script
-        route_name = theme.replace(' ', '_').replace('-', '_')
+        # We replace '&' with 'and' to ensure robust filenames and URLs
+        safe_theme = theme.replace(' & ', ' and ').replace('&', 'and')
+        route_name = safe_theme.replace(' ', '_').replace('-', '_')
         
         thm_html += f"""
         <a href="/theme/{route_name}" class="card theme-card" title="{theme}">
