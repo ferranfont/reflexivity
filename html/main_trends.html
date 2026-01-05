@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflexivity Trends - Main</title>
+    <style>
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #3498db;
+    --bg-color: #f4f6f9;
+    --card-bg: #ffffff;
+    --text-color: #333;
+    --muted-text: #666;
+    --search-header-bg-start: #667eea;
+    --search-header-bg-end: #764ba2;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 0; /* Centered content needs zero H padding here, applied to inner wrapper */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.navbar-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+}
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.navbar-subtitle {
+    margin-left: 20px;
+    font-size: 0.9rem;
+    color: #bdc3c7;
+    font-weight: 400;
+}
+
+/* Main Container */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* Search Banner */
+.search-banner {
+    background: linear-gradient(135deg, var(--search-header-bg-start) 0%, var(--search-header-bg-end) 100%);
+    padding: 40px;
+    color: white;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.search-banner h2 { margin-top: 0; font-size: 1.5rem; }
+.search-banner p { margin-bottom: 20px; opacity: 0.9; }
+
+.search-container {
+    display: flex;
+    gap: 10px;
+    max-width: 600px;
+}
+.search-input-lg {
+    flex: 1;
+    padding: 12px 15px;
+    border-radius: 4px;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+}
+.btn-search {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+.btn-search:hover { background-color: #34495e; }
+
+/* Sections */
+.section-container {
+    margin-bottom: 40px;
+}
+.section-header {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.section-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+}
+.badge {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.browse-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+.browse-btn:hover { background-color: #34495e; }
+
+/* Grid Layouts */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* Slightly tighter columns */
+    gap: 15px; /* Tighter gap */
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid #e1e4e8;
+    border-left: 4px solid var(--accent-color); /* The requested colored side */
+    border-radius: 4px; /* More rectangular */
+    padding: 15px 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 50px; /* More compact height */
+}
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+.card-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Filter Input */
+.filter-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+</style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-brand">Reflexivity Trends</div>
+            <div class="navbar-subtitle">Explore investment themes, industries, and company profiles</div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+
+        <!-- Search Banner -->
+        <div class="search-banner">
+            <h2>Company Profile Search</h2>
+            <p>Enter a company ticker symbol to view detailed investment profile and analysis</p>
+            <div class="search-container">
+                <input type="text" id="profileInput" class="search-input-lg" placeholder="Enter ticker symbol (e.g., AAPL, MSFT, TSLA...)">
+                <button class="btn-search" onclick="searchProfile()">View Profile</button>
+            </div>
+        </div>
+
+        <!-- Industries Section -->
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">All Industries</h2>
+                <span class="badge">16</span>
+            </div>
+            <p style="color:#666; margin-bottom:15px;">Browse companies by industry sector. Click on an industry to explore all investment themes.</p>
+            
+            <a href="industry_explorer.html" class="browse-btn">Browse Trends Explorer</a>
+            <br>
+
+            <div class="grid">
+                
+        <a href="industry_explorer.html" class="card">
+            <div class="card-title">Agriculture</div>
+        </a>
+        
+        <a href="industry_explorer.html" class="card">
+            <div class="card-title">Automotive</div>
+        </a>
+        
+        <a href="industry_explorer.html" class="card">
+            <div class="card-title">Consumer and Retail</div>
+        </a>
+        
+        <a href="industry_explorer.html" class="card">
+            <div class="card-title">Defense and Aerospace</div>
+        </a>
+        
+        <a href="industry_explorer.html" class="card">
+            <div class="card-title">Energy and Utilities</div>
+        </a>
+        
+        <a href="industry_explorer.html" class="card">
+            <div class="card-title">Entertainment and Media</div>
+        </a>
+        
+        <a href="industry_explorer.html" class="card">
+            <div class="card-title">Financials</div>
+        </a>
+        
+        <a href="industry_explorer.html" class="card">
+            <div class="card-title">Health</div>
+        </a>
+        
+        <a href="industry_explorer.html" class="card">
+            <div class="card-title">Hospitality</div>
+        </a>
+        
+        <a href="industry_explorer.html" class="card">
+            <div class="card-title">Industrial</div>
+        </a>
+        
+        <a href="industry_explorer.html" class="card">
+            <div class="card-title">Materials and Mining</div>
+        </a>
+        
+        <a href="industry_explorer.html" class="card">
+            <div class="card-title">Professional Services</div>
+        </a>
+        
+        <a href="industry_explorer.html" class="card">
+            <div class="card-title">Real Estate</div>
+        </a>
+        
+        <a href="industry_explorer.html" class="card">
+            <div class="card-title">Technology</div>
+        </a>
+        
+        <a href="industry_explorer.html" class="card">
+            <div class="card-title">Telecommunications</div>
+        </a>
+        
+        <a href="industry_explorer.html" class="card">
+            <div class="card-title">Transportation and Logistics</div>
+        </a>
+        
+            </div>
+        </div>
+
+        <!-- Themes Section -->
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">All Themes</h2>
+                <span class="badge">439</span>
+            </div>
+            <p style="color:#666; margin-bottom:15px;">Explore all investment themes. Click on a theme to view detailed analysis.</p>
+            
+            <input type="text" id="themeFilter" class="filter-input" placeholder="Filter themes..." onkeyup="filterThemes()">
+            
+            <div class="grid" id="themesGrid">
+                
+        <a href="/theme/3D_Printing_&_Additive_Manufacturing" class="card theme-card" title="3D Printing & Additive Manufacturing">
+            <div class="card-title">3D Printing & Additive Manufacturing</div>
+        </a>
+        
+        <a href="/theme/5G_Infrastructure" class="card theme-card" title="5G Infrastructure">
+            <div class="card-title">5G Infrastructure</div>
+        </a>
+        
+        <a href="/theme/5G_Technology_Support" class="card theme-card" title="5G Technology Support">
+            <div class="card-title">5G Technology Support</div>
+        </a>
+        
+        <a href="/theme/AI_Chips" class="card theme-card" title="AI Chips">
+            <div class="card-title">AI Chips</div>
+        </a>
+        
+        <a href="/theme/AI_Consulting" class="card theme-card" title="AI Consulting">
+            <div class="card-title">AI Consulting</div>
+        </a>
+        
+        <a href="/theme/AI_Enterprise_Integration" class="card theme-card" title="AI Enterprise Integration">
+            <div class="card-title">AI Enterprise Integration</div>
+        </a>
+        
+        <a href="/theme/AI_In_Fintech" class="card theme-card" title="AI In Fintech">
+            <div class="card-title">AI In Fintech</div>
+        </a>
+        
+        <a href="/theme/AI_In_Healthcare" class="card theme-card" title="AI In Healthcare">
+            <div class="card-title">AI In Healthcare</div>
+        </a>
+        
+        <a href="/theme/AI_Infrastructure" class="card theme-card" title="AI Infrastructure">
+            <div class="card-title">AI Infrastructure</div>
+        </a>
+        
+        <a href="/theme/Accelerated_Computing" class="card theme-card" title="Accelerated Computing">
+            <div class="card-title">Accelerated Computing</div>
+        </a>
+        
+        <a href="/theme/Advertising" class="card theme-card" title="Advertising">
+            <div class="card-title">Advertising</div>
+        </a>
+        
+        <a href="/theme/Aerospace_Defense" class="card theme-card" title="Aerospace Defense">
+            <div class="card-title">Aerospace Defense</div>
+        </a>
+        
+        <a href="/theme/Aerospace_Manufacturing" class="card theme-card" title="Aerospace Manufacturing">
+            <div class="card-title">Aerospace Manufacturing</div>
+        </a>
+        
+        <a href="/theme/Aerospace_Materials" class="card theme-card" title="Aerospace Materials">
+            <div class="card-title">Aerospace Materials</div>
+        </a>
+        
+        <a href="/theme/Affordable_Housing" class="card theme-card" title="Affordable Housing">
+            <div class="card-title">Affordable Housing</div>
+        </a>
+        
+        <a href="/theme/Agribusiness" class="card theme-card" title="Agribusiness">
+            <div class="card-title">Agribusiness</div>
+        </a>
+        
+        <a href="/theme/Agricultural_Chemicals" class="card theme-card" title="Agricultural Chemicals">
+            <div class="card-title">Agricultural Chemicals</div>
+        </a>
+        
+        <a href="/theme/Agricultural_Processing" class="card theme-card" title="Agricultural Processing">
+            <div class="card-title">Agricultural Processing</div>
+        </a>
+        
+        <a href="/theme/Agriculture_Technology" class="card theme-card" title="Agriculture Technology">
+            <div class="card-title">Agriculture Technology</div>
+        </a>
+        
+        <a href="/theme/Aipowered_Insights" class="card theme-card" title="Aipowered Insights">
+            <div class="card-title">Aipowered Insights</div>
+        </a>
+        
+        <a href="/theme/Airlines" class="card theme-card" title="Airlines">
+            <div class="card-title">Airlines</div>
+        </a>
+        
+        <a href="/theme/Alternative_Investments" class="card theme-card" title="Alternative Investments">
+            <div class="card-title">Alternative Investments</div>
+        </a>
+        
+        <a href="/theme/Aluminum_Production" class="card theme-card" title="Aluminum Production">
+            <div class="card-title">Aluminum Production</div>
+        </a>
+        
+        <a href="/theme/Application_Development" class="card theme-card" title="Application Development">
+            <div class="card-title">Application Development</div>
+        </a>
+        
+        <a href="/theme/Artificial_Intelligence" class="card theme-card" title="Artificial Intelligence">
+            <div class="card-title">Artificial Intelligence</div>
+        </a>
+        
+        <a href="/theme/Audio_Solutions" class="card theme-card" title="Audio Solutions">
+            <div class="card-title">Audio Solutions</div>
+        </a>
+        
+        <a href="/theme/Augmented_Reality" class="card theme-card" title="Augmented Reality">
+            <div class="card-title">Augmented Reality</div>
+        </a>
+        
+        <a href="/theme/Automobile_Manufacturers" class="card theme-card" title="Automobile Manufacturers">
+            <div class="card-title">Automobile Manufacturers</div>
+        </a>
+        
+        <a href="/theme/Automotive_Aftermarket" class="card theme-card" title="Automotive Aftermarket">
+            <div class="card-title">Automotive Aftermarket</div>
+        </a>
+        
+        <a href="/theme/Automotive_E_commerce" class="card theme-card" title="Automotive E-commerce">
+            <div class="card-title">Automotive E-commerce</div>
+        </a>
+        
+        <a href="/theme/Automotive_Electronics" class="card theme-card" title="Automotive Electronics">
+            <div class="card-title">Automotive Electronics</div>
+        </a>
+        
+        <a href="/theme/Automotive_Logistics" class="card theme-card" title="Automotive Logistics">
+            <div class="card-title">Automotive Logistics</div>
+        </a>
+        
+        <a href="/theme/Automotive_Semiconductors" class="card theme-card" title="Automotive Semiconductors">
+            <div class="card-title">Automotive Semiconductors</div>
+        </a>
+        
+        <a href="/theme/Automotive_Sensors" class="card theme-card" title="Automotive Sensors">
+            <div class="card-title">Automotive Sensors</div>
+        </a>
+        
+        <a href="/theme/Automotive_Steel_Products" class="card theme-card" title="Automotive Steel Products">
+            <div class="card-title">Automotive Steel Products</div>
+        </a>
+        
+        <a href="/theme/Automotive_Technology" class="card theme-card" title="Automotive Technology">
+            <div class="card-title">Automotive Technology</div>
+        </a>
+        
+        <a href="/theme/Automotive_Telematics" class="card theme-card" title="Automotive Telematics">
+            <div class="card-title">Automotive Telematics</div>
+        </a>
+        
+        <a href="/theme/Autonomous_Driving" class="card theme-card" title="Autonomous Driving">
+            <div class="card-title">Autonomous Driving</div>
+        </a>
+        
+        <a href="/theme/Autonomous_Vehicles" class="card theme-card" title="Autonomous Vehicles">
+            <div class="card-title">Autonomous Vehicles</div>
+        </a>
+        
+        <a href="/theme/Aviation_Finance" class="card theme-card" title="Aviation Finance">
+            <div class="card-title">Aviation Finance</div>
+        </a>
+        
+        <a href="/theme/Aviation_Safety" class="card theme-card" title="Aviation Safety">
+            <div class="card-title">Aviation Safety</div>
+        </a>
+        
+        <a href="/theme/Aviation_Systems" class="card theme-card" title="Aviation Systems">
+            <div class="card-title">Aviation Systems</div>
+        </a>
+        
+        <a href="/theme/Banking_Services" class="card theme-card" title="Banking Services">
+            <div class="card-title">Banking Services</div>
+        </a>
+        
+        <a href="/theme/Banking_Technology" class="card theme-card" title="Banking Technology">
+            <div class="card-title">Banking Technology</div>
+        </a>
+        
+        <a href="/theme/Basic_Consumer_Goods" class="card theme-card" title="Basic Consumer Goods">
+            <div class="card-title">Basic Consumer Goods</div>
+        </a>
+        
+        <a href="/theme/Battery_Materials" class="card theme-card" title="Battery Materials">
+            <div class="card-title">Battery Materials</div>
+        </a>
+        
+        <a href="/theme/Battery_Recycling" class="card theme-card" title="Battery Recycling">
+            <div class="card-title">Battery Recycling</div>
+        </a>
+        
+        <a href="/theme/Battery_Swap_Technology" class="card theme-card" title="Battery Swap Technology">
+            <div class="card-title">Battery Swap Technology</div>
+        </a>
+        
+        <a href="/theme/Battery_Technology" class="card theme-card" title="Battery Technology">
+            <div class="card-title">Battery Technology</div>
+        </a>
+        
+        <a href="/theme/Beverage_Innovation" class="card theme-card" title="Beverage Innovation">
+            <div class="card-title">Beverage Innovation</div>
+        </a>
+        
+        <a href="/theme/Beverage_Manufacturing" class="card theme-card" title="Beverage Manufacturing">
+            <div class="card-title">Beverage Manufacturing</div>
+        </a>
+        
+        <a href="/theme/Big_Data" class="card theme-card" title="Big Data">
+            <div class="card-title">Big Data</div>
+        </a>
+        
+        <a href="/theme/Biologic_Drugs" class="card theme-card" title="Biologic Drugs">
+            <div class="card-title">Biologic Drugs</div>
+        </a>
+        
+        <a href="/theme/Biologics_Solutions" class="card theme-card" title="Biologics Solutions">
+            <div class="card-title">Biologics Solutions</div>
+        </a>
+        
+        <a href="/theme/Biopharma_Royalties" class="card theme-card" title="Biopharma Royalties">
+            <div class="card-title">Biopharma Royalties</div>
+        </a>
+        
+        <a href="/theme/Biopharmaceutical_Manufacturing" class="card theme-card" title="Biopharmaceutical Manufacturing">
+            <div class="card-title">Biopharmaceutical Manufacturing</div>
+        </a>
+        
+        <a href="/theme/Bioplastics_&_Sustainable_Packaging" class="card theme-card" title="Bioplastics & Sustainable Packaging">
+            <div class="card-title">Bioplastics & Sustainable Packaging</div>
+        </a>
+        
+        <a href="/theme/Biosimilars" class="card theme-card" title="Biosimilars">
+            <div class="card-title">Biosimilars</div>
+        </a>
+        
+        <a href="/theme/Biotech_Treatments" class="card theme-card" title="Biotech Treatments">
+            <div class="card-title">Biotech Treatments</div>
+        </a>
+        
+        <a href="/theme/Biotechnology_Leader" class="card theme-card" title="Biotechnology Leader">
+            <div class="card-title">Biotechnology Leader</div>
+        </a>
+        
+        <a href="/theme/Biotechnology_in_Agriculture" class="card theme-card" title="Biotechnology in Agriculture">
+            <div class="card-title">Biotechnology in Agriculture</div>
+        </a>
+        
+        <a href="/theme/Blockchain_Services" class="card theme-card" title="Blockchain Services">
+            <div class="card-title">Blockchain Services</div>
+        </a>
+        
+        <a href="/theme/Blockchain_Technology" class="card theme-card" title="Blockchain Technology">
+            <div class="card-title">Blockchain Technology</div>
+        </a>
+        
+        <a href="/theme/Broadband_Services" class="card theme-card" title="Broadband Services">
+            <div class="card-title">Broadband Services</div>
+        </a>
+        
+        <a href="/theme/Building_Code_Compliance" class="card theme-card" title="Building Code Compliance">
+            <div class="card-title">Building Code Compliance</div>
+        </a>
+        
+        <a href="/theme/Business_Networks" class="card theme-card" title="Business Networks">
+            <div class="card-title">Business Networks</div>
+        </a>
+        
+        <a href="/theme/CRISPR_Technology" class="card theme-card" title="CRISPR Technology">
+            <div class="card-title">CRISPR Technology</div>
+        </a>
+        
+        <a href="/theme/Capital_Markets" class="card theme-card" title="Capital Markets">
+            <div class="card-title">Capital Markets</div>
+        </a>
+        
+        <a href="/theme/Car_Rental_Integration" class="card theme-card" title="Car Rental Integration">
+            <div class="card-title">Car Rental Integration</div>
+        </a>
+        
+        <a href="/theme/Carbon_Capture" class="card theme-card" title="Carbon Capture">
+            <div class="card-title">Carbon Capture</div>
+        </a>
+        
+        <a href="/theme/Cardiovascular_Disease" class="card theme-card" title="Cardiovascular Disease">
+            <div class="card-title">Cardiovascular Disease</div>
+        </a>
+        
+        <a href="/theme/Cargo_Services" class="card theme-card" title="Cargo Services">
+            <div class="card-title">Cargo Services</div>
+        </a>
+        
+        <a href="/theme/Casino_Gaming" class="card theme-card" title="Casino Gaming">
+            <div class="card-title">Casino Gaming</div>
+        </a>
+        
+        <a href="/theme/Chemical_Manufacturing" class="card theme-card" title="Chemical Manufacturing">
+            <div class="card-title">Chemical Manufacturing</div>
+        </a>
+        
+        <a href="/theme/Chip_Manufacturing" class="card theme-card" title="Chip Manufacturing">
+            <div class="card-title">Chip Manufacturing</div>
+        </a>
+        
+        <a href="/theme/Circular_Economy" class="card theme-card" title="Circular Economy">
+            <div class="card-title">Circular Economy</div>
+        </a>
+        
+        <a href="/theme/Civil_Infrastructure" class="card theme-card" title="Civil Infrastructure">
+            <div class="card-title">Civil Infrastructure</div>
+        </a>
+        
+        <a href="/theme/Clean_Energy" class="card theme-card" title="Clean Energy">
+            <div class="card-title">Clean Energy</div>
+        </a>
+        
+        <a href="/theme/Climate_Tech" class="card theme-card" title="Climate Tech">
+            <div class="card-title">Climate Tech</div>
+        </a>
+        
+        <a href="/theme/Clinical_Trials" class="card theme-card" title="Clinical Trials">
+            <div class="card-title">Clinical Trials</div>
+        </a>
+        
+        <a href="/theme/Clothing_And_Accessories" class="card theme-card" title="Clothing And Accessories">
+            <div class="card-title">Clothing And Accessories</div>
+        </a>
+        
+        <a href="/theme/Cloud_Computing" class="card theme-card" title="Cloud Computing">
+            <div class="card-title">Cloud Computing</div>
+        </a>
+        
+        <a href="/theme/Cloud_Infrastructure" class="card theme-card" title="Cloud Infrastructure">
+            <div class="card-title">Cloud Infrastructure</div>
+        </a>
+        
+        <a href="/theme/Cloud_Services" class="card theme-card" title="Cloud Services">
+            <div class="card-title">Cloud Services</div>
+        </a>
+        
+        <a href="/theme/Cloud_Software" class="card theme-card" title="Cloud Software">
+            <div class="card-title">Cloud Software</div>
+        </a>
+        
+        <a href="/theme/Cloud_Storage" class="card theme-card" title="Cloud Storage">
+            <div class="card-title">Cloud Storage</div>
+        </a>
+        
+        <a href="/theme/Coal_&_Consumable_Fuels" class="card theme-card" title="Coal & Consumable Fuels">
+            <div class="card-title">Coal & Consumable Fuels</div>
+        </a>
+        
+        <a href="/theme/Commercial_Banking" class="card theme-card" title="Commercial Banking">
+            <div class="card-title">Commercial Banking</div>
+        </a>
+        
+        <a href="/theme/Commercial_EVs" class="card theme-card" title="Commercial EVs">
+            <div class="card-title">Commercial EVs</div>
+        </a>
+        
+        <a href="/theme/Commercial_Fleets" class="card theme-card" title="Commercial Fleets">
+            <div class="card-title">Commercial Fleets</div>
+        </a>
+        
+        <a href="/theme/Commercial_Real_Estate" class="card theme-card" title="Commercial Real Estate">
+            <div class="card-title">Commercial Real Estate</div>
+        </a>
+        
+        <a href="/theme/Communication_Tools" class="card theme-card" title="Communication Tools">
+            <div class="card-title">Communication Tools</div>
+        </a>
+        
+        <a href="/theme/Connected_Vehicles" class="card theme-card" title="Connected Vehicles">
+            <div class="card-title">Connected Vehicles</div>
+        </a>
+        
+        <a href="/theme/Construction_Materials" class="card theme-card" title="Construction Materials">
+            <div class="card-title">Construction Materials</div>
+        </a>
+        
+        <a href="/theme/Construction_Services" class="card theme-card" title="Construction Services">
+            <div class="card-title">Construction Services</div>
+        </a>
+        
+        <a href="/theme/Construction_Technology" class="card theme-card" title="Construction Technology">
+            <div class="card-title">Construction Technology</div>
+        </a>
+        
+        <a href="/theme/Consulting_Services" class="card theme-card" title="Consulting Services">
+            <div class="card-title">Consulting Services</div>
+        </a>
+        
+        <a href="/theme/Consumer_Banking" class="card theme-card" title="Consumer Banking">
+            <div class="card-title">Consumer Banking</div>
+        </a>
+        
+        <a href="/theme/Consumer_Behavior" class="card theme-card" title="Consumer Behavior">
+            <div class="card-title">Consumer Behavior</div>
+        </a>
+        
+        <a href="/theme/Consumer_Brands" class="card theme-card" title="Consumer Brands">
+            <div class="card-title">Consumer Brands</div>
+        </a>
+        
+        <a href="/theme/Consumer_Electronics" class="card theme-card" title="Consumer Electronics">
+            <div class="card-title">Consumer Electronics</div>
+        </a>
+        
+        <a href="/theme/Consumer_Finance" class="card theme-card" title="Consumer Finance">
+            <div class="card-title">Consumer Finance</div>
+        </a>
+        
+        <a href="/theme/Consumer_Health_Products" class="card theme-card" title="Consumer Health Products">
+            <div class="card-title">Consumer Health Products</div>
+        </a>
+        
+        <a href="/theme/Consumer_Loans" class="card theme-card" title="Consumer Loans">
+            <div class="card-title">Consumer Loans</div>
+        </a>
+        
+        <a href="/theme/Consumer_Packaging" class="card theme-card" title="Consumer Packaging">
+            <div class="card-title">Consumer Packaging</div>
+        </a>
+        
+        <a href="/theme/Consumer_Products" class="card theme-card" title="Consumer Products">
+            <div class="card-title">Consumer Products</div>
+        </a>
+        
+        <a href="/theme/Consumer_to_consumer" class="card theme-card" title="Consumer-to-consumer">
+            <div class="card-title">Consumer-to-consumer</div>
+        </a>
+        
+        <a href="/theme/Content_Creation" class="card theme-card" title="Content Creation">
+            <div class="card-title">Content Creation</div>
+        </a>
+        
+        <a href="/theme/Convenience_Stores" class="card theme-card" title="Convenience Stores">
+            <div class="card-title">Convenience Stores</div>
+        </a>
+        
+        <a href="/theme/Copper_Mining" class="card theme-card" title="Copper Mining">
+            <div class="card-title">Copper Mining</div>
+        </a>
+        
+        <a href="/theme/Credit_Services" class="card theme-card" title="Credit Services">
+            <div class="card-title">Credit Services</div>
+        </a>
+        
+        <a href="/theme/Critical_Minerals" class="card theme-card" title="Critical Minerals">
+            <div class="card-title">Critical Minerals</div>
+        </a>
+        
+        <a href="/theme/Crop_Protection" class="card theme-card" title="Crop Protection">
+            <div class="card-title">Crop Protection</div>
+        </a>
+        
+        <a href="/theme/Cruise_Operations" class="card theme-card" title="Cruise Operations">
+            <div class="card-title">Cruise Operations</div>
+        </a>
+        
+        <a href="/theme/Cryptocurrency_Trading" class="card theme-card" title="Cryptocurrency Trading">
+            <div class="card-title">Cryptocurrency Trading</div>
+        </a>
+        
+        <a href="/theme/Cybersecurity" class="card theme-card" title="Cybersecurity">
+            <div class="card-title">Cybersecurity</div>
+        </a>
+        
+        <a href="/theme/Data_Analytics" class="card theme-card" title="Data Analytics">
+            <div class="card-title">Data Analytics</div>
+        </a>
+        
+        <a href="/theme/Data_Center_REITs" class="card theme-card" title="Data Center REITs">
+            <div class="card-title">Data Center REITs</div>
+        </a>
+        
+        <a href="/theme/Data_Centers" class="card theme-card" title="Data Centers">
+            <div class="card-title">Data Centers</div>
+        </a>
+        
+        <a href="/theme/Data_Infrastructure" class="card theme-card" title="Data Infrastructure">
+            <div class="card-title">Data Infrastructure</div>
+        </a>
+        
+        <a href="/theme/Data_Security" class="card theme-card" title="Data Security">
+            <div class="card-title">Data Security</div>
+        </a>
+        
+        <a href="/theme/Decentralized_Finance" class="card theme-card" title="Decentralized Finance">
+            <div class="card-title">Decentralized Finance</div>
+        </a>
+        
+        <a href="/theme/Defense_Contracting" class="card theme-card" title="Defense Contracting">
+            <div class="card-title">Defense Contracting</div>
+        </a>
+        
+        <a href="/theme/Defense_Drones" class="card theme-card" title="Defense Drones">
+            <div class="card-title">Defense Drones</div>
+        </a>
+        
+        <a href="/theme/Defense_Electronics" class="card theme-card" title="Defense Electronics">
+            <div class="card-title">Defense Electronics</div>
+        </a>
+        
+        <a href="/theme/Defense_Technology" class="card theme-card" title="Defense Technology">
+            <div class="card-title">Defense Technology</div>
+        </a>
+        
+        <a href="/theme/Deposit_Services" class="card theme-card" title="Deposit Services">
+            <div class="card-title">Deposit Services</div>
+        </a>
+        
+        <a href="/theme/Diabetes_Treatments" class="card theme-card" title="Diabetes Treatments">
+            <div class="card-title">Diabetes Treatments</div>
+        </a>
+        
+        <a href="/theme/Digital_Banking_Expansion" class="card theme-card" title="Digital Banking Expansion">
+            <div class="card-title">Digital Banking Expansion</div>
+        </a>
+        
+        <a href="/theme/Digital_Economy" class="card theme-card" title="Digital Economy">
+            <div class="card-title">Digital Economy</div>
+        </a>
+        
+        <a href="/theme/Digital_Entertainment" class="card theme-card" title="Digital Entertainment">
+            <div class="card-title">Digital Entertainment</div>
+        </a>
+        
+        <a href="/theme/Digital_Marketing_Technology" class="card theme-card" title="Digital Marketing Technology">
+            <div class="card-title">Digital Marketing Technology</div>
+        </a>
+        
+        <a href="/theme/Digital_Solutions" class="card theme-card" title="Digital Solutions">
+            <div class="card-title">Digital Solutions</div>
+        </a>
+        
+        <a href="/theme/Digital_Therapeutics" class="card theme-card" title="Digital Therapeutics">
+            <div class="card-title">Digital Therapeutics</div>
+        </a>
+        
+        <a href="/theme/Digital_Transformation" class="card theme-card" title="Digital Transformation">
+            <div class="card-title">Digital Transformation</div>
+        </a>
+        
+        <a href="/theme/Digital_Twin_Technology" class="card theme-card" title="Digital Twin Technology">
+            <div class="card-title">Digital Twin Technology</div>
+        </a>
+        
+        <a href="/theme/Digital_Wallets" class="card theme-card" title="Digital Wallets">
+            <div class="card-title">Digital Wallets</div>
+        </a>
+        
+        <a href="/theme/Discount_Retail" class="card theme-card" title="Discount Retail">
+            <div class="card-title">Discount Retail</div>
+        </a>
+        
+        <a href="/theme/Drone_Delivery_Systems" class="card theme-card" title="Drone Delivery Systems">
+            <div class="card-title">Drone Delivery Systems</div>
+        </a>
+        
+        <a href="/theme/Drug_Commercialization" class="card theme-card" title="Drug Commercialization">
+            <div class="card-title">Drug Commercialization</div>
+        </a>
+        
+        <a href="/theme/Drug_Development" class="card theme-card" title="Drug Development">
+            <div class="card-title">Drug Development</div>
+        </a>
+        
+        <a href="/theme/E_Commerce" class="card theme-card" title="E-Commerce">
+            <div class="card-title">E-Commerce</div>
+        </a>
+        
+        <a href="/theme/ESG_Investments" class="card theme-card" title="ESG Investments">
+            <div class="card-title">ESG Investments</div>
+        </a>
+        
+        <a href="/theme/Edge_Computing" class="card theme-card" title="Edge Computing">
+            <div class="card-title">Edge Computing</div>
+        </a>
+        
+        <a href="/theme/Education_Technology" class="card theme-card" title="Education Technology">
+            <div class="card-title">Education Technology</div>
+        </a>
+        
+        <a href="/theme/Electric_Aviation" class="card theme-card" title="Electric Aviation">
+            <div class="card-title">Electric Aviation</div>
+        </a>
+        
+        <a href="/theme/Electric_Vehicles" class="card theme-card" title="Electric Vehicles">
+            <div class="card-title">Electric Vehicles</div>
+        </a>
+        
+        <a href="/theme/Electrical_Components_&_Equipment" class="card theme-card" title="Electrical Components & Equipment">
+            <div class="card-title">Electrical Components & Equipment</div>
+        </a>
+        
+        <a href="/theme/Electricity_Generation" class="card theme-card" title="Electricity Generation">
+            <div class="card-title">Electricity Generation</div>
+        </a>
+        
+        <a href="/theme/Electricity_Transmission" class="card theme-card" title="Electricity Transmission">
+            <div class="card-title">Electricity Transmission</div>
+        </a>
+        
+        <a href="/theme/Electronic_Components" class="card theme-card" title="Electronic Components">
+            <div class="card-title">Electronic Components</div>
+        </a>
+        
+        <a href="/theme/Electronic_Devices" class="card theme-card" title="Electronic Devices">
+            <div class="card-title">Electronic Devices</div>
+        </a>
+        
+        <a href="/theme/Electronics_Innovation" class="card theme-card" title="Electronics Innovation">
+            <div class="card-title">Electronics Innovation</div>
+        </a>
+        
+        <a href="/theme/Energy_Consultancy" class="card theme-card" title="Energy Consultancy">
+            <div class="card-title">Energy Consultancy</div>
+        </a>
+        
+        <a href="/theme/Energy_Efficiency" class="card theme-card" title="Energy Efficiency">
+            <div class="card-title">Energy Efficiency</div>
+        </a>
+        
+        <a href="/theme/Energy_Exploration" class="card theme-card" title="Energy Exploration">
+            <div class="card-title">Energy Exploration</div>
+        </a>
+        
+        <a href="/theme/Energy_Exports" class="card theme-card" title="Energy Exports">
+            <div class="card-title">Energy Exports</div>
+        </a>
+        
+        <a href="/theme/Energy_Infrastructure" class="card theme-card" title="Energy Infrastructure">
+            <div class="card-title">Energy Infrastructure</div>
+        </a>
+        
+        <a href="/theme/Energy_Investments" class="card theme-card" title="Energy Investments">
+            <div class="card-title">Energy Investments</div>
+        </a>
+        
+        <a href="/theme/Energy_Sector" class="card theme-card" title="Energy Sector">
+            <div class="card-title">Energy Sector</div>
+        </a>
+        
+        <a href="/theme/Energy_Sector_Supply" class="card theme-card" title="Energy Sector Supply">
+            <div class="card-title">Energy Sector Supply</div>
+        </a>
+        
+        <a href="/theme/Energy_Services" class="card theme-card" title="Energy Services">
+            <div class="card-title">Energy Services</div>
+        </a>
+        
+        <a href="/theme/Energy_Solutions" class="card theme-card" title="Energy Solutions">
+            <div class="card-title">Energy Solutions</div>
+        </a>
+        
+        <a href="/theme/Energy_Storage" class="card theme-card" title="Energy Storage">
+            <div class="card-title">Energy Storage</div>
+        </a>
+        
+        <a href="/theme/Energy_Transition" class="card theme-card" title="Energy Transition">
+            <div class="card-title">Energy Transition</div>
+        </a>
+        
+        <a href="/theme/Energy_efficient_Homes" class="card theme-card" title="Energy-efficient Homes">
+            <div class="card-title">Energy-efficient Homes</div>
+        </a>
+        
+        <a href="/theme/Engineering_Services" class="card theme-card" title="Engineering Services">
+            <div class="card-title">Engineering Services</div>
+        </a>
+        
+        <a href="/theme/Enterprise_Software" class="card theme-card" title="Enterprise Software">
+            <div class="card-title">Enterprise Software</div>
+        </a>
+        
+        <a href="/theme/Entertainment_Industry" class="card theme-card" title="Entertainment Industry">
+            <div class="card-title">Entertainment Industry</div>
+        </a>
+        
+        <a href="/theme/Entertainment_Resorts" class="card theme-card" title="Entertainment Resorts">
+            <div class="card-title">Entertainment Resorts</div>
+        </a>
+        
+        <a href="/theme/Entertainment_Services" class="card theme-card" title="Entertainment Services">
+            <div class="card-title">Entertainment Services</div>
+        </a>
+        
+        <a href="/theme/Environmental_Technologies" class="card theme-card" title="Environmental Technologies">
+            <div class="card-title">Environmental Technologies</div>
+        </a>
+        
+        <a href="/theme/Esports_And_Gaming" class="card theme-card" title="Esports And Gaming">
+            <div class="card-title">Esports And Gaming</div>
+        </a>
+        
+        <a href="/theme/Fast_Food_Leader" class="card theme-card" title="Fast Food Leader">
+            <div class="card-title">Fast Food Leader</div>
+        </a>
+        
+        <a href="/theme/Fiber_Optic_Communications" class="card theme-card" title="Fiber Optic Communications">
+            <div class="card-title">Fiber Optic Communications</div>
+        </a>
+        
+        <a href="/theme/Film_Production" class="card theme-card" title="Film Production">
+            <div class="card-title">Film Production</div>
+        </a>
+        
+        <a href="/theme/Financial_Marketplaces" class="card theme-card" title="Financial Marketplaces">
+            <div class="card-title">Financial Marketplaces</div>
+        </a>
+        
+        <a href="/theme/Financial_Products" class="card theme-card" title="Financial Products">
+            <div class="card-title">Financial Products</div>
+        </a>
+        
+        <a href="/theme/Financial_Services" class="card theme-card" title="Financial Services">
+            <div class="card-title">Financial Services</div>
+        </a>
+        
+        <a href="/theme/Fintech_Solutions" class="card theme-card" title="Fintech Solutions">
+            <div class="card-title">Fintech Solutions</div>
+        </a>
+        
+        <a href="/theme/Fleet_Management_Solutions" class="card theme-card" title="Fleet Management Solutions">
+            <div class="card-title">Fleet Management Solutions</div>
+        </a>
+        
+        <a href="/theme/Food_Delivery" class="card theme-card" title="Food Delivery">
+            <div class="card-title">Food Delivery</div>
+        </a>
+        
+        <a href="/theme/Food_Ingredients" class="card theme-card" title="Food Ingredients">
+            <div class="card-title">Food Ingredients</div>
+        </a>
+        
+        <a href="/theme/Food_Processing" class="card theme-card" title="Food Processing">
+            <div class="card-title">Food Processing</div>
+        </a>
+        
+        <a href="/theme/Foodservice_Distribution" class="card theme-card" title="Foodservice Distribution">
+            <div class="card-title">Foodservice Distribution</div>
+        </a>
+        
+        <a href="/theme/Foodservice_Solutions" class="card theme-card" title="Foodservice Solutions">
+            <div class="card-title">Foodservice Solutions</div>
+        </a>
+        
+        <a href="/theme/Footwear_Innovation" class="card theme-card" title="Footwear Innovation">
+            <div class="card-title">Footwear Innovation</div>
+        </a>
+        
+        <a href="/theme/Forest_Products" class="card theme-card" title="Forest Products">
+            <div class="card-title">Forest Products</div>
+        </a>
+        
+        <a href="/theme/Franchise_Model" class="card theme-card" title="Franchise Model">
+            <div class="card-title">Franchise Model</div>
+        </a>
+        
+        <a href="/theme/Freight_Brokerage" class="card theme-card" title="Freight Brokerage">
+            <div class="card-title">Freight Brokerage</div>
+        </a>
+        
+        <a href="/theme/Gaming_Hardware" class="card theme-card" title="Gaming Hardware">
+            <div class="card-title">Gaming Hardware</div>
+        </a>
+        
+        <a href="/theme/Gaming_Industry" class="card theme-card" title="Gaming Industry">
+            <div class="card-title">Gaming Industry</div>
+        </a>
+        
+        <a href="/theme/Gas_Distribution_Networks" class="card theme-card" title="Gas Distribution Networks">
+            <div class="card-title">Gas Distribution Networks</div>
+        </a>
+        
+        <a href="/theme/Gene_Editing" class="card theme-card" title="Gene Editing">
+            <div class="card-title">Gene Editing</div>
+        </a>
+        
+        <a href="/theme/Gene_Therapy" class="card theme-card" title="Gene Therapy">
+            <div class="card-title">Gene Therapy</div>
+        </a>
+        
+        <a href="/theme/Generative_AI_&_LLMs" class="card theme-card" title="Generative AI & LLMs">
+            <div class="card-title">Generative AI & LLMs</div>
+        </a>
+        
+        <a href="/theme/Genetic_Medicines" class="card theme-card" title="Genetic Medicines">
+            <div class="card-title">Genetic Medicines</div>
+        </a>
+        
+        <a href="/theme/Genomic_Medicine" class="card theme-card" title="Genomic Medicine">
+            <div class="card-title">Genomic Medicine</div>
+        </a>
+        
+        <a href="/theme/Global_Logistics" class="card theme-card" title="Global Logistics">
+            <div class="card-title">Global Logistics</div>
+        </a>
+        
+        <a href="/theme/Gold_Production" class="card theme-card" title="Gold Production">
+            <div class="card-title">Gold Production</div>
+        </a>
+        
+        <a href="/theme/Green_Bonds" class="card theme-card" title="Green Bonds">
+            <div class="card-title">Green Bonds</div>
+        </a>
+        
+        <a href="/theme/Grocery_Retail" class="card theme-card" title="Grocery Retail">
+            <div class="card-title">Grocery Retail</div>
+        </a>
+        
+        <a href="/theme/Health_conscious_Branding" class="card theme-card" title="Health-conscious Branding">
+            <div class="card-title">Health-conscious Branding</div>
+        </a>
+        
+        <a href="/theme/Healthcare_Automation" class="card theme-card" title="Healthcare Automation">
+            <div class="card-title">Healthcare Automation</div>
+        </a>
+        
+        <a href="/theme/Healthcare_Diagnostics" class="card theme-card" title="Healthcare Diagnostics">
+            <div class="card-title">Healthcare Diagnostics</div>
+        </a>
+        
+        <a href="/theme/Healthcare_Materials" class="card theme-card" title="Healthcare Materials">
+            <div class="card-title">Healthcare Materials</div>
+        </a>
+        
+        <a href="/theme/Healthcare_Monitoring" class="card theme-card" title="Healthcare Monitoring">
+            <div class="card-title">Healthcare Monitoring</div>
+        </a>
+        
+        <a href="/theme/Healthcare_Retail" class="card theme-card" title="Healthcare Retail">
+            <div class="card-title">Healthcare Retail</div>
+        </a>
+        
+        <a href="/theme/Healthcare_Services" class="card theme-card" title="Healthcare Services">
+            <div class="card-title">Healthcare Services</div>
+        </a>
+        
+        <a href="/theme/Healthcare_Solutions" class="card theme-card" title="Healthcare Solutions">
+            <div class="card-title">Healthcare Solutions</div>
+        </a>
+        
+        <a href="/theme/Heavy_Industry_Supply" class="card theme-card" title="Heavy Industry Supply">
+            <div class="card-title">Heavy Industry Supply</div>
+        </a>
+        
+        <a href="/theme/Home_Furniture" class="card theme-card" title="Home Furniture">
+            <div class="card-title">Home Furniture</div>
+        </a>
+        
+        <a href="/theme/Home_Improvement" class="card theme-card" title="Home Improvement">
+            <div class="card-title">Home Improvement</div>
+        </a>
+        
+        <a href="/theme/Hospitality_Industry" class="card theme-card" title="Hospitality Industry">
+            <div class="card-title">Hospitality Industry</div>
+        </a>
+        
+        <a href="/theme/Hotel_Operations" class="card theme-card" title="Hotel Operations">
+            <div class="card-title">Hotel Operations</div>
+        </a>
+        
+        <a href="/theme/Hybrid_Cloud_Computing" class="card theme-card" title="Hybrid Cloud Computing">
+            <div class="card-title">Hybrid Cloud Computing</div>
+        </a>
+        
+        <a href="/theme/Hybrid_Vehicles" class="card theme-card" title="Hybrid Vehicles">
+            <div class="card-title">Hybrid Vehicles</div>
+        </a>
+        
+        <a href="/theme/Hydrocarbon_Exploration" class="card theme-card" title="Hydrocarbon Exploration">
+            <div class="card-title">Hydrocarbon Exploration</div>
+        </a>
+        
+        <a href="/theme/Hydrocarbon_Production" class="card theme-card" title="Hydrocarbon Production">
+            <div class="card-title">Hydrocarbon Production</div>
+        </a>
+        
+        <a href="/theme/Hydrogen_Fuel_Technology" class="card theme-card" title="Hydrogen Fuel Technology">
+            <div class="card-title">Hydrogen Fuel Technology</div>
+        </a>
+        
+        <a href="/theme/IT_Consulting" class="card theme-card" title="IT Consulting">
+            <div class="card-title">IT Consulting</div>
+        </a>
+        
+        <a href="/theme/IT_Solutions" class="card theme-card" title="IT Solutions">
+            <div class="card-title">IT Solutions</div>
+        </a>
+        
+        <a href="/theme/Immunology" class="card theme-card" title="Immunology">
+            <div class="card-title">Immunology</div>
+        </a>
+        
+        <a href="/theme/Industrial_Applications" class="card theme-card" title="Industrial Applications">
+            <div class="card-title">Industrial Applications</div>
+        </a>
+        
+        <a href="/theme/Industrial_Automation" class="card theme-card" title="Industrial Automation">
+            <div class="card-title">Industrial Automation</div>
+        </a>
+        
+        <a href="/theme/Industrial_Chemicals" class="card theme-card" title="Industrial Chemicals">
+            <div class="card-title">Industrial Chemicals</div>
+        </a>
+        
+        <a href="/theme/Industrial_Coatings" class="card theme-card" title="Industrial Coatings">
+            <div class="card-title">Industrial Coatings</div>
+        </a>
+        
+        <a href="/theme/Industrial_Digitization" class="card theme-card" title="Industrial Digitization">
+            <div class="card-title">Industrial Digitization</div>
+        </a>
+        
+        <a href="/theme/Industrial_Distribution" class="card theme-card" title="Industrial Distribution">
+            <div class="card-title">Industrial Distribution</div>
+        </a>
+        
+        <a href="/theme/Industrial_Diversification" class="card theme-card" title="Industrial Diversification">
+            <div class="card-title">Industrial Diversification</div>
+        </a>
+        
+        <a href="/theme/Industrial_Electronics" class="card theme-card" title="Industrial Electronics">
+            <div class="card-title">Industrial Electronics</div>
+        </a>
+        
+        <a href="/theme/Industrial_Fasteners" class="card theme-card" title="Industrial Fasteners">
+            <div class="card-title">Industrial Fasteners</div>
+        </a>
+        
+        <a href="/theme/Industrial_Gas_Turbine" class="card theme-card" title="Industrial Gas Turbine">
+            <div class="card-title">Industrial Gas Turbine</div>
+        </a>
+        
+        <a href="/theme/Industrial_Machinery" class="card theme-card" title="Industrial Machinery">
+            <div class="card-title">Industrial Machinery</div>
+        </a>
+        
+        <a href="/theme/Industrial_Products" class="card theme-card" title="Industrial Products">
+            <div class="card-title">Industrial Products</div>
+        </a>
+        
+        <a href="/theme/Industrial_Prototyping" class="card theme-card" title="Industrial Prototyping">
+            <div class="card-title">Industrial Prototyping</div>
+        </a>
+        
+        <a href="/theme/Industrial_Real_Estate" class="card theme-card" title="Industrial Real Estate">
+            <div class="card-title">Industrial Real Estate</div>
+        </a>
+        
+        <a href="/theme/Industrial_Sensors" class="card theme-card" title="Industrial Sensors">
+            <div class="card-title">Industrial Sensors</div>
+        </a>
+        
+        <a href="/theme/Industrial_Software" class="card theme-card" title="Industrial Software">
+            <div class="card-title">Industrial Software</div>
+        </a>
+        
+        <a href="/theme/Industrial_Supplies" class="card theme-card" title="Industrial Supplies">
+            <div class="card-title">Industrial Supplies</div>
+        </a>
+        
+        <a href="/theme/Industrial_Technologies" class="card theme-card" title="Industrial Technologies">
+            <div class="card-title">Industrial Technologies</div>
+        </a>
+        
+        <a href="/theme/Industrial_Transportation" class="card theme-card" title="Industrial Transportation">
+            <div class="card-title">Industrial Transportation</div>
+        </a>
+        
+        <a href="/theme/Infrastructure_Development" class="card theme-card" title="Infrastructure Development">
+            <div class="card-title">Infrastructure Development</div>
+        </a>
+        
+        <a href="/theme/Institutional_Negotiation" class="card theme-card" title="Institutional Negotiation">
+            <div class="card-title">Institutional Negotiation</div>
+        </a>
+        
+        <a href="/theme/Insurance_Products" class="card theme-card" title="Insurance Products">
+            <div class="card-title">Insurance Products</div>
+        </a>
+        
+        <a href="/theme/Insurance_Services" class="card theme-card" title="Insurance Services">
+            <div class="card-title">Insurance Services</div>
+        </a>
+        
+        <a href="/theme/Insurance_Solutions" class="card theme-card" title="Insurance Solutions">
+            <div class="card-title">Insurance Solutions</div>
+        </a>
+        
+        <a href="/theme/Insurtech_Associations" class="card theme-card" title="Insurtech Associations">
+            <div class="card-title">Insurtech Associations</div>
+        </a>
+        
+        <a href="/theme/Integrated_Circuits" class="card theme-card" title="Integrated Circuits">
+            <div class="card-title">Integrated Circuits</div>
+        </a>
+        
+        <a href="/theme/Interactive_Entertainment" class="card theme-card" title="Interactive Entertainment">
+            <div class="card-title">Interactive Entertainment</div>
+        </a>
+        
+        <a href="/theme/Internet_Infrastructure" class="card theme-card" title="Internet Infrastructure">
+            <div class="card-title">Internet Infrastructure</div>
+        </a>
+        
+        <a href="/theme/Internet_Of_Things" class="card theme-card" title="Internet Of Things">
+            <div class="card-title">Internet Of Things</div>
+        </a>
+        
+        <a href="/theme/Inventory_Management" class="card theme-card" title="Inventory Management">
+            <div class="card-title">Inventory Management</div>
+        </a>
+        
+        <a href="/theme/Investment_Banking" class="card theme-card" title="Investment Banking">
+            <div class="card-title">Investment Banking</div>
+        </a>
+        
+        <a href="/theme/Investment_Management" class="card theme-card" title="Investment Management">
+            <div class="card-title">Investment Management</div>
+        </a>
+        
+        <a href="/theme/Iron_Ore_Mining" class="card theme-card" title="Iron Ore Mining">
+            <div class="card-title">Iron Ore Mining</div>
+        </a>
+        
+        <a href="/theme/LNG_Projects" class="card theme-card" title="LNG Projects">
+            <div class="card-title">LNG Projects</div>
+        </a>
+        
+        <a href="/theme/Last_mile_Logistics" class="card theme-card" title="Last-mile Logistics">
+            <div class="card-title">Last-mile Logistics</div>
+        </a>
+        
+        <a href="/theme/Leisure_Products" class="card theme-card" title="Leisure Products">
+            <div class="card-title">Leisure Products</div>
+        </a>
+        
+        <a href="/theme/Life_Sciences" class="card theme-card" title="Life Sciences">
+            <div class="card-title">Life Sciences</div>
+        </a>
+        
+        <a href="/theme/Lithium_Production" class="card theme-card" title="Lithium Production">
+            <div class="card-title">Lithium Production</div>
+        </a>
+        
+        <a href="/theme/Loan_Origination" class="card theme-card" title="Loan Origination">
+            <div class="card-title">Loan Origination</div>
+        </a>
+        
+        <a href="/theme/Logistics_Innovation" class="card theme-card" title="Logistics Innovation">
+            <div class="card-title">Logistics Innovation</div>
+        </a>
+        
+        <a href="/theme/Logistics_Network" class="card theme-card" title="Logistics Network">
+            <div class="card-title">Logistics Network</div>
+        </a>
+        
+        <a href="/theme/Low_Code/No_Code_Development" class="card theme-card" title="Low Code/No Code Development">
+            <div class="card-title">Low Code/No Code Development</div>
+        </a>
+        
+        <a href="/theme/Loyalty_Programs" class="card theme-card" title="Loyalty Programs">
+            <div class="card-title">Loyalty Programs</div>
+        </a>
+        
+        <a href="/theme/Luxury_Branding" class="card theme-card" title="Luxury Branding">
+            <div class="card-title">Luxury Branding</div>
+        </a>
+        
+        <a href="/theme/Luxury_Hotels" class="card theme-card" title="Luxury Hotels">
+            <div class="card-title">Luxury Hotels</div>
+        </a>
+        
+        <a href="/theme/Machine_Learning" class="card theme-card" title="Machine Learning">
+            <div class="card-title">Machine Learning</div>
+        </a>
+        
+        <a href="/theme/Manufacturing" class="card theme-card" title="Manufacturing">
+            <div class="card-title">Manufacturing</div>
+        </a>
+        
+        <a href="/theme/Maritime_Routes" class="card theme-card" title="Maritime Routes">
+            <div class="card-title">Maritime Routes</div>
+        </a>
+        
+        <a href="/theme/Maritime_Transport" class="card theme-card" title="Maritime Transport">
+            <div class="card-title">Maritime Transport</div>
+        </a>
+        
+        <a href="/theme/Marketing_Services" class="card theme-card" title="Marketing Services">
+            <div class="card-title">Marketing Services</div>
+        </a>
+        
+        <a href="/theme/Media_Broadcasting" class="card theme-card" title="Media Broadcasting">
+            <div class="card-title">Media Broadcasting</div>
+        </a>
+        
+        <a href="/theme/Media_Diversification" class="card theme-card" title="Media Diversification">
+            <div class="card-title">Media Diversification</div>
+        </a>
+        
+        <a href="/theme/Media_Networks" class="card theme-card" title="Media Networks">
+            <div class="card-title">Media Networks</div>
+        </a>
+        
+        <a href="/theme/Medical_Devices" class="card theme-card" title="Medical Devices">
+            <div class="card-title">Medical Devices</div>
+        </a>
+        
+        <a href="/theme/Medical_Imaging_AI" class="card theme-card" title="Medical Imaging AI">
+            <div class="card-title">Medical Imaging AI</div>
+        </a>
+        
+        <a href="/theme/Medical_Innovation" class="card theme-card" title="Medical Innovation">
+            <div class="card-title">Medical Innovation</div>
+        </a>
+        
+        <a href="/theme/Medical_Supplies" class="card theme-card" title="Medical Supplies">
+            <div class="card-title">Medical Supplies</div>
+        </a>
+        
+        <a href="/theme/Memory_Chips" class="card theme-card" title="Memory Chips">
+            <div class="card-title">Memory Chips</div>
+        </a>
+        
+        <a href="/theme/Mental_Health_Services" class="card theme-card" title="Mental Health Services">
+            <div class="card-title">Mental Health Services</div>
+        </a>
+        
+        <a href="/theme/Metal_Recycling_Technology" class="card theme-card" title="Metal Recycling Technology">
+            <div class="card-title">Metal Recycling Technology</div>
+        </a>
+        
+        <a href="/theme/Metaverse" class="card theme-card" title="Metaverse">
+            <div class="card-title">Metaverse</div>
+        </a>
+        
+        <a href="/theme/Microelectronics" class="card theme-card" title="Microelectronics">
+            <div class="card-title">Microelectronics</div>
+        </a>
+        
+        <a href="/theme/Microgrid_Solutions" class="card theme-card" title="Microgrid Solutions">
+            <div class="card-title">Microgrid Solutions</div>
+        </a>
+        
+        <a href="/theme/Military_Applications" class="card theme-card" title="Military Applications">
+            <div class="card-title">Military Applications</div>
+        </a>
+        
+        <a href="/theme/Mineral_Reserves" class="card theme-card" title="Mineral Reserves">
+            <div class="card-title">Mineral Reserves</div>
+        </a>
+        
+        <a href="/theme/Mining_Equipment" class="card theme-card" title="Mining Equipment">
+            <div class="card-title">Mining Equipment</div>
+        </a>
+        
+        <a href="/theme/Mining_Exploration" class="card theme-card" title="Mining Exploration">
+            <div class="card-title">Mining Exploration</div>
+        </a>
+        
+        <a href="/theme/Mining_Innovation" class="card theme-card" title="Mining Innovation">
+            <div class="card-title">Mining Innovation</div>
+        </a>
+        
+        <a href="/theme/Mining_Rights" class="card theme-card" title="Mining Rights">
+            <div class="card-title">Mining Rights</div>
+        </a>
+        
+        <a href="/theme/Mining_Services" class="card theme-card" title="Mining Services">
+            <div class="card-title">Mining Services</div>
+        </a>
+        
+        <a href="/theme/Missile_Defense" class="card theme-card" title="Missile Defense">
+            <div class="card-title">Missile Defense</div>
+        </a>
+        
+        <a href="/theme/Mobile_Payments" class="card theme-card" title="Mobile Payments">
+            <div class="card-title">Mobile Payments</div>
+        </a>
+        
+        <a href="/theme/Mobility_Solutions" class="card theme-card" title="Mobility Solutions">
+            <div class="card-title">Mobility Solutions</div>
+        </a>
+        
+        <a href="/theme/Mortgage_Banking" class="card theme-card" title="Mortgage Banking">
+            <div class="card-title">Mortgage Banking</div>
+        </a>
+        
+        <a href="/theme/Mortgage_Financing_Services" class="card theme-card" title="Mortgage Financing Services">
+            <div class="card-title">Mortgage Financing Services</div>
+        </a>
+        
+        <a href="/theme/Mortgage_REIT" class="card theme-card" title="Mortgage REIT">
+            <div class="card-title">Mortgage REIT</div>
+        </a>
+        
+        <a href="/theme/Multi_Family_Residential" class="card theme-card" title="Multi-Family Residential">
+            <div class="card-title">Multi-Family Residential</div>
+        </a>
+        
+        <a href="/theme/Music_Production" class="card theme-card" title="Music Production">
+            <div class="card-title">Music Production</div>
+        </a>
+        
+        <a href="/theme/NFT_Marketplaces" class="card theme-card" title="NFT Marketplaces">
+            <div class="card-title">NFT Marketplaces</div>
+        </a>
+        
+        <a href="/theme/Nanotechnology_Applications" class="card theme-card" title="Nanotechnology Applications">
+            <div class="card-title">Nanotechnology Applications</div>
+        </a>
+        
+        <a href="/theme/Natural_Gas" class="card theme-card" title="Natural Gas">
+            <div class="card-title">Natural Gas</div>
+        </a>
+        
+        <a href="/theme/Natural_Gas_Infrastructure" class="card theme-card" title="Natural Gas Infrastructure">
+            <div class="card-title">Natural Gas Infrastructure</div>
+        </a>
+        
+        <a href="/theme/Natural_Gas_Production" class="card theme-card" title="Natural Gas Production">
+            <div class="card-title">Natural Gas Production</div>
+        </a>
+        
+        <a href="/theme/Network_Security" class="card theme-card" title="Network Security">
+            <div class="card-title">Network Security</div>
+        </a>
+        
+        <a href="/theme/Neuroscience" class="card theme-card" title="Neuroscience">
+            <div class="card-title">Neuroscience</div>
+        </a>
+        
+        <a href="/theme/Nuclear_Power" class="card theme-card" title="Nuclear Power">
+            <div class="card-title">Nuclear Power</div>
+        </a>
+        
+        <a href="/theme/Nutraceuticals" class="card theme-card" title="Nutraceuticals">
+            <div class="card-title">Nutraceuticals</div>
+        </a>
+        
+        <a href="/theme/Obesity_Treatments" class="card theme-card" title="Obesity Treatments">
+            <div class="card-title">Obesity Treatments</div>
+        </a>
+        
+        <a href="/theme/Offshore_Oil" class="card theme-card" title="Offshore Oil">
+            <div class="card-title">Offshore Oil</div>
+        </a>
+        
+        <a href="/theme/Oil_&_Gas_Services" class="card theme-card" title="Oil & Gas Services">
+            <div class="card-title">Oil & Gas Services</div>
+        </a>
+        
+        <a href="/theme/Oil_Exploration" class="card theme-card" title="Oil Exploration">
+            <div class="card-title">Oil Exploration</div>
+        </a>
+        
+        <a href="/theme/Oil_Production" class="card theme-card" title="Oil Production">
+            <div class="card-title">Oil Production</div>
+        </a>
+        
+        <a href="/theme/Omnichannel_Strategy" class="card theme-card" title="Omnichannel Strategy">
+            <div class="card-title">Omnichannel Strategy</div>
+        </a>
+        
+        <a href="/theme/Oncological_Medications" class="card theme-card" title="Oncological Medications">
+            <div class="card-title">Oncological Medications</div>
+        </a>
+        
+        <a href="/theme/Oncology_Research" class="card theme-card" title="Oncology Research">
+            <div class="card-title">Oncology Research</div>
+        </a>
+        
+        <a href="/theme/Online_Banking" class="card theme-card" title="Online Banking">
+            <div class="card-title">Online Banking</div>
+        </a>
+        
+        <a href="/theme/Online_Marketplace" class="card theme-card" title="Online Marketplace">
+            <div class="card-title">Online Marketplace</div>
+        </a>
+        
+        <a href="/theme/Online_Shopping" class="card theme-card" title="Online Shopping">
+            <div class="card-title">Online Shopping</div>
+        </a>
+        
+        <a href="/theme/Open_Banking_Solutions" class="card theme-card" title="Open Banking Solutions">
+            <div class="card-title">Open Banking Solutions</div>
+        </a>
+        
+        <a href="/theme/Open_Source" class="card theme-card" title="Open Source">
+            <div class="card-title">Open Source</div>
+        </a>
+        
+        <a href="/theme/Operating_Systems" class="card theme-card" title="Operating Systems">
+            <div class="card-title">Operating Systems</div>
+        </a>
+        
+        <a href="/theme/Optoelectronics" class="card theme-card" title="Optoelectronics">
+            <div class="card-title">Optoelectronics</div>
+        </a>
+        
+        <a href="/theme/Organic_Agriculture" class="card theme-card" title="Organic Agriculture">
+            <div class="card-title">Organic Agriculture</div>
+        </a>
+        
+        <a href="/theme/Organic_Products" class="card theme-card" title="Organic Products">
+            <div class="card-title">Organic Products</div>
+        </a>
+        
+        <a href="/theme/Original_Content" class="card theme-card" title="Original Content">
+            <div class="card-title">Original Content</div>
+        </a>
+        
+        <a href="/theme/PC_Manufacturing" class="card theme-card" title="PC Manufacturing">
+            <div class="card-title">PC Manufacturing</div>
+        </a>
+        
+        <a href="/theme/Packaged_Foods" class="card theme-card" title="Packaged Foods">
+            <div class="card-title">Packaged Foods</div>
+        </a>
+        
+        <a href="/theme/Pain_Management" class="card theme-card" title="Pain Management">
+            <div class="card-title">Pain Management</div>
+        </a>
+        
+        <a href="/theme/Paper_Products" class="card theme-card" title="Paper Products">
+            <div class="card-title">Paper Products</div>
+        </a>
+        
+        <a href="/theme/Payment_Solutions" class="card theme-card" title="Payment Solutions">
+            <div class="card-title">Payment Solutions</div>
+        </a>
+        
+        <a href="/theme/Personal_Care_Products" class="card theme-card" title="Personal Care Products">
+            <div class="card-title">Personal Care Products</div>
+        </a>
+        
+        <a href="/theme/Personalized_Medicine" class="card theme-card" title="Personalized Medicine">
+            <div class="card-title">Personalized Medicine</div>
+        </a>
+        
+        <a href="/theme/Pet_Care_Products" class="card theme-card" title="Pet Care Products">
+            <div class="card-title">Pet Care Products</div>
+        </a>
+        
+        <a href="/theme/Pharmaceuticals" class="card theme-card" title="Pharmaceuticals">
+            <div class="card-title">Pharmaceuticals</div>
+        </a>
+        
+        <a href="/theme/Pharmacy_Benefit_Management" class="card theme-card" title="Pharmacy Benefit Management">
+            <div class="card-title">Pharmacy Benefit Management</div>
+        </a>
+        
+        <a href="/theme/Physical_Presence" class="card theme-card" title="Physical Presence">
+            <div class="card-title">Physical Presence</div>
+        </a>
+        
+        <a href="/theme/Plant_based_Alternatives" class="card theme-card" title="Plant-based Alternatives">
+            <div class="card-title">Plant-based Alternatives</div>
+        </a>
+        
+        <a href="/theme/Plant_based_Products" class="card theme-card" title="Plant-based Products">
+            <div class="card-title">Plant-based Products</div>
+        </a>
+        
+        <a href="/theme/Precious_Metals" class="card theme-card" title="Precious Metals">
+            <div class="card-title">Precious Metals</div>
+        </a>
+        
+        <a href="/theme/Precision_Agriculture" class="card theme-card" title="Precision Agriculture">
+            <div class="card-title">Precision Agriculture</div>
+        </a>
+        
+        <a href="/theme/Privacy_Compliance" class="card theme-card" title="Privacy Compliance">
+            <div class="card-title">Privacy Compliance</div>
+        </a>
+        
+        <a href="/theme/Private_Equity" class="card theme-card" title="Private Equity">
+            <div class="card-title">Private Equity</div>
+        </a>
+        
+        <a href="/theme/Professional_Visualization" class="card theme-card" title="Professional Visualization">
+            <div class="card-title">Professional Visualization</div>
+        </a>
+        
+        <a href="/theme/Property_Leasing" class="card theme-card" title="Property Leasing">
+            <div class="card-title">Property Leasing</div>
+        </a>
+        
+        <a href="/theme/Property_Management" class="card theme-card" title="Property Management">
+            <div class="card-title">Property Management</div>
+        </a>
+        
+        <a href="/theme/Property_Redevelopment" class="card theme-card" title="Property Redevelopment">
+            <div class="card-title">Property Redevelopment</div>
+        </a>
+        
+        <a href="/theme/Quantum_Computing" class="card theme-card" title="Quantum Computing">
+            <div class="card-title">Quantum Computing</div>
+        </a>
+        
+        <a href="/theme/Rare_Earth_Elements" class="card theme-card" title="Rare Earth Elements">
+            <div class="card-title">Rare Earth Elements</div>
+        </a>
+        
+        <a href="/theme/Real_Estate_Development" class="card theme-card" title="Real Estate Development">
+            <div class="card-title">Real Estate Development</div>
+        </a>
+        
+        <a href="/theme/Real_Estate_Innovation" class="card theme-card" title="Real Estate Innovation">
+            <div class="card-title">Real Estate Innovation</div>
+        </a>
+        
+        <a href="/theme/Real_Estate_Investment_Trust" class="card theme-card" title="Real Estate Investment Trust">
+            <div class="card-title">Real Estate Investment Trust</div>
+        </a>
+        
+        <a href="/theme/Recycling_Services" class="card theme-card" title="Recycling Services">
+            <div class="card-title">Recycling Services</div>
+        </a>
+        
+        <a href="/theme/Regenerative_Medicine" class="card theme-card" title="Regenerative Medicine">
+            <div class="card-title">Regenerative Medicine</div>
+        </a>
+        
+        <a href="/theme/Regulatory_Technology" class="card theme-card" title="Regulatory Technology">
+            <div class="card-title">Regulatory Technology</div>
+        </a>
+        
+        <a href="/theme/Reinsurance" class="card theme-card" title="Reinsurance">
+            <div class="card-title">Reinsurance</div>
+        </a>
+        
+        <a href="/theme/Renewable_Energy" class="card theme-card" title="Renewable Energy">
+            <div class="card-title">Renewable Energy</div>
+        </a>
+        
+        <a href="/theme/Renewable_Energy_Equipment" class="card theme-card" title="Renewable Energy Equipment">
+            <div class="card-title">Renewable Energy Equipment</div>
+        </a>
+        
+        <a href="/theme/Renewable_Energy_Integration" class="card theme-card" title="Renewable Energy Integration">
+            <div class="card-title">Renewable Energy Integration</div>
+        </a>
+        
+        <a href="/theme/Residential_REIT" class="card theme-card" title="Residential REIT">
+            <div class="card-title">Residential REIT</div>
+        </a>
+        
+        <a href="/theme/Residential_Real_Estate" class="card theme-card" title="Residential Real Estate">
+            <div class="card-title">Residential Real Estate</div>
+        </a>
+        
+        <a href="/theme/Resort_Destinations" class="card theme-card" title="Resort Destinations">
+            <div class="card-title">Resort Destinations</div>
+        </a>
+        
+        <a href="/theme/Restaurant_Expansion" class="card theme-card" title="Restaurant Expansion">
+            <div class="card-title">Restaurant Expansion</div>
+        </a>
+        
+        <a href="/theme/Retail_And_Foodservice" class="card theme-card" title="Retail And Foodservice">
+            <div class="card-title">Retail And Foodservice</div>
+        </a>
+        
+        <a href="/theme/Retail_Banking_Innovation" class="card theme-card" title="Retail Banking Innovation">
+            <div class="card-title">Retail Banking Innovation</div>
+        </a>
+        
+        <a href="/theme/Retail_Giant" class="card theme-card" title="Retail Giant">
+            <div class="card-title">Retail Giant</div>
+        </a>
+        
+        <a href="/theme/Retail_Innovation" class="card theme-card" title="Retail Innovation">
+            <div class="card-title">Retail Innovation</div>
+        </a>
+        
+        <a href="/theme/Retail_REIT" class="card theme-card" title="Retail REIT">
+            <div class="card-title">Retail REIT</div>
+        </a>
+        
+        <a href="/theme/Retail_Segment" class="card theme-card" title="Retail Segment">
+            <div class="card-title">Retail Segment</div>
+        </a>
+        
+        <a href="/theme/Retail_Technology_Solutions" class="card theme-card" title="Retail Technology Solutions">
+            <div class="card-title">Retail Technology Solutions</div>
+        </a>
+        
+        <a href="/theme/Ride_sharing_Services" class="card theme-card" title="Ride-sharing Services">
+            <div class="card-title">Ride-sharing Services</div>
+        </a>
+        
+        <a href="/theme/Robotic_Process_Automation" class="card theme-card" title="Robotic Process Automation">
+            <div class="card-title">Robotic Process Automation</div>
+        </a>
+        
+        <a href="/theme/Robotics" class="card theme-card" title="Robotics">
+            <div class="card-title">Robotics</div>
+        </a>
+        
+        <a href="/theme/SaaS" class="card theme-card" title="SaaS">
+            <div class="card-title">SaaS</div>
+        </a>
+        
+        <a href="/theme/Satellite_Communications" class="card theme-card" title="Satellite Communications">
+            <div class="card-title">Satellite Communications</div>
+        </a>
+        
+        <a href="/theme/Satellite_Technology" class="card theme-card" title="Satellite Technology">
+            <div class="card-title">Satellite Technology</div>
+        </a>
+        
+        <a href="/theme/Search_Engine_Services" class="card theme-card" title="Search Engine Services">
+            <div class="card-title">Search Engine Services</div>
+        </a>
+        
+        <a href="/theme/Semiconductor_Chips" class="card theme-card" title="Semiconductor Chips">
+            <div class="card-title">Semiconductor Chips</div>
+        </a>
+        
+        <a href="/theme/Semiconductor_Equipment" class="card theme-card" title="Semiconductor Equipment">
+            <div class="card-title">Semiconductor Equipment</div>
+        </a>
+        
+        <a href="/theme/Semiconductor_Manufacturing" class="card theme-card" title="Semiconductor Manufacturing">
+            <div class="card-title">Semiconductor Manufacturing</div>
+        </a>
+        
+        <a href="/theme/Semiconductor_Materials" class="card theme-card" title="Semiconductor Materials">
+            <div class="card-title">Semiconductor Materials</div>
+        </a>
+        
+        <a href="/theme/Servers" class="card theme-card" title="Servers">
+            <div class="card-title">Servers</div>
+        </a>
+        
+        <a href="/theme/Shale_Gas" class="card theme-card" title="Shale Gas">
+            <div class="card-title">Shale Gas</div>
+        </a>
+        
+        <a href="/theme/Single_family_Rentals" class="card theme-card" title="Single-family Rentals">
+            <div class="card-title">Single-family Rentals</div>
+        </a>
+        
+        <a href="/theme/Smart_Infrastructure" class="card theme-card" title="Smart Infrastructure">
+            <div class="card-title">Smart Infrastructure</div>
+        </a>
+        
+        <a href="/theme/Smart_Mobility" class="card theme-card" title="Smart Mobility">
+            <div class="card-title">Smart Mobility</div>
+        </a>
+        
+        <a href="/theme/Smartphones" class="card theme-card" title="Smartphones">
+            <div class="card-title">Smartphones</div>
+        </a>
+        
+        <a href="/theme/Social_Networking" class="card theme-card" title="Social Networking">
+            <div class="card-title">Social Networking</div>
+        </a>
+        
+        <a href="/theme/Socially_Responsible_Investing" class="card theme-card" title="Socially Responsible Investing">
+            <div class="card-title">Socially Responsible Investing</div>
+        </a>
+        
+        <a href="/theme/Space_Exploration" class="card theme-card" title="Space Exploration">
+            <div class="card-title">Space Exploration</div>
+        </a>
+        
+        <a href="/theme/Specialty_Foods" class="card theme-card" title="Specialty Foods">
+            <div class="card-title">Specialty Foods</div>
+        </a>
+        
+        <a href="/theme/Sporting_Goods_Retail" class="card theme-card" title="Sporting Goods Retail">
+            <div class="card-title">Sporting Goods Retail</div>
+        </a>
+        
+        <a href="/theme/Sports_Entertainment" class="card theme-card" title="Sports Entertainment">
+            <div class="card-title">Sports Entertainment</div>
+        </a>
+        
+        <a href="/theme/Sports_Franchises" class="card theme-card" title="Sports Franchises">
+            <div class="card-title">Sports Franchises</div>
+        </a>
+        
+        <a href="/theme/Steel_Industry" class="card theme-card" title="Steel Industry">
+            <div class="card-title">Steel Industry</div>
+        </a>
+        
+        <a href="/theme/Steel_Recycling_Leader" class="card theme-card" title="Steel Recycling Leader">
+            <div class="card-title">Steel Recycling Leader</div>
+        </a>
+        
+        <a href="/theme/Stock_Markets" class="card theme-card" title="Stock Markets">
+            <div class="card-title">Stock Markets</div>
+        </a>
+        
+        <a href="/theme/Store_Furniture" class="card theme-card" title="Store Furniture">
+            <div class="card-title">Store Furniture</div>
+        </a>
+        
+        <a href="/theme/Streaming_Platforms_&_Services" class="card theme-card" title="Streaming Platforms & Services">
+            <div class="card-title">Streaming Platforms & Services</div>
+        </a>
+        
+        <a href="/theme/Supply_Chain_Automation" class="card theme-card" title="Supply Chain Automation">
+            <div class="card-title">Supply Chain Automation</div>
+        </a>
+        
+        <a href="/theme/Supply_Chain_Management" class="card theme-card" title="Supply Chain Management">
+            <div class="card-title">Supply Chain Management</div>
+        </a>
+        
+        <a href="/theme/Supply_Chain_Solutions" class="card theme-card" title="Supply Chain Solutions">
+            <div class="card-title">Supply Chain Solutions</div>
+        </a>
+        
+        <a href="/theme/Surgical_Robotics" class="card theme-card" title="Surgical Robotics">
+            <div class="card-title">Surgical Robotics</div>
+        </a>
+        
+        <a href="/theme/Sustainable_Agriculture" class="card theme-card" title="Sustainable Agriculture">
+            <div class="card-title">Sustainable Agriculture</div>
+        </a>
+        
+        <a href="/theme/Sustainable_Finance" class="card theme-card" title="Sustainable Finance">
+            <div class="card-title">Sustainable Finance</div>
+        </a>
+        
+        <a href="/theme/Sustainable_Infrastructure" class="card theme-card" title="Sustainable Infrastructure">
+            <div class="card-title">Sustainable Infrastructure</div>
+        </a>
+        
+        <a href="/theme/Sustainable_Ingredients" class="card theme-card" title="Sustainable Ingredients">
+            <div class="card-title">Sustainable Ingredients</div>
+        </a>
+        
+        <a href="/theme/Sustainable_Products" class="card theme-card" title="Sustainable Products">
+            <div class="card-title">Sustainable Products</div>
+        </a>
+        
+        <a href="/theme/Synthetic_Biology" class="card theme-card" title="Synthetic Biology">
+            <div class="card-title">Synthetic Biology</div>
+        </a>
+        
+        <a href="/theme/Telecommunications_Equipment" class="card theme-card" title="Telecommunications Equipment">
+            <div class="card-title">Telecommunications Equipment</div>
+        </a>
+        
+        <a href="/theme/Telecommunications_Infrastructure" class="card theme-card" title="Telecommunications Infrastructure">
+            <div class="card-title">Telecommunications Infrastructure</div>
+        </a>
+        
+        <a href="/theme/Telehealth" class="card theme-card" title="Telehealth">
+            <div class="card-title">Telehealth</div>
+        </a>
+        
+        <a href="/theme/Telemedicine" class="card theme-card" title="Telemedicine">
+            <div class="card-title">Telemedicine</div>
+        </a>
+        
+        <a href="/theme/Theme_Parks" class="card theme-card" title="Theme Parks">
+            <div class="card-title">Theme Parks</div>
+        </a>
+        
+        <a href="/theme/Threat_Intelligence" class="card theme-card" title="Threat Intelligence">
+            <div class="card-title">Threat Intelligence</div>
+        </a>
+        
+        <a href="/theme/Transportation" class="card theme-card" title="Transportation">
+            <div class="card-title">Transportation</div>
+        </a>
+        
+        <a href="/theme/Travel_Platform" class="card theme-card" title="Travel Platform">
+            <div class="card-title">Travel Platform</div>
+        </a>
+        
+        <a href="/theme/Unmanned_Systems" class="card theme-card" title="Unmanned Systems">
+            <div class="card-title">Unmanned Systems</div>
+        </a>
+        
+        <a href="/theme/Urban_Housing" class="card theme-card" title="Urban Housing">
+            <div class="card-title">Urban Housing</div>
+        </a>
+        
+        <a href="/theme/Urban_Property_Development" class="card theme-card" title="Urban Property Development">
+            <div class="card-title">Urban Property Development</div>
+        </a>
+        
+        <a href="/theme/Urban_Real_Estate" class="card theme-card" title="Urban Real Estate">
+            <div class="card-title">Urban Real Estate</div>
+        </a>
+        
+        <a href="/theme/Utility_scale_Projects" class="card theme-card" title="Utility-scale Projects">
+            <div class="card-title">Utility-scale Projects</div>
+        </a>
+        
+        <a href="/theme/Vehicle_Software" class="card theme-card" title="Vehicle Software">
+            <div class="card-title">Vehicle Software</div>
+        </a>
+        
+        <a href="/theme/Vehicle_to_grid_Technology" class="card theme-card" title="Vehicle-to-grid Technology">
+            <div class="card-title">Vehicle-to-grid Technology</div>
+        </a>
+        
+        <a href="/theme/Venture_Capital" class="card theme-card" title="Venture Capital">
+            <div class="card-title">Venture Capital</div>
+        </a>
+        
+        <a href="/theme/Video_Games" class="card theme-card" title="Video Games">
+            <div class="card-title">Video Games</div>
+        </a>
+        
+        <a href="/theme/Virtual_Events_&_Conferencing_Software" class="card theme-card" title="Virtual Events & Conferencing Software">
+            <div class="card-title">Virtual Events & Conferencing Software</div>
+        </a>
+        
+        <a href="/theme/Virtual_Reality" class="card theme-card" title="Virtual Reality">
+            <div class="card-title">Virtual Reality</div>
+        </a>
+        
+        <a href="/theme/Warehouse_Management" class="card theme-card" title="Warehouse Management">
+            <div class="card-title">Warehouse Management</div>
+        </a>
+        
+        <a href="/theme/Waste_Management" class="card theme-card" title="Waste Management">
+            <div class="card-title">Waste Management</div>
+        </a>
+        
+        <a href="/theme/Water_Treatment" class="card theme-card" title="Water Treatment">
+            <div class="card-title">Water Treatment</div>
+        </a>
+        
+        <a href="/theme/Wealth_Management_Services" class="card theme-card" title="Wealth Management Services">
+            <div class="card-title">Wealth Management Services</div>
+        </a>
+        
+        <a href="/theme/Wearables" class="card theme-card" title="Wearables">
+            <div class="card-title">Wearables</div>
+        </a>
+        
+        <a href="/theme/Wind_Energy" class="card theme-card" title="Wind Energy">
+            <div class="card-title">Wind Energy</div>
+        </a>
+        
+        <a href="/theme/Wireless_Infrastructure" class="card theme-card" title="Wireless Infrastructure">
+            <div class="card-title">Wireless Infrastructure</div>
+        </a>
+        
+        <a href="/theme/Wireless_Services" class="card theme-card" title="Wireless Services">
+            <div class="card-title">Wireless Services</div>
+        </a>
+        
+        <a href="/theme/Zero_Trust_Cybersecurity" class="card theme-card" title="Zero-Trust Cybersecurity">
+            <div class="card-title">Zero-Trust Cybersecurity</div>
+        </a>
+        
+            </div>
+        </div>
+    
+    </div> <!-- /main-container -->
+
+    
+<script>
+function filterThemes() {
+    var input = document.getElementById('themeFilter');
+    var filter = input.value.toLowerCase();
+    var grid = document.getElementById('themesGrid');
+    var cards = grid.getElementsByClassName('card');
+
+    for (var i = 0; i < cards.length; i++) {
+        var card = cards[i];
+        var txt = card.textContent || card.innerText;
+        if (txt.toLowerCase().indexOf(filter) > -1) {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
+        }
+    }
+}
+
+function searchProfile() {
+    var input = document.getElementById('profileInput');
+    var symbol = input.value.trim().toUpperCase();
+    if (symbol) {
+        window.location.href = '/profile/' + symbol;
+    }
+}
+
+// Allow Enter key in search box
+document.getElementById('profileInput').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        searchProfile();
+    }
+});
+</script>
+
+</body>
+</html>

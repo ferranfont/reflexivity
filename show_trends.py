@@ -204,6 +204,30 @@ HTML_TEMPLATE = """
             width: 90%;
         }
 
+        .profile-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            margin-left: 10px;
+            border: 2px solid #555;
+            color: #555;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 3px;
+            transition: all 0.2s;
+            line-height: 0;
+            padding-bottom: 2px; /* Visual adjustment for arrow */
+        }
+
+        .profile-link:hover {
+            border-color: var(--accent-color);
+            color: white;
+            background-color: var(--accent-color);
+        }
+
     </style>
 </head>
 <body>
@@ -342,8 +366,6 @@ HTML_TEMPLATE = """
                 return;
             }
 
-            // Define columns we want to show
-            // available: type, key, name, rank, description, evidence, conid, currency, symbol, exchange, assetType, ...
             const columns = ['name', 'symbol', 'currency', 'rank', 'description'];
             const headers = ['Company Name', 'Symbol', 'Currency', 'Rank', 'Description'];
 
@@ -357,10 +379,31 @@ HTML_TEMPLATE = """
                 const tr = document.createElement('tr');
                 columns.forEach(col => {
                     const td = document.createElement('td');
-                    td.innerText = company[col] || '';
-                    if (col === 'description' && company[col] && company[col].length > 100) {
-                        td.title = company[col]; // tooltip
+                    
+                    if (col === 'name') {
+                        // Name text
+                        const nameSpan = document.createElement('span');
+                        nameSpan.innerText = company[col] || '';
+                        td.appendChild(nameSpan);
+
+                        // Profile Link Button
+                        if (company['symbol']) {
+                            const link = document.createElement('a');
+                            // Use new server route (Absolute URL for local server)
+                            link.href = `http://localhost:8000/profile/${company['symbol'].toUpperCase()}`;
+                            link.target = '_blank';
+                            link.className = 'profile-link';
+                            link.title = 'View Company Profile';
+                            link.innerHTML = '&#8599;'; // North East Arrow
+                            td.appendChild(link);
+                        }
+                    } 
+                    else if (col === 'description' && company[col] && company[col].length > 100) {
+                        td.title = company[col]; 
                         td.innerText = company[col].substring(0, 100) + '...';
+                    } 
+                    else {
+                        td.innerText = company[col] || '';
                     }
                     tr.appendChild(td);
                 });
@@ -467,10 +510,42 @@ def generate_explorer():
     print(f"Successfully generated: {HTML_FILE}")
     print(f"Total Industries: {len(final_data)}")
     
-    # 4. Open in Browser
-    folder_path = HTML_FILE.resolve().parent
-    print(f"Opening {HTML_FILE.name}...")
-    webbrowser.open(HTML_FILE.as_uri())
+    # 4. Open in Browser using Local Server
+    import socket
+    import subprocess
+    import sys
+    import time
+
+    def is_port_in_use(port):
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            return s.connect_ex(('localhost', port)) == 0
+
+    server_port = 8000
+    server_url = f"http://localhost:{server_port}"
+    
+    if not is_port_in_use(server_port):
+        print(f"Starting background server on port {server_port}...")
+        # Start server in background
+        # On Windows, using shell=True allows it to detach easier in some contexts
+        # We redirect stdout/stderr to avoid cluttering this terminal if user wants to keep using it
+        try:
+            subprocess.Popen([sys.executable, "reflexivity_server.py"], 
+                             cwd=BASE_DIR, 
+                             # stdout=subprocess.DEVNULL, 
+                             # stderr=subprocess.DEVNULL
+                             )
+            print("Waiting for server to start...")
+            time.sleep(2)
+        except Exception as e:
+            print(f"Error starting server: {e}")
+            print(f"Opening file directly instead: {HTML_FILE}")
+            webbrowser.open(HTML_FILE.as_uri())
+            return
+    else:
+        print(f"Server already running on port {server_port}")
+
+    print(f"Opening {server_url}...")
+    webbrowser.open(server_url)
 
 if __name__ == "__main__":
     generate_explorer()
