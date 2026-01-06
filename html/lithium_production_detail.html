@@ -1,0 +1,678 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Lithium Production - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Lithium Production</div>
+      <div class="sub-title">Investment Theme Detail - Materials and Mining Industry</div>
+    </div>
+    <a href="main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Lithium Production &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Materials and Mining &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 7
+    </div>
+
+    
+    <!-- Theme Chart Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Theme Chart</span>
+             <a href="equity_lithium_production.html" target="_blank" class="btn-view-chart">View Full Chart ↗</a>
+        </div>
+        <div class="box-body" style="height: 600px; overflow:hidden;">
+            <iframe src="equity_lithium_production.html" style="width:100%; height:100%; border:none; display:block;"></iframe>
+        </div>
+    </div>
+        
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">7</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ALB</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ALBEMARLE CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Suministra productos de litio críticos esenciales para la producción de baterías de vehículos eléctricos, apoyando así el crecimiento y desarrollo de ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ALB" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">NAN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SOCIEDAD QUIMICA Y MINERA DE CH</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">No description available.</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/NAN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">002460</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">GANFENG LITHIUM GROUP CO L-A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Suministra compuestos y productos de litio críticos esenciales para la fabricación de diversos materiales de baterías, sustentando así el desarrollo y...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/002460" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">LAC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">LITHIUM AMERICAS CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona recursos esenciales de litio que son cruciales para la producción de baterías de vehículos eléctricos, apoyando directamente a los fabrica...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/LAC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">PLS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">PLS GROUP LTD</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Produce litio, una materia prima vital para las industrias globales de baterías y vehículos eléctricos....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/PLS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">XOM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">EXXON MOBIL CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Invierte fuertemente y desarrolla proyectos a gran escala de captura y almacenamiento de carbono, con el objetivo de reducir las emisiones industriale...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/XOM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">KNTK</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">KINETIK HOLDINGS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Realiza actividades relacionadas con Materiales para Baterías....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/KNTK" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">28</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="ALB" data-company="ALBEMARLE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ALB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALBEMARLE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Albemarle ha llegado a un acuerdo con el Grupo BMW para suministrar litio de grado de batería para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Albemarle con el tema de los fabricantes de automóviles se demuestra a través de su papel en el suministro de ingredientes críticos, particularmente litio, a este sector. La compañía ha llegado a un acuerdo con el Grupo BMW para suministrar litio de grado de batería para sus vehículos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALB" data-company="ALBEMARLE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ALB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALBEMARLE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Albemarle tiene un acuerdo definitivo with el Grupo BMW para suministrar litio y colaborar en el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Albemarle con la Tecnología Automotriz se destaca por su papel como proveedor de litio de grado de batería para la industria automotriz, con la automoción listada como uno de los mercados finales a los que sirve. Reforzando esta posición, Albemarle tiene un acuerdo definitivo con el...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALB" data-company="ALBEMARLE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ALB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALBEMARLE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Albemarle está expandiendo activamente sus operaciones de litio en Australia y China. Esto se ve...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Albemarle con el tema de los Materiales para Baterías es significativo, impulsado por su papel como líder mundial en la transformación de recursos esenciales en ingredientes críticos para la movilidad y la energía. La empresa enfatiza la fortaleza del mercado de baterías de litio y ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALB" data-company="ALBEMARLE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ALB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALBEMARLE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Albemarle está expandiendo sus operaciones de litio para satisfacer la creciente demanda de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Albemarle en Tecnología de Baterías es evidente a través de su enfoque en soluciones de baterías de litio y almacenamiento de energía, particularmente para vehículos eléctricos, que cree que sigue siendo un mercado global sólido. La empresa está expandiendo sus operaciones de lit...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALB" data-company="ALBEMARLE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ALB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALBEMARLE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Albemarle se basa en su cartera existente de soluciones ecológicas, con su negocio Ketjen mejorando...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Albemarle demuestra su compromiso con la Tecnología de Energía Limpia a través de su misión de proporcionar productos y servicios innovadores y comercialmente viables, contribuyendo a los ingresos basados en la sostenibilidad. El negocio de Almacenamiento de Energía de la empresa contribuye activame...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALB" data-company="ALBEMARLE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ALB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALBEMARLE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Albemarle y Martin Marietta Materials, Inc., un proveedor de materiales de construcción. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Albemarle con la industria de Materiales de Construcción se refleja en su servicio al mercado final de la construcción. Esto está respaldado por un acuerdo con Martin Marietta Materials, Inc., un proveedor de materiales de construcción, centrado en la utilización de piedra caliza extr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALB" data-company="ALBEMARLE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ALB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALBEMARLE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa anticipa créditos fiscales 45x para la producción de minerales críticos en Silver Peak...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Albemarle en el tema de los Minerales Críticos es evidente a través de varios factores clave. La empresa anticipa créditos fiscales 45x para la producción de minerales críticos en Silver Peak y Kings Mountain y destaca el valor de sus activos globales, particularmente la producci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALB" data-company="ALBEMARLE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ALB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALBEMARLE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Baterías de litio son un componente crítico para las baterias de vehículos eléctricos. Albemarle...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Albemarle en el tema de Vehículos Eléctricos es evidente a través de su papel significativo en la producción de litio, un componente crítico para las baterías de vehículos eléctricos. La empresa reconoce que el mercado global de baterías de litio y almacenamiento de energía, part...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALB" data-company="ALBEMARLE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ALB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALBEMARLE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Albemarle transforma recursos esenciales en ingredientes críticos para la energía. No hay una...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Albemarle se identifica como líder mundial en la transformación de recursos esenciales en ingredientes críticos para la energía, sirviendo también a mercados finales que incluyen el almacenamiento en red y la energía convencional. La empresa transforma recursos esenciales en ingredientes críticos pa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALB" data-company="ALBEMARLE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ALB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALBEMARLE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Almacenamiento fijo se acercará al 20% de la demanda total de litio. Albemarle anticipa que la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Albemarle en el tema de Almacenamiento de Energía es evidente a través de su negocio dedicado de Almacenamiento de Energía, que contribuye al transporte limpio a través de vehículos eléctricos y mejora la utilización de energía renovable a través del almacenamiento en red. El enf...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALB" data-company="ALBEMARLE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ALB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALBEMARLE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Albemarle está estratégicamente posicionada, aumentando los volúmenes de ventas a través of precios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El importante compromiso de Albemarle en la producción de litio es evidente a través de su producción récord de su red integrada de conversión de litio y su enfoque en optimizar esta red para mejorar el costo y la productividad. La empresa está estratégicamente posicionada, aumentando los volúmenes ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALB" data-company="ALBEMARLE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ALB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALBEMARLE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Albemarle se identifica como líder mundial en la transformación de recursos esenciales. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Albemarle se identifica como líder mundial en la transformación de recursos esenciales en ingredientes críticos para la movilidad, sirviendo a mercados finales como el automotriz y aeroespacial. La empresa menciona explícitamente la movilidad como un elemento clave, asociándose para ser pionera en n...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALB" data-company="ALBEMARLE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ALB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALBEMARLE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Albemarle espera mantener una fuerte demanda en otros mercados finales, como el farmacéutico, el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Albemarle con la industria de Servicios de Petróleo y Gas se relaciona principalmente con el mantenimiento de una fuerte demanda en este mercado final, según lo declarado por la empresa. Si bien la empresa anticipa mantener esta demanda junto con sectores como el farmacéutico y el agr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALB" data-company="ALBEMARLE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ALB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALBEMARLE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Albemarle contribuye al uso eficiente de la energía renovable. La compañía reconoce la creciente...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Albemarle con el tema de la Energía Renovable es evidente a través de su negocio de Almacenamiento de Energía, que contribuye al uso eficiente de la energía renovable a través del almacenamiento en red y el crecimiento de las millas limpias impulsadas por vehículos eléctricos. La co...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LAC" data-company="LITHIUM AMERICAS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/LAC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LAC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LITHIUM AMERICAS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Lithium Americas Corp. ha obtenido un préstamo de $2.26 mil millones del DOE para financiar la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Lithium Americas Corp. con el tema de Materiales para Baterías es sustancial, impulsado principalmente por el desarrollo de Thacker Pass, un depósito de litio destinado a la producción de carbonato de litio de calidad para baterías. La compañía ha obtenido un préstamo de $2.26 mil m...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LAC" data-company="LITHIUM AMERICAS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/LAC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LAC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LITHIUM AMERICAS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Lithium Americas Corp. está fuertemente involucrada en la industria de Producción de Litio. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Lithium Americas Corp. está fuertemente involucrada en la industria de Producción de Litio, principalmente a través del desarrollo de Thacker Pass, un depósito de litio basado en sedimentos. El enfoque de la compañía se ve subrayado por la importante construcción en curso en Thacker Pass, respaldada...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XOM" data-company="EXXON MOBIL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/XOM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XOM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EXXON MOBIL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ExxonMobil está aumentando activamente las operaciones en el Complejo Químico de China. El proyecto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ExxonMobil en la fabricación de productos químicos es evidente a través de varios proyectos e instalaciones estratégicas. La empresa está aumentando activamente las operaciones en el Complejo Químico de China para suministrar productos químicos de alto valor al mercado chino, y e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XOM" data-company="EXXON MOBIL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/XOM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XOM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EXXON MOBIL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ExxonMobil anticipa la primera producción de GNL del proyecto Golden Pass. La compañía identifica...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ExxonMobil en proyectos de GNL es evidente a través de sus 'Activos Ventajosos', que incluyen GNL. La compañía anticipa la primera producción de GNL del proyecto Golden Pass, con expectativas de entregar el primer gas a finales de este año o principios del próximo. Además, ExxonM...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XOM" data-company="EXXON MOBIL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/XOM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XOM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EXXON MOBIL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ExxonMobil alcanzó niveles de producción récord. El desempeño financiero de la compañía también se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de ExxonMobil con la industria del gas natural es evidente a través de sus significativas actividades de producción, particularmente dentro de su negocio Upstream, donde alcanzó niveles de producción récord. El desempeño financiero de la compañía también se ve influenciado por el gas n...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XOM" data-company="EXXON MOBIL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/XOM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XOM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EXXON MOBIL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ExxonMobil logró una producción récord en su negocio Upstream, impulsada por activos de alto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ExxonMobil en la producción de petróleo es evidente a través de varios indicadores clave. La compañía logró una producción récord en su negocio Upstream, impulsada por activos de alto rendimiento y ventajosos, incluyendo una producción significativa de la Cuenca Pérmica y desarro...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALB" data-company="ALBEMARLE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/ALB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALBEMARLE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Albemarle ofrece productos y servicios innovadores y comercialmente viables. El negocio de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Albemarle demuestra su compromiso con la energía limpia a través de su misión continua de ofrecer productos y servicios innovadores y comercialmente viables, contribuyendo a ingresos basados en la sostenibilidad. El negocio de Almacenamiento de Energía de la empresa juega un papel en la expansión de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LAC" data-company="LITHIUM AMERICAS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/LAC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LAC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LITHIUM AMERICAS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Lithium Americas está respaldada por la participación del 38% de General Motors (GM) en el proyecto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Lithium Americas con el tema de la industria de Fabricantes de Automóviles está respaldada por la participación del 38% de General Motors (GM) en el proyecto Thacker Pass. Reforzando esta conexión, GM se ha comprometido importantes recursos financieros, incluidos $625 millones en efec...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XOM" data-company="EXXON MOBIL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/XOM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XOM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EXXON MOBIL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ExxonMobil está aumentando activamente sus operaciones en su Complejo Químico de China. Estos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ExxonMobil en el tema de Productos Químicos Industriales es evidente a través de varias iniciativas estratégicas. La compañía está aumentando activamente sus operaciones en su Complejo Químico de China, que abastece al creciente mercado chino con productos químicos de alto valor ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XOM" data-company="EXXON MOBIL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/XOM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XOM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EXXON MOBIL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio Upstream de ExxonMobil alcanzó una producción pico, con una parte sustancial de petróleo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ExxonMobil en la Producción de Gas Natural es evidente en sus importantes volúmenes de producción, tanto a nivel mundial como dentro de los Estados Unidos. El negocio Upstream de la compañía alcanzó una producción pico, con una parte sustancial de petróleo y gas natural derivada ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KNTK" data-company="KINETIK HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/KNTK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">KNTK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KINETIK HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio principal de Arcadium Lithium se centra en gran medida en la producción de litio. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Arcadium Lithium se centra en gran medida en la producción de litio, ya que se identifica como un productor líder mundial de productos químicos de litio y una empresa de litio pura, totalmente integrada. El hidróxido de litio y el carbonato de litio constituyen una parte impo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALB" data-company="ALBEMARLE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/ALB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALBEMARLE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Albemarle enfatiza el papel vital del litio en la transición energética. La empresa prevé un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Albemarle enfatiza el papel vital del litio en la transición energética, impulsado por la creciente demanda de vehículos eléctricos y almacenamiento en red. La empresa prevé un crecimiento sustancial de la demanda de litio de 2024 a 2030, influenciado por la adopción de vehículos eléctricos y el alm...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KNTK" data-company="KINETIK HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/KNTK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">KNTK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KINETIK HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Arcadium Lithium demuestra una fuerte conexión with la industria de materiales para baterías. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Arcadium Lithium demuestra una fuerte conexión con la industria de materiales para baterías, principalmente a través de su enfoque en hidróxido de litio y carbonato de litio, que constituyen una parte significativa de sus ingresos. El enfoque estratégico de la compañía en el suministro de compuestos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XOM" data-company="EXXON MOBIL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/XOM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XOM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EXXON MOBIL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ExxonMobil tiene recursos significativos en Guyana, lo que marca un importante descubrimiento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ExxonMobil en la Exploración de Petróleo es evidente a través de varias actividades clave. La adquisición de Pioneer Natural Resources, una empresa independiente de exploración y producción de petróleo y gas, junto con el enfoque en los activos de Permian, destaca la inversión de...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

@@ -1,0 +1,1215 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Mining Exploration - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Mining Exploration</div>
+      <div class="sub-title">Investment Theme Detail - Materials and Mining Industry</div>
+    </div>
+    <a href="main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Mining Exploration &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Materials and Mining &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 18
+    </div>
+
+    
+    <!-- Theme Chart Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Theme Chart</span>
+             <a href="equity_mining_exploration.html" target="_blank" class="btn-view-chart">View Full Chart ↗</a>
+        </div>
+        <div class="box-body" style="height: 600px; overflow:hidden;">
+            <iframe src="equity_mining_exploration.html" style="width:100%; height:100%; border:none; display:block;"></iframe>
+        </div>
+    </div>
+        
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">18</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BHP</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BHP GROUP LTD</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera como un importante productor y proveedor de carbón y combustibles consumibles, contribuyendo a los recursos energéticos globales....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BHP" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">RIO</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">RIO TINTO PLC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Es un importante productor mundial de aluminio, que contribuye significativamente a la cadena de suministro y al desarrollo de la industria....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/RIO" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">NEM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">NEWMONT CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Incluye operaciones en la extracción y producción de cobre....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/NEM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">VALE3</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">VALE SA</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Participa activamente y contribuye a los avances y mejoras tecnológicas dentro de la industria minera....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/VALE3" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">AAL</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">AMERICAN AIRLINES GROUP INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera como una importante aerolínea global, brindando extensos servicios de transporte aéreo de pasajeros y carga a través de redes nacionales e inter...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/AAL" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">FCX</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">FREEPORT-MCMORAN INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Es un productor mundial líder de cobre, opera importantes activos mineros y contribuye sustancialmente al suministro mundial de cobre....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/FCX" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ANTO</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ANTOFAGASTA PLC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera como un actor global clave en la minería de cobre, clasificándose entre las principales empresas de la industria....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ANTO" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">AA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ALCOA CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Suministra productos de aluminio, un componente crítico para la fabricación de materiales y estructuras aeroespaciales....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/AA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">MP</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">MP MATERIALS CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona materiales críticos de tierras raras que son esenciales para diversas tecnologías avanzadas dentro del sector de defensa aeroespacial....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/MP" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CDE</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">COEUR MINING INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye a la industria de los minerales críticos a través de sus operaciones mineras....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CDE" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">11</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SSRM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SSR MINING INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se enfoca en la producción de oro, contribuyendo al suministro global del metal precioso....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SSRM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">12</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">IE</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">IVANHOE ELECTRIC INC / US</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se centra en la exploración y desarrollo de yacimientos de cobre, contribuyendo al suministro mundial de este metal crítico....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/IE" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">13</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">HL</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">HECLA MINING CO</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se dedica a la exploración, desarrollo y producción de diversos minerales, contribuyendo al suministro de materiales críticos esenciales para aplicaci...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/HL" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">14</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">UEC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">URANIUM ENERGY CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se centra en el uranio, un componente clave dentro del sector de los minerales críticos....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/UEC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">15</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">NG</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">NOVAGOLD RESOURCES INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Implica el desarrollo y la extracción de recursos de oro....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/NG" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">16</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">METC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">RAMACO RESOURCES INC-A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera como productor y proveedor de carbón metalúrgico y térmico, componentes esenciales dentro de la industria de combustibles consumibles....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/METC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">17</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">PPTA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">PERPETUA RESOURCES CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Dedicada al desarrollo de proyectos mineros centrados en la producción de minerales críticos, incluido el antimonio, vital para aplicaciones industria...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/PPTA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">18</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">RGLD</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ROYAL GOLD INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Tiene intereses en la minería de cobre....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/RGLD" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">63</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="UEC" data-company="URANIUM ENERGY CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/UEC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UEC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">URANIUM ENERGY CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Estos derechos mineros se encuentran en varios estados, incluidos Arizona, Nuevo México, Texas y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa mantiene exposición al tema de Derechos Mineros a través de su propiedad de derechos mineros adquiridos mediante acuerdos de staking, compra, arrendamiento u opción. Estos derechos mineros se encuentran en varios estados, incluidos Arizona, Nuevo México, Texas y Wyoming, así como en Canad...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UEC" data-company="URANIUM ENERGY CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/UEC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UEC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">URANIUM ENERGY CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Uranium Energy Corp. tiene como objetivo convertirse en un proveedor líder de uranio de bajo costo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Uranium Energy Corp. está significativamente involucrada en la exploración minera como parte de su negocio principal, que incluye la minería de uranio y actividades relacionadas en los Estados Unidos, Canadá y la República de Paraguay. Las actividades de la empresa abarcan la exploración, pre-extrac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UEC" data-company="URANIUM ENERGY CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/UEC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UEC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">URANIUM ENERGY CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Uranium Energy Corp (UEC) exhibe una fuerte conexión with el tema of la Energía Nuclear. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Uranium Energy Corp (UEC) exhibe una fuerte conexión con el tema de la Energía Nuclear, principalmente a través de su enfoque en la minería, procesamiento, refinación y conversión de uranio para su entrega a plantas de enriquecimiento. La compañía está expandiendo activamente sus actividades de extr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AAL" data-company="AMERICAN AIRLINES GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AAL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AAL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN AIRLINES GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Las operaciones de la compañía están profundamente entrelazadas with la industria del transporte....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de la compañía están profundamente entrelazadas con la industria del transporte, como lo demuestra su negocio principal de proporcionar transporte aéreo de pasajeros y carga, generando $12,551 millones en ingresos operativos totales. El rendimiento financiero y las operaciones de la ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RGLD" data-company="ROYAL GOLD INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RGLD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RGLD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROYAL GOLD INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Royal Gold tiene ingresos por flujos de la producción de oro en minas como Mount Milligan, Pueblo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Royal Gold con la Producción de Oro es sustancial, como lo demuestra el hecho de que el oro representa consistentemente una parte significativa de los ingresos de la empresa. Por ejemplo, el oro representó el 76% de los ingresos de la empresa en 2024, y esta tendencia se ve reforzad...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NG" data-company="NOVAGOLD RESOURCES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/NG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NOVAGOLD RESOURCES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra su enfoque en la Exploración Minera a través del proyecto Donlin Gold en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su enfoque en la Exploración Minera a través del proyecto Donlin Gold en Alaska, destacado por el inicio de un programa de campo para 2025 que incluye 15.000 metros de perforación planificados. Esta perforación está dirigida principalmente a la perforación en cuadrícula para des...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AAL" data-company="AMERICAN AIRLINES GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AAL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AAL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN AIRLINES GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio principal de American Airlines gira en torno a la industria de las aerolíneas. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de American Airlines gira en torno a la industria de las aerolíneas, como lo demuestran las amplias discusiones sobre ingresos de pasajeros y carga, gastos operativos y rendimiento financiero general. Las operaciones, estrategias y resultados financieros de la empresa están fuer...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AAL" data-company="AMERICAN AIRLINES GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AAL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AAL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN AIRLINES GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">American Airlines demuestra su compromiso con las finanzas de la aviación. La compañía también ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">American Airlines demuestra su compromiso con las finanzas de la aviación a través de una variedad de actividades, que incluyen la recaudación de $ 1 mil millones a través de financiamiento de préstamos a plazo de lealtad y la gestión de gastos de capital de aeronaves, que se espera que estén entre ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AAL" data-company="AMERICAN AIRLINES GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AAL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AAL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN AIRLINES GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">American Airlines tiene inversiones en tecnología destinadas a mejorar la eficiencia operativa....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de American Airlines con los Sistemas de Aviación es evidente a través de sus inversiones en tecnología destinadas a mejorar la eficiencia operativa y la experiencia del cliente. Esto incluye la implementación de TSA Touchless ID para agilizar el control de seguridad y la prueba de seg...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AAL" data-company="AMERICAN AIRLINES GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AAL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AAL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN AIRLINES GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">American Airlines demuestra una fuerte conexión with los programas de fidelización. El programa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">American Airlines demuestra una fuerte conexión con los programas de fidelización, principalmente a través de su programa AAdvantage. El programa AAdvantage contribuye significativamente al rendimiento financiero de la compañía, impulsando la demanda de cabinas premium, ya que los miembros de AAdvan...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FCX" data-company="FREEPORT-MCMORAN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/FCX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FCX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FREEPORT-MCMORAN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Freeport-McMoRan enfatiza la innovación en la minería a través of varias iniciativas. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Freeport-McMoRan enfatiza la innovación en la minería a través de varias iniciativas. La compañía está incorporando nuevas aplicaciones, tecnologías y análisis de datos en sus procesos de lixiviación en sus operaciones de EE. UU. y América del Sur, al mismo tiempo que busca oportunidades para aprove...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RGLD" data-company="ROYAL GOLD INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RGLD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RGLD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROYAL GOLD INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Royal Gold se centra en la adquisición y gestión de flujos y regalías de metales...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Royal Gold se centra en la adquisición y gestión de flujos y regalías de metales preciosos, lo que expone significativamente a la empresa al tema de la industria de los metales preciosos. Los resultados financieros de la empresa están directamente relacionados con los precios de metale...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SSRM" data-company="SSR MINING INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/SSRM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SSRM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SSR MINING INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SSR Mining participa principalmente en la operación, adquisición, exploración y desarrollo of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de SSR Mining en la producción de oro es evidente a través de sus actividades comerciales principales. Como empresa minera de metales preciosos, SSR Mining participa principalmente en la operación, adquisición, exploración y desarrollo de propiedades de recursos de metales preciosos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SSRM" data-company="SSR MINING INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/SSRM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SSRM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SSR MINING INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SSR Mining es una empresa minera de metales preciosos autodenominada. El enfoque de SSR Mining en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de SSR Mining en la industria de metales preciosos es evidente a través de sus operaciones comerciales principales. Como empresa minera de metales preciosos autodenominada, SSR Mining participa activamente en la operación, adquisición, exploración y desarrollo de propiedades de recursos d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FCX" data-company="FREEPORT-MCMORAN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/FCX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FCX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FREEPORT-MCMORAN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Freeport-McMoRan tiene como objetivo explícito ser la principal productora de cobre. Esto está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Freeport-McMoRan con el tema de la minería de cobre es sustancial, ya que la empresa tiene como objetivo explícito ser la principal productora de cobre y se identifica como uno de los mayores productores de cobre cotizados en bolsa del mundo. Esto está respaldado por la operación de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FCX" data-company="FREEPORT-MCMORAN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/FCX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FCX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FREEPORT-MCMORAN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Freeport-McMoRan reconocimiento del papel fundamental del cobre en la transición global hacia la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de Freeport-McMoRan (fcx) al tema de los Vehículos Eléctricos es evidente en su reconocimiento del papel fundamental del cobre en la transición global hacia la energía renovable, los vehículos eléctricos y otras iniciativas de reducción de carbono. La empresa reconoce que la creciente ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FCX" data-company="FREEPORT-MCMORAN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/FCX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FCX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FREEPORT-MCMORAN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Freeport-McMoRan (FCX) participa significativamente en la producción de oro. La empresa reconoce...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Freeport-McMoRan (FCX) participa significativamente en la producción de oro, particularmente a través de su distrito minero de Grasberg, que es uno de los depósitos de cobre y oro más grandes del mundo. La empresa reconoce explícitamente su exposición financiera al oro, y las operaciones de Grasberg...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RGLD" data-company="ROYAL GOLD INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RGLD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RGLD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROYAL GOLD INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Royal Gold se centra en la adquisición y gestión of flujos y regalías de metales...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Royal Gold se centra en la adquisición y gestión de flujos y regalías de metales preciosos, que son participaciones no operativas en proyectos mineros. Estas regalías otorgan el derecho a los ingresos o metales producidos en dichos proyectos. La empresa busca activamente expandir su ca...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FCX" data-company="FREEPORT-MCMORAN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/FCX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FCX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FREEPORT-MCMORAN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Freeport-McMoRan está trabajando activamente para extraer más oro de las operaciones mineras de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Freeport-McMoRan en la industria de Metales Preciosos es evidente a través de la operación del distrito minero de Grasberg, reconocido como uno de los depósitos de cobre y oro más grandes del mundo. La importante exposición financiera de la empresa al oro se ve aún más enfatizada...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FCX" data-company="FREEPORT-MCMORAN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/FCX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FCX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FREEPORT-MCMORAN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Freeport-McMoRan reconoce que la creciente demanda de cobre está significativamente respaldada by...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Freeport-McMoRan en el tema de la energía renovable es evidente a través de su reconocimiento del papel crucial del cobre en la transición global hacia la energía renovable, los vehículos eléctricos y las iniciativas de reducción de carbono. La empresa reconoce que la creciente d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HL" data-company="HECLA MINING CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HECLA MINING CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hecla Mining Company participa activamente en la producción of oro. Las ventas de oro contribuyen...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Hecla Mining Company participa activamente en la producción de oro, como lo demuestra su producción de casi 46,000 onzas de oro en un trimestre y 141,923 onzas de oro en un año. Las ventas de oro contribuyen una parte notable de los ingresos de la empresa, alcanzando hasta el 42% en algunos períodos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HL" data-company="HECLA MINING CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HECLA MINING CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hecla Mining Company es el principal productor de plata de América del Norte. La plata representa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Hecla Mining Company están significativamente ligadas a la industria de los metales preciosos, en particular la plata y el oro. La empresa se identifica como el principal productor de plata de América del Norte, con una parte sustancial de sus ingresos derivada de las ventas de pl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IE" data-company="IVANHOE ELECTRIC INC / US">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">IVANHOE ELECTRIC INC / US</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa tiene la intención de apoyar la independencia de la cadena de suministro estadounidense....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Los esfuerzos de exploración minera de la empresa se centran significativamente en el cobre, como lo demuestra su Proyecto de Cobre Santa Cruz en Arizona, que encabeza su cartera de proyectos de exploración de metales críticos. La empresa tiene la intención de apoyar la independencia de la cadena de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IE" data-company="IVANHOE ELECTRIC INC / US">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">IVANHOE ELECTRIC INC / US</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se dedica a apoyar la independencia de la cadena de suministro estadounidense. Se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa se dedica a apoyar la independencia de la cadena de suministro estadounidense a través de la exploración y entrega de metales críticos, con un énfasis particular en el cobre, que se consideran vitales para la fabricación avanzada, la infraestructura, la tecnología y la seguridad nacional....</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IE" data-company="IVANHOE ELECTRIC INC / US">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">IVANHOE ELECTRIC INC / US</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">VRB Energy Inc. desarrolla sistemas avanzados de almacenamiento de energía a escala of red. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su compromiso con el tema del almacenamiento de energía a través de su participación mayoritaria en VRB Energy Inc., que desarrolla sistemas avanzados de almacenamiento de energía a escala de red que utilizan baterías de flujo redox de vanadio, incluyendo VRB USA. VRB Energy gen...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IE" data-company="IVANHOE ELECTRIC INC / US">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">IVANHOE ELECTRIC INC / US</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se enfoca en la innovación en minería a través of su sistema de prospección geofísica...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa se enfoca en la innovación en minería a través de su sistema de prospección geofísica Typhoon™ y análisis de datos avanzados de su subsidiaria, Computational Geosciences Inc. ("CGI"). Esta tecnología acelera y reduce el riesgo de la exploración de minerales, buscando nuevos depósitos de m...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IE" data-company="IVANHOE ELECTRIC INC / US">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">IVANHOE ELECTRIC INC / US</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía aprovecha su sistema de prospección geofísica Typhoon™ y el análisis avanzado de datos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la compañía en la Exploración Minera es fundamental para sus operaciones, ya que se identifica como una empresa de exploración de minerales centrada en el desarrollo de minas principalmente en los Estados Unidos. La compañía aprovecha su sistema de prospección geofísica Typhoon™ ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="METC" data-company="RAMACO RESOURCES INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/METC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">METC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RAMACO RESOURCES INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MetC es un operador y desarrollador de carbón metalúrgico. Se centran en optimizar los planes de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de METC se centra en la producción y venta de carbón metalúrgico, siendo la venta de carbón su principal fuente de ingresos. La empresa es un operador y desarrollador de carbón metalúrgico, manteniendo importantes toneladas de reservas y planeando aumentar la producción anual. Se centran ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="METC" data-company="RAMACO RESOURCES INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/METC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">METC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RAMACO RESOURCES INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa está en proceso de transición para convertirse into doble plataforma. La mina Brook...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa está en proceso de transición para convertirse en una empresa de doble plataforma centrada tanto en la producción de carbón metalúrgico como de minerales críticos, con la mina Brook destacada como un suministro nacional vital. Esta transición incluye el nombramiento de un Vicepresidente E...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="METC" data-company="RAMACO RESOURCES INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/METC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">METC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RAMACO RESOURCES INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa está en proceso de transición hacia una operación de plataforma dual centrada tanto en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa está en proceso de transición hacia una operación de plataforma dual centrada tanto en el carbón metalúrgico como en los elementos de tierras raras, y el proyecto de la Mina Brook juega un papel central en este cambio estratégico. La empresa enfatiza que sus operaciones de elementos de ti...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="METC" data-company="RAMACO RESOURCES INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/METC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">METC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RAMACO RESOURCES INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MetC estrechamente ligadas a la industria del acero. La principal fuente de ingresos de la empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de METC están estrechamente ligadas a la industria del acero, principalmente a través de su papel como proveedor de carbón metalúrgico. La principal fuente de ingresos de la empresa es la venta de carbón metalúrgico a acerías de altos hornos de América del Norte, plantas de coque y c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MP" data-company="MP MATERIALS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MP" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MP</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MP MATERIALS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa cree que está posicionada para capitalizar las tendencias de electrificación y seguridad...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema de Vehículos Eléctricos Comerciales está relacionado con el uso de elementos de tierras raras en motores y generadores eléctricos para vehículos híbridos y eléctricos. Como proveedor de estos elementos, la empresa tiene como objetivo capitalizar la tendencia d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MP" data-company="MP MATERIALS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MP" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MP</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MP MATERIALS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MP Materials es el mayor productor de materiales de tierras raras en el Hemisferio Occidental. Está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de MP Materials en el tema de Minerales Críticos es sustancial, principalmente debido a su posición como el mayor productor de materiales de tierras raras en el Hemisferio Occidental. La empresa se enfoca en elementos de tierras raras, que se clasifican como minerales críticos, y es...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MP" data-company="MP MATERIALS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MP" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MP</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MP MATERIALS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MP Materials es "el campeón nacional de Estados Unidos en magnetismo de tierras raras" La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">MP Materials enfatiza su papel como actor clave en el sector de la Tecnología de Defensa, posicionándose como "el campeón nacional de Estados Unidos en magnetismo de tierras raras" y un socio crucial para los fabricantes en este ámbito. La empresa subraya la importancia de una cadena de suministro n...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MP" data-company="MP MATERIALS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MP" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MP</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MP MATERIALS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MP Materials es proveedor de materiales críticos. La empresa enfatiza que las tierras raras son...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de MP Materials en el tema de los vehículos eléctricos es evidente a través de su papel como proveedor de materiales críticos. La empresa enfatiza que las tierras raras son esenciales para los imanes utilizados en motores y generadores eléctricos que impulsan vehículos híbridos y el...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MP" data-company="MP MATERIALS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MP" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MP</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MP MATERIALS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MP Materials tiene propiedad y operación de la Mina y Planta de Procesamiento de Tierras Raras de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de MP Materials con la Exploración Minera es evidente a través de su propiedad y operación de la Mina y Planta de Procesamiento de Tierras Raras de Mountain Pass, el único sitio de esta escala en América del Norte. El enfoque de la empresa se ve subrayado por las inversiones continuas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MP" data-company="MP MATERIALS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MP" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MP</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MP MATERIALS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MP Materials demuestra una fuerte conexión con el tema of las Tierras Raras. La empresa se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">MP Materials demuestra una fuerte conexión con el tema de las Tierras Raras, principalmente porque la empresa se identifica como el mayor productor de estos materiales en el hemisferio occidental y es propietaria de la Mina y Planta de Procesamiento de Tierras Raras de Mountain Pass, el único sitio ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MP" data-company="MP MATERIALS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MP" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MP</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MP MATERIALS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MP Materials recibió un crédito fiscal de $58.5 millones para apoyar la construcción de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de MP Materials al tema de la Energía Renovable proviene del hecho de que sus elementos de tierras raras son insumos críticos para tecnologías que reducen el carbono, específicamente los imanes de tierras raras utilizados en motores y generadores eléctricos dentro de las turbinas eólic...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MP" data-company="MP MATERIALS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MP" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MP</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MP MATERIALS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El papel de la empresa es principalmente el de proveedor de materiales para la industria de las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de Equipos de Energía Renovable se deriva de su suministro de elementos de tierras raras, que son componentes críticos en los imanes utilizados en los generadores de turbinas eólicas. Si bien la empresa menciona constantemente las turbinas eólicas como un me...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MP" data-company="MP MATERIALS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MP" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MP</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MP MATERIALS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MP Materials usa elementos de tierras raras (ETR) en turbinas eólicas. ETR son insumos críticos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de MP Materials al tema de la Energía Eólica proviene del uso de sus elementos de tierras raras (ETR) en turbinas eólicas. Específicamente, los ETR son insumos críticos para los imanes de tierras raras que se encuentran en los motores eléctricos y generadores que impulsan las turbinas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NEM" data-company="NEWMONT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/NEM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NEM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NEWMONT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Newmont tiene activos productores de cobre en Red Chris, Boddington y Cadia. La empresa se dedica...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Newmont en la industria de la minería de cobre es evidente a través de su producción y ventas de cobre, aunque la empresa se enfoca principalmente en el oro. Newmont tiene activos productores de cobre en Red Chris, Boddington y Cadia, siendo Cadia una operación de cobre y oro de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NEM" data-company="NEWMONT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/NEM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NEM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NEWMONT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Newmont is la única empresa aurífera incluida tanto en el Índice S&P 500 como en la lista Fortune...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Newmont en la Producción de Oro es evidente ya que la compañía se identifica como la principal empresa aurífera del mundo. Esto se ve reforzado por el hecho de que Newmont es la única empresa aurífera incluida tanto en el Índice S&P 500 como en la lista Fortune 500. La compañía s...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NEM" data-company="NEWMONT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/NEM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NEM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NEWMONT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Newmont se extienden a la exploración de propiedades de oro que también pueden contener otros...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Newmont en el tema de la industria de metales preciosos es evidente en sus operaciones comerciales principales, que incluyen la exploración, adquisición y producción de oro y plata. El flujo de ingresos de la empresa está significativamente respaldado por metales preciosos, con u...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NG" data-company="NOVAGOLD RESOURCES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/NG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NOVAGOLD RESOURCES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NOVAGOLD se centra en la producción de oro, como lo demuestra su enfoque principal en el avance del...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de NOVAGOLD se centra en la producción de oro, como lo demuestra su enfoque principal en el avance del proyecto Donlin Gold en Alaska. Este proyecto es un objetivo corporativo clave, con esfuerzos continuos dedicados a trabajos de prueba metalúrgica, recopilación de datos y avance del mod...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PPTA" data-company="PERPETUA RESOURCES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PPTA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PPTA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PERPETUA RESOURCES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Perpetua Resources está involucrada con el tema de la industria de los Minerales Críticos. Su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Perpetua Resources está significativamente involucrada con el tema de la industria de los Minerales Críticos, como lo demuestra su visión central de establecer un suministro nacional de antimonio dentro de los Estados Unidos. Este compromiso se refuerza a través de múltiples vías, incluidos acuerdos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PPTA" data-company="PERPETUA RESOURCES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PPTA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PPTA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PERPETUA RESOURCES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Perpetua Resources pretende que sea una de las minas de oro a cielo abierto más grandes y de mayor...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Perpetua Resources en la producción de oro es evidente en su enfoque en el Proyecto de Oro Stibnite, que la empresa pretende que sea una de las minas de oro a cielo abierto más grandes y de mayor ley de los Estados Unidos. Este proyecto es el activo principal de la empresa, y la ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PPTA" data-company="PERPETUA RESOURCES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PPTA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PPTA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PERPETUA RESOURCES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Perpetua Resources está significativamente involucrada en la industria de Exploración Minera. Esta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Perpetua Resources está significativamente involucrada en la industria de Exploración Minera, principalmente a través de su enfoque en el Proyecto de Oro Stibnite. Las operaciones centrales de la compañía giran en torno a la localización, adquisición, desarrollo y restauración de propiedades mineral...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RGLD" data-company="ROYAL GOLD INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RGLD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RGLD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROYAL GOLD INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El cobre representó el 9% de los ingresos de Royal Gold. Royal Gold también tiene una Adquisición...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de Royal Gold al tema de la industria de la minería del cobre proviene de sus flujos de ingresos y adquisiciones estratégicas. Los resultados financieros de la empresa están ligados al precio del cobre, y las ventas de cobre, particularmente del yacimiento Mount Milligan, contribuyen a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDE" data-company="COEUR MINING INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CDE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CDE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COEUR MINING INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coeur Mining es productora de oro y plata con activos operativos en Estados Unidos y México. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Coeur Mining están significativamente ligadas a la producción de oro, ya que la empresa se identifica principalmente como productora de oro y plata con activos operativos en Estados Unidos y México. Este enfoque se refleja en sus resultados financieros, con ventas de oro constituy...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDE" data-company="COEUR MINING INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CDE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CDE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COEUR MINING INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coeur Mining demuestra un fuerte compromiso con la exploración minera. Se proyecta que el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Coeur Mining demuestra un fuerte compromiso con la exploración minera, destacada por inversiones significativas y programas de perforación activos en su cartera. Se proyecta que el presupuesto de exploración de la empresa para 2025 se sitúe entre 77 y 93 millones de dólares, con una parte sustancial...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDE" data-company="COEUR MINING INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CDE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CDE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COEUR MINING INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coeur Mining se identifica como productora de oro y plata. La adquisición de SilverCrest Metals...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Coeur Mining se centran en la producción y venta de oro y plata, ya que la empresa se identifica como productora de oro y plata. Los ingresos de la empresa se derivan principalmente de las ventas de oro y plata, con informes financieros detallados sobre ambos metales. Coeur Mining...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NEM" data-company="NEWMONT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/NEM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NEM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NEWMONT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Newmont demuestra su compromiso con la innovación en la minería. La compañía está implementando un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Newmont demuestra su compromiso con la innovación en la minería a través de varias iniciativas. La compañía está implementando un Sistema de Transporte Autónomo en Boddington, incluyendo la compra de camiones de transporte dentro del capital de sostenimiento. Newmont también anunció una alianza estr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NEM" data-company="NEWMONT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/NEM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NEM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NEWMONT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Newmont se centra principalmente en la adquisición de propiedades de oro. Las declaraciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Newmont en la exploración minera es evidente en su enfoque principal en la exploración y adquisición de propiedades de oro, que también pueden contener otros metales como cobre, plata, plomo y zinc. Las declaraciones prospectivas de la empresa incluyen estimaciones sobre futuros ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PPTA" data-company="PERPETUA RESOURCES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/PPTA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PPTA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PERPETUA RESOURCES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Perpetua Resources se centra en la ubicación, adquisición, desarrollo y restauración of propiedades...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Perpetua Resources se centra en la ubicación, adquisición, desarrollo y restauración de propiedades minerales, principalmente dentro del distrito minero de Stibnite – Yellow Pine. Un aspecto central de la visión de Perpetua Resources implica el establecimiento de un suministro nacional del mineral c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SSRM" data-company="SSR MINING INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SSRM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SSRM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SSR MINING INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SSR Mining participa en la exploración y desarrollo de propiedades de recursos de metales preciosos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">SSR Mining participa en la exploración y desarrollo de propiedades de recursos de metales preciosos en múltiples ubicaciones. Los gastos de exploración de la compañía se han dirigido a proyectos como los Proyectos Porky y Amisk en Canadá, el proyecto Sterling en Marigold, el proyecto Cortaderas en P...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MP" data-company="MP MATERIALS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/MP" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MP</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MP MATERIALS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MP Materials enfatiza su papel en el sector Aeroespacial y de Defensa. La empresa se identifica...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">MP Materials enfatiza su papel en el sector Aeroespacial y de Defensa a través de su producción de imanes de tierras raras, que son insumos críticos para sistemas de defensa, incluidos drones y robótica. La empresa se identifica como un socio natural para los fabricantes de todo el sector de tecnolo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AA" data-company="ALCOA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/AA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALCOA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Alcoa es una empresa de aluminio integrada verticalmente involucrada en la minería de bauxita,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Alcoa en el tema de Productos Industriales se deriva de su posición como una empresa de aluminio integrada verticalmente involucrada en la minería de bauxita, refinación de alúmina, producción de aluminio y generación de energía. Los productos de aluminio primario de la empresa, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AA" data-company="ALCOA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/AA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALCOA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Alcoa enfatiza su papel como proveedor preferido de soluciones de aluminio sostenible. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Alcoa enfatiza su papel como proveedor preferido de soluciones de aluminio sostenible, particularmente a través de su producto EcoLum de bajo carbono, con la primera venta en América del Norte completada. Esto está respaldado además por el Marco de Finanzas Verdes de Alcoa, que prioriza los gastos d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AA" data-company="ALCOA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/AA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALCOA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Alcoa tiene un segmento operativo completo dedicado a la producción de aluminio. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La importante exposición de Alcoa al tema de la Producción de Aluminio es evidente en sus operaciones comerciales principales, ya que la empresa se identifica como productora de productos de aluminio y tiene un segmento operativo completo dedicado a la producción de aluminio. La empresa es una empre...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MP" data-company="MP MATERIALS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/MP" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MP</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MP MATERIALS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MP Materials demuestra su participación en la industria de autopartes a través of su producción de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">MP Materials demuestra su participación en la industria de autopartes a través de su producción de imanes de grado automotriz, incluida la producción de prueba de imanes de neodimio-hierro-boro. La empresa suministra estos imanes a tres de los cinco principales fabricantes de automóviles no chinos y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MP" data-company="MP MATERIALS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/MP" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MP</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MP MATERIALS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MP Materials posiciona como un proveedor nacional clave de imanes de tierras raras, componentes...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">MP Materials reconoce la creciente importancia de los sistemas no tripulados, particularmente drones y robótica impulsada por IA, en la guerra moderna y diversas tecnologías avanzadas. La empresa se posiciona como un proveedor nacional clave de imanes de tierras raras, componentes esenciales en esto...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HL" data-company="HECLA MINING CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HECLA MINING CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra su participación en la exploración minera a través of varias actividades...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su participación en la exploración minera a través de varias actividades clave. Ha asignado $27.3 millones a actividades de exploración y pre-desarrollo, centrándose principalmente en Greens Creek y Keno Hill, con trabajo adicional en el proyecto Libby Exploration. La empresa ta...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MP" data-company="MP MATERIALS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/MP" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MP</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MP MATERIALS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El empresa enfatiza su compromiso con la sostenibilidad y tiene como objetivo restaurar el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema de la Transición Energética es evidente a través de su papel en el suministro de elementos de tierras raras, que son críticos para la fabricación de imanes utilizados en motores eléctricos y generadores que impulsan tecnologías de reducción de carbono. Específ...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

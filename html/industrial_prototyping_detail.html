@@ -1,0 +1,888 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Industrial Prototyping - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Industrial Prototyping</div>
+      <div class="sub-title">Investment Theme Detail - Industrial Industry</div>
+    </div>
+    <a href="main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Industrial Prototyping &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Industrial &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 7
+    </div>
+
+    
+    <!-- Theme Chart Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Theme Chart</span>
+             <a href="equity_industrial_prototyping.html" target="_blank" class="btn-view-chart">View Full Chart ↗</a>
+        </div>
+        <div class="box-body" style="height: 600px; overflow:hidden;">
+            <iframe src="equity_industrial_prototyping.html" style="width:100%; height:100%; border:none; display:block;"></iframe>
+        </div>
+    </div>
+        
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">7</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ADSK</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">AUTODESK INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona soluciones de software esenciales para los procesos de diseño, ingeniería y producción dentro de la industria de fabricación aeroespacial....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ADSK" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DSY</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">DASSAULT SYSTEMES SE</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Integra capacidades de inteligencia artificial dentro de su plataforma 3DEXPERIENCE y soluciones industriales para generar información procesable a pa...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DSY" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">PRLB</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">PROTO LABS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha tecnologías de fabricación digital como la impresión 3D, el mecanizado CNC y el moldeo por inyección para proporcionar prototipado rápido y ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/PRLB" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">RSW</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">RENISHAW PLC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona soluciones avanzadas de medición, fabricación aditiva y metrología que son integrales para el desarrollo y refinamiento de prototipos indu...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/RSW" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">PTC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">PTC INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece plataformas y herramientas que facilitan la creación y gestión de diversas aplicaciones para el desarrollo de productos, la fabricación y las o...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/PTC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">XMTR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/xmtr-Q125-10-Q.html'}</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/xmtr-Q225-10-Q.html'}...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/XMTR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">GE</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name"> lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   </div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/ge-FY24-10-K.html'}...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/GE" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">49</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/ADSK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ADSK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk abarca el diseño y la fabricación de productos. La conexión permite a los innovadores...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Autodesk con el tema de Fabricación Aeroespacial se demuestra a través de su tecnología que abarca el diseño y la fabricación de productos, lo que permite a los innovadores resolver desafíos. Una institución de investigación europea líder en aeroespacial, energía y transporte adoptó l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/ADSK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ADSK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk Forma, una nube industrial, unifica flujos de trabajo. Aprovecha la IA para proporcionar...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Autodesk en información impulsada por IA es evidente a través de su desarrollo y aplicación de Autodesk AI, con más de una década de inversión centrada en mejorar las cargas de trabajo de los clientes a través de la mejora, la automatización y el análisis. Autodesk Forma de la em...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/ADSK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ADSK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk ofrece programas que brindan financiación de inversión estratégica, plataformas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Autodesk en el desarrollo de aplicaciones es evidente a través de varias iniciativas estratégicas. La empresa mantiene una arquitectura basada en API para facilitar el desarrollo por parte de terceros de productos complementarios y soluciones de software específicas de la industr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/ADSK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ADSK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk adquisición de una plataforma de realidad extendida (XR) conectada a the nube. Esta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Autodesk con la Realidad Aumentada se destaca por su adquisición de una plataforma de realidad extendida (XR) conectada a la nube. Esta plataforma permite a los profesionales de AECO presentar, colaborar y revisar proyectos a través de experiencias inmersivas e interactivas. Esta ad...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/ADSK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ADSK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk facilita los procesos de diseño y fabricación. Este acuerdo permite a los diseñadores del...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Autodesk facilita los procesos de diseño y fabricación, como lo demuestra su acuerdo renovado con un icónico fabricante de automóviles de alto rendimiento. Este acuerdo permite a los diseñadores del fabricante acceder a tecnología unificada, una gestión de usuarios robusta y escalabilidad a través d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/ADSK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ADSK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk demuestra su enfoque en servicios en la nube a través ofertas de sus planes de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Autodesk demuestra su enfoque en servicios en la nube a través de sus planes de suscripción, que combinan software de escritorio con funcionalidad en la nube para permitir flujos de trabajo de diseño colaborativo. Las ofertas en la nube de la empresa, que incluyen Autodesk Construction Cloud, Autode...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/ADSK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ADSK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk combina software adquirido y orgánico para crear soluciones integrales basadas en la nube....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Autodesk con el tema del Software en la Nube es evidente en su estrategia de combinar software adquirido y orgánico para crear soluciones integrales basadas en la nube. Esto se demuestra a través de planes de suscripción que integran software de escritorio con funcionalidad en la nu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/ADSK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ADSK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa apoya la transformación digital en Arquitectura, Ingeniería, Construcción y Operaciones....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Autodesk en la industria de Servicios de Construcción es evidente a través de su tecnología que abarca arquitectura, ingeniería y construcción. La empresa apoya la transformación digital en Arquitectura, Ingeniería, Construcción y Operaciones (AECO) fortaleciendo sus soluciones a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/ADSK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ADSK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La tecnología de Autodesk es relevante para el tema of Entretenimiento Digital. La participación ...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La tecnología de Autodesk es relevante para el tema de Entretenimiento Digital, ya que abarca medios y entretenimiento, empoderando a los innovadores para resolver desafíos y crear éxitos de taquilla fascinantes. Esto se ve respaldado aún más por el aumento de los ingresos en la familia de productos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/ADSK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ADSK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk abarca arquitectura, ingeniería y construcción. Compañía está fortaleciendo activamente...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Autodesk en Servicios de Ingeniería es evidente a través de su tecnología que abarca arquitectura, ingeniería y construcción, empoderando a los innovadores para resolver desafíos. La compañía está fortaleciendo activamente sus soluciones de Arquitectura, Ingeniería, Construcción ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/ADSK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ADSK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La tecnología de Autodesk ayuda a los clientes a diseñar y crear un mundo mejor para todos,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Autodesk con la Industria del Entretenimiento es evidente a través de su tecnología que abarca los medios y el entretenimiento, empoderando a los innovadores para resolver desafíos y crear éxitos de taquilla fascinantes. Esto está respaldado además por el aumento de los ingresos net...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/ADSK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ADSK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk combina software orgánico y adquirido para crear soluciones basadas en la nube. Hitachi...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Autodesk con la Digitalización Industrial es evidente a través de sus iniciativas estratégicas y adquisiciones destinadas a optimizar los procesos de fabricación. La estrategia de la empresa implica combinar software orgánico y adquirido para crear soluciones basadas en la nube que ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/ADSK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ADSK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk demuestra su compromiso con SaaS a través de diversas vías, incluidos sus planes de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Autodesk demuestra su compromiso con SaaS a través de diversas vías, incluidos sus planes de suscripción que ofrecen una combinación de software de escritorio y funcionalidad en la nube, proporcionando flujos de trabajo de diseño colaborativos e independientes del dispositivo. El enfoque de la empre...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/ADSK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ADSK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk enfatiza su compromiso de promover un mundo más sostenible. Este compromiso se refleja en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Autodesk enfatiza su compromiso de promover un mundo más sostenible, con su tecnología permitiendo a los clientes diseñar y crear productos más sostenibles. Este compromiso se refleja en la alineación de Autodesk con los Objetivos de Desarrollo Sostenible de la ONU y su enfoque en la creación de sol...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/ADSK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ADSK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk and the Realidad Virtual se destaca por la adquisición of una plataforma de realidad...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Autodesk con la Realidad Virtual se destaca por la adquisición de una plataforma de realidad extendida (XR) conectada a la nube. Esta plataforma permite a los profesionales de AEC y AECO colaborar y revisar proyectos a través de experiencias inmersivas e interactivas. Esta adquisici...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PTC" data-company="PTC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/PTC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PTC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PTC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PTC está expandiendo activamente sus ofertas de SaaS, lanzando funcionalidades adicionales en la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de PTC con SaaS es evidente en su modelo de ingresos recurrentes, que incluye suscripciones locales, soporte perpetuo, SaaS y servicios de alojamiento. La empresa está expandiendo activamente sus ofertas de SaaS, lanzando funcionalidades adicionales en la nube y migrando clientes de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/ADSK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ADSK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk ofrecen herramientas para optimizar el diseño, la colaboración y la gestión of datos....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Autodesk en Tecnología de Construcción es evidente a través de sus plataformas Autodesk Construction Cloud, Autodesk Build y Autodesk Forma, que ofrecen herramientas para optimizar el diseño, la colaboración y la gestión de datos. El enfoque de la empresa se demuestra aún más con...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/ADSK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ADSK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk ofrece suscripciones para productos individuales, Colecciones Industriales, EBA y ofertas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Autodesk en Software Empresarial se refleja en sus planes de suscripción, que incluyen acuerdos comerciales empresariales (EBA) que brindan a los clientes empresariales acceso basado en tokens a una gama de productos de Autodesk durante un plazo contractual. La empresa ofrece sus...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/ADSK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ADSK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk Forma ofreciendo recopilación, gestión, análisis de datos en tiempo real. Adquisición de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Autodesk con la Automatización Industrial es evidente en su enfoque estratégico de combinar software orgánico y adquirido para ofrecer soluciones basadas en la nube que mejoran la eficiencia y la sostenibilidad para los clientes de fabricación. Esto se demuestra aún más con la adqui...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PTC" data-company="PTC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/PTC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PTC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PTC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PTC ha integración en varias soluciones de software, particularmente dentro of PLM, CAD, ALM y SLM....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de PTC en Inteligencia Artificial es evidente en su integración en varias soluciones de software, particularmente dentro de PLM, CAD, ALM y SLM. La empresa enfatiza la importancia de las bases de datos de productos para la transformación impulsada por IA, con soluciones diseñadas pa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PTC" data-company="PTC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/PTC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PTC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PTC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PTC participa en PLM, ALM, SLM, CAD y SaaS. ALM (Gestión del Ciclo de Vida de las Aplicaciones) is...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de PTC en el Desarrollo de Aplicaciones es evidente a través de su enfoque en PLM, ALM, SLM, CAD y SaaS, siendo ALM (Gestión del Ciclo de Vida de las Aplicaciones) un componente clave de sus ofertas de PLM. La estrategia de la empresa enfatiza constantemente la profundización del va...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PTC" data-company="PTC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/PTC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PTC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PTC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El software de PTC es utilizado por los clientes para construir bases de datos de productos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de PTC con el tema de Software Empresarial es evidente en sus ofertas principales, que incluyen soluciones CAD y PLM, así como ALM y SLM dentro de la categoría PLM, todas diseñadas para soportar procesos comerciales complejos en organizaciones. El software de PTC es utilizado por los c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PTC" data-company="PTC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/PTC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PTC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PTC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de PTC en aplicaciones industriales es evidente en su negocio principal. PTC permite a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de PTC en aplicaciones industriales es evidente en su negocio principal, que gira en torno a soluciones de software como CAD y PLM. Estas soluciones están diseñadas específicamente para mejorar los procesos de fabricación y el diseño de productos para fabricantes y empresas de productos. ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PTC" data-company="PTC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/PTC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PTC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PTC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PTC está diseñado para facilitando iniciativas de transformación digital. Ofertas como CAD y PLM...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de PTC con la Digitalización Industrial es evidente en su misión de permitir a los fabricantes y empresas de productos transformar digitalmente cómo diseñan, fabrican y dan servicio a productos físicos. Las soluciones de software de PTC están diseñadas para ser un facilitador estratégi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PTC" data-company="PTC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/PTC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PTC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PTC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PTC es una empresa de software global centrada en permitir la transformación digital de los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">PTC se identifica como una empresa de software global centrada en permitir la transformación digital de los fabricantes a través de su conjunto de ofertas de software. El negocio principal de la empresa gira en torno a la provisión de soluciones de software, incluyendo CAD (Diseño Asistido por Compu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PRLB" data-company="PROTO LABS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PRLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PRLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PROTO LABS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Proto Labs es un fabricante digital líder de piezas personalizadas. La empresa usa sistemas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Proto Labs está profundamente comprometida con la digitalización industrial, posicionándose como un fabricante digital líder de piezas personalizadas, con sistemas automatizados de cotización y fabricación altamente integrados con la producción y la logística. El compromiso de la empresa se evidenci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PRLB" data-company="PROTO LABS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PRLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PRLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PROTO LABS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Proto Labs identifica la Fabricación de Chapa Metálica y el Mecanizado CNC como líneas de productos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Proto Labs identifica la Fabricación de Chapa Metálica y el Mecanizado CNC como líneas de productos de fabricación primarias, con ingresos por Mecanizado CNC experimentando un crecimiento significativo, incluido un segundo trimestre récord y ganancias sustanciales en EE. UU. La empresa utiliza la fa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ADSK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ADSK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">AECO se están beneficiando de la inversión sostenida en infraestructura. Autodesk abarca...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Autodesk en el tema de Infraestructura Civil es evidente a través de sus alianzas estratégicas y soluciones tecnológicas. Los clientes de AECO se están beneficiando de la inversión sostenida en infraestructura, particularmente en regiones como Oriente Medio e India. La asociación...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ADSK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ADSK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La tecnología de Autodesk abarca el diseño y la fabricación de productos. La empresa atrae a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Autodesk con la creación de prototipos industriales es evidente a través de su Product Design & Manufacturing Collection, que está siendo utilizada por una institución de investigación europea líder para reducir la dependencia de prototipos físicos mediante un mayor uso de pruebas y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ADSK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ADSK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk demuestra su enfoque en Infraestructura Sostenible a través of su compromiso de avanzar...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Autodesk demuestra su enfoque en Infraestructura Sostenible a través de su compromiso de avanzar hacia un mundo más sostenible, resiliente e inclusivo, mencionando explícitamente la infraestructura resiliente como un área en la que su tecnología juega un papel. Este compromiso se refleja en cómo los...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PRLB" data-company="PROTO LABS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PRLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PRLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PROTO LABS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Proto Labs se centra en la fabricación de piezas personalizadas para prototipado y producción de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Proto Labs en la prototipación industrial es evidente a través de su estrategia comercial, que se centra en la fabricación de piezas personalizadas para prototipado y producción de bajo volumen utilizando métodos como el moldeo por inyección, el mecanizado CNC, la impresión 3D y ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PTC" data-company="PTC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PTC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PTC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PTC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PTC es una empresa global de software que empodera a los fabricantes y empresas de productos. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de PTC con las Soluciones de TI es evidente en su papel como una empresa global de software que empodera a los fabricantes y empresas de productos para transformar digitalmente sus procesos de diseño, fabricación y servicio. Las ofertas de PTC, que incluyen CAD, PLM, ALM y SLM, son sol...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PTC" data-company="PTC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PTC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PTC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PTC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PTC se dedica a permitir que los fabricantes y las empresas de productos transformen digitalmente....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">PTC se dedica a permitir que los fabricantes y las empresas de productos transformen digitalmente la forma en que diseñan, fabrican y dan servicio a productos físicos. Las ofertas de software de PTC actúan como un facilitador estratégico para las iniciativas de transformación digital, lo que ayuda a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XMTR" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/xmtr-Q125-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/XMTR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XMTR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/xmtr-Q125-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio principal de Xometry se centra en la digitalización de la industria manufacturera. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Xometry se centra en la digitalización de la industria manufacturera a través de su mercado en línea impulsado por IA, la plataforma de abastecimiento industrial Thomasnet y servicios basados en la nube como Workcenter y Teamspace. La empresa declara explícitamente que está d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XMTR" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/xmtr-Q125-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/XMTR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XMTR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/xmtr-Q125-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El mercado de Xometry ofrece una variedad de servicios de fabricación. La creación rápida de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El mercado de Xometry ofrece una variedad de servicios de fabricación, incluida la creación rápida de prototipos, que se ofrece desde piezas únicas hasta producción de alto volumen. Este servicio está disponible a través de la red de proveedores de Xometry, lo que permite a las empresas acelerar el ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XMTR" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/xmtr-Q125-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/XMTR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XMTR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/xmtr-Q125-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma de Xometry facilita la obtención de procesos de fabricación para compradores de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La plataforma de Xometry facilita la obtención de procesos de fabricación para compradores de diversas industrias, incluyendo dispositivos médicos, donde proporciona componentes y ensamblajes personalizados. La empresa permite a los compradores satisfacer necesidades específicas de diseño y pedido, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XMTR" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/xmtr-Q125-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/XMTR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XMTR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/xmtr-Q125-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La fabricación de metales es un componente de las ofertas de servicios de Xometry. Estos servicios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Xometry en el tema de Fabricación de Metales es evidente a través de su mercado, que ofrece una variedad de procesos de fabricación que incluyen fabricación CNC, conformado de chapa metálica y corte de chapa. Estos servicios se brindan a través de la red de proveedores de Xometry...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XMTR" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/xmtr-Q125-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/XMTR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XMTR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/xmtr-Q125-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Xometry se centra en su mercado de fabricación en línea global impulsado by IA. Este mercado es un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Xometry se centra en su mercado de fabricación en línea global impulsado por IA, que conecta a compradores y proveedores para la fabricación personalizada. La empresa se enfoca en incorporar principios de comercio electrónico para mejorar la experiencia del comprador y el proveedor, au...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PTC" data-company="PTC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/PTC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PTC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PTC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PTC en Software en the Nube es evidente en su énfasis estratégico en expandir las ofertas de SaaS....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de PTC en Software en la Nube es evidente en su énfasis estratégico en expandir las ofertas de SaaS y migrar a los clientes de suscripciones locales. La empresa reconoce los ingresos de los servicios en la nube, principalmente contratos de SaaS, de forma prorrateada y anticipa que e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GE" data-company=" lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   ">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/GE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   </div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Aerospace ha demostrado sus capacidades al demostrar un sistema de propulsión híbrido eléctrico...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de GE Aerospace en el tema de la Aviación Eléctrica se demuestra a través de su participación en el programa RISE de CFM International, que se centra en sistemas híbridos eléctricos y compatibilidad con combustibles alternativos. Reforzando esto, la empresa ha demostrado sus capacid...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GE" data-company=" lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   ">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/GE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   </div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Aerospace mantiene una sólida posición en sistemas de aviación. La participación de la empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">GE Aerospace mantiene una sólida posición en sistemas de aviación, impulsada por su extensa flota de propulsión comercial y servicios de posventa, que constituyen una parte importante de sus ingresos. La participación de la empresa se extiende al diseño, desarrollo, fabricación y servicio de motores...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GE" data-company=" lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   ">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/GE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   </div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Motores Comerciales y Servicios (CES) de GE Aerospace se dirige principalmente a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de GE Aerospace con la industria de las aerolíneas es evidente a través de su amplia presencia y soporte, ya que su tecnología está presente en tres de cada cuatro vuelos comerciales. El negocio de Motores Comerciales y Servicios (CES) de la empresa se dirige principalmente a fabricantes...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GE" data-company=" lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   ">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/GE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   </div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Aerospace impulsa parte importante de las flotas de combate y helicópteros militares de EE. UU....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de GE Aerospace en la contratación de defensa es evidente a través de su negocio de Defense & Propulsion Technologies (DPT), que impulsa una parte importante de las flotas de combate y helicópteros militares de EE. UU. Esto se ve respaldado además por un contrato de la Fuerza Aérea ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PRLB" data-company="PROTO LABS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/PRLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PRLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PROTO LABS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Proto Labs cree en la adopción acelerada de la fabricación de comercio electrónico, lo que presenta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Proto Labs con las Soluciones de Cadena de Suministro es evidente en su enfoque estratégico en profesionales de adquisiciones y cadenas de suministro que buscan un abastecimiento eficiente de piezas personalizadas, así como en desarrolladores de productos e ingenieros que utilizan s...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GE" data-company=" lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   ">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/GE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   </div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Aerospace demuestra una fuerte conexión con la fabricación aeroespacial a través of varias...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">GE Aerospace demuestra una fuerte conexión con la fabricación aeroespacial a través de varias actividades clave. La división de Motores y Servicios Comerciales (CES) de la empresa apoya una vasta base instalada comercial, impulsando una parte significativa de los vuelos comerciales a nivel mundial. ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GE" data-company=" lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   ">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/GE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   </div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Aerospace impulsa una parte significativa de las flotas de combate y helicópteros militares de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de GE Aerospace en la industria aeroespacial y de defensa es evidente a través de su segmento de Tecnologías de Defensa y Propulsión (DPT), que impulsa una parte significativa de las flotas de combate y helicópteros militares de EE. UU. Este segmento no solo se enfoca en los program...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GE" data-company=" lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   ">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/GE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   </div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Aerospace trabaja con clientes gubernamentales en el desarrollo of productos avanzados,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">GE Aerospace demuestra su compromiso con los drones de defensa a través de sus esfuerzos colaborativos con Kratos para avanzar en las tecnologías de propulsión para sistemas aéreos no tripulados asequibles. Además, GE Aerospace trabaja con clientes gubernamentales en el desarrollo de productos avanz...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XMTR" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/xmtr-Q125-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;"></td>
+            <td><a href="/profile/XMTR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XMTR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/xmtr-Q125-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">'name': 'xmtr-FY24-10-K' 'source':...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">{'name': 'xmtr-FY24-10-K'</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GE" data-company=" lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   ">
+            <td style="color: #666; font-size: 0.9rem;"></td>
+            <td><a href="/profile/GE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   </div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">'name': 'ge-Q324-10-Q' 'password': 'password' 'version': '1.0.1'</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">{'name': 'ge-Q324-10-Q'</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

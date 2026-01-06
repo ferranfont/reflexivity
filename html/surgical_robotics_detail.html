@@ -1,0 +1,1633 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Surgical Robotics - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Surgical Robotics</div>
+      <div class="sub-title">Investment Theme Detail - Health Industry</div>
+    </div>
+    <a href="/main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Surgical Robotics &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Health &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 15
+    </div>
+
+    
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">15</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ISRG</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">INTUITIVE SURGICAL INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aplica inteligencia artificial para desarrollar sofisticada robótica quirúrgica, contribuyendo a avances en la atención médica mínimamente invasiva....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ISRG" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">MDT</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">MEDTRONIC PLC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Integra inteligencia artificial en sus dispositivos médicos y plataformas de salud digital para mejorar el diagnóstico, personalizar tratamientos y op...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/MDT" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">JNJ</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">JOHNSON & JOHNSON</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se encuentra entre los contribuyentes destacados al tema de la industria de IA en la Atención Médica....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/JNJ" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SYK</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">STRYKER CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desempeña un papel fundamental en la integración de tecnologías de inteligencia artificial en diversos aspectos de la industria de la atención médica....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SYK" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">GMED</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">GLOBUS MEDICAL INC - A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha la inteligencia artificial para mejorar el desarrollo de dispositivos médicos y la precisión quirúrgica dentro del sector de la salud....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/GMED" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ZBH</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ZIMMER BIOMET HOLDINGS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Incorpora inteligencia artificial para optimizar la planificación quirúrgica, los procedimientos asistidos por robot y los conocimientos basados en da...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ZBH" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SHL</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SIEMENS HEALTHINEERS AG</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla e integra soluciones de inteligencia artificial en sus carteras de diagnóstico por imagen, diagnóstico de laboratorio y terapias avanzadas ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SHL" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">NOVT</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">NOVANTA INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Está involucrado con la IA en el sector de la salud....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/NOVT" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ATEC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ALPHATEC HOLDINGS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se enfoca en la automatización de la atención médica....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ATEC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">AME</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">AMETEK INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye a la industria Aeroespacial y de Defensa....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/AME" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">11</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">IPGP</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/ipgp-Q125-10-Q.html'}</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/ipgp-Q324-10-Q.html'}...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/IPGP" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">12</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">MKSI</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">MKS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye al desarrollo e implementación de Soporte de Tecnología 5G....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/MKSI" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">13</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ADI</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ANALOG DEVICES INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona soluciones analógicas, de señal mixta y de procesamiento de señal digital de alto rendimiento esenciales para sistemas avanzados de radar,...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ADI" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">14</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">UFPT</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">UFP TECHNOLOGIES INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Participa en la industria de la contratación de defensa....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/UFPT" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">15</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ENOV</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ENOVIS CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Implica el desarrollo y la aplicación de materiales especializados esenciales para sus ofertas de dispositivos y tecnología médica en el sector de la ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ENOV" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">111</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="MDT" data-company="MEDTRONIC PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MDT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MEDTRONIC PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Medtronic tiene un enfoque significativo en las enfermedades cardiovasculares. El crecimiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Medtronic tiene un enfoque significativo en las enfermedades cardiovasculares, como lo demuestra su amplia cartera de productos y terapias relacionadas, que incluyen marcapasos, monitores cardíacos, desfibriladores, cables, stents y tecnologías de reemplazo de válvulas cardíacas. Los productos cardi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MDT" data-company="MEDTRONIC PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MDT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MEDTRONIC PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Medtronic ofrece bombas de insulina, sistemas de monitorización continua de glucosa (MCG) y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Medtronic en el tema de Tratamientos para la Diabetes es evidente a través de su división dedicada a la Diabetes, que ofrece productos que incluyen bombas de insulina, sistemas de monitorización continua de glucosa (MCG) y consumibles relacionados. El negocio de Diabetes de la co...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MDT" data-company="MEDTRONIC PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MDT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MEDTRONIC PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La cartera Médico Quirúrgica de Medtronic incluye sensores y monitores para oximetría de pulso,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Medtronic en el Monitoreo de la Salud es evidente a través de sus soluciones de respiración y monitoreo, identificadas como una de sus áreas de productos principales. La cartera Médico Quirúrgica de la empresa incluye sensores y monitores para oximetría de pulso, capnografía, niv...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MDT" data-company="MEDTRONIC PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MDT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MEDTRONIC PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Medtronic participa en actividades de desarrollo de mercado para el procedimiento de presión...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Medtronic con los Servicios de Atención Médica se demuestra a través de su división Cardiovascular, que abarca Servicios de Gestión de Atención y Servicios Gestionados de Laboratorio de Cateterismo (CLMS) dentro de la división de Ritmo Cardíaco e Insuficiencia Cardíaca. Además, Medt...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MDT" data-company="MEDTRONIC PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MDT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MEDTRONIC PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Medtronic en la industria de dispositivos médicos es evidente a través of su amplia...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Medtronic en la industria de dispositivos médicos es evidente a través de su amplia cartera y sus esfuerzos de cumplimiento. La empresa se identifica como una empresa líder mundial en tecnología sanitaria con productos que van desde dispositivos de ritmo cardíaco hasta instrumentos qui...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MDT" data-company="MEDTRONIC PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MDT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MEDTRONIC PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Medtronic demuestra un fuerte enfoque en Neurociencia. Ofrece una amplia gama de productos y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Medtronic demuestra un fuerte enfoque en Neurociencia a través de su división dedicada que ofrece una amplia gama de productos y terapias, incluyendo implantes espinales, productos neurovasculares y terapias de neuroestimulación. Las ofertas de esta división se extienden a sistemas de cirugía guiada...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MDT" data-company="MEDTRONIC PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MDT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MEDTRONIC PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Medtronic ofrece terapias de neuroestimulación implantables y sistemas de administración de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Medtronic con el tema de Manejo del Dolor es evidente a través de su misión de aliviar el dolor y los productos fabricados por su división de Neurociencia. La compañía ofrece terapias de neuroestimulación implantables y sistemas de administración de fármacos específicamente para el ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MDT" data-company="MEDTRONIC PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MDT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MEDTRONIC PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Medtronic se centra en la adopción global de la cirugía asistida by robot. La iniciativa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Medtronic en el tema de la Robótica es evidente a través de su cartera de Neurociencia, que incluye sistemas de guía robótica utilizados en procedimientos de columna asistidos por robot. El segmento Médico Quirúrgico de la empresa se centra en la adopción global de la cirugía asi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MDT" data-company="MEDTRONIC PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MDT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MEDTRONIC PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de Medtronic en Robótica Quirúrgica es evidente a través of su plataforma robótico...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Medtronic en Robótica Quirúrgica es evidente a través de su plataforma robótica Hugo para tejidos blandos, que se considera un motor de crecimiento para el negocio quirúrgico y se acerca a hitos clave, incluida la entrada en el mercado estadounidense y la ampliación de indicacion...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MDT" data-company="MEDTRONIC PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MDT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MEDTRONIC PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Medtronic es líder mundial en tecnología de la salud enfocada en aliviar el dolor, restaurar the...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Medtronic con las Soluciones de Atención Médica es evidente a través de su posición como empresa líder mundial en tecnología de la salud enfocada en aliviar el dolor, restaurar la salud y extender la vida de millones de personas. Esto se ve ejemplificado aún más por sus soluciones i...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MDT" data-company="MEDTRONIC PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MDT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MEDTRONIC PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los productos Médico-Quirúrgicos de Medtronic abordan una gama de necesidades de atención al...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Los productos Médico-Quirúrgicos de Medtronic abordan una gama de necesidades de atención al paciente, incluidas las enfermedades relacionadas con la obesidad. El enfoque de la empresa se extiende desde el diagnóstico hasta la recuperación, abarcando explícitamente la obesidad junto con otras afecci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADI" data-company="ANALOG DEVICES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ANALOG DEVICES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Analog Devices participa en el tema de vehículos conectados. Los aumentos de ingresos en el mercado...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Analog Devices en el tema de los vehículos conectados es evidente, ya que los aumentos de ingresos en el mercado final automotriz, que constituye el 31-32% de los ingresos totales de la empresa, son impulsados principalmente por soluciones de conectividad. La empresa menciona exp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADI" data-company="ANALOG DEVICES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ANALOG DEVICES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ADI está colaborando con NVIDIA en programas de simulación de gemelos digitales y diseños de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ADI en el tema de los centros de datos es evidente a través del crecimiento de su negocio de cableado y centros de datos, que constituye una parte importante de su sector de comunicaciones total, impulsado por la creciente demanda de IA. Este crecimiento está respaldado además po...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADI" data-company="ANALOG DEVICES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ANALOG DEVICES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Analog Devices participa en el mercado final Industrial, que constituyeron el 44% de los ingresos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Analog Devices en el tema de Aplicaciones Industriales se demuestra a través de sus ingresos reportados del mercado final Industrial, que constituyeron el 44% de los ingresos totales de la empresa durante los períodos de tres y seis meses que finalizaron el 3 de mayo de 2025, con...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADI" data-company="ANALOG DEVICES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ANALOG DEVICES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El mercado final industrial representó el 46% de los ingresos totales de Analog Devices. Durante...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Analog Devices con el tema de Productos Industriales es evidente a través de sus ingresos constantes reportados del mercado final industrial. En el año fiscal 2024, el mercado final industrial representó el 46% de los ingresos totales de la empresa, y en el año fiscal 2023, represen...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADI" data-company="ANALOG DEVICES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ANALOG DEVICES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Analog Devices tiene gran participación en el tema de chips semiconductores. El rendimiento de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Analog Devices en el tema de los chips semiconductores es evidente en sus operaciones comerciales principales, ya que prácticamente todos sus contratos implican la venta de productos de circuitos integrados (CI) de señal mixta. Además, la política de reconocimiento de ingresos de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADI" data-company="ANALOG DEVICES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ANALOG DEVICES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Analog Devices representa el 12% de sus ingresos totales. El crecimiento en el mercado final de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Analog Devices con el tema de Infraestructura de Telecomunicaciones es evidente a través de su mercado final de Comunicaciones, que representa el 12% de sus ingresos totales. El crecimiento en el mercado final de Comunicaciones está impulsado principalmente por la expansión del subm...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ATEC" data-company="ALPHATEC HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ATEC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHATEC HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ATEC obtiene ingresos de la venta de implantes para cirugía de columna. La línea de productos de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de ATEC con el tema de la industria de Materiales para la Salud es evidente a través de su enfoque en implantes para cirugía de columna, incluyendo materiales a base de tejido. Los ingresos quirúrgicos de ATEC constituyen una parte significativa de sus ingresos totales, con un crecimient...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GMED" data-company="GLOBUS MEDICAL INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GMED</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GLOBUS MEDICAL INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Globus Medical comercializa soluciones de atención médica destinadas a mejorar la calidad de vida...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Globus Medical en Servicios de Salud es evidente a través de su desarrollo y comercialización de soluciones de atención médica destinadas a mejorar la calidad de vida de los pacientes con trastornos musculoesqueléticos. Las Soluciones Musculoesqueléticas de la empresa incluyen di...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GMED" data-company="GLOBUS MEDICAL INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GMED</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GLOBUS MEDICAL INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Globus Medical desarrolla y comercializa soluciones de atención médica destinadas a mejorar la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Globus Medical en la industria de dispositivos médicos es evidente a través de su identidad como empresa de dispositivos médicos que desarrolla y comercializa soluciones de atención médica destinadas a mejorar la calidad de vida de los pacientes con trastornos musculoesqueléticos. La c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GMED" data-company="GLOBUS MEDICAL INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GMED</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GLOBUS MEDICAL INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Globus Medical utiliza tecnología de neuromodulación para tratar el dolor crónico. El enfoque de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Globus Medical en el manejo del dolor es evidente a través de sus Soluciones Musculoesqueléticas, que incluyen terapia de tratamiento de estimulación de la médula espinal que utiliza tecnología de neuromodulación para tratar el dolor crónico con dispositivos implantables que admi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GMED" data-company="GLOBUS MEDICAL INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GMED</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GLOBUS MEDICAL INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Globus Medical vende sistemas robóticos EGPS, y la retroalimentación de los cirujanos ha sido...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Globus Medical con la Robótica Quirúrgica es evidente a través de sus Tecnologías Habilitadoras, que incluyen soluciones de imagen, navegación y robótica para cirugía asistida. La empresa vende sistemas robóticos EGPS, y la retroalimentación de los cirujanos ha sido positiva, con...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IPGP" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/ipgp-Q125-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IPGP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/ipgp-Q125-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La industria automotriz se incluye como uno de varios mercados de usuarios finales dentro del...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de la empresa con la industria de Fabricantes de Automóviles proviene de sus productos que se utilizan en el procesamiento de materiales para el sector automotriz, incluidos los vehículos eléctricos, con una parte significativa de los ingresos derivada de los clientes que utilizan estos ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IPGP" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/ipgp-Q125-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IPGP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/ipgp-Q125-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IPG Photonics es una aplicación principal en el procesamiento de materiales. El negocio de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IPG Photonics en el tema de Aplicaciones Industriales es evidente a través de su enfoque en el procesamiento de materiales, donde sus láseres se utilizan en diversas aplicaciones. El negocio de la empresa depende de los fabricantes que utilizan sus productos para el procesamiento...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IPGP" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/ipgp-Q125-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IPGP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/ipgp-Q125-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IPG Photonics desarrolla, fabrica y vende láseres de fibra y láSeres de diodo. La empresa muestra...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de IPG Photonics está significativamente ligado al tema de Tecnologías Industriales, ya que la empresa desarrolla, fabrica y vende láseres de fibra y láseres de diodo de alto rendimiento principalmente para el procesamiento de materiales, lo que representa una parte sustancial de sus ingr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ISRG" data-company="INTUITIVE SURGICAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ISRG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTUITIVE SURGICAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Intuitive Surgical contribuye significativamente a la industria de Servicios de Atención Médica. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Intuitive Surgical contribuye significativamente a la industria de Servicios de Atención Médica a través de sus sistemas quirúrgicos asistidos por robot y sus ofertas de servicios integrales. La empresa tiene como objetivo mejorar los resultados y las experiencias de los pacientes trabajando con méd...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ISRG" data-company="INTUITIVE SURGICAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ISRG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTUITIVE SURGICAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Intuitive Surgical se centra en el diseño, la fabricación y la comercialización of dispositivos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Intuitive Surgical se centra en el diseño, la fabricación y la comercialización de dispositivos médicos, principalmente los sistemas quirúrgicos da Vinci y el sistema endoluminal Ion. Estos sistemas, junto con los instrumentos y accesorios relacionados, representan una parte importante...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ISRG" data-company="INTUITIVE SURGICAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ISRG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTUITIVE SURGICAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Intuitive Surgical está relacionado con la industria de suministros médicos. La compañía fabrica...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Intuitive Surgical está significativamente relacionado con la industria de suministros médicos, particularmente a través de los ingresos recurrentes generados por instrumentos y accesorios utilizados con sus sistemas da Vinci e Ion. Estos instrumentos, que incluyen engrapadoras y otras...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ISRG" data-company="INTUITIVE SURGICAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ISRG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTUITIVE SURGICAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa centra su organización e inversiones en productos y servicios para procedimientos en los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema de la robótica está profundamente arraigado en su negocio principal, principalmente a través del diseño, desarrollo y despliegue de sistemas quirúrgicos asistidos por robot como da Vinci e Ion. La empresa centra su organización e inversiones en productos y ser...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ISRG" data-company="INTUITIVE SURGICAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ISRG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTUITIVE SURGICAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Intuitive Surgical es una empresa que destaca su papel central en su negocio. La innovación...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El fuerte compromiso de Intuitive Surgical con el tema de la Robótica Quirúrgica es evidente en sus sistemas quirúrgicos da Vinci, que han estado en desarrollo durante casi tres décadas y están diseñados para mejorar la precisión y los resultados quirúrgicos. El enfoque de la empresa en soluciones q...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JNJ" data-company="JOHNSON & JOHNSON">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">JNJ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOHNSON & JOHNSON</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Johnson & Johnson demuestra una presencia significativa en el espacio de Enfermedades...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Johnson & Johnson demuestra una presencia significativa en el espacio de Enfermedades Cardiovasculares, respaldada por su liderazgo en recuperación cardíaca, restauración circulatoria y electrofisiología. Esto es evidente en el segmento MedTech de la empresa, que incluye una amplia cartera de produc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JNJ" data-company="JOHNSON & JOHNSON">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">JNJ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOHNSON & JOHNSON</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Johnson & Johnson está invirtiendo fuertemente en investigación y desarrollo dentro of su segmento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Johnson & Johnson en el desarrollo de fármacos es evidente a través de su segmento de Medicina Innovadora, que representó una parte sustancial de las ventas totales de la compañía. La compañía prioriza estratégicamente las inversiones en investigación y desarrollo dentro de este ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JNJ" data-company="JOHNSON & JOHNSON">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">JNJ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOHNSON & JOHNSON</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Johnson & Johnson mantiene un fuerte enfoque en Inmunología. El segmento de Medicina Innovadora de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Johnson & Johnson mantiene un fuerte enfoque en Inmunología, demostrado por su legado de 25 años y los esfuerzos continuos para redefinir los estándares de atención. El segmento de Medicina Innovadora de la compañía prioriza la Inmunología, respaldado por una cartera diversa que incluye REMICADE, SY...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JNJ" data-company="JOHNSON & JOHNSON">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">JNJ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOHNSON & JOHNSON</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">J&J abarca una cartera de productos utilizados en los campos de Ortopedia, Cirugía, Cardiovascular...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de J&J con el tema de Dispositivos Médicos es evidente a través de su segmento MedTech, que abarca una amplia cartera de productos utilizados en los campos de Ortopedia, Cirugía, Cardiovascular y Visión. La compañía destaca el engrapador quirúrgico Ethicon 4000 y su integración con el ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JNJ" data-company="JOHNSON & JOHNSON">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">JNJ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOHNSON & JOHNSON</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Johnson & Johnson mantiene un fuerte enfoque en Neurociencia. La empresa está superando los límites...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Johnson & Johnson mantiene un fuerte enfoque en Neurociencia, demostrado por la dedicación de su segmento de Medicina Innovadora a esta área terapéutica y un legado de 70 años, con el objetivo de ser el número uno en el campo para finales de la década. Este compromiso se apoya aún más en la adquisic...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JNJ" data-company="JOHNSON & JOHNSON">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">JNJ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOHNSON & JOHNSON</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Johnson & Johnson demuestra un fuerte enfoque en Fármacos Oncológicos. El segmento de Medicina...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Johnson & Johnson demuestra un fuerte enfoque en Fármacos Oncológicos, respaldado por ventas y crecimiento sustanciales en esta área terapéutica. El segmento de Medicina Innovadora prioriza la Oncología, con productos oncológicos que logran ventas significativas, así como crecimiento en ventas opera...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JNJ" data-company="JOHNSON & JOHNSON">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">JNJ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOHNSON & JOHNSON</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Medicina Innovadora de Johnson & Johnson se enfoca en áreas terapéuticas clave como...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Johnson & Johnson con la industria Farmacéutica es significativo, como lo demuestra su sustancial participación en la investigación, desarrollo, fabricación y venta de una amplia gama de productos para el cuidado de la salud. El segmento de Medicina Innovadora de la compañía, con ve...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JNJ" data-company="JOHNSON & JOHNSON">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">JNJ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOHNSON & JOHNSON</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">J&J está fortaleciendo activamente su posición en robótica quirúrgica. El sistema OTTAVA ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">J&J está fortaleciendo activamente su posición en robótica quirúrgica, destacada por el avance del sistema OTTAVA, que ha completado casos clínicos iniciales, incluidas cirugías de bypass gástrico, y está programado para la aprobación de novo de la FDA. El compromiso de la empresa se demuestra aún m...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MDT" data-company="MEDTRONIC PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MDT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MEDTRONIC PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La oferta AiBLE integra implantes espinales con tecnologías como StealthStation. Medtronic está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Medtronic demuestra su compromiso con la IA en la atención médica a través de varias iniciativas clave. La oferta AiBLE de la empresa integra implantes espinales con tecnologías como StealthStation y robótica Mazor, incorporando UNiD Adaptive Spine Intelligence, una tecnología impulsada por IA, para...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKSI" data-company="MKS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKSI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MKS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MKS Instruments aborda el mercado de vehículos eléctricos. La empresa desarrolla nuevos productos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">MKS Instruments aborda el mercado de vehículos eléctricos a través de su segmento industrial, que incluye químicas para recubrimientos funcionales, acabado de superficies y resistencia al desgaste en la industria automotriz. La empresa desarrolla nuevos productos diseñados para abordar las tendencia...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKSI" data-company="MKS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKSI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MKS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MKS Instruments desempeña un papel en la industria de componentes electrónicos. Ofrece soluciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">MKS Instruments desempeña un papel en la industria de componentes electrónicos a través de sus soluciones de química y equipos para el empaquetado avanzado, que son cada vez más importantes para las aplicaciones de IA. La División de Soluciones Fotónicas de la empresa ofrece una gama de soluciones, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKSI" data-company="MKS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKSI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MKS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MKS Instruments ofrece soluciones tecnológicas para aplicaciones industriales especializadas. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">MKS Instruments se relaciona con el tema de Aplicaciones Industriales a través de su División de Soluciones de Vacío (VSD), que ofrece soluciones tecnológicas fundamentales para aplicaciones industriales especializadas. La división MSD de la empresa también contribuye desarrollando tecnologías de pr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKSI" data-company="MKS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKSI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MKS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MKS Instruments proporciona soluciones de potencia de RF, sensores térmicos para aplicaciones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de MKS Instruments en el tema de Electrónica Industrial es evidente a través de sus soluciones tecnológicas fundamentales para las industrias de la electrónica y el empaquetado. La División de Soluciones de Vacío (VSD) de la empresa desempeña un papel clave, proporcionando solucione...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKSI" data-company="MKS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKSI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MKS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MKS Instruments ofrece soluciones tecnológicas a diversos sectores. Productos de VSD provienen de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de MKS Instruments con el tema de Sensores Industriales es evidente a través de su División de Soluciones de Vacío (VSD), que ofrece soluciones tecnológicas a diversos sectores, incluida la fabricación de semiconductores y aplicaciones industriales especializadas. Los productos de VSD ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKSI" data-company="MKS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKSI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MKS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MKS Instruments es un proveedor de soluciones fundamentales para el mercado de electrónica and...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">MKS Instruments está profundamente involucrada en el tema de la fabricación de productos electrónicos, proporcionando soluciones tecnológicas fundamentales a través de su División de Soluciones de Vacío (VSD) y su División de Soluciones de Materiales (MSD). Los productos y tecnologías de la empresa,...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKSI" data-company="MKS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKSI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MKS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MKS Instruments participa en el tema de Dispositivos Médicos. La aplicación de sus productos dentro...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de MKS Instruments en el tema de Dispositivos Médicos se deriva de la aplicación de sus productos dentro del sector de ciencias de la vida y la salud, específicamente en áreas como la fabricación de dispositivos médicos, la esterilización de instrumentos médicos y la instrumentación...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKSI" data-company="MKS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKSI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MKS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MKS Instruments es un proveedor crítico de soluciones para aplicaciones de memoria, particularmente...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de MKS Instruments en el tema de Chips de Memoria es evidente a través de su apoyo a la producción de memoria NAND, incluyendo mejoras planificadas y el suministro de herramientas de deposición y grabado. Los ingresos de la compañía en el mercado de semiconductores han experimentado...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKSI" data-company="MKS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKSI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MKS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MKS Instruments ofrece soluciones fotónicos, componentes optomecánicos y elementos ópticos. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de MKS Instruments con la industria de la optoelectrónica es evidente a través de su División de Soluciones Fotónicas (PSD), que ofrece una gama de soluciones que incluyen instrumentos fotónicos, componentes optomecánicos y elementos ópticos. Las ofertas de PSD se extienden a láseres, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKSI" data-company="MKS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKSI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MKS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MKS Instruments desempeña un papel fundamental en la industria de los chips semiconductores como...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">MKS Instruments desempeña un papel fundamental en la industria de los chips semiconductores como proveedor de soluciones para la fabricación, y sus productos se utilizan en procesos clave como la deposición, el grabado, la limpieza, la litografía, la metrología y la inspección. La participación de l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKSI" data-company="MKS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKSI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MKS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MKS Inc. participa activamente en la industria de equipos semiconductores. La empresa caracteriza...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">MKS Inc. participa activamente en la industria de equipos semiconductores, proporcionando soluciones críticas para la fabricación de semiconductores, incluidos productos utilizados en pasos de procesamiento importantes como deposición, grabado, limpieza, litografía, metrología e inspección. La empre...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKSI" data-company="MKS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKSI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MKS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MKS Instruments mantiene una sólida posición en la industria de fabricación de semiconductores. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">MKS Instruments mantiene una sólida posición en la industria de fabricación de semiconductores, proporcionando soluciones críticas y tecnología fundamental. Los productos de la empresa son parte integral de los principales pasos del procesamiento de semiconductores, incluyendo deposición, grabado, l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKSI" data-company="MKS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKSI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MKS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MKS Instruments está desarrollando nuevos productos para abordar tendencias como la transición a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de MKS Instruments en la industria de la energía solar está relacionada con su provisión de fotónica para la fabricación de energía solar. La empresa reconoce la importancia de la fotónica en este sector y continúa desarrollando nuevos productos para abordar tendencias como la trans...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NOVT" data-company="NOVANTA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NOVT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NOVANTA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Novanta diseña, fabrica y comercializa diversas tecnologías. La empresa tiene como objetivo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Novanta en el tema de Diagnóstico Sanitario es evidente a través de su segmento de Soluciones Médicas, que diseña, fabrica y comercializa diversas tecnologías, incluidas tecnologías de recopilación de datos ópticos y visión artificial. La empresa tiene como objetivo aumentar las ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NOVT" data-company="NOVANTA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NOVT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NOVANTA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Novanta se destaca como un área objetivo para el desarrollo of nuevos productos. La monitorización...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Novanta con el tema de Monitorización Sanitaria es evidente a través de su estrategia de introducir nuevos productos dirigidos a aplicaciones médicas atractivas, incluida la monitorización de pacientes. Esto se refleja en múltiples menciones de monitorización de pacientes dentro de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NOVT" data-company="NOVANTA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NOVT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NOVANTA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Novanta está aumentando activamente su penetración en aplicaciones industriales avanzadas de alto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Novanta en el tema de las aplicaciones industriales es evidente a través de su segmento de Tecnologías Habilitadoras de Automatización, que atiende aplicaciones exigentes para procesos industriales avanzados. La compañía está aumentando activamente su penetración en aplicaciones ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NOVT" data-company="NOVANTA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NOVT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NOVANTA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Novanta diseña, fabrica y comercializa soluciones inteligentes de tecnología de extremo de brazo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Novanta en el tema de Automatización Industrial es evidente a través de su segmento de Tecnologías Habilitadoras de Automatización, que diseña, fabrica y comercializa soluciones inteligentes de tecnología de extremo de brazo robótico, soluciones de control de movimiento y husillo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NOVT" data-company="NOVANTA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NOVT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NOVANTA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Novanta diseña, fabrica y comercializa codificadores ópticos e inductivos. La empresa aborda...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Novanta con los sensores industriales es evidente a través de su segmento de Tecnologías Habilitadoras de Automatización, que diseña, fabrica y comercializa codificadores ópticos e inductivos. La empresa reconoce que los avances en las tecnologías de sensores físicos de IA están imp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NOVT" data-company="NOVANTA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NOVT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NOVANTA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Novanta diseña, fabrica y comercializa una gama de tecnologías de grado médico. Las ventas de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Novanta en el tema de Dispositivos Médicos es evidente a través de su segmento de Soluciones Médicas, que diseña, fabrica y comercializa una gama de tecnologías de grado médico, incluidos insufladores médicos y bombas endoscópicas. Las ventas de la compañía a mercados de disposit...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NOVT" data-company="NOVANTA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NOVT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NOVANTA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Novanta participa en el diseño, fabricación y comercialización de diversas soluciones basadas on...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Novanta en la temática de Optoelectrónica es evidente a través de sus segmentos de Tecnologías Habilitadoras de Automatización y Medicina y Fabricación de Precisión, que participan en el diseño, fabricación y comercialización de diversas soluciones basadas en láser y fotónica. Es...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NOVT" data-company="NOVANTA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NOVT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NOVANTA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Novanta diseña, fabrica y comercializa soluciones inteligentes de tecnología de extremo de brazo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Novanta con la Robótica es evidente en su estrategia de crecimiento a largo plazo, que se centra en mercados con vientos de cola seculares como la robótica y la automatización impulsadas por la precisión y la IA. El segmento de Tecnologías de Habilitación de la Automatización de la ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NOVT" data-company="NOVANTA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NOVT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NOVANTA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Novanta se enfoca estratégicamente en la cirugía mínimamente invasiva y robótica avanzada. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Novanta se enfoca estratégicamente en la cirugía mínimamente invasiva y robótica avanzada como un área clave para el crecimiento a largo plazo, con el objetivo de superar al mercado de la salud a través del lanzamiento de nuevos productos en este sector. La estrategia de la compañía implica la intro...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SYK" data-company="STRYKER CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SYK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STRYKER CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Stryker en Soluciones de Atención Médica es evidente a través ofreciendo productos y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Stryker en Soluciones de Atención Médica es evidente a través de su posición como líder mundial en tecnologías médicas, ofreciendo productos y servicios innovadores en MedSurg, Neurotecnología y Ortopedia destinados a mejorar los resultados de los pacientes y la atención médica. El com...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SYK" data-company="STRYKER CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SYK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STRYKER CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Stryker lanza activamente nuevos dispositivos médicos como el desfibrilador LIFEPAK 35 y el sistema...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Stryker en el tema de Dispositivos Médicos es evidente a través de su extensa línea de productos, que incluye equipos quirúrgicos, sistemas de navegación, implantes para reemplazos de articulaciones y sistemas endoscópicos. La dedicación de la compañía a este tema se ve reforzada...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UFPT" data-company="UFP TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UFPT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UFP TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UFP Technologies demuestra una presencia significativa en el mercado de la robótica quirúrgica. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">UFP Technologies demuestra una presencia significativa en el mercado de la robótica quirúrgica, con un crecimiento orgánico de las ventas impulsado por este sector. El negocio médico de la empresa ha experimentado un crecimiento sustancial, con la cirugía robótica identificada como el segundo segmen...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ZBH" data-company="ZIMMER BIOMET HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ZBH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ZIMMER BIOMET HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Zimmer Biomet se centra en la industria de dispositivos médicos. Esto se ve...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Zimmer Biomet se centra en la industria de dispositivos médicos, como lo demuestra su diseño, fabricación y comercialización de productos de reconstrucción ortopédica, medicina deportiva, biológicos, productos para extremidades y traumatismos, CMFT, productos quirúrgicos y tecnologías ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ZBH" data-company="ZIMMER BIOMET HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ZBH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ZIMMER BIOMET HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Zimmer Biomet está innovando activamente en robótica. Planeando introducir nuevas aplicaciones ROSA...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Zimmer Biomet con la robótica quirúrgica es evidente a través de su desarrollo y comercialización de tecnologías digitales y robóticas integradas, incluido el robot ROSA. La compañía está innovando activamente en robótica, planeando introducir nuevas aplicaciones ROSA y expandiendo ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADI" data-company="ANALOG DEVICES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ANALOG DEVICES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de equipos de prueba automáticos (ATE) de la empresa está experimentando un crecimiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de equipos de prueba automáticos (ATE) de la empresa está experimentando un crecimiento debido a la creciente inversión en IA, lo que indica su participación en el mercado de chips de IA a través de pruebas y soporte de producción. Este crecimiento en el submercado de línea fija, impulsad...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADI" data-company="ANALOG DEVICES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ANALOG DEVICES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de equipos de prueba automática (ATE) de Analog Devices está experimentando un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de equipos de prueba automática (ATE) de Analog Devices está experimentando un crecimiento debido a las crecientes inversiones en infraestructura de IA, lo que también contribuye a la recuperación del sector industrial, específicamente en aeroespacial, defensa e instrumentación. La empres...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADI" data-company="ANALOG DEVICES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ANALOG DEVICES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Analog Devices reportó 732,513 millones de dólares en ingresos de Piezas de Automóviles. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Analog Devices en la industria de Piezas de Automóviles es evidente a través de sus ingresos constantes reportados del mercado final automotriz, que constituyen el 30% de sus ingresos totales. Durante los tres meses finalizados el 1 de febrero de 2025, la empresa reportó 732,513 ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADI" data-company="ANALOG DEVICES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ANALOG DEVICES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de ADI en la industria de servicios inalámbricos es evidente a través of su sector...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ADI en la industria de servicios inalámbricos es evidente a través de su sector de comunicaciones, que representa una parte de sus ingresos trimestrales. Si bien los segmentos de línea fija y centros de datos han impulsado el crecimiento, impulsados por la creación de IA y una ma...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENOV" data-company="ENOVIS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ENOV</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENOVIS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Enovis comercializa productos de Prevención and Recuperación a una amplia gama of profesionales de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Enovis demuestra su compromiso con los Servicios de Atención Médica a través de su enfoque en el desarrollo de soluciones que mejoran los resultados de los pacientes en todo el continuo de atención, desde la prevención de lesiones hasta la rehabilitación. El negocio Recon de la empresa impulsa esta ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENOV" data-company="ENOVIS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ENOV</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENOVIS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Enovis is centrada en la fabricación y distribución of dispositivos médicos. Las operaciones de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Enovis está profundamente comprometida con el tema de los dispositivos médicos, como lo demuestra su identidad como empresa de tecnología médica centrada en la fabricación y distribución de dispositivos médicos de alta calidad. Las operaciones de la empresa se estructuran en torno a dos segmentos, P...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENOV" data-company="ENOVIS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ENOV</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENOVIS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Enovis en el manejo del dolor es evidente en el desarrollo, fabricación y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Enovis en el manejo del dolor es evidente en el desarrollo, fabricación y distribución de dispositivos y soluciones médicas. La empresa ofrece una gama de productos, incluidos estimuladores de crecimiento óseo y estimuladores eléctricos, específicamente para el manejo del dolor, comerc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENOV" data-company="ENOVIS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ENOV</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENOVIS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Enovis demuestra su compromiso con el tema de la Robótica Quirúrgica a través del desarrollo y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Enovis demuestra su compromiso con el tema de la Robótica Quirúrgica a través del desarrollo y lanzamiento de sistemas de robots quirúrgicos, incluido el sistema Arvis para hombros y NAV 360 para rodillas. El compromiso de la empresa se evidencia aún más con el lanzamiento de hardware y software Arv...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GMED" data-company="GLOBUS MEDICAL INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GMED</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GLOBUS MEDICAL INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Globus Medical participa en la IA en la Atención Médica. Aprobación de la FDA de su Excelsius XR,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Globus Medical en la IA en la Atención Médica se destaca por la aprobación de la FDA de su Excelsius XR, un casco de navegación de realidad aumentada diseñado para la visualización quirúrgica. Este casco se integra con los sistemas ExcelsiusHub y ExcelsiusGPS, proyectando datos 2...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GMED" data-company="GLOBUS MEDICAL INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GMED</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GLOBUS MEDICAL INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Globus Medical demuestra un fuerte compromiso con la innovación en dispositivos médicos. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Globus Medical demuestra un fuerte compromiso con la innovación en dispositivos médicos a través de diversas iniciativas. La empresa enfatiza su dedicación a mejorar los resultados de los pacientes y abordar las necesidades clínicas no satisfechas, respaldada por un historial de desarrollo y comerci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IPGP" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/ipgp-Q125-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IPGP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/ipgp-Q125-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de la empresa depende de fabricantes en sectores, incluida la industria pesada. Una...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La dependencia de la empresa de las inversiones de capital de los fabricantes que utilizan sus productos para el procesamiento de materiales vincula significativamente su rendimiento al sector de la industria pesada, junto con otros como el automotriz, aeroespacial y electrónico. Una parte sustancia...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IPGP" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/ipgp-Q125-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IPGP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/ipgp-Q125-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IPG Photonics está vinculado a los gastos de capital de los fabricantes en diversos sectores. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de IPG Photonics está vinculado a los gastos de capital de los fabricantes en diversos sectores, incluida la industria electrónica, ya que sus productos se utilizan en el procesamiento de materiales para la fabricación de productos electrónicos. Una parte significativa de los ingresos de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IPGP" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/ipgp-Q125-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IPGP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/ipgp-Q125-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IPG Photonics fabrica componentes clave, incluidos diodos semiconductores y preformas de fibra...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IPG Photonics en el tema de la Optoelectrónica es evidente en su fabricación de componentes clave, incluidos diodos semiconductores y preformas de fibra óptica. La empresa desarrolla, fabrica y vende láseres de fibra y láseres de diodo de alto rendimiento utilizados en diversas a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKSI" data-company="MKS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKSI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MKS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MKS Instruments demuestra su enfoque en el Soporte de Tecnología 5G. La empresa continúa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">MKS Instruments demuestra su enfoque en el Soporte de Tecnología 5G a través del desarrollo de nuevos productos destinados a abordar la transición de la industria a 5G tanto para dispositivos como para infraestructura. La empresa continúa desarrollando nuevos productos diseñados para abordar las ten...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKSI" data-company="MKS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKSI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MKS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MKS Instruments está desarrollando nuevos productos para abordar la creciente demanda de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de MKS Instruments al tema de los teléfonos inteligentes es evidente a través de varios factores. Los ingresos y los pedidos de equipos de la empresa se ven influenciados por las aplicaciones de IA en los sectores HDI y MLB, que son cruciales para la fabricación de teléfonos inteligent...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NOVT" data-company="NOVANTA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NOVT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NOVANTA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Novanta es líder de soluciones tecnológicas centrales para OEMs industriales avanzados. El enfoque...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Novanta está fuertemente involucrada en el tema de Tecnologías Industriales, como lo demuestra su papel como proveedor global líder de soluciones tecnológicas centrales para OEMs industriales avanzados. El enfoque estratégico de la empresa incluye aumentar la penetración en aplicaciones industriales...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SYK" data-company="STRYKER CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SYK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STRYKER CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Stryker es una oferta de tecnologías y productos médicos en varios segmentos. La división de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Stryker en el tema de Materiales para la Salud es evidente a través de su provisión de tecnologías y productos médicos en varios segmentos. La división de Ortopedia de la empresa se basa en implantes para reemplazos de articulaciones de cadera y rodilla, así como cirugías de trau...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SYK" data-company="STRYKER CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SYK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STRYKER CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Stryker en la mejora de la atención médica es evidente a través of sus innovadores...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Stryker en la mejora de la atención médica es evidente a través de sus innovadores productos y servicios en los segmentos MedSurg, Neurotechnology y Ortopedia. La dedicación de la empresa a mejorar los resultados de los pacientes y de la atención médica se demuestra por su sólido creci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SYK" data-company="STRYKER CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SYK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STRYKER CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Stryker ha logro de 2 millones de procedimientos robóticos realizados. Stryker se evidencia aún más...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Stryker con el tema de la Robótica es sustancial, impulsado principalmente por su liderazgo en robótica ortopédica a través del sistema Mako. Esto se ve subrayado por el logro de 2 millones de procedimientos robóticos realizados, junto con lanzamientos continuos de nuevas aplicacion...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UFPT" data-company="UFP TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UFPT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UFP TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La Compañía en Materiales para la Salud proporciona dispositivos médicos, empaques estériles y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de la Compañía en Materiales para la Salud es evidente a través de su papel como diseñador y fabricante personalizado de soluciones integrales para dispositivos médicos, empaques estériles y otros productos personalizados altamente diseñados. Como eslabón crítico en la cadena de suministr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UFPT" data-company="UFP TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UFPT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UFP TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UFPT demuestra diversificación industrial a través de su presencia tanto en mercados médicos como...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">UFPT demuestra diversificación industrial a través de su presencia tanto en mercados médicos como no médicos, con una parte de sus ventas derivada del sector no médico. La estrategia de la empresa implica crecimiento orgánico y crecimiento a través de adquisiciones estratégicas, incluidas posibles a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ZBH" data-company="ZIMMER BIOMET HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ZBH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ZIMMER BIOMET HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Zimmer Biomet aprovecha los datos, el análisis de datos y la inteligencia artificial en sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Zimmer Biomet con el tema de la IA en la atención médica es evidente a través de su adquisición estratégica de OrthoGrid Systems, una empresa especializada en la guía quirúrgica impulsada por IA para reemplazos totales de cadera, cuyo objetivo es proporcionar a los cirujanos una nav...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ZBH" data-company="ZIMMER BIOMET HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ZBH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ZIMMER BIOMET HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Zimmer Biomet demuestra su enfoque en Soluciones de Atención Médica. La compañía está lanzando...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Zimmer Biomet demuestra su enfoque en Soluciones de Atención Médica a través de una variedad de iniciativas destinadas a mejorar los resultados de los pacientes y la efectividad del sistema de atención médica. La compañía está lanzando activamente nuevos productos, con planes de introducir más de 50...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ZBH" data-company="ZIMMER BIOMET HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ZBH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ZIMMER BIOMET HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Zimmer Biomet demuestra su conexión con los Servicios de Atención Médica. Los productos de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Zimmer Biomet demuestra su conexión con los Servicios de Atención Médica a través de varias facetas de sus operaciones. Los productos de la compañía son integrales para los procedimientos quirúrgicos electivos, un componente central de los servicios de atención médica, y su desempeño se ve afectado ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ZBH" data-company="ZIMMER BIOMET HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ZBH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ZIMMER BIOMET HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Zimmer Biomet incluye un conjunto de tecnologías digitales y robóticas integradas en sus productos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Zimmer Biomet con el tema de Robótica es evidente a través del diseño, fabricación y comercialización de tecnologías digitales y robóticas integradas, incluido el Robot ROSA®. Si bien estas tecnologías robóticas forman parte de las ofertas de Zimmer Biomet, se han observado caídas e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AME" data-company="AMETEK INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AME</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMETEK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">AMETEK es una empresa de automatización e Ingeniería. La diversificación y una combinación de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de AMETEK en aplicaciones industriales es evidente a través de sus Soluciones de Automatización e Ingeniería y sus Instrumentos Analíticos SPECTRO, siendo estos últimos los que proporcionan soluciones de instrumentación avanzadas como el SPECTROGREEN MS para el análisis elemental. E...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AME" data-company="AMETEK INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AME</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMETEK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">AMETEK experimentaron un retorno al crecimiento con un aumento general of las ventas orgánicas. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de AMETEK en el tema de Automatización Industrial es evidente a través de sus Soluciones de Automatización e Ingeniería, que experimentaron un retorno al crecimiento con un aumento general de las ventas orgánicas. La empresa vio un fuerte crecimiento de los pedidos dentro de sus neg...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AME" data-company="AMETEK INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AME</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMETEK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">AMETEK se especializa en instrumentos quirúrgicos de un solo uso y consumibles. El negocio Paragon...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de AMETEK en la industria de dispositivos médicos es evidente a través de varias actividades comerciales. El negocio Paragon Medical de la empresa se especializa en instrumentos quirúrgicos de un solo uso y consumibles, así como en componentes implantables. Esto se ve respaldado aún...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENOV" data-company="ENOVIS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ENOV</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENOVIS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Enovis enfatiza la innovación como motor del rendimiento y crecimienton financiero. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Enovis enfatiza la innovación como motor del rendimiento y crecimiento financiero, particularmente en tecnologías habilitadoras que mejoran los resultados clínicos y la eficiencia quirúrgica. Esto se evidencia en su enfoque en acelerar el pipeline de productos, lanzamientos de nuevos productos como ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GMED" data-company="GLOBUS MEDICAL INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GMED</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GLOBUS MEDICAL INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Globus Medical comercializa soluciones implantables y biológicos. Su Cohere ALIF Spacer, que...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Globus Medical en materiales para la salud es evidente en su desarrollo y comercialización de soluciones como dispositivos implantables y biológicos, que son integrales a sus Soluciones Musculoesqueléticas. Su Cohere ALIF Spacer, que utiliza PEEK poroso, demuestra un compromiso con la ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GMED" data-company="GLOBUS MEDICAL INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GMED</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GLOBUS MEDICAL INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Globus Medical adquisición de Nevro Corporation amplía aún más el alcance de Globus. Nevro ofrece...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Globus Medical con el tema de la industria de la Neurociencia es evidente a través de sus Soluciones Musculoesqueléticas, que incluyen dispositivos implantables, biológicos, accesorios, instrumentos quirúrgicos y servicios de neuromonitorización utilizados en procedimientos neuroqui...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IPGP" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/ipgp-Q125-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IPGP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/ipgp-Q125-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IPG está vinculado al tema de la fabricación de semiconductores. Productos utilizados en el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de IPG está vinculado al tema de la fabricación de semiconductores a través de sus productos utilizados en el procesamiento de materiales, que contribuyeron aproximadamente al 88% de sus ingresos de 2024. La empresa ha experimentado una mayor demanda en aplicaciones de semiconductores, lo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JNJ" data-company="JOHNSON & JOHNSON">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">JNJ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOHNSON & JOHNSON</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Medicina Innovadora reportó ventas de 42.600 millones de dólares en los primeros...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Johnson & Johnson en Tratamientos Biotecnológicos es evidente a través de su desarrollo y comercialización de terapias como CARVYKTI y TREMFYA, junto con tratamientos novedosos como anticuerpos trispecíficos y péptidos orales dirigidos. El segmento de Medicina Innovadora, que inc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JNJ" data-company="JOHNSON & JOHNSON">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">JNJ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOHNSON & JOHNSON</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Johnson & Johnson en la Comercialización de Medicamentos es evidente a través of sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Johnson & Johnson en la Comercialización de Medicamentos es evidente a través de sus extensas actividades en la investigación y desarrollo, fabricación y venta de una amplia gama de productos para el cuidado de la salud. La empresa participa activamente en el lanzamiento y la comercial...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JNJ" data-company="JOHNSON & JOHNSON">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">JNJ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOHNSON & JOHNSON</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Johnson & Johnson se enfoca en la Oncología como un área terapéutica principal. Productos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Johnson & Johnson con la Investigación Oncológica es evidente a través de su segmento de Medicina Innovadora, que se enfoca en la Oncología como un área terapéutica principal. Este enfoque está respaldado por ventas sustanciales, con productos oncológicos que lograron $20.8 mil mill...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKSI" data-company="MKS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKSI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MKS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MKS Instruments entrega soluciones tecnológicas para aplicaciones industriales especializadas. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de MKS Instruments en el tema de Tecnologías Industriales es evidente a través de la entrega de soluciones tecnológicas fundamentales para aplicaciones industriales especializadas. La estrategia de la compañía en el mercado industrial especializado implica el aprovechamiento de su e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKSI" data-company="MKS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKSI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MKS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MKS Instruments apoya la necesidad de una medición y control de procesos más estrictos impulsados...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">MKS Instruments demuestra su compromiso con el tema de los materiales semiconductores a través de varias vías. La empresa apoya la necesidad de una medición y control de procesos más estrictos impulsados por capas ultrafinas, dimensiones críticas más pequeñas, nuevos materiales y estructuras 3D. MKS...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SYK" data-company="STRYKER CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SYK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STRYKER CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Stryker ofrece productos y servicios innovadores destinados a mejorar los resultados de los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Stryker con el tema de la industria de la neurociencia es evidente a través de su segmento de Neurotecnología, donde ofrece productos y servicios innovadores destinados a mejorar los resultados de los pacientes y la atención médica. El enfoque de la empresa en la Neurotecnología com...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ZBH" data-company="ZIMMER BIOMET HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ZBH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ZIMMER BIOMET HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Zimmer Biomet compra implantes quirúrgicos para rodillas, caderas, medicina deportiva, extremidades...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Zimmer Biomet con el tema de Materiales para la Salud es evidente a través del desarrollo y la venta de productos dentro del sector de la salud, incluidos implantes quirúrgicos para rodillas, caderas, medicina deportiva, extremidades y traumatología. Esto se ve respaldado además por...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AME" data-company="AMETEK INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AME</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMETEK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EME tiene ventas significativas en instrumentos electrónicos. No hay información específica sobre...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de AME en la industria de Componentes Electrónicos es evidente a través de sus segmentos reportables, específicamente Instrumentos Electrónicos y Electromecánicos, ambos de los cuales dependen de estos componentes. El segmento de Instrumentos Electrónicos, con ventas netas de $1,134...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ISRG" data-company="INTUITIVE SURGICAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ISRG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTUITIVE SURGICAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Intuitive Surgical se dedica a la atención mínimamente invasiva a través of su ecosistema integral....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Intuitive Surgical se dedica a la atención mínimamente invasiva a través de su ecosistema integral de productos y servicios, que incluye sistemas, instrumentos, accesorios, aprendizaje y servicios conectados por una cartera digital. Este ecosistema está diseñado para permitir la precisión y el contr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JNJ" data-company="JOHNSON & JOHNSON">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">JNJ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOHNSON & JOHNSON</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Johnson & Johnson destaca TREMFYA como un medicamento biológico clave. Estos productos contribuyen...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Johnson & Johnson con el tema de la industria de Medicamentos Biológicos es evidente a través de su segmento de Medicina Innovadora, que incluye ventas significativas de productos de inmunología y oncología como TREMFYA y RYBREVANT. Estos productos contribuyen sustancialmente a las ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKSI" data-company="MKS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKSI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MKS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MKS Instruments desempeña un papel importante en la fabricación de chips. Los productos de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">MKS Instruments desempeña un papel importante en la fabricación de chips, posicionándose como un proveedor de soluciones críticas para la industria de semiconductores. Los productos de la empresa son integrales para los principales pasos de procesamiento de semiconductores, incluida la deposición, e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SYK" data-company="STRYKER CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SYK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STRYKER CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El sistema Mako ha alcanzado un hito de 2 millones de procedimientos. Stryker continúa lanzando...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Stryker con la robótica quirúrgica es evidente a través de su liderazgo en robótica ortopédica, particularmente con el sistema Mako, que ha alcanzado un hito de 2 millones de procedimientos. La compañía continúa lanzando nuevas aplicaciones para Mako, incluyendo cadera de revisión, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IPGP" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/ipgp-Q125-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;"></td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IPGP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/ipgp-Q125-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">'ipgp-Q225-10-Q' is the name of the device. 'ipgp' is an extension of the word 'ip' and 'ipGP' is a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">{'name': 'ipgp-Q225-10-Q'</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

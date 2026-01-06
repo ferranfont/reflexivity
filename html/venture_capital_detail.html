@@ -1,0 +1,2085 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Venture Capital - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Venture Capital</div>
+      <div class="sub-title">Investment Theme Detail - Financials Industry</div>
+    </div>
+    <a href="/main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Venture Capital &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Financials &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 21
+    </div>
+
+    
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">21</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">9984</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SOFTBANK GROUP CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Invierte significativamente en empresas a la vanguardia del desarrollo de inteligencia artificial, fomentando así la innovación e impulsando avances e...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/9984" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BX</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BLACKSTONE INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Es un líder mundial en gestión de activos alternativos, que ofrece un conjunto integral de soluciones de inversión en capital privado, bienes raíces, ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BX" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">HLNE</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">HAMILTON LANE INC-CLASS A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Funciona como un gestor global de inversiones en mercados privados, ofreciendo una amplia gama de soluciones de inversión alternativa y servicios de a...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/HLNE" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">STEP</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">STEPSTONE GROUP INC-CLASS A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Gestiona y asesora sobre una amplia gama de estrategias de inversión alternativa, sirviendo como un participante significativo en este sector financie...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/STEP" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">KKR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">KKR & CO INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera como una firma de inversión global especializada en la gestión de activos alternativos, que abarca estrategias de capital privado, crédito y act...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/KKR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">HTGC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">HERCULES CAPITAL INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se especializa en proporcionar soluciones de financiación a empresas respaldadas por capital de riesgo, contribuyendo al crecimiento y desarrollo del ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/HTGC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">PX</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">P10 INC-A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Participa centralmente en el sector de Inversiones Alternativas, con sus operaciones centradas principalmente en este dominio financiero....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/PX" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">GS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">GOLDMAN SACHS GROUP INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha tecnologías de inteligencia artificial y aprendizaje automático para mejorar las operaciones financieras, los servicios al cliente y la toma...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/GS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">MS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">MORGAN STANLEY</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Impulsa la innovación dentro del sector fintech al integrar inteligencia artificial en sus operaciones financieras para mejorar los servicios al clien...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/MS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">FCNCA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">FIRST CITIZENS BCSHS -CL A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona una amplia gama de servicios bancarios a particulares, empresas e instituciones....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/FCNCA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">11</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TRIN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TRINITY CAPITAL INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Participa activamente en el mercado de inversiones alternativas proporcionando financiación de deuda y capital a empresas en fase de crecimiento....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TRIN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">12</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">GBDC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">GOLUB CAPITAL BDC INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se enfoca en proporcionar financiación principalmente a empresas de mercado medio a través de préstamos directos y otros instrumentos de deuda y capit...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/GBDC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">13</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">NAN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">Naspers</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">No description available.</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/NAN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">14</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CMA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">COMERICA INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona un conjunto completo de productos y servicios financieros, que incluyen banca comercial, banca minorista y gestión de patrimonios, a indiv...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CMA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">15</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">AMZN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">AMAZON.COM INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona una amplia infraestructura y servicios en la nube, incluyendo hardware especializado y chips de IA personalizados, lo que permite a los cl...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/AMZN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">16</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">NTRS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">NORTHERN TRUST CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona soluciones integrales de servicio, administración y gestión de activos para una diversa gama de estrategias de inversión alternativas, apo...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/NTRS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">17</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BIDU</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BAIDU INC - SPON ADR</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha la inteligencia artificial para mejorar su motor de búsqueda, servicios en la nube y tecnología de conducción autónoma, generando valiosos c...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BIDU" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">18</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SF</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">STIFEL FINANCIAL CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios integrales de asesoramiento financiero, gestión de patrimonios y mercados de capitales, contribuyendo al sector más amplio de se...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SF" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">19</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">4755</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">RAKUTEN GROUP INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Participa en el despliegue y operación de infraestructura de red 5G, contribuyendo a la expansión de la conectividad móvil de próxima generación....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/4755" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">20</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">PWP</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">PERELLA WEINBERG PARTNERS</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios de asesoramiento estratégico a clientes involucrados en diversas estrategias de inversión alternativa....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/PWP" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">21</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">RPRX</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ROYALTY PHARMA PLC- CL A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Adquiere participaciones de regalías en terapias, incluidas soluciones biológicas, lo que contribuye al desarrollo y la comercialización de tratamient...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/RPRX" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">146</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="HLNE" data-company="HAMILTON LANE INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HLNE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HAMILTON LANE INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hamilton Lane es un proveedor global de soluciones de inversión en mercados alternativos. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Hamilton Lane en las inversiones alternativas es evidente a través de su identidad como proveedor global de soluciones de inversión en mercados alternativos, que ofrece una variedad de soluciones de inversión en capital privado, crédito privado, bienes raíces, infraestructura y otras c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HLNE" data-company="HAMILTON LANE INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HLNE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HAMILTON LANE INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hamilton Lane ofrece diversas soluciones de inversión en mercados privados. Hamilton Lane gestiona...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Hamilton Lane demuestra su compromiso con la Inversión de Impacto a través de varias actividades clave. La empresa ofrece diversas soluciones de inversión en mercados privados, incluyendo explícitamente la inversión de impacto como parte de sus ofertas principales. Reforzando este compromiso, Hamilt...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HLNE" data-company="HAMILTON LANE INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HLNE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HAMILTON LANE INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">HLNE opera como un proveedor global de soluciones de inversión en mercados privados. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">HLNE opera como un proveedor global de soluciones de inversión en mercados privados, ofreciendo una variedad de soluciones de inversión en capital privado, crédito privado, bienes raíces, infraestructura, activos reales, capital de crecimiento, capital de riesgo e impacto, abordando las necesidades ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HLNE" data-company="HAMILTON LANE INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HLNE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HAMILTON LANE INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hamilton Lane es un proveedor global de soluciones de inversión en mercados privados. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Hamilton Lane está significativamente involucrado con el tema de Private Equity, ya que operan como un proveedor global de soluciones de inversión en mercados privados, ofreciendo una variedad de soluciones en una gama de mercados privados, incluido el private equity. La compañía vio u...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HLNE" data-company="HAMILTON LANE INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HLNE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HAMILTON LANE INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hamilton Lane diseña carteras personalizadas y gestiona fondos especializados. La empresa lanzó un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Hamilton Lane demuestra su participación en el tema de capital de riesgo a través de la provisión de soluciones de inversión en diversos mercados privados, incluyendo explícitamente el capital de riesgo. La empresa diseña carteras personalizadas y gestiona fondos especializados que incorporan capita...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HLNE" data-company="HAMILTON LANE INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HLNE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HAMILTON LANE INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hamilton Lane participa en servicios de gestión de patrimonio a través de múltiples vías. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Hamilton Lane participa en servicios de gestión de patrimonio a través de múltiples vías. La empresa amplía las relaciones con los gestores de patrimonio, ofreciendo productos, servicios, tecnología y datos, y tiene como objetivo satisfacer a los clientes, incluso a través de asesores de patrimonio....</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STEP" data-company="STEPSTONE GROUP INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STEP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STEPSTONE GROUP INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">StepStone es una firma global de inversión en mercados privados. El negocio principal implica la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de StepStone en inversiones alternativas es evidente a través de su operación como una firma global de inversión en mercados privados, especializada en soluciones personalizadas y servicios de asesoramiento. El negocio principal de la firma implica la construcción de carteras de mercados ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STEP" data-company="STEPSTONE GROUP INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STEP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STEPSTONE GROUP INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">StepStone desarrolla carteras de mercados privados que incluyen capital privado, infraestructura,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de StepStone en Private Equity es evidente a través de sus operaciones comerciales principales. La compañía desarrolla carteras de mercados privados que incluyen capital privado, infraestructura, deuda privada y bienes raíces, asociándose con clientes para cumplir sus objetivos de i...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STEP" data-company="STEPSTONE GROUP INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STEP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STEPSTONE GROUP INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">StepStone ofrece una exposición diversificada al crecimiento de capital de riesgo. StepStone...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">StepStone demuestra su compromiso con el capital de riesgo a través de varias vías, incluido un fondo global de capital de riesgo multiestratégico que recaudó $400 millones en su primer cierre y un fondo de capital de crecimiento con un cierre final de $300 millones. El producto SPRING de la firma o...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STEP" data-company="STEPSTONE GROUP INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STEP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STEPSTONE GROUP INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">StepStone demuestra un enfoque notable en los servicios de gestión de patrimonio. Esto ha hecho...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">StepStone demuestra un enfoque notable en los servicios de gestión de patrimonio, destacado por su negocio de patrimonio privado que ha generado suscripciones sustanciales, incluyendo más de 1.000 millones de dólares en un solo trimestre y casi 1.200 millones de dólares en su conjunto de ofertas de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HLNE" data-company="HAMILTON LANE INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HLNE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HAMILTON LANE INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La inversión de impacto se menciona constantemente como parte of sus soluciones. La compañía ofrece...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La compañía proporciona soluciones de inversión en varios mercados privados, incluida la inversión de impacto, para cumplir con objetivos específicos de los clientes. Diseñan carteras personalizadas de fondos de mercados privados y gestionan fondos de inversión especializados. Si bien la inversión d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GBDC" data-company="GOLUB CAPITAL BDC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GBDC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GOLUB CAPITAL BDC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Golub Capital BDC se enfoca principalmente en proporcionar préstamos garantizados de primer rango y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La estrategia de inversión de Golub Capital BDC está significativamente entrelazada con el sector de capital privado, ya que se enfoca principalmente en proporcionar préstamos garantizados de primer rango y senior a empresas del mercado medio. Esta estrategia está diseñada para ser resiliente, apunt...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GBDC" data-company="GOLUB CAPITAL BDC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GBDC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GOLUB CAPITAL BDC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El respaldo de capital de riesgo es una consideración en las decisiones de inversión de GBDC. GBDC...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de GBDC con el tema de Capital de Riesgo se refleja en su estrategia de préstamos, que incluye la concesión de préstamos integrales a empresas tecnológicas que experimentan un rápido crecimiento y expansión. Estos préstamos a menudo se dirigen a empresas respaldadas por firmas de capit...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STEP" data-company="STEPSTONE GROUP INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STEP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STEPSTONE GROUP INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">StepStone es una firma global de inversión en mercados privados. Firma proporciona soluciones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de StepStone en la Gestión de Inversiones es evidente a través de su negocio principal como una firma global de inversión en mercados privados que proporciona soluciones de inversión personalizadas y servicios de asesoramiento a una clientela diversa, incluidos fondos de pensiones, fondos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Amazon demuestra un fuerte compromiso con la Inteligencia Artificial. El negocio de IA de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Amazon demuestra un fuerte compromiso con la Inteligencia Artificial, evidente en sus agresivas inversiones y amplias aplicaciones en toda la empresa. El negocio de IA de la compañía tiene una tasa de ingresos anual de miles de millones de dólares con un crecimiento interanual de tres dígitos, respa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Amazon incluye la construcción y el despliegue of software y dispositivos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Amazon con el tema de Vehículos Autónomos es evidente a través de su inversión en el desarrollo de vehículos autónomos para servicios de transporte compartido. Esta iniciativa se destaca en el contexto de los costos de tecnología e infraestructura, lo que refleja los esfuerzos más a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Amazon está invirtiendo en el desarrollo of esta red satelital, registrando los costos asociados....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Amazon con el tema de Servicios de Banda Ancha es evidente a través del desarrollo del Proyecto Kuiper, una constelación de satélites en órbita terrestre baja diseñada para proporcionar conectividad de banda ancha a un número significativo de hogares a nivel mundial. Esta iniciativa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Amazon destaca el papel de AWS en ayudar a las organizaciones a migrar a la nube. La tasa de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Amazon con los Servicios en la Nube es evidente a través de su extensa discusión sobre Amazon Web Services (AWS) en sus presentaciones y transcripciones. AWS no solo es un importante motor de ingresos, demostrado por una sustancial tasa de ingresos anualizada y un crecimiento consta...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Amazon se centra en la optimización de centros de datos como parte of su estrategia más amplia. No...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en los centros de datos es evidente a través de sus inversiones en infraestructura, que incluyen gastos en servidores, equipos de red y operaciones de centros de datos para dar soporte tanto a AWS como a otros negocios de Amazon. La empresa se centra en la optimización de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa genera ingresos de contenido de medios digitales, incluidos video y música. Amazon...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en la industria del entretenimiento digital es evidente a través de sus diversas ofertas y servicios. La empresa genera ingresos de contenido de medios digitales, incluidos video y música, como parte de sus ventas de productos e incurre en costos relacionados con este cont...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación of Amazon en el Comercio Electrónico es evidente. La principal fuente de ingresos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en el Comercio Electrónico es evidente, ya que la principal fuente de ingresos de la empresa proviene de la venta de una diversa gama de productos y servicios a clientes a través de sus plataformas electrónicas. El enfoque de la empresa en mejorar la experiencia del client...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Amazon también reconoce que los avances en tecnología, específicamente la mejora de la conectividad...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Amazon con el tema de la Infraestructura de Internet es evidente a través de sus importantes inversiones en tecnología e infraestructura, particularmente para apoyar a Amazon Web Services (AWS) y otros negocios de Amazon. Los costos de infraestructura de la compañía abarcan servidor...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa incurre en costos de ventas y marketing, que incluyen gastos de publicidad y nómina....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en servicios de marketing es evidente a través de varios aspectos de sus operaciones. La empresa incurre en costos de ventas y marketing, que incluyen gastos de publicidad y nómina para el personal dedicado a estas actividades, incluidas las comisiones de ventas relacionad...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía está invirtiendo activamente en contenido deportivo en vivo, con la NASCAR atrayendo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en Plataformas y Servicios de Streaming es evidente a través de sus suscripciones de contenido digital y oportunidades publicitarias en plataformas como Prime Video y Twitch. La compañía está invirtiendo activamente en contenido deportivo en vivo, con la NASCAR atrayendo u...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de Amazon con la Gestión de Almacenes es evidente. La empresa se enfoca en expandir...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Amazon con la Gestión de Almacenes es evidente en la operación y dotación de personal de sus centros de distribución en América del Norte e Internacionales, lo que constituye una parte significativa de sus costos de cumplimiento. La empresa se enfoca en expandir su red de cumplimien...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMA" data-company="COMERICA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMERICA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Las operaciones de Comerica se centran en gran medida en los servicios bancarios, como lo demuestra...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Comerica se centran en gran medida en los servicios bancarios, como lo demuestra su alineación estratégica en tres segmentos comerciales principales: Banco Comercial, Banco Minorista y Gestión Patrimonial. La empresa ofrece una gama de servicios bancarios, que incluyen cuentas de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMA" data-company="COMERICA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMERICA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comerica incluye al Banco Comercial como uno of sus tres principales segmentos de negocio. Este...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Comerica en la Banca Comercial es evidente a través de la alineación estratégica de sus operaciones, que incluye al Banco Comercial como uno de sus tres principales segmentos de negocio. Este segmento ofrece una gama de servicios, que incluyen préstamos, gestión de activos y serv...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMA" data-company="COMERICA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMERICA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La cartera de bienes raíces comerciales representa un porcentaje notable of los préstamos totales....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Comerica en el tema de Bienes Raíces Comerciales es evidente a través de su línea de negocio de bienes raíces comerciales y la composición de su cartera de préstamos. La cartera de bienes raíces comerciales de la corporación representa un porcentaje notable de los préstamos total...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMA" data-company="COMERICA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMERICA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Banco Minorista ofrece productos y servicios de finanzas al consumidor. El segmento incluye...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de Finanzas al Consumidor es evidente a través de su alineación estratégica en tres segmentos de negocio principales, uno de los cuales es el Banco Minorista. Este segmento de Banco Minorista ofrece implícitamente productos y servicios de finanzas al consumi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMA" data-company="COMERICA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMERICA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa mantiene una exposición a préstamos al consumidor. Los documentos proporcionan cifras...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa mantiene una exposición a préstamos al consumidor, como lo demuestra su inclusión en la cartera de préstamos y el análisis de los ingresos netos por intereses. Los documentos proporcionan cifras específicas de préstamos al consumidor, detallando saldos promedio, ingresos por intereses y t...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMA" data-company="COMERICA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMERICA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El crédito y los préstamos son centrales para las operaciones de la compañía. La company enfatiza...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El crédito y los préstamos son centrales para las operaciones de la compañía, como lo demuestra la extensa discusión de varios tipos de préstamos, incluidos préstamos comerciales, inmobiliarios y de consumo. Esto está respaldado además por menciones frecuentes de saldos de préstamos, crecimiento, re...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMA" data-company="COMERICA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMERICA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La Corporación participa en tres segmentos comerciales principales, que incluyen la Gestión de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la Corporación en los Servicios de Gestión de Patrimonios es evidente a través de su alineación estratégica en tres segmentos comerciales principales, que incluyen la Gestión de Patrimonios. La compañía proporciona resultados financieros para este segmento, incluyendo ingresos ne...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FCNCA" data-company="FIRST CITIZENS BCSHS -CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FCNCA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FIRST CITIZENS BCSHS -CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BancShares participa de una diversa gama de soluciones financieras tanto para clientes particulares...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de BancShares en Servicios Bancarios es evidente a través de su provisión de una diversa gama de soluciones financieras tanto para clientes particulares como comerciales, que abarcan banca minorista e hipotecaria, gestión de patrimonios y banca para pequeñas y medianas empresas. Est...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FCNCA" data-company="FIRST CITIZENS BCSHS -CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FCNCA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FIRST CITIZENS BCSHS -CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BancShares brinda servicios financieros, que incluyen banca para pequeñas y medianas empresas. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de BancShares al tema de la Banca Comercial es evidente a través de su estructura operativa y oferta de servicios. La empresa tiene un segmento de 'Banco Comercial', junto con SVB Commercial, lo que indica un enfoque dedicado. BancShares brinda servicios financieros, que incluyen banca...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FCNCA" data-company="FIRST CITIZENS BCSHS -CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FCNCA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FIRST CITIZENS BCSHS -CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">FCNCA demuestra su enfoque en la banca de consumo a través de varios servicios clave. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">FCNCA demuestra su enfoque en la banca de consumo a través de varios servicios clave. La compañía proporciona servicios financieros, incluyendo banca minorista e hipotecaria, a una amplia gama de clientes minoristas y comerciales. Esto está respaldado además por el segmento de Banco General, que se ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FCNCA" data-company="FIRST CITIZENS BCSHS -CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FCNCA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FIRST CITIZENS BCSHS -CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BancShares brinda servicios financieros a una amplia gama of clientes consumidores, que incluyen...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de BancShares en las finanzas del consumidor es evidente a través de la provisión de servicios financieros a una amplia gama de clientes consumidores, que incluyen banca minorista e hipotecaria. El segmento de Banca General, que incluye depósitos de la Red de Sucursales y depósitos ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FCNCA" data-company="FIRST CITIZENS BCSHS -CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FCNCA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FIRST CITIZENS BCSHS -CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Las operaciones de BancShares están significativamente entrelazadas with el crédito y los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de BancShares están significativamente entrelazadas con el crédito y los préstamos, como lo demuestra su provisión de estos servicios a una clientela diversa, que incluye asociaciones de propietarios, compañías de administración de propiedades y clientes tanto de consumo como comerci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FCNCA" data-company="FIRST CITIZENS BCSHS -CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FCNCA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FIRST CITIZENS BCSHS -CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">First Citizens BancShares presta servicios financieros a una clientela diversa. La oferta de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de First Citizens BancShares en Servicios Financieros para PYMES se refleja en la prestación de servicios financieros a una clientela diversa, que abarca banca minorista e hipotecaria, gestión de patrimonio y, en particular, banca para pequeñas y medianas empresas. La oferta de serv...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FCNCA" data-company="FIRST CITIZENS BCSHS -CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FCNCA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FIRST CITIZENS BCSHS -CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">First Citizens BancShares brindan servicios y asesoramiento de gestión de inversiones. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de First Citizens BancShares en la gestión de inversiones es evidente a través de sus subsidiarias, incluidas First Citizens Investor Services y First Citizens Asset Management, que brindan servicios y asesoramiento de gestión de inversiones. La empresa también utiliza SVB Wealth LL...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FCNCA" data-company="FIRST CITIZENS BCSHS -CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FCNCA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FIRST CITIZENS BCSHS -CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BancShares vende préstamos hipotecarios de consumo principalmente en lugar of conservarlos para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de BancShares en la industria de la Banca Hipotecaria es evidente a través de la provisión de servicios financieros a una amplia gama de clientes, incluida la banca minorista y de hipotecas. La cartera de préstamos de la empresa incluye préstamos hipotecarios residenciales e hipotec...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FCNCA" data-company="FIRST CITIZENS BCSHS -CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FCNCA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FIRST CITIZENS BCSHS -CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">First Citizens BancShares participa en la banca en línea a través de una plataforma de banca...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de First Citizens BancShares en la banca en línea es evidente a través de la operación de una plataforma de banca digital a nivel nacional, denominada "Direct Bank", que ofrece productos de depósito a los consumidores y facilita diversas transacciones bancarias digitales tanto para ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FCNCA" data-company="FIRST CITIZENS BCSHS -CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FCNCA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FIRST CITIZENS BCSHS -CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">First Citizens BancShares proporciona servicios de gestión de patrimonio. Esto incluye banca...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">First Citizens BancShares proporciona servicios de gestión de patrimonio como parte de su oferta más amplia de servicios financieros a clientes minoristas y comerciales. Esto incluye banca minorista e hipotecaria, banca para pequeñas y medianas empresas, factoring y arrendamiento. Contribuyendo a lo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GS" data-company="GOLDMAN SACHS GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GOLDMAN SACHS GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Goldman Sachs demuestra una sólida posición en inversiones alternativas. La firma ha recaudado...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Goldman Sachs demuestra una sólida posición en inversiones alternativas, impulsada por una recaudación de fondos y activos sustanciales bajo supervisión. La firma ha recaudado capital significativo en alternativas, incluyendo $18 mil millones en un trimestre, impulsado por la demanda de fondos insig...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GS" data-company="GOLDMAN SACHS GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GOLDMAN SACHS GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Goldman Sachs interactúa con la Banca de Consumo a través de varias vías, incluida la emisión of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Goldman Sachs interactúa con la Banca de Consumo a través de varias vías, incluida la emisión de préstamos a clientes de gestión de patrimonio. La firma recauda depósitos a través de su plataforma digital de banca de consumo, Marcus by Goldman Sachs, y a través de su banco privado. Además, Goldman S...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GS" data-company="GOLDMAN SACHS GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GOLDMAN SACHS GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Goldman Sachs demuestra una presencia significativa en crédito y préstamos a través of una variedad...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Goldman Sachs demuestra una presencia significativa en crédito y préstamos a través de una variedad de servicios. La firma otorga préstamos a clientes corporativos a través de préstamos relacionales, financiación de adquisiciones, crédito estructurado y préstamos respaldados por activos, además de f...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GS" data-company="GOLDMAN SACHS GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GOLDMAN SACHS GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Goldman Sachs ofrece una amplia gama de servicios financieros a una base de clientes diversa. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Goldman Sachs con el tema de Servicios Financieros está profundamente arraigado en su identidad central como una institución financiera global líder. La firma ofrece una amplia gama de servicios financieros a una base de clientes diversa, que incluye corporaciones, instituciones fin...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GS" data-company="GOLDMAN SACHS GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GOLDMAN SACHS GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa destaca su posición de liderazgo como el asesor de fusiones y adquisiciones número 1 a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Goldman Sachs en la banca de inversión es evidente a través de su amplia gama de servicios, que incluyen asesoramiento estratégico para fusiones y adquisiciones, desinversiones, reestructuraciones y suscripción. La empresa destaca su posición de liderazgo como el asesor de fusion...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GS" data-company="GOLDMAN SACHS GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GOLDMAN SACHS GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Goldman Sachs demuestra un fuerte enfoque en la gestión de inversiones. Los activos bajo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Goldman Sachs demuestra un fuerte enfoque en la gestión de inversiones, administrando activos y ofreciendo productos de inversión en todas las principales clases de activos a una clientela diversa, incluidos inversores institucionales e individuales, a través de una red global. Esto se refleja en lo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GS" data-company="GOLDMAN SACHS GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GOLDMAN SACHS GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Goldman Sachs demuestra su participación en el tema de capital privado a través of sus inversiones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Goldman Sachs demuestra su participación en el tema de capital privado a través de sus inversiones de capital, que abarcan actividades relacionadas con el capital privado y público, particularmente en activos corporativos, inmobiliarios y de infraestructura. Esto se ve respaldado además por importan...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GS" data-company="GOLDMAN SACHS GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GOLDMAN SACHS GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Goldman Sachs demuestra un enfoque significativo en Servicios de Gestión de Patrimonios. Firma...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Goldman Sachs demuestra un enfoque significativo en Servicios de Gestión de Patrimonios, ofreciendo una gama de soluciones, que incluyen planificación financiera, transacciones de corretaje y servicios de asesoramiento patrimonial. El compromiso de la firma se ve subrayado por los activos récord de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HLNE" data-company="HAMILTON LANE INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HLNE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HAMILTON LANE INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hamilton Lane ofrece diversas soluciones de inversión en mercados privados. La empresa ofreces...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Hamilton Lane demuestra su enfoque en la inversión socialmente responsable a través de su fondo de impacto, dedicado a invertir directamente en empresas privadas con un impacto ambiental y social medible. La empresa ofrece diversas soluciones de inversión en mercados privados, incluidas aquellas cen...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HTGC" data-company="HERCULES CAPITAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HTGC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HERCULES CAPITAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hercules Capital demuestra su participación en el sector de capital privado a través de varias...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Hercules Capital demuestra su participación en el sector de capital privado a través de varias actividades clave. La empresa administra más de $ 5 mil millones en activos, respaldados por la confianza de socios de capital de riesgo y capital privado, y participa selectivamente en transacciones estra...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HTGC" data-company="HERCULES CAPITAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HTGC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HERCULES CAPITAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hercules Capital demuestra una fuerte conexión with el tema of Capital de Riesgo. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Hercules Capital demuestra una fuerte conexión con el tema de Capital de Riesgo, principalmente a través de su enfoque en proporcionar soluciones de financiación a empresas respaldadas por capital de riesgo. La empresa gestiona aproximadamente $5.0 mil millones en activos, incluso a través de su Sub...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KKR" data-company="KKR & CO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KKR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KKR & CO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La firma administra un AUM significativo, patrocinando fondos que invierten en estas áreas. KKR...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La presencia insignia de KKR en inversiones alternativas es evidente a través de su gestión activa y esfuerzos de recaudación de fondos en diversas clases de activos, incluidas capital privado, activos reales y estrategias de crédito. La firma administra un AUM significativo, patrocinando fondos que...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KKR" data-company="KKR & CO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KKR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KKR & CO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">KKR completó 397 transacciones de mercados de capitales, que comprenden 56 ofertas de acciones y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de KKR con el tema de los Mercados de Capitales es evidente a través de su completa gama de servicios, que incluyen la organización de financiación de deuda y capital, la colocación y suscripción de ofertas de valores y el desarrollo de soluciones de capital para inversiones. Esto está...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KKR" data-company="KKR & CO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KKR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KKR & CO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">KKR demuestra un fuerte enfoque en crédito y préstamos. La empresa invierte activamente en una...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">KKR demuestra un fuerte enfoque en crédito y préstamos a través de su línea de negocio de Estrategias de Crédito y Líquidas, gestionando una cantidad sustancial de activos bajo gestión (AUM). La empresa invierte activamente en una amplia gama de deuda corporativa e inversiones respaldadas por garant...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KKR" data-company="KKR & CO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KKR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KKR & CO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">KKR demuestra su compromiso con las Inversiones ESG a través ofertas de productos. La firma...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">KKR demuestra su compromiso con las Inversiones ESG a través de sus estrategias de inversión y ofertas de productos, que se han expandido para incluir áreas como capital de crecimiento con estrategias de impacto e inversiones de impacto directo. La firma patrocina fondos que invierten en capital pri...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KKR" data-company="KKR & CO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KKR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KKR & CO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">KKR gestiona y patrocina fondos que invierten en bienes raíces. Al 30 de junio de 2025, los activos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">KKR demuestra su compromiso con las Inversiones Inmobiliarias a través de su línea de negocio de Activos Reales, que gestiona y patrocina fondos que invierten en bienes raíces, incluyendo crédito y capital inmobiliario. Al 30 de junio de 2025, los activos bajo gestión inmobiliaria de KKR ascendían a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KKR" data-company="KKR & CO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KKR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KKR & CO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">KKR ofrece una variedad de soluciones financieras. Estas ofertas incluyen anualidades de tasa fija....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de KKR en el tema de la industria de Productos Financieros es evidente a través de sus filiales de seguros, gestionadas principalmente bajo Global Atlantic, que ofrece una variedad de soluciones financieras. Estas ofertas incluyen anualidades de tasa fija, anualidades fijas indexada...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KKR" data-company="KKR & CO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KKR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KKR & CO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">KKR se enfoca en proporcionar financiación de deuda sénior a empresas del mercado medio. Además,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de KKR en Servicios Financieros para PYMES es evidente a través de su estrategia de préstamos directos, que se enfoca en proporcionar financiación de deuda sénior a empresas del mercado medio. Además, KKR emplea una estrategia de deuda mezzanine junior que incluye inversiones en deu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KKR" data-company="KKR & CO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KKR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KKR & CO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">KKR gestiona y patrocina fondos que invierten capital en infraestructura. Las inversiones de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de KKR con el Desarrollo de Infraestructura es evidente a través de su línea de negocio de Activos Reales, que gestiona y patrocina fondos que invierten capital en infraestructura. Las inversiones de la empresa incluyen activos dentro de sus fondos Global Infrastructure Investors, así ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KKR" data-company="KKR & CO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KKR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KKR & CO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La firma administra y patrocina vehículos de inversión de Private Equity, con un AUM significativo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de KKR con el tema de la industria de Private Equity es sustancial, como lo demuestran su liderazgo de larga data y sus extensas actividades de inversión. La firma administra y patrocina vehículos de inversión de Private Equity, con un AUM significativo de $214.6 mil millones al 30 de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KKR" data-company="KKR & CO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KKR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KKR & CO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">KKR ofrece soluciones de reaseguro a clientes institucionales, incluyendo transferencia de bloques,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de KKR con el tema de la industria de Reaseguros es evidente a través de su subsidiaria, Global Atlantic, que ofrece una gama de soluciones de reaseguro a clientes institucionales, incluyendo transferencia de bloques, flujo y riesgos de pensiones. Global Atlantic proporciona soluciones...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MS" data-company="MORGAN STANLEY">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MORGAN STANLEY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Gestión de Patrimonios de la empresa ofrece servicios bancarios. La banca se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Gestión de Patrimonios de la empresa incorpora servicios bancarios, que incluyen corretaje dirigido por asesores financieros, custodia y servicios de asesoramiento de inversiones. La banca se menciona explícitamente como un servicio principal dentro de la Gestión de Patrimonios, que t...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MS" data-company="MORGAN STANLEY">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MORGAN STANLEY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Morgan Stanley enfatiza su acceso a los mercados de capitales y sus capacidades de ejecución. Está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Morgan Stanley con los mercados de capitales es evidente en su completa gama de servicios, que incluyen la captación de capital, la suscripción y el asesoramiento financiero, que se ofrecen a través de su división de Banca de Inversión. La franquicia institucional de la firma, respa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MS" data-company="MORGAN STANLEY">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MORGAN STANLEY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa también enfrenta desafíos en el sector de Bienes Raíces Comerciales. Esto está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el sector de Bienes Raíces Comerciales es evidente a través de sus actividades de préstamo, que incluyen la originación de préstamos de bienes raíces comerciales tanto en los segmentos de Institutional Securities como de Wealth Management. Esto está respaldado ademá...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MS" data-company="MORGAN STANLEY">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MORGAN STANLEY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Morgan Stanley participa en el tema of Crédito y Préstamos. La compañía también está profundizando...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Morgan Stanley participa en el tema de Crédito y Préstamos a través de diversas actividades de préstamo en sus segmentos de Valores Institucionales y Gestión de Patrimonios. Estas actividades incluyen la originación de préstamos corporativos, préstamos de bienes raíces comerciales, la provisión de f...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MS" data-company="MORGAN STANLEY">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MORGAN STANLEY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Morgan Stanley tiene como objetivo profundizar las relaciones con los clientes. La firma participa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Morgan Stanley con los productos financieros es evidente a través de su amplia gama de ofertas, incluyendo acciones, renta fija y derivados, que están disponibles para corporaciones, gobiernos, instituciones financieras e individuos. La firma participa en mercados primarios y secund...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MS" data-company="MORGAN STANLEY">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MORGAN STANLEY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Morgan Stanley ofrece una amplia gama de productos y servicios a una clientela diversa, incluyendo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Morgan Stanley en el tema de Servicios Financieros está profundamente arraigada en su identidad central como una firma global de servicios financieros, que ofrece una amplia gama de productos y servicios a una clientela diversa, incluyendo corporaciones, gobiernos, instituciones ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MS" data-company="MORGAN STANLEY">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MORGAN STANLEY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Mercados ofrece servicios de ventas, financiamiento, prime brokerage y market making a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la compañía en el trading institucional es evidente a través de su segmento de Valores Institucionales, que ofrece una gama de servicios que incluyen ventas, financiamiento, prime brokerage y market making a corporaciones, gobiernos, instituciones financieras y clientes de patrim...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MS" data-company="MORGAN STANLEY">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MORGAN STANLEY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Morgan Stanley enfatiza la Banca de Inversión como un servicio clave. La compañía está trabajando...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Morgan Stanley enfatiza la Banca de Inversión como un servicio clave, que abarca la captación de capital, la suscripción y los roles de asesoramiento, incluidas las fusiones y adquisiciones y las reestructuraciones. El compromiso de la firma se ve subrayado por contrataciones estratégicas y préstamo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MS" data-company="MORGAN STANLEY">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MORGAN STANLEY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La división de Gestión de Inversiones ofrece una amplia gama de estrategias y productos de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Morgan Stanley con la temática de la industria de Gestión de Inversiones es significativo, ya que se menciona explícitamente como uno de los segmentos de negocio principales de la empresa junto con Institutional Securities y Wealth Management. La división de Gestión de Inversiones d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MS" data-company="MORGAN STANLEY">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MORGAN STANLEY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La firma administra activos sustanciales de clientes, superando los $8.2 billones. Morgan Stanley...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Morgan Stanley en los Servicios de Gestión Patrimonial es significativa, como lo demuestra su completa gama de soluciones financieras ofrecidas a inversores individuales, pequeñas y medianas empresas e instituciones. La firma administra activos sustanciales de clientes, superando...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NTRS" data-company="NORTHERN TRUST CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NTRS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NORTHERN TRUST CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Northern Trust demuestra su participación en los mercados de capitales a través of varias...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Northern Trust demuestra su participación en los mercados de capitales a través de varias actividades. El negocio de Mercados de Capitales de la empresa experimentó un crecimiento de ingresos, impulsado por la externalización de operaciones y la gestión de divisas, y se beneficia de la volatilidad d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PWP" data-company="PERELLA WEINBERG PARTNERS">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PWP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PERELLA WEINBERG PARTNERS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PWP proporcione asesoramiento sobre mercados de capitales. Los ingresos de la empresa están...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de PWP en el tema de Mercados de Capitales es evidente a través de sus servicios de asesoramiento principales, que incluyen asesorar a clientes sobre recaudación de capital y proporcionar asesoramiento sobre mercados de capitales. Los ingresos de la empresa están vinculados a la act...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PWP" data-company="PERELLA WEINBERG PARTNERS">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PWP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PERELLA WEINBERG PARTNERS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa ofrece estos servicios a una clientela diversa, incluidas grandes corporaciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de la empresa en proporcionar asesoramiento estratégico y financiero la posiciona dentro de la industria de servicios de consultoría. Como firma asesora independiente líder a nivel mundial, la empresa ofrece estos servicios a una clientela diversa, incluidas grandes corporaciones multinac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PWP" data-company="PERELLA WEINBERG PARTNERS">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PWP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PERELLA WEINBERG PARTNERS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PWP gira en torno a la banca de inversión, como lo demuestra la provisión de asesoramiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de PWP gira en torno a la banca de inversión, como lo demuestra la provisión de asesoramiento estratégico y financiero, incluidos servicios relacionados con fusiones y adquisiciones, financiación y soluciones de capital. La compañía se identifica como una firma asesora independi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PWP" data-company="PERELLA WEINBERG PARTNERS">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PWP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PERELLA WEINBERG PARTNERS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Perella Weinberg Partners establece un negocio de asesoramiento de fondos privados. Devon Park...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Perella Weinberg Partners en el tema de Private Equity es evidente a través de varias acciones estratégicas. La adquisición de Devon Park Advisors, una firma especializada en secundarias dirigidas por GP, amplía significativamente la cobertura de PWP de gestores de activos altern...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PX" data-company="P10 INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">P10 INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">P10 opera como un proveedor de soluciones de mercado privado multiclase de activos dentro ofro de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">P10 opera como un proveedor de soluciones de mercado privado multiclase de activos dentro de la industria de gestión de activos alternativos, ofreciendo a los inversores soluciones especializadas en diversas estrategias de inversión, incluyendo fondos de inversión primarios y secundarios, inversione...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PX" data-company="P10 INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">P10 INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">P10 es un proveedor líder de soluciones de mercado privado multiclase de activos. Una parte...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El fuerte compromiso de P10 con el tema de Gestión de Inversiones es evidente en sus operaciones comerciales principales, ya que la empresa se identifica como un proveedor líder de soluciones de mercado privado multiclase de activos en la industria de gestión de activos alternativos. Una parte signi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PX" data-company="P10 INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">P10 INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">P10 es un proveedor líder de soluciones de mercados privados multiclase de activos. PES realiza...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">P10 es un proveedor líder de soluciones de mercados privados multiclase de activos, con un enfoque significativo en capital privado a través de sus Soluciones de Capital Privado (PES). PES realiza inversiones directas e indirectas en capital privado de mercado medio y medio-bajo en América del Norte...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PX" data-company="P10 INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">P10 INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">P10 participa en la Inversión Socialmente Responsable. Proporciona capital a pequeñas empresas, con...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de P10 en la Inversión Socialmente Responsable es evidente a través de sus inversiones gestionadas dentro de PCS, dirigidas a diversas iniciativas de impacto en América del Norte. Estas iniciativas incluyen el desarrollo de energía renovable, proyectos de renovación de edificios his...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PX" data-company="P10 INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">P10 INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">P10 invierte en fondos de capital de riesgo norteamericanos, apuntando a oportunidades de alto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de P10 con el Capital de Riesgo es evidente a través de sus Soluciones de Capital de Riesgo (VCS), que invierte en fondos de capital de riesgo norteamericanos, apuntando a oportunidades de alto rendimiento y acceso restringido. El equipo de inversión de VCS, compuesto por 15 profesiona...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RPRX" data-company="ROYALTY PHARMA PLC- CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RPRX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROYALTY PHARMA PLC- CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RPRX ha sido pionera en el mercado de regalías desde 1996. La empresa cofinancia activamente...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de RPRX con las asociaciones biofarmacéuticas es evidente a través de su papel como principal financiador de la innovación en la industria, colaborando con diversas instituciones, incluidos centros académicos, hospitales de investigación y compañías farmacéuticas globales. La empresa c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RPRX" data-company="ROYALTY PHARMA PLC- CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RPRX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROYALTY PHARMA PLC- CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio principal de Royalty Pharma se centra en el tema of las regalías biofarmacéuticas. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Royalty Pharma se centra en el tema de las regalías biofarmacéuticas, ya que se identifican como el mayor comprador de regalías biofarmacéuticas y un financiador líder de la innovación en la industria. Sus ingresos se derivan sustancialmente de los ingresos por regalías, como...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SF" data-company="STIFEL FINANCIAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SF</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STIFEL FINANCIAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Stifel Financial Corp. participa en servicios bancarios a través ofreciendo banca minorista y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Stifel Financial Corp. participa en servicios bancarios a través de sus subsidiarias, ofreciendo banca minorista y comercial, incluidos programas de préstamos personales y comerciales, y cuentas de depósito aseguradas por la FDIC. La empresa opera como una sociedad de cartera bancaria y de servicios...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SF" data-company="STIFEL FINANCIAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SF</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STIFEL FINANCIAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Stifel Financial Corp. está significativamente involucrada en la banca de inversión. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Stifel Financial Corp. está significativamente involucrada en la banca de inversión, como lo demuestra su inclusión como una de las actividades principales de la empresa, que abarca servicios como fusiones y adquisiciones, ofertas públicas y colocaciones privadas. Este enfoque se ve aún más demostra...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SF" data-company="STIFEL FINANCIAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SF</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STIFEL FINANCIAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Stifel Financial Corp. está significativamente involucrada en la gestión de inversiones. Una parte...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Stifel Financial Corp. está significativamente involucrada en la gestión de inversiones, principalmente a través de sus subsidiarias, ofreciendo servicios como corretaje minorista, negociación de valores y asesoramiento de inversiones. Una parte sustancial de los ingresos de la compañía se deriva de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SF" data-company="STIFEL FINANCIAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SF</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STIFEL FINANCIAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Stifel se identifica como una de las principales firmas de gestión patrimonial del país. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Stifel en Servicios de Gestión Patrimonial es significativa, ya que la compañía se identifica como una de las principales firmas de gestión patrimonial del país. Esto está respaldado por el rendimiento récord del segmento de Gestión Patrimonial Global, incluyendo niveles récord d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Amazon Web Services (AWS) representa $123 mil millones de ingresos anualizada. La compañía continúa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Amazon con la Computación en la Nube es significativo, principalmente a través de Amazon Web Services (AWS). Los sustanciales ingresos de AWS, reflejados en su tasa de ingresos anualizada de $123 mil millones, junto con un crecimiento constante año tras año, subrayan su importancia ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Amazon investió mucho en infraestructura tecnológica, principalmente para respaldar el crecimiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Amazon con la Infraestructura en la Nube es evidente a través de sus importantes inversiones en infraestructura tecnológica, principalmente para respaldar el crecimiento de Amazon Web Services (AWS). Los costos de infraestructura de la empresa abarcan servidores, equipos de red y ga...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El precio de compra de estos productos constituye un componente principal of su costo de ventas....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en la industria de productos de consumo es evidente, ya que el precio de compra de estos productos constituye un componente principal de su costo de ventas. Esto se ve respaldado por el hecho de que el aumento de las ventas genera un aumento de los costos de productos y de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación of Amazon en la creación de contenido es evidente a través ofrece sus tiendas....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en la creación de contenido es evidente a través de su producción de contenido multimedia, que se ofrece a través de sus tiendas junto con otras mercancías. Esta actividad requiere una fuerza laboral dedicada involucrada en la curación y exhibición de estos productos y ser...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ventas de Amazon en Norteamérica aumentaron un 8% en el primer trimestre de 2025. Amazon anticipa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en la Economía Digital es evidente en su dependencia del crecimiento de Internet y el comercio en línea. Las ventas de la compañía en Norteamérica aumentaron un 8% en el primer trimestre de 2025, impulsadas por un aumento en las ventas de unidades, las ventas de terceros v...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se enfoca en mejorar la velocidad y eficiencia de entrega. Amazon reestructurando su red...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Amazon con la logística de comercio electrónico es evidente a través de sus importantes inversiones y mejoras continuas en su red de distribución. La empresa se enfoca en mejorar la velocidad y eficiencia de entrega reestructurando su red de entrada de EE. UU. en una estructura regi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa invierte en la construcción y el despliegue de dispositivos electrónicos innovadores....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en la industria de dispositivos electrónicos es evidente a través de sus actividades de fabricación y ventas. La empresa invierte en la construcción y el despliegue de dispositivos electrónicos innovadores, junto con iniciativas como el desarrollo de una red de satélites y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BX" data-company="BLACKSTONE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BLACKSTONE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Blackstone gestiona $270 mil millones sustanciales en su canal de riqueza privada. Está expandiendo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Blackstone gira en torno a las inversiones alternativas, ya que se identifica como el mayor gestor de activos alternativos del mundo. Sus operaciones de gestión de activos abarcan estrategias de inversión globales en diversos activos alternativos, como bienes raíces, capital ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BX" data-company="BLACKSTONE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BLACKSTONE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Crédito y Seguros (BXCI) de Blackstone proporciona soluciones integrales for varios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Blackstone con el tema de Crédito y Préstamos es significativo, como lo demuestra su posición como el mayor negocio de crédito externo del mundo, administrando activos sustanciales en crédito corporativo y de bienes raíces. El segmento de Crédito y Seguros (BXCI) de la compañía prop...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BX" data-company="BLACKSTONE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BLACKSTONE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Blackstone ofrece acceso a capacidades de infraestructura a través de Blackstone Infrastructure...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Blackstone con el tema de Infraestructura Energética es evidente a través de Blackstone Infrastructure Partners (BIP), que se dirige a una combinación diversificada de inversiones en todos los sectores de infraestructura, incluida explícitamente la infraestructura energética. Este é...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BX" data-company="BLACKSTONE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BLACKSTONE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio inmobiliario de Blackstone es reconocido como un líder mundial en inversión...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Blackstone con las Inversiones Inmobiliarias es evidente a través de su organización en cuatro segmentos, donde los Bienes Raíces se mencionan explícitamente como uno de ellos. El negocio inmobiliario de la empresa es reconocido como un líder mundial en inversión inmobiliaria, opera...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BX" data-company="BLACKSTONE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BLACKSTONE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de Blackstone en la industria de Servicios Financieros es significativa. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Blackstone en la industria de Servicios Financieros es significativa, como lo demuestra su organización en cuatro segmentos, incluido Crédito y Seguros, y su posición como el mayor gestor de activos alternativos del mundo que genera ingresos por comisiones. El segmento de Crédito...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BX" data-company="BLACKSTONE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BLACKSTONE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Blackstone ha mostrado un crecimiento sustancial con activos bajo gestión (AUM) un 36% interanual....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Blackstone con el desarrollo de infraestructura es evidente a través de su plataforma de infraestructura dedicada, que ha mostrado un crecimiento sustancial con activos bajo gestión (AUM) un 36% interanual. La estrategia de despliegue de la firma enfatiza áreas que se benefician de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BX" data-company="BLACKSTONE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BLACKSTONE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Blackstone participa en Servicios de Seguros (BXCI) BXCI es uno of los cuatro segmentos de negocio...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Blackstone con Servicios de Seguros es evidente a través de su segmento de Crédito y Seguros (BXCI), que es uno de los cuatro segmentos de negocio principales de la empresa. La plataforma de seguros dentro de BXCI se enfoca en brindar servicios completos de gestión de inversiones...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BX" data-company="BLACKSTONE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BLACKSTONE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Blackstone es el mayor gestor de activos alternativos del mundo. Su negocio de gestión de activo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El fuerte compromiso de Blackstone con el tema de la Gestión de Inversiones es evidente, ya que se identifica como el mayor gestor de activos alternativos del mundo. Su negocio de gestión de activos abarca estrategias de inversión globales en diversos sectores, incluyendo bienes raíces, capital priv...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BX" data-company="BLACKSTONE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BLACKSTONE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Blackstone mantiene una sólida posición en la industria de Capital Privado. Firma ha demostrado su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Blackstone mantiene una sólida posición en la industria de Capital Privado, respaldada por su organización en cuatro segmentos, uno de los cuales es Capital Privado. El segmento de Capital Privado de la firma incluye varias estrategias como Capital Privado Corporativo, Infraestructura y Secundarios,...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMA" data-company="COMERICA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMERICA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comerica brinda servicios bancarios, incluidos servicios para pequeñas empresas. La empresa se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Comerica con el tema de la Banca de Consumo es evidente a través de la alineación estratégica de sus operaciones, que incluyen el Banco Minorista como uno de sus tres segmentos comerciales principales. La empresa se enfoca en el crecimiento y las ofertas de depósitos, y está realiza...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FCNCA" data-company="FIRST CITIZENS BCSHS -CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FCNCA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FIRST CITIZENS BCSHS -CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">First Citizens BancShares ofrece productos y servicios bancarios a través de una extensa red de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">First Citizens BancShares ofrece productos y servicios bancarios a través de una extensa red de sucursales y una plataforma de banca digital a nivel nacional conocida como Direct Bank. El Direct Bank constituye una parte notable del total de depósitos de la empresa, con una cantidad significativa en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GS" data-company="GOLDMAN SACHS GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GOLDMAN SACHS GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Goldman Sachs brinda servicios bancarios de transacciones y otros servicios. Estos servicios se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Goldman Sachs con los Servicios Bancarios es evidente a través de varias facetas de sus operaciones. La firma brinda servicios bancarios de transacciones y otros servicios como captación de depósitos, soluciones de pago y gestión de tesorería a clientes corporativos e institucionale...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GS" data-company="GOLDMAN SACHS GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GOLDMAN SACHS GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Goldman Sachs facilita las transacciones de los clientes. La firma crea mercados en diversos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Goldman Sachs con los mercados de capitales es evidente en sus operaciones comerciales principales. La firma facilita las transacciones de los clientes, crea mercados en diversos instrumentos financieros y liquida las transacciones de clientes institucionales en los principales merc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GS" data-company="GOLDMAN SACHS GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GOLDMAN SACHS GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Goldman Sachs abarcan inversiones de capital público y privado en activos inmobiliarios. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Goldman Sachs en el tema de Bienes Raíces Comerciales se demuestra a través de sus inversiones de capital, que abarcan inversiones de capital público y privado en activos inmobiliarios, incluidas inversiones a través de entidades de inversión consolidadas centradas principalmente...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GS" data-company="GOLDMAN SACHS GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GOLDMAN SACHS GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Goldman Sachs ofrece financiación principal, incluyendo préstamos de valores, swaps, financiaciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Goldman Sachs participa significativamente en la industria de productos financieros, facilitando las transacciones de los clientes y creando mercados en productos de renta fija, renta variable, divisas y materias primas. Estas actividades son centrales para el segmento de Banca Global y Mercados de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GS" data-company="GOLDMAN SACHS GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GOLDMAN SACHS GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Soluciones de Plataforma ofrece servicios de banca transaccional, captación de depósitos y gestión...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La firma demuestra su participación en soluciones de pago a través de su segmento de Soluciones de Plataforma, que ofrece servicios de banca transaccional, captación de depósitos y gestión de efectivo a clientes corporativos e institucionales. Estos servicios incluyen la emisión de tarjetas de crédi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KKR" data-company="KKR & CO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KKR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KKR & CO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">KKR sirve a sus propias necesidades, a las de sus empresas de cartera y a clientes externos. KKR...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de KKR en la industria de servicios financieros es evidente a través de sus diversas ofertas, que incluyen gestión de activos alternativos, mercados de capitales y soluciones de seguros. El negocio de mercados de capitales de la firma sirve a sus propias necesidades, a las de sus em...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MS" data-company="MORGAN STANLEY">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MORGAN STANLEY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Gestión de Inversiones ofrece una gama de estrategias y productos, incluidas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Gestión de Inversiones de la empresa ofrece una gama de estrategias y productos, incluidas alternativas, en diversas geografías, clases de activos y mercados públicos y privados. Estas estrategias y productos están disponibles a través de diversos vehículos de inversión y atienden a u...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PX" data-company="P10 INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">P10 INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PCS ofrece servicios financieros para PYMES. Inversiones de deuda en América del Norte dirigen a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de PCS con los servicios financieros para PYMES se refleja en sus inversiones de deuda en América del Norte, que se dirigen a empresas del mercado medio bajo y ofrecen soluciones de capital privado. La empresa otorga préstamos a fondos de capital de crecimiento y capital de riesgo, jun...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SF" data-company="STIFEL FINANCIAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SF</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STIFEL FINANCIAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa ofrece servicios de corretaje de valores, trading e investigación a instituciones. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el trading institucional es evidente a través de su segmento Institutional Group, que incluye explícitamente ventas y trading institucionales. Este segmento ofrece servicios de corretaje de valores, trading e investigación a instituciones, centrándose en la venta de p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SF" data-company="STIFEL FINANCIAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SF</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STIFEL FINANCIAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Stifel has inversiones en fondos medidos a valor liquidativo (NAV) Stifel reconoce el papel...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Stifel con el tema de "Private Equity" es evidente a través de sus inversiones en fondos de capital privado, que forman parte de la estrategia de inversión más amplia de la empresa. Las inversiones de la empresa en fondos medidos a valor liquidativo (NAV) incluyen participaciones en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa oferta de cómputo, almacenamiento y bases de datos son un componente central de las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en el almacenamiento en la nube es evidente a través de la provisión de ofertas de cómputo, almacenamiento y bases de datos. Estos servicios son un componente central de las ofertas de nube de la empresa, como se destaca dentro de AWS. Además, la principal fuente de ingres...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa invierte en el desarrollo of software y dispositivos electrónicos innovadores. Amazon...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en el tema Electrónica de Consumo es evidente a través de la fabricación y venta de dispositivos electrónicos, una fuente clave de ingresos junto con otros productos y servicios. La empresa invierte en el desarrollo de software y dispositivos electrónicos innovadores y dec...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de Amazon con los Servicios de Atención Médica se destaca por su adquisición of 1Life...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Amazon con los Servicios de Atención Médica se destaca por su adquisición de 1Life Healthcare, Inc. (One Medical), financiada con efectivo disponible. Esta adquisición representa un movimiento estratégico hacia el sector de la atención médica, indicando la dedicación de recursos a e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los ingresos de Amazon se derivan significativamente de su mercado en línea. La principal fuente de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Los ingresos de Amazon se derivan significativamente de su mercado en línea, que incluye tanto mercancías como contenido comprado para su reventa, así como productos ofrecidos por vendedores externos. La principal fuente de ingresos de la empresa proviene de la venta de una diversa gama de productos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El crecimiento de las ventas está impulsado principalmente by un aumento en las venta unitarias,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Amazon con las compras en línea es evidente a través de su principal fuente de ingresos, que proviene de la venta de una amplia gama de productos y servicios a los clientes. Esto se ve reforzado por el enfoque de la empresa en elementos clave como el precio, la selección y la conven...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa está incurriendo en costos significativos relacionados with this proyecto. Amazon ya ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en el tema de las Comunicaciones por Satélite es evidente a través del desarrollo del Proyecto Kuiper, una constelación de satélites en órbita terrestre baja diseñada para proporcionar conectividad de banda ancha global. Esta iniciativa incluye inversiones en la construcci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BX" data-company="BLACKSTONE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BLACKSTONE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de Blackstone en los mercados de capitales se evidencia en la generación of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Blackstone en los mercados de capitales se evidencia en la generación de ingresos de sus servicios de mercados de capitales, derivados de acuerdos contractuales con fondos, inversores de fondos y empresas de cartera de fondos. Los negocios de la compañía se ven afectados por las ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BX" data-company="BLACKSTONE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BLACKSTONE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Bienes Raíces Comerciales es uno de Blackstone's cuatro segmentos de negocio principales....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Blackstone en el sector de Bienes Raíces Comerciales es evidente a través de su organización, donde Bienes Raíces es uno de sus cuatro segmentos de negocio principales. Dentro de este segmento, Blackstone Real Estate Partners (BREP) invierte activamente en diversas propiedades co...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FCNCA" data-company="FIRST CITIZENS BCSHS -CL A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FCNCA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FIRST CITIZENS BCSHS -CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">First Citizens BancShares está centrándose en originar y vender préstamos hipotecarios. Esto se ve...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de First Citizens BancShares con la temática de Originación de Préstamos es evidente en sus actividades de originación de préstamos, estrategias de crecimiento de préstamos y políticas de suscripción. La empresa origina activamente préstamos hipotecarios al consumidor, centrándose en o...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HTGC" data-company="HERCULES CAPITAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HTGC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HERCULES CAPITAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hercules Adviser LLC gestiona cuatro fondos con aproximadamente $1.600 millones en capital de deuda...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Hercules Capital en inversiones alternativas es evidente a través de su gestión de fondos de crédito privado e inversiones en empresas respaldadas por capital de riesgo. Hercules Adviser LLC gestiona cuatro fondos con aproximadamente $1.600 millones en capital de deuda y capital ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HTGC" data-company="HERCULES CAPITAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HTGC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HERCULES CAPITAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa cerró una oferta de bonos corporativos con calificación de grado de inversión por valor...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su participación en los mercados de capitales a través de varias actividades, incluida la emisión de notas no garantizadas por valor de $350 millones y la renovación y aumento de su línea de crédito a $440 millones. La empresa también accedió al mercado ATM, recaudando aproximad...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KKR" data-company="KKR & CO INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KKR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KKR & CO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La cartera de préstamos hipotecarios comerciales de Global Atlantic se asigna a edificios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de KKR en el tema de Bienes Raíces Comerciales es evidente a través de su segmento de Activos Reales, que incluye estrategias inmobiliarias oportunistas e inversiones en propiedades como edificios de oficinas y centros comerciales. La cartera de préstamos hipotecarios comerciales de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KKR" data-company="KKR & CO INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KKR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KKR & CO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio principal de KKR se centra en la gestión de inversiones. La empresa gestiona activamente...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de KKR se centra en la gestión de inversiones, lo que se demuestra por la generación de comisiones de gestión, comisiones de transacción e ingresos por rendimiento. La empresa gestiona activamente carteras de inversión en diversas clases de activos, incluyendo capital privado, a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MS" data-company="MORGAN STANLEY">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MORGAN STANLEY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Morgan Stanley en la ciberseguridad es evidente. La firma está invirtiendo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Morgan Stanley en la ciberseguridad es evidente a través de su reconocimiento de los riesgos asociados con las amenazas de ciberseguridad, la protección de datos y la gestión de riesgos de ciberseguridad. La firma está invirtiendo activamente en el mantenimiento y la mejora de su postu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NTRS" data-company="NORTHERN TRUST CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NTRS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NORTHERN TRUST CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Northern Trust demuestra un notable enfoque en inversiones alternativas. Esto se evidencia en la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Northern Trust demuestra un notable enfoque en inversiones alternativas, destacándolo como una iniciativa clave de crecimiento empresarial alineada con las necesidades cambiantes de los clientes. Esto se evidencia en la rápida expansión de los mercados privados globales y el modelo integrado de la e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NTRS" data-company="NORTHERN TRUST CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NTRS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NORTHERN TRUST CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La banca está integrada en sus soluciones de gestión de patrimonio y family office, abarcando...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Northern Trust en los servicios bancarios es evidente a través de la provisión de estas soluciones a una clientela diversa, incluyendo corporaciones, instituciones, familias e individuos. La banca está integrada en sus soluciones de gestión de patrimonio y family office, abarcand...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NTRS" data-company="NORTHERN TRUST CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NTRS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NORTHERN TRUST CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Northern Trust ofrece servicios bancarias a corporaciones e instituciones. El segmento de Gestión...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Northern Trust en la banca comercial es evidente a través de su provisión de soluciones bancarias a corporaciones e instituciones, que incluyen una cartera de préstamos sustancial que abarca bienes raíces comerciales. El segmento de Gestión de Patrimonios de la empresa también co...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NTRS" data-company="NORTHERN TRUST CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NTRS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NORTHERN TRUST CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Northern Trust está ampliando su plataforma de ETFs, con planes de lanzar 11 nuevos ETFs de renta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Northern Trust en la industria de Productos Financieros es evidente a través de sus diversas ofertas, que incluyen ETFs, SMAs personalizados y soluciones gestionadas activamente. La empresa está ampliando su plataforma de ETFs, con planes de lanzar 11 nuevos ETFs de renta fija, y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NTRS" data-company="NORTHERN TRUST CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NTRS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NORTHERN TRUST CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Northern Trust está ligado a la gestión de inversiones. La empresa administra un total sustancial...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Northern Trust está significativamente ligado a la gestión de inversiones, como lo demuestra su posición como proveedor líder de soluciones de gestión de patrimonio, servicios de activos y gestión de activos. La empresa administra un total sustancial de $1.6 billones en activos y gener...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NTRS" data-company="NORTHERN TRUST CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NTRS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NORTHERN TRUST CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía, 50 South Capital, se especializa en fondos de fondos dirigidos a gestores emergentes....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Northern Trust en el tema de Private Equity es evidente a través de varias iniciativas clave. La plataforma de inversión en alternativas de la compañía, 50 South Capital, se especializa en fondos de fondos dirigidos a gestores emergentes y ha experimentado un año récord de recaud...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NTRS" data-company="NORTHERN TRUST CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NTRS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NORTHERN TRUST CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Northern Trust ofreciendo una gama de servicios a corporaciones, instituciones, familias e...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Northern Trust está fuertemente involucrado en la gestión de patrimonio, ofreciendo una gama de servicios a corporaciones, instituciones, familias e individuos. El negocio de Gestión de Patrimonio de la empresa se enfoca en integrar el servicio de activos, plataformas de custodia, tecnología, experi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RPRX" data-company="ROYALTY PHARMA PLC- CL A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RPRX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROYALTY PHARMA PLC- CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Royalty Pharma es un líder de innovación en la industria biofarmacéutica. Su cartera de regalías...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Royalty Pharma en Soluciones Biológicas es evidente a través de su papel como financiador líder de innovación en la industria biofarmacéutica y su extensa cartera de regalías ligadas a las ventas brutas de terapias líderes. La empresa financia activamente la innovación, colaboran...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RPRX" data-company="ROYALTY PHARMA PLC- CL A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RPRX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROYALTY PHARMA PLC- CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa colabora con innovadores de instituciones académicas, hospitales de investigación y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de la empresa en la industria farmacéutica es evidente a través de su papel como el mayor comprador de regalías biofarmacéuticas y un importante financiador de la innovación. Su cartera incluye regalías sobre más de 35 productos comerciales, como Trikafta de Vertex y Trelegy de GSK, y 14 ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRIN" data-company="TRINITY CAPITAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRIN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRINITY CAPITAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trinity Capital demuestra su enfoque en la industria de Private Equity a través of su estrategia de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Trinity Capital demuestra su enfoque en la industria de Private Equity a través de su estrategia de inversión dirigida a empresas orientadas al crecimiento, que suelen ser privadas y, a menudo, respaldadas por empresas de capital de riesgo o grupos de capital privado. La firma está construyendo un n...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRIN" data-company="TRINITY CAPITAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRIN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRINITY CAPITAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trinity Capital demuestra su enfoque en la industria de Capital de Riesgo a través of sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Trinity Capital demuestra su enfoque en la industria de Capital de Riesgo a través de sus estrategias de inversión, dirigidas a empresas orientadas al crecimiento, que suelen ser privadas y a menudo respaldadas por inversores institucionales. La empresa se centra particularmente en empresas respalda...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Amazon en la Infraestructura de Datos es evidente a través of sus sustanciales...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Amazon en la Infraestructura de Datos es evidente a través de sus sustanciales inversiones en infraestructura tecnológica, principalmente para impulsar el crecimiento de su negocio AWS. Este compromiso se refleja en importantes gastos de capital, que cubren los costos asociados con ser...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Amazon está expandiendo los servicios de entrega el mismo día y al día siguiente para llegar a más...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Amazon con la logística de última milla es evidente a través de sus inversiones estratégicas y su enfoque operativo. La empresa está expandiendo los servicios de entrega el mismo día y al día siguiente para llegar a más clientes en Estados Unidos, incluidos aquellos en comunidades m...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMZN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa ha logrado hitos significativos con el Proyecto Kuiper, incluyendo lanzamientos exitosos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en el tema de Tecnología Satelital está impulsada principalmente por el Proyecto Kuiper, una constelación de satélites en órbita terrestre baja destinada a proporcionar servicio de banda ancha global. La empresa ha logrado hitos significativos con el Proyecto Kuiper, inclu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BX" data-company="BLACKSTONE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BLACKSTONE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma de infraestructura dedicada de Blackstone ha experimentado una apreciación, impulsada...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La plataforma de infraestructura dedicada de Blackstone ha experimentado una apreciación, impulsada por un impulso significativo en los centros de datos, como lo destacó Michael Chae. Esta apreciación se extiende al sector inmobiliario, donde los valores son estables, particularmente en fondos oport...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

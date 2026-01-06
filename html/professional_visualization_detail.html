@@ -1,0 +1,1983 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Professional Visualization - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Professional Visualization</div>
+      <div class="sub-title">Investment Theme Detail - Technology Industry</div>
+    </div>
+    <a href="/main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Professional Visualization &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Technology &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 15
+    </div>
+
+    
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">15</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">NVDA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">NVIDIA CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona plataformas informáticas que avanzan las capacidades de las redes 5G y respaldan la implementación de aplicaciones impulsadas por IA en el...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/NVDA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ADSK</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">AUTODESK INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona soluciones de software esenciales para los procesos de diseño, ingeniería y producción dentro de la industria de fabricación aeroespacial....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ADSK" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ADBE</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ADOBE INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla software creativo y de marketing que aprovecha la inteligencia artificial para proporcionar información procesable para la optimización de ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ADBE" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DSY</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">DASSAULT SYSTEMES SE</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Integra capacidades de inteligencia artificial dentro de su plataforma 3DEXPERIENCE y soluciones industriales para generar información procesable a pa...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DSY" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SIE</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SIEMENS AG-REG</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y proporciona plataformas de software fundamentales, sistemas de automatización industrial y tecnologías de gemelos digitales que permiten ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SIE" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BSY</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BENTLEY SYSTEMS INC-CLASS B</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona soluciones integrales de software y gemelos digitales que respaldan el diseño, la construcción y la operación de proyectos de infraestruct...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BSY" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">U</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">UNITY SOFTWARE INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona una plataforma y herramientas integrales para la creación y operación de contenido 3D en tiempo real, empoderando a los desarrolladores pa...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/U" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">PTC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">PTC INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece plataformas y herramientas que facilitan la creación y gestión de diversas aplicaciones para el desarrollo de productos, la fabricación y las o...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/PTC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">HEXA.B</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">HEXAGON AB-B SHS</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y proporciona soluciones avanzadas de detección, software y autónomas que permiten la creación y utilización de gemelos digitales en divers...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/HEXA.B" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TRMB</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TRIMBLE INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona soluciones tecnológicas para el sector agrícola, incluyendo agricultura de precisión, sistemas de guiado y gestión de datos, para mejorar ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TRMB" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">11</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">NEM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">NEWMONT CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Incluye operaciones en la extracción y producción de cobre....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/NEM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">12</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">GEHC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">GE HEALTHCARE TECHNOLOGY</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha la inteligencia artificial y las soluciones digitales para mejorar la imagenología médica, el diagnóstico y las vías de atención al paciente...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/GEHC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">13</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CDNS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CADENCE DESIGN SYS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona software esencial de automatización de diseño electrónico y propiedad intelectual para el desarrollo y la verificación de chips y sistemas...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CDNS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">14</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">HPQ</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">HP INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Fabrica y comercializa una cartera diversa de productos electrónicos de consumo, incluyendo ordenadores personales, impresoras y accesorios, estableci...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/HPQ" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">15</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">HTFL</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">HEARTFLOW INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Utiliza Machine Learning para mejorar sus ofertas principales....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/HTFL" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">146</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El papel pionero de NVIDIA en la computación acelerada es evidente a través of su desarrollo de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El papel pionero de NVIDIA en la computación acelerada es evidente a través de su desarrollo de arquitecturas y plataformas de GPU para la computación científica, la IA, la ciencia de datos, los vehículos autónomos, la robótica y las aplicaciones de Internet 3D. Esto se ve corroborado por el hecho d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de NVIDIA en plataformas de computación y redes de centros de datos es un motor clave...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La sustancial participación de NVIDIA en la infraestructura de IA es evidente a través de sus soluciones de IA de pila completa, que atienden a proveedores de servicios en la nube, empresas y entidades soberanas. El enfoque de la empresa en plataformas de computación y redes de centros de datos para...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El crecimiento de NVIDIA está impulsado significativamente by sus plataformas de computación. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El crecimiento de los ingresos de NVIDIA está impulsado significativamente por sus plataformas de computación y redes para centros de datos diseñadas para la computación acelerada y soluciones de IA. La demanda de la plataforma de computación Hopper de NVIDIA, utilizada en el entrenamiento e inferen...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de NVIDIA con la conducción autónoma es evidente a través de múltiples vías. Los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de NVIDIA con la conducción autónoma es evidente a través de múltiples vías. Los ingresos automotrices de la compañía han experimentado un crecimiento sustancial, impulsado en gran medida por sus plataformas de autoconducción. NVIDIA se asocia activamente con empresas como GM y Mercede...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El SoC NVIDIA Thor y la plataforma de software Drive AV, son utilizadas by empresas como Hyundai....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de NVIDIA con los Vehículos Autónomos es evidente a través de sus plataformas de conducción autónoma, que contribuyen significativamente a los ingresos del sector automotriz. Esto se demuestra con un notable aumento interanual de los ingresos del sector automotriz, impulsado por estas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El crecimiento de los ingresos está impulsado significativamente by las plataformas de cómputo y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NVIDIA en la computación en la nube es evidente en su desempeño financiero y enfoque estratégico. El crecimiento de los ingresos está impulsado significativamente por las plataformas de cómputo y redes de centros de datos, particularmente para la computación acelerada y las soluc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de NVIDIA en el análisis de datos es evidente a través of sus plataformas para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NVIDIA en el análisis de datos es evidente a través de sus plataformas para ciencia de datos, soluciones de IA y computación acelerada. El crecimiento de los ingresos de la empresa está impulsado significativamente por plataformas de computación y redes para centros de datos dise...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El crecimiento de los ingresos se ve impulsado consistentemente por plataformas de cómputo. NVIDIA...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NVIDIA en el tema de los centros de datos es significativa, como lo demuestra el hecho de que el crecimiento de los ingresos se ve impulsado consistentemente por plataformas de cómputo y redes de centros de datos diseñadas para computación acelerada y soluciones de IA. Los ingres...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Las plataformas de NVLink and Spectrum-X son esenciales para escalar cargas de trabajo de fábricas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NVIDIA en Redes de Datos es evidente a través de sus plataformas de computación y redes para centros de datos, que impulsan el crecimiento de los ingresos para soluciones de computación acelerada e IA. Los ingresos de redes han experimentado aumentos sustanciales, impulsados por ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NVIDIA ha ampliado su asociación con Siemens para avanzar en fábricas automáticas de IA. Empresas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de NVIDIA con la tecnología de Gemelos Digitales es evidente a través del desarrollo de su plataforma Omniverse, una plataforma de gemelos digitales físicos de IA para centros de datos utilizada para el desarrollo de robots y sistemas robóticos. Empresas como Hitachi utilizan servidore...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los ingresos de videojuegos de NVIDIA han experimentado aumentos significativos, impulsados por las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NVIDIA en el tema de Hardware para Videojuegos es evidente a través de sus GPU de la serie GeForce RTX 40 y SoC de consolas de videojuegos, que impulsan los ingresos de los videojuegos. Esto está respaldado por la demanda sostenida de gráficos 3D y la escala del mercado de videoj...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de NVIDIA con la industria de los videojuegos es evidente a través of su arquitectura...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de NVIDIA con la industria de los videojuegos es evidente a través de su arquitectura de GPU, que se aprovecha para crear plataformas para diversas aplicaciones, impulsado por la demanda de gráficos 3D y la escala del mercado de los videojuegos. Los ingresos de la empresa por videojueg...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El sistema GB200 NVL de NVIDIA, la arquitectura Blackwell y la plataforma informática Hopper son...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NVIDIA en IA Generativa y LLM es sustancial, como lo demuestra la adopción generalizada de sus tecnologías y plataformas. El sistema GB200 NVL de la empresa, la arquitectura Blackwell y la plataforma informática Hopper son utilizados por los principales creadores de modelos de IA...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El crecimiento de los ingresos de NVIDIA se ve impulsado significativamente por plataformas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NVIDIA en el Machine Learning es evidente en sus avances tecnológicos y contribuciones al campo. El crecimiento de los ingresos de la compañía se ve impulsado significativamente por plataformas de computación y redes para centros de datos diseñadas para la computación acelerada y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los ingresos de Visualización Profesional de NVIDIA han aumentado consistentemente año tras año....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NVIDIA en el tema de Visualización Profesional es evidente en su desempeño financiero y desarrollo de productos. Los ingresos de Visualización Profesional de la empresa han aumentado consistentemente año tras año, impulsados por la adopción de estaciones de trabajo con GPU Ada RT...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de NVIDIA en la industria de la robótica es evidente a través del desarrollo of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de NVIDIA en la industria de la robótica es evidente a través del desarrollo de plataformas que aprovechan su arquitectura de GPU, incluida la plataforma de computación robótica Jetson Thor. Esta plataforma ha sido adoptada por empresas líderes en diversas industrias. La plataforma Omn...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de NVIDIA en chips semiconductores se ve aún más resaltado por la próxima arquitectura...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NVIDIA en la industria de chips semiconductores es evidente a través de su trabajo pionero en computación acelerada y arquitectura de GPU, que se ha expandido desde los gráficos de PC a diversos campos computacionalmente intensivos. Las plataformas de computación de la compañía i...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk abarca el diseño y la fabricación de productos. La conexión permite a los innovadores...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Autodesk con el tema de Fabricación Aeroespacial se demuestra a través de su tecnología que abarca el diseño y la fabricación de productos, lo que permite a los innovadores resolver desafíos. Una institución de investigación europea líder en aeroespacial, energía y transporte adoptó l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk Forma, una nube industrial, unifica flujos de trabajo. Aprovecha la IA para proporcionar...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Autodesk en información impulsada por IA es evidente a través de su desarrollo y aplicación de Autodesk AI, con más de una década de inversión centrada en mejorar las cargas de trabajo de los clientes a través de la mejora, la automatización y el análisis. Autodesk Forma de la em...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk ofrece programas que brindan financiación de inversión estratégica, plataformas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Autodesk en el desarrollo de aplicaciones es evidente a través de varias iniciativas estratégicas. La empresa mantiene una arquitectura basada en API para facilitar el desarrollo por parte de terceros de productos complementarios y soluciones de software específicas de la industr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk adquisición de una plataforma de realidad extendida (XR) conectada a the nube. Esta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Autodesk con la Realidad Aumentada se destaca por su adquisición de una plataforma de realidad extendida (XR) conectada a la nube. Esta plataforma permite a los profesionales de AECO presentar, colaborar y revisar proyectos a través de experiencias inmersivas e interactivas. Esta ad...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk facilita los procesos de diseño y fabricación. Este acuerdo permite a los diseñadores del...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Autodesk facilita los procesos de diseño y fabricación, como lo demuestra su acuerdo renovado con un icónico fabricante de automóviles de alto rendimiento. Este acuerdo permite a los diseñadores del fabricante acceder a tecnología unificada, una gestión de usuarios robusta y escalabilidad a través d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk demuestra su enfoque en servicios en la nube a través ofertas de sus planes de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Autodesk demuestra su enfoque en servicios en la nube a través de sus planes de suscripción, que combinan software de escritorio con funcionalidad en la nube para permitir flujos de trabajo de diseño colaborativo. Las ofertas en la nube de la empresa, que incluyen Autodesk Construction Cloud, Autode...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk combina software adquirido y orgánico para crear soluciones integrales basadas en la nube....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Autodesk con el tema del Software en la Nube es evidente en su estrategia de combinar software adquirido y orgánico para crear soluciones integrales basadas en la nube. Esto se demuestra a través de planes de suscripción que integran software de escritorio con funcionalidad en la nu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa apoya la transformación digital en Arquitectura, Ingeniería, Construcción y Operaciones....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Autodesk en la industria de Servicios de Construcción es evidente a través de su tecnología que abarca arquitectura, ingeniería y construcción. La empresa apoya la transformación digital en Arquitectura, Ingeniería, Construcción y Operaciones (AECO) fortaleciendo sus soluciones a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La tecnología de Autodesk es relevante para el tema of Entretenimiento Digital. La participación ...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La tecnología de Autodesk es relevante para el tema de Entretenimiento Digital, ya que abarca medios y entretenimiento, empoderando a los innovadores para resolver desafíos y crear éxitos de taquilla fascinantes. Esto se ve respaldado aún más por el aumento de los ingresos en la familia de productos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk abarca arquitectura, ingeniería y construcción. Compañía está fortaleciendo activamente...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Autodesk en Servicios de Ingeniería es evidente a través de su tecnología que abarca arquitectura, ingeniería y construcción, empoderando a los innovadores para resolver desafíos. La compañía está fortaleciendo activamente sus soluciones de Arquitectura, Ingeniería, Construcción ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La tecnología de Autodesk ayuda a los clientes a diseñar y crear un mundo mejor para todos,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Autodesk con la Industria del Entretenimiento es evidente a través de su tecnología que abarca los medios y el entretenimiento, empoderando a los innovadores para resolver desafíos y crear éxitos de taquilla fascinantes. Esto está respaldado además por el aumento de los ingresos net...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk combina software orgánico y adquirido para crear soluciones basadas en la nube. Hitachi...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Autodesk con la Digitalización Industrial es evidente a través de sus iniciativas estratégicas y adquisiciones destinadas a optimizar los procesos de fabricación. La estrategia de la empresa implica combinar software orgánico y adquirido para crear soluciones basadas en la nube que ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk demuestra su compromiso con SaaS a través de diversas vías, incluidos sus planes de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Autodesk demuestra su compromiso con SaaS a través de diversas vías, incluidos sus planes de suscripción que ofrecen una combinación de software de escritorio y funcionalidad en la nube, proporcionando flujos de trabajo de diseño colaborativos e independientes del dispositivo. El enfoque de la empre...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk enfatiza su compromiso de promover un mundo más sostenible. Este compromiso se refleja en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Autodesk enfatiza su compromiso de promover un mundo más sostenible, con su tecnología permitiendo a los clientes diseñar y crear productos más sostenibles. Este compromiso se refleja en la alineación de Autodesk con los Objetivos de Desarrollo Sostenible de la ONU y su enfoque en la creación de sol...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk and the Realidad Virtual se destaca por la adquisición of una plataforma de realidad...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Autodesk con la Realidad Virtual se destaca por la adquisición de una plataforma de realidad extendida (XR) conectada a la nube. Esta plataforma permite a los profesionales de AEC y AECO colaborar y revisar proyectos a través de experiencias inmersivas e interactivas. Esta adquisici...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de NVIDIA en información impulsada by IA es evidente en su desempeño financiero y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de NVIDIA en información impulsada por IA es evidente en su desempeño financiero y desarrollos tecnológicos. El crecimiento de los ingresos de la empresa en el año fiscal 2025 fue impulsado significativamente por plataformas de cómputo y redes de centros de datos diseñadas para computació...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de NVIDIA con los chips de IA es evidente en su enfoque en plataformas de computación...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de NVIDIA con los chips de IA es evidente en su enfoque en plataformas de computación y redes para centros de datos diseñadas para la computación acelerada y soluciones de IA, que impulsan un crecimiento de ingresos significativo. El desarrollo y despliegue de hardware específico para ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El sector automotriz es uno de NVIDIA's cuatro mercados clave. Las posibles restricciones de la USG...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NVIDIA en la industria de fabricantes de automóviles es evidente a través de sus ingresos automotrices, que experimentaron un aumento del 55% impulsado por las ventas de plataformas de conducción autónoma. La empresa aborda el sector automotriz como uno de sus cuatro mercados cla...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El éxito de NVIDIA en el Desafío Gran Prix Autónomo subraya la importancia de la IA generativa en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NVIDIA en Tecnología Automotriz es evidente a través de sus plataformas de conducción autónoma y soluciones de AI Cockpit, que impulsan un crecimiento significativo de los ingresos en el sector automotriz. El enfoque de la empresa en esta área se demuestra aún más por la transici...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NVIDIA contribuyen entre el 45% y el 50% de los ingresos del Centro de Datos de NVIDIA. Estos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NVIDIA en la Infraestructura en la Nube es evidente a través de los ingresos significativos generados por los proveedores de servicios en la nube, quienes contribuyen aproximadamente entre el 45% y el 50% de los ingresos del Centro de Datos de NVIDIA. Estos ingresos están respald...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de la empresa se destaca por la introducción del servicio NVIDIA AI Foundry y los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NVIDIA en la integración de IA empresarial es evidente a través de sus plataformas de computación y redes de centros de datos, que impulsan el crecimiento de los ingresos con soluciones de computación acelerada e IA. El enfoque de la empresa se destaca por la introducción del ser...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NVIDIA anunció nuevos títulos RTX y DLSS y expandió el servicio GeForce NOW. Los ingresos de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NVIDIA en Esports y Juegos es evidente a través de su arquitectura de GPU, que admite diversas aplicaciones, incluido el mercado de juegos. Los ingresos de la compañía por juegos experimentaron aumentos, impulsados por las ventas de GPUs GeForce RTX 40 Series y SoCs de consolas d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La arquitectura de GPU de NVIDIA se aprovecha para crear plataformas para gráficos 3D...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NVIDIA en la industria de la Tecnología de Videojuegos es evidente a través de múltiples vías. La arquitectura de GPU de la empresa se aprovecha para crear plataformas para gráficos 3D excepcionales, lo que impulsa una demanda sostenida en el mercado de videojuegos. Esto se refle...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk ofrecen herramientas para optimizar el diseño, la colaboración y la gestión of datos....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Autodesk en Tecnología de Construcción es evidente a través de sus plataformas Autodesk Construction Cloud, Autodesk Build y Autodesk Forma, que ofrecen herramientas para optimizar el diseño, la colaboración y la gestión de datos. El enfoque de la empresa se demuestra aún más con...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk ofrece suscripciones para productos individuales, Colecciones Industriales, EBA y ofertas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Autodesk en Software Empresarial se refleja en sus planes de suscripción, que incluyen acuerdos comerciales empresariales (EBA) que brindan a los clientes empresariales acceso basado en tokens a una gama de productos de Autodesk durante un plazo contractual. La empresa ofrece sus...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk Forma ofreciendo recopilación, gestión, análisis de datos en tiempo real. Adquisición de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Autodesk con la Automatización Industrial es evidente en su enfoque estratégico de combinar software orgánico y adquirido para ofrecer soluciones basadas en la nube que mejoran la eficiencia y la sostenibilidad para los clientes de fabricación. Esto se demuestra aún más con la adqui...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Las soluciones Ethernet Spectrum-X de NVIDIA están diseñadas para unificar centros de datos y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NVIDIA en la Redes Empresariales es evidente a través de sus ingresos récord en redes, impulsados por las crecientes demandas de los clústeres de computación de IA de soluciones de alta eficiencia y baja latencia. Las soluciones Ethernet Spectrum-X de la compañía, incluido el Spe...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de NVIDIA en la innovación de hardware tecnológico es evidente a través of su papel...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de NVIDIA en la innovación de hardware tecnológico es evidente a través de su papel pionero en la computación acelerada y la introducción continua de nuevas arquitecturas como Hopper y Blackwell. Las plataformas de computación de la compañía, que incorporan procesadores y proporcionan ace...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVDA" data-company="NVIDIA CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVDA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVIDIA CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de NVIDIA en los circuitos integrados es evidente a través of múltiples factores. Los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de NVIDIA en los circuitos integrados es evidente a través de múltiples factores, incluidas las plataformas de computación y redes de centros de datos de la empresa que impulsan el crecimiento de los ingresos a través de la computación acelerada y las soluciones de IA. Los requisitos de l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PTC" data-company="PTC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PTC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PTC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PTC participa en PLM, ALM, SLM, CAD y SaaS. ALM (Gestión del Ciclo de Vida de las Aplicaciones) is...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de PTC en el Desarrollo de Aplicaciones es evidente a través de su enfoque en PLM, ALM, SLM, CAD y SaaS, siendo ALM (Gestión del Ciclo de Vida de las Aplicaciones) un componente clave de sus ofertas de PLM. La estrategia de la empresa enfatiza constantemente la profundización del va...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PTC" data-company="PTC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PTC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PTC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PTC ha integración en varias soluciones de software, particularmente dentro of PLM, CAD, ALM y SLM....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de PTC en Inteligencia Artificial es evidente en su integración en varias soluciones de software, particularmente dentro de PLM, CAD, ALM y SLM. La empresa enfatiza la importancia de las bases de datos de productos para la transformación impulsada por IA, con soluciones diseñadas pa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PTC" data-company="PTC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PTC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PTC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El software de PTC es utilizado por los clientes para construir bases de datos de productos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de PTC con el tema de Software Empresarial es evidente en sus ofertas principales, que incluyen soluciones CAD y PLM, así como ALM y SLM dentro de la categoría PLM, todas diseñadas para soportar procesos comerciales complejos en organizaciones. El software de PTC es utilizado por los c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PTC" data-company="PTC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PTC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PTC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de PTC en aplicaciones industriales es evidente en su negocio principal. PTC permite a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de PTC en aplicaciones industriales es evidente en su negocio principal, que gira en torno a soluciones de software como CAD y PLM. Estas soluciones están diseñadas específicamente para mejorar los procesos de fabricación y el diseño de productos para fabricantes y empresas de productos. ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PTC" data-company="PTC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PTC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PTC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PTC está diseñado para facilitando iniciativas de transformación digital. Ofertas como CAD y PLM...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de PTC con la Digitalización Industrial es evidente en su misión de permitir a los fabricantes y empresas de productos transformar digitalmente cómo diseñan, fabrican y dan servicio a productos físicos. Las soluciones de software de PTC están diseñadas para ser un facilitador estratégi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PTC" data-company="PTC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PTC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PTC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PTC es una empresa de software global centrada en permitir la transformación digital de los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">PTC se identifica como una empresa de software global centrada en permitir la transformación digital de los fabricantes a través de su conjunto de ofertas de software. El negocio principal de la empresa gira en torno a la provisión de soluciones de software, incluyendo CAD (Diseño Asistido por Compu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PTC" data-company="PTC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PTC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PTC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PTC está expandiendo activamente sus ofertas de SaaS, lanzando funcionalidades adicionales en la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de PTC con SaaS es evidente en su modelo de ingresos recurrentes, que incluye suscripciones locales, soporte perpetuo, SaaS y servicios de alojamiento. La empresa está expandiendo activamente sus ofertas de SaaS, lanzando funcionalidades adicionales en la nube y migrando clientes de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADBE" data-company="ADOBE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADBE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ADOBE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Adobe enfatiza que la IA representa un cambio tecnológico significativo y una oportunidad...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Adobe enfatiza que la IA representa un cambio tecnológico significativo y una oportunidad sustancial para la empresa, centrando su estrategia en la integración de la IA en sus aplicaciones y la introducción de nuevos productos "AI-first" como Adobe Firefly. Adobe está aprovechando la IA para mejorar...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADBE" data-company="ADOBE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADBE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ADOBE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Adobe abarca Creative Cloud, Document Cloud y Experience Cloud. El segmento de Medios Digitales de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Adobe con los servicios en la nube es evidente a través de su modelo de suscripción, que abarca Creative Cloud, Document Cloud y Experience Cloud, los cuales dependen de la entrega de servicios a través de internet. El segmento de Medios Digitales de la compañía, que incluye Crea...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADBE" data-company="ADOBE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADBE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ADOBE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Adobe es una oferta creativa que se extiende desde la ideación hasta la entrega. Las ofertas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Adobe en el tema de Creación de Contenido es evidente a través de su completa plataforma creativa, que se extiende desde la ideación hasta la entrega. Las ofertas de Creative Cloud de la empresa, incluidas aplicaciones insignia como Photoshop, Illustrator, Premiere Pro y After Ef...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADBE" data-company="ADOBE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADBE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ADOBE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Adobe proporciona herramientas y servicios para crear y entregar contenido digital. Aplicaciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Adobe en el tema de Entretenimiento Digital es evidente en su segmento de Medios Digitales, que proporciona herramientas y servicios para crear y entregar contenido digital, incluyendo experiencias 3D. Aplicaciones emblemáticas como Premiere Pro, Photoshop y Adobe Express facilit...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADBE" data-company="ADOBE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADBE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ADOBE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de Adobe con la tecnología de marketing digital es evidente a través of su completo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Adobe con la tecnología de marketing digital es evidente a través de su completo conjunto de soluciones dentro del segmento de Experiencia Digital. La estrategia de la empresa implica la entrega de una plataforma de tecnología de marketing que aprovecha la IA para integrar contenido...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADBE" data-company="ADOBE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADBE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ADOBE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Adobe Experience Cloud ofrece soluciones en pilares estratégicos de crecimiento. El segmento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Adobe con las soluciones digitales es evidente a través de su plataforma integrada de experiencia del cliente, diseñada para ofrecer automatización y experiencias personalizadas combinando creatividad, marketing e IA. El segmento de Experiencia Digital de la empresa se enfoca en la ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADBE" data-company="ADOBE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADBE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ADOBE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Adobe se centra estratégicamente en la integración empresarial de IA. El Adobe Experience Platform...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Adobe se centra estratégicamente en la integración empresarial de IA, infundiendo IA en sus aplicaciones líderes en su categoría como Creative Cloud y Digital Experience para mejorar las experiencias del cliente y la automatización del marketing. Adobe GenStudio permite la automatización del marketi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADBE" data-company="ADOBE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADBE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ADOBE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Adobe está infundiendo IA en sus aplicaciones líderes en su categoría. La empresa admite modelos de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Adobe con la IA Generativa y los LLM es evidente a través de su integración en varias aplicaciones y plataformas. Adobe está infundiendo IA en sus aplicaciones líderes en su categoría y entregando nuevos e innovadores productos "AI-first", incluido Adobe Firefly, un grupo de modelos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADBE" data-company="ADOBE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADBE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ADOBE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Experiencia Digital de Adobe atiende a profesionales del marketing. El enfoque de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Adobe en los servicios de marketing es evidente a través de su segmento de Experiencia Digital, que proporciona una plataforma integrada para que las empresas gestionen y optimicen las experiencias de los clientes. El enfoque de la empresa en combinar creatividad y marketing se d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADBE" data-company="ADOBE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADBE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ADOBE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Adobe ofrece sus aplicaciones y servicios principalmente a través oferta de suscripción. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Adobe en el tema SaaS es evidente en su modelo de negocio, ya que la empresa ofrece sus aplicaciones y servicios principalmente a través de un modelo de suscripción. Esto se destaca por el hecho de que los ingresos por suscripción constituyen una parte importante de los ingresos ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">AECO se están beneficiando de la inversión sostenida en infraestructura. Autodesk abarca...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Autodesk en el tema de Infraestructura Civil es evidente a través de sus alianzas estratégicas y soluciones tecnológicas. Los clientes de AECO se están beneficiando de la inversión sostenida en infraestructura, particularmente en regiones como Oriente Medio e India. La asociación...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La tecnología de Autodesk abarca el diseño y la fabricación de productos. La empresa atrae a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Autodesk con la creación de prototipos industriales es evidente a través de su Product Design & Manufacturing Collection, que está siendo utilizada por una institución de investigación europea líder para reducir la dependencia de prototipos físicos mediante un mayor uso de pruebas y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADSK" data-company="AUTODESK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AUTODESK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Autodesk demuestra su enfoque en Infraestructura Sostenible a través of su compromiso de avanzar...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Autodesk demuestra su enfoque en Infraestructura Sostenible a través de su compromiso de avanzar hacia un mundo más sostenible, resiliente e inclusivo, mencionando explícitamente la infraestructura resiliente como un área en la que su tecnología juega un papel. Este compromiso se refleja en cómo los...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BSY" data-company="BENTLEY SYSTEMS INC-CLASS B">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BSY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BENTLEY SYSTEMS INC-CLASS B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Bentley Systems demuestra su compromiso con la computación en la nube a través de varios aspectos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Bentley Systems demuestra su compromiso con la computación en la nube a través de varios aspectos operativos y financieros. La empresa incurre en costos relacionados con la nube para dar servicio a cuentas que utilizan soluciones aprovisionadas en la nube y su plataforma de administración de licenci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BSY" data-company="BENTLEY SYSTEMS INC-CLASS B">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BSY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BENTLEY SYSTEMS INC-CLASS B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Bentley Systems enfatiza la importancia de las soluciones de gemelos digitales para la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Bentley Systems enfatiza la importancia de las soluciones de gemelos digitales para la infraestructura, las operaciones y el mantenimiento, considerándolo una oportunidad significativa. La empresa declara explícitamente que permite a los usuarios diseñar, construir y operar infraestructura resilient...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BSY" data-company="BENTLEY SYSTEMS INC-CLASS B">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BSY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BENTLEY SYSTEMS INC-CLASS B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Bentley Systems es una empresa de software de ingeniería de infraestructura. Esto se ve respaldado...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Bentley Systems se identifica como una empresa de software de ingeniería de infraestructura, un indicador clave de su participación en servicios de ingeniería. Esto se ve respaldado además por el hecho de que las mejoras en el rendimiento empresarial han sido impulsadas consistentemente por sus apli...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CDNS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cadence participa en el desarrollo de aplicaciones a través of la creación of software...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cadence participa en el desarrollo de aplicaciones a través de la creación de software computacional impulsado por IA, así como soluciones de propiedad intelectual. Estos recursos están diseñados para ingenieros y científicos, permitiéndoles crear productos nuevos e innovadores. El papel de la empre...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CDNS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El gemelo digital de centro de datos de realidad de Cadence está impulsando un fuerte crecimiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Cadence con el tema del centro de datos es evidente a través de varias actividades clave. Los solucionadores Clarity y Celsius de la empresa están experimentando una expansión significativa en un importante hiperescalador, y Clarity ha asegurado una victoria clave en una destacada e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CDNS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cadence's semiconductores son integrales para numerosos productos de consumo. Los clientes de the...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Cadence con el tema de dispositivos electrónicos es evidente a través de sus semiconductores, que son integrales para numerosos productos de consumo, incluyendo teléfonos móviles, automóviles, computadoras y electrodomésticos. Los clientes de la empresa diseñan y construyen sistemas e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CDNS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cadence experimentó un crecimiento sustancial, impulsado by oportunidades en IA, arquitecturas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cadence en la innovación de hardware tecnológico es evidente a través de su desarrollo de hardware acelerado y soluciones de propiedad intelectual (PI). El negocio de PI de la empresa experimentó un crecimiento sustancial, impulsado por oportunidades en IA, arquitecturas basadas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CDNS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cadence proporciona software, hardware, propiedad intelectual y servicios de computación para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cadence en el Internet de las cosas es evidente a través de la provisión de software, hardware, propiedad intelectual y servicios de computación para diversos sectores, incluido el Internet de las cosas industrial (IIoT). La compañía identifica el IIoT como una de las industrias ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CDNS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cadence ayuda a abordar desafíos intrincados tanto en los sectores de semiconductores como de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cadence en el tema de los chips semiconductores es evidente a través de sus estrechas colaboraciones con empresas de semiconductores, donde ayuda a abordar desafíos intrincados tanto en los sectores de semiconductores como de sistemas electrónicos. El software EDA y las ofertas d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEHC" data-company="GE HEALTHCARE TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GEHC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE HEALTHCARE TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE HealthCare exhibe una fuerte conexión con el tema of Diagnóstico Médico. La cartera de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">GE HealthCare exhibe una fuerte conexión con el tema de Diagnóstico Médico, subrayada por su enfoque en productos de imagen, particularmente en cardiología y oncología, donde los clientes están invirtiendo activamente. El compromiso de la empresa se evidencia aún más en su segmento de Diagnóstico Fa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEHC" data-company="GE HEALTHCARE TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GEHC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE HEALTHCARE TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Healthcare está en una transición estratégica hacia un proveedor de soluciones de atención...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">GE Healthcare está en una transición estratégica hacia un proveedor de soluciones de atención médica, yendo más allá de su papel tradicional como empresa de imágenes y equipos. Este cambio está respaldado por el lanzamiento de nuevos productos destinados a permitir la atención personalizada y la car...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEHC" data-company="GE HEALTHCARE TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GEHC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE HEALTHCARE TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El crecimiento en las soluciones de monitoreo ha contribuido a los aumentos de ingresos dentro del...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de GE HealthCare en el Monitoreo de la Salud es evidente a través de su segmento de Soluciones de Atención al Paciente (PCS), que incluye Soluciones de Monitoreo. El enfoque de la empresa en la introducción de nuevos productos dentro de las soluciones de monitoreo, anestesia y parto...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEHC" data-company="GE HEALTHCARE TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GEHC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE HEALTHCARE TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de GE HealthCare en Servicios de Salud es evidente a través of su evolución...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de GE HealthCare en Servicios de Salud es evidente a través de su evolución estratégica y enfoque operativo. La compañía está transitando hacia un proveedor de soluciones de atención médica, respaldado por la priorización de los clientes de productos de imagen, particularmente en ca...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HPQ" data-company="HP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HPQ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">HP ofrece computadoras de escritorio comerciales y de consumo, portátiles, estaciones de trabajo,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de HP en el tema de Electrónica de Consumo es evidente a través de la entrega de diversos dispositivos, servicios y suscripciones relacionados con la computación personal, la impresión, los juegos y otras tecnologías. El segmento de Sistemas Personales de la empresa ofrece computado...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HPQ" data-company="HP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HPQ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">HP está diversificando sus ubicaciones de fabricación de PC e impresoras, expandiendo la producción...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de HP en la fabricación de PC es significativa, como lo demuestra su segmento de Sistemas Personales, que incluye computadoras de escritorio comerciales y de consumo, portátiles y estaciones de trabajo. La empresa se enfoca en las PC con IA, con el objetivo de que representen más de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HPQ" data-company="HP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HPQ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">HP ofrece computadoras de escritorio, portátiles, estaciones de trabajo, thin clients and sistemas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Sistemas Personales de HP incluye sistemas de punto de venta (POS) minoristas, lo que indica la participación de la empresa en soluciones de tecnología minorista. La empresa ofrece computadoras de escritorio, portátiles, estaciones de trabajo, thin clients y sistemas POS minoristas co...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HTFL" data-company="HEARTFLOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HTFL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HEARTFLOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa emplea expertos en aprendizaje automático dentro of su equipo de I+D. La inclusión of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de HTFL en el aprendizaje automático es evidente en la composición de su equipo de investigación y desarrollo, que incluye científicos investigadores con doctorado y experiencia en algoritmos basados en IA e imágenes médicas, junto con ingenieros de software especializados en arquit...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HTFL" data-company="HEARTFLOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HTFL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HEARTFLOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma Heartflow aprovecha la IA y la dinámica de fluidos computacional avanzada para crear...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de la empresa en la IA para imágenes médicas es evidente en su uso pionero de software e IA para ofrecer soluciones no invasivas para diagnosticar y controlar la enfermedad de las arterias coronarias. La plataforma Heartflow aprovecha la IA y la dinámica de fluidos computacional avanzada ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HTFL" data-company="HEARTFLOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HTFL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HEARTFLOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">HTFL ofrece una visualización anatómica intuitiva de las arterias coronarias. El equipo de I+D de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de HTFL en la visualización profesional es evidente en su plataforma, que aprovecha la IA y la dinámica de fluidos computacional para generar modelos cardíacos 3D personalizados a partir de escaneos CCTA. Esta plataforma incluye Heartflow RoadMap Analysis, que ofrece una visualizaci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NEM" data-company="NEWMONT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NEM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NEWMONT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Newmont tiene activos productores de cobre en Red Chris, Boddington y Cadia. La empresa se dedica...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Newmont en la industria de la minería de cobre es evidente a través de su producción y ventas de cobre, aunque la empresa se enfoca principalmente en el oro. Newmont tiene activos productores de cobre en Red Chris, Boddington y Cadia, siendo Cadia una operación de cobre y oro de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NEM" data-company="NEWMONT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NEM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NEWMONT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Newmont is la única empresa aurífera incluida tanto en el Índice S&P 500 como en la lista Fortune...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Newmont en la Producción de Oro es evidente ya que la compañía se identifica como la principal empresa aurífera del mundo. Esto se ve reforzado por el hecho de que Newmont es la única empresa aurífera incluida tanto en el Índice S&P 500 como en la lista Fortune 500. La compañía s...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NEM" data-company="NEWMONT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NEM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NEWMONT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Newmont se extienden a la exploración de propiedades de oro que también pueden contener otros...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Newmont en el tema de la industria de metales preciosos es evidente en sus operaciones comerciales principales, que incluyen la exploración, adquisición y producción de oro y plata. El flujo de ingresos de la empresa está significativamente respaldado por metales preciosos, con u...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PTC" data-company="PTC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PTC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PTC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PTC se dedica a permitir que los fabricantes y las empresas de productos transformen digitalmente....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">PTC se dedica a permitir que los fabricantes y las empresas de productos transformen digitalmente la forma en que diseñan, fabrican y dan servicio a productos físicos. Las ofertas de software de PTC actúan como un facilitador estratégico para las iniciativas de transformación digital, lo que ayuda a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PTC" data-company="PTC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PTC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PTC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PTC es una empresa global de software que empodera a los fabricantes y empresas de productos. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de PTC con las Soluciones de TI es evidente en su papel como una empresa global de software que empodera a los fabricantes y empresas de productos para transformar digitalmente sus procesos de diseño, fabricación y servicio. Las ofertas de PTC, que incluyen CAD, PLM, ALM y SLM, son sol...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="U" data-company="UNITY SOFTWARE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">U</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITY SOFTWARE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Red de Anuncios de Unity constituye aproximadamente la mitad of sus ingresos totales de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Unity en la Tecnología de Marketing Digital es evidente a través de su Red de Anuncios de Unity, que constituye aproximadamente la mitad de sus ingresos totales de crecimiento, y la empresa anticipa aumentos adicionales. Esta red aprovecha las capacidades impulsadas por IA, parti...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="U" data-company="UNITY SOFTWARE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">U</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITY SOFTWARE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Unity es un proveedor líder de software para la creación, distribución y ejecución de aplicaciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Unity con la Industria del Juego es sustancial, ya que la empresa es un proveedor líder de software para la creación, distribución y ejecución de aplicaciones de juego. Una parte importante de los principales juegos móviles a nivel mundial se construyen en la plataforma de Unity, y ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="U" data-company="UNITY SOFTWARE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">U</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITY SOFTWARE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Unity es un conjunto diseñadas para crear, comercializar y hacer crecer juegos y experiencias...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Unity con el Entretenimiento Interactivo es evidente en su conjunto de herramientas diseñadas para crear, comercializar y hacer crecer juegos y experiencias interactivas en diversas plataformas, incluyendo móvil, PC, consola y XR. Las suscripciones de Create Solutions de la compañía...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="U" data-company="UNITY SOFTWARE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">U</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITY SOFTWARE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El 70% de los principales juegos móviles del mundo se construyen en Unity. Unity brindan a los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Unity en los juegos móviles es evidente a través de su conjunto integral de herramientas diseñadas para crear, comercializar y hacer crecer juegos en las principales plataformas, incluido el móvil. Los servicios de publicación de juegos de la compañía brindan a los desarrolladores de j...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="U" data-company="UNITY SOFTWARE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">U</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITY SOFTWARE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BMW utiliza Unity Asset Manager para potenciar su plataforma de gestión de activos 3D. Specto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Unity en la visualización profesional se demuestra a través de sus tecnologías que permiten a los clientes editar, ejecutar e iterar experiencias interactivas, 3D en tiempo real y 2D. BMW utiliza Unity Asset Manager para potenciar su plataforma de gestión de activos 3D, y la tecn...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="U" data-company="UNITY SOFTWARE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">U</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITY SOFTWARE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Unity es una empresa diseñada para crear, comercializar y hacer crecer juegos. Esta dedicación al...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Unity en la industria de los videojuegos es evidente en su conjunto de herramientas diseñadas para crear, comercializar y hacer crecer juegos en las principales plataformas, incluyendo móviles, PC, consolas y realidad extendida (XR). La plataforma de la empresa, que comprende Solucione...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADBE" data-company="ADOBE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADBE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ADOBE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Adobe en habilitar la transformación digital es evidente. Las innovaciones de Adobe...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Adobe en habilitar la transformación digital es evidente en su misión de cambiar el mundo a través de experiencias digitales personalizadas. Esto se logra a través de sus productos y servicios que ayudan a liberar la creatividad, acelerar la productividad de documentos y potenciar nego...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADBE" data-company="ADOBE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADBE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ADOBE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Adobe es parte de Medios Digitales de la empresa. Creative Cloud proporciona un conjunto de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Adobe en Visualización Profesional es evidente a través de su segmento de Medios Digitales, particularmente la oferta de Creative Cloud. Creative Cloud proporciona un conjunto de herramientas de escritorio, aplicaciones móviles y servicios basados en la nube adaptados para diseña...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BSY" data-company="BENTLEY SYSTEMS INC-CLASS B">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BSY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BENTLEY SYSTEMS INC-CLASS B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Bentley Systems es una empresa de software de ingeniería de infraestructuras. Se refleja en su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Bentley Systems se identifica como la empresa de software de ingeniería de infraestructuras, con el propósito de avanzar en la infraestructura global para una mejor calidad de vida. Este compromiso se refleja en su apoyo a productos estructurales, particularmente para redes de infraestructura horizo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BSY" data-company="BENTLEY SYSTEMS INC-CLASS B">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BSY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BENTLEY SYSTEMS INC-CLASS B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Bentley Systems se identifica como una empresa de software de ingeniería de infraestructura. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Bentley Systems se identifica como una empresa de software de ingeniería de infraestructura, que permite a los usuarios diseñar, construir y operar infraestructura resiliente a través de soluciones inteligentes de gemelos digitales. La actividad principal de la empresa es el desarrollo y marketing d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CDNS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cadence proporciona software computacional, hardware, IP y servicios al sector automotriz. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cadence en Tecnología Automotriz es evidente a través de varias vías. La empresa proporciona software computacional, hardware, IP y servicios al sector automotriz, y los clientes automotrices están impulsando una fuerte demanda de su hardware. La adquisición de BETA CAE amplía la...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CDNS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cadence se destaca por su adquisición de Invecas, una empresa especializada en ingeniería de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cadence en Servicios de Ingeniería se destaca por su adquisición de Invecas, una empresa especializada en ingeniería de diseño, software integrado y soluciones a nivel de sistema. Esta adquisición, alineada con la estrategia de Diseño Inteligente de Sistemas de Cadence, aporta un...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CDNS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La exposición de Cadence a la industria de dispositivos médicos está respaldada. La adquisición...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de Cadence a la industria de dispositivos médicos está respaldada por su provisión de soluciones de semiconductores que catalizan la innovación dentro de la tecnología médica. Esto se demuestra aún más con la adquisición de BETA CAE, que amplía la suite de análisis de sistemas multifís...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEHC" data-company="GE HEALTHCARE TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GEHC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE HEALTHCARE TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de GE HealthCare en productos de imagen, particularmente en cardiología y oncología,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de GE HealthCare en el tema de la industria de Dispositivos Médicos es evidente a través de varias iniciativas estratégicas y segmentos operativos. El enfoque de la empresa en productos de imagen, particularmente en cardiología y oncología, está impulsado por la priorización de los ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEHC" data-company="GE HEALTHCARE TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GEHC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE HEALTHCARE TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE HealthCare demuestra un compromiso significativo con la industria farmacéutica. El segmento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">GE HealthCare demuestra un compromiso significativo con la industria farmacéutica, subrayado por su iniciativa estratégica D3 centrada en la integración de dispositivos inteligentes y medicamentos para soluciones de enfermedades. El segmento de Diagnóstico Farmacéutico (PDx) de la empresa es un impu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HPQ" data-company="HP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HPQ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Sistemas Personales incluye computadoras de escritorio, portátiles y estaciones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de HP en el tema de la industria de productos de consumo se refleja en sus ofertas de productos de computación personal e impresión, que se venden directamente a consumidores individuales. El segmento de Sistemas Personales de la empresa incluye computadoras de escritorio, portátile...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HPQ" data-company="HP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HPQ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">HP ofrece dispositivos, servicios y suscripciones para juegos. La empresa tiene como objetivo ganar...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de HP en el tema de Esports y Videojuegos es evidente a través de su enfoque en PC para juegos, HyperX y accesorios para juegos, identificados como áreas clave de crecimiento. La empresa tiene como objetivo ganar impulso e impulsar la innovación en el mercado de los juegos, particul...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HPQ" data-company="HP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HPQ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hewlett-Packard (HP) participa en hardware para juegos. Esto se ve respaldado aún más por el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de HP en hardware para juegos es evidente a través de la entrega de dispositivos, servicios y suscripciones relacionados con los juegos. La empresa identifica los 'Juegos' como un área clave de crecimiento, con un enfoque en 'PC para juegos, HyperX y accesorios para juegos'. Esto se...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HPQ" data-company="HP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HPQ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">HP se centra en oportunidades de crecimiento dentro of los mercados de consumo premium y de juegos....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de HP en la industria de los videojuegos es evidente a través de la entrega de dispositivos, servicios y suscripciones diseñados para juegos. La empresa se centra en oportunidades de crecimiento dentro de los mercados de consumo premium y de juegos, con el objetivo de ganar impulso ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HPQ" data-company="HP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HPQ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El crecimiento de los ingresos de consumo de la empresa ha sido impulsado by los videojuegos....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de HP con el tema de Tecnología para Videojuegos es evidente a través de la entrega de dispositivos, servicios y suscripciones relacionados con los videojuegos, junto con otras tecnologías. El crecimiento de los ingresos de consumo de la empresa ha sido impulsado por los videojuegos, p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NEM" data-company="NEWMONT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NEM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NEWMONT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Newmont demuestra su compromiso con la innovación en la minería. La compañía está implementando un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Newmont demuestra su compromiso con la innovación en la minería a través de varias iniciativas. La compañía está implementando un Sistema de Transporte Autónomo en Boddington, incluyendo la compra de camiones de transporte dentro del capital de sostenimiento. Newmont también anunció una alianza estr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NEM" data-company="NEWMONT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NEM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NEWMONT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Newmont se centra principalmente en la adquisición de propiedades de oro. Las declaraciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Newmont en la exploración minera es evidente en su enfoque principal en la exploración y adquisición de propiedades de oro, que también pueden contener otros metales como cobre, plata, plomo y zinc. Las declaraciones prospectivas de la empresa incluyen estimaciones sobre futuros ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PTC" data-company="PTC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PTC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PTC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PTC en Software en the Nube es evidente en su énfasis estratégico en expandir las ofertas de SaaS....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de PTC en Software en la Nube es evidente en su énfasis estratégico en expandir las ofertas de SaaS y migrar a los clientes de suscripciones locales. La empresa reconoce los ingresos de los servicios en la nube, principalmente contratos de SaaS, de forma prorrateada y anticipa que e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRMB" data-company="TRIMBLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRMB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIMBLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trimble es una compañía de ingeniería civil en diversas industrias. El segmento de Sistemas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Trimble con el tema de Infraestructura Civil es evidente a través de sus soluciones utilizadas en ingeniería civil en diversas industrias, incluida la arquitectura, la construcción de edificios, el trabajo geoespacial y el transporte. La compañía reconoce el potencial de crecimiento...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRMB" data-company="TRIMBLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRMB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIMBLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trimble se centró en mejorar la seguridad, la eficiencia y el cumplimiento de las flotas al...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Trimble en el tema de Flotas Comerciales se demuestra a través de sus clientes representativos, que incluyen compañías de transporte. Antes de su venta a Platform Science, el negocio de Movilidad de Trimble se centró en mejorar la seguridad, la eficiencia y el cumplimiento de las...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRMB" data-company="TRIMBLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRMB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIMBLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trimble Construction One (TC1) integra varias tecnologías de construcción. constituye la mayoría of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Trimble en el tema de Servicios de Construcción es evidente a través de su tecnología que digitaliza y transforma el trabajo en la industria de la construcción. Trimble Construction One (TC1) integra varias tecnologías de construcción y constituye la mayoría de las reservas de AC...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRMB" data-company="TRIMBLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRMB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIMBLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trimble participa en Soluciones de Gestión de Flotas. Compañía venta de Movilidad a Platform...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Trimble en Soluciones de Gestión de Flotas se refleja en sus soluciones utilizadas en diversas industrias, incluido el transporte, y los ingresos de su segmento T&L, que han aumentado debido al crecimiento de Transporeon, MAPS y los ingresos por suscripción Enterprise. El comprom...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRMB" data-company="TRIMBLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRMB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIMBLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La conexión de Trimble con Soluciones de Movilidad se define principalmente por la desinversión. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Trimble con Soluciones de Movilidad se define principalmente por la desinversión de su negocio de Movilidad a Platform Science, una transacción que incluyó la recepción de participaciones accionarias. Si bien el enfoque estratégico de la empresa ha cambiado, sus soluciones tecnológica...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRMB" data-company="TRIMBLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRMB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIMBLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trimble se deshizo de su negocio agrícola, mantiene una participación del 15% en PTx Trimble. Esta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Trimble con la agricultura de precisión se demuestra principalmente a través de la formación de PTx Trimble, una empresa conjunta que opera en el mercado de la agricultura de precisión de flotas mixtas, destinada a mejorar la productividad, la eficiencia y la sostenibilidad para los...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRMB" data-company="TRIMBLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRMB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIMBLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trimble digitaliza y transforma el trabajo en las industrias de la construcción, la geoespacial y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Trimble en la industria del transporte es evidente a través de sus soluciones tecnológicas y su base de clientes, que incluye empresas de transporte. La tecnología de la empresa digitaliza y transforma el trabajo en las industrias de la construcción, la geoespacial y el transport...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="U" data-company="UNITY SOFTWARE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">U</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITY SOFTWARE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Unity considera la Inteligencia Artificial como fundamental para su crecimiento futuro. Esto se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Unity con la Inteligencia Artificial es evidente en sus iniciativas estratégicas para mejorar tanto la creación de contenido como el rendimiento publicitario. La compañía considera la IA como fundamental para su crecimiento futuro, particularmente en la intersección de la IA, la cre...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="U" data-company="UNITY SOFTWARE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">U</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITY SOFTWARE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La realidad virtual no es el enfoque principal, pero aún recibe inversión. Las herramientas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Unity con la Realidad Virtual es evidente a través de la provisión de herramientas diseñadas para crear, comercializar y expandir juegos y experiencias interactivas en diversas plataformas, incluida la realidad extendida (XR). Si bien la XR, que abarca la realidad virtual, se men...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADBE" data-company="ADOBE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADBE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ADOBE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Adobe ofrece una plataforma creativa integral, que se extiende desde la ideación hasta la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Adobe con el tema de Desarrollo de Aplicaciones es evidente a través de sus equipos dedicados al desarrollo de aplicaciones y su papel pionero en la narración creativa a través de aplicaciones como Photoshop e Illustrator. La empresa ofrece una plataforma creativa integral, que se e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADBE" data-company="ADOBE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADBE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ADOBE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Adobe depende en gran medida de servicios de suscripción basados en la nube. Estas ofertas insignia...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El fuerte compromiso de Adobe con la Computación en la Nube es evidente en su modelo de negocio, que depende en gran medida de servicios de suscripción basados en la nube, particularmente a través de Creative Cloud y Document Cloud. Estas ofertas insignia proporcionan herramientas de escritorio, apl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADBE" data-company="ADOBE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADBE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ADOBE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Adobe establece un modelo de suscripción en la Nube, donde las aplicaciones se entregan a través de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Adobe en el tema de Software en la Nube es evidente en su modelo de negocio principal, donde las aplicaciones se entregan a través de Internet mediante un modelo de suscripción. Esto se ejemplifica en Creative Cloud y Document Cloud, ofertas basadas en suscripción que brindan ser...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADBE" data-company="ADOBE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADBE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ADOBE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Adobe demuestra su participación en Tecnología Educativa a través of su segmento de Publicidad y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Adobe demuestra su participación en Tecnología Educativa a través de su segmento de Publicidad y Publicaciones, que incluye soluciones de eLearning. El compromiso de la empresa se destaca aún más por su asociación con el estado de California, destinada a preparar a los estudiantes para carreras en I...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADBE" data-company="ADOBE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADBE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ADOBE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Adobe Experience Cloud ofrece soluciones en pilares de crecimiento estratégico. Estas aplicaciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Adobe en Soluciones de TI es evidente a través de su segmento de Experiencia Digital, que ofrece una plataforma integrada de productos, servicios y soluciones diseñadas para permitir a las empresas crear, administrar, ejecutar, medir, monetizar y optimizar las experiencias de los...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADBE" data-company="ADOBE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADBE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ADOBE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El aprendizaje automático es un componente de la estrategia de IA de Adobe, como lo demuestra...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Adobe con el aprendizaje automático es evidente a través de la integración de su marco 'Sensei' en las ofertas de Creative Cloud y Document Cloud, mejorando funcionalidades como la edición automática de fotos, el procesamiento del lenguaje natural y el etiquetado de documentos. El a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BSY" data-company="BENTLEY SYSTEMS INC-CLASS B">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BSY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BENTLEY SYSTEMS INC-CLASS B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Bentley Systems enfatiza la adopción de soluciones inteligentes de gemelos digitales para la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Bentley Systems en la tecnología de la construcción es evidente a través de su software de ingeniería de infraestructura y sus soluciones inteligentes de gemelos digitales. El software SYNCHRO de la empresa se utiliza para el modelado de centros de datos en construcción, y EarthBrain, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BSY" data-company="BENTLEY SYSTEMS INC-CLASS B">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BSY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BENTLEY SYSTEMS INC-CLASS B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Bentley Systems en el avance of la infraestructura a través ofertas digitales es...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Bentley Systems en el avance de la infraestructura a través de soluciones digitales es evidente en sus ofertas principales, en particular sus soluciones de gemelos digitales inteligentes, que permiten a los usuarios diseñar, construir y operar infraestructura resiliente. Como empresa d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CDNS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cadence colabora con NVIDIA, permitiendo la aceleración de los solucionadores de Cadence. Esta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Cadence con la Computación Acelerada es evidente a través de su desarrollo de software impulsado por IA, hardware acelerado y soluciones de propiedad intelectual. La empresa colabora con NVIDIA, permitiendo la aceleración de los solucionadores de Cadence y desarrollando soluciones d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CDNS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cadence está integrando la IA Agente en sus plataformas de diseño en los flujos de trabajo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El éxito financiero de Cadence en el segundo trimestre de 2025 se vio impulsado significativamente por su cartera de productos impulsada por IA, que impulsó los ingresos y las ganancias por acción por encima de las expectativas. La empresa está integrando la IA Agente en sus plataformas de diseño en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEHC" data-company="GE HEALTHCARE TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GEHC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE HEALTHCARE TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE HealthCare demuestra su compromiso con la Enfermedad Cardiovascular a través of varias...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">GE HealthCare demuestra su compromiso con la Enfermedad Cardiovascular a través de varias iniciativas clave. Los clientes están priorizando las inversiones en productos de imagen, particularmente en cardiología y oncología, lo que impulsa un crecimiento de pedidos de dos dígitos. Esto se apoya aún m...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEHC" data-company="GE HEALTHCARE TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GEHC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE HEALTHCARE TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento AVS de GE HealthCare ha mostrado un aumento interanual del 2% en los ingresos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">GE HealthCare demuestra su enfoque en la visualización profesional a través de su segmento de Soluciones de Visualización Avanzada (AVS), anteriormente el segmento de Ultrasonido, que incluye la realineación de Terapias Guiadas por Imagen. Esta realineación tiene como objetivo mejorar el uso clínico...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRMB" data-company="TRIMBLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRMB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIMBLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trimble sirve de soluciones tecnológicas para profesionales de la arquitectura, la construcción de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Trimble en la industria de servicios de ingeniería se refleja en su provisión de soluciones tecnológicas para profesionales de la arquitectura, la construcción de edificios y la ingeniería civil. Sus soluciones integrales de procesos de trabajo atienden a una variedad de industri...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="U" data-company="UNITY SOFTWARE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">U</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITY SOFTWARE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma de Unity es integral para el desarrollo ofreciendo herramientas para crear,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La plataforma de Unity es integral para el desarrollo de aplicaciones, ofreciendo herramientas para crear, comercializar y hacer crecer juegos y experiencias interactivas en diversas plataformas, incluidas móviles, PC, consolas y XR. La compañía apoya a los desarrolladores durante todo el ciclo de v...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="U" data-company="UNITY SOFTWARE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">U</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITY SOFTWARE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Unity proporciona herramientas para crear juegos y experiencias interactivas en realidad extendida...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Unity proporciona herramientas para crear juegos y experiencias interactivas en realidad extendida (XR), lo que indica cierta inversión en realidad aumentada. La empresa se muestra optimista sobre el futuro de los juegos y el entretenimiento en RA y RV, con el objetivo de seguir siendo una plataform...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="U" data-company="UNITY SOFTWARE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">U</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITY SOFTWARE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Unity es un proveedor líder de software utilizado para construir, distribuir y ejecutar...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Unity gira en torno a la tecnología de juegos, ya que la compañía es un proveedor líder de software utilizado para construir, distribuir y ejecutar aplicaciones de juegos, con el 70% de los principales juegos móviles a nivel mundial creados en su plataforma. Esto está respald...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADBE" data-company="ADOBE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADBE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ADOBE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los productos y servicios de Adobe se utilizan para imaginar, crear, administrar, entregar, medir,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Adobe en la habilitación de experiencias digitales es evidente en su misión de cambiar el mundo a través de experiencias digitales personalizadas. Los productos y servicios de la compañía se utilizan a nivel mundial para imaginar, crear, administrar, entregar, medir, optimizar e intera...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADBE" data-company="ADOBE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADBE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ADOBE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Adobe ofrece soluciones integrales y pilares de crecimiento estratégico. La plataforma integrada de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Adobe con el tema de Software Empresarial es evidente a través de sus soluciones integrales y pilares de crecimiento estratégico. La plataforma integrada de Adobe, incluido GenStudio, está transformando la cadena de suministro de contenido, como lo demuestra el fuerte crecimiento de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ADBE" data-company="ADOBE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ADBE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ADOBE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Adobe para la diversificación de medios es evidente en su combinación ofertas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Adobe para la diversificación de medios es evidente en su combinación de ofertas de Medios Digitales y Experiencia Digital, ejemplificado por soluciones como Adobe GenStudio, que permite a los clientes administrar contenido en varios canales. Las innovaciones de Adobe han transformado ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CDNS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El DSP Tensilica de Cadence se utiliza en sistemas automotrices ADAS e infoentretenimiento. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cadence en la electrónica automotriz es evidente a través de la provisión de software computacional, hardware, IP y servicios para el sector automotriz. El DSP Tensilica de la compañía se utiliza en sistemas automotrices ADAS e infoentretenimiento, y su conjunto de software de ve...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CDNS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cadence está expandiendo su alcance en varios sectores de la electrónica. La suite de software de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cadence ha estado a la vanguardia de la innovación tecnológica, abordando desafíos complejos dentro de las industrias de semiconductores y sistemas electrónicos desde su creación. La suite de software de verificación de Cadence está expandiendo su alcance en varios sectores de la electrónica y se be...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRMB" data-company="TRIMBLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRMB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIMBLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La tecnología de Trimble conecta el mundo físico y digital. Trimble está expandiendo su oferta de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Trimble en la tecnología de la construcción es evidente en su enfoque en la digitalización y transformación del trabajo dentro de la industria de la construcción. La tecnología de la compañía conecta el mundo físico y digital, vinculando a las partes interesadas a lo largo del ci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRMB" data-company="TRIMBLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRMB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIMBLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trimble se deshizo de su negocio de movilidad, mantiene una relación comercial para integrar la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Trimble en el tema de la Red Logística es evidente a través de sus soluciones dirigidas a industrias como el transporte y sus clientes representativos, incluidas las empresas de transporte por carretera. El segmento de Transporte y Logística de la empresa, impulsado por la adquis...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRMB" data-company="TRIMBLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRMB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIMBLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trimble se centra cada vez más en software y servicios. Este crecimiento está impulsado por la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Trimble se centra cada vez más en software y servicios, que representaron el 75% de los ingresos totales en el segundo trimestre de 2024. Este crecimiento está impulsado por la fuerte demanda de software de suscripción y licencias a plazo, particularmente las ofertas de productos Viewpoint y Archite...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

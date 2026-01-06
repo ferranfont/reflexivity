@@ -1,0 +1,925 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Data Center REITs - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Data Center REITs</div>
+      <div class="sub-title">Investment Theme Detail - Real Estate Industry</div>
+    </div>
+    <a href="main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Data Center REITs &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Real Estate &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 8
+    </div>
+
+    
+    <!-- Theme Chart Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Theme Chart</span>
+             <a href="equity_data_center_reits.html" target="_blank" class="btn-view-chart">View Full Chart ↗</a>
+        </div>
+        <div class="box-body" style="height: 600px; overflow:hidden;">
+            <iframe src="equity_data_center_reits.html" style="width:100%; height:100%; border:none; display:block;"></iframe>
+        </div>
+    </div>
+        
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">8</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DLR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">DIGITAL REALTY TRUST INC.</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona infraestructura de centro de datos crucial y soluciones de conectividad que sustentan la implementación y operación de tecnologías de comp...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DLR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">EQIX</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">EQUINIX INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona infraestructura crítica de centros de datos y servicios de interconexión esenciales para la implementación y operación de cargas de trabaj...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/EQIX" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">GDS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">GDS HOLDINGS LTD - ADR</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se enfoca en el desarrollo y operación de centros de datos de alto rendimiento, proporcionando infraestructura y servicios esenciales para la computac...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/GDS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DBRG</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">DIGITALBRIDGE GROUP INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Facilita el avance de la infraestructura 5G....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DBRG" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">NXT</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">NEXTPOWER INC-CL A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y proporciona soluciones avanzadas de seguimiento solar que optimizan la captura de energía y mejoran la eficiencia de los proyectos de gen...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/NXT" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">IRM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">IRON MOUNTAIN INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece servicios integrales de gestión de datos que abarcan soluciones de almacenamiento en la nube, lo que permite a las empresas almacenar, administ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/IRM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BIP</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BROOKFIELD INFRASTRUCTURE PA</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece activos de infraestructura, como centros de datos y redes de fibra óptica, que son fundamentales para potenciar y conectar sistemas de intelige...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BIP" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">APLD</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">APPLIED DIGITAL CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona infraestructura especializada para centros de datos y servicios de alojamiento que permiten y respaldan aplicaciones de computación aceler...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/APLD" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">51</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="NXT" data-company="NEXTPOWER INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/NXT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NXT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NEXTPOWER INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nextracker está significativamente alineado with la industria solar a gran escala. La empresa ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Nextracker está significativamente alineado con la industria solar a gran escala, como lo demuestra su provisión de soluciones inteligentes e integradas de seguidores solares, cimentaciones y software utilizadas en estos proyectos en todo el mundo. La empresa ha enviado más de 130 GW d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NXT" data-company="NEXTPOWER INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/NXT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NXT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NEXTPOWER INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nextracker es proveedor líder de sistemas integrados de seguidores solares. Productos de Nextracker...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Nextracker gira en torno a la provisión de componentes esenciales para proyectos de energía renovable, en particular seguidores solares, cimientos y soluciones de software relacionadas. Como proveedor líder de sistemas integrados de seguidores solares, los productos de Nextra...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NXT" data-company="NEXTPOWER INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/NXT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NXT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NEXTPOWER INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nextracker se demuestra a través de adquisiciones estratégicas destinadas a mejorar su oferta de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Nextracker en Servicios de Energía se demuestra a través de adquisiciones estratégicas destinadas a mejorar su oferta de servicios para plantas de energía solar. Las adquisiciones de Bentek y OnSight han ampliado las capacidades de Nextracker para incluir componentes de infraestr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NXT" data-company="NEXTPOWER INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/NXT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NXT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NEXTPOWER INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nextracker es proveedor líder de plataformas de tecnología solar. Ofreciendo tehnologías y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Nextracker con la Tecnología de Energía Limpia es evidente a través de su posición como proveedor líder de plataformas de tecnología solar, ofreciendo tecnologías y soluciones de rastreadores solares que optimizan el rendimiento de las plantas de energía solar. El compromiso de la e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NXT" data-company="NEXTPOWER INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/NXT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NXT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NEXTPOWER INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nextracker se centra en crear una plataforma completa de energía solar escalando nuevos productos y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Nextracker en Soluciones Energéticas es evidente en su cambio estratégico hacia convertirse en un proveedor integral de plataformas de tecnología de energía solar, destacado por la adquisición de Bentek Corporation. La empresa se centra en crear una plataforma completa de energía...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="APLD" data-company="APPLIED DIGITAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/APLD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">APLD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLIED DIGITAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Applied Digital diseña y opera centros de datos de próxima generación adaptados para arquitecturas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Applied Digital en la Computación Acelerada es evidente a través de su Negocio de Alojamiento HPC, que diseña y opera centros de datos de próxima generación adaptados para arquitecturas de GPU de alta densidad y aplicaciones HPC como IA y aprendizaje automático. El enfoque de la ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="APLD" data-company="APPLIED DIGITAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/APLD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">APLD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLIED DIGITAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Applied Digital opera 286 megavatios de capacidad de alojamiento de centros de datos. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Applied Digital está significativamente involucrada en la industria de los Centros de Datos, operando a través de su Negocio de Alojamiento de Centros de Datos para minería de criptomonedas y su Negocio de Alojamiento HPC para aplicaciones de computación de alto rendimiento. La compañía opera 286 me...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="APLD" data-company="APPLIED DIGITAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/APLD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">APLD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLIED DIGITAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa construye y opera centros de datos, diseñándolos para proporcionar una potencia de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema de la Infraestructura de Datos es evidente en su papel como diseñador, desarrollador y operador de infraestructura digital de próxima generación en América del Norte, proporcionando soluciones a las industrias de computación de alto rendimiento y inteligencia ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NXT" data-company="NEXTPOWER INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/NXT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NXT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NEXTPOWER INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nextracker ofrece tecnologías de rastreadores solares y soluciones innovadoras para plantas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Nextracker con el tema de la Energía Solar es significativo, como lo destaca su posición como proveedor líder de plataformas de tecnología solar, que ofrece tecnologías de rastreadores solares y soluciones innovadoras para plantas de energía solar en todo el mundo. Los productos de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NXT" data-company="NEXTPOWER INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/NXT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NXT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NEXTPOWER INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nextracker ofrece tecnologías y soluciones de rastreadores solares que mejoran la construcción y el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Nextracker con el tema de la Energía Limpia es evidente a través de su posición como proveedor líder de plataformas de tecnología solar, que ofrece tecnologías y soluciones de rastreadores solares que mejoran la construcción y el rendimiento de las plantas de energía solar. El compr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NXT" data-company="NEXTPOWER INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/NXT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NXT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NEXTPOWER INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nextracker es un proveedor líder de plataformas de tecnología solar. La empresa ofrece tehnologías...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Nextracker está significativamente ligado al tema de la Energía Renovable, ya que es un proveedor líder de plataformas de tecnología solar. La empresa ofrece tecnologías y soluciones de seguidores solares que mejoran la construcción y el rendimiento de las centrales solares, con produc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NXT" data-company="NEXTPOWER INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/NXT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NXT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NEXTPOWER INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nextracker está ligado a proyectos solares a escala de servicios públicos. La empresa ha enviado...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Nextracker está significativamente ligado a proyectos solares a escala de servicios públicos, como lo destaca su papel como proveedor líder de soluciones de seguidores solares utilizadas en estos proyectos a nivel mundial. La empresa ha enviado más de 130 GW de sistemas de seguidores s...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="APLD" data-company="APPLIED DIGITAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/APLD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">APLD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLIED DIGITAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El Aprendizaje Automático ofrece potencia de computación de alto rendimiento adaptada. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el Aprendizaje Automático es evidente a través de su Negocio de Servicios en la Nube, que ofrece potencia de computación de alto rendimiento adaptada para aplicaciones de aprendizaje automático. La empresa proporciona soluciones de infraestructura digital y servicios ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NXT" data-company="NEXTPOWER INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/NXT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NXT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NEXTPOWER INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nextracker ofrece soluciones integradas para seguidores solares y cimentaciones. Nextracker tiene...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Nextracker en Tecnología de Construcción es evidente a través de sus adquisiciones de Ojjo, Inc. y el negocio de cimentaciones solares de Solar Pile International (SPI). Estas adquisiciones mejoran la capacidad de Nextracker para ofrecer soluciones integradas para seguidores sola...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NXT" data-company="NEXTPOWER INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/NXT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NXT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NEXTPOWER INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nextracker está muy involucrado en la industria de Generación de Electricidad. Como líder del...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Nextracker está muy involucrado en la industria de Generación de Electricidad a través de su provisión de seguidores solares integrados, cimientos y soluciones de software para proyectos solares a escala de servicios públicos y de generación distribuida. Las tecnologías de la empresa optimizan el re...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DBRG" data-company="DIGITALBRIDGE GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DBRG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DBRG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DIGITALBRIDGE GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DigitalBridge es un importante gestor de inversiones global en infraestructura digital. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de DigitalBridge con las Comunicaciones por Fibra Óptica es evidente a través de su papel como un importante gestor de inversiones global en infraestructura digital, que incluye redes de fibra. El enfoque de la compañía se destaca por su serie de fondos DBP, que invierten y construy...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DBRG" data-company="DIGITALBRIDGE GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DBRG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DBRG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DIGITALBRIDGE GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DigitalBridge opera una de las 4 principales carteras de torres independientes a nivel mundial. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de DigitalBridge en la Infraestructura de Telecomunicaciones es evidente a través de su despliegue de capital en todo el ecosistema digital, que incluye torres de telefonía móvil, redes de fibra y celdas pequeñas. La empresa opera una de las 4 principales carteras de torres independ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DBRG" data-company="DIGITALBRIDGE GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DBRG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DBRG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DIGITALBRIDGE GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DigitalBridge opera una de las 4 principales carteras independientes de torres a nivel mundial....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de DigitalBridge con el tema de la Infraestructura Inalámbrica es evidente a través de su papel como un gestor de inversiones líder a nivel mundial en infraestructura digital, desplegando y gestionando activamente capital en todo el ecosistema digital, incluidas las torres celulares y ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLR" data-company="DIGITAL REALTY TRUST INC.">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DLR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DIGITAL REALTY TRUST INC.</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Digital Realty Trust se centra en bienes raíces comerciales. La empresa adquiere,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Digital Realty Trust se centra en bienes raíces comerciales, específicamente centros de datos. La empresa adquiere, desarrolla, arrienda y gestiona estas propiedades de centros de datos, entregando soluciones de espacio, energía e interconexión en una plataforma global de tecnología y ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLR" data-company="DIGITAL REALTY TRUST INC.">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DLR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DIGITAL REALTY TRUST INC.</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Digital Realty es un proveedor global líder de soluciones de centros de datos, colocation e...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La fuerte conexión de Digital Realty con el tema de los Centros de Datos es evidente a través de sus operaciones comerciales principales. La empresa se identifica explícitamente como un proveedor global líder de soluciones de centros de datos, colocation e interconexión, que ofrece soluciones integr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLR" data-company="DIGITAL REALTY TRUST INC.">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DLR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DIGITAL REALTY TRUST INC.</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Digital Realty ofrece soluciones integrales de espacio, energía y conectividad. El negocio...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Digital Realty gira en torno a operar como un REIT de centros de datos, un hecho declarado explícitamente en sus presentaciones, lo que enfatiza su especialización en esta área. Como proveedor líder mundial de soluciones de centros de datos, colocation e interconexión, Digita...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLR" data-company="DIGITAL REALTY TRUST INC.">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DLR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DIGITAL REALTY TRUST INC.</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Digital Realty es una empresa de campus metropolitanos ricos en conectividad. La participación de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Digital Realty en la red de datos es evidente en su provisión de soluciones integrales de espacio, energía e interconexión, lo que permite a los clientes y socios conectarse a escala global. La empresa prioriza la mejora de las capacidades y servicios de interconexión en su Platf...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLR" data-company="DIGITAL REALTY TRUST INC.">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DLR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DIGITAL REALTY TRUST INC.</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Digital Realty Trust es un actor clave en la economía digital. Proporciona soluciones esenciales de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Digital Realty Trust es un actor clave en la economía digital, ya que proporciona soluciones esenciales de espacio, energía e interconexión. La empresa se identifica explícitamente como una parte importante de la economía digital, ofreciendo servicios integrales que permiten a los clientes y socios ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EQIX" data-company="EQUINIX INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/EQIX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EQIX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EQUINIX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Equinix ofrece 'soluciones de borde para implementar redes, seguridad y hardware' El empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Equinix con el Edge Computing es evidente en su provisión de una plataforma global y neutral de proveedores que incluye centros de datos, interconexión y soluciones de borde. La empresa ofrece 'soluciones de borde para implementar redes, seguridad y hardware', con el objetivo de per...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EQIX" data-company="EQUINIX INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/EQIX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EQIX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EQUINIX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Equinix está experimentando una demanda sostenida de IA, destacada por acuerdos relacionados with...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Equinix en Inteligencia Artificial es evidente en sus iniciativas estratégicas y relaciones con clientes. La infraestructura digital de la compañía es crucial para los clientes que escalan sus modelos de IA, con clientes notables como Alembic, Block, Bristol Myers Squibb, Contine...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DBRG" data-company="DIGITALBRIDGE GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DBRG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DBRG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DIGITALBRIDGE GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DigitalBridge tiene una cartera sustancial de proyectos de centros de datos, que superan los 5,4...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de DigitalBridge en el tema de los centros de datos es significativa, como lo demuestra su activa participación en la construcción e inversión en infraestructura de centros de datos. La empresa tiene una cartera sustancial de proyectos de centros de datos, que superan los 5,4 gigava...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EQIX" data-company="EQUINIX INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/EQIX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EQIX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EQUINIX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Equinix opera una plataforma global de centros de datos, ofreciendo soluciones de interconexión y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Equinix opera una plataforma global de centros de datos, ofreciendo soluciones de interconexión y edge con un enfoque en servicios neutrales para proveedores. El negocio principal de la empresa gira en torno a sus centros de datos IBX, que proporcionan alojamiento seguro para equipos de TI críticos ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EQIX" data-company="EQUINIX INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/EQIX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EQIX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EQUINIX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Equinix es una plataforma global e independiente de proveedores centrada en centros de datos,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Equinix en Redes de Datos es evidente en su provisión de una plataforma global e independiente de proveedores centrada en centros de datos, interconexión y soluciones de borde, lo que permite a los clientes interconectar e integrar su infraestructura. El enfoque de la empresa en ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IRM" data-company="IRON MOUNTAIN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IRM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IRM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">IRON MOUNTAIN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Iron Mountain impulsa el crecimiento de los ingresos orgánicos por alquiler de almacenamiento. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Iron Mountain con el tema de Centros de Datos es significativo, como lo demuestra el segmento dedicado de Negocios Globales de Centros de Datos de la compañía, que impulsa el crecimiento de los ingresos orgánicos por alquiler de almacenamiento. Este crecimiento se ve aún más impulsa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IRM" data-company="IRON MOUNTAIN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IRM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IRM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">IRON MOUNTAIN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Iron Mountain ofrece servicios como el borrado de datos, el procesamiento y la disposición de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Iron Mountain en la Seguridad de Datos es evidente a través de su negocio de Gestión del Ciclo de Vida de Activos (ALM), que ofrece servicios como el borrado de datos, el procesamiento y la disposición de hardware de TI. Los servicios de ALM de la empresa están respaldados por lo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IRM" data-company="IRON MOUNTAIN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IRM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IRM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">IRON MOUNTAIN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa participa en el tema of los fideicomisos de inversión inmobiliaria (REIT) Esto es...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de los fideicomisos de inversión inmobiliaria (REIT) es evidente a través de su énfasis en mantener su calificación de REIT a efectos fiscales, que es un factor clave que influye en su condición financiera y operaciones comerciales. Esto está respaldado adem...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EQIX" data-company="EQUINIX INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/EQIX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EQIX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EQUINIX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Equinix ofrece una plataforma que permite la interconexión segura a redes, nubes y contenido....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Equinix está estratégicamente posicionada para capitalizar la creciente adopción de arquitecturas híbridas multi-nube, como lo demuestra su enfoque en proporcionar soluciones que abordan las oportunidades en esta área. Los clientes adoptan cada vez más estrategias híbridas y multi-nube para la arqui...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DBRG" data-company="DIGITALBRIDGE GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DBRG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DBRG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DIGITALBRIDGE GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DigitalBridge es líder en infraestructura digital. La empresa enfatiza el papel crucial de DataBank...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de DigitalBridge con el Edge Computing es evidente a través de su papel como gestor de inversiones global líder en infraestructura digital, que incluye el despliegue y la gestión de capital en todo el ecosistema digital, con un enfoque específico en la infraestructura de borde. La empr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EQIX" data-company="EQUINIX INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/EQIX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EQIX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EQUINIX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Equinix facilita la adopción de la nube al proporcionar conectividad e infraestructura esenciales....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Equinix facilita la adopción de la nube al proporcionar conectividad e infraestructura esenciales, permitiendo a las empresas acceder y gestionar recursos en la nube. Su plataforma permite la interconexión directa y segura a redes, nubes y contenido, lo que permite a los clientes distribuir infraest...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IRM" data-company="IRON MOUNTAIN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/IRM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IRM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">IRON MOUNTAIN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Iron Mountain está experimentando un crecimiento orgánico de los ingresos por servicios impulsado...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Iron Mountain en la Gestión de Almacenes es evidente a través de su negocio de gestión del ciclo de vida de los activos (ALM), que contribuye al crecimiento de los ingresos. El negocio de ALM de la empresa está experimentando un crecimiento orgánico de los ingresos por servicios ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLR" data-company="DIGITAL REALTY TRUST INC.">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/DLR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DIGITAL REALTY TRUST INC.</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Digital Realty Trust se identifica como un fideicomiso de inversión inmobiliaria (REIT) a efectos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Digital Realty Trust se identifica como un fideicomiso de inversión inmobiliaria (REIT) a efectos del impuesto sobre la renta federal de EE. UU., con su Sociedad Operativa gestionando las operaciones comerciales y la propiedad de activos. Los objetivos comerciales principales de la empresa incluyen ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLR" data-company="DIGITAL REALTY TRUST INC.">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/DLR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DIGITAL REALTY TRUST INC.</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Digital Realty está compromiado con el arrendamiento de propiedades. La actividad de arrendad de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Digital Realty con el arrendamiento de propiedades es sustancial, ya que la mayor parte de sus ingresos proviene de los ingresos por alquiler generados por su extensa cartera de centros de datos. La actividad de arrendamiento de la empresa es significativa, marcada por contratos de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DBRG" data-company="DIGITALBRIDGE GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/DBRG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DBRG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DIGITALBRIDGE GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DigitalBridge se centra en la Infraestructura de Internet. La empresa despliega y gestiona capital...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">DigitalBridge se centra en la Infraestructura de Internet a través de sus inversiones en todo el ecosistema digital. La empresa despliega y gestiona capital en áreas que incluyen centros de datos, torres de telefonía móvil, redes de fibra, celdas pequeñas e infraestructura de borde. Su serie de fond...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DBRG" data-company="DIGITALBRIDGE GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/DBRG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DBRG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DIGITALBRIDGE GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DigitalBridge recauda capital para vehículos de coinversión, estrategias de valor agregado, fondos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de DigitalBridge en inversiones alternativas es evidente a través de sus diversas estrategias de inversión y actividades de gestión de fondos. La empresa recauda activamente capital para vehículos de coinversión, estrategias de valor agregado, fondos InfraBridge y fondos de crédito,...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EQIX" data-company="EQUINIX INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/EQIX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EQIX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EQUINIX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de Equinix con las Soluciones de TI es evidente en su provisión de centros de datos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Equinix con las Soluciones de TI es evidente en su provisión de centros de datos IBX y experiencia, que las empresas globales y los proveedores de servicios utilizan para albergar equipos de TI críticos y salvaguardar activos de información. La Plataforma Equinix de la empresa facil...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IRM" data-company="IRON MOUNTAIN INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/IRM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IRM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">IRON MOUNTAIN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de centros de datos de Iron Mountain ha experimentado un crecimiento sustancial. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Iron Mountain en el tema de los REIT de centros de datos es evidente a través del crecimiento significativo y la importancia estratégica de su negocio de centros de datos. El negocio de centros de datos de la empresa ha experimentado un crecimiento sustancial de los ingresos, imp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EQIX" data-company="EQUINIX INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/EQIX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EQIX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EQUINIX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Equinix ha establecido asociaciones de empresas conjuntas en las regiones de América, EMEA y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Equinix con la Integración Empresarial de IA es evidente a través de su reconocimiento de la adopción de IA como un impulsor clave en el cambio hacia la externalización de los requisitos de alojamiento e interconexión de TI. Esta tendencia se ve acelerada aún más por la creciente ad...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EQIX" data-company="EQUINIX INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/EQIX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EQIX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EQUINIX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Equinix ayuda a proveedores de servicios de nube a hiperescala a través of asociaciones conjuntas....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Equinix en la Computación en la Nube es evidente en su papel para habilitar la economía digital global impulsada por la información a través de su Plataforma Equinix, que facilita la interconexión segura a redes, nubes y contenido. La empresa apoya la creciente adopción de arquit...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EQIX" data-company="EQUINIX INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/EQIX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EQIX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EQUINIX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Equinix Fabric, con una capacidad aprovisionada que supera los 100 terabits, admite a más de 4.000...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La plataforma de Equinix está diseñada para permitir a los clientes llegar a todas partes, interconectar a todos e integrar todo a través de su centro de datos global, neutral para el proveedor, soluciones de interconexión y de borde. Equinix Fabric, con una capacidad aprovisionada que supera los 10...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLR" data-company="DIGITAL REALTY TRUST INC.">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/DLR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DIGITAL REALTY TRUST INC.</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Digital Realty ofrece soluciones de espacio, energía e interconexión, que son esenciales para la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Digital Realty ofrece soluciones de espacio, energía e interconexión, que son esenciales para la infraestructura en la nube, para permitir que los clientes y socios conecten y presten servicios a sus propios clientes en una plataforma global de tecnología y bienes raíces. El enfoque de la empresa en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLR" data-company="DIGITAL REALTY TRUST INC.">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/DLR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DIGITAL REALTY TRUST INC.</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Digital Realty reconoce que la computación en la nube impulsa la demanda de capacidad de centros de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Digital Realty con la computación en la nube es evidente a través de su provisión de soluciones de centros de datos, colocation e interconexión, que son fundamentales para la infraestructura en la nube. La empresa reconoce que la creciente adopción de la computación en la nube impul...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EQIX" data-company="EQUINIX INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/EQIX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EQIX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EQUINIX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Equinix contribuye significativamente al tema de Infraestructura de Internet. La Plataforma...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Equinix contribuye significativamente al tema de Infraestructura de Internet a través de la operación de una plataforma global de centros de datos e interconexión, que son componentes esenciales. La reciente expansión de la compañía incluye la apertura de nuevos centros de datos IBX, adquisiciones e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IRM" data-company="IRON MOUNTAIN INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/IRM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IRM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">IRON MOUNTAIN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Iron Mountain participa en servicios de reciclaje a través of su negocio de Gestión del Ciclo de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Iron Mountain participa en servicios de reciclaje a través de su negocio de Gestión del Ciclo de Vida de Activos (ALM), que incluye la gestión de la comercialización y el reciclaje de bastidores y equipos para clientes hiperscalares. Esto también implica la desmantelación, el borrado de datos, el pr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EQIX" data-company="EQUINIX INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/EQIX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EQIX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EQUINIX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Equinix opera como un REIT a efectos del impuesto sobre la renta federal de EE. UU. La estructura...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Equinix opera como un REIT a efectos del impuesto sobre la renta federal de EE. UU., una estructura que incluye la mayoría de sus operaciones de centros de datos en las regiones de América y EMEA, junto con las de Japón, Singapur y Malasia. La estructura de REIT de la empresa también abarca su parti...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EQIX" data-company="EQUINIX INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/EQIX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EQIX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EQUINIX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El modelo de negocio de Equinix se basa en la colocación, la interconexión y las ofertas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La plataforma de Equinix está diseñada para permitir a los clientes interconectarse con las redes, las nubes y el contenido que impulsan la economía digital global. Los centros de datos IBX y la Plataforma Equinix de la compañía facilitan la interconexión segura con redes, nubes y contenido, que son...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLR" data-company="DIGITAL REALTY TRUST INC.">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/DLR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DIGITAL REALTY TRUST INC.</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Digital Realty se dirige a propiedades que pueden ser desarrolladas para uso como centros de datos....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Digital Realty en el desarrollo inmobiliario es evidente a través del desarrollo de nuevas propiedades de centros de datos, la adquisición de terrenos para el desarrollo futuro y proyectos de construcción. La empresa se dirige a propiedades que pueden ser desarrolladas para uso c...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

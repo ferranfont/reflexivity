@@ -1,0 +1,2094 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Robotic Process Automation - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Robotic Process Automation</div>
+      <div class="sub-title">Investment Theme Detail - Technology Industry</div>
+    </div>
+    <a href="/main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Robotic Process Automation &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Technology &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 18
+    </div>
+
+    
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">18</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">PATH</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">UIPATH INC - CLASS A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece una plataforma de automatización que integra capacidades de inteligencia artificial para procesar grandes cantidades de datos, permitiendo la g...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/PATH" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">MSFT</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">MICROSOFT CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona una amplia infraestructura y servicios en la nube que aprovechan hardware especializado para acelerar la computación de alto rendimiento, ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/MSFT" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SSNC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SS&C TECHNOLOGIES HOLDINGS</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona soluciones y servicios tecnológicos que apoyan la administración, contabilidad y gestión de datos para fondos de inversión alternativos....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SSNC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">PEGA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">PEGASYSTEMS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se enfoca en ofrecer soluciones de software nativas de la nube para la toma de decisiones impulsada por IA y la automatización de flujos de trabajo, p...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/PEGA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">IBM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">INTL BUSINESS MACHINES CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla e implementa soluciones y tecnologías de computación de alto rendimiento para abordar desafíos computacionales complejos y acelerar cargas ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/IBM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">NOW</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SERVICENOW INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Involucra el tema de Consultoría de IA....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/NOW" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">APPN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">APPIAN CORP-A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona una plataforma de bajo código que permite a las organizaciones de servicios financieros desarrollar e integrar capacidades de inteligencia...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/APPN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CTSH</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece servicios y soluciones que permiten a los clientes aprovechar la inteligencia artificial para extraer información procesable de los datos, mejo...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CTSH" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">G</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">GENPACT LTD</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios de asesoramiento e implementación a clientes que buscan aprovechar la inteligencia artificial para la transformación empresarial...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/G" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">GLOB</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">GLOBANT SA</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha la inteligencia artificial para proporcionar a los clientes información basada en datos y mejorar sus procesos de toma de decisiones....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/GLOB" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">11</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CNXC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CONCENTRIX CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios de consultoría de IA como parte de sus operaciones comerciales....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CNXC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">12</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">VRNT</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">VERINT SYSTEMS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se enfoca en aprovechar la inteligencia artificial para generar información procesable, ayudando a las empresas a optimizar sus operaciones y tomar de...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/VRNT" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">13</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">NICE</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">NICE LTD - SPON ADR</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona soluciones avanzadas para el cumplimiento normativo, ayudando a las organizaciones a gestionar el riesgo y cumplir con los estándares camb...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/NICE" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">14</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DXC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">DXC TECHNOLOGY CO</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece experiencia en consultoría de IA, asistiendo a organizaciones en el desarrollo de estrategias e implementación de tecnologías de inteligencia a...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DXC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">15</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">PAYC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">PAYCOM SOFTWARE INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona soluciones integrales de gestión del capital humano entregadas a través de una única plataforma basada en la nube....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/PAYC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">16</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">MMS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">MAXIMUS INC.</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye al tema de Servicios de Consultoría al proporcionar experiencia y apoyo especializados a programas e iniciativas gubernamentales....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/MMS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">17</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CRM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SALESFORCE INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha la inteligencia artificial para ofrecer información procesable a partir de datos de clientes, mejorando las operaciones de ventas, servicio ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CRM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">18</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BL</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BLACKLINE INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Sus actividades son pertinentes al tema de la industria de IA en Fintech....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BL" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">152</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="CRM" data-company="SALESFORCE INC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SALESFORCE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Salesforce se enfoca en integrar la IA en su ecosistema de productos. El CEO destaca la empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Salesforce en Inteligencia Artificial es evidente a través de sus iniciativas estratégicas y desarrollo de productos. La empresa enfatiza el potencial transformador de la IA, particularmente a través de su plataforma Agentforce, que integra agentes de IA en varios servicios en la...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRM" data-company="SALESFORCE INC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SALESFORCE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Salesforce es líder en la industria de la computación en la nube. Una parte significativa de los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Salesforce con la computación en la nube es evidente a través de su modelo de negocio principal e iniciativas estratégicas. La empresa se identifica como líder en la industria de la computación en la nube y tiene como objetivo expandir aún más su papel de liderazgo. Una parte signif...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRM" data-company="SALESFORCE INC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SALESFORCE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Salesforce enfatiza la conexión con los clientes a través ofreciendo 'Integración y Análisis' La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Salesforce con el análisis de datos es evidente a través de sus diversas iniciativas y ofertas de servicios. La empresa enfatiza la conexión con los clientes a través de los datos, ofreciendo 'Integración y Análisis' como un servicio clave que incluye Mulesoft y Tableau. La platafor...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRM" data-company="SALESFORCE INC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SALESFORCE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Salesforce proporciona servicios de computación en la nube para empresas. La empresa se enfoca en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Salesforce con el tema de Software Empresarial es evidente a través de sus ofertas principales e iniciativas estratégicas. Como líder en tecnología CRM, Salesforce proporciona servicios de computación en la nube para empresas, con ingresos por suscripción y soporte que constituyen u...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRM" data-company="SALESFORCE INC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SALESFORCE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Salesforce está invirtiendo activamente en IA generativa y agentiva en toda su suite de productos....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Salesforce con la IA Generativa y los LLM es evidente a través de sus inversiones estratégicas y desarrollo de productos. La empresa está invirtiendo activamente en IA generativa y agentiva en toda su suite de productos, con el objetivo de transformar la forma en que sus clientes at...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DXC" data-company="DXC TECHNOLOGY CO">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DXC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DXC TECHNOLOGY CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Consulting & Engineering Services (CES) es un segmento clave reportable liderado by Ramnath...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de DXC en servicios de consultoría es evidente a través de su estructura organizativa, donde Consulting & Engineering Services (CES) es un segmento clave reportable liderado por Ramnath Venkataraman, quien aporta una experiencia sustancial de Accenture. Este segmento representó una ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DXC" data-company="DXC TECHNOLOGY CO">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DXC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DXC TECHNOLOGY CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de DXC con los Servicios de Ingeniería (CES) es evidente a través ofertas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de DXC con los Servicios de Ingeniería es evidente a través de su estructura organizativa y sus ofertas de servicios. El compromiso de la empresa se destaca por el segmento de Servicios de Consultoría e Ingeniería (CES), que está liderado por Ramnath Venkataraman y representa una parte...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DXC" data-company="DXC TECHNOLOGY CO">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DXC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DXC TECHNOLOGY CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DWC es un proveedor global líder de servicios de TI. La empresa genera ingresos al ofrecer una...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de DXC en Soluciones de TI es evidente a través de sus operaciones comerciales principales, ya que la empresa se identifica como un proveedor global líder de servicios de TI. Esto se ve respaldado además por la entrega de paisajes de servicios SAP unificados y procesos estandarizado...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PATH" data-company="UIPATH INC - CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PATH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UIPATH INC - CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UiPath es reconocido como líder en el Cuadrante Mágico de Gartner para la Automatización Robótica...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">UiPath tiene fuertes vínculos con la Automatización Robótica de Procesos, ya que la empresa se centró inicialmente en la creación y gestión de automatizaciones, comenzando con la tecnología de visión por computadora y la automatización de la interfaz de usuario en su oferta de automatización robótic...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PATH" data-company="UIPATH INC - CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PATH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UIPATH INC - CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UiPath obtiene ingresos de ofertas SaaS, que se incluyen en sus oferta Flex. Su ARR en la nube, que...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">UiPath obtiene ingresos de ofertas SaaS, que se incluyen en sus ofertas Flex. Su ARR en la nube, que abarca soluciones híbridas y SaaS, ha superado los $1.08 mil millones, lo que representa un aumento de más del 25%. Con el lanzamiento de la plataforma Agentic Automation de UiPath, los clientes migr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VRNT" data-company="VERINT SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VRNT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VERINT SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Verint enfatiza sus capacidades de IA, particularmente dentro of sus soluciones de automatización...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Verint enfatiza sus capacidades de IA, particularmente dentro de sus soluciones de automatización de la experiencia del cliente, como lo demuestran su Plataforma Abierta impulsada por IA y su equipo de bots impulsados por IA. La compañía destaca que una parte de sus ingresos recurrentes anuales (ARR...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VRNT" data-company="VERINT SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VRNT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VERINT SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Verint se centra en soluciones digitales, particularmente en la automatización de la experiencia...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Verint se centra en soluciones digitales, particularmente en la automatización de la experiencia del cliente, como lo demuestra su plataforma abierta impulsada por IA que utilizan numerosas empresas Fortune 100. La plataforma y los bots impulsados por IA de la empresa están diseñados para resolver d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRM" data-company="SALESFORCE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SALESFORCE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La conexión de Salesforce con el tema of IA en Fintech se demuestra a través of sus relaciones with...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Salesforce con el tema de IA en Fintech se demuestra a través de sus relaciones con instituciones financieras como U.S. Bank y Japan Post Bank, que utilizan la tecnología CRM de la empresa. La implementación de Agentforce por parte de PenFed en su proceso de suscripción de préstamos i...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRM" data-company="SALESFORCE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SALESFORCE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Salesforce asigna recursos a la infraestructura de TI y a la capacidad del centro de datos. Además,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Salesforce con la Infraestructura en la Nube es evidente a través de sus ingresos por suscripción y soporte, que incluyen tarifas de servicios empresariales de computación en la nube. La empresa asigna recursos a la infraestructura de TI y a la capacidad del centro de datos, siendo ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRM" data-company="SALESFORCE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SALESFORCE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa obtiene ingresos de las tarifas de suscripción para servicios de computación en la nube...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Salesforce con los Servicios en la Nube es evidente a través de su modelo de negocio principal, que gira en torno a la entrega de soluciones de software como servicios en la nube. La empresa obtiene ingresos de las tarifas de suscripción para servicios de computación en la nube e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRM" data-company="SALESFORCE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SALESFORCE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Salesforce gira en torno a la provisión de soluciones de software basadas en la nube. La suite de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Salesforce en el tema de software en la nube es evidente en su modelo de negocio principal, que gira en torno a la provisión de soluciones de software basadas en la nube. La suite de ofertas de la empresa, que incluye Sales Cloud, Service Cloud, Marketing Cloud, Commerce Cloud, F...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRM" data-company="SALESFORCE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SALESFORCE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Salesforce en la integración de IA empresarial es evidente. La empresa está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Salesforce en la integración de IA empresarial es evidente a través de sus iniciativas estratégicas y mejoras de plataforma. La empresa está integrando activamente la IA en sus ofertas de software empresarial a través de la plataforma Agentforce, incorporando capacidades impulsadas por...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRM" data-company="SALESFORCE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SALESFORCE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Salesforce conecta a los equipos de TI junto con ventas, servicio, marketing and comercio....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Salesforce con las Soluciones de TI es evidente a través de su plataforma Customer 360, que conecta a los equipos de TI junto con ventas, servicio, marketing y comercio, proporcionando una visión unificada del cliente al integrar datos de diversos sistemas. Reforzando esto, Salesfor...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DXC" data-company="DXC TECHNOLOGY CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DXC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DXC TECHNOLOGY CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DXC ayuda a las empresas a alcanzar sus objetivos de transformación digital. No se detallan...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de DXC con la transformación digital es evidente en sus esfuerzos por modernizar la TI para empresas globales, optimizar las arquitecturas de datos y garantizar la seguridad y escalabilidad en diversos entornos de nube. DXC ayuda a estas organizaciones a alcanzar nuevos niveles de rend...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DXC" data-company="DXC TECHNOLOGY CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DXC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DXC TECHNOLOGY CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DXC ayuda a las empresas globales a modernizar la TI, optimizar las arquitecturas de datos y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de DXC con la Computación en la Nube Híbrida es evidente en sus ofertas de servicios principales, ya que la empresa ayuda a las empresas globales a modernizar la TI, optimizar las arquitecturas de datos y garantizar la seguridad y escalabilidad en las nubes públicas, privadas e híbrida...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DXC" data-company="DXC TECHNOLOGY CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DXC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DXC TECHNOLOGY CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DXC ayuda a los clientes a adoptar tecnologías de próxima generación. La empresa se asocia with...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de DXC en Consultoría de TI es evidente a través de su segmento de Servicios de Consultoría e Ingeniería, liderado por Ramnath Venkataraman, quien ayuda a los clientes a adoptar tecnologías de próxima generación. La empresa se asocia con Boomi para proporcionar automatización de int...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El margen bruto de la nube de Microsoft se ha visto afectado por la escala of su infraestructura de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Microsoft en la Computación Acelerada es evidente a través de sus inversiones en ingeniería en la nube e IA, que han impulsado aumentos en los gastos operativos y de investigación y desarrollo. El margen bruto de la nube de la empresa se ha visto afectado por la escala de su infr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Microsoft continúa liderando la ola de infraestructura de IA, ganando cuota de mercado cada...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Microsoft con la infraestructura de IA es evidente a través de sus iniciativas estratégicas e inversiones financieras. La empresa está expandiendo activamente sus ubicaciones de centros de datos y aumentando la capacidad de servidores, particularmente para abordar la creciente deman...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Microsoft está construyendo un conjunto completo de productos y pila tecnológica de IA a gran...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Microsoft con la Inteligencia Artificial es evidente en su misión de hacer que la IA sea ampliamente accesible, creando plataformas y herramientas impulsadas por IA. La empresa está construyendo un conjunto completo de productos y pila tecnológica de IA a gran escala, con cada regió...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Microsoft Cloud superó los 168 mil millones de dólares en ingresos anuales. Los ingreso de Azure...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Microsoft con la computación en la nube es evidente a través de su considerable generación de ingresos y crecimiento en este sector. La empresa genera ingresos ofreciendo una amplia gama de soluciones basadas en la nube, y Microsoft Cloud superó los 168 mil millones de dólares en in...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La Nube de Microsoft de la empresa ha superado importantes hitos de ingresos. Azure también ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Microsoft en la Infraestructura en la Nube es evidente a través de sus importantes inversiones y énfasis estratégico en la expansión de sus capacidades en la nube. La Nube de Microsoft de la empresa ha superado importantes hitos de ingresos, y Azure también ha demostrado un creci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Microsoft Cloud ha demostrado un crecimiento significativo, con ingresos que alcanzaron los $42.4...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Microsoft con los Servicios en la Nube es evidente a través de su amplia gama de soluciones basadas en la nube que generan ingresos sustanciales. Microsoft Cloud ha demostrado un crecimiento significativo, con ingresos que alcanzaron los $42.4 mil millones y superaron los $168 mil m...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio comercial de Microsoft depende en gran medida de los productos de Microsoft 365...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Microsoft en Software en la Nube es evidente a través de los sustanciales ingresos generados por sus soluciones basadas en la nube, particularmente Microsoft 365. El negocio comercial de la empresa depende en gran medida de los productos de Microsoft 365 Commercial y los servicios en l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Microsoft participa en el sector de la electrónica de consumo. La empresa genera ingresos de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Microsoft participa en el sector de la electrónica de consumo mediante el diseño y la venta de dispositivos, incluidos Surface y HoloLens. La empresa genera ingresos de dispositivos, incluidos accesorios para PC y Surface, y los ingresos de Windows OEM y Dispositivos experimentaron un aumento. Sin e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Microsoft ha lanzado más de 100 nuevas capacidades y ha agregado un lago of datos moderno a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Microsoft con la ciberseguridad es evidente a través de varias iniciativas y capacidades. La empresa enfatiza la seguridad como una prioridad principal, demostrada por su Iniciativa Futuro Seguro y la introducción de agentes de Security Copilot que procesan 84 billones de señales de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa ha abierto centros de datos en varios países de varios continentes. Microsoft también ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Microsoft en los centros de datos es significativa, como lo demuestra su continua expansión. La empresa ha abierto centros de datos en varios países de varios continentes y cuenta con más de 400 centros de datos en numerosas regiones, superando a cualquier otro proveedor de la nu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los ingresos de LinkedIn también experimentaron un crecimiento, impulsado by las contribuciones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Microsoft en Tecnología de Marketing Digital es evidente a través de sus ingresos por publicidad en búsquedas y noticias, así como del rendimiento de LinkedIn. Los ingresos por publicidad en búsquedas y noticias de la empresa, excluyendo los costos de adquisición de tráfico, han ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de Microsoft con la tecnología digital es evidente en su misión de empoderar a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Microsoft con la tecnología digital es evidente en su misión de empoderar a individuos y organizaciones a través de plataformas y herramientas impulsadas por IA que ofrecen soluciones innovadoras. Este compromiso se ve reforzado por el crecimiento de los ingresos de Dynamics 365, qu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los ingresos de Dynamics 365 han aumentado constantemente, impulsados por el crecimiento en todas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Microsoft con el tema de Software Empresarial es evidente a través del crecimiento y las ganancias de cuota de mercado de su suite Dynamics 365. Los ingresos de Dynamics 365 han aumentado constantemente, impulsados por el crecimiento en todas las cargas de trabajo, y ha ganado cuota...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los ingresos por juegos han aumentado en general, impulsados by el contenido y los servicios de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Microsoft en la industria del hardware de juegos es evidente a través de sus consolas Xbox, aunque el rendimiento reciente indica un impacto fluctuante. Si bien los ingresos por juegos han aumentado en general, impulsados por el contenido y los servicios de Xbox, ha habido una di...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Microsoft tiene 500 millones de usuarios activos mensuales en todas las plataformas. Esto está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Microsoft en la Industria de los Videojuegos es evidente a través de varios factores. La compañía tiene una presencia sustancial con 500 millones de usuarios activos mensuales en todas las plataformas y es reconocida como un editor principal tanto en Xbox como en PlayStation. Est...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Microsoft está estratégicamente posicionada with Windows 11 and Copilot+ PCs. Esto se ve respaldado...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Microsoft con el tema de los Sistemas Operativos es evidente a través de su producto estrella, Windows, y el hardware relacionado. La compañía está estratégicamente posicionada con Windows 11 y Copilot+ PCs a medida que finaliza el soporte de Windows 10, enfatizando la seguridad y e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Microsoft ha integrado Copilot en Edge, integrando capacidades de búsqueda e IA en su navegador....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Microsoft en los servicios de motores de búsqueda es evidente a través de sus ingresos por publicidad de búsqueda y noticias. Estos ingresos han experimentado un crecimiento constante, impulsado por un mayor volumen de búsqueda e ingresos por búsqueda, así como por los beneficios...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Microsoft compromiso de servidores es evidente a través de varios factores clave. Los sustanciales...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Microsoft con el tema de la industria de Servidores es evidente a través de varios factores clave. Los sustanciales ingresos de Azure, que superan los 75 mil millones de dólares anuales con una tasa de crecimiento del 34%, son un motor principal, respaldado por la extensa infraestru...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Microsoft se realiza principalmente a través of LinkedIn, donde más de mil millones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Microsoft en el tema de las redes sociales se realiza principalmente a través de LinkedIn, donde más de mil millones de profesionales se conectan, aprenden, contratan y venden, con un crecimiento de membresía de dos dígitos año tras año. Los ingresos de LinkedIn han aumentado con...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PATH" data-company="UIPATH INC - CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PATH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UIPATH INC - CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UiPath está profundamente involucrada en la habilitación de la transformación digital para sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">UiPath está profundamente involucrada en la habilitación de la transformación digital para sus clientes, posicionándose como líder en este ámbito. La empresa proporciona una plataforma integral diseñada para ayudar a los clientes a realizar todo el potencial de la transformación digital, dando forma...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PATH" data-company="UIPATH INC - CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PATH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UIPATH INC - CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UiPath está trabajando con Deloitte, aprovechando sus capacidades de automatización. UiPath...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de UiPath en el tema de Software Empresarial es evidente en su provisión de una plataforma de automatización de extremo a extremo, mejorada por capacidades de Automatización Agente y orquestación. La empresa enfatiza su arquitectura independiente del proveedor, que permite una integ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PATH" data-company="UIPATH INC - CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PATH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UIPATH INC - CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UiPath aprovecha la IA, el ML y el NLP para potenciar automatizaciones that emulan el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de UiPath con el Machine Learning es evidente en su plataforma, que aprovecha la IA, el ML y el NLP para potenciar automatizaciones que emulan el comportamiento humano. Esta plataforma permite a los clientes integrar la IA con la automatización, permitiendo que la automatización tom...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRM" data-company="SALESFORCE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SALESFORCE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Salesforce en los conocimientos impulsados by la IA es evidente. La adquisición de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Salesforce en los conocimientos impulsados por la IA es evidente en sus iniciativas estratégicas, particularmente a través de la integración de las capacidades de IA de Informatica y el desarrollo de sus plataformas Data Cloud y Agentforce. La adquisición de Informatica se considera un...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRM" data-company="SALESFORCE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SALESFORCE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Salesforce se alinea con el marco SaaS en sus ofertas de servicios en la nube. Clientes utilizan...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Salesforce con el tema SaaS es evidente en sus ofertas de servicios en la nube, donde los clientes utilizan software multiinquilino sin poseerlo, pagando tarifas de suscripción para acceder a servicios empresariales de computación en la nube. Estos ingresos por suscripción y soporte...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DXC" data-company="DXC TECHNOLOGY CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DXC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DXC TECHNOLOGY CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DWC ayuda a las empresas globales a ejecutar sistemas de misión crítica. Los equipos de seguridad...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de DXC en Ciberseguridad es evidente a través de sus esfuerzos para ayudar a las empresas globales a ejecutar sistemas de misión crítica, modernizar TI, optimizar arquitecturas de datos y garantizar la seguridad en diversos entornos de nube. Los equipos de seguridad de DXC están apr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MMS" data-company="MAXIMUS INC.">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MMS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MAXIMUS INC.</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Maximus ofrece soluciones tecnológicas y trabajo de consultoría relacionado a programas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Maximus participa en Servicios de Consultoría principalmente a través de su Segmento de Servicios de EE. UU., que ofrece soluciones tecnológicas y trabajo de consultoría relacionado a programas de gobiernos estatales y locales de EE. UU. Estos servicios de consultoría abarcan consultoría técnica y f...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MMS" data-company="MAXIMUS INC.">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MMS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MAXIMUS INC.</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Maximus en la Automatización Robótica de Procesos es evidente. La empresa reconoce el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Maximus en la Automatización Robótica de Procesos es evidente en sus iniciativas estratégicas, particularmente en los servicios al cliente habilitados digitalmente que tienen como objetivo elevar la experiencia del cliente a través de la automatización inteligente y la computación cogn...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El crecimiento de los ingresos de Azure está impulsado significativamente por la demanda de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Microsoft con los insights impulsados por IA es evidente en el crecimiento de sus servicios en la nube. El crecimiento de los ingresos de Azure está impulsado significativamente por la demanda de servicios de IA, lo que contribuye sustancialmente a los ingresos generales. Además, Dy...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Microsoft Fabric es una plataforma integral que integra diversas cargas de trabajo de datos. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Microsoft con el análisis de datos es evidente a través del desarrollo y la adopción de Microsoft Fabric, una plataforma integral que integra diversas cargas de trabajo de datos como el almacenamiento de datos, la ciencia de datos y la inteligencia en tiempo real, junto con Power BI...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de Microsoft en el entretenimiento digital es evidente. Los ingresos de la empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Microsoft en el entretenimiento digital es evidente a través del crecimiento en contenido y servicios de Xbox, que incluye juegos, suscripciones y juegos en la nube. Los ingresos de la empresa por juegos han experimentado aumentos, impulsados principalmente por el contenido y los...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La adquisición of Activision Blizzard ha impactado significativamente en los ingresos por juegos....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La implicación de Microsoft en el tema de los eSports y los videojuegos es evidente a través de sus ingresos por juegos y su contenido y servicios de Xbox. La adquisición de Activision Blizzard ha impactado significativamente en los ingresos por juegos y los gastos relacionados, incluyendo investiga...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de Microsoft en la Computación en the Nube Híbrida es evidente. El crecimiento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Microsoft en la Computación en la Nube Híbrida es evidente a través del crecimiento de los ingresos de Microsoft Cloud, que aumentaron significativamente, impulsados por Azure y otros servicios en la nube. El compromiso de la empresa se demuestra aún más por las inversiones susta...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Xbox Game Pass, Call of Duty and Minecraft impulsaron el crecimiento. La adquisición de Activision...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Microsoft con el tema de los Juegos en Línea es evidente a través del crecimiento de los ingresos por juegos, impulsado por el contenido y los servicios de Xbox. Este crecimiento se ve aún más impulsado por Xbox Game Pass, Call of Duty y Minecraft. La adquisición de Activision Blizz...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Microsoft 365 Copilot está experimentando una rápida adopción. Dynamics 365 ha ganado cuota de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Microsoft con el tema SaaS es evidente a través del crecimiento y la adopción de sus ofertas de Microsoft 365 y Dynamics 365. Microsoft 365 Copilot está experimentando una rápida adopción, superando a otras suites de Microsoft 365, mientras que Dynamics 365 ha ganado cuota de mercad...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Microsoft ha impulsado significativamente por el contenido y los servicios de Xbox. La adquisición...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Microsoft con el tema de los videojuegos es evidente a través del crecimiento de los ingresos por juegos, impulsado significativamente por el contenido y los servicios de Xbox. La adquisición de Activision Blizzard ha impulsado aún más este crecimiento, impactando sustancialmente lo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PATH" data-company="UIPATH INC - CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PATH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UIPATH INC - CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UiPath unifica agentes de IA, robots and personas en un sistema inteligente. La compañía enfatiza...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de UiPath con la Integración Empresarial de IA es evidente a través de su plataforma Agentic Automation, que unifica agentes de IA, robots y personas en un sistema inteligente. La compañía enfatiza su plataforma Agentic Automation como un motor clave para la transformación digital, des...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="APPN" data-company="APPIAN CORP-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">APPN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPIAN CORP-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Appian demuestra una fuerte conexión with el tema of IA en Fintech. La plataforma de la compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Appian demuestra una fuerte conexión con el tema de IA en Fintech a través de su enfoque estratégico y la integración de IA en los procesos de negocio, particularmente dentro de los servicios financieros. La plataforma de la compañía integra capacidades de IA para mejorar la toma de decisiones y esc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="APPN" data-company="APPIAN CORP-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">APPN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPIAN CORP-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma de Appian incorpora capacidades de análisis de datos. El tejido de dato unifica los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La plataforma de Appian incorpora capacidades de análisis de datos, lo que permite a los usuarios explorar datos en tiempo real, crear informes y obtener información impulsada por IA para una mejor toma de decisiones. El tejido de datos de la empresa unifica los datos en todos los sistemas, facilita...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="APPN" data-company="APPIAN CORP-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">APPN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPIAN CORP-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma Appian permite a los líderes diseñar, automatizar y optimizar procesos importantes de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Appian gira en torno a la entrega de una plataforma de software diseñada para ayudar a las organizaciones a optimizar sus procesos, reducir costos, mejorar las experiencias de los clientes y obtener una ventaja estratégica. La plataforma Appian permite a los líderes diseñar, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="APPN" data-company="APPIAN CORP-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">APPN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPIAN CORP-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma de Appian integra capacidades de IA generativa junto with otras características como...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La plataforma de Appian integra capacidades de IA generativa junto con otras características como data fabric, automatización robótica de procesos y procesamiento inteligente de documentos. La empresa enfatiza la estrecha integración de la IA generativa en su plataforma, lo que permite a los usuario...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="APPN" data-company="APPIAN CORP-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">APPN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPIAN CORP-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma de Appian integra estrechamente el diseño low-code, que es un componente clave de sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La plataforma de Appian integra estrechamente el diseño low-code, que es un componente clave de sus capacidades de automatización robótica de procesos (RPA) e integración de API, lo que permite a los clientes crear bots y conectar sistemas con herramientas low-code. La plataforma Appian permite a lo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="APPN" data-company="APPIAN CORP-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">APPN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPIAN CORP-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Appian integra capacidades de Automatización Robótica de Procesos (RPA) La integración de RPA en la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Appian integra capacidades de Automatización Robótica de Procesos (RPA) en su plataforma, permitiendo a los clientes automatizar tareas repetitivas a través del desarrollo de bots de bajo código. La integración de RPA en la plataforma se destaca por el uso de agentes de IA de Appian para acelerar el...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="APPN" data-company="APPIAN CORP-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">APPN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPIAN CORP-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Appian está impulsada principalmente por su modelo de ingresos. La empresa enfatiza que el aumento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Appian con el tema SaaS está impulsada principalmente por su modelo de ingresos, donde la mayor parte de los ingresos se genera a partir de suscripciones. Estas suscripciones consisten en gran medida en suscripciones en la nube empaquetadas con servicios de mantenimiento, soporte y al...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BL" data-company="BLACKLINE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BLACKLINE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BlackLine es una compañía diseñada para modernizar las operaciones de contabilidad y finanzas para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">BlackLine está fuertemente involucrada en el espacio del software empresarial, ofreciendo una plataforma integral basada en la nube diseñada para modernizar las operaciones de contabilidad y finanzas para organizaciones medianas y empresariales. La plataforma de la compañía, que se posiciona como la...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BL" data-company="BLACKLINE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BLACKLINE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BlackLine demuestra su compromiso con la Tecnología Regulatoria a través of sus soluciones basadas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">BlackLine demuestra su compromiso con la Tecnología Regulatoria a través de sus soluciones basadas en la nube, que incluyen 'Cumplimiento' como una de sus aplicaciones. La empresa mejora las soluciones interempresariales para adaptarse a las regulaciones globales en evolución y gestionar complejos d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CNXC" data-company="CONCENTRIX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CNXC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CONCENTRIX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Concentrix impulsa las experiencias de marca y las operaciones digitales de sus clientes. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Concentrix en soluciones digitales es evidente en su papel como líder mundial en tecnología y servicios, impulsando las experiencias de marca y las operaciones digitales de sus clientes. La empresa diseña, construye y opera soluciones integrales de principio a fin, que incluyen l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CNXC" data-company="CONCENTRIX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CNXC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CONCENTRIX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Concentrix participa en la transformación digital a través oficinas frontales y back-office. Como...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Concentrix participa en la transformación digital a través de la provisión de soluciones de extremo a extremo, que incluyen la optimización de procesos de experiencia del cliente, la innovación tecnológica y la ingeniería de diseño, la automatización de oficinas frontales y de back-office, el anális...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRM" data-company="SALESFORCE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SALESFORCE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Salesforce ofrece trabajo digital a través de Agentforce, Data Cloud and Customer 360. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Salesforce con las Soluciones Digitales es evidente en su completa tecnología CRM, que conecta a empresas y clientes en la era digital. La compañía ofrece trabajo digital a través de Agentforce, Data Cloud y Customer 360, proporcionando soluciones a desafíos empresariales específico...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CTSH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant utiliza cada vez más tecnologías basadas en IA, incluida la IA generativa, en sus ofertas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Cognizant con la Consultoría de IA es evidente a través de sus esfuerzos para ayudar a los clientes a modernizar la tecnología y transformar experiencias en un mundo donde la IA está remodelando las organizaciones. La empresa utiliza cada vez más tecnologías basadas en IA, incluida ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CTSH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant es una de las empresa colaborativos más importantes en el desarrollo de aplicaciones. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cognizant en el Desarrollo de Aplicaciones es evidente a través de varias iniciativas. La empresa lanzó la Semana de Codificación Vibe para sus asociados con el fin de promover un ciclo de desarrollo de software habilitado por IA, y casi el 30% de su código fue generado por IA en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CTSH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant es un proveedor líder de servicios profesionales, diseñando negocios modernos. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cognizant en Servicios de Consultoría es evidente a través de sus servicios colaborativos, que incluyen explícitamente la consultoría. La empresa es reconocida como un proveedor líder de servicios profesionales, diseñando negocios modernos y entregando resultados estratégicos par...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CTSH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant ofrece servicios avanzados en ciberseguridad. Un nuevo GCC con Citizens Financial...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cognizant en el tema de Ciberseguridad es evidente a través de sus servicios colaborativos, que incluyen infraestructura y seguridad. La compañía ofrece servicios avanzados en ciberseguridad a través de sus centros de capacidad global (GCC), respaldados por plataformas de IA como...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CTSH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant es una empresa colaborativos con las Soluciones Digitales. Estas ofertas incluyen...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Cognizant con las Soluciones Digitales es evidente a través de sus servicios colaborativos, que incluyen explícitamente servicios y soluciones digitales. Estas ofertas, que incluyen implementaciones de tecnología impulsadas por IA, plataformas de IA y sistemas agénticos, se adaptan ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CTSH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant está activamente 'diseñando negocios modernos' La empresa proporciona 'investigación y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cognizant en Servicios de Ingeniería es evidente a través de varias actividades clave. La empresa está activamente 'diseñando negocios modernos' y proporciona 'investigación y desarrollo de ingeniería' como parte de sus servicios colaborativos. Cognizant está invirtiendo en ingen...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CTSH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant participa en la Integración Empresarial de IA. La empresa está ayudando activamente a los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cognizant en la Integración Empresarial de IA es evidente en sus iniciativas estratégicas y servicios centrados en el cliente. La empresa está ayudando activamente a los clientes en su transformación digital para convertirse en empresas preparadas para la IA y está incorporando t...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DXC" data-company="DXC TECHNOLOGY CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DXC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DXC TECHNOLOGY CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa destaca que las mejoras en GIS están impulsadas por las ofertas en la nube. DXC se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de DXC con los servicios en la nube es evidente en su apoyo a empresas globales a través de la modernización de TI, la optimización de la arquitectura de datos y la garantía de seguridad y escalabilidad en diversos entornos en la nube. La empresa destaca que las mejoras en GIS están...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="G" data-company="GENPACT LTD">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">G</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GENPACT LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa desagrega sus ingresos netos en Datos-Tecnología-IA y Operaciones Digitales. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Genpact en el análisis de datos es evidente en sus informes financieros y ofertas de servicios. La empresa desagrega sus ingresos netos en Datos-Tecnología-IA y Operaciones Digitales, enfatizando explícitamente el análisis de datos como un servicio clave. Una parte sustancial de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="G" data-company="GENPACT LTD">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">G</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GENPACT LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Genpact impulsa la innovación liderada por lo digital y opera para sus clientes. Desglosando sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La relación de Genpact con Soluciones Digitales es evidente en su enfoque estratégico y sus flujos de ingresos. La empresa impulsa la innovación liderada por lo digital y opera para sus clientes con operaciones inteligentes habilitadas digitalmente, desglosando sus ingresos netos en Datos-Tecnología...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="G" data-company="GENPACT LTD">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">G</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GENPACT LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de la empresa en Soluciones de TI es evidente a través of su descripción. Esto se ve...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de la empresa en Soluciones de TI es evidente a través de su descripción como una empresa global de servicios y soluciones de tecnología avanzada, que ayuda a las empresas a reimaginar las operaciones centrales de la industria. Esto se ve reforzado por la desagregación de los ingresos net...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM Consulting es reconocida como un líder emergente en Servicios de Consultoría e Implementación...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en Consultoría de IA es evidente a través de varias actividades clave. La empresa es reconocida como un líder emergente en Servicios de Consultoría e Implementación de IA Generativa, con su brazo de consultoría interactuando activamente con los clientes para dar forma a sus e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM habilitado entornos de nube híbrida para cargas de trabajo de IA. La infraestructura juega un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en la Infraestructura de IA es evidente a través de su enfoque en habilitar entornos de nube híbrida para cargas de trabajo de IA, ya que la infraestructura juega un papel cada vez más importante para la empresa. Esto se destaca por el lanzamiento de IBM z17, que ofrece una a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM está transformando sus operaciones empresariales integrando IA en varias funciones. Esto se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de IBM con la Inteligencia Artificial es un elemento central de su estrategia general, y la empresa enfatiza su enfoque de nube híbrida e IA. Esto se demuestra mediante la integración de IA en más de 70 flujos de trabajo y el desarrollo de una cartera integral de IA diseñada para propo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM tiene varias iniciativas en Big Data, incluida la expansión de watsonx.data. La adquisición de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en Big Data es evidente a través de varias iniciativas, incluida la expansión de watsonx.data, que permite a los clientes empresariales acceder y obtener valor de datos no estructurados. Reforzando esto, la adquisición de DataStax agrega capacidades de datos escalables en tie...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La infraestructura juega un papel importante en la habilitación de entornos de nube híbrida para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en la Infraestructura Cloud es evidente a través de su estrategia de nube híbrida, que es un motor clave para la empresa. La infraestructura juega un papel importante en la habilitación de entornos de nube híbrida para transacciones críticas y cargas de trabajo de IA, especia...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de software de IBM está experimentando crecimiento, particularmente dentro of los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de IBM con el Software en la Nube es evidente en su enfoque estratégico y sus flujos de ingresos. El segmento de software de la empresa está experimentando crecimiento, particularmente dentro de los sectores de Nube Híbrida, Automatización y Datos, impulsado por su base de ingresos rec...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Consultoría ofrece servicios de estrategia, diseño de procesos, implementación de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en Servicios de Consultoría es evidente a través de sus ingresos de consultoría, que han mostrado signos de estabilización. El segmento de Consultoría de la compañía ofrece servicios de estrategia, diseño de procesos, implementación de sistemas y arquitectura en la nube, con ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM tiene un libro de negocios de GenAI que supera los $7.5 mil millones. IBM está expandiendo su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de IBM con la Integración Empresarial de IA es evidente a través de sus iniciativas estratégicas y la integración de IA en diversas funciones comerciales. La empresa está integrando IA en más de 70 flujos de trabajo y tiene un libro de negocios de GenAI que supera los $7.5 mil millones...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El volumen de negocio de IBM en IA generativa es sustancial. La empresa aprovecha sus ofertas de IA...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de IBM con la IA Generativa y los LLM es evidente a través de su liderazgo temprano y la plataforma Consulting Advantage. La estrategia de IA de la empresa es un elemento clave de su éxito, demostrado por una cartera enfocada que proporciona capacidades híbridas de nube e IA de extremo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de IBM en la computación híbrida en la nube es evidente en sus iniciativas estratégicas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de IBM en la computación híbrida en la nube es evidente en sus iniciativas estratégicas y soluciones. La estrategia de la empresa gira en torno a la nube híbrida y la IA, con IBM Z encarnando estas capacidades. La cartera de software de IBM se está reposicionando en torno a la nube híbrid...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM está transformando sus operaciones empresariales aprovechando la tecnología. IBM está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en Automatización Industrial es evidente a través de su cartera de automatización, que incluye la plataforma de automatización Red Hat Ansible y HashiCorp Terraform y Vault, con SAP planeando implementar esta cartera. Los ingresos por automatización han mostrado crecimiento, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM participa en el tema de Código abierto. Red Hat y OpenShift experimentan un crecimiento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en el tema de Código Abierto es evidente a través del rendimiento y la importancia estratégica de Red Hat y OpenShift. El crecimiento de Red Hat, con OpenShift alcanzando los 1.700 millones de dólares en ARR y experimentando un crecimiento de ingresos superior al 20%, demuest...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM demuestra su compromiso con la Computación Cuántica a través de despliegues y asociaciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">IBM demuestra su compromiso con la Computación Cuántica a través de despliegues y asociaciones estratégicas, incluida la instalación del IBM Quantum System Two en Japón con RIKEN, marcando el primer despliegue fuera de los Estados Unidos, y una asociación con el Gobierno Vasco para desplegar el prim...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MMS" data-company="MAXIMUS INC.">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MMS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MAXIMUS INC.</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Maximus participa en la transformación digital a través de varias iniciativas. El segmento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Maximus participa en la transformación digital a través de varias iniciativas, incluido su plan estratégico que enfatiza el liderazgo tecnológico para transformar programas gubernamentales y sistemas heredados. El segmento de Servicios Federales de EE. UU. de la empresa ejecuta una estrategia digita...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de Microsoft con la economía digital es evidente. La empresa genera ingresos a través...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Microsoft con la economía digital es evidente a través de su dedicación a hacer que la tecnología digital y la IA sean ampliamente accesibles. La empresa genera ingresos a través de una gama de soluciones basadas en la nube, publicidad en línea, productos de software y otros servici...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Microsoft enfatiza su compromiso de hacer que la IA esté ampliamente disponible. La plataforma...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Microsoft enfatiza su compromiso de hacer que la IA esté ampliamente disponible a través de sus plataformas y herramientas, como lo demuestra el crecimiento de Azure y otros servicios en la nube, que vieron una contribución significativa de los servicios de IA. La plataforma Foundry de la empresa es...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Microsoft en la tecnología digital y la IA es fundamental para su misión. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Microsoft en la tecnología digital y la IA es fundamental para su misión, empoderando a las organizaciones a través de plataformas y herramientas innovadoras. El compromiso de la empresa de proporcionar soluciones de TI se refleja en el crecimiento de Dynamics 365, impulsado por la cre...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El crecimiento de LinkedIn fue impulsado en parte por sus Soluciones de Marketing. LinkedIn...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Microsoft en Servicios de Marketing es evidente a través de múltiples fuentes de ingresos. Los ingresos por publicidad en búsquedas y noticias experimentaron un aumento notable, y el crecimiento de los ingresos de LinkedIn fue impulsado en parte por sus Soluciones de Marketing. E...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NOW" data-company="SERVICENOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NOW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SERVICENOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ServiceNow se enfoca en liderar la carrera de la IA, integrando la IA en toda su pila tecnológica....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de ServiceNow con la Inteligencia Artificial es evidente en su Now Platform, que identifica explícitamente como la plataforma de IA para la transformación digital. ServiceNow se enfoca en liderar la carrera de la IA, integrando la IA en toda su pila tecnológica para transformar datos e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NOW" data-company="SERVICENOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NOW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SERVICENOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ServiceNow's Now Platform permite a las empresas digitalizar flujos de trabajo. ServiceNow genera...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de ServiceNow con la computación en la nube es evidente a través de su Now Platform, que se describe consistentemente como una solución basada en la nube. Esta plataforma permite a las empresas digitalizar flujos de trabajo y es fundamental para el modelo de prestación de servicios de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NOW" data-company="SERVICENOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NOW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SERVICENOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ServiceNow obtiene ingresos de servicios profesionales, principalmente sobre una base de tiempo y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">ServiceNow obtiene ingresos de servicios profesionales, principalmente sobre una base de tiempo y materiales, que incluye servicios y capacitación proporcionados tanto a clientes nuevos como existentes. Esto se facilita a través de su equipo directo y canales de ventas indirectos. Si bien los servic...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NOW" data-company="SERVICENOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NOW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SERVICENOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ServiceNow está diseñada para automatizar los procesos empresariales en las empresas. La plataforma...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ServiceNow en la Transformación Digital es evidente en su Now Platform, que la empresa describe explícitamente como la plataforma de IA para la transformación digital. Esta plataforma está diseñada para automatizar los procesos empresariales en las empresas conectando departament...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NOW" data-company="SERVICENOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NOW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SERVICENOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ServiceNow integra todo el stack tecnológico con cualquier sistema, LLM o fuente de datos. La Now...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ServiceNow con la integración de empresas de IA es evidente en su Now Platform, que la empresa identifica explícitamente como la plataforma de IA para la transformación digital. La Now Platform automatiza los procesos comerciales en toda la empresa al integrar todo el stack tecno...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NOW" data-company="SERVICENOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NOW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SERVICENOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ServiceNow es una compañía de software empresarial. La plataforma de ServiceNow integra IA, datos y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de ServiceNow en software empresarial es evidente en su Now Platform, una solución basada en la nube diseñada para digitalizar flujos de trabajo para organizaciones de diversos sectores. La plataforma de la compañía integra IA, datos y flujos de trabajo para impulsar resultados comerciale...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NOW" data-company="SERVICENOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NOW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SERVICENOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa genera ingresos tanto de ofertas de suscripción autoalojadas como basadas en the nube....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ServiceNow en el tema SaaS es evidente a través de su Now Platform, una solución basada en la nube diseñada para digitalizar flujos de trabajo para organizaciones de diversos sectores. La empresa genera ingresos por suscripción tanto de ofertas de suscripción autoalojadas como ba...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PEGA" data-company="PEGASYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PEGA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PEGASYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Pega demuestra un fuerte compromiso con la transformación digital. El Pega GenAI Blueprint juega un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Pega demuestra un fuerte compromiso con la transformación digital, posicionándose como un socio estratégico de software para clientes que buscan acelerar sus transformaciones digitales y heredadas. El Pega GenAI Blueprint de la compañía juega un papel central en las interacciones con los clientes, m...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PEGA" data-company="PEGASYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PEGA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PEGASYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Pega en el software empresarial es evidente a través of sus actividades comerciales....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Pega en el software empresarial es evidente a través de sus actividades comerciales principales, que incluyen el desarrollo, marketing, licenciamiento, alojamiento y soporte de dicho software. Su plataforma está diseñada para la toma de decisiones de IA empresarial y la automatización ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PEGA" data-company="PEGASYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PEGA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PEGASYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma de Pega Infinity ofrece capacidades de automatización de flujos de trabajo. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La plataforma de Pega ofrece capacidades de automatización de flujos de trabajo, un componente clave de la Automatización Robótica de Procesos, que permite a los clientes optimizar las operaciones y automatizar los procesos comerciales. La plataforma Pega Infinity, una plataforma de toma de decision...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SSNC" data-company="SS&C TECHNOLOGIES HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SSNC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SS&C TECHNOLOGIES HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SS&C está integrando estas herramientas para mejorar la eficiencia y reducir los errores. SS&C...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de SS&C con la Integración Empresarial de IA es evidente a través de su desarrollo e implementación de soluciones de automatización inteligente y análisis. La plataforma Singularity de la compañía aprovecha la IA, el aprendizaje automático, la automatización robótica de procesos y el a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SSNC" data-company="SS&C TECHNOLOGIES HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SSNC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SS&C TECHNOLOGIES HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SS&C Technologies está integrando activamente IA en sus ofertas fintech. Las soluciones de software...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de SS&C Technologies con las Soluciones Fintech es evidente en su provisión de servicios habilitados por software a instituciones financieras. Las soluciones de software más nuevas de la empresa, como Genesis y Singularity, están ganando terreno, lo que demuestra la inversión en esta á...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SSNC" data-company="SS&C TECHNOLOGIES HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SSNC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SS&C TECHNOLOGIES HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SS&C destaca que las nuevas tecnologías, incluida la RPA, están ganando terreno. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de SS&C con la Automatización Robótica de Procesos es evidente a través de sus inversiones estratégicas y el despliegue de trabajadores digitales. La compañía adquirió Blue Prism y la ha integrado en sus unidades de negocio para identificar flujos de trabajo y construir agentes de IA, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SSNC" data-company="SS&C TECHNOLOGIES HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SSNC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SS&C TECHNOLOGIES HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de SSNC está significativamente vinculado a la industria SaaS. El crecimiento de los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de SSNC está significativamente vinculado a la industria SaaS, principalmente a través de la generación de ingresos por servicios habilitados por software. Los flujos de ingresos de la empresa se derivan significativamente de estos servicios habilitados por software, junto con ingresos po...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SSNC" data-company="SS&C TECHNOLOGIES HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SSNC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SS&C TECHNOLOGIES HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SS&C ofrece Tecnologías de Gestión Patrimonial e Inversión. La empresa atiende a gestores de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de SS&C en Servicios de Gestión Patrimonial es evidente a través de su negocio de Tecnologías de Gestión Patrimonial e Inversión, que ha contribuido al crecimiento de los ingresos. La empresa atiende a gestores de patrimonio y ofrece la Plataforma de Gestión Patrimonial Black Diamon...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="APPN" data-company="APPIAN CORP-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">APPN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPIAN CORP-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma Appian permite a los usuarios diseñar, automatizar y optimizar procesos comerciales....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Appian en el desarrollo de aplicaciones es evidente en sus operaciones comerciales principales, ya que la plataforma Appian permite a los usuarios diseñar, automatizar y optimizar procesos comerciales. La plataforma de la empresa integra estrechamente diversas capacidades, inclui...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BL" data-company="BLACKLINE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BLACKLINE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El 95% de BlackLine's ingresos se derivan de suscripciones a su plataforma de software basada en la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de BlackLine con el tema SaaS es sustancial, como lo demuestra el hecho de que aproximadamente el 95% de sus ingresos se derivan de suscripciones a su plataforma de software basada en la nube. Esta dependencia de las suscripciones SaaS resalta la importancia estratégica y el posicionam...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CNXC" data-company="CONCENTRIX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CNXC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CONCENTRIX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Concentrix demuestra su compromiso con la Automatización Robótica de Procesos. La suite de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Concentrix demuestra su compromiso con la Automatización Robótica de Procesos a través de la provisión de soluciones integrales que incluyen la automatización de oficinas frontales y de back-office para clientes de diversos sectores verticales. La suite de tecnología iX AI de la empresa aborda aún m...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CTSH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant ha desarrollo e implementación de soluciones agentivas utilizando modelos LLM de Google....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cognizant con la IA en el sector de la salud es evidente a través de su desarrollo e implementación de soluciones agentivas utilizando modelos LLM de Google, abordando desafíos críticos de la atención médica como la eficiencia, la experiencia del cliente, la toma de decisiones cl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CTSH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant ayuda a los clientes a modernizar la tecnología, reimaginar los procesos y transformar...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Cognizant con la Transformación Digital es evidente a través de su papel como socio de transformación para clientes de diversas industrias, aprovechando la IA y otras tecnologías para impulsar la transformación del talento y la tecnología. Esto se destaca por su trabajo con un gran ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM Z ofrece IA, seguridad y capacidad escalable. Los clientes invierten en IBM Z por su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de IBM en la ciberseguridad es evidente a través de su plataforma IBM Z, que ofrece IA, seguridad y capacidad escalable. Los clientes invierten en IBM Z por su fiabilidad, escalabilidad, seguridad y rendimiento, integrándose perfectamente con las estrategias de nube híbrida e IA. El próxi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM está aprovechando sus soluciones de software en la nube híbrida, automatización e IA para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en software empresarial es evidente en su enfoque estratégico y generación de ingresos. El crecimiento de la empresa está impulsado notablemente por su división de software, que incluye Red Hat, Automation, Data y Transaction Processing, siendo el software una parte sustancia...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSFT" data-company="MICROSOFT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MSFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MICROSOFT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">LinkedIn tiene una base de usuarios sustancial de 1.200 millones de miembros. LinkedIn ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Microsoft con el tema de las Plataformas de Redes Sociales es evidente a través de su propiedad de LinkedIn, que tiene una base de usuarios sustancial de 1.200 millones de miembros y ha demostrado un crecimiento constante durante cuatro años. Este crecimiento se refleja en una mayor p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NOW" data-company="SERVICENOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NOW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SERVICENOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La Plataforma Now automatiza los procesos comerciales al conectar departamentos y sistemas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de ServiceNow en Soluciones de TI es evidente a través de su Plataforma Now, una solución basada en la nube diseñada para digitalizar flujos de trabajo para empresas de diversos sectores. La plataforma integra IA, datos y flujos de trabajo para impulsar resultados comerciales, con solucio...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PEGA" data-company="PEGASYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PEGA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PEGASYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Pega está significativamente invertida en IA Generativa y LLMs, particularmente a través oferta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Pega está significativamente invertida en IA Generativa y LLMs, particularmente a través de su oferta Pega Gen AI Blueprint, que es central en las conversaciones con los clientes e influye en cada aspecto del negocio. La empresa combina agentes impulsados por modelos de lenguaje con predictibilidad ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PEGA" data-company="PEGASYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PEGA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PEGASYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Pega desarrolla, comercializa, licencia, aloja y da soporte a software empresarial, incluidas las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El fuerte compromiso de Pega con el tema SaaS es evidente en su modelo de negocio, ya que la empresa desarrolla, comercializa, licencia, aloja y da soporte a software empresarial, incluidas las ofertas de 'Pega Cloud'. Una parte sustancial de los ingresos de Pega proviene de los servicios de suscrip...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BL" data-company="BLACKLINE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BLACKLINE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BlackLine está profundamente involucrada en la provisión de soluciones de TI. Su plataforma integra...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">BlackLine está profundamente involucrada en la provisión de soluciones de TI, ofreciendo software y servicios integrados diseñados para abordar desafíos tecnológicos y mejorar los flujos de trabajo de las organizaciones. Su plataforma integra varios sistemas de TI para agilizar los procesos financie...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CNXC" data-company="CONCENTRIX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CNXC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CONCENTRIX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Concentrix demuestra su enfoque en Consultoría de IA a través ofrecer soluciones de IA alineadas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Concentrix demuestra su enfoque en Consultoría de IA a través de la entrega de soluciones de IA alineadas con las necesidades del cliente, utilizando tanto socios tecnológicos de terceros como su propia suite de productos iX, incluido el lanzamiento de iX Hero, una aplicación impulsada por IA Agenti...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CNXC" data-company="CONCENTRIX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CNXC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CONCENTRIX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Concentrix proporciona servicios de transformación empresarial como parte of sus soluciones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Concentrix en servicios de consultoría es evidente a través de su provisión de soluciones integradas y basadas en tecnología, adaptadas a las necesidades del cliente. La empresa está asegurando programas que integran consultoría con TI, CX e IA, y está observando un crecimiento e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CTSH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant recibió el premio Global Partner of the Year en Datos and Análisis. La compañía ayuda a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Cognizant en el análisis de datos es evidente a través de su apoyo a la transformación digital de los clientes en negocios basados en datos, con servicios digitales y mejorados por IA desempeñando un papel crucial en su cartera. Esto se ve respaldado además por el hecho de que la compa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CTSH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant se destaca a través de varias iniciativas clave, incluida una asociación estratégica con...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cognizant en Soluciones de TI se destaca a través de varias iniciativas clave, incluida una asociación estratégica con una importante empresa biofarmacéutica global para gestionar y transformar sus sistemas de TI utilizando IA Generativa e IA Agente. Esta colaboración tiene como ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="G" data-company="GENPACT LTD">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">G</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GENPACT LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se enfoca en ayudar a las empresas a reimaginar la cadena de suministro. El aumento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa se enfoca en ayudar a las empresas a reimaginar la cadena de suministro y otras operaciones industriales centrales, lo que se logra a través de una fuerte demanda de soluciones de datos y tecnología integradas en finanzas y contabilidad, cadena de suministro y servicios de gestión de ries...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NOW" data-company="SERVICENOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NOW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SERVICENOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El programa NowNext AI está diseñado para acelerar la adopción of IA. ServiceNow desplegando...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ServiceNow en la consultoría de IA es evidente a través de sus esfuerzos para ayudar a los clientes en la transformación y despliegue de IA, incluidas las iniciativas de co-innovación. El programa NowNext AI está diseñado para acelerar la adopción de IA, con ServiceNow desplegand...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NOW" data-company="SERVICENOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NOW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SERVICENOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La Plataforma Now de ServiceNow, una solución basada en la nube, es central para sus operaciones....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La Plataforma Now de ServiceNow, una solución basada en la nube, es central para sus operaciones, permitiendo a las empresas digitalizar flujos de trabajo. La empresa obtiene ingresos predominantemente de ofertas de suscripción basadas en la nube y reconoce los ingresos por suscripción de forma pror...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NOW" data-company="SERVICENOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NOW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SERVICENOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de ServiceNow en la entrega de soluciones digitales es evidente en su Plataforma Now...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de ServiceNow en la entrega de soluciones digitales es evidente en su Plataforma Now impulsada por IA, que automatiza los procesos de negocio y conecta sistemas dispares para mejorar la productividad y la experiencia del cliente. La empresa enfatiza su papel en la transformación empresari...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NOW" data-company="SERVICENOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NOW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SERVICENOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ServiceNow's Now Platform automatiza flujos de trabajo en empresas conectando departamentos y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de ServiceNow con la Automatización Robótica de Procesos es evidente a través de su Now Platform, que automatiza los flujos de trabajo en empresas conectando departamentos y sistemas dispares. Esta plataforma aprovecha la IA y el aprendizaje automático integrados para unificar y digita...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PAYC" data-company="PAYCOM SOFTWARE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PAYC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYCOM SOFTWARE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Paycom en Software Empresarial es evidente a través of su solución integral de gestión del capital...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Paycom en Software Empresarial es evidente a través de su solución integral de gestión del capital humano (HCM) basada en la nube, entregada como Software como Servicio. Esta solución gestiona todo el ciclo de vida del empleo, desde el reclutamiento hasta la jubilación, y proporciona l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PAYC" data-company="PAYCOM SOFTWARE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PAYC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYCOM SOFTWARE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Paycom también aprovecha la automatización internamente para optimizar los flujos de trabajo,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Paycom en la Automatización Robótica de Procesos es evidente a través de su estrategia de automatización de soluciones completas, que tiene como objetivo eliminar tareas que pueden ser automatizadas de forma segura por los sistemas. Esto se demuestra con productos como GONE, que automa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PAYC" data-company="PAYCOM SOFTWARE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PAYC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYCOM SOFTWARE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Paycom ofrece una solución integral de gestión del capital humano (HCM) basada en la nube. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Paycom con el tema SaaS está profundamente arraigado en su modelo de negocio principal, ya que ofrece una solución integral de gestión del capital humano (HCM) basada en la nube como Software como Servicio. La empresa se identifica explícitamente como un proveedor líder que utiliza ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PEGA" data-company="PEGASYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PEGA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PEGASYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Pega vende aplicaciones de software como una solución basada en la nube. Los clientes están en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Pega en software en la nube es evidente a través de sus ofertas de Pega Cloud, que constituyen una parte significativa de sus ingresos. Los ingresos de la nube de la compañía fueron de 652,443 mil dólares en 2024. Los clientes están en proceso de transición activa a soluciones basadas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PEGA" data-company="PEGASYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PEGA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PEGASYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Pega desarrolla y soporta software empresarial, ofreciendo soluciones de TI that optimizan las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Pega desarrolla y soporta software empresarial, ofreciendo soluciones de TI que optimizan las decisiones y los procesos para las organizaciones. Su plataforma, diseñada para la toma de decisiones de IA empresarial y la automatización de flujos de trabajo, permite la hiperpersonalización de las exper...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SSNC" data-company="SS&C TECHNOLOGIES HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SSNC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SS&C TECHNOLOGIES HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SS&C administra fondos más grande para gestores de inversiones alternativas. El negocio GlobeOp de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de SS&C en la industria de Inversiones Alternativas es evidente a través de su posición como el administrador de fondos más grande para gestores de inversiones alternativas, incluidos fondos de cobertura, capital privado, activos reales y fondos de fondos. El negocio GlobeOp de la e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SSNC" data-company="SS&C TECHNOLOGIES HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SSNC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SS&C TECHNOLOGIES HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SS&C asocia Blue Prism with sus unidades de negocio para identificar flujos de trabajo. SS&C...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de SS&C con la Inteligencia Artificial es evidente a través de su continua inversión en su estrategia de IA, que consideran una ventaja competitiva significativa. Esta estrategia implica asociar Blue Prism con sus unidades de negocio para identificar flujos de trabajo, crear nuevos age...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SSNC" data-company="SS&C TECHNOLOGIES HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SSNC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SS&C TECHNOLOGIES HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El software Genesis admite servicios bancarios. La participación de SS&C se demuestra a través de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de SS&C en servicios bancarios se demuestra a través de sus clientes de servicios financieros, que incluyen bancos. El software Genesis de la empresa admite servicios bancarios, incluidos préstamos bancarios y préstamos hipotecarios comerciales, y ha sido implementado recientemente ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SSNC" data-company="SS&C TECHNOLOGIES HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SSNC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SS&C TECHNOLOGIES HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SS&C implementa tecnologías de automatización, incluido Blue Prism. El enfoque de la empresa se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de SS&C con la transformación digital es evidente a través de su implementación interna de tecnologías de automatización, incluido Blue Prism, que ha generado importantes beneficios en equivalentes a tiempo completo. El enfoque de la empresa se extiende a ayudar a los clientes con sus ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SSNC" data-company="SS&C TECHNOLOGIES HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SSNC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SS&C TECHNOLOGIES HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SS&C ofrece infraestructura y servicios de TI gestionados a través ofreciendo diseño,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de SS&C con las Soluciones de TI es evidente en su negocio principal de suministro de software y servicios, con más de 23.000 profesionales dedicados al desarrollo, servicio y soporte. La empresa ofrece infraestructura y servicios de TI gestionados a través de sus centros de datos y nu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SSNC" data-company="SS&C TECHNOLOGIES HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SSNC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SS&C TECHNOLOGIES HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SS&C es el mayor administrador de fondos para gestores de inversiones alternativas. Esto se ve...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de SS&C en el tema de Private Equity es evidente a través de su posición como el mayor administrador de fondos para gestores de inversiones alternativas, incluidos los fondos de private equity. Esto se ve respaldado por el crecimiento de dos dígitos en los mercados privados experime...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SSNC" data-company="SS&C TECHNOLOGIES HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SSNC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SS&C TECHNOLOGIES HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SS&C está posicionada de manera única para interpretar las regulaciones e implementar soluciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de SS&C en la Tecnología Regulatoria es evidente en su enfoque en ayudar a los clientes con el cumplimiento en un entorno regulatorio dinámico. La empresa está posicionada de manera única para interpretar las regulaciones e implementar soluciones tecnológicas, ofreciendo soluciones ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BL" data-company="BLACKLINE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BLACKLINE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Studio360 ha generado interés debido a su capacidad para automatizar sistemas financieros a escala....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de BlackLine en la Automatización Robótica de Procesos es evidente en su software, que unifica datos críticos y permite la orquestación y automatización de procesos, empoderando a los profesionales de contabilidad y finanzas para mejorar la integridad de los informes financieros, reducir ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CTSH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant demuestra un fuerte enfoque en la IA Generativa, integrándola tanto en las ofertas a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cognizant demuestra un fuerte enfoque en la IA Generativa, integrándola tanto en las ofertas a clientes como en las operaciones internas. Esto se evidencia en su asociación estratégica con una importante empresa biofarmacéutica para transformar los sistemas de TI utilizando IA Generativa e IA Agenti...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CTSH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant está ayudando a un gran cliente sanitario a impulsar la productividad y financiar la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cognizant en la Automatización Sanitaria es evidente a través del avance de TriZetto de su estrategia de IA Agente, que incluye casi 30 agentes en funcionamiento o en fase piloto y otros 10 en desarrollo, optimizando los flujos de trabajo en la gestión de la atención, reclamacion...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CTSH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant aprovecha la automatización para empoderar a los profesionales de atención al cliente. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cognizant con la Automatización Robótica de Procesos es evidente a través de sus servicios colaborativos, que incluyen servicios de procesos de negocio y automatización. La empresa aprovecha la automatización para empoderar a los profesionales de atención al cliente y mejorar las...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CTSH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant recibió un premio al Socio del Año de Soluciones para la Industria Minorista por...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cognizant en la gestión de almacenes se destaca por su colaboración con Lineage, el mayor propietario y operador de almacenes con temperatura controlada del mundo, donde aprovecha la logística, el servicio al cliente y la IA Agente. Esta colaboración implica el uso de IA, automat...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PAYC" data-company="PAYCOM SOFTWARE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PAYC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYCOM SOFTWARE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Paycom es un proveedor líder de una solución integral de gestión del capital humano (HCM) El modelo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Paycom es un proveedor líder de una solución integral de gestión del capital humano (HCM) entregada como Software como Servicio (SaaS). El modelo de negocio principal de la empresa se centra en la entrega de esta solución HCM como software basado en la nube, lo que significa un gran enfoque en el de...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

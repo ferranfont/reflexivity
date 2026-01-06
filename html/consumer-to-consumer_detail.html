@@ -1,0 +1,1029 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Consumer-to-consumer - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Consumer-to-consumer</div>
+      <div class="sub-title">Investment Theme Detail - Consumer and Retail Industry</div>
+    </div>
+    <a href="main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Consumer-to-consumer &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Consumer and Retail &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 10
+    </div>
+
+    
+    <!-- Theme Chart Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Theme Chart</span>
+             <a href="equity_consumer_to_consumer.html" target="_blank" class="btn-view-chart">View Full Chart ↗</a>
+        </div>
+        <div class="box-body" style="height: 600px; overflow:hidden;">
+            <iframe src="equity_consumer_to_consumer.html" style="width:100%; height:100%; border:none; display:block;"></iframe>
+        </div>
+    </div>
+        
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">10</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">UBER</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">UBER TECHNOLOGIES INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha la inteligencia artificial para optimizar sus plataformas de transporte compartido y entrega, mejorando la eficiencia de las rutas, la fijac...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/UBER" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">EBAY</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">EBAY INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona un mercado en línea para la venta de piezas y accesorios de automoción, facilitando transacciones dentro de la industria del mercado de re...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/EBAY" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ABNB</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">AIRBNB INC-CLASS A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera una plataforma global que conecta directamente a anfitriones individuales que ofrecen alojamientos y experiencias con huéspedes que los buscan, ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ABNB" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">PYPL</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">PAYPAL HOLDINGS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha la inteligencia artificial para mejorar sus ofertas de fintech, centrándose en áreas como la prevención de fraudes, la gestión de riesgos y ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/PYPL" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">LYFT</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">LYFT INC-A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Integra tecnología de vehículos autónomos en su plataforma de viajes compartidos para mejorar las capacidades de servicio y optimizar la eficiencia op...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/LYFT" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">4755</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">RAKUTEN GROUP INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Participa en el despliegue y operación de infraestructura de red 5G, contribuyendo a la expansión de la conectividad móvil de próxima generación....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/4755" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">REAL</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">REALREAL INC/THE</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Facilita la reventa de artículos de lujo, extendiendo así los ciclos de vida de los productos y reduciendo los residuos en la industria de la moda....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/REAL" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ALE</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ALLETE INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Es importante para el tema de Energía Limpia....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ALE" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">NAN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">Naspers</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">No description available.</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/NAN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">WINA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">WINMARK CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se relaciona con el tema de la industria de consumidor a consumidor....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/WINA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">58</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="ABNB" data-company="AIRBNB INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ABNB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ABNB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AIRBNB INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Airbnb está profundamente entrelazado with la industria de la hospitalidad. El modelo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Airbnb está profundamente entrelazado con la industria de la hospitalidad, como lo demuestra su plataforma que conecta a anfitriones que ofrecen alojamientos y experiencias con huéspedes que buscan estos servicios. Los ingresos de la empresa se ven significativamente impulsados por 'No...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ABNB" data-company="AIRBNB INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ABNB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ABNB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AIRBNB INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Airbnb opera una plataforma de viajes que conecta anfitriones y huéspedes para estancias. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Airbnb opera una plataforma de viajes que conecta anfitriones y huéspedes para estancias y experiencias, como lo demuestra su facilitación de la planificación y reserva de viajes. Métricas clave como 'Noches y Asientos Reservados' y 'Valor Bruto de las Reservas' subrayan la escala de la plataforma y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALE" data-company="ALLETE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ALE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALLETE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ALLETE Clean Energy se dedica a desarrollar, adquirir y operar proyectos de energía limpia y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ALLETE con el tema de Energía Limpia es evidente a través de varias iniciativas clave. ALLETE Clean Energy se dedica a desarrollar, adquirir y operar proyectos de energía limpia y renovable, gestionando más de 1.600 megavatios de generación de energía eólica en varios estados. Es...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALE" data-company="ALLETE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ALE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALLETE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">AlLETE tiene cierta participación en la industria del Carbón y Combustibles Consumibles. Esto se ve...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">ALLETE tiene cierta participación en la industria del Carbón y Combustibles Consumibles a través de sus operaciones de minería de carbón en BNI Energy en Dakota del Norte. Sin embargo, esto se ve contrarrestado por el cambio estratégico de Minnesota Power para reducir su dependencia del carbón y tra...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALE" data-company="ALLETE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ALE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALLETE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Minnesota Power and SWL&P proporcionan servicios eléctricos regulados. ALLETE espera que...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de ALLETE en la industria de servicios públicos de electricidad es significativo, principalmente a través de sus Operaciones Reguladas, que incluyen Minnesota Power y SWL&P. Estas empresas de servicios públicos proporcionan servicios eléctricos regulados a una base de clientes sustanci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UBER" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UBER</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Uber Freight enfrenta desafíos como se refleja en una disminución en las Reservas Brutas de Carga e...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Uber en la industria de intermediación de carga es evidente a través de su conexión entre Expedidores y Transportistas, ofreciendo servicios como reserva de envíos y gestión de transporte. Esta conexión se facilita por la red, la tecnología y la experiencia operativa de Uber. Si ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALE" data-company="ALLETE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ALE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALLETE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">AlLETE está activamente en proyectos de transmisión para reforzar la confiabilidad de la red. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ALLETE en la industria de la Transmisión de Electricidad es evidente a través de sus operaciones reguladas, que incluyen servicios públicos como Minnesota Power y SWL&P, así como su inversión en ATC, una empresa de servicios públicos que posee y mantiene activos de transmisión el...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALE" data-company="ALLETE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ALE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALLETE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">New Energy, una empresa de energía renovable, se enfoca principalmente en el desarrollo de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de ALLETE con el almacenamiento de energía es evidente a través de varias iniciativas. New Energy, una empresa de energía renovable, se enfoca principalmente en el desarrollo de instalaciones solares y de almacenamiento de energía. Además, ALLETE Clean Energy está considerando adquisic...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALE" data-company="ALLETE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ALE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALLETE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">South Shore Energy está desarrollando el Nemadji Trail Energy Center (NTEC) Minnesota Power...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de ALLETE con el tema de la Infraestructura de Gas Natural es evidente a través de varias iniciativas, principalmente a través de sus subsidiarias. South Shore Energy está desarrollando el Nemadji Trail Energy Center (NTEC), una instalación de generación de 600 MW alimentada por gas na...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UBER" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UBER</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma de Uber impulsa el movimiento del punto A al punto B, lo cual es fundamental para sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Uber de consumidores con proveedores de servicios de transporte sustenta su participación en Soluciones de Movilidad. La plataforma de la empresa impulsa el movimiento del punto A al punto B, lo cual es fundamental para sus operaciones, como lo demuestra el crecimiento de las Reservas...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UBER" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UBER</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La conexión de Uber de consumidores con proveedores de servicios de transporte es fundamental para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Uber de consumidores con proveedores de servicios de transporte es fundamental para sus operaciones, como lo demuestran las menciones constantes en varios documentos. La compañía ha experimentado un crecimiento sustancial en esta área, con aumentos en las reservas brutas de movilidad ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALE" data-company="ALLETE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ALE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALLETE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Minnesota Power tiene planes para construir nuevos proyectos solares en el norte of Minnesota. New...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ALLETE en la energía solar es evidente a través de varias iniciativas. La infraestructura de energía solar de Minnesota Power incluye instalaciones como la planta solar de Camp Ripley y un conjunto solar en Duluth, junto con compras de otras instalaciones solares y un jardín sola...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALE" data-company="ALLETE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ALE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALLETE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ALLETE Clean Energy posee, opera o ha desarrollado más de 1.600 MW de generación de energía eólica....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de ALLETE con la energía eólica es evidente a través de su subsidiaria, ALLETE Clean Energy, que posee, opera o ha desarrollado más de 1.600 MW de generación de energía eólica en varios estados, con una mayoría contratada bajo acuerdos de compra de energía (PSA). Además, ALLETE Clean E...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EBAY" data-company="EBAY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/EBAY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EBAY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EBAY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ebay adquirió Caramel, un proveedor de soluciones de transacciones automotrices en línea de extremo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de eBay en el tema del comercio electrónico automotriz es evidente a través de varias actividades clave. Las plataformas de Marketplace de la empresa facilitan las transacciones en línea de piezas y accesorios de vehículos, y se identifican las Piezas y Accesorios para Motores (P&A)...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EBAY" data-company="EBAY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/EBAY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EBAY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EBAY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ebay genera más de 10 mil millones de dólares en GMV anualmente. eBay ha ampliado sus servicios de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de eBay con el tema de Ropa y Accesorios es evidente a través de varias iniciativas y resultados financieros. La categoría de moda de la empresa genera más de 10 mil millones de dólares en GMV anualmente, y categorías de enfoque como artículos de lujo y ropa han contribuido positivamente...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UBER" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UBER</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Uber en el transporte urbano es evidente a través of su plataforma tecnológica. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Uber en el transporte urbano es evidente a través de su plataforma tecnológica que impulsa el movimiento de un punto A a un punto B y conecta a los consumidores con servicios de transporte y redes de transporte público. Las reservas brutas de movilidad han mostrado un aumento interanua...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EBAY" data-company="EBAY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/EBAY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EBAY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EBAY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ebay se identifica como líder mundial en comercio, conectando compradores y vendedores en más de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de eBay con el tema del Comercio Electrónico es fuerte, ya que la empresa se identifica como líder mundial en comercio, conectando compradores y vendedores en más de 190 mercados a través de sus plataformas de mercado en línea. Todo el modelo de negocio de la empresa gira en torno a sus ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WINA" data-company="WINMARK CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/WINA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WINA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WINMARK CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Winmark operando más de 1.350 franquicias bajo marcas como Plato's Closet and Play It Again Sports....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Winmark está fuertemente ligado al modelo de franquicia, operando más de 1.350 franquicias bajo marcas como Plato's Closet y Play It Again Sports. Una parte sustancial de los ingresos de Winmark proviene de las regalías recaudadas de estas franquicias, que alcanzaron los 72,2 millones ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EBAY" data-company="EBAY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/EBAY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EBAY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EBAY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ebay opera una plataforma de comercio global líder que conecta a millones of compradores. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de eBay con el tema del Mercado en Línea es fuerte, ya que la empresa opera una plataforma de comercio global líder que conecta a millones de compradores y vendedores en numerosos mercados. Las plataformas de mercado de la empresa, incluido su mercado en línea en www.ebay.com, mercados f...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WINA" data-company="WINMARK CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/WINA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WINA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WINMARK CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Winmark participa en el tema de la venta minorista de artículos deportivos a través of sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Winmark participa en el tema de la venta minorista de artículos deportivos a través de sus franquicias 'Play It Again Sports', que operan dentro de este sector. Winmark facilita las ventas de mercancías, incluidas las dirigidas a los franquiciados a través del grupo de compras de Play It Again Sport...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WINA" data-company="WINMARK CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/WINA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WINA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WINMARK CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Winmark enfatiza su enfoque en la sostenibilidad, que es central para su modelo de negocio de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Winmark enfatiza su enfoque en la sostenibilidad, que es central para su modelo de negocio de reventa, como se destaca en múltiples secciones de sus presentaciones. Este compromiso se refleja en la operación de franquicias de reventa como Plato's Closet, Once Upon A Child, Play It Again Sports, Styl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LYFT" data-company="LYFT INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/LYFT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LYFT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LYFT INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La integración de Lyft con la industria del alquiler de automóviles es evidente. Lyft permite a los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La integración de Lyft con la industria del alquiler de automóviles es evidente a través de su programa Express Drive, que permite a los conductores alquilar vehículos y contribuye a las reservas brutas de la empresa. Esto se apoya aún más en la inclusión de Flexdrive Services, LLC, una subsidiaria ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal demuestra una presencia significativa en la industria de Crédito y Préstamos. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">PayPal demuestra una presencia significativa en la industria de Crédito y Préstamos a través de sus carteras de préstamos para consumidores y comerciantes. Las actividades de la empresa incluyen la oferta de productos de crédito rotatorio y a plazos para consumidores, así como opciones de financiaci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LYFT" data-company="LYFT INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/LYFT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LYFT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LYFT INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio principal de Lyft gira en torno a la provisión de diversas soluciones de movilidad. Lyft...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Lyft gira en torno a la provisión de diversas soluciones de movilidad a través de su red de transporte multimodal en los Estados Unidos, Canadá y otros mercados internacionales. La plataforma de la empresa conecta a pasajeros y conductores para servicios a pedido y admite var...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LYFT" data-company="LYFT INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/LYFT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LYFT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LYFT INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio principal de Lyft se centra en su mercado de viajes compartidos, que conecta conductores...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Lyft se centra en su mercado de viajes compartidos, que conecta conductores y pasajeros, y sustancialmente todos sus ingresos se generan a partir de este servicio. Los indicadores clave de rendimiento de la empresa, como Pasajeros Activos y Viajes, están directamente relacion...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LYFT" data-company="LYFT INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/LYFT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LYFT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LYFT INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La aplicación Lyft conecta a pasajeros y conductores. La plataforma establecida ofrece viajes y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Lyft funciona como una plataforma de movilidad global, integrando viajes compartidos, taxis, vehículos de alquiler privado, uso compartido de automóviles, bicicletas y scooters en múltiples continentes. La aplicación Lyft conecta a pasajeros y conductores y, al mismo tiempo, admite soluciones de mov...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LYFT" data-company="LYFT INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/LYFT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LYFT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LYFT INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma ofrece una gama de servicios que incluyen viajes compartidos, taxis, uso compartido...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Lyft están profundamente entrelazadas con el tema del transporte urbano, como lo demuestra su papel como una de las redes de transporte multimodal más grandes de los Estados Unidos y Canadá. La plataforma de la empresa ofrece una gama de servicios que incluyen viajes compartidos, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal demuestra su participación en las finanzas del consumidor a través de varias vías. Esto se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">PayPal demuestra su participación en las finanzas del consumidor a través de varias vías, incluidos productos de crédito a plazos y revolventes que se ofrecen a los consumidores al momento del pago. Esto se ve reforzado aún más por su producto de crédito al consumidor revolvente en EE. UU., junto co...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal gestiona activamente esta cartera, como lo demuestran los acuerdos para vender cuentas por...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de PayPal en los préstamos al consumidor es evidente a través de su importante cartera, que incluye opciones de "compra ahora, paga después", productos de crédito a plazos y productos de crédito rotatorio. El saldo de préstamos al consumidor e intereses por cobrar de la empresa ha c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal demuestra su enfoque en los servicios financieros para PYMES. La empresa prioriza el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">PayPal demuestra su enfoque en los servicios financieros para PYMES a través de varias iniciativas. La empresa prioriza el empoderamiento de los comerciantes al proporcionar herramientas para gestionar y acelerar el crecimiento, incluida la migración de transacciones a PayPal Complete Payments (PPCP...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal introducido PYUSD, una moneda estable diseñada para facilitar el comercio global. PayPal...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de PayPal con el Trading de Criptomonedas es evidente a través de varias iniciativas, incluida la introducción de PYUSD, una moneda estable diseñada para facilitar el comercio global abordando problemas como las altas tarifas y la lentitud de las transacciones. La empresa genera ingres...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal espera continuar invirtiendo recursos significativos para reforzar estas protecciones. Se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La ciberseguridad es un área crítica de enfoque para PayPal, especialmente dadas las crecientes amenazas para las empresas globales de pagos y tecnología. La compañía ha desarrollado sistemas y procesos diseñados para proteger los datos, prevenir la pérdida de datos y permitir respuestas efectivas a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal está evolucionando de un procesador de pagos a una plataforma de comercio dinámica. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La misión principal de PayPal es revolucionar el comercio a nivel mundial al permitir pagos digitales y simplificar las experiencias comerciales para consumidores y comerciantes, tanto en línea como fuera de línea. La empresa está evolucionando de un procesador de pagos a una plataforma de comercio ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal lanzamienta billetera móvil NFC sin contacto de PayPal en iOS and Android. Billeteras...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de PayPal con el tema de los Pagos Móviles es evidente en su misión de revolucionar el comercio a nivel mundial, permitiendo pagos digitales y simplificando las experiencias comerciales para consumidores y comerciantes, incluidas las transacciones móviles. Este compromiso se refleja en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal se enfoca en transformarse de una empresa de pagos tradicional a una plataforma de comercio...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de PayPal con las Soluciones de Pago está profundamente arraigado en su misión de revolucionar el comercio a nivel mundial al permitir pagos digitales y simplificar las experiencias comerciales para consumidores y comerciantes. La compañía se enfoca en transformarse de una empresa de p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="REAL" data-company="REALREAL INC/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/REAL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">REAL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">REALREAL INC/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">The RealReal ofrece productos en múltiples categorías, incluyendo moda femenina y masculina,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">The RealReal, como el mercado en línea más grande del mundo de productos de lujo de reventa autenticados, demuestra una conexión significativa con el tema de Ropa y Accesorios a través de su modelo de negocio principal. La empresa ofrece productos en múltiples categorías, incluyendo moda femenina y ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="REAL" data-company="REALREAL INC/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/REAL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">REAL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">REALREAL INC/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">The RealReal es el mercado en línea más grande del mundo de productos de lujo de reventa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de The RealReal se centra en la reventa de lujo, ya que la compañía es el mercado en línea más grande del mundo de productos de lujo de reventa autenticados. La compañía enfatiza su papel en hacer que la reventa de lujo sea deseable y accesible, centrándose en la autenticación de clase mu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="REAL" data-company="REALREAL INC/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/REAL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">REAL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">REALREAL INC/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Mercado en Línea es el mercado en línea más grande del mundo de productos de lujo de reventa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La fuerte conexión de la empresa con el tema del Mercado en Línea es evidente, ya que se identifica como el mercado en línea más grande del mundo de productos de lujo de reventa autenticados. Esto está respaldado por su base global de más de 40.4 millones de miembros e ingresos generados de su sitio...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="REAL" data-company="REALREAL INC/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/REAL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">REAL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">REALREAL INC/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa enfatiza su papel en la promoción de un mundo más sostenible a través of la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa enfatiza su papel en la promoción de un mundo más sostenible a través de la recirculación de bienes de lujo, destacando esto como un aspecto clave de su mercado en línea. Al promover la recirculación de bienes de lujo, la empresa cree que amplía el mercado de lujo en general y contribuye ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UBER" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UBER</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Uber ofreciendo servicios como la reserva de envíos y la gestión del transporte. En el primer...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Uber en Servicios de Carga es evidente a través de su papel en la conexión de Expedidores con Transportistas en la industria del transporte de mercancías, ofreciendo servicios como la reserva de envíos y la gestión del transporte. Esto se ve respaldado por el hecho de que en el p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UBER" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UBER</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Uber se enfoca en hacer crecer su estrategia de plataforma en movilidad y entrega. La conexión...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Uber entre los consumidores y los proveedores de servicios de entrega de preparación de comidas, comestibles y otros servicios subraya la importancia de la entrega de alimentos para sus operaciones. Las reservas brutas de entrega han crecido consistentemente año tras año, impulsadas p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LYFT" data-company="LYFT INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/LYFT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LYFT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LYFT INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Lyft tiene la intención de invertir más en vehículos eléctricos. La compañía tiene como objetivo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Lyft en el tema de los vehículos eléctricos está impulsada principalmente por el cumplimiento normativo y los objetivos de sostenibilidad. La compañía tiene la intención de invertir más en vehículos eléctricos para cumplir con mandatos como el California Clean Miles Standard, que...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal se enfoca en crear experiencias innovadoras que simplifican el movimiento de dinero, la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de PayPal en Soluciones Fintech es evidente en su misión de revolucionar el comercio a nivel mundial, permitiendo pagos digitales y simplificando las experiencias comerciales para consumidores y comerciantes. La empresa se está transformando activamente de una empresa de pagos tradi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WINA" data-company="WINMARK CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/WINA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WINA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WINMARK CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Winmark facilita un mercado de consumidor a consumidori a través of su modelo de franquicia. Los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Winmark facilita un mercado de consumidor a consumidor a través de su modelo de franquicia, donde los individuos compran, venden e intercambian mercancía a través de marcas como Plato's Closet, Once Upon A Child, Play It Again Sports, Style Encore y Music Go Round. Las franquicias de la compañía imp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALE" data-company="ALLETE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/ALE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALLETE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Minnesota Power y SWL&P presta servicios de electricidad, gas natural y agua. Minnesota Power...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de ALLETE en la industria de Servicios Públicos es evidente a través de sus operaciones reguladas, que incluyen Minnesota Power y SWL&P. Específicamente, SWL&P presta servicios de electricidad, gas natural y agua a una base de clientes sustancial en el noroeste de Wisconsin, sirviendo a a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALE" data-company="ALLETE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/ALE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALLETE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Minnesota Power y SWL&P brindan servicios de electricidad, gas natural y agua. El empresa atiende...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con la Infraestructura de Servicios Públicos es evidente a través de sus operaciones reguladas, incluidas Minnesota Power y SWL&P, que brindan servicios de electricidad, gas natural y agua. SWL&P atiende aproximadamente a 15.000 clientes de electricidad, 13.000 clientes d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EBAY" data-company="EBAY INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/EBAY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EBAY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EBAY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ebay está ampliando la adopción de su solución de envío gestionado para vendedores C2C del Reino...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de eBay con el tema de consumidor a consumidor (C2C) es evidente a través de varias iniciativas, particularmente en el Reino Unido, donde han introducido nuevas capacidades para mejorar la experiencia C2C, con el objetivo de reducir las fricciones y estimular la venta por parte de los ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EBAY" data-company="EBAY INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/EBAY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EBAY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EBAY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ebay ofrece servicios financieros adicionales a compradores y vendedores dentro of su sistema de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Ebay con las Soluciones de Pago es evidente en su enfoque estratégico para mejorar la elección del comprador, reducir la fricción de conversión y expandir las soluciones para los vendedores. Esto se destaca por la expansión de su asociación con Klarna al mercado de EE. UU. Además, l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="REAL" data-company="REALREAL INC/THE">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/REAL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">REAL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">REALREAL INC/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">The RealReal se centra en el comercio electrónico. La empresa impulsa el crecimiento de sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de The RealReal se centra en el comercio electrónico, ya que se identifica como el mercado en línea más grande del mundo de productos de lujo de reventa autenticados, generando la gran mayoría de sus ingresos a través de su mercado en línea. La empresa impulsa el crecimiento de sus ingres...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/UBER" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UBER</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa utiliza su plataforma tecnológica para facilitar el movimiento. Uber está desarrollando...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Uber de consumidores con servicios de transporte, servicios de entrega y redes de transporte público destaca el papel de la empresa en la integración de diferentes soluciones de movilidad. La empresa utiliza su plataforma tecnológica para facilitar el movimiento y está desarrollando n...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="REAL" data-company="REALREAL INC/THE">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/REAL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">REAL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">REALREAL INC/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa ofrece una selección de artículos de lujo de numerosos diseñadores. Su generación de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La prominencia de la empresa en la industria de las compras en línea es evidente a través de su operación como el mercado en línea más grande del mundo de artículos de lujo de reventa autenticados, que ofrece una amplia selección de artículos de lujo de numerosos diseñadores. Su generación de ingres...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal se enfoca en expandir la base de usuarios de Venmo y aumentar las cuentas activas mensuales....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de PayPal con la expansión de la banca digital es evidente a través de varias iniciativas. El enfoque de la empresa en habilitar pagos digitales y simplificar las experiencias comerciales es fundamental para sus operaciones, ya que sus productos están diseñados para facilitar las trans...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal ofreciendo una plataforma de doble cara que sirve a millones. El negocio principal de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El fuerte compromiso de PayPal con el tema de la industria de Servicios Financieros es evidente en su misión de revolucionar el comercio global a través de pagos digitales y experiencias comerciales simplificadas. El negocio principal de la empresa gira en torno a permitir pagos digitales y personal...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ALE" data-company="ALLETE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/ALE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ALE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALLETE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Minnesota Power se enfoca en proporcionar energía eléctrica en el noreste de Minnesota. ALLETE...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ALLETE en la industria de Generación de Electricidad es evidente a través de sus subsidiarias como Minnesota Power y ALLETE Clean Energy. Minnesota Power se enfoca en proporcionar energía eléctrica en el noreste de Minnesota y está agregando activamente fuentes de generación reno...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EBAY" data-company="EBAY INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/EBAY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EBAY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EBAY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EBay mejoró la elección del comprador, reducir la fricción en la conversión. Esto se demuestra a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de EBay en mejorar la elección del comprador, reducir la fricción en la conversión y expandir las soluciones para los vendedores es evidente en sus servicios de pago y financieros. Esto se demuestra a través de la expansión de su asociación con Klarna al mercado estadounidense, ofreciendo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EBAY" data-company="EBAY INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/EBAY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EBAY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EBAY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EBay opera plataformas de Marketplace, incluido su mercado en línea en www.ebay.com. eBay conecta a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">EBay opera plataformas de Marketplace, incluido su mercado en línea en www.ebay.com, que conecta a numerosos compradores y vendedores en más de 190 mercados. Estas plataformas facilitan las compras en línea al proporcionar una amplia selección de productos y valor, lo que permite a compradores y ven...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/UBER" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UBER</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Uber en la facilitación del transporte es evidente. Uber impulsa el movimiento del...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Uber en la facilitación del transporte es evidente a través de su plataforma tecnológica, que impulsa el movimiento del punto A al punto B, conectando a los consumidores con servicios de transporte, servicios de entrega y redes de transporte público. Esto está respaldado por el crecimi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal World tiene como objetivo mejorar las experiencias de marca dentro del ecosistema de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de PayPal con las billeteras digitales es evidente a través de varias iniciativas, incluido el desarrollo de una billetera inteligente dinámica diseñada para optimizar las opciones de pago y las recompensas para los consumidores. El enfoque de la empresa se demuestra aún más con el lanza...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

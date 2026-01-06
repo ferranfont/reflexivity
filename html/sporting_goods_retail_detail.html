@@ -1,0 +1,1323 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Sporting Goods Retail - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Sporting Goods Retail</div>
+      <div class="sub-title">Investment Theme Detail - Consumer and Retail Industry</div>
+    </div>
+    <a href="/main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Sporting Goods Retail &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Consumer and Retail &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 15
+    </div>
+
+    
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">15</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">NKE</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">NIKE INC -CL B</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Diseña, desarrolla, comercializa y vende calzado deportivo, ropa, equipamiento y accesorios a nivel mundial, estableciéndose como una marca líder en l...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/NKE" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DKS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">DICK'S SPORTING GOODS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece una diversa selección de ropa y accesorios deportivos para diversos deportes y actividades al aire libre....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DKS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">LULU</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">LULULEMON ATHLETICA INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Diseña, fabrica y vende ropa y accesorios deportivos, ofreciendo una amplia gama de productos para yoga, running, entrenamiento y otras actividades a ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/LULU" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ASO</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ACADEMY SPORTS & OUTDOORS IN</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona una amplia variedad de indumentaria, calzado y accesorios para diversas actividades deportivas y al aire libre....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ASO" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">UAA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">UNDER ARMOUR INC-CLASS A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se enfoca en el diseño, fabricación y comercialización de ropa deportiva, calzado y accesorios, atendiendo a consumidores que buscan ropa y productos ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/UAA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DECK</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">DECKERS OUTDOOR CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y comercializa una cartera diversa de marcas premium de calzado y ropa, contribuyendo significativamente al mercado global de ropa y acceso...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DECK" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">MODG</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TOPGOLF CALLAWAY BRANDS CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye al tema de ropa y accesorios a través de su gama de ropa y accesorios específicos para golf....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/MODG" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">GOLF</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ACUSHNET HOLDINGS CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Fabrica y vende ropa y accesorios relacionados con el golf, incluyendo indumentaria, gorras y guantes, diseñados para el rendimiento y el estilo en el...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/GOLF" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">YETI</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">YETI HOLDINGS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece una gama de prendas y accesorios diseñados para uso en exteriores y recreativo....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/YETI" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">VFC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">VF CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Diseña, fabrica y comercializa una cartera diversa de ropa, calzado y accesorios de estilo de vida de marca, contribuyendo significativamente al merca...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/VFC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">11</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ONON</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ON HOLDING AG-CLASS A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye al tema "Ropa y accesorios" a través de su diseño innovador y distribución global de calzado deportivo de alto rendimiento, ropa y accesori...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ONON" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">12</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">COLM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">COLUMBIA SPORTSWEAR CO</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Diseña, fabrica y comercializa una amplia gama de ropa, calzado, accesorios y equipos para actividades al aire libre y estilo de vida activo....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/COLM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">13</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">PTON</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">PELOTON INTERACTIVE INC-A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona productos de fitness conectados y una plataforma digital que permite entrenamientos interactivos, seguimiento del rendimiento y participac...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/PTON" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">14</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">WWW</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">WOLVERINE WORLD WIDE INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se dedica al diseño, fabricación y distribución de ropa y accesorios....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/WWW" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">15</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">WINA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">WINMARK CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se relaciona con el tema de la industria de consumidor a consumidor....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/WINA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">80</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="VFC" data-company="VF CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VFC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VF CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Vans se enfoca en el calzado al presentar nuevos diseños, como el Super Low Pro. The North Face...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">VF Corporation demuestra su compromiso con la innovación en calzado a través de varias de sus marcas clave. Específicamente, Vans se enfoca en el calzado al presentar nuevos diseños, como el Super Low Pro, al mismo tiempo que revitaliza los diseños principales; este enfoque es una estrategia clave p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VFC" data-company="VF CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VFC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VF CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">VF Corporation tiene cartera de marcas líderes de ropa para exteriores, activa y de trabajo,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de VF Corporation en la Fabricación de Ropa es evidente a través de su cartera de marcas líderes de ropa para exteriores, activa y de trabajo, incluidas The North Face, Vans, Timberland y Dickies. La compañía obtiene activamente una parte significativa de sus productos, aproximadame...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VFC" data-company="VF CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VFC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VF CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de VF Corporation está ligado a la industria de la Ropa y los Accesorios. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de VF Corporation está significativamente ligado a la industria de la Ropa y los Accesorios, como lo demuestra su diversa cartera de marcas reconocidas como The North Face, Vans, Timberland y Dickies, que ofrecen una amplia gama de prendas de vestir, calzado y accesorios en sus segmentos ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DECK" data-company="DECKERS OUTDOOR CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DECK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DECKERS OUTDOOR CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UGG y HOKA ofrece ropa y accesorios selectos. UGG presenta ofertas de productos durante todo el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema de la industria de la ropa y los accesorios es evidente a través de su diseño, marketing y distribución de estos productos bajo sus marcas propias, incluidas UGG y HOKA. La marca UGG, en particular, presenta una línea resistente de ropa y accesorios de primera...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DECK" data-company="DECKERS OUTDOOR CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DECK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DECKERS OUTDOOR CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UGG no fabrica directamente sus prendas, confiando en cambio en contratistas independientes de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La compañía se relaciona con la industria de fabricación de prendas de vestir a través del diseño, comercialización y distribución de prendas bajo sus marcas propietarias como UGG, HOKA y Teva. Si bien la compañía no fabrica directamente sus prendas, confiando en cambio en contratistas independiente...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DECK" data-company="DECKERS OUTDOOR CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DECK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DECKERS OUTDOOR CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Deckers vende directamente a los consumidores a través of sitios web de comercio electrónico...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Deckers vende directamente a los consumidores a través de sitios web de comercio electrónico propiedad de la empresa, un componente clave de su negocio directo al consumidor (DTC). El negocio DTC de la empresa abarca todas sus marcas y está compuesto por sitios web de comercio electrónico y tiendas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DECK" data-company="DECKERS OUTDOOR CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DECK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DECKERS OUTDOOR CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Deckers está fuertemente invertida en la innovación de calzado. La marca HOKA de la empresa es un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Deckers está fuertemente invertida en la innovación de calzado, como lo demuestra su posición como líder mundial en el diseño, marketing y distribución de calzado innovador tanto para actividades de estilo de vida como de rendimiento. La marca HOKA de la empresa es un motor clave de este enfoque, of...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DECK" data-company="DECKERS OUTDOOR CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DECK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DECKERS OUTDOOR CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa HOKA ofrece una gama de calzado, ropa y accesorios de alto rendimiento diseñados para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con la industria minorista de artículos deportivos se realiza principalmente a través de su marca HOKA, que ofrece una gama de calzado, ropa y accesorios de alto rendimiento diseñados para actividades de carrera, trail, senderismo, fitness y estilo de vida. La marca HOKA ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NKE" data-company="NIKE INC -CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NKE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NIKE INC -CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nike aprovecha los principales eventos deportivos como los majors de golf, la WNBA, la final de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Nike en el Entretenimiento Deportivo es evidente a través de su énfasis estratégico en atletas y actividades relacionadas con el deporte. La empresa se enfoca en cultivar relaciones más profundas con los atletas para obtener información e impulsar la innovación específica del dep...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NKE" data-company="NIKE INC -CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NKE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NIKE INC -CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NIKE diseña, desarrolla, comercializa y vende ropa y accesorios deportivos. La empresa se enfoca en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NIKE en el tema de Ropa y Accesorios es evidente a través de sus operaciones globales, donde diseña, desarrolla, comercializa y vende ropa y accesorios deportivos. La empresa se enfoca en crear productos innovadores y codiciados para atletas específicos, con ejemplos como la Cole...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NKE" data-company="NIKE INC -CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NKE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NIKE INC -CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NIKE Direct abarcan tiendas minoristas y plataformas digitales propiedad de NIKE. La compañía ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de NIKE está significativamente ligado al comercio minorista de artículos deportivos, como lo demuestran el diseño, desarrollo, marketing y venta de calzado, indumentaria, equipos y accesorios deportivos a nivel mundial. Su estrategia de distribución implica operaciones de NIKE Direct, qu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VFC" data-company="VF CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VFC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VF CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">VF Corporation representa el 44% de los ingresos totales de The North Face. El comercio electrónico...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de VF Corporation en el comercio electrónico es evidente a través de sus operaciones directas al consumidor, que incluyen sitios de comercio electrónico de marca y otras plataformas digitales. Si bien el comercio electrónico constituye una parte de la estrategia de ventas directas a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NKE" data-company="NIKE INC -CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NKE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NIKE INC -CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nike es el mayor vendedor de calzado deportivo. Esto está respaldado por su integración de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Nike en la innovación en calzado es evidente en su estrategia de crear productos innovadores y 'debe tener' y su posición como el mayor vendedor de calzado deportivo. Esto está respaldado por su integración de plataformas de innovación líderes en la industria como Nike Air, Flyknit, Zo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NKE" data-company="NIKE INC -CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NKE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NIKE INC -CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NIKE Direct incluyen las plataformas digitales de la marca NIKE. La empresa enfatiza la entrega de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Nike con el comercio electrónico es evidente a través de sus operaciones NIKE Direct, que incluyen las plataformas digitales de la marca NIKE, un canal de distribución clave junto con las cuentas mayoristas. La empresa enfatiza la entrega de experiencias de consumo atractivas a trav...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UAA" data-company="UNDER ARMOUR INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UAA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNDER ARMOUR INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Under Armour se identifica como un desarrollador, comercializador y distribuidor líder de calzado...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Under Armour se identifica como un desarrollador, comercializador y distribuidor líder de calzado deportivo de marca, con ventas netas que consisten en productos de calzado. La empresa está acelerando activamente la innovación en calzado para energizar a los atletas y elevar la marca, centrándose en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UAA" data-company="UNDER ARMOUR INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UAA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNDER ARMOUR INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Under Armour se identifica como un desarrollador, comercializador y distribuidor líder de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Under Armour se identifica como un desarrollador, comercializador y distribuidor líder de indumentaria de rendimiento de marca, y los ingresos por indumentaria constituyen una parte importante de sus ingresos netos totales. La compañía está optimizando activamente su proceso de fabricación de indume...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UAA" data-company="UNDER ARMOUR INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UAA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNDER ARMOUR INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Under Armour se identifica como un desarrollador, comercializador y distribuidor líder de ropa y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Under Armour se identifica como un desarrollador, comercializador y distribuidor líder de ropa y accesorios de rendimiento de marca, con planes de crecimiento a través del aumento de las ventas en estas áreas. La empresa está trabajando activamente para mejorar la calidad y el diseño de su ropa y ac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PTON" data-company="PELOTON INTERACTIVE INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PTON</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PELOTON INTERACTIVE INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Peloton ofrece productos y servicios dirigidos a mejorar la salud de sus miembros. Las ofertas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Peloton con el tema de Productos de Salud para el Consumidor proviene de su posición como una empresa global de fitness y bienestar, que ofrece productos y servicios dirigidos a mejorar la salud de sus miembros. Las ofertas de la empresa incluyen equipos de fitness, contenido y entren...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PTON" data-company="PELOTON INTERACTIVE INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PTON</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PELOTON INTERACTIVE INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El 32,8% de los ingresos totales en el año fiscal 2025 atribuidos a esta categoría. La plataforma...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Peloton en la industria de la electrónica de consumo es evidente a través de su cartera de Productos de Fitness Conectado, incluyendo la Bicicleta, la Cinta de Correr y la Remo, que son centrales para su modelo de negocio. Una parte significativa de los ingresos de Peloton se gen...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NKE" data-company="NIKE INC -CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NKE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NIKE INC -CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NIKE diseña, desarrolla, comercializa y vende calzado deportivo, indumentaria, equipamiento,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de NIKE en Marcas de Consumo es evidente en su estrategia comercial principal, ya que la compañía diseña, desarrolla, comercializa y vende calzado deportivo, indumentaria, equipamiento, accesorios y servicios a nivel mundial. Una parte significativa de los ingresos de NIKE proviene de sus...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NKE" data-company="NIKE INC -CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NKE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NIKE INC -CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NIKE está innovando activamente en la industria de fabricación de prendas de vestir. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NIKE en la industria de fabricación de prendas de vestir es evidente a través de su diseño, desarrollo, comercialización y venta de prendas deportivas en todo el mundo, con ingresos de prendas de la marca NIKE que alcanzaron los $3,193 millones en el tercer trimestre del año fisc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NKE" data-company="NIKE INC -CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NKE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NIKE INC -CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NIKE Direct incluyen tiendas minoristas propiedad de NIKE. La empresa rastrea las ventas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de NIKE con la presencia física es evidente a través de sus operaciones NIKE Direct, que incluyen tiendas minoristas propiedad de NIKE. La empresa rastrea las ventas comparables de tiendas, una métrica clave que comprende los ingresos de las tiendas en línea y de fábrica propiedad de N...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VFC" data-company="VF CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VFC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VF CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de VF Corporation se centra en la gestión de una cartera de marcas de consumo, incluidas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de VF Corporation se centra en la gestión de una cartera de marcas de consumo, incluidas The North Face, Vans, Timberland y Dickies, que se comercializan directamente a los consumidores a través de varios canales. El enfoque estratégico de la empresa implica mejorar el valor de la marca a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DECK" data-company="DECKERS OUTDOOR CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DECK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DECKERS OUTDOOR CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de la empresa en el diseño, marketing y distribución de calzado, indumentaria y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de la empresa en el diseño, marketing y distribución de calzado, indumentaria y accesorios la posiciona dentro del sector de productos de consumo. Estos productos, desarrollados tanto para el uso diario informal como para actividades de alto rendimiento, se comercializan bajo marcas propi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DECK" data-company="DECKERS OUTDOOR CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DECK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DECKERS OUTDOOR CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se dedica a actividades de ocio y aventuras al aire libre. La marca Teva, en particular,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en la industria de Productos de Ocio es evidente a través de su diseño, marketing y distribución de calzado, ropa y accesorios adaptados tanto para el estilo de vida informal como para actividades de alto rendimiento. La marca Teva, en particular, está diseñada para un...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DECK" data-company="DECKERS OUTDOOR CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DECK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DECKERS OUTDOOR CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El aumento de las ventas netas directas al consumidor se atribuye a mayores ventas globales de las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio directo al consumidor de la empresa se basa en sitios web de comercio electrónico propiedad de la empresa, que están entrelazados con tiendas minoristas en un mercado omnicanal. El aumento de las ventas netas directas al consumidor se atribuye a mayores ventas globales de las marcas HOKA ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UAA" data-company="UNDER ARMOUR INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UAA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNDER ARMOUR INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Under Armour demuestra su compromiso con la industria del entretenimiento deportivo. La compañía se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Under Armour demuestra su compromiso con la industria del entretenimiento deportivo a través de varias iniciativas. La compañía se enfoca en deportes de equipo, enfatizando el fútbol americano y el fútbol global, el baloncesto, el béisbol y el voleibol, y está expandiendo su alcance más allá de los ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PTON" data-company="PELOTON INTERACTIVE INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PTON</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PELOTON INTERACTIVE INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Peloton combina hardware, software y contenido exclusivo. La empresa incurre en costos relacionados...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Peloton con la Creación de Contenido es evidente en su plataforma basada en suscripción, que combina hardware, software y contenido exclusivo. La empresa incurre en costos relacionados con la creación y transmisión de contenido, lo que refleja una dedicación a esta área. Como compon...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WINA" data-company="WINMARK CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WINA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WINMARK CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Winmark participa en el tema de la venta minorista de artículos deportivos a través of sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Winmark participa en el tema de la venta minorista de artículos deportivos a través de sus franquicias 'Play It Again Sports', que operan dentro de este sector. Winmark facilita las ventas de mercancías, incluidas las dirigidas a los franquiciados a través del grupo de compras de Play It Again Sport...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WINA" data-company="WINMARK CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WINA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WINMARK CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Winmark enfatiza su enfoque en la sostenibilidad, que es central para su modelo de negocio de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Winmark enfatiza su enfoque en la sostenibilidad, que es central para su modelo de negocio de reventa, como se destaca en múltiples secciones de sus presentaciones. Este compromiso se refleja en la operación de franquicias de reventa como Plato's Closet, Once Upon A Child, Play It Again Sports, Styl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WWW" data-company="WOLVERINE WORLD WIDE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WWW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WOLVERINE WORLD WIDE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa tiene acuerdos de licencia multianuales para ropa y accesorios Merrell®, y su cartera de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema de Ropa y Accesorios es evidente a través de su identidad como diseñador, comercializador y licenciante global de calzado, ropa y accesorios de marca. Esto se ve reforzado por la visión estratégica de la empresa de construir y hacer crecer marcas de ropa y acc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WWW" data-company="WOLVERINE WORLD WIDE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WWW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WOLVERINE WORLD WIDE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Saucony es líder a nivel mundial de calzado de marca. La cartera de la empresa incluye marcas como...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La implicación de la empresa en la innovación del calzado es evidente a través de su visión estratégica de construir marcas de calzado de alta energía y ofrecer productos innovadores. Como diseñador, comercializador y licenciante líder a nivel mundial de calzado de marca, la cartera de la empresa in...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="YETI" data-company="YETI HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">YETI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">YETI HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los productos de YETI están disponibles a través de importantes minoristas nacionales y regionales....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La estrategia de distribución de YETI implica canales mayoristas y directos al consumidor. Los productos de la empresa están disponibles a través de importantes minoristas nacionales y regionales como Dick’s Sporting Goods, REI, Academy Sports + Outdoors y Bass Pro Shops, así como a través de sus pr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MODG" data-company="TOPGOLF CALLAWAY BRANDS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MODG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TOPGOLF CALLAWAY BRANDS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Topgolf combinan bahías de bateo habilitadas por tecnología, bares, áreas de comedor y espacios for...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de Resorts de Entretenimiento se realiza principalmente a través de sus locales Topgolf, que combinan bahías de bateo habilitadas por tecnología, bares, áreas de comedor y espacios para eventos. Estos locales, que suman 101 al 30 de junio de 2025, son propie...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DECK" data-company="DECKERS OUTDOOR CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DECK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DECKERS OUTDOOR CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Deckers reconoce la importancia de adaptarse a los cambios en el comportamiento del consumidor. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Deckers reconoce la importancia de adaptarse a los cambios en el comportamiento del consumidor y a los cambios del mercado, enfatizando una mentalidad centrada en el consumidor. Esto incluye construir conexiones significativas para hacer crecer su base de consumidores y aprovechar los conocimientos ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOLF" data-company="ACUSHNET HOLDINGS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOLF</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACUSHNET HOLDINGS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">FootJoy diseña, desarrolla, fabrica y distribuye ropa y prendas de golf para exteriores. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de Ropa y Accesorios es evidente a través de sus marcas FootJoy y Titleist. La empresa diseña, desarrolla, fabrica y distribuye ropa y prendas de golf para exteriores, y FootJoy es reconocida como una marca líder en indumentaria de rendimiento. Si bien las v...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOLF" data-company="ACUSHNET HOLDINGS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOLF</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACUSHNET HOLDINGS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa está cambiando la producción de calzado, como se observa en la reubicación of su centro...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en Innovación en Calzado es principalmente a través de su marca FootJoy, reconocida como una marca líder de indumentaria de rendimiento en golf. Esto se evidencia en su enfoque en el diseño, desarrollo, fabricación y distribución de zapatos de golf bajo la marca FootJo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOLF" data-company="ACUSHNET HOLDINGS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOLF</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACUSHNET HOLDINGS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de la compañía se centra en el diseño, desarrollo, fabricación y distribución of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de la compañía se centra en el diseño, desarrollo, fabricación y distribución de productos de golf de alto rendimiento, que son productos de ocio, incluidas pelotas de golf, palos, zapatos, guantes, equipamiento y ropa exterior y de vestir. La compañía opera en tres segmentos: equipo de g...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MODG" data-company="TOPGOLF CALLAWAY BRANDS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MODG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TOPGOLF CALLAWAY BRANDS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Modg abarca marcas como Callaway Golf, TravisMathew y OGIO, todas ellas que ofrecen diversos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Modg en la industria de fabricación de ropa es evidente a través de su segmento de estilo de vida activo, que abarca marcas como Callaway Golf, TravisMathew y OGIO, todas ellas que ofrecen diversos productos de ropa. Específicamente, TravisMathew ha demostrado un fuerte rendimien...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MODG" data-company="TOPGOLF CALLAWAY BRANDS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MODG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TOPGOLF CALLAWAY BRANDS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Topgolf es un "negocio de entretenimiento de golf basado en locales" Las locales contribuyen...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en la Industria del Entretenimiento es evidente a través de sus locales Topgolf, descritos como un "negocio de entretenimiento de golf basado en locales", y ofertas de entretenimiento impulsadas por la tecnología como las instalaciones de bahías Toptracer. Estos locale...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WINA" data-company="WINMARK CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WINA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WINMARK CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Winmark operando más de 1.350 franquicias bajo marcas como Plato's Closet and Play It Again Sports....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Winmark está fuertemente ligado al modelo de franquicia, operando más de 1.350 franquicias bajo marcas como Plato's Closet y Play It Again Sports. Una parte sustancial de los ingresos de Winmark proviene de las regalías recaudadas de estas franquicias, que alcanzaron los 72,2 millones ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MODG" data-company="TOPGOLF CALLAWAY BRANDS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MODG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TOPGOLF CALLAWAY BRANDS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra su participación en la industria de Productos de Ocio a través de sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su participación en la industria de Productos de Ocio a través de sus segmentos de Equipos de Golf y Estilo de Vida Activo, que ofrecen una variedad de productos relacionados con el ocio como palos de golf, pelotas, indumentaria y accesorios. Estos segmentos contribuyen signific...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MODG" data-company="TOPGOLF CALLAWAY BRANDS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MODG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TOPGOLF CALLAWAY BRANDS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa participa en el tema de la venta minorista de artículos deportivos. Estos productos se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa participa en el tema de la venta minorista de artículos deportivos a través de sus segmentos de Equipos de Golf y Estilo de Vida Activo, que incluyen palos de golf, pelotas de golf, indumentaria, equipos y accesorios. Estos productos se venden a través de varios canales, incluidas tiendas...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MODG" data-company="TOPGOLF CALLAWAY BRANDS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MODG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TOPGOLF CALLAWAY BRANDS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa muestra una fuerte conexión con el tema de Entretenimiento Deportivo. Topgolf ofrecen...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa muestra una fuerte conexión con el tema de Entretenimiento Deportivo, principalmente a través de sus locales Topgolf, descritos como un negocio de entretenimiento de golf basado en locales con alto potencial de crecimiento. Estos locales, que generaron $380.1 millones en ingresos en el pr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NKE" data-company="NIKE INC -CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NKE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NIKE INC -CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NIKE ofrece equipamiento y accesorios adecuados para actividades de ocio. Productos representan un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NIKE en la industria de productos de ocio se refleja en el diseño, desarrollo, comercialización y venta de calzado deportivo, ropa, equipamiento y accesorios en todo el mundo. Si bien NIKE ofrece equipamiento y accesorios adecuados para actividades de ocio, estos productos repres...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UAA" data-company="UNDER ARMOUR INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UAA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNDER ARMOUR INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Under Armour es una empresa diseñada para atletas de todos los niveles. El papel de Under Armour...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Under Armour con el tema de artículos deportivos minoristas es evidente a través de su enfoque en indumentaria de rendimiento, calzado y accesorios de marca diseñados para atletas de todos los niveles. La estrategia de la empresa incluye alinear los equipos de producto, marketing y ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ASO" data-company="ACADEMY SPORTS & OUTDOORS IN">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ASO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACADEMY SPORTS & OUTDOORS IN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Academy Sports + Outdoors está ligado a la industria de la ropa y los accesorios. La indumentaria y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Academy Sports + Outdoors está significativamente ligado a la industria de la ropa y los accesorios, como lo demuestra el hecho de que la indumentaria y el calzado constituyen consistentemente una parte sustancial de sus ventas netas. La indumentaria se identifica como una categoría cl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ASO" data-company="ACADEMY SPORTS & OUTDOORS IN">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ASO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACADEMY SPORTS & OUTDOORS IN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Academy Sports + Outdoors ofrece una amplia gama de productos. Su surtido de mercancía se centra en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Academy Sports + Outdoors se identifica como un minorista líder de artículos deportivos y recreación al aire libre en los Estados Unidos, que ofrece una amplia gama de productos. Su surtido de mercancía se centra en actividades al aire libre, indumentaria, deportes y recreación, y calzado. La gama d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COLM" data-company="COLUMBIA SPORTSWEAR CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">COLM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COLUMBIA SPORTSWEAR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Columbia Sportswear Company enfatiza la distribución omnicanal como part of su estrategia. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Columbia Sportswear Company enfatiza la distribución omnicanal como parte de su estrategia para amplificar la excelencia del mercado a través de iniciativas lideradas por lo digital. La compañía se enfoca en impulsar el crecimiento omnicanal lanzando un sitio web rediseñado con capacidades móviles m...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ASO" data-company="ACADEMY SPORTS & OUTDOORS IN">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ASO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACADEMY SPORTS & OUTDOORS IN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Academy Sports and Outdoors es un minorista líder de artículos deportivos y recreación al aire...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Academy Sports and Outdoors se identifica como un minorista líder de artículos deportivos y recreación al aire libre de línea completa en los Estados Unidos, con la misión de brindar "Diversión para Todos" a través de una estrategia de comercialización localizada. Las tiendas de la compañía se espec...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COLM" data-company="COLUMBIA SPORTSWEAR CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">COLM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COLUMBIA SPORTSWEAR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Columbia Sportswear Company diseña, desarrolla, comercializa y distribuye estos productos para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Columbia Sportswear Company con el tema de Ropa y Accesorios es evidente a través de su gestión de líneas de productos en indumentaria, accesorios y equipamiento, ofrecidos bajo las marcas Columbia, Mountain Hardwear y prAna. La empresa diseña, desarrolla, comercializa y distribuye ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COLM" data-company="COLUMBIA SPORTSWEAR CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">COLM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COLUMBIA SPORTSWEAR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Columbia Sportswear incluye el calzado como una categoría importante junto with la ropa y los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Columbia Sportswear con la innovación en calzado es evidente a través de su línea de productos, que incluye el calzado como una categoría importante junto con la ropa y los accesorios. El enfoque de la empresa en el calzado se destaca por el éxito y la promoción de tecnologías propi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NKE" data-company="NIKE INC -CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NKE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NIKE INC -CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NIKE is el mayor vendedor mundial de calzado y ropa deportiva. Los productos de la compañía se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La posición de NIKE como el mayor vendedor mundial de calzado y ropa deportiva establece firmemente su importancia dentro del sector minorista. Los productos de la compañía se distribuyen a través de operaciones de NIKE Direct, que incluyen tiendas minoristas y plataformas digitales propiedad de NIK...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOLF" data-company="ACUSHNET HOLDINGS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOLF</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACUSHNET HOLDINGS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Acushnet diseña, desarrolla, fabrica y distribuye productos de golf de alto rendimiento. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Acushnet está significativamente ligado a la industria minorista de artículos deportivos, ya que la empresa diseña, desarrolla, fabrica y distribuye una amplia gama de productos de golf de alto rendimiento, que incluyen pelotas de golf, palos, zapatos, guantes, equipamiento, ropa exter...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COLM" data-company="COLUMBIA SPORTSWEAR CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">COLM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COLUMBIA SPORTSWEAR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Estrategia de Crecimiento ACCELERATE implica una perspectiva omnicanal actualizada, promociones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su enfoque en el comportamiento del consumidor a través de varias iniciativas, que incluyen atraer consumidores nuevos, más jóvenes y más activos, al mismo tiempo que retiene a los consumidores existentes orientados al valor. Esto se logra a través de la Estrategia de Crecimient...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DKS" data-company="DICK'S SPORTING GOODS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DKS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DICK'S SPORTING GOODS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DICK'S Sporting Goods está comprometedo con las franquicias deportivas. El principal movimiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de DICK'S Sporting Goods con las franquicias deportivas es evidente a través de su reconocimiento de que el rendimiento de los equipos deportivos profesionales dentro de sus regiones de operación principales afecta a su negocio. Sin embargo, el principal movimiento estratégico de la co...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DKS" data-company="DICK'S SPORTING GOODS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DKS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DICK'S SPORTING GOODS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DICK'S Sporting Goods ofrece un amplia variedad de equipos deportivos, indumentaria, calzado y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">DICK'S Sporting Goods es fundamentalmente un minorista de artículos deportivos, que ofrece una amplia variedad de equipos deportivos, indumentaria, calzado y accesorios a través de sus diversos formatos de tiendas, incluidas DICK'S Sporting Goods, Golf Galaxy y Public Lands. La compañía se identific...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WINA" data-company="WINMARK CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WINA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WINMARK CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Winmark facilita un mercado de consumidor a consumidori a través of su modelo de franquicia. Los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Winmark facilita un mercado de consumidor a consumidor a través de su modelo de franquicia, donde los individuos compran, venden e intercambian mercancía a través de marcas como Plato's Closet, Once Upon A Child, Play It Again Sports, Style Encore y Music Go Round. Las franquicias de la compañía imp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="YETI" data-company="YETI HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">YETI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">YETI HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">YETI ha invertido en el tema de Ropa y Accesorios. La empresa ha experimentado un impulso...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de YETI en el tema de Ropa y Accesorios es evidente a través de su oferta de indumentaria, que incluye camisas y gorras, así como su línea de productos de bolsos y mochilas. La empresa ha experimentado un impulso significativo en su negocio de bolsos y mochilas, con productos como l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DKS" data-company="DICK'S SPORTING GOODS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DKS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DICK'S SPORTING GOODS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DICK'S Sporting Goods ofrece productos a través de tiendas físicas, plataformas en línea y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">DICK'S Sporting Goods enfatiza su posición como un minorista líder de artículos deportivos omnicanal, que ofrece productos a través de tiendas físicas, plataformas en línea y aplicaciones móviles. La empresa se enfoca en innovar la experiencia del atleta omnicanal a través de iniciativas como las ti...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="YETI" data-company="YETI HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">YETI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">YETI HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">YETI diseña productos innovadores para exteriores, incluidos refrigeradores, artículos para beber,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de YETI en el diseño, la venta minorista y la distribución de productos innovadores para exteriores, incluidos refrigeradores, artículos para beber, bolsos y ropa, demuestra su participación en el tema de Productos de Ocio. Estos productos están diseñados para satisfacer las necesidades d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MODG" data-company="TOPGOLF CALLAWAY BRANDS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MODG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TOPGOLF CALLAWAY BRANDS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">TravisMathew demuestra su participación en el tema de Ropa y Accesorios a través of su segmento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su participación en el tema de Ropa y Accesorios a través de su segmento de Estilo de Vida Activo, que abarca marcas como Callaway, TravisMathew, Jack Wolfskin y OGIO. Este segmento presenta artículos blandos, que incluyen ropa y accesorios, y la empresa discute los ingresos, la...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="YETI" data-company="YETI HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">YETI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">YETI HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">YETI está disponible a través of Dick’s Sporting Goods, REI, Academy Sports + Outdoors y Bass Pro...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de YETI con el tema de Venta Minorista de Artículos Deportivos es evidente a través de su red de distribución. Los productos de la empresa están disponibles a través de importantes minoristas de artículos deportivos como Dick’s Sporting Goods, REI, Academy Sports + Outdoors y Bass Pro Sh...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ASO" data-company="ACADEMY SPORTS & OUTDOORS IN">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ASO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACADEMY SPORTS & OUTDOORS IN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Academy Sports + Outdoors opera 293 tiendas en 19 estados, principalmente en el sur de los Estados...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Academy Sports + Outdoors es un minorista líder de artículos deportivos y recreación al aire libre de línea completa en los Estados Unidos, que opera 293 tiendas en 19 estados, principalmente en el sur de los Estados Unidos, respaldado por aproximadamente 23,000 miembros del equipo, tres centros de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LULU" data-company="LULULEMON ATHLETICA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LULU</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LULULEMON ATHLETICA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Lululemon es principalmente un diseñador, distribuidor y minorista de ropa deportiva técnica,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Lululemon se centra fundamentalmente en ropa y accesorios, ya que la empresa es principalmente un diseñador, distribuidor y minorista de ropa deportiva técnica, calzado y accesorios. La empresa ofrece una línea completa de ropa y accesorios comercializados bajo la marca Lululemon, que ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DKS" data-company="DICK'S SPORTING GOODS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DKS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DICK'S SPORTING GOODS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dick's Sporting Goods ofrece una amplia gama de equipos deportivos, indumentaria, calzado y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Dick's Sporting Goods con el tema de Productos de Ocio se deriva de su posición como minorista líder de artículos deportivos, que ofrece una amplia gama de equipos deportivos, indumentaria, calzado y accesorios. Este extenso surtido de equipos deportivos se alinea directamente con las...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DKS" data-company="DICK'S SPORTING GOODS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DKS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DICK'S SPORTING GOODS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DICK'S Sporting Goods tiene como objetivo proporcionar a las marcas verticales un espacio mejorado...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de DICK'S Sporting Goods al tema de Ropa y Accesorios es evidente en su extensa oferta de indumentaria y accesorios, un componente clave de sus ofertas minoristas. La compañía enfatiza la provisión de un "look de pies a cabeza" para atletas y la atención de las necesidades de deportes ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LULU" data-company="LULULEMON ATHLETICA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LULU</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LULULEMON ATHLETICA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Lululemon ha ampliado su oferta de calzado para incluir nuevos estilos casuales y de rendimiento....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Lululemon en la Innovación de Calzado se demuestra a través de su papel como diseñador, distribuidor y minorista de ropa deportiva técnica, calzado y accesorios. La compañía ha ampliado su oferta de calzado para incluir nuevos estilos casuales y de rendimiento, incluida una prime...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LULU" data-company="LULULEMON ATHLETICA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LULU</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LULULEMON ATHLETICA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Lululemon funciona como diseñador, distribuidor y minorista de ropa deportiva técnica. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Lululemon en la Fabricación de Ropa es evidente a través de sus actividades comerciales principales. La empresa funciona como diseñador, distribuidor y minorista de ropa deportiva técnica, con una línea completa comercializada bajo la marca Lululemon. Esto incluye una variedad de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WWW" data-company="WOLVERINE WORLD WIDE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WWW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WOLVERINE WORLD WIDE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa es un diseñador, comercializador y licenciante líder a nivel mundial de calzado, ropa y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema de Gigante Minorista se refleja en la operación de 119-120 tiendas minoristas en EE. UU., Europa, el Reino Unido e Italia, complementado por 39 sitios de comercio electrónico directos al consumidor. Además, las marcas de la empresa se comercializan en aproxima...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WWW" data-company="WOLVERINE WORLD WIDE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WWW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WOLVERINE WORLD WIDE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Merrell se enfoca en desarrollar planes impactantes de lanzamiento al mercado. Saucony está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la compañía con el tema de la venta minorista de artículos deportivos es evidente a través de su enfoque estratégico en calzado, indumentaria y accesorios de marca. Específicamente, Merrell se enfoca en desarrollar planes impactantes de lanzamiento al mercado con socios clave especi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COLM" data-company="COLUMBIA SPORTSWEAR CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">COLM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COLUMBIA SPORTSWEAR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa gestiona su línea de productos con una parte importante dedicada a ropa, accesorios y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Columbia Sportswear en la industria de Fabricación de Ropa es evidente a través de su diseño, desarrollo, comercialización y distribución de productos de ropa a través de marcas como Columbia, Mountain Hardwear y prAna. La empresa gestiona su línea de productos con una parte impo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COLM" data-company="COLUMBIA SPORTSWEAR CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">COLM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COLUMBIA SPORTSWEAR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Empresa de Productos de Ocio diseño, desarrollo, comercialización y distribución de productos para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema de Productos de Ocio es evidente a través de su enfoque en el diseño, desarrollo, comercialización y distribución de productos para exteriores, activos y de estilo de vida, alineándose con la misión de conectar a las personas activas con sus pasiones. La versa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COLM" data-company="COLUMBIA SPORTSWEAR CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">COLM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COLUMBIA SPORTSWEAR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa Columbia Sportswear tiene como objetivo conectar a las personas activas con sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Columbia Sportswear en el tema de Artículos Deportivos Minoristas es evidente a través de su enfoque en el diseño, desarrollo, comercialización y distribución de productos para exteriores, activos y de estilo de vida. La empresa tiene como objetivo conectar a las personas activas...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOLF" data-company="ACUSHNET HOLDINGS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOLF</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACUSHNET HOLDINGS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se dedica a la fabricación de prendas de vestir. Está considerando reubicar la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa se dedica a la fabricación de prendas de vestir, principalmente a través de su marca FootJoy, que incluye ropa y prendas de abrigo para golf. La empresa gestiona activamente su cadena de suministro de prendas de vestir, que se extiende a China, el Lejano Oriente y Sudamérica, y está consi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DKS" data-company="DICK'S SPORTING GOODS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DKS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DICK'S SPORTING GOODS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DICK'S Sporting Goods se posiciona como un gigante minorista debido a su estatus como minorista...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">DICK'S Sporting Goods se posiciona como un gigante minorista debido a su estatus como minorista líder omnicanal de artículos deportivos, operando un número sustancial de tiendas. La empresa está adquiriendo estratégicamente Foot Locker con el objetivo de establecer una posición de liderazgo mundial ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DKS" data-company="DICK'S SPORTING GOODS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DKS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DICK'S SPORTING GOODS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DICK'S Sporting Goods mantiene una fuerte presencia física a través of varias tiendas físicas. Esto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">DICK'S Sporting Goods mantiene una fuerte presencia física a través de la operación de varias tiendas físicas, incluyendo DICK’S Sporting Goods, Golf Galaxy, Public Lands y tiendas conceptuales especializadas Going Going Gone!, junto con formatos más nuevos como DICK’S House of Sport y DICK’S Field ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LULU" data-company="LULULEMON ATHLETICA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LULU</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LULULEMON ATHLETICA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Lululemon integra las compras en línea en sus ventas comparables. Esto incluye los ingresos netos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Lululemon integra las compras en línea en sus ventas comparables, ya que esto incluye los ingresos netos del comercio electrónico. Estos ingresos se generan a través de varios canales, incluyendo sus sitios web, aplicaciones móviles, mercados digitales y opciones como comprar en línea y recoger en t...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LULU" data-company="LULULEMON ATHLETICA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LULU</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LULULEMON ATHLETICA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Lululemon ofrece ropa deportiva técnica, calzado y accesorios comercializados bajo la marca....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Lululemon en la industria de Productos de Ocio es evidente a través de su línea integral de ropa deportiva técnica, calzado y accesorios comercializados bajo la marca lululemon. Estos productos, que incluyen pantalones, shorts, tops y chaquetas, están diseñados para un estilo de vida s...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MODG" data-company="TOPGOLF CALLAWAY BRANDS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MODG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TOPGOLF CALLAWAY BRANDS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Topgolf proporcionan bahías de bateo habilitadas por tecnología, bares, áreas de comedor y espacios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Mod Golf está significativamente ligado a los Servicios de Entretenimiento a través de sus locales Topgolf, que proporcionan bahías de bateo habilitadas por tecnología, bares, áreas de comedor y espacios para eventos. Topgolf se enfoca en mejorar la experiencia del jugador y impulsar e...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

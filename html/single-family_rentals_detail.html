@@ -1,0 +1,2119 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Single-family Rentals - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Single-family Rentals</div>
+      <div class="sub-title">Investment Theme Detail - Real Estate Industry</div>
+    </div>
+    <a href="/main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Single-family Rentals &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Real Estate &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 23
+    </div>
+
+    
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">23</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">INVH</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">INVITATION HOMES INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye a la oferta de viviendas residenciales mediante la adquisición, renovación y arrendamiento de viviendas unifamiliares para alquiler....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/INVH" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">AMH</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">AMERICAN HOMES 4 RENT- A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se dedica al negocio de poseer, desarrollar y administrar viviendas unifamiliares de alquiler, lo que la convierte en un participante clave en el pano...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/AMH" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DHI</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">DR HORTON INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Prioriza el cumplimiento de los códigos de construcción en sus extensas operaciones de construcción de viviendas, asegurando que todas las urbanizacio...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DHI" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ABR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ARBOR REALTY TRUST INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Invierte en deuda y capital de bienes raíces comerciales, contribuyendo al panorama más amplio de inversiones alternativas....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ABR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">FNMA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">FANNIE MAE</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye significativamente al panorama del crédito y los préstamos al garantizar la liquidez y la accesibilidad dentro del sistema de financiación ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/FNMA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">FMCC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">FREDDIE MAC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Facilita el flujo de capital en el mercado inmobiliario comprando hipotecas a los prestamistas, titulizándolas en valores respaldados por hipotecas y ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/FMCC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">VNA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">VONOVIA SE</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se enfoca en la propiedad, gestión y desarrollo de propiedades residenciales multifamiliares, sirviendo como un proveedor prominente de soluciones de ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/VNA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">RITM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">RITHM CAPITAL CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Gestiona una cartera diversificada de activos alternativos, que incluye crédito inmobiliario, derechos de administración de hipotecas y otros activos ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/RITM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">LEN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">LENNAR CORP-A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Un compromiso de adherirse a todos los códigos de construcción y estándares de cumplimiento relevantes dentro de su marco operativo....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/LEN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">APPF</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">APPFOLIO INC - A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona soluciones de software basadas en la nube....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/APPF" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">11</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ZG</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ZILLOW GROUP INC - A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Las operaciones se cruzan con el tema de la industria de Herramientas de Comunicación....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ZG" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">12</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DWNI</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">DEUTSCHE WOHNEN SE</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera como un importante fondo de inversión inmobiliaria residencial, centrándose en la adquisición, gestión y desarrollo de propiedades residenciales...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DWNI" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">13</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">PHM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">PULTE GROUP INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Garantiza que todos los proyectos de construcción residencial cumplan con los códigos de construcción locales, estatales y nacionales, lo cual es fund...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/PHM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">14</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">LGIH</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">LGI HOMES INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se enfoca en brindar servicios esenciales de construcción como constructor de viviendas, contribuyendo al desarrollo de propiedades residenciales....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/LGIH" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">15</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TMHC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TAYLOR MORRISON HOME CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios integrales de construcción de viviendas, desempeñando un papel importante en el desarrollo de comunidades residenciales y la ent...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TMHC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">16</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">MHO</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">M/I HOMES INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se enfoca en la construcción y venta de viviendas residenciales, contribuyendo directamente a la industria de la construcción de viviendas....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/MHO" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">17</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">NVR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">NVR INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Navega e integra una compleja variedad de códigos de construcción locales, estatales y nacionales para garantizar la legalidad y seguridad de sus proy...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/NVR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">18</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">UMH</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">UMH PROPERTIES INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se centra en la propiedad y el desarrollo de comunidades de casas prefabricadas, contribuyendo así a la oferta de opciones de vivienda asequible....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/UMH" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">19</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">STWD</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">STARWOOD PROPERTY TRUST INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Su modelo de negocio se centra en actividades dentro del sector de Inversiones Alternativas....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/STWD" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">20</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CSGP</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">COSTAR GROUP INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona datos completos, análisis y mercados en línea para propiedades comerciales, sirviendo como una plataforma crítica de información y transac...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CSGP" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">21</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">KW</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">KENNEDY-WILSON HOLDINGS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se especializa en la propiedad, operación e inversión en propiedades inmobiliarias comerciales en diversos mercados....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/KW" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">22</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">EFC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ELLINGTON FINANCIAL INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Invierte en una cartera diversificada de activos relacionados con hipotecas, participando activamente en el sector de la banca hipotecaria....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/EFC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">23</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">PGY</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">PAGAYA TECHNOLOGIES LTD -A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Sus operaciones principales se encuentran dentro de la industria de 'IA en Fintech', centrándose en la aplicación de la inteligencia artificial en la ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/PGY" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">146</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="DHI" data-company="DR HORTON INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DHI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DR HORTON INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">D.R. Horton se identifica como la empresa de construcción de viviendas más grande de los Estados...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de D.R. Horton con la industria de la construcción de viviendas es fuerte, ya que la empresa se identifica como la empresa de construcción de viviendas más grande de los Estados Unidos, siendo la construcción de viviendas su negocio principal. La empresa construye y vende viviendas a tra...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DHI" data-company="DR HORTON INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DHI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DR HORTON INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">D.R. Horton se relaciona con el tema of Residencias Multifamiliares. Se centran en el desarrollo,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">D.R. Horton se relaciona con el tema de Residencias Multifamiliares a través de su segmento de alquiler, que incluye operaciones tanto de viviendas unifamiliares como multifamiliares. Las operaciones multifamiliares se centran en el desarrollo, construcción, arrendamiento y venta de propiedades de a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DHI" data-company="DR HORTON INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DHI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DR HORTON INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">D.R. Horton se enfoca estratégicamente en las relaciones with los desarrolladores de terrenos. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de D.R. Horton en el Desarrollo Inmobiliario es evidente a través de sus operaciones comerciales principales, que incluyen la construcción de viviendas, propiedades de alquiler y una participación mayoritaria en Forestar, una empresa de desarrollo de lotes residenciales. La empresa ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DHI" data-company="DR HORTON INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DHI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DR HORTON INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">D.R. Horton construye y vende viviendas en numerosos mercados en múltiples estados. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de D.R. Horton con el tema de Bienes Raíces Residenciales es significativo, como lo demuestran sus operaciones comerciales principales que giran en torno a la construcción de viviendas, el alquiler y el desarrollo de lotes residenciales. Como la empresa de construcción de viviendas más...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DHI" data-company="DR HORTON INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DHI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DR HORTON INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">D.R. Horton participa activamente en el mercado de alquiler de viviendas unifamiliares. Se enfoca...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">D.R. Horton participa activamente en el mercado de alquiler de viviendas unifamiliares a través de su segmento de alquiler, que se enfoca en la construcción y arrendamiento de viviendas unifamiliares dentro de comunidades, comercializando posteriormente estas comunidades para ventas a granel. Sus op...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ABR" data-company="ARBOR REALTY TRUST INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ABR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARBOR REALTY TRUST INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra exposición a la industria de Bienes Raíces Comerciales a través of sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra exposición a la industria de Bienes Raíces Comerciales a través de sus inversiones en activos de finanzas estructuradas dentro de este mercado, incluidos préstamos puente, préstamos mezzanine y capital preferente. Esta inversión se realiza a través de su Negocio Estructurado, qu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ABR" data-company="ARBOR REALTY TRUST INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ABR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARBOR REALTY TRUST INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Arbor Realty Trust demuestra su compromiso con las propiedades inmobiliarias. La empresa invierte...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Arbor Realty Trust demuestra su compromiso con las propiedades inmobiliarias a través de varias actividades clave. La empresa invierte en una cartera diversificada de activos financieros estructurados en los mercados multifamiliares, SFR y de bienes raíces comerciales. Además, Arbor gestiona activam...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ABR" data-company="ARBOR REALTY TRUST INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ABR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARBOR REALTY TRUST INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía demuestra una fuerte conexión con la banca hipotecaria. La compaña se enfoca en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La compañía demuestra una fuerte conexión con la industria de la banca hipotecaria, principalmente a través de su negocio de agencia, que se enfoca en originar, vender y dar servicio a productos de financiamiento multifamiliar a través de Fannie Mae, Freddie Mac, Ginnie Mae, FHA y HUD. Las operacion...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ABR" data-company="ARBOR REALTY TRUST INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ABR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARBOR REALTY TRUST INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra una fuerte conexión with los Servicios de Financiación Hipotecaria a través...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra una fuerte conexión con los Servicios de Financiación Hipotecaria a través de su Negocio de Agencia, que se dedica a originar, vender y dar servicio a productos de financiación multifamiliar a través de Fannie Mae, Freddie Mac, Ginnie Mae, FHA y HUD. Esta actividad es central pa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ABR" data-company="ARBOR REALTY TRUST INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ABR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARBOR REALTY TRUST INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Arbor Realty Trust está entrelazada con el tema Mortgage REIT. La empresa invierte en valores...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Arbor Realty Trust están significativamente entrelazadas con el tema Mortgage REIT, ya que la empresa declara explícitamente su enfoque en calificar y operar como un REIT. La empresa invierte en valores relacionados con hipotecas a través de su Structured Business, incluidos prést...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ABR" data-company="ARBOR REALTY TRUST INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ABR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARBOR REALTY TRUST INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Arbor Realty Trust invierte activamente en activos de Viviendas Unifamiliares a través of su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Arbor Realty Trust con el tema de Alquileres de Viviendas Unifamiliares es evidente a través de múltiples facetas de su negocio. La empresa invierte activamente en activos de Viviendas Unifamiliares a través de su Negocio Estructurado, y su Negocio de Agencia gestiona y origina prés...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMH" data-company="AMERICAN HOMES 4 RENT- A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN HOMES 4 RENT- A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía exhibe una notable participación en la industria de la construcción de viviendas. Esto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La compañía exhibe una notable participación en la industria de la construcción de viviendas, principalmente a través de su enfoque en el desarrollo de viviendas 'construidas para alquilar' a través de su Programa de Desarrollo AMH interno y la adquisición de viviendas de nueva construcción a través...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMH" data-company="AMERICAN HOMES 4 RENT- A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN HOMES 4 RENT- A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se enfoca en administrar viviendas unifamiliares como propiedades de alquiler. Su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema de la Gestión de Propiedades es significativo, ya que es un componente central de su modelo de negocio. La empresa se enfoca en administrar viviendas unifamiliares como propiedades de alquiler, y su cartera se administra internamente a través de su plataforma ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMH" data-company="AMERICAN HOMES 4 RENT- A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN HOMES 4 RENT- A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de la empresa con el tema de los fideicomisos de inversión inmobiliaria (REIT) es...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema de los fideicomisos de inversión inmobiliaria (REIT) es central para su negocio, como lo demuestra su identificación explícita como un REIT de Maryland centrado en viviendas unifamiliares y su elección de ser gravado como un REIT. Este aspecto fundamental dict...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMH" data-company="AMERICAN HOMES 4 RENT- A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN HOMES 4 RENT- A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio principal de la empresa se centra en el sector inmobiliario residencial. Con una cartera...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de la empresa se centra en el sector inmobiliario residencial, específicamente en viviendas unifamiliares, ya que se enfoca en adquirir, desarrollar, renovar, alquilar y gestionar estas propiedades. Con una cartera significativa de más de 61.500 propiedades unifamiliares en prop...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMH" data-company="AMERICAN HOMES 4 RENT- A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN HOMES 4 RENT- A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">American Homes 4 Rent (AMH) es un REIT de Maryland especializado en viviendas unifamiliares. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">American Homes 4 Rent (AMH) está firmemente integrada en la industria de REIT residenciales, como lo demuestra su identificación explícita como un REIT de Maryland especializado en viviendas unifamiliares. El modelo de negocio principal de la empresa gira en torno a la adquisición, desarrollo, renov...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMH" data-company="AMERICAN HOMES 4 RENT- A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN HOMES 4 RENT- A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de la empresa se centra en alquileres de viviendas unifamiliares. Con una cartera...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de la empresa se centra en alquileres de viviendas unifamiliares, ya que adquieren, desarrollan, renuevan, arriendan y gestionan estas propiedades. Con una cartera sustancial de propiedades unifamiliares, la empresa obtiene sus ingresos principalmente de los alquileres cobrados a los inqu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="APPF" data-company="APPFOLIO INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">APPF</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPFOLIO INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">AppFolio enfatiza su papel como líder tecnológico que impulsa el futuro de la industria...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">AppFolio enfatiza su papel como líder tecnológico que impulsa el futuro de la industria inmobiliaria, centrándose en la transformación digital de los negocios de administración de propiedades y ayudando a los clientes a navegar por el ecosistema. Esto se logra mediante la expansión de la funcionalid...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="APPF" data-company="APPFOLIO INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">APPF</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPFOLIO INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">AppFolio se enfoca en eliminar la fricción en la gestión de pagos para los administradores de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de AppFolio en Soluciones de Pago es evidente a través de la facilitación del envío y la recepción de pagos, una funcionalidad clave dentro de sus soluciones para el ciclo de vida inmobiliario. Una parte significativa de sus ingresos por Servicios de Valor Agregado se deriva de los ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="APPF" data-company="APPFOLIO INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">APPF</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPFOLIO INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">AppFolio proporciona una plataforma basada en la nube y funcionalidades clave como selección de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las soluciones de AppFolio están diseñadas para permitir a los clientes administradores de propiedades transformar digitalmente sus negocios, abordar operaciones comerciales críticas y ofrecer una mejor experiencia al cliente. La misión de la empresa es construir la plataforma donde la industria inm...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CSGP" data-company="COSTAR GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CSGP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COSTAR GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma CoStar de la empresa proporciona inteligencia sobre bienes raíces comerciales....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de CoStar Group en el tema de Bienes Raíces Comerciales es significativa, como lo demuestran sus operaciones comerciales principales. La plataforma CoStar de la empresa es una plataforma integrada que proporciona inteligencia sobre bienes raíces comerciales, mientras que LoopNet ope...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CSGP" data-company="COSTAR GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CSGP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COSTAR GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CoStar Group enfatiza los análisis como un componente clave de sus servicios. La empresa está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CoStar Group enfatiza los análisis como un componente clave de sus servicios, proporcionando inteligencia inmobiliaria a través de su plataforma CoStar, que ofrece información sobre propiedades, ventas, inquilinos y estado del mercado, junto con herramientas de benchmarking y gestión de riesgos. La ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CSGP" data-company="COSTAR GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CSGP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COSTAR GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CoStar Group se identifica como un proveedor líder de tecnología de gemelos digitales 3D. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CoStar Group se identifica como un proveedor líder de tecnología de gemelos digitales 3D en los mercados inmobiliarios, ofreciendo mercados inmobiliarios en línea, información y análisis. La compañía adquirió Matterport, un servicio de alojamiento para gemelos digitales 3D, y tiene la intención de i...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CSGP" data-company="COSTAR GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CSGP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COSTAR GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CoStar Group opera una variedad de mercados en línea, que incluyen CoStar, LoopNet, Apartments.com,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de CoStar Group está significativamente entrelazado con el tema de los Mercados en Línea, ya que la empresa identifica sus servicios principales como tales. Opera una variedad de mercados en línea, que incluyen CoStar, LoopNet, Apartments.com, Homes.com, Ten-X, Land.com Network y BizBuySe...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CSGP" data-company="COSTAR GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CSGP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COSTAR GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CSGP sirve como plataforma publicitaria para empresas de gestión de propiedades y propietarios....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de CSGP en el tema de Gestión de Propiedades es evidente a través de Apartments.com, su marca insignia, que sirve como plataforma publicitaria para empresas de gestión de propiedades y propietarios. La empresa se dedica a mejorar sus soluciones de mercado en línea y análisis para pr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CSGP" data-company="COSTAR GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CSGP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COSTAR GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Homes.com ofrece membresías de suscripción para que los agentes inmobiliarios promocionen listados....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de CoStar Group con el tema de Bienes Raíces Residenciales es evidente a través de su plataforma Homes.com, que ofrece membresías de suscripción para que los agentes inmobiliarios promocionen listados y permite a los compradores de viviendas buscar propiedades. La empresa ha ampliado s...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EFC" data-company="ELLINGTON FINANCIAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">EFC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ELLINGTON FINANCIAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ellington Financial participa activamente en la originación, el servicio y the titulización of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Ellington Financial con el tema de la Banca Hipotecaria es evidente a través de sus diversas actividades, incluidas las inversiones en préstamos hipotecarios residenciales y comerciales, RMBS y CMBS. La empresa participa activamente en la originación, el servicio y la titulización d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EFC" data-company="ELLINGTON FINANCIAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">EFC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ELLINGTON FINANCIAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Longbridge demuestra un enfoque significativo en los servicios de financiación hipotecaria. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra un enfoque significativo en los servicios de financiación hipotecaria a través de diversas actividades. Invierte en préstamos hipotecarios residenciales y comerciales y en valores respaldados por hipotecas, y su segmento Longbridge origina y presta servicios de préstamos hipotec...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EFC" data-company="ELLINGTON FINANCIAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">EFC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ELLINGTON FINANCIAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ellington Financial opera como un REIT, invirtiendo en una cartera diversa de activos relacionados...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Ellington Financial opera como un REIT, invirtiendo en una cartera diversa de activos relacionados con hipotecas, incluyendo RMBS, CMBS y préstamos hipotecarios residenciales y comerciales. Este enfoque se demuestra aún más por su gestión activa de estos activos a través de titulizaciones y ventas t...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FMCC" data-company="FREDDIE MAC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FMCC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FREDDIE MAC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Las operaciones de Freddie Mac están profundamente entrelazadas with la banca hipotecaria. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Freddie Mac están profundamente entrelazadas con la industria de la banca hipotecaria, principalmente a través de la compra, titularización y garantía de préstamos hipotecarios unifamiliares y multifamiliares. Como GSE autorizada por el Congreso, la misión de Freddie Mac es propor...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FMCC" data-company="FREDDIE MAC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FMCC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FREDDIE MAC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de Freddie Mac en los Servicios de Financiación Hipotecaria está profundamente...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Freddie Mac en los Servicios de Financiación Hipotecaria está profundamente arraigada en su misión principal, ya que la compañía está autorizada para proporcionar liquidez, estabilidad y asequibilidad al mercado de la vivienda de EE. UU. Esto se logra principalmente a través de l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FMCC" data-company="FREDDIE MAC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FMCC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FREDDIE MAC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Freddie Mac invierte en préstamos hipotecarios y valores relacionados, alineándose aún más con las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Freddie Mac con el tema de los Mortgage REIT (Fideicomisos de Inversión Inmobiliaria Hipotecaria) se deriva de su titulización de préstamos hipotecarios en valores garantizados relacionados con hipotecas, que luego se venden en los mercados de capitales globales. Este proceso implica ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FMCC" data-company="FREDDIE MAC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FMCC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FREDDIE MAC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Freddie Mac está profundamente arraigada en su misión principal de proporcionar liquidez,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Freddie Mac en el tema de la Resiliencia del Mercado de la Vivienda está profundamente arraigada en su misión principal de proporcionar liquidez, estabilidad y asequibilidad al mercado de la vivienda de EE. UU. Este compromiso se demuestra a través de sus esfuerzos para ayudar a ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FMCC" data-company="FREDDIE MAC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FMCC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FREDDIE MAC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Freddie Mac apoya el mercado inmobiliario estadounidense proporcionando liquidez. Este apoyo se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Freddie Mac apoya el mercado inmobiliario estadounidense proporcionando liquidez a los mercados hipotecarios de viviendas unifamiliares y multifamiliares, lo que incluye viviendas de alquiler. Este apoyo se demuestra con los 88.000 millones de dólares de liquidez proporcionados en el primer trimestr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FNMA" data-company="FANNIE MAE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FNMA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FANNIE MAE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Fannie Mae juega un papel central en la provisión de liquidez y estabilidad al mercado de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Fannie Mae están profundamente entrelazadas con la industria de Crédito y Préstamos, ya que la empresa juega un papel central en la provisión de liquidez y estabilidad al mercado de la vivienda de EE. UU. al promover el acceso al crédito hipotecario. Fannie Mae compra préstamos hi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FNMA" data-company="FANNIE MAE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FNMA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FANNIE MAE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Las actividades de Fannie Mae están relacionadas with la evaluación del riesgo crediticio. Los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las actividades de Fannie Mae están relacionadas con la evaluación del riesgo crediticio, la elegibilidad de préstamos basada en puntajes de crédito y el uso de Desktop Underwriter (DU) para la suscripción automatizada. Los puntajes de crédito se utilizan para establecer un umbral de crédito mínimo ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FNMA" data-company="FANNIE MAE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FNMA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FANNIE MAE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Fannie Mae es una fuente líder de financiamiento para hipotecas residenciales en los Estados...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El fuerte compromiso de Fannie Mae con el tema de la Banca Hipotecaria es evidente en todas sus operaciones comerciales principales, ya que la empresa es una fuente líder de financiamiento para hipotecas residenciales en los Estados Unidos. Fannie Mae compra préstamos hipotecarios residenciales orig...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FNMA" data-company="FANNIE MAE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FNMA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FANNIE MAE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Fannie Mae es líder de financiación para hipotecas residenciales en los Estados Unidos. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Fannie Mae en los Servicios de Financiación Hipotecaria es sustancial, como lo demuestra su papel como fuente líder de financiación para hipotecas residenciales en los Estados Unidos. La empresa proporciona una liquidez significativa al mercado hipotecario, con $76.1 mil millones...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FNMA" data-company="FANNIE MAE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FNMA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FANNIE MAE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Fannie Mae sirven como principal fuente de ingresos para Fannie Mae. La compañía titulariza...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Fannie Mae con el tema de los REIT hipotecarios se deriva de su papel en la emisión y garantía de valores respaldados por hipotecas (MBS) que son comprados por inversores globales. La compañía titulariza préstamos hipotecarios originados por prestamistas en MBS de Fannie Mae, emitiend...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FNMA" data-company="FANNIE MAE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FNMA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FANNIE MAE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Fannie Mae juega un papel crucial en la provisión de liquidez al mercado hipotecario. Fannie Mae...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de Fannie Mae al tema de Bienes Raíces Multifamiliares es significativa, como lo demuestra su segmento de negocios Multifamiliares dedicado, que se centra en la financiación de edificios residenciales con cinco o más unidades. La compañía apoya activamente la vivienda unifamiliar y mul...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FNMA" data-company="FANNIE MAE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FNMA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FANNIE MAE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Fannie Mae tiene como objetivo proporcionar liquidez y estabilidad al mercado de la vivienda de EE....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Fannie Mae están estrechamente ligadas a la estabilidad y el crecimiento del sector de la vivienda, ya que sus resultados financieros se ven directamente influenciados por la salud general y la actividad del mercado inmobiliario. Concedida por el Congreso, Fannie Mae tiene como ob...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FNMA" data-company="FANNIE MAE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FNMA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FANNIE MAE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Fannie Mae es una fuente líder de financiación para hipotecas residenciales en los Estados Unidos....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Fannie Mae están profundamente entrelazadas con el tema de Bienes Raíces Residenciales, ya que la empresa se identifica como una fuente líder de financiación para hipotecas residenciales en los Estados Unidos, apoyando tanto viviendas unifamiliares como multifamiliares. Esto se lo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FNMA" data-company="FANNIE MAE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FNMA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FANNIE MAE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Fannie Mae financia propiedades con cuatro o menos unidades residenciales. La provisión de liquidez...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Fannie Mae en el tema de Alquileres de Viviendas Unifamiliares es evidente a través de su negocio de Viviendas Unifamiliares, que financia propiedades con cuatro o menos unidades residenciales. La provisión de liquidez de la compañía al mercado hipotecario apoya la financiación d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="INVH" data-company="INVITATION HOMES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">INVH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INVITATION HOMES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Invitation Homes se centra significativamente en el arrendamiento de propiedades. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Invitation Homes se centra significativamente en el arrendamiento de propiedades, como lo demuestra su posición como líder en propiedad y operación de viviendas unifamiliares para arrendamiento. La empresa posee en su totalidad una cartera sustancial de viviendas para arrendamiento, co...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="INVH" data-company="INVITATION HOMES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">INVH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INVITATION HOMES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Invitation Homes participa en el tema de Gestión de Propiedades. La compañía administra una cartera...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Invitation Homes participa en el tema de Gestión de Propiedades a través de varias actividades clave. La compañía administra una cartera sustancial de viviendas, incluidas 85,905 viviendas de propiedad total y 7,698 viviendas de propiedad conjunta en alquiler, y proporciona servicios profesionales d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="INVH" data-company="INVITATION HOMES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">INVH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INVITATION HOMES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Invitation Homes se centra en el sector inmobiliario residencial. La empresa se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Invitation Homes se centra en el sector inmobiliario residencial, específicamente en viviendas unifamiliares para alquilar, como lo demuestra su propiedad de una cartera sustancial, que incluye 85.905 viviendas de propiedad total y 7.698 viviendas de propiedad conjunta al 30 de junio d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="INVH" data-company="INVITATION HOMES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">INVH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INVITATION HOMES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Invitation Homes se centra en alquileres de viviendas unifamiliares. La compañía ofrece...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Invitation Homes se centra en alquileres de viviendas unifamiliares, ya que son un propietario y operador líder de estas propiedades, con una cartera que consta de aproximadamente 85,000 viviendas de alquiler unifamiliares. La compañía se enfoca en adquirir y administrar viviendas de a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KW" data-company="KENNEDY-WILSON HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KENNEDY-WILSON HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kennedy Wilson demuestra exposición al tema de Bienes Raíces Comerciales. Inversiones en activos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Kennedy Wilson demuestra exposición al tema de Bienes Raíces Comerciales a través de sus inversiones en activos industriales, de oficinas, minoristas y hoteleros en los Estados Unidos, el Reino Unido y Europa. La cartera de la empresa incluye una cantidad significativa de metros cuadrados alquilable...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KW" data-company="KENNEDY-WILSON HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KENNEDY-WILSON HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa invierte principalmente en el sector de viviendas de alquiler. Kennedy Wilson gestiona...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Kennedy Wilson en la industria de viviendas multifamiliares es evidente a través de sus importantes inversiones y la gestión de una gran cartera de unidades multifamiliares. La empresa invierte principalmente en el sector de viviendas de alquiler, gestionando un número sustancial de un...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KW" data-company="KENNEDY-WILSON HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KENNEDY-WILSON HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kennedy Wilson participa en el desarrollo inmobiliario a través of varios proyectos. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Kennedy Wilson participa en el desarrollo inmobiliario a través de varios proyectos. La empresa está desarrollando activamente 288 unidades multifamiliares y tiene otro proyecto en fase de planificación, con una inversión adicional prevista de 20 millones de dólares totalmente financiada por un prés...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KW" data-company="KENNEDY-WILSON HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KENNEDY-WILSON HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">KW mantiene una presencia en el espacio de REIT minoristas a través of su cartera de centros...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">KW mantiene una presencia en el espacio de REIT minoristas a través de su cartera de centros comerciales suburbanos, que suman aproximadamente entre 2.6 y 2.7 millones de pies cuadrados ubicados en el Reino Unido, Dublín y el oeste de los Estados Unidos. Si bien la empresa tiene activos minoristas, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KW" data-company="KENNEDY-WILSON HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KENNEDY-WILSON HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kennedy Wilson participa en la industria de Alquiler de Viviendas Unifamiliares. La compañía lanzó...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Kennedy Wilson participa en la industria de Alquiler de Viviendas Unifamiliares a través de varias iniciativas. La compañía lanzó una nueva empresa conjunta de viviendas de alquiler unifamiliar en el Reino Unido con CPPIB, con el objetivo de 1.000 millones de libras esterlinas en bienes raíces y apu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KW" data-company="KENNEDY-WILSON HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KENNEDY-WILSON HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kennedy Wilson busca la creación de valor a través oferta limitada en mercados de relleno. Su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Kennedy Wilson con el tema de la Vivienda Urbana se refleja en su enfoque estratégico en oportunidades de adquisición multifamiliares, particularmente en mercados de relleno con oferta limitada. La compañía busca la creación de valor a través de la gestión institucional, la rehabili...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KW" data-company="KENNEDY-WILSON HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KENNEDY-WILSON HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kennedy Wilson tiene proyectos de desarrollo, redesarrollo y obtención de permisos de mercado en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Kennedy Wilson demuestra su compromiso con el desarrollo inmobiliario urbano a través de varias vías, incluido un enfoque en oportunidades de adquisición multifamiliares en mercados de relleno con oferta limitada. La empresa desarrolla activamente unidades multifamiliares, con 288 unidades en desarr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LEN" data-company="LENNAR CORP-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LEN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LENNAR CORP-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Lennar en la construcción de viviendas es evidente en todas sus operaciones. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Lennar en la construcción de viviendas es evidente en todas sus operaciones, ya que constituye el núcleo de su estrategia comercial y desempeño financiero. Las actividades de la empresa incluyen iniciar, entregar y vender un volumen significativo de viviendas, con ingresos por ventas d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LEN" data-company="LENNAR CORP-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LEN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LENNAR CORP-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Lennar se enfoca en el desarrollo, construcción y administración de propiedades de alquiler...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Lennar con el tema de Viviendas Multifamiliares se evidencia a través de su segmento dedicado a Multifamiliares, que se enfoca en el desarrollo, construcción y administración de propiedades de alquiler multifamiliares. Este segmento participa activamente en el desarrollo de una cart...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LGIH" data-company="LGI HOMES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LGIH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LGI HOMES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">LGI Homes mantiene una cartera sustancial de bienes inmuebles. Este inventario significativo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">LGI Homes mantiene una cartera sustancial de bienes inmuebles, como lo demuestran las decenas de miles de lotes que la empresa posee y controla. Este inventario significativo, que incluye propiedades tanto propias como controladas, categorizadas por varios segmentos, forma la base de la base de ende...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LGIH" data-company="LGI HOMES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LGIH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LGI HOMES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de LGI Homes se centra en la industria de la construcción de viviendas. La empresa ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de LGI Homes se centra en la industria de la construcción de viviendas, como lo demuestra su participación en el diseño, construcción y venta de viviendas nuevas. Desde que comenzó sus operaciones en 2003, la empresa ha construido y cerrado más de 75.000 viviendas y opera bajo las marcas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LGIH" data-company="LGI HOMES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LGIH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LGI HOMES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">LGI Homes demuestra un compromiso significativo con el tema de la industria de Desarrollo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">LGI Homes demuestra un compromiso significativo con el tema de la industria de Desarrollo Inmobiliario. La empresa ha estado en el negocio de desarrollo de terrenos residenciales desde mediados de la década de 1990, transformando terrenos en bruto en comunidades activas, un proceso que generalmente ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LGIH" data-company="LGI HOMES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LGIH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LGI HOMES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa reconoce los desafíos que presentan las altas tasas hipotecarias y el sentimiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa reconoce los desafíos que presentan las altas tasas hipotecarias y el sentimiento apagado del consumidor, lo que afecta la voluntad de los clientes de comprar casas nuevas, y expresa confianza en las perspectivas a largo plazo del mercado de la vivienda, citando fuertes tendencias demográ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LGIH" data-company="LGI HOMES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LGIH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LGI HOMES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">LGI Homes demuestra su participación en el tema de Alquileres de Viviendas Unifamiliares. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">LGI Homes demuestra su participación en el tema de Alquileres de Viviendas Unifamiliares a través de varias actividades clave. La subsidiaria de la empresa, LGI Living – SFR 1, LLC, está dedicada a este sector, respaldada por un acuerdo de préstamo con Evergreen Residential Capital, LLC, que proporc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MHO" data-company="M/I HOMES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MHO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">M/I HOMES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">M/I Homes es uno de los principales constructores de viviendas unifamiliares del país. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">M/I Homes está significativamente involucrada en la industria de la construcción de viviendas, como lo demuestra su posición como uno de los principales constructores de viviendas unifamiliares del país, habiendo vendido más de 164.300 viviendas desde 1976. El enfoque de la empresa en la construcció...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MHO" data-company="M/I HOMES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MHO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">M/I HOMES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">M/I Homes está significativamente involucrada en el desarrollo inmobiliario. La empresa mantiene...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">M/I Homes está significativamente involucrada en el desarrollo inmobiliario, como lo demuestran sus sustanciales inversiones en adquisición y desarrollo de terrenos, incluyendo $472.9 millones en adquisiciones de terrenos y $646.0 millones en desarrollo de terrenos durante 2024. La empresa mantiene ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVR" data-company="NVR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NVR participa en el tema de la industria de la construcción de viviendas. La empresa declara...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NVR en el tema de la industria de la construcción de viviendas es sustancial, ya que la empresa declara explícitamente que su negocio principal gira en torno a la construcción y venta de casas unifamiliares independientes, adosados y condominios. Esta actividad principal está res...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVR" data-company="NVR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NVR opera un negocio de banca hipotecaria, principalmente a través of su subsidiaria de propiedad...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">NVR opera un negocio de banca hipotecaria, principalmente a través de su subsidiaria de propiedad total, NVR Mortgage Finance, Inc. (NVRM), para apoyar sus operaciones de construcción de viviendas. NVRM se enfoca exclusivamente en atender a los clientes del segmento de construcción de viviendas, ori...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVR" data-company="NVR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NVR se dedica a actividades de desarrollo de terrenos en una medida limitada. A 31 de marzo de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NVR en el desarrollo inmobiliario se centra principalmente en la adquisición de lotes terminados de desarrolladores externos; sin embargo, la empresa se dedica a actividades de desarrollo de terrenos en una medida limitada. En ciertas circunstancias estratégicas, NVR participa en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PGY" data-company="PAGAYA TECHNOLOGIES LTD -A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PGY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAGAYA TECHNOLOGIES LTD -A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Pagaya es un socio tecnológico de préstamos de confianza. La participación de Pagaya en el tema de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Pagaya en el tema de Finanzas al Consumidor es evidente en su misión de ofrecer oportunidades financieras y convertirse en un socio tecnológico de préstamos de confianza. La plataforma impulsada por IA de la empresa apoya a los socios de préstamos en la oferta de diversos product...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PGY" data-company="PAGAYA TECHNOLOGIES LTD -A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PGY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAGAYA TECHNOLOGIES LTD -A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Pagaya es un negocio entrelazado with Préstamos al Consumidor. La plataforma de la compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Pagaya está significativamente entrelazado con el tema de Préstamos al Consumidor, como lo demuestra su enfoque en expandir las oportunidades financieras y el acceso al crédito para los estadounidenses a través de asociaciones con más de 31 prestamistas. La plataforma de la compañía fa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PGY" data-company="PAGAYA TECHNOLOGIES LTD -A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PGY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAGAYA TECHNOLOGIES LTD -A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Pagaya se centra en la provisión de soluciones de crédito y préstamos impulsadas by IA. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Pagaya se centra en la provisión de soluciones de crédito y préstamos impulsadas por IA, con el objetivo declarado de convertirse en el socio tecnológico de préstamos de confianza en el ecosistema de finanzas de consumo. La tecnología de IA de la empresa permite a los socios convertir ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PGY" data-company="PAGAYA TECHNOLOGIES LTD -A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PGY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAGAYA TECHNOLOGIES LTD -A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La tecnología de Pagaya aborda los enfoques obsoletos y manuales. La IA de la empresa ayuda a los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Pagaya en mejorar la determinación de la solvencia crediticia a través de su tecnología de IA demuestra su compromiso con los servicios de crédito. La IA de la empresa ayuda a los socios a tomar decisiones para otorgar crédito a los consumidores, lo que les permite convertir una mayor ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PGY" data-company="PAGAYA TECHNOLOGIES LTD -A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PGY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAGAYA TECHNOLOGIES LTD -A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Pagaya utiliza ciencia de datos sofisticada y tecnología impulsada by IA para mejorar los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Pagaya utiliza ciencia de datos sofisticada y tecnología impulsada por IA para mejorar los resultados de las instituciones financieras, demostrando un enfoque significativo en el análisis de datos. La empresa ha construido una red líder de IA y datos para beneficiar los servicios financieros, aprove...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PGY" data-company="PAGAYA TECHNOLOGIES LTD -A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PGY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAGAYA TECHNOLOGIES LTD -A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El Volumen de Red de Pagaya incluye el valor bruto en dólares de los servicios relacionados with...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Pagaya con el tema de las propiedades de alquiler unifamiliares es evidente a través de sus servicios impulsados por IA, que ayudan a los socios a identificar, comprar y administrar propiedades de alquiler unifamiliares. El Volumen de Red de la compañía incluye el valor bruto en dól...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PHM" data-company="PULTE GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PHM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PULTE GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PulteGroup se enfoca estratégicamente en servir a diversos grupos de compradores. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de PulteGroup gira en torno a la construcción de viviendas, como lo demuestran las extensas discusiones sobre sus operaciones de construcción de viviendas, ingresos, costos y rendimiento de segmentos a lo largo de sus presentaciones y llamadas de ganancias. La compañía entrega u...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PHM" data-company="PULTE GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PHM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PULTE GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PulteGroup demuestra un compromiso significativo en el desarrollo inmobiliario. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">PulteGroup demuestra un compromiso significativo en el desarrollo inmobiliario a través de sus actividades de adquisición y desarrollo de terrenos, que son integrales a sus operaciones de construcción de viviendas. La compañía invierte fuertemente en terrenos, con $1.3 mil millones gastados en el se...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RITM" data-company="RITHM CAPITAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RITM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RITHM CAPITAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Rithm Capital is un gestor global líder de activos alternativos. Rithm tiene fondos en bienes...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de Rithm Capital a inversiones alternativas es evidente a través de su negocio de Gestión de Activos, que opera principalmente a través de su subsidiaria de propiedad total, Sculptor, un gestor global líder de activos alternativos. Sculptor gestiona aproximadamente $36 mil millones en ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RITM" data-company="RITHM CAPITAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RITM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RITHM CAPITAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Rithm Capital está expuesta al tema de la industria de préstamos al consumidor a través of su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Rithm Capital está expuesta al tema de la industria de préstamos al consumidor a través de su cartera de inversiones, que incluye préstamos al consumidor adquiridos a Goldman Sachs (préstamos Marcus) y SpringCastle. A 31 de diciembre de 2024, el UPB de estos préstamos al consumidor ascendía a 767,62...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RITM" data-company="RITHM CAPITAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RITM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RITHM CAPITAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Rithm Capital se enfoca en bienes raíces, crédito y servicios financieros, originando varios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Rithm Capital en el tema del tema de la industria de Crédito y Préstamos es evidente a través de sus diversas operaciones. Como gestor global de activos, Rithm se enfoca en bienes raíces, crédito y servicios financieros, originando varios préstamos, incluidos préstamos hipotecari...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RITM" data-company="RITHM CAPITAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RITM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RITHM CAPITAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Rithm Capital demuestra un fuerte enfoque en la originación of préstamos. La compañía ofrece...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Rithm Capital demuestra un fuerte enfoque en la originación de préstamos a través de sus subsidiarias Newrez y Genesis, que operan plataformas de originación líderes. La plataforma de préstamos residenciales multicanal de la compañía ofrece diversos productos de préstamo, incluidos préstamos hipotec...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RITM" data-company="RITHM CAPITAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RITM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RITHM CAPITAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Rithm Capital mantiene una fuerte conexión with la industria de la banca hipotecaria. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Rithm Capital mantiene una fuerte conexión con la industria de la banca hipotecaria, principalmente a través de sus subsidiarias Newrez y Genesis. Newrez es uno de los cinco principales originadores y administradores de hipotecas en los EE. UU. con una cartera de administración sustancial que supera...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RITM" data-company="RITHM CAPITAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RITM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RITHM CAPITAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Rithm Capital muestra una fuerte conexión with los servicios de financiación hipotecaria. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Rithm Capital muestra una fuerte conexión con los servicios de financiación hipotecaria, principalmente a través de sus subsidiarias Newrez y Genesis. Newrez es un actor destacado en la industria hipotecaria, clasificándose consistentemente entre los cinco principales prestamistas y administradores ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RITM" data-company="RITHM CAPITAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RITM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RITHM CAPITAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Rithm Capital se involucra con el tema de Residencial Multifamiliar a través of su subsidiaria...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Rithm Capital se involucra con el tema de Residencial Multifamiliar a través de su subsidiaria Genesis, que se especializa en originar y administrar préstamos hipotecarios a corto plazo para desarrolladores de bienes raíces unifamiliares y multifamiliares, incluidos préstamos de construcción, renova...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RITM" data-company="RITHM CAPITAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RITM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RITHM CAPITAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Rithm Capital se enfoca en originar y administrar préstamos hipotecarios a corto plazo para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Rithm Capital, a través de su subsidiaria Genesis, se enfoca en originar y administrar préstamos hipotecarios a corto plazo para desarrolladores inmobiliarios. Estos préstamos están diseñados específicamente para financiar proyectos unifamiliares y multifamiliares, cubriendo necesidades de construcc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RITM" data-company="RITHM CAPITAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RITM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RITHM CAPITAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Rithm Capital ha mantenido su estructura de inversión inmobiliaria desde junio de 2022. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Rithm Capital con el tema de los fideicomisos de inversión inmobiliaria se evidencia principalmente en su operación como un REIT administrado internamente, una estructura que ha mantenido desde junio de 2022. Reforzando este enfoque, Rithm administra Rithm Property Trust, un REIT hipo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RITM" data-company="RITHM CAPITAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RITM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RITHM CAPITAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Rithm Capital demuestra su compromiso con el tema de Alquileres de Viviendas Unifamiliares a través...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Rithm Capital demuestra su compromiso con el tema de Alquileres de Viviendas Unifamiliares a través de sus inversiones en propiedades SFR, incluido su negocio de alquiler de viviendas unifamiliares, Adoor, que posee aproximadamente 4.000 unidades. La empresa gestiona activamente una cartera geográfi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STWD" data-company="STARWOOD PROPERTY TRUST INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STWD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARWOOD PROPERTY TRUST INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa explora activamente oportunidades de inversión, incluidos originadores residenciales y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Starwood Property Trust en inversiones alternativas es evidente en su enfoque en originar, adquirir, financiar y administrar préstamos hipotecarios y otras inversiones inmobiliarias en Estados Unidos, Europa y Australia. La empresa explora activamente oportunidades de inversión, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STWD" data-company="STARWOOD PROPERTY TRUST INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STWD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARWOOD PROPERTY TRUST INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se enfoca principalmente en originar y adquirir inversiones de deuda y capital. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra un enfoque significativo en bienes raíces comerciales a través de varias facetas de sus operaciones. La empresa se enfoca principalmente en originar y adquirir inversiones de deuda y capital en bienes raíces comerciales, con una parte sustancial de sus activos asignada a su cart...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STWD" data-company="STARWOOD PROPERTY TRUST INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STWD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARWOOD PROPERTY TRUST INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Starwood Property Trust en la originación, adquisición, financiación y gestión de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Starwood Property Trust en la originación, adquisición, financiación y gestión de préstamos hipotecarios y otras inversiones inmobiliarias demuestra su participación en el tema de Crédito y Préstamos. Las actividades de la empresa incluyen la originación o adquisición de préstamos come...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STWD" data-company="STARWOOD PROPERTY TRUST INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STWD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARWOOD PROPERTY TRUST INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Starwood Property Trust se centra principalmente en la administración de inversiones inmobiliarias...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Starwood Property Trust en originar, adquirir, financiar y administrar préstamos hipotecarios y otras inversiones inmobiliarias en EE. UU., Europa y Australia resalta la participación de la empresa en tenencias inmobiliarias. Como corporación de Maryland que comenzó sus operaciones en ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STWD" data-company="STARWOOD PROPERTY TRUST INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STWD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARWOOD PROPERTY TRUST INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Starwood Property Trust demuestra su participación en la banca hipotecaria. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Starwood Property Trust en originar, adquirir, financiar y administrar préstamos hipotecarios y otras inversiones inmobiliarias demuestra su participación en la industria de la banca hipotecaria. Las actividades de la empresa incluyen préstamos comerciales y residenciales, con una impo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STWD" data-company="STARWOOD PROPERTY TRUST INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STWD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARWOOD PROPERTY TRUST INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Starwood Property Trust está significativamente involucrada en servicios de financiamiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Starwood Property Trust está significativamente involucrada en servicios de financiamiento hipotecario, centrándose principalmente en la originación, adquisición, financiamiento y administración de préstamos hipotecarios y otras inversiones inmobiliarias en EE. UU., Europa y Australia. Esto es evide...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STWD" data-company="STARWOOD PROPERTY TRUST INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STWD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARWOOD PROPERTY TRUST INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Starwood Property Trust en originar, adquirir, financiar y administrar préstamos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Starwood Property Trust en originar, adquirir, financiar y administrar préstamos hipotecarios y otras inversiones inmobiliarias resalta su participación en el tema de Mortgage REIT. La empresa opera principalmente en este sector, originando, adquiriendo y administrando hipotecas comerc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STWD" data-company="STARWOOD PROPERTY TRUST INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STWD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARWOOD PROPERTY TRUST INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra su participación en el sector Residencial Multifamiliar a través de diversas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su participación en el sector Residencial Multifamiliar a través de diversas actividades. El 'Segmento de Propiedades' de la empresa se enfoca en adquirir y administrar participaciones de capital en bienes raíces comerciales, incluidas propiedades multifamiliares, mientras que e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STWD" data-company="STARWOOD PROPERTY TRUST INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STWD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARWOOD PROPERTY TRUST INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Starwood Property Trust gestiona inversiones inmobiliarias en Estados Unidos, Europa y Australia....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Starwood Property Trust en la Gestión de Propiedades se deriva de su enfoque en originar, adquirir, financiar y gestionar inversiones inmobiliarias en Estados Unidos, Europa y Australia. El Segmento de Propiedades de la empresa participa principalmente en la adquisición y gestión...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STWD" data-company="STARWOOD PROPERTY TRUST INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STWD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARWOOD PROPERTY TRUST INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Starwood Property Trust, Inc. está estructurada como una corporación de Maryland. opera com as un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Starwood Property Trust, Inc. está estructurada como una corporación de Maryland y opera como un fideicomiso de inversión inmobiliaria (REIT), con un enfoque principal en la originación, adquisición, financiación y gestión de préstamos hipotecarios y otras inversiones inmobiliarias en los Estados Un...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STWD" data-company="STARWOOD PROPERTY TRUST INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STWD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARWOOD PROPERTY TRUST INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se enfoca en originar, adquirir, financiar y administrar hipotecas comerciales y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de los REIT residenciales es evidente a través de su Segmento de Préstamos Comerciales y Residenciales, que se enfoca en originar, adquirir, financiar y administrar hipotecas comerciales y residenciales no respaldadas por agencias en EE. UU., Europa y Austra...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TMHC" data-company="TAYLOR MORRISON HOME CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TMHC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TAYLOR MORRISON HOME CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Taylor Morrison diseña, construye y vende una variedad of viviendas. La compañía alcanzaron los 2...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Taylor Morrison con el tema de la construcción de viviendas es significativo, ya que su negocio principal es la construcción de viviendas residenciales y el desarrollo de comunidades de estilo de vida en 12 estados. La compañía diseña, construye y vende una variedad de viviendas, in...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TMHC" data-company="TAYLOR MORRISON HOME CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TMHC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TAYLOR MORRISON HOME CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa diseña, construye y vende viviendas unifamiliares y multifamiliare. Además, desarrolla y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de Viviendas Multifamiliares es evidente a través de sus actividades comerciales principales, ya que diseña, construye y vende viviendas unifamiliares y multifamiliares. Además, la empresa desarrolla y construye propiedades de uso mixto, incluidas unidades m...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TMHC" data-company="TAYLOR MORRISON HOME CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TMHC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TAYLOR MORRISON HOME CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio principal de Taylor Morrison es la construcción of viviendas residenciales. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Taylor Morrison es la construcción de viviendas residenciales y el desarrollo de comunidades de estilo de vida en 12 estados, incluido el desarrollo y la construcción de propiedades de uso mixto que consisten en espacios comerciales, minoristas y propiedades multifamiliares b...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TMHC" data-company="TAYLOR MORRISON HOME CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TMHC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TAYLOR MORRISON HOME CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Bienes Raíces Residenciales tiene operaciones en 12 estados. Se centran en el diseño, la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema de Bienes Raíces Residenciales es evidente, ya que su negocio principal gira en torno a la construcción de viviendas residenciales y el desarrollo de comunidades de estilo de vida en 12 estados. Se centran en el diseño, la construcción y la venta de viviendas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ABR" data-company="ARBOR REALTY TRUST INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ABR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARBOR REALTY TRUST INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Arbor Realty Trust está involucrado en la originación of préstamos. Esta actividad es un motor de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Arbor Realty Trust está significativamente involucrado en la originación de préstamos, principalmente a través de sus negocios de Agencia y Estructurados. La empresa origina, vende y presta servicios de una variedad de productos de financiamiento multifamiliares a través de los program...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ABR" data-company="ARBOR REALTY TRUST INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ABR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARBOR REALTY TRUST INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa exhibe una fuerte conexión con el tema Residencial Multifamiliar a través of sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa exhibe una fuerte conexión con el tema Residencial Multifamiliar a través de sus negocios de Estructurados y Agencias, con inversiones en carteras diversificadas de activos de finanzas estructuradas y la originación de productos de finanzas multifamiliares. Una estrategia clave implica la...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ABR" data-company="ARBOR REALTY TRUST INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ABR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARBOR REALTY TRUST INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra exposición al sector inmobiliario residencial a través of inversiones en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra exposición al sector inmobiliario residencial a través de inversiones en activos de financiación estructurada, específicamente dentro de los mercados multifamiliares y SFR. Esto está respaldado además por su gestión y reposicionamiento de activos REO, junto con esfuerzos para tr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMH" data-company="AMERICAN HOMES 4 RENT- A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN HOMES 4 RENT- A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de American Homes 4 Rent se centra en las tenencias inmobiliarias, poseyendo una cartera...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de American Homes 4 Rent se centra en las tenencias inmobiliarias, poseyendo una cartera sustancial de propiedades unifamiliares. Al 31 de marzo de 2025, la empresa poseía 61.361 propiedades unifamiliares en 24 estados, con 3.487 propiedades adicionales en empresas conjuntas no consolidad...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CSGP" data-company="COSTAR GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CSGP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COSTAR GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CoStar Group integra las tecnologías de IA, visión artificial y aprendizaje automático de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de CoStar Group con la Innovación Inmobiliaria es evidente a través de su integración de las tecnologías de IA, visión artificial y aprendizaje automático de Matterport para mejorar la experiencia del usuario y optimizar el análisis de propiedades. Esta integración tiene como objetivo ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CSGP" data-company="COSTAR GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CSGP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COSTAR GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Apartments.com experimentó un crecimiento sustancial de los ingresos, con un aumento del 11% en el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de CoStar Group en el tema de Residencial Multifamiliar es evidente a través del sólido desempeño y la importancia estratégica de Apartments.com, su marca insignia para la comercialización de apartamentos. Apartments.com experimentó un crecimiento sustancial de los ingresos, con un aument...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CSGP" data-company="COSTAR GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CSGP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COSTAR GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CoStar Group demuestra su participación en el arrendamiento de propiedades a través de varios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CoStar Group demuestra su participación en el arrendamiento de propiedades a través de varios servicios y plataformas clave. LoopNet, un destacado mercado de bienes raíces comerciales, facilita la publicidad de propiedades en alquiler, mientras que Apartments.com ofrece servicios similares para unid...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CSGP" data-company="COSTAR GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CSGP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COSTAR GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CoStar Group mantiene una fuerte conexión con el sector inmobiliario urbano a través of la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CoStar Group mantiene una fuerte conexión con el sector inmobiliario urbano a través de la operación de los principales mercados inmobiliarios en línea tanto en EE. UU. como en el Reino Unido. La base de datos integral de bienes raíces comerciales y el departamento de investigación de la empresa sol...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FMCC" data-company="FREDDIE MAC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FMCC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FREDDIE MAC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Freddie Mac consiste en vender valores garantizados relacionados with hipotecas. Esta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Freddie Mac consiste en vender valores garantizados relacionados con hipotecas en los mercados de capitales globales, donde empaquetan préstamos hipotecarios y transfieren los riesgos de tasa de interés y liquidez a inversores externos. Esta actividad de titulización refleja la partici...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FMCC" data-company="FREDDIE MAC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FMCC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FREDDIE MAC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Freddie Mac no origina préstamos hipotecarios ni presta dinero directamente a los prestatarios. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Freddie Mac en el tema de la industria de Crédito y Préstamos es evidente a través de sus operaciones principales, que implican la compra de préstamos hipotecarios residenciales unifamiliares y multifamiliares originados por prestamistas. La empresa evalúa activamente el riesgo c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="INVH" data-company="INVITATION HOMES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">INVH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INVITATION HOMES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se asocia activamente with constructores para adquirir viviendas recién construidas....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Invitation Homes demuestra su compromiso con la industria de la construcción de viviendas a través de varias iniciativas estratégicas. La empresa se asocia activamente con constructores para adquirir viviendas recién construidas, integrándolas en su cartera y ayudando a los socios a desarrollar casi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LEN" data-company="LENNAR CORP-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LEN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LENNAR CORP-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Lennar estructura estratégicamente sus adquisiciones de terrenos utilizando métodos de "justo a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Lennar en el desarrollo inmobiliario es evidente a través de sus actividades comerciales principales, incluida la adquisición de terrenos, la construcción y las ventas. La empresa estructura estratégicamente sus adquisiciones de terrenos utilizando métodos de "justo a tiempo", ap...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LEN" data-company="LENNAR CORP-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LEN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LENNAR CORP-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Lennar demuestra su participación en el desarrollo de propiedades urbanas. La compañía se enfoca en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Lennar demuestra su participación en el desarrollo de propiedades urbanas a través de su participación en FivePoint Holdings, su participación en proyectos de construcción de viviendas y multifamiliares, y la presencia de 'divisiones urbanas'. La compañía se enfoca en la construcción de viviendas y ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MHO" data-company="M/I HOMES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MHO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">M/I HOMES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">M/I Homes demuestra resiliencia ante un entorno macroeconómico desafiante. La empresa tuvo un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">M/I Homes demuestra resiliencia ante un entorno macroeconómico desafiante, incluidas las tasas de interés más altas y las preocupaciones sobre la asequibilidad de la vivienda. La empresa tuvo un sólido segundo trimestre, logrando ingresos récord y viviendas entregadas, y utilizó estratégicamente red...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PGY" data-company="PAGAYA TECHNOLOGIES LTD -A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PGY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAGAYA TECHNOLOGIES LTD -A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Pagaya is un socio tecnológico de préstamos de confianza para el ecosistema de finanzas de consumo....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Pagaya se centra en la provisión de soluciones tecnológicas bancarias, y la compañía aspira a convertirse en un socio tecnológico de préstamos de confianza para el ecosistema de finanzas de consumo. Pagaya implementa ciencia de datos sofisticada y tecnología impulsada por IA para mejor...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RITM" data-company="RITHM CAPITAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RITM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RITHM CAPITAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Rithm Capital ha sido estructurada como un REIT internamente para fines del impuesto sobre la renta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Rithm Capital con el tema de los REIT hipotecarios es evidente a través de su estructura y estrategias de inversión. Desde junio de 2022, Rithm Capital ha sido estructurada como un REIT administrado internamente para fines del impuesto sobre la renta federal de EE. UU., y invierte en ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STWD" data-company="STARWOOD PROPERTY TRUST INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STWD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARWOOD PROPERTY TRUST INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Starwood Property Trust se enfoca en bienes raíces residenciales. La cartera de préstamos en el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Starwood Property Trust en el tema de Bienes Raíces Residenciales es evidente a través de su segmento de 'Préstamos inmobiliarios comerciales y residenciales', que se enfoca en originar, adquirir, financiar y administrar hipotecas de primer grado comerciales e hipotecas residenci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TMHC" data-company="TAYLOR MORRISON HOME CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TMHC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TAYLOR MORRISON HOME CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Alquileres de Viviendas Unifamiliares opera bajo la marca Yardly. La empresa está gestionando...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Taylor Morrison con el tema de Alquileres de Viviendas Unifamiliares es evidente a través de su negocio de construcción de viviendas "Build-to-Rent", que opera bajo la marca Yardly. La empresa está gestionando activamente este negocio, navegando por el entorno de las tasas de interé...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UMH" data-company="UMH PROPERTIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UMH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UMH PROPERTIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UMH Properties opera como un fideicomiso de inversión inmobiliaria. Obteniendo sus ingresos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">UMH Properties opera como un fideicomiso de inversión inmobiliaria, obteniendo sus ingresos principalmente de operaciones de alquiler de bienes raíces dentro de comunidades de casas prefabricadas. El modelo de negocio de la empresa se centra en la operación de 141 comunidades de casas prefabricadas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ZG" data-company="ZILLOW GROUP INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ZG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ZILLOW GROUP INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Zillow Group ofrece un conjunto de herramientas como ShowingTime+, Spruce and Follow Up Boss....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Zillow Group en conectar a las personas con soluciones digitales y proporcionar software de marketing y soluciones tecnológicas resalta su compromiso con la tecnología de marketing digital. La empresa ofrece un conjunto de herramientas como ShowingTime+, Spruce y Follow Up Boss, genera...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ZG" data-company="ZILLOW GROUP INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ZG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ZILLOW GROUP INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Zillow tiene un mercado de nueva construcción que contribuye al crecimiento de los ingresos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Zillow en la industria de la construcción de viviendas es evidente a través de su mercado de nueva construcción, que contribuye al crecimiento de los ingresos residenciales. Este mercado se considera una plataforma estándar para los constructores, que genera ingresos principalmen...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ZG" data-company="ZILLOW GROUP INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ZG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ZILLOW GROUP INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Zillow Home Loans contribuye a los ingresos de la empresa a través de originaciones hipotecarias y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Zillow en la banca hipotecaria se realiza principalmente a través de Zillow Home Loans, que contribuye a los ingresos de la empresa a través de originaciones hipotecarias y ventas en el mercado secundario. Zillow Home Loans ha demostrado tasas de adopción constantes de dos dígito...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ZG" data-company="ZILLOW GROUP INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ZG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ZILLOW GROUP INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Zillow Home Loans (ZHL) proporciona herramientas como BuyAbility, que ayuda a los compradores a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Zillow con los Servicios de Financiación Hipotecaria es evidente a través de sus operaciones de Zillow Home Loans (ZHL). ZHL proporciona herramientas como BuyAbility, que ayuda a los compradores a determinar la asequibilidad, y la compañía está ampliando su oferta de productos ampli...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ZG" data-company="ZILLOW GROUP INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ZG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ZILLOW GROUP INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Zillow ofrece un mercado integral para inquilinos y administradores de propiedades. Este enfoque ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Zillow en el arrendamiento de propiedades es evidente a través de su plataforma Zillow Rentals, que ofrece un mercado integral para inquilinos y administradores de propiedades. Los inquilinos pueden comprar, visitar, solicitar, firmar contratos de arrendamiento y pagar el alquile...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ZG" data-company="ZILLOW GROUP INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ZG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ZILLOW GROUP INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Zillow ofrece servicios de publicidad para constructores de viviendas sobre una base de costo por...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Zillow con el desarrollo inmobiliario se deriva de sus ingresos por nuevas construcciones, que se generan a través de servicios de publicidad que se ofrecen a los constructores de viviendas sobre una base de costo por comunidad residencial o por impresión. Estos ingresos contribuyen a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMH" data-company="AMERICAN HOMES 4 RENT- A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN HOMES 4 RENT- A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El arrendamiento de propiedades es fundamental para el negocio de la empresa. Los ingresos se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El arrendamiento de propiedades es fundamental para el negocio de la empresa, ya que los ingresos se derivan principalmente de los alquileres cobrados a los inquilinos de propiedades unifamiliares bajo acuerdos de arrendamiento. La empresa se enfoca en optimizar los ingresos mediante la gestión de v...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="APPF" data-company="APPFOLIO INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">APPF</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPFOLIO INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa proporciona una plataforma basada en la nube para que los clientes operen sus negocios....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema del Software en la Nube es evidente, ya que proporciona una plataforma basada en la nube para que los clientes operen sus negocios, entregando sus soluciones de software a través de esta plataforma. La empresa centra sus esfuerzos de investigación y desarrol...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FNMA" data-company="FANNIE MAE">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FNMA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FANNIE MAE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Fannie Mae utiliza diversos instrumentos financieros, incluidos MBS, derivados como swaps de tipos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Fannie Mae están estrechamente ligadas a los productos financieros, particularmente a través de la titulización de préstamos hipotecarios en valores respaldados por hipotecas, donde emiten garantías y asumen el riesgo crediticio. La empresa utiliza diversos instrumentos financiero...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="INVH" data-company="INVITATION HOMES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">INVH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INVITATION HOMES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Invitation Homes opera como un fideicomiso de inversión inmobiliaria (REIT) La empresa posee una...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Invitation Homes opera como un fideicomiso de inversión inmobiliaria (REIT), con un modelo de negocio centrado en viviendas unifamiliares para alquiler. La empresa posee una cartera sustancial de viviendas unifamiliares y genera ingresos principalmente a través de operaciones de alquiler, alineándos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KW" data-company="KENNEDY-WILSON HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KENNEDY-WILSON HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kennedy Wilson participa en la reurbanización de propiedades. La empresa tiene siete activos que...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Kennedy Wilson participa en la reurbanización de propiedades a través de iniciativas de desarrollo, reurbanización y valor agregado, con el objetivo de mejorar los flujos de efectivo y reposicionar los activos. Esto se evidencia en sus proyectos de tarifas de mercado en curso o en planificación y en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LEN" data-company="LENNAR CORP-A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LEN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LENNAR CORP-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Lennar brinda servicios de contratista general para proyectos de alquiler. Los esfuerzos de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Lennar en los servicios de construcción es evidente a través de varios aspectos operativos. Se centran en impulsar la producción para satisfacer la demanda de viviendas y optimizar los procesos de construcción a través de la tecnología y la gestión eficiente, incluida la gestión ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LEN" data-company="LENNAR CORP-A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LEN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LENNAR CORP-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Lennar se dedica a la adquisición y desarrollo of terrenos. Proporciona financiamiento hipotecario...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Lennar en la industria de Bienes Raíces Residenciales es evidente a través de su negocio principal de construcción de viviendas, con todo el documento enfatizando este sector. Los ingresos de la empresa por la venta de viviendas aumentaron a $33.8 mil millones, lo que resalta la import...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LGIH" data-company="LGI HOMES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LGIH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LGI HOMES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">LGI Homes se centra en el sector inmobiliario residencial, como lo demuestra su participación en el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de LGI Homes se centra en el sector inmobiliario residencial, como lo demuestra su participación en el diseño, la construcción y la venta de viviendas nuevas bajo las marcas LGI Homes y Terrata Homes. El equipo directivo de la empresa ha estado en el negocio de desarrollo de terrenos resi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MHO" data-company="M/I HOMES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MHO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">M/I HOMES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">M/I Homes reportó un número récord de comunidades y planea continuar creciendo. El negocio se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de M/I Homes se centra en el sector inmobiliario residencial, ya que son un constructor líder de viviendas unifamiliares, habiendo vendido más de 160.000 viviendas desde 1976. Este enfoque es evidente en sus llamadas de resultados, que discuten extensamente las ventas, entregas, precios p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVR" data-company="NVR INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NVR vende casi todos los préstamos hipotecarios que cierra a inversores en los mercados...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de NVR con los Servicios de Financiación Hipotecaria es evidente a través de la operación de NVR Mortgage Finance, Inc. (NVRM), una empresa de banca hipotecaria que proporciona préstamos exclusivamente a clientes dentro de su segmento de construcción de viviendas. NVRM se enfoca en ate...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVR" data-company="NVR INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de NVR se centra en la construcción y venta de propiedades residenciales. Una parte...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de NVR se centra en la construcción y venta de propiedades residenciales, específicamente viviendas unifamiliares independientes, adosados y edificios de condominios. Una parte importante de los recursos e ingresos de la empresa proviene de la construcción de viviendas, con ingresos por c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NVR" data-company="NVR INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NVR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NVR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NVR opera principalmente en mercados maduros. Se expande a mercados contiguos, a menudo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NVR en el desarrollo de propiedades urbanas es evidente a través de la construcción y venta de casas adosadas y edificios de condominios, que son comunes en entornos urbanos. La empresa opera principalmente en mercados maduros y se expande a mercados contiguos, a menudo involucra...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PHM" data-company="PULTE GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PHM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PULTE GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PulteGroup proporciona servicios de financiación hipotecaria a través of su subsidiaria Pulte...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">PulteGroup proporciona servicios de financiación hipotecaria a través de su subsidiaria Pulte Mortgage LLC, que es integral para sus operaciones de construcción de viviendas. Esto se evidencia en el enfoque de la empresa en la reducción de las tasas de interés hipotecarias y los incentivos de costos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PHM" data-company="PULTE GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PHM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PULTE GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de PulteGroup se centra en bienes raíces residenciales. El rendimiento financiero de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de PulteGroup se centra en bienes raíces residenciales, principalmente a través de la construcción y venta de propiedades residenciales, incluidas casas unifamiliares. Este enfoque es evidente en su detallado informe de ingresos por venta de viviendas, cierres y precios de venta promedio,...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STWD" data-company="STARWOOD PROPERTY TRUST INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STWD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARWOOD PROPERTY TRUST INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Starwood Property Trust participa en la originación, adquisición, financiación y gestión de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Starwood Property Trust en la originación de préstamos es evidente a través de su participación en la originación, adquisición, financiación y gestión de préstamos hipotecarios y otras inversiones inmobiliarias en EE. UU., Europa y Australia. El segmento de préstamos comerciales y resi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TMHC" data-company="TAYLOR MORRISON HOME CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TMHC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TAYLOR MORRISON HOME CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa participa en el tema de Servicios de Construcción. La existencia de un negocio dedicado...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de Servicios de Construcción es evidente en sus operaciones principales, que implican el diseño, la construcción y la venta de diversos tipos de viviendas, incluidas unidades unifamiliares y multifamiliares. Esto se ve respaldado además por su participación ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TMHC" data-company="TAYLOR MORRISON HOME CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TMHC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TAYLOR MORRISON HOME CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Urban Form se centra en el desarrollo y la operación de propiedades de uso múltiple. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su participación en el desarrollo de propiedades urbanas a través de su marca Urban Form, que se centra en el desarrollo y la operación de propiedades de uso múltiple que consisten en espacios comerciales, minoristas y multifamiliares. Esto se ve respaldado aún más por la adquis...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TMHC" data-company="TAYLOR MORRISON HOME CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TMHC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TAYLOR MORRISON HOME CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">TMHC ha reconocido cargos por deterioro relacionados with estas propiedades de Urban Form. Esta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de TMHC con el tema de Bienes Raíces Urbanos se demuestra a través de su propiedad y operación de espacios comerciales, minoristas y propiedades multifamiliares bajo la marca 'Urban Form'. La empresa ha reconocido cargos por deterioro relacionados con estas propiedades de Urban Form, l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UMH" data-company="UMH PROPERTIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UMH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UMH PROPERTIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UMH se enfoca en expandir comunidades existentes y desarrollar nuevas. Están trabajando activamente...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de UMH está significativamente ligado a la industria de la construcción de viviendas a través de la construcción, venta y alquiler de casas prefabricadas. La compañía se enfoca en expandir comunidades existentes y desarrollar nuevas, invirtiendo sustancialmente en el desarrollo de terreno...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UMH" data-company="UMH PROPERTIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UMH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UMH PROPERTIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UMH Properties ofrecen opciones de vivienda asequible en varios estados. La empresa alquila...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">UMH Properties participa en el tema de la vivienda urbana a través del desarrollo y operación de comunidades de casas prefabricadas, que ofrecen opciones de vivienda asequible en varios estados. Estas comunidades abordan la necesidad de vivienda asequible tanto en áreas densamente pobladas como en Z...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EFC" data-company="ELLINGTON FINANCIAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">EFC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ELLINGTON FINANCIAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ellington Financial demuestra su conexión con el tema de los REIT Residenciales. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Ellington Financial demuestra su conexión con el tema de los REIT Residenciales a través de sus diversificadas carteras de préstamos hipotecarios residenciales, que han sido una fuente confiable de crecimiento y rentabilidad. La empresa invierte estratégicamente en préstamos y activos inmobiliarios ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STWD" data-company="STARWOOD PROPERTY TRUST INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STWD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARWOOD PROPERTY TRUST INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Starwood Property Trust se enfoca en originar, adquirir, financiar y administrar hipotecas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Starwood Property Trust en el tema de la Banca Comercial es evidente a través de su segmento de préstamos comerciales y residenciales, que se enfoca en originar, adquirir, financiar y administrar hipotecas comerciales de primer grado. Las operaciones de préstamos comerciales de l...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

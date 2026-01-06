@@ -54,7 +54,7 @@ def get_spy_data(start_date, end_date):
             need_download = True
             
     if need_download:
-        print("⬇️ Bajando datos actualizados del SPY (Yahoo Finance)...")
+        print("Downloading updated SPY data (Yahoo Finance)...")
         try:
             ticker = yf.Ticker("SPY")
             hist = ticker.history(start="1970-01-01", end=datetime.today().strftime('%Y-%m-%d'))
@@ -63,7 +63,7 @@ def get_spy_data(start_date, end_date):
             df = hist[['date', 'Close']].rename(columns={'Close': 'spy_val'})
             df.to_csv(SPY_PATH, index=False)
         except Exception as e:
-            print(f"❌ Error bajando SPY: {e}")
+            print(f"ERROR downloading SPY: {e}")
             if df is not None: return df # Return what we have
             return None
 
@@ -72,20 +72,56 @@ def get_spy_data(start_date, end_date):
 
 def get_theme_symbols(theme_name):
     target = theme_name.lower().replace(" ", "_").replace("-", "_")
-    
+
     if THEMES_DIR.exists():
+        # First pass: exact matches
         for f in os.listdir(THEMES_DIR):
             if f.lower().endswith(".csv"):
                 fname = f.lower()[:-4].replace("-", "_")
-                if fname == target or theme_name.lower() in fname:
+                if fname == target:
                     try:
                         df = pd.read_csv(THEMES_DIR / f, on_bad_lines='skip')
-                        # Flexible column search
                         for col in df.columns:
                             if 'symbol' in col.lower() or 'ticker' in col.lower():
                                 return df[col].dropna().unique().tolist()
-                    except: continue
-    print(f"❌ No se encontró archivo CSV para: {theme_name}")
+                    except:
+                        continue
+
+        # Second pass: fuzzy matching (handle biologic vs biological)
+        best_match = None
+        best_score = 0
+
+        for f in os.listdir(THEMES_DIR):
+            if f.lower().endswith(".csv"):
+                fname = f.lower()[:-4].replace("-", "_")
+
+                target_parts = target.split('_')
+                fname_parts = fname.split('_')
+
+                matches = 0
+                for tp in target_parts:
+                    for fp in fname_parts:
+                        if tp in fp or fp in tp:
+                            if len(tp) >= 3:
+                                matches += 1
+                            break
+
+                score = matches / len(target_parts) if target_parts else 0
+
+                if score > best_score and score >= 0.8:
+                    best_score = score
+                    best_match = f
+
+        if best_match:
+            try:
+                df = pd.read_csv(THEMES_DIR / best_match, on_bad_lines='skip')
+                for col in df.columns:
+                    if 'symbol' in col.lower() or 'ticker' in col.lower():
+                        return df[col].dropna().unique().tolist()
+            except:
+                pass
+
+    print(f"CSV file not found for: {theme_name}")
     return []
 
 def plot_interactive_chart(equity_df, theme_name):
@@ -98,7 +134,7 @@ def plot_interactive_chart(equity_df, theme_name):
         spy_max = equity_df['spy_val'].max()
         print(f"DEBUG: SPY Data Range: {spy_min} to {spy_max}")
         if pd.isna(spy_min) or spy_min == spy_max:
-             print("⚠️ WARN: SPY data seems flat or empty.")
+             print("WARN: SPY data seems flat or empty.")
     
     # Prepare data (Base 0 for calculations)
     t0 = equity_df['portfolio'].iloc[0]
@@ -164,6 +200,14 @@ def plot_interactive_chart(equity_df, theme_name):
     ))
 
     # --- LAYOUT ---
+    
+    # Calculate Default 10Y Range
+    max_d = equity_df['date'].max()
+    min_d = equity_df['date'].min()
+    start_10y = max_d - pd.DateOffset(years=10)
+    if start_10y < min_d:
+        start_10y = min_d
+        
     fig.update_layout(
         title=dict(
             text=f"Theme Performance: {theme_name.title()} vs Benchmark (ROI %)<br><sub>{subtitle_init}</sub>",
@@ -173,10 +217,11 @@ def plot_interactive_chart(equity_df, theme_name):
         template='plotly_white',
         plot_bgcolor='white',
         hovermode='x unified',
-        margin=dict(t=180, l=60, r=40, b=60), 
+        margin=dict(t=80, l=40, r=20, b=40), 
         
         # X-Axis: No Grid, LightGrey Line
         xaxis=dict(
+            range=[start_10y, max_d], # Default to 10Y
             type="date",
             showgrid=False,
             showline=True,
@@ -356,22 +401,19 @@ def plot_interactive_chart(equity_df, theme_name):
     custom_css = """
     <style>
     body { 
-        background-color: #f5f7fa !important; 
+        background-color: white !important; 
         font-family: 'Segoe UI', sans-serif; 
-        padding: 40px;
+        padding: 0;
         margin: 0;
     }
     .plotly-graph-div {
         background-color: white;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        border-radius: 8px;
-        padding: 20px;
-        max-width: 1200px;
-        margin: 0 auto !important; /* Center using margin */
-        width: 100% !important;   /* Take up available space up to max-width */
-        height: 85vh !important;
-        box-sizing: border-box;   /* Ensure padding doesn't affect width */
-        overflow: hidden;         /* Fix for corner artifacts/scrollbars */
+        padding: 0;
+        margin: 0 auto !important; 
+        width: 100% !important;   
+        height: 100vh !important;
+        box-sizing: border-box;   
+        overflow: hidden;         
     }
     </style>
     """
@@ -379,8 +421,8 @@ def plot_interactive_chart(equity_df, theme_name):
     final_content = content.replace("</head>", f"{custom_css}</head>").replace("</body>", f"{js_script}</body>")
     with open(filepath, 'w', encoding='utf-8') as f:
         f.write(final_content)
-        
-    print(f"✅ Gráfico interactivo guardado: {filepath}")
+
+    print(f"Interactive chart saved: {filepath}")
     
     # Open in browser
     import webbrowser
@@ -416,7 +458,7 @@ def main():
             except: pass
             
     if not data_frames:
-        print("❌ No hay datos de precios.")
+        print("ERROR: No price data available.")
         return
 
     # Calculate Portfolio
@@ -439,7 +481,7 @@ def main():
     portfolio_df = portfolio_df[portfolio_df['portfolio'] != 1.0]
     if portfolio_df.empty:
         # If absolutely no change, show header at least
-        print("⚠️ No portfolio movement detected.")
+        print("WARN: No portfolio movement detected.")
         return
 
     # SPY Benchmark

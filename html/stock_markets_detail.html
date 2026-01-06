@@ -1,0 +1,2202 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Stock Markets - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Stock Markets</div>
+      <div class="sub-title">Investment Theme Detail - Financials Industry</div>
+    </div>
+    <a href="/main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Stock Markets &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Financials &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 22
+    </div>
+
+    
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">22</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ICE</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">INTERCONTINENTAL EXCHANGE IN</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha la inteligencia artificial para mejorar sus plataformas de negociación, análisis de datos y soluciones de gestión de riesgos dentro del sect...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ICE" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CME</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CME GROUP INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Facilita la negociación de futuros y opciones agrícolas, permitiendo a los participantes de la industria agroalimentaria gestionar el riesgo de precio...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CME" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">NDAQ</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">NASDAQ INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aplica inteligencia artificial en sus soluciones de tecnología financiera para optimizar las operaciones del mercado, mejorar las capacidades de vigil...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/NDAQ" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CBOE</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CBOE GLOBAL MARKETS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se compromete con la tecnología blockchain para explorar oportunidades en activos digitales y mejorar la infraestructura del mercado....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CBOE" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">LSEG</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">LONDON STOCK EXCHANGE GROUP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera una infraestructura global de mercados financieros, permitiendo la formación de capital, la negociación y los servicios post-negociación para un...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/LSEG" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DB1</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">DEUTSCHE BOERSE AG</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera y proporciona infraestructura para los mercados financieros, facilitando la negociación, compensación y liquidación de valores, derivados y otro...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DB1" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">388</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">HONG KONG EXCHANGES & CLEAR</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera y gestiona las principales bolsas de valores y de derivados en Hong Kong, proporcionando servicios de cotización, negociación y compensación par...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/388" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">MKTX</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">MARKETAXESS HOLDINGS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y opera plataformas de negociación electrónica que forman una parte crítica de la infraestructura de tecnología financiera, un sector que i...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/MKTX" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">8697</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">JAPAN EXCHANGE GROUP INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera importantes mercados financieros para acciones, derivados y otros valores, facilitando la negociación y la formación de capital dentro del siste...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/8697" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">VIRT</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">VIRTU FINANCIAL INC-CLASS A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Facilita la negociación eficiente y líquida en los mercados financieros globales actuando como creador de mercado principal y proporcionando solucione...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/VIRT" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">11</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SPGI</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">S&P GLOBAL INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha la inteligencia artificial para mejorar sus datos, análisis y calificaciones, proporcionando información más profunda y herramientas de toma...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SPGI" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">12</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TW</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TRADEWEB MARKETS INC-CLASS A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera plataformas de negociación electrónica que facilitan la ejecución de una amplia gama de instrumentos financieros, contribuyendo significativamen...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TW" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">13</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">COIN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona un conjunto integral de servicios financieros basados en blockchain, que incluyen intercambio de criptomonedas, custodia y productos relac...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/COIN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">14</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">IBKR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">INTERACTIVE BROKERS GRO-CL A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha la inteligencia artificial para mejorar sus plataformas de trading y servicios al cliente, aumentando la eficiencia y ofreciendo herramienta...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/IBKR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">15</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BGC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BGC GROUP INC-A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona una diversa gama de servicios financieros y soluciones tecnológicas, facilitando la negociación y la liquidez en diversos mercados de capi...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BGC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">16</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha información impulsada por IA para desarrollar y ofrecer soluciones innovadoras de tecnología financiera....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">17</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">MCO</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">MOODY'S CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona soluciones de análisis y datos que respaldan la evaluación de riesgos y la transparencia dentro de varios sectores de inversión alternativ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/MCO" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">18</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">FDS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">FACTSET RESEARCH SYSTEMS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aplica inteligencia artificial para mejorar el análisis de datos financieros y ofrecer soluciones avanzadas de fintech....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/FDS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">19</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">HOOD</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ROBINHOOD MARKETS INC - A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aplica inteligencia artificial para mejorar sus servicios de tecnología financiera, contribuyendo a experiencias de usuario más personalizadas y opera...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/HOOD" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">20</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BK</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BANK OF NEW YORK MELLON CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece soluciones integrales de servicio de activos, administración y gestión de inversiones, respaldando una amplia gama de estrategias de inversión ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BK" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">21</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SNEX</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">STONEX GROUP INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios financieros, gestión de riesgos y soluciones de acceso al mercado a participantes dentro del sector agroindustrial....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SNEX" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">22</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SCHW</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SCHWAB (CHARLES) CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona un conjunto integral de servicios bancarios, que incluyen cuentas de depósito, soluciones de crédito y procesamiento de pagos, apoyando la...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SCHW" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">156</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge proporciona tecnología moderna a las empresas de mercados de capitales. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Broadridge con el tema de Mercados de Capitales es evidente a través de sus adquisiciones estratégicas y su amplia oferta de servicios. La empresa adquirió Securities Industry Services (SIS) de Kyndryl para reforzar sus soluciones de gestión de patrimonio, mercados de capitales y TI...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge ofrecen datos de distribución de productos de inversión, herramientas analíticas,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Broadridge con el análisis de datos es evidente a través de su suite de soluciones diseñadas para gestores de activos y proveedores de servicios de jubilación, que incluyen plataformas basadas en datos para la gestión de contenidos y la distribución omnicanal. Las soluciones de dato...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge ofreciendo soluciones impulsadas por la tecnología a una amplia gama of clientes...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Broadridge con Soluciones Fintech es evidente a través de su papel como líder global en tecnología financiera, ofreciendo soluciones impulsadas por la tecnología a una amplia gama de clientes financieros, incluidos bancos, corredores de bolsa y administradores de activos. Las ofertas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge participa en Tecnología Regulatoria. Esto está respaldado además por la adquisición of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Broadridge en Tecnología Regulatoria es evidente a través de la provisión de soluciones que ayudan a los clientes a cumplir con las necesidades de cumplimiento normativo, incluida la distribución de informes regulatorios y soluciones de informes fiscales. Las soluciones de la emp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge adquirió Servicios para la Industria de Valores (SIS) de Kyndryl para ofrecer soluciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Broadridge en Servicios de Gestión de Patrimonios es evidente a través de varias iniciativas estratégicas. La empresa adquirió Servicios para la Industria de Valores (SIS) de Kyndryl para ofrecer soluciones de gestión de patrimonios en Canadá y AdvisorTarget para mejorar los prog...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge impulsa la digitalización y democratization de la inversión. La empresa impulsa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Broadridge en Soluciones Digitales es evidente a través de su provisión de soluciones impulsadas por la tecnología a diversos clientes de la industria financiera, incluidos bancos, corredores de bolsa y gestores de patrimonio. La empresa impulsa la digitalización y democratizació...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge ofrece soluciones impulsadas por la tecnología a varios clientes, incluidos bancos,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Broadridge, un líder global en tecnología financiera, proporciona soluciones impulsadas por la tecnología a varios clientes, incluidos bancos, corredores de bolsa, gestores de activos y patrimoniales, y fondos mutuos. Sus soluciones automatizan el ciclo de vida de las transacciones para acciones, fo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FDS" data-company="FACTSET RESEARCH SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FDS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FACTSET RESEARCH SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma de FactSet ofrece datos exhaustivos, análisis sofisticados y tecnología flexible a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La plataforma de FactSet ofrece datos exhaustivos, análisis sofisticados y tecnología flexible a profesionales financieros globales, impulsando sus flujos de trabajo de inversión críticos. La empresa continúa escalando su ecosistema de datos para proporcionar un inventario completo de datos de la in...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FDS" data-company="FACTSET RESEARCH SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FDS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FACTSET RESEARCH SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">FactSet adquirió CGS, una empresa que apoya archivos maestros de valores vitales para las funciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de FactSet con el tema de los Mercados de Capitales se ve reforzado por su papel como plataforma digital financiera global que proporciona inteligencia a los profesionales de la inversión. Esto se demuestra aún más a través de la adquisición de CGS, una empresa que apoya archivos maest...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FDS" data-company="FACTSET RESEARCH SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FDS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FACTSET RESEARCH SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">FactSet ofrece datos expansivos, análisis sofisticados y tecnología flexible a profesionales...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de FactSet con el Análisis de Datos es evidente en su plataforma, que ofrece datos expansivos, análisis sofisticados y tecnología flexible a profesionales financieros globales, impulsando sus flujos de trabajo de inversión críticos. Los datos, herramientas, conocimientos y soluciones d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FDS" data-company="FACTSET RESEARCH SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FDS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FACTSET RESEARCH SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">FactSet está escalando su ecosistema de datos para proporcionar un inventario completo. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La expansión del ecosistema de datos de FactSet incorpora datos de finanzas sostenibles, lo que sugiere una conexión con las inversiones ESG. La empresa está escalando su ecosistema de datos para proporcionar un inventario completo de datos industriales, propietarios y de terceros, incluidos datos g...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FDS" data-company="FACTSET RESEARCH SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FDS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FACTSET RESEARCH SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">FactSet ofrece inteligencia financiera a una vasta clientela de más de 220.000 profesionales de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">FactSet está profundamente involucrada en la industria de la Gestión de Inversiones, proporcionando inteligencia financiera a una vasta clientela de más de 220.000 profesionales de la inversión, incluyendo gestores de activos, fondos de cobertura y gestores de patrimonio. La plataforma de la empresa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FDS" data-company="FACTSET RESEARCH SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FDS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FACTSET RESEARCH SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma de FactSet capta cuota de mercado de los proveedores existentes. FactSet está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de FactSet en los Servicios de Gestión de Patrimonios es evidente a través de sus soluciones dirigidas a las oficinas frontales, intermedias y de back office de los clientes de gestión de patrimonios. La plataforma de la empresa capta cuota de mercado de los proveedores existentes e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SNEX" data-company="STONEX GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SNEX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STONEX GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">StoneX Metals ofrece un servicio integral en los mercados de metales físicos y financieros. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de StoneX en el tema de los Metales Preciosos es multifacética, como lo demuestra su posición única como el único participante no bancario en el establecimiento de puntos de referencia de precios diarios para oro, plata, platino y paladio. Esto se ve reforzado por los ingresos opera...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SNEX" data-company="STONEX GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SNEX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STONEX GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">StoneX Group presta servicios de ejecución y compensación para productos cotizados en bolsa. Se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de StoneX Group con el tema de la industria de los mercados financieros es evidente a través de la prestación de servicios de ejecución y compensación para productos cotizados en bolsa, así como de sus membresías en diversas bolsas de productos básicos, futuros y valores a nivel mundial....</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BGC" data-company="BGC GROUP INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BGC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BGC GROUP INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BGC es un mercado global líder especializado en la ejecución de operaciones en una amplia gama of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de BGC al tema de los Mercados de Capitales es sólida, impulsada por su posición como un mercado global líder especializado en la ejecución de operaciones en una amplia gama de productos, incluidos valores de renta fija, bonos y derivados. Las plataformas de la empresa, como FMX, facil...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BGC" data-company="BGC GROUP INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BGC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BGC GROUP INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BGC es un mercado global líder especializado en la ejecución of operaciones. Las plataformas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La fuerte conexión de BGC con el tema de los Mercados Financieros es evidente en su papel como un mercado global líder especializado en la ejecución de operaciones en una variedad de productos, incluidos valores de renta fija y derivados. Las plataformas de mercados electrónicos (ECS) y FMX de la em...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BK" data-company="BANK OF NEW YORK MELLON CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BANK OF NEW YORK MELLON CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra su compromiso con los mercados de capitales a través of sus programas activos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su compromiso con los mercados de capitales a través de sus programas activos de recompra de acciones. Estos programas están respaldados por autorizaciones de la Junta Directiva, incluido un programa de $5.0 mil millones iniciado en enero de 2023 y $6.0 mil millones adicionales ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge ofrece una escalabilidad perfecta e interoperabilidad global, impulsando la demanda de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Broadridge con el tema de Tecnología Bancaria se deriva de su papel como líder mundial en tecnología financiera que proporciona soluciones impulsadas por la tecnología a los bancos. Estas soluciones permiten una mejor vida financiera al potenciar la inversión, la gobernanza y las comu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge ofrece tecnología moderna a las firmas de mercados de capitales, gestión de patrimonio e...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Broadridge con Software en la Nube es evidente a través de su papel como proveedor líder de SaaS, que ofrece tecnología moderna a las firmas de mercados de capitales, gestión de patrimonio e inversiones. Esta oferta permite a los clientes lograr crecimiento, simplificar la infrae...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge reportó un crecimiento de ingresos recurrentes del 10% al simplificar el trading. Sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Broadridge en el trading institucional es evidente a través de su negocio de Mercados de Capitales, que reportó un crecimiento de ingresos recurrentes del 10% al simplificar el trading en las oficinas frontales y de back office. Sus plataformas de liquidación han procesado un réc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge ofrecen soluciones tecnológicas para gestores de activos y patrimonios. La adquisición...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Broadridge con la Gestión de Inversiones es evidente a través de sus soluciones tecnológicas para gestores de activos y patrimonios, que incluyen soluciones de gestión de carteras y órdenes que ofrecen información sobre análisis de trading y riesgos. La adquisición del negocio de Se...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge ofrecen sistemas globales de gestión de órdenes y ejecución de operaciones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Broadridge en el tema de los mercados financieros es evidente a través de su provisión de soluciones multiactivo, multientidad y multidivisa post-negociación, de negociación y de conectividad que respaldan el procesamiento de transacciones de valores. Las Soluciones de Negociació...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CBOE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cboe ofreciendo soluciones de negociación, compensación e inversión en América del Norte, Europa y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Cboe están profundamente entrelazadas con los mercados de capitales, ya que funciona como una red líder de bolsas de derivados y valores, ofreciendo soluciones de negociación, compensación e inversión en América del Norte, Europa y Asia Pacífico. Los segmentos de negocio de la emp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CBOE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cboe tiene exposición al comercio de criptomonedas, como lo demuestra su negocio de activos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cboe tiene exposición al comercio de criptomonedas, como lo demuestra su negocio de activos digitales, que incluye una bolsa de futuros y una cámara de compensación reguladas. Aunque la compañía cerró su mercado spot Cboe Digital, continúa facilitando la compensación de contratos de futuros de Bitco...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CBOE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cboe participa en múltiples clases de activos, específicamente acciones, derivados y FX. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cboe en el tema de Productos Financieros es evidente a través de su provisión de soluciones y productos de negociación en múltiples clases de activos, específicamente acciones, derivados y FX, que abarcan América del Norte, Europa y Asia Pacífico. El enfoque de la empresa se ve a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CBOE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación of Cboe en Soluciones Fintech es evidente. Aunque no se menciona explícitamente,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cboe en Soluciones Fintech es evidente en su entrega de 'soluciones comerciales, de compensación y de inversión de vanguardia', lo que refleja los esfuerzos de la empresa para optimizar la prestación de servicios financieros. Aunque no se indica explícitamente, el enfoque de la e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CBOE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cboe ofrece soluciones de trading, compensación e inversión en acciones, derivados y divisas. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cboe en el trading institucional es evidente a través de su negocio principal como una red de bolsas líder a nivel mundial, que ofrece soluciones de trading, compensación e inversión en acciones, derivados y divisas. Esto se destaca por la operación de la empresa de las principal...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CBOE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cboe Global Markets opera como una red líder de bolsas de derivados y valores. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cboe Global Markets opera como una red líder de bolsas de derivados y valores, ofreciendo soluciones de negociación, compensación e inversión en múltiples clases de activos, incluyendo renta variable, derivados y divisas, en América del Norte, Europa y Asia Pacífico. La empresa opera una red de bols...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CME" data-company="CME GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CME</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CME GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de CME Group se ve influenciado por los productos básicos agrícolas. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de CME Group se ve significativamente influenciado por los productos básicos agrícolas, como lo demuestran los récords trimestrales de volumen de todos los tiempos logrados en este sector. Esto se ve respaldado además por un crecimiento del 19% en los volúmenes del sector de productos bás...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CME" data-company="CME GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CME</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CME GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CME Group opera mercados designados de contratos para futuros y opciones. Ofrece operaciones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La fuerte conexión de CME Group con el tema de los mercados de capitales es evidente en sus operaciones principales, que giran en torno a la facilitación del comercio en diversas clases de activos. La empresa opera mercados designados de contratos para futuros y opciones, junto con servicios de comp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CME" data-company="CME GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CME</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CME GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CME Group ha experimentado un aumento masivo en los mercados de criptomonedas. La empresa destaca...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de CME Group en el comercio de criptomonedas es evidente a través de la facilitación de futuros y opciones de Bitcoin y Ether por parte de la empresa, y la empresa señala nuevos récords en futuros de criptomonedas. Esto se ve respaldado además por el aumento en el volumen de product...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CME" data-company="CME GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CME</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CME GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los ingresos por datos de mercado de CME alcanzaron un nivel récord. CME equipa a los traders...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de CME en el análisis de datos es evidente a través de varios aspectos de sus operaciones. Los ingresos por datos de mercado de la compañía alcanzaron un nivel récord y equipa a los traders minoristas con más datos y análisis para prepararlos mejor para operar. Además, los ingresos ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CME" data-company="CME GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CME</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CME GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de CME Group se centra en gran medida en productos financieros. La empresa facilita la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de CME Group se centra en gran medida en productos financieros, como lo demuestra su amplia gama de ofertas, que incluyen futuros, opciones y swaps en diversas clases de activos como tasas de interés, índices bursátiles, divisas, materias primas agrícolas, energía y metales. La empresa fa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CME" data-company="CME GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CME</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CME GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CME participa en Soluciones Fintech, incluido el proyecto de transformación de Google Cloud. Los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de CME en Soluciones Fintech se refleja en sus inversiones en tecnología, incluido el proyecto de transformación de Google Cloud y las licencias de software. Esto se combina con la operación de plataformas de negociación electrónica como BrokerTec y EBS, que facilitan las transaccio...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CME" data-company="CME GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CME</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CME GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CME Group alcanzó récords de volumen trimestral en metales. El aumento de los volúmenes en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de CME Group con el tema de los metales preciosos es evidente a través de su oferta de contratos de futuros y opciones sobre metales, incluidos oro, plata y cobre. La empresa alcanzó récords de volumen trimestral en metales, y el volumen total de contratos de metales aumentó debido a l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CME" data-company="CME GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CME</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CME GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio principal de CME Group gira en torno a la operación of bolsas financieras. CME, CBOT,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de CME Group gira en torno a la operación de bolsas financieras, incluidas CME, CBOT, NYMEX y COMEX, como se destaca en todo el documento. Estas bolsas facilitan la negociación de futuros, opciones y diversos instrumentos financieros, desempeñando un papel central en la gestión ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">COIN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase proporciona infraestructura de custodia, negociación y pago a más de 240 empresas. Esto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Coinbase con los servicios de Blockchain es evidente a través de su oferta de Cripto como Servicio (CaaS), que proporciona infraestructura de custodia, negociación y pago a más de 240 empresas. Esto incluye potenciar más del 80% de la custodia para los emisores de cripto ETFs y asoc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">COIN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase aprovecha su infraestructura criptográfica para empoderar a las empresas a través of sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Coinbase demuestra su compromiso con la tecnología blockchain a través de varias iniciativas clave. La empresa aprovecha su infraestructura criptográfica para empoderar a las empresas a través de sus capacidades de Cripto como Servicio, que admiten custodia, comercio y pagos para más de 240 empresas...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">COIN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase se centra en impulsar el crecimiento en negocios centrales como el comercio. Este...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de Coinbase al Comercio de Criptomonedas es sustancial, ya que es el núcleo de su modelo de negocio. Los ingresos de la empresa dependen en gran medida de los ingresos por transacciones derivados del comercio de criptomonedas, y están trabajando activamente para expandir su plataforma ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">COIN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase almacena de forma segura el AOP adicional de los clientes. AOP representan el valor total...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Coinbase con los Servicios de Custodia es evidente a través de sus Activos en Plataforma (AOP), que representan el valor total de los activos de USDC y cripto mantenidos o administrados para los clientes, incluidos los servicios de custodia. Este AOP demuestra la confianza que los c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">COIN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase está comprometido con las soluciones de pago. Esto incluye USDC, Base, aplicaciones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Coinbase está significativamente comprometido con las soluciones de pago, considerándolo un área de crecimiento central y el próximo caso de uso importante para las criptomonedas, con el objetivo de que la mayoría de los pagos se ejecuten en vías de stablecoin. Esto está respaldado por su pila de pa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">COIN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase se enfoca en construir un 'exchange de todo' para facilitar la negociación of varios tipos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Coinbase se enfoca en construir un 'exchange de todo' para facilitar la negociación de varios tipos de activos en canales de criptomonedas, integrando exchanges descentralizados en su plataforma. Esta iniciativa incluye ofrecer un conjunto completo de derivados y futuros y opciones perpetuas, destac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FDS" data-company="FACTSET RESEARCH SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FDS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FACTSET RESEARCH SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa está ampliando su oferta de datos para abarcar un inventario completo. Esta expansión...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con las Finanzas Sostenibles es evidente en sus esfuerzos por escalar su ecosistema de datos. Esta expansión incluye la incorporación de datos granulares para verticales clave de la industria, datos de mercado en tiempo real, datos de fondos y, específicamente, datos de f...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HOOD" data-company="ROBINHOOD MARKETS INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HOOD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBINHOOD MARKETS INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Robinhood Banking ofrece servicios de crédito y funcionalidades de tarjetas de débito. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Robinhood en los servicios bancarios es evidente a través de varias iniciativas, en particular el lanzamiento de Robinhood Banking, que tiene como objetivo proporcionar una experiencia bancaria privada a una amplia audiencia con características como cuentas de ahorro de alto rend...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HOOD" data-company="ROBINHOOD MARKETS INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HOOD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBINHOOD MARKETS INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Robinhood tiene como objetivo democratizar las finanzas proporcionando acceso al sistema...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Robinhood en las finanzas del consumidor es evidente a través de sus ofertas como la Gold Card, préstamos con margen y el lanzamiento de Robinhood Banking con cuentas de ahorro y corrientes. El programa de tarjetas de crédito de la empresa genera ingresos por intereses e incluye ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HOOD" data-company="ROBINHOOD MARKETS INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HOOD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBINHOOD MARKETS INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa facilita el comercio de criptomonedas en su plataforma. Robinhood está desarrollando...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de Robinhood al comercio de criptomonedas es significativa, ya que la empresa facilita el comercio de criptomonedas en su plataforma, generando ingresos basados en transacciones al dirigir las órdenes de los clientes a los creadores de mercado. La dedicación de la empresa a las criptom...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HOOD" data-company="ROBINHOOD MARKETS INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HOOD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBINHOOD MARKETS INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La misión principal de Robinhood es democratizar las finanzas. Robinhood innova constantemente en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La misión principal de Robinhood es democratizar las finanzas, y lo logra creando plataformas de servicios financieros modernas y basadas en tecnología, accesibles para todos. Todo el modelo de negocio de la empresa gira en torno a la provisión de estos servicios tecnológicamente avanzados, que incl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBKR" data-company="INTERACTIVE BROKERS GRO-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBKR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERACTIVE BROKERS GRO-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Interactive Brokers se centra en gran medida en productos financieros. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Interactive Brokers se centra en gran medida en productos financieros, ya que se especializan en el enrutamiento de órdenes, la ejecución y el procesamiento de operaciones en una amplia gama de instrumentos, que incluyen acciones, opciones, futuros, divisas, bonos, fondos mutuos, ETF y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBKR" data-company="INTERACTIVE BROKERS GRO-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBKR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERACTIVE BROKERS GRO-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Interactive Brokers demuestra un fuerte enfoque en Soluciones Fintech. La plataforma permite a los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Interactive Brokers demuestra un fuerte enfoque en Soluciones Fintech a través de su desarrollo y uso de tecnología propia para automatizar las funciones de corredor-agente. La plataforma de la empresa permite a los clientes monitorear múltiples mercados globales y ejecutar operaciones electrónicame...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBKR" data-company="INTERACTIVE BROKERS GRO-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBKR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERACTIVE BROKERS GRO-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma de IBKR facilita la negociación de metales preciosos, especializándose en el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La plataforma de IBKR facilita la negociación de metales preciosos, especializándose en el enrutamiento de órdenes, la ejecución y el procesamiento de operaciones en más de 160 bolsas electrónicas y centros de mercado a nivel mundial. La empresa admite la negociación de diversos instrumentos, inclui...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBKR" data-company="INTERACTIVE BROKERS GRO-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBKR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERACTIVE BROKERS GRO-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Interactive Brokers demuestra una fuerte conexión con el tema de la industria de las Bolsas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Interactive Brokers demuestra una fuerte conexión con el tema de la industria de las Bolsas Financieras, principalmente a través de su especialización en el enrutamiento de órdenes y la ejecución de operaciones en una vasta red de más de 150 bolsas electrónicas y centros de mercado a nivel mundial. ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBKR" data-company="INTERACTIVE BROKERS GRO-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBKR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERACTIVE BROKERS GRO-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBKR presta servicios a varios tipos de cuentas, incluidas las de fondos de cobertura, fondos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBKR en servicios de gestión de patrimonio se demuestra a través de sus cuentas de custodia y servicio para asesores de inversión registrados, junto con su tecnología de cartera modelo y herramientas automatizadas de asignación y reequilibrio de acciones que atraen a asesores fin...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICE" data-company="INTERCONTINENTAL EXCHANGE IN">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ICE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERCONTINENTAL EXCHANGE IN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ICE demuestra una conexión significativa con el tema of Mercados de Capitales. La empresa conecta a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">ICE demuestra una conexión significativa con el tema de Mercados de Capitales a través de la operación de tecnología de mercado regulado que facilita la cotización, negociación y compensación de diversos derivados y valores financieros. La empresa conecta a los emprendedores con capital a través de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICE" data-company="INTERCONTINENTAL EXCHANGE IN">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ICE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERCONTINENTAL EXCHANGE IN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ICE ofrece servicios globales de compensación de swaps de incumplimiento crediticio (CDS) y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ICE en el crédito y los préstamos es evidente a través de varios servicios clave. La empresa ofrece servicios globales de compensación de swaps de incumplimiento crediticio (CDS) y ejecución de renta fija. Su segmento de Tecnología Hipotecaria proporciona una plataforma tecnológi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICE" data-company="INTERCONTINENTAL EXCHANGE IN">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ICE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERCONTINENTAL EXCHANGE IN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ICE enfoque en garantizar la resiliencia de sus plataformas electrónicas y planes de continuidad...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ICE en Ciberseguridad es evidente a través de su enfoque en garantizar la resiliencia de sus plataformas electrónicas y planes de continuidad del negocio, particularmente frente a ciberataques. La empresa enfatiza la seguridad de su Red Global ICE, describiéndola como una red ult...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICE" data-company="INTERCONTINENTAL EXCHANGE IN">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ICE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERCONTINENTAL EXCHANGE IN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ICE ofrece precios de renta fija, datos de referencia, índices, análisis y servicios de ejecución....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ICE en el análisis de datos es evidente a través de su provisión de tecnología y servicios de datos a una clientela diversa, incluidas instituciones financieras y entidades gubernamentales. La empresa ofrece precios de renta fija, datos de referencia, índices, análisis y servicio...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICE" data-company="INTERCONTINENTAL EXCHANGE IN">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ICE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERCONTINENTAL EXCHANGE IN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ICE ofrece herramientas integrales de flujo de trabajo digital destinadas a abordar las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de ICE con las soluciones digitales es evidente a través de su segmento de Tecnología Hipotecaria, que proporciona una plataforma tecnológica que ofrece herramientas integrales de flujo de trabajo digital destinadas a abordar las ineficiencias y mitigar los riesgos en el mercado hipote...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICE" data-company="INTERCONTINENTAL EXCHANGE IN">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ICE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERCONTINENTAL EXCHANGE IN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Bolsas de ICE genera ingresos sustanciales. ICE opera en varios mercados...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ICE en el tema de los Mercados Financieros es evidente a través de la operación de tecnología de mercado regulada que facilita la cotización, negociación y compensación de una amplia gama de contratos de derivados y valores financieros. Esto incluye la provisión de datos esencial...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICE" data-company="INTERCONTINENTAL EXCHANGE IN">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ICE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERCONTINENTAL EXCHANGE IN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Las operaciones de ICE están fuertemente involucradas en productos financieros. ICE proporciona...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de ICE están fuertemente involucradas en productos financieros, como lo demuestra su tecnología de mercado regulado que facilita la cotización, negociación y compensación de una amplia gama de contratos de derivados y valores financieros. El segmento de Bolsas de la compañía cotiza u...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICE" data-company="INTERCONTINENTAL EXCHANGE IN">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ICE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERCONTINENTAL EXCHANGE IN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ICE es proveedor global líder de tecnología y datos para instituciones financieras, corporaciones y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ICE en la industria de Servicios Financieros es evidente a través de su papel como proveedor global líder de tecnología y datos para instituciones financieras, corporaciones y entidades gubernamentales. La empresa opera tecnología de mercado regulada para la cotización, negociaci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICE" data-company="INTERCONTINENTAL EXCHANGE IN">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ICE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERCONTINENTAL EXCHANGE IN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ICE ofrece herramientas integrales de flujo de trabajo digital diseñadas para mejorar la eficiencia...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ICE con Fintech Solutions es evidente a través de su segmento de Tecnología Hipotecaria, que ofrece herramientas integrales de flujo de trabajo digital diseñadas para mejorar la eficiencia y reducir los riesgos en el mercado hipotecario residencial de EE. UU. La estrategia de la ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICE" data-company="INTERCONTINENTAL EXCHANGE IN">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ICE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERCONTINENTAL EXCHANGE IN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ICE se ve afectado por las tendencias de la industria hipotecaria. Esta plataforma proporciona...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ICE en la industria de la banca hipotecaria es evidente a través de su segmento de Tecnología Hipotecaria, que proporciona una plataforma tecnológica con herramientas de flujo de trabajo digital para el mercado hipotecario residencial de EE. UU., abordando ineficiencias y mitigan...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICE" data-company="INTERCONTINENTAL EXCHANGE IN">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ICE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERCONTINENTAL EXCHANGE IN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ICE ofrece herramientas de flujo de trabajo digital integrales diseñadas para abordar las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ICE en los servicios de financiación hipotecaria es evidente a través de su segmento de Tecnología Hipotecaria, que proporciona una plataforma tecnológica que ofrece herramientas de flujo de trabajo digital integrales diseñadas para abordar las ineficiencias y mitigar los riesgos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICE" data-company="INTERCONTINENTAL EXCHANGE IN">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ICE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERCONTINENTAL EXCHANGE IN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ICE opera tecnología de mercado para cotización, negociación y compensación. El segmento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ICE en el tema de los Mercados Financieros es significativa, ya que la empresa opera tecnología de mercado regulada para la cotización, negociación y compensación de una amplia gama de contratos de derivados y valores financieros. El segmento de Mercados, que incluye ingresos por...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCO" data-company="MOODY'S CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MOODY'S CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Moody's Analytics participa en Servicios Bancarios a través ofrece negocios de SaaS basados en la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Moody's Analytics participa en Servicios Bancarios a través de su segmento Decision Solutions, que ofrece negocios de SaaS basados en la nube que atienden flujos de trabajo bancarios. Esto incluye ofertas bancarias por suscripción que permiten los flujos de trabajo de préstamos, gestión de riesgos y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCO" data-company="MOODY'S CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MOODY'S CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MIS desempeña un papel crucial al publicar calificaciones crediticias. Esto incluye valores...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Moody's en los Mercados de Capitales es evidente en sus operaciones principales, particularmente a través de Moody's Investors Service (MIS). MIS desempeña un papel crucial al publicar calificaciones crediticias y ofrecer servicios de evaluación sobre diversas obligaciones de deu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCO" data-company="MOODY'S CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MOODY'S CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Moody's Analytics juega un papel en la industria de Crédito y Préstamos. Soluciones de Decisión...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Moody's Analytics juega un papel en la industria de Crédito y Préstamos a través de sus Soluciones de Decisión SaaS basadas en la nube, que sirven a los flujos de trabajo bancarios al permitir las operaciones de préstamos, gestión de riesgos y finanzas de los clientes. Esto se logra a través de ofer...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCO" data-company="MOODY'S CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MOODY'S CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Moody's Analytics (MA) es un proveedor líder de calificaciones crediticias, investigación y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Moody's participa significativamente en servicios de crédito tanto a través de Moody's Investors Service (MIS) como de Moody's Analytics (MA). MIS es un proveedor líder de calificaciones crediticias, investigación y análisis de riesgos, que ofrece servicios de evaluación sobre una amplia gama de obl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCO" data-company="MOODY'S CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MOODY'S CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Moody's Analytics proporciona datos, inteligencia y herramientas analíticas para ayudar a los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Moody's con el Análisis de Datos es evidente a través de su segmento Moody's Analytics (MA), que proporciona datos, inteligencia y herramientas analíticas para ayudar a los líderes empresariales y financieros a tomar decisiones seguras. Esto incluye ofrecer datos y soluciones analít...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCO" data-company="MOODY'S CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MOODY'S CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Moody's demuestra su compromiso con las Inversiones ESG al integrar factores ESG en sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Moody's demuestra su compromiso con las Inversiones ESG al integrar factores ESG en sus operaciones, cadena de valor, productos y servicios. Esto se ve respaldado además por el uso de conocimientos y activos especializados para proporcionar herramientas tecnológicas, investigación y servicios analít...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCO" data-company="MOODY'S CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MOODY'S CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Moody's Investors Service (MIS) desempeña un papel crucial al publicar calificaciones crediticias....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de Moody's al tema de Productos Financieros es evidente en sus operaciones comerciales principales. Moody's Investors Service (MIS) desempeña un papel crucial al publicar calificaciones crediticias y ofrecer servicios de evaluación sobre una amplia gama de obligaciones de deuda, progra...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCO" data-company="MOODY'S CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MOODY'S CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Moody's Analytics ofrece datos, inteligencia y herramientas analíticas destinadas a ayudar a los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Moody's participa en la industria de servicios financieros a través de varias facetas de sus operaciones. Moody's Analytics (MA) ofrece datos, inteligencia y herramientas analíticas destinadas a ayudar a los líderes empresariales y financieros a tomar decisiones bien informadas, mientras que Moody's...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCO" data-company="MOODY'S CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MOODY'S CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La exposición de Moody's Analytics al tema de Servicios de Seguros es evidente. La participación de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de Moody's Analytics al tema de Servicios de Seguros es evidente a través de sus Soluciones de Decisión basadas en la nube, que atienden los flujos de trabajo de seguros y contribuyen a los ingresos de la empresa. La participación de la empresa se demuestra aún más por su conferencia d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCO" data-company="MOODY'S CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MOODY'S CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Moody's Analytics diseñado soluciones KYC diseñadas para abordar el riesgo de clientes y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Moody's con la Tecnología Regulatoria es evidente a través de sus Soluciones de Decisión de Moody's Analytics, que incluyen soluciones KYC diseñadas para abordar el riesgo de clientes y proveedores. La compañía ha asegurado un acuerdo de KYC multimillonario con un importante banco g...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKTX" data-company="MARKETAXESS HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MARKETAXESS HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MarketAxess está profundamente integrada en la industria de los Mercados de Capitales. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">MarketAxess está profundamente integrada en la industria de los Mercados de Capitales, principalmente a través de la operación de plataformas líderes de negociación electrónica que mejoran la eficiencia comercial y la liquidez en los mercados globales de renta fija. Las plataformas de la empresa son...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKTX" data-company="MARKETAXESS HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MARKETAXESS HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MarketAxess sirviendo a aproximadamente 2.100 inversores institucionales y empresas de corretaje....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">MarketAxess está profundamente involucrada en el tema de los Mercados Financieros, principalmente a través de la operación de plataformas líderes de negociación electrónica. Estas plataformas facilitan la negociación eficiente, proporcionan liquidez y ofrecen ahorro de costos en los mercados mundial...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKTX" data-company="MARKETAXESS HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MARKETAXESS HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MarketAxess juega un papel importante en la negociación de productos financieros. 2.000 empresas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La plataforma de MarketAxess juega un papel importante en la negociación de productos financieros, como lo demuestra el hecho de que más de 2.000 empresas de inversores institucionales y corredores-agentes utilizan su tecnología de negociación patentada para negociar eficientemente una amplia gama d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKTX" data-company="MARKETAXESS HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MARKETAXESS HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MarketAxess está involucrada con Soluciones Fintech. La empresa aprovecha diversos protocolos de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">MarketAxess está profundamente involucrada con Soluciones Fintech, como lo demuestra la operación de plataformas líderes de negociación electrónica que mejoran la eficiencia de la negociación y brindan ahorros de costos para los clientes. La empresa aprovecha diversos protocolos de negociación, solu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKTX" data-company="MARKETAXESS HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MARKETAXESS HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MarketAxess sirve a aproximadamente 2.100 inversores institucionales y firmas de intermediarios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">MarketAxess participa activamente en la industria de las Bolsas Financieras, principalmente a través de la operación de plataformas de negociación electrónica. Estas plataformas facilitan la negociación de una amplia gama de valores de renta fija, incluyendo bonos de alta calidad y alto rendimiento ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NDAQ" data-company="NASDAQ INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NDAQ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NASDAQ INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nasdaq presta servicios a diversos participantes, incluidos clientes corporativos, bancos,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Nasdaq están profundamente entrelazadas con los mercados de capitales, como lo demuestra su papel como empresa de tecnología global que presta servicios a diversos participantes, incluidos clientes corporativos, gestores de inversiones, bancos, corredores y operadores de bolsas. L...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NDAQ" data-company="NASDAQ INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NDAQ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NASDAQ INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nasdaq ha visto un aumento en los ingresos en su segmento de Workflow & Insights. El crecimiento en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Nasdaq con el análisis de datos es evidente a través de sus diversas ofertas, que incluyen datos, análisis, software y servicios centrados en el cliente diseñados para optimizar las visiones comerciales de los clientes. La compañía ha visto un aumento en los ingresos en su segmento ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NDAQ" data-company="NASDAQ INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NDAQ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NASDAQ INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nasdaq opera en tres segmentos de negocio: Plataformas de Acceso a Capital, Tecnología Financiera y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Nasdaq en el tema de Servicios Financieros es evidente a través de su papel como empresa de tecnología global que atiende a clientes corporativos, gestores de inversiones, bancos, corredores y operadores de bolsas mientras navegan por los mercados de capitales globales y el siste...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NDAQ" data-company="NASDAQ INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NDAQ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NASDAQ INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nasdaq opera como una empresa global de tecnología. Ofrece plataformas para mejorar la liquidez, la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Nasdaq opera como una empresa global de tecnología, que ofrece plataformas para mejorar la liquidez, la transparencia y la integridad de la economía global. El segmento de Tecnología Financiera de la empresa proporciona soluciones basadas en tecnología para servicios financieros, incluida la gestión...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NDAQ" data-company="NASDAQ INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NDAQ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NASDAQ INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nasdaq participa en Tecnología Financiera, que incluye contratos de SaaS. Este segmento ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Nasdaq en Tecnología Regulatoria es evidente a través de su segmento de Tecnología Financiera, que incluye contratos de SaaS y suscripción de Tecnología Regulatoria. Este segmento ha demostrado un crecimiento de los ingresos, impulsado por el aumento de las suscripciones de las o...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NDAQ" data-company="NASDAQ INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NDAQ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NASDAQ INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nasdaq abarcan tres segmentos: Plataformas de Acceso a Capital, Tecnología Financiera y Servicios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El fuerte compromiso de Nasdaq con el tema de los mercados financieros es evidente a través de su papel como empresa de tecnología global al servicio de diversos actores en los mercados de capitales, incluidos los operadores de bolsas. Las operaciones de la empresa abarcan tres segmentos: Plataforma...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SCHW" data-company="SCHWAB (CHARLES) CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SCHW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCHWAB (CHARLES) CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Charles Schwab Bank, SSB (CSB) ofrece una gama de servicios bancarios. Los clientes interactúan...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Schwab en servicios bancarios es evidente a través de su subsidiaria, Charles Schwab Bank, SSB (CSB), identificada como su principal entidad bancaria. La empresa ofrece una gama de servicios bancarios, que incluyen depósitos bancarios, préstamos y pasivos que devengan intereses, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SCHW" data-company="SCHWAB (CHARLES) CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SCHW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCHWAB (CHARLES) CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Schwab brinda servicios de custodia a asesores de inversión registrados (RIA) y administradores de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Schwab en el tema de la industria de Servicios de Custodia es evidente a través de su participación, vía sus subsidiarias, en gestión de patrimonio, corretaje de valores, banca, gestión de activos, custodia y servicios de asesoramiento financiero. Específicamente, Schwab brinda s...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SCHW" data-company="SCHWAB (CHARLES) CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SCHW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCHWAB (CHARLES) CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Schwab Investment Management, Inc. (CSIM) actúa como asesor de inversiones para los fondos mutuos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Schwab en la gestión de patrimonio, corretaje de valores, banca, gestión de activos, custodia y servicios de asesoramiento financiero destaca su fuerte conexión con los productos financieros. La empresa ofrece una amplia gama de productos y soluciones financieras, que incluyen accio...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SCHW" data-company="SCHWAB (CHARLES) CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SCHW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCHWAB (CHARLES) CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio principal de Schwab gira en torno a la prestación de servicios financieros. Estos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Schwab gira en torno a la prestación de un conjunto integral de servicios financieros, que incluyen gestión de patrimonio, corretaje de valores, banca, gestión de activos, custodia y servicios de asesoramiento financiero. Estos servicios se ofrecen tanto a clientes individual...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SCHW" data-company="SCHWAB (CHARLES) CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SCHW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCHWAB (CHARLES) CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Charles Schwab participa activamente en gestión de patrimonio, corretaje de valores, banca and...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Charles Schwab en el tema de Gestión de Inversiones es evidente a través de su diversa gama de servicios y subsidiarias dedicadas. La empresa participa activamente en gestión de patrimonio, corretaje de valores, banca, gestión de activos, custodia y servicios de asesoramiento fin...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SCHW" data-company="SCHWAB (CHARLES) CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SCHW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCHWAB (CHARLES) CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Schwab Wealth Advisory ha experimentado importantes flujos netos, y sus esfuerzos por mejorar las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Schwab con la gestión de patrimonios es evidente a través de sus filiales, con servicios que se extienden a la intermediación de valores, la banca, la gestión de activos, la custodia y los servicios de asesoramiento financiero. Estos servicios se prestan tanto a clientes individuale...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SNEX" data-company="STONEX GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SNEX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STONEX GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">StoneX proporciona servicios de gestión de riesgos y cobertura, ejecución y compensación de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de StoneX en la industria agroindustrial es evidente a través de su completa gama de servicios ofrecidos a clientes comerciales, incluidos los del sector agrícola. La compañía proporciona servicios de gestión de riesgos y cobertura, ejecución y compensación de productos cotizados en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SNEX" data-company="STONEX GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SNEX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STONEX GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento Comercial de la empresa participa activamente en 'Financial Ag & Energy' y 'Physical Ag...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de StoneX en la industria de productos agrícolas es evidente a través de su completa gama de servicios ofrecidos a clientes comerciales, que incluyen gestión de riesgos, cobertura, ejecución y compensación de productos cotizados en bolsa y extrabursátiles. El segmento Comercial de l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SPGI" data-company="S&P GLOBAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SPGI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">S&P GLOBAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">S&P Global está ejecutando una estrategia de IA a nivel empresarial para acelerar la innovación y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">S&P Global está integrando activamente la IA para mejorar sus ofertas de productos y procesos internos. La empresa está ejecutando una estrategia de IA a nivel empresarial para acelerar la innovación y mejorar la productividad, así como integrando IA generativa en el desarrollo de productos y flujos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SPGI" data-company="S&P GLOBAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SPGI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">S&P GLOBAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">S&P Global tiene una inversión en OSTTRA, una empresa conjunta with CME Group. Además, refuerza su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de S&P Global con la temática de Mercados de Capitales es evidente a través de la provisión de calificaciones crediticias, puntos de referencia, análisis y soluciones de flujo de trabajo a los mercados de capitales globales, que incluyen administradores de activos, bancos de inversión ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SPGI" data-company="S&P GLOBAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SPGI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">S&P GLOBAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">S&P Global is un proveedor importante de calificaciones crediticias, investigación y análisis. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de S&P Global con el tema de Crédito y Préstamos es evidente a través de su segmento de Calificaciones, un proveedor importante de calificaciones crediticias, investigación y análisis, que son esenciales para los mercados de crédito y préstamos. La empresa ofrece una variedad de produc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SPGI" data-company="S&P GLOBAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SPGI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">S&P GLOBAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">S&P Global es un proveedor global de datos y análisis multi-clase de activos. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de S&P Global en el análisis de datos es evidente a través de sus diversos segmentos de negocio. Market Intelligence es un proveedor global de datos y análisis multi-clase de activos integrados con soluciones de flujo de trabajo especialmente diseñadas que ayudan a los profesionales...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SPGI" data-company="S&P GLOBAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SPGI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">S&P GLOBAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">S&P Global ofrece soluciones digitales para profesionales del trading y la inversión, agencias...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de S&P Global con las soluciones digitales es evidente a través de sus diversos segmentos, en particular Market Intelligence, que ofrece datos y análisis multiclase de activos integrados con soluciones de flujo de trabajo. Estas soluciones se dirigen a profesionales del trading y la in...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SPGI" data-company="S&P GLOBAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SPGI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">S&P GLOBAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">S&P Global presta servicios a los mercados OTC en diversas clases de activos. Se extiende al...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de S&P Global en los mercados financieros es evidente a través de la provisión de calificaciones crediticias, puntos de referencia, análisis y soluciones de flujo de trabajo a los mercados de capital globales, incluidos administradores de activos, bancos de inversión y bolsas. La pa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SPGI" data-company="S&P GLOBAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SPGI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">S&P GLOBAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">S&P Global ofrece calificaciones crediticias, benchmarks, análisis y soluciones de flujo de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de S&P Global con el tema de Productos Financieros es evidente a través de su diversa oferta y servicios dentro de los mercados de capitales globales. La compañía proporciona calificaciones crediticias, benchmarks, análisis y soluciones de flujo de trabajo, atendiendo a gestores de act...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SPGI" data-company="S&P GLOBAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SPGI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">S&P GLOBAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">S&P Global opera en los mercados de capital, materias primas y automotriz. El segmento of Commodity...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de S&P Global en el tema de la industria de servicios financieros es evidente a través de la provisión de calificaciones crediticias, benchmarks, análisis y soluciones de flujo de trabajo dentro de los mercados de capital globales. La empresa opera en los mercados de capital, materi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SPGI" data-company="S&P GLOBAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SPGI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">S&P GLOBAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">S&P Global demuestra su participación en Soluciones Fintech a través de varias vías. El segmento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">S&P Global demuestra su participación en Soluciones Fintech a través de varias vías. El segmento de Market Intelligence de la empresa proporciona datos y análisis multiclase de activos integrados con soluciones de flujo de trabajo diseñadas específicamente, mientras que sus Enterprise Solutions ofre...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SPGI" data-company="S&P GLOBAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SPGI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">S&P GLOBAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">S&P Global es un proveedor global de puntos de referencia de valoración e índices. El segmento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de S&P Global en el tema de Gestión de Inversiones es evidente a través de su segmento de Índices, un proveedor global de puntos de referencia de valoración e índices. Estos puntos de referencia y herramientas están diseñados para ayudar en la toma de decisiones, fomentar la colabor...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SPGI" data-company="S&P GLOBAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SPGI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">S&P GLOBAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">S&P Global está aumentando su enfoque en soluciones de cadena de suministro. Adquisición del...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">S&P Global está aumentando su enfoque en soluciones de cadena de suministro, como lo demuestra la adquisición del negocio de servicios de datos del Sistema de Identificación Automática (AIS) de ORBCOMM, que rastrea y monitorea embarcaciones vía satélite para mejorar la visibilidad marítima. Se esper...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SPGI" data-company="S&P GLOBAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SPGI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">S&P GLOBAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Índices desempeña un papel crucial al mantener puntos de referencia de valoración e...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de S&P Global en los Servicios de Gestión de Patrimonios es evidente a través de varias iniciativas estratégicas. El segmento de Índices desempeña un papel crucial al mantener puntos de referencia de valoración e índices adaptados para asesores de inversión, gestores de patrimonios ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TW" data-company="TRADEWEB MARKETS INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRADEWEB MARKETS INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tradeweb se enfoca en mejorar la negociación electrónica en los mercados de renta fija. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tradeweb en el tema de Mercados de Capitales es evidente en la operación de mercados electrónicos que facilitan la negociación de una gama de clases de activos, incluyendo tasas, crédito, acciones y mercados monetarios, para una red global de clientes. La compañía se enfoca en me...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TW" data-company="TRADEWEB MARKETS INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRADEWEB MARKETS INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tradeweb se centra en la construcción y operación de mercados electrónicos para una red global de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Tradeweb se centra en la construcción y operación de mercados electrónicos para una red global de más de 3.000 clientes dentro del ecosistema financiero, facilitando la negociación en diversas clases de activos, incluyendo tasas, crédito, acciones y mercados monetarios. Las plataformas...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TW" data-company="TRADEWEB MARKETS INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRADEWEB MARKETS INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tradeweb ofrece negociación en diversos productos financieros. Está experimentando un crecimiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tradeweb en el tema de Productos Financieros es evidente en su modelo de negocio principal, ya que sus mercados facilitan la negociación en una variedad de clases de activos, incluyendo tasas, crédito, acciones y mercados monetarios. La empresa ofrece negociación en diversos prod...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TW" data-company="TRADEWEB MARKETS INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRADEWEB MARKETS INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La red de la empresa abarca sectores de clientes institucionales, mayoristas, minoristas y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra una fuerte conexión con el tema de Trading Institucional a través de su extensa red y servicios. La red de la empresa abarca sectores de clientes institucionales, mayoristas, minoristas y corporativos, incluidas entidades importantes como gestores de activos, fondos de cobertura...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TW" data-company="TRADEWEB MARKETS INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRADEWEB MARKETS INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Mortgage REIT (Fideicomiso de Inversión en Bienes Raíces Hipotecarios) proviene de su papel en la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de la empresa con el tema de Mortgage REIT (Fideicomiso de Inversión en Bienes Raíces Hipotecarios) proviene de su papel en la facilitación de transacciones de valores respaldados por hipotecas por anunciar (TBA-MBS) a través de sus plataformas de negociación, de las cuales obtiene tarif...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VIRT" data-company="VIRTU FINANCIAL INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VIRT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VIRTU FINANCIAL INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Virtu actúa como agente para los emisores en relación with las ofertas al mercado y los programas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Virtu con el tema de los Mercados de Capitales es evidente a través de su papel en la facilitación de la transferencia de riesgos al proporcionar liquidez a los participantes del mercado de capitales mundial. La empresa actúa como agente para los emisores en relación con las ofertas...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VIRT" data-company="VIRTU FINANCIAL INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VIRT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VIRTU FINANCIAL INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Virtu ofrece servicios de ejecución y opera mercados de negociación como Virtu MatchIt y POSIT....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Virtu en el tema de Mercados Financieros es evidente en su papel de proveer liquidez a los mercados globales a través de soluciones de negociación transparentes. Las ofertas de la empresa permiten a los clientes operar en cientos de mercados en más de 50 países y en múltiples cla...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VIRT" data-company="VIRTU FINANCIAL INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VIRT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VIRTU FINANCIAL INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa interactúa directamente with un amplio espectro de entidades financieras. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el trading institucional es evidente a través de la provisión de servicios de ejecución para clientes y plataformas de trading que facilitan el trading transparente en diversas clases de activos, incluyendo acciones globales, ETFs, renta fija, divisas y materias pri...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VIRT" data-company="VIRTU FINANCIAL INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VIRT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VIRTU FINANCIAL INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Virtu proporciona liquidez y soluciones de negociación en numerosos mercados a nivel mundial. Virtu...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Virtu está estrechamente ligado al tema de los mercados financieros, ya que la empresa proporciona liquidez y soluciones de negociación en numerosos mercados a nivel mundial. Virtu se integra directamente con los mercados y centros de liquidez, ofreciendo a los clientes acceso para ope...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BGC" data-company="BGC GROUP INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BGC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BGC GROUP INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BGC está desafiando activamente la posición de liderazgo de CME en futuros de tasas de interés de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de BGC con el tema de los Mercados Financieros es evidente a través de su plataforma FMX, que incluye mercados para bonos del Tesoro de EE. UU. (FMX UST), divisas (FMX FX) y futuros de tasas de interés de EE. UU. El enfoque de la empresa en escalar su SOFR Futures ADV y su interés abie...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CME" data-company="CME GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CME</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CME GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La conexión de CME Group with los Mercados Financieros es evidente en la operación of bolsas como...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de CME Group con los Mercados Financieros es evidente en la operación de bolsas como CME, CBOT, NYMEX y COMEX, que facilitan la negociación de diversas clases de activos. Una parte importante de los ingresos de la empresa se deriva de las tarifas de compensación y transacción generadas e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">COIN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase ofrece capacidades de Criptomonedas como Servicio, que incluyen custodia, comercio y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Coinbase en las criptomonedas y la construcción de infraestructura financiera subraya su compromiso con las Soluciones Fintech, con el objetivo de ser la plataforma de servicios financieros número 1 a nivel mundial. La empresa proporciona infraestructura para nuevos participantes, vend...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FDS" data-company="FACTSET RESEARCH SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FDS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FACTSET RESEARCH SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">FactSet se está posicionando estratégicamente como líder en inteligencia financiera impulsada by...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">FactSet se está posicionando estratégicamente como líder en inteligencia financiera impulsada por IA, lo que se refleja en sus continuas inversiones en IA y una hoja de ruta de IA multianual. Este compromiso se evidencia en el lanzamiento de seis ofertas distintas impulsadas por IA diseñadas para au...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HOOD" data-company="ROBINHOOD MARKETS INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HOOD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBINHOOD MARKETS INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma de Robinhood, que permite operar con acciones, opciones y criptomonedas, funciona de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Robinhood en el tema de la industria de Bolsas Financieras es evidente a través de su facilitación de operaciones en diversas clases de activos y su misión de democratizar las finanzas para todos. La plataforma de la empresa, que permite operar con acciones, opciones y criptomone...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBKR" data-company="INTERACTIVE BROKERS GRO-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBKR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERACTIVE BROKERS GRO-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Interactive Brokers tiene una inversión estratégica en Zero Hash, un exchange de criptomonedas....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Interactive Brokers facilita el comercio de criptomonedas al permitir a los clientes operar con ciertas criptomonedas a través de proveedores de servicios externos. Reforzando esto, Interactive Brokers tiene una inversión estratégica en Zero Hash, un exchange de criptomonedas, y está colaborando con...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCO" data-company="MOODY'S CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MOODY'S CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Moody's Analytics ofrece SaaS basado en la nube para flujos de trabajo de seguros. Este segmento ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Moody's Analytics participa en Soluciones de Seguros a través de su segmento Decision Solutions, que ofrece SaaS basado en la nube para flujos de trabajo de seguros. Este segmento ha mostrado crecimiento en ingresos y ARR, impulsado por la demanda de modelos de catástrofes y actuariales basados en s...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKTX" data-company="MARKETAXESS HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MARKETAXESS HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MarketAxess integra tecnología impulsada by IA, como CP+, como una entrada de datos crítica. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">MarketAxess integra tecnología impulsada por IA, como CP+, como una entrada de datos crítica y fuente de precios en sus protocolos de negociación, incluidos Auto-X y la negociación de carteras. La empresa aprovecha su adquisición de Pragma, un proveedor de tecnología de negociación cuantitativa, par...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKTX" data-company="MARKETAXESS HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MARKETAXESS HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma de MarketAxess se utiliza ampliamente en la negociación institucional....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La plataforma de MarketAxess se utiliza ampliamente en la negociación institucional, con aproximadamente 2.100 inversores institucionales y empresas de corretaje-agente que emplean su tecnología de negociación patentada. Esta tecnología facilita la negociación eficiente de diversos valores de renta ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MKTX" data-company="MARKETAXESS HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MKTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MARKETAXESS HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MarketAxess participa en el tema de Tecnología Regulatoria a través of sus servicios de informes de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">MarketAxess participa en el tema de Tecnología Regulatoria a través de sus servicios de informes de transacciones regulatorias y el impacto de las regulaciones extensas en sus operaciones. La compañía reconoce la necesidad de dedicar recursos financieros y operativos para cumplir con las regulacione...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NDAQ" data-company="NASDAQ INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NDAQ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NASDAQ INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nasdaq presta servicios a bancos, corredores y otras instituciones financieras. Nasdaq facilita la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Nasdaq con el tema de los servicios bancarios surge de su papel como empresa de tecnología global que presta servicios a bancos, corredores y otras instituciones financieras. Nasdaq facilita la navegación e interacción de estas entidades dentro de los mercados de capital globales y el...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NDAQ" data-company="NASDAQ INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NDAQ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NASDAQ INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nasdaq atiende a diversos participantes, incluidos clientes corporativos, gestores de inversiones,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Nasdaq con los Mercados Financieros es evidente en su papel como empresa tecnológica global que atiende a diversos participantes, incluidos clientes corporativos, gestores de inversiones, bancos, corredores y operadores de bolsas, dentro de los mercados de capitales globales. Las op...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NDAQ" data-company="NASDAQ INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NDAQ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NASDAQ INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nasdaq ofrece información práctica a nivel de cartera y de fondo. El negocio de 'Índices' de Nasdaq...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Nasdaq en la gestión de inversiones es evidente a través de sus servicios a gestores de inversiones que navegan por los mercados de capitales mundiales. La plataforma de análisis de la empresa ofrece información práctica a nivel de cartera y de fondo, lo que ayuda a los clientes ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SNEX" data-company="STONEX GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SNEX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STONEX GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento Institucional se destaca específicamente por proporcionar servicios de trading de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de la compañía en el Trading Institucional es evidente a través de su conjunto de servicios de trading de acciones ofrecidos a clientes institucionales. Esto incluye proporcionar liquidez con la mejor ejecución en productos de renta fija, compensación y ejecución eficientes en los princip...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SPGI" data-company="S&P GLOBAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SPGI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">S&P GLOBAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">S&P Global utiliza herramientas impulsadas por IA como iLEVEL para ingerir datos de diversas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de S&P Global en servicios de consultoría es evidente a través de su segmento Commodity Insights, que incluye Advisory & Transactional Services. Estos servicios abarcan consultoría, conferencias, eventos y comercio global. La empresa también utiliza herramientas impulsadas por IA co...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SPGI" data-company="S&P GLOBAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SPGI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">S&P GLOBAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">S&P Global Ratings ofrece calificaciones crediticias, benchmarks, análisis y soluciones de flujo de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de S&P Global en servicios de crédito es evidente a través de la provisión de calificaciones crediticias, benchmarks, análisis y soluciones de flujo de trabajo dentro de los mercados globales de capital, materias primas y automoción. La empresa ofrece una variedad de productos en me...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SPGI" data-company="S&P GLOBAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SPGI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">S&P GLOBAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los ingresos por sostenibilidad de S&P Global experimentaron un aumento del 20%. La línea de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de S&P Global en las Inversiones ESG es evidente a través de varias iniciativas. Los ingresos por sostenibilidad de la empresa experimentaron un aumento del 20%, alcanzando los 93 millones de dólares, impulsados por una sólida demanda en todas las divisiones y notables éxitos compet...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TW" data-company="TRADEWEB MARKETS INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRADEWEB MARKETS INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tradeweb crea mercados electrónicos para más de 3.000 clientes en todo el ecosistema financiero. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Tradeweb con el tema de Bolsas Financieras es sólida, como lo demuestra su papel de liderazgo en la creación y operación de mercados electrónicos para más de 3.000 clientes en todo el ecosistema financiero. La compañía facilita la negociación en una variedad de clases de activos, incl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CBOE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cboe NL's Data Provider Agreement con Pyth Data Association. Este acuerdo facilita la creación of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Cboe con las Finanzas Descentralizadas se demuestra a través de su subsidiaria Cboe NL's Data Provider Agreement con Pyth Data Association. Este acuerdo facilita la creación de un feed de datos para publicar datos derivados del mercado de acciones en la Red Pyth, una plataforma desc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CME" data-company="CME GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CME</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CME GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CME Group atiende a una clientela global, incluyendo operadores profesionales, instituciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de CME Group con la industria de Servicios Financieros es evidente a través de sus amplias ofertas de servicios, incluyendo servicios de compensación y transacciones, servicios de datos e información de mercado, y la operación de bolsas financieras. CME Group proporciona soluciones de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">COIN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase promueve las finanzas onchain a través of recompensas de USDC. El desarrollo de Base por...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Coinbase con las Finanzas Descentralizadas es evidente a través de varias iniciativas, incluida la integración de exchanges descentralizados en la aplicación Coinbase, con el objetivo de proporcionar acceso a millones de tokens. El desarrollo de Base por parte de la empresa, una sol...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">COIN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase se centra en profundizar la adopción institucional, escalar el crecimiento internacional....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Coinbase con la economía digital es evidente a través de sus esfuerzos para impulsar el crecimiento de los ingresos, mejorar la utilidad de las criptomonedas y lograr claridad regulatoria. La empresa se centra en profundizar la adopción institucional, escalar el crecimiento internac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">COIN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase's volumen de trading institucional reportado constituye una parte importante de su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Coinbase en el trading institucional es evidente a través de su volumen de trading institucional reportado, que constituye una parte importante de su actividad de trading general. El enfoque de la empresa en 'profundizar la adopción institucional' indica un esfuerzo estratégico p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FDS" data-company="FACTSET RESEARCH SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FDS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FACTSET RESEARCH SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">FactSet demuestra exposición al tema of Private Equity a través ofertas. PE/VC ha sido identificado...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">FactSet demuestra exposición al tema de Private Equity a través de sus servicios y ofertas. La base de clientes de la compañía incluye profesionales de capital privado y capital de riesgo, y PE/VC ha sido identificado como un punto brillante, contribuyendo a acelerar el crecimiento durante cuatro tr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HOOD" data-company="ROBINHOOD MARKETS INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HOOD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBINHOOD MARKETS INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Robinhood demuestra su compromiso con la tecnología blockchain a través de varias iniciativas....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Robinhood demuestra su compromiso con la tecnología blockchain a través de varias iniciativas, incluida la facilitación del comercio de criptomonedas en su plataforma y la adquisición de Bitstamp, un intercambio de criptomonedas a escala mundial. Además, Robinhood está desarrollando activamente Robi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HOOD" data-company="ROBINHOOD MARKETS INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HOOD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBINHOOD MARKETS INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Robinhood es una empresa que facilitates the negociación of acciones, opciones y futuros. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Robinhood gira en torno a facilitar la negociación de diversas clases de activos, incluidas acciones, opciones, futuros y criptomonedas, que son componentes integrales de los mercados de capitales. Esto se logra a través de una plataforma que dirige las órdenes de los cliente...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBKR" data-company="INTERACTIVE BROKERS GRO-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBKR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERACTIVE BROKERS GRO-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El aumento de las tarifas del Programa de Transferencia de Depósitos Bancarios Asegurados,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBKR en servicios bancarios es evidente a través de varias ofertas. La empresa proporciona préstamos de margen a los clientes, paga intereses sobre los saldos de efectivo de los clientes y ofrece un Programa de Transferencia de Depósitos Bancarios Asegurados. El aumento de las ta...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBKR" data-company="INTERACTIVE BROKERS GRO-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBKR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERACTIVE BROKERS GRO-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBKR ofrece tecnología de cartera modelo y herramientas automatizadas de asignación y reequilibrio...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBKR en la gestión de inversiones es evidente a través de sus servicios para fondos de cobertura, fondos mutuos, ETF y asesores de inversión registrados, así como su provisión de servicios de corretaje principal. La empresa ofrece tecnología de cartera modelo y herramientas autom...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICE" data-company="INTERCONTINENTAL EXCHANGE IN">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ICE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERCONTINENTAL EXCHANGE IN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ICE utiliza IA dentro de su sector de tecnología hipotecaria. La empresa aprovecha la IA en los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">ICE utiliza IA dentro de su sector de tecnología hipotecaria para optimizar la automatización de datos y documentos, lo que automatiza los procesos de suscripción de préstamos, como la verificación de crédito, ingresos y garantías. La empresa aprovecha la IA en los centros de llamadas para comprende...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICE" data-company="INTERCONTINENTAL EXCHANGE IN">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ICE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERCONTINENTAL EXCHANGE IN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El volumen global de futuros y opciones de gas natural de ICE experimentó un crecimiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ICE en los mercados de gas natural es evidente a través de su plataforma que ofrece una amplia gama de referencias en EE. UU., Canadá, Europa y Asia, respaldada por mercados líquidos en Henry Hub, base norteamericana, TTF y JKM. Esto posiciona a ICE para beneficiarse tanto de la ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCO" data-company="MOODY'S CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MOODY'S CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Moody's se asociado with MSCI para proporcionar evaluaciones de riesgo independientes para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Moody's en inversiones alternativas es evidente a través de su enfoque en el crédito privado, que desempeña un papel de financiación cada vez más importante en sectores clave como la inversión en centros de datos de IA, finanzas de transición, energía e infraestructura. Esto se d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NDAQ" data-company="NASDAQ INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NDAQ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NASDAQ INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nasdaq tiene un papel exclusivo de la API Tape D de Nasdaq Private Market, lo que mejora la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Nasdaq en la infraestructura de datos es evidente a través de su apoyo a la transformación tecnológica, que impulsa la modernización de la infraestructura, la preparación para la nube y la gestión de datos mejorada. Esto se refleja en la demanda de sus soluciones Data Link y eVes...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SCHW" data-company="SCHWAB (CHARLES) CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SCHW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCHWAB (CHARLES) CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Schwab es reconocida por sus plataformas de inversión. La empresa se enfoca en evolucionar sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Schwab con las Soluciones Fintech es evidente en sus continuas inversiones en tecnología para respaldar el crecimiento, mejorar la infraestructura y desarrollar nuevos productos y capacidades. La empresa se enfoca en evolucionar sus ofertas con nuevos productos como la plataforma de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SPGI" data-company="S&P GLOBAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SPGI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">S&P GLOBAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">S&P Global está integrando IA generativa en sus productos y flujos de trabajo internos. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de S&P Global con la IA Generativa y los LLM es evidente a través de varias iniciativas estratégicas. La compañía está integrando IA generativa en sus productos y flujos de trabajo internos, ejemplificado por el lanzamiento de GenAI powered CreditCompanion para RatingsDirect en Capital...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SPGI" data-company="S&P GLOBAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SPGI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">S&P GLOBAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La conexión de S&P Global with el tema de la industria de las bolsas financieras es evidente. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de S&P Global con el tema de la industria de las bolsas financieras es evidente a través de varios aspectos de su negocio. La empresa genera regalías basadas en el uso de ventas a partir de los volúmenes de negociación de contratos de derivados que cotizan en diversas bolsas, y sus ingre...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TW" data-company="TRADEWEB MARKETS INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRADEWEB MARKETS INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tradeweb ofrece servicios en tasas, crédito, mercados monetarios y acciones. La plataforma...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tradeweb en el crédito y los préstamos se demuestra a través de sus mercados, que facilitan la negociación en diversas clases de activos, incluido el crédito. La plataforma Dealerweb de la compañía compite activamente en los mercados de crédito y ofrece servicios en tasas, crédit...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TW" data-company="TRADEWEB MARKETS INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRADEWEB MARKETS INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Empresa soporte a una red global de más de 3.000 clientes en el ecosistema financiero. Esta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con la industria de Servicios Financieros se demuestra a través de la operación de mercados electrónicos y la provisión de soluciones a lo largo del ciclo de vida comercial, que incluyen pre-comercio, ejecución, post-comercio y datos y análisis. Dando soporte a una red gl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CBOE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cboe Global Markets ofrece soluciones de negociación, compensación e inversión a nivel mundial. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cboe Global Markets está profundamente integrado en el tema de los mercados financieros, operando como una red de intercambio líder que ofrece soluciones de negociación, compensación e inversión a nivel mundial. La compañía proporciona soluciones de negociación en múltiples clases de activos, incluy...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBKR" data-company="INTERACTIVE BROKERS GRO-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBKR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERACTIVE BROKERS GRO-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Interactive Brokers es un bróker electrónico global que ejecuta y procesa operaciones en diversos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Interactive Brokers está profundamente involucrada en los mercados de capitales, como lo demuestra la operación de un bróker electrónico global que ejecuta y procesa operaciones en diversos instrumentos financieros a través de numerosas bolsas y centros de mercado. La compañía mejora continuamente s...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBKR" data-company="INTERACTIVE BROKERS GRO-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IBKR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTERACTIVE BROKERS GRO-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBKR custodia y presta servicios a cuentas para diversas entidades institucionales, incluidos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBKR en el trading institucional se demuestra a través de la ejecución, compensación y liquidación de operaciones para clientes institucionales e individuales a nivel mundial. La compañía custodia y presta servicios a cuentas para diversas entidades institucionales, incluidos fon...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SCHW" data-company="SCHWAB (CHARLES) CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">SCHW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCHWAB (CHARLES) CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Schwab brinda servicios financieros tanto a clientes individuales como institucionales. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Schwab en la banca de consumo es evidente a través de su segmento de Servicios para Inversores, que ofrece servicios de corretaje minorista, asesoramiento de inversiones y servicios bancarios y fiduciarios directamente a inversores individuales. La compañía brinda servicios finan...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

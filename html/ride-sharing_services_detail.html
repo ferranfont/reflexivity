@@ -1,0 +1,1204 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Ride-sharing Services - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Ride-sharing Services</div>
+      <div class="sub-title">Investment Theme Detail - Transportation and Logistics Industry</div>
+    </div>
+    <a href="/main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Ride-sharing Services &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Transportation and Logistics &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 8
+    </div>
+
+    
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">8</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">UBER</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">UBER TECHNOLOGIES INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha la inteligencia artificial para optimizar sus plataformas de transporte compartido y entrega, mejorando la eficiencia de las rutas, la fijac...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/UBER" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">LYFT</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">LYFT INC-A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Integra tecnología de vehículos autónomos en su plataforma de viajes compartidos para mejorar las capacidades de servicio y optimizar la eficiencia op...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/LYFT" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">GRAB</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">GRAB HOLDINGS LTD - CL A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece una gama de servicios financieros que incluyen aspectos de banca, contribuyendo al ecosistema financiero más amplio dentro de sus regiones oper...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/GRAB" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TSLA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TESLA INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha la inteligencia artificial de manera extensiva en el desarrollo de capacidades avanzadas de conducción autónoma y robótica inteligente, impu...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TSLA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">GOOGL</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ALPHABET INC-CL A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y utiliza hardware especializado, incluidas las Unidades de Procesamiento Tensorial (TPU), para acelerar cargas de trabajo de inteligencia ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/GOOGL" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">AUR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">AURORA INNOVATION INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y proporciona soluciones tecnológicas de conducción autónoma esenciales para integrar capacidades autónomas en vehículos producidos por fab...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/AUR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">JOBY</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">JOBY AVIATION INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y fabrica aeronaves eléctricas de despegue y aterrizaje vertical (eVTOL), contribuyendo a la evolución de la fabricación aeroespacial con s...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/JOBY" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ACHR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ARCHER AVIATION INC-A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Diseña y fabrica aeronaves eléctricas de despegue y aterrizaje vertical (eVTOL), contribuyendo al desarrollo de soluciones de movilidad aérea sostenib...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ACHR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">80</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="ACHR" data-company="ARCHER AVIATION INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ACHR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCHER AVIATION INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Archer Defense se centra en aumentar la fabricación de aeronaves en EE. U.U. en sus instalaciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Archer en la fabricación aeroespacial es evidente a través de su activa producción de aeronaves y desarrollo tecnológico. La empresa se centra en aumentar la fabricación de aeronaves en EE. UU. en sus instalaciones de Silicon Valley y Georgia, incluida la instalación ARC de alto ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACHR" data-company="ARCHER AVIATION INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ACHR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCHER AVIATION INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Archer está integrando varios sistemas para una operación segura y eficiente. La compañía también...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Archer en Sistemas de Aviación es evidente en su desarrollo, prueba y certificación del avión Midnight, integrando varios sistemas para una operación segura y eficiente. La compañía también está construyendo la próxima generación de aviones de defensa y utilizando IA para constru...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla está desplegado cantidades significativas de productos de almacenamiento de energía,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tesla en el tema de Almacenamiento de Energía es evidente a través de su diseño, desarrollo, fabricación, arrendamiento y venta de productos de almacenamiento de energía, con un enfoque en aumentar la producción y la penetración en el mercado. La compañía ha desplegado cantidades...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACHR" data-company="ARCHER AVIATION INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ACHR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCHER AVIATION INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Archer UAM ofrecer servicios de transporte aéreo directo al consumidor. La compañía está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Archer en el tema Servicios de Transporte Compartido es evidente a través de sus planes de ofrecer servicios de transporte aéreo directo al consumidor, comercializados como 'Archer UAM', en varias áreas metropolitanas a nivel mundial. Estos servicios utilizarán las aeronaves Midn...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACHR" data-company="ARCHER AVIATION INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ACHR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCHER AVIATION INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Archer en el Transporte Urbano es evidente en sus esfuerzos por comercializar el avión Midnight. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Archer en el Transporte Urbano es evidente en sus esfuerzos por comercializar el avión Midnight para su uso en las principales ciudades del mundo, colaborando con las autoridades de aviación y socios estratégicos para establecer redes de movilidad aérea urbana. La empresa está integran...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AUR" data-company="AURORA INNOVATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AUR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AURORA INNOVATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Aurora Driver es un conjunto integral de hardware, software y servicios de datos de autoconducción....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Aurora en la conducción autónoma es evidente a través del desarrollo del Aurora Driver, un conjunto integral de hardware, software y servicios de datos de autoconducción destinado a revolucionar el mercado global del transporte. La compañía ha lanzado operaciones comerciales de camione...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AUR" data-company="AURORA INNOVATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AUR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AURORA INNOVATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Aurora Driver diseñado para integrarse en diversas plataformas de vehículos. La compañía ha lanzado...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Aurora en vehículos autónomos es evidente a través del desarrollo de Aurora Driver, un sistema de autoconducción diseñado para integrarse en diversas plataformas de vehículos, incluidos vehículos de pasajeros, vehículos comerciales ligeros y camiones Clase 8. La compañía ha lanzado ope...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de Tesla with el tema of la Transición Energética es evidente. Tesla se apoya en el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Tesla con el tema de la Transición Energética es evidente en su misión principal de acelerar la transición mundial hacia la energía sostenible. Esta misión se apoya en el diseño, desarrollo, fabricación y venta de vehículos eléctricos, sistemas de generación de energía solar y produ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de Tesla con la energía renovable es evidente en su misión principal. Este compromiso...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Tesla con la energía renovable es evidente en su misión principal de acelerar la transición mundial hacia la energía sostenible. Este compromiso se apoya en el diseño, desarrollo, fabricación y venta de vehículos eléctricos, sistemas de generación de energía solar y productos de alm...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AUR" data-company="AURORA INNOVATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AUR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AURORA INNOVATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Aurora Driver tiene la intención de dirigirse y transformar el panorama del transporte. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Aurora con el tema de la Logística de Última Milla es evidente en sus planes de aprovechar la extensibilidad del Aurora Driver para escalar en el mercado de entrega de bienes locales. La empresa tiene la intención de dirigirse y transformar el panorama del transporte, abarcando la c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google Cloud Platform genera tarifas y suscripciones para infraestructura, plataforma, herramientas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con la computación en la nube es evidente a través de sus soluciones basadas en la nube para clientes empresariales, que abarcan infraestructura, servicios de plataforma y aplicaciones. Los ingresos de Google Cloud, que incluyen Google Cloud Platform y Google Workspace, refle...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AUR" data-company="AURORA INNOVATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AUR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AURORA INNOVATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Aurora Driver is un servicio de suscripción de transporte sin conductor. Este servicio es un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Aurora en el tema de Servicios de Viajes Compartidos es evidente en su estrategia de aprovechar el Aurora Driver para su implementación y escalamiento en el mercado de movilidad de pasajeros a través de 'Aurora Driver for Rides', un servicio de suscripción de transporte sin condu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AUR" data-company="AURORA INNOVATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AUR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AURORA INNOVATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Aurora ha integrado el Aurora Driver en numerosas plataformas de vehículos. La empresa espera...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque principal de Aurora es transformar el mercado global del transporte a través del desarrollo del Aurora Driver, que está diseñado para adaptarse a varios tipos de vehículos, incluidos vehículos de pasajeros, vehículos comerciales ligeros y camiones Clase 8. El objetivo de la empresa es tra...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AUR" data-company="AURORA INNOVATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AUR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AURORA INNOVATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El Aurora Driver está diseñado como una plataforma para adaptarse e interoperar entre tipos de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El desarrollo por parte de Aurora del Aurora Driver, diseñado para transformar el mercado mundial del transporte, se extiende al transporte urbano a través de la movilidad de pasajeros y la entrega de productos locales. El Aurora Driver está diseñado como una plataforma para adaptarse e interoperar ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google ofrece soluciones de IA como infraestructura de IA, la plataforma Vertex AI y Gemini para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con la Infraestructura de IA es evidente a través de su Plataforma Google Cloud, que ofrece soluciones de IA como infraestructura de IA, la plataforma Vertex AI y Gemini para Google Cloud. La empresa opera una red global líder de centros de datos optimizados para IA y regione...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla está evolucionando activamente el diseño de Optimus, con prototipos de Optimus 3 esperados...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tesla en el tema de la Robótica es evidente a través de su desarrollo y despliegue planificado de robots Optimus. Elon Musk ha enfatizado repetidamente la importancia de Optimus, prediciendo que será el 'mayor producto de la historia' de Tesla y destacando la ambición de la empre...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google está incorporando innovaciones de IA en todos sus productos, incluida la IA en la Búsqueda....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con la Inteligencia Artificial es evidente en sus iniciativas estratégicas y ofertas de productos. La empresa enfatiza que la IA es central para su crecimiento, destacada por su enfoque diferenciado de pila completa y el lanzamiento de modelos avanzados como Gemini, que se in...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Waymo está escalando y expandiendo activamente sus servicios de transporte autónomo. Los servicios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con la conducción autónoma es evidente a través de Waymo, que está escalando y expandiendo activamente sus servicios de transporte autónomo. Los servicios de Waymo incluyen el lanzamiento en nuevas ubicaciones como Atlanta, la expansión de territorios en Austin, Los Ángeles y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Waymo está experimentando un crecimiento sustancial, demostrado por un aumento significativo en los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Google en el tema de Vehículos Autónomos es principalmente a través de Waymo, que está generando ingresos de servicios de transporte autónomo. Waymo está experimentando un crecimiento sustancial, demostrado por un aumento significativo en los viajes pagados de pasajeros y la expa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa incurre en Costos de Adquisición de Tráfico pagados a socios de distribución. Google...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Google en los Servicios de Banda Ancha se refleja en varios aspectos de su negocio. La empresa incurre en Costos de Adquisición de Tráfico pagados a socios de distribución como proveedores de navegadores y operadores móviles, lo que implica una dependencia de la infraestructura d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UBER</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Uber en el transporte urbano es evidente a través of su plataforma tecnológica. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Uber en el transporte urbano es evidente a través de su plataforma tecnológica que impulsa el movimiento de un punto A a un punto B y conecta a los consumidores con servicios de transporte y redes de transporte público. Las reservas brutas de movilidad han mostrado un aumento interanua...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La Plataforma Google Cloud de la empresa, que incluye servicios de infraestructura, es un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con la Infraestructura Cloud es evidente a través de sus sustanciales inversiones y generación de ingresos. La Plataforma Google Cloud de la empresa, que incluye servicios de infraestructura, es un importante motor de ingresos, con ingresos que aumentan sustancialmente año tr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UBER</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Uber ofreciendo servicios como la reserva de envíos y la gestión del transporte. En el primer...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Uber en Servicios de Carga es evidente a través de su papel en la conexión de Expedidores con Transportistas en la industria del transporte de mercancías, ofreciendo servicios como la reserva de envíos y la gestión del transporte. Esto se ve respaldado por el hecho de que en el p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google Workspace es un conjunto de herramientas de comunicación y colaboración basadas en la nube...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con el tema de Software en la Nube es evidente a través de Google Workspace, un conjunto de herramientas de comunicación y colaboración basadas en la nube para empresas, que incluye aplicaciones como Calendar, Gmail, Docs, Drive y Meet, mejoradas con funciones como Gemini. Go...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google Cloud Platform genera ingresos a través de tarifas basadas en el consumo. Google Workspace...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con el Almacenamiento en la Nube es evidente a través de sus ofertas de Google Cloud Platform y Google Workspace. Google Cloud Platform genera ingresos a través de tarifas basadas en el consumo y suscripciones para servicios de infraestructura y plataforma, que implícitamente...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google Workspace incluye suscripciones para herramientas como Calendar, Gmail, Docs, Drive y Meet....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con el tema de la industria de Herramientas de Comunicación es evidente a través de su oferta de Google Workspace, que proporciona herramientas de comunicación y colaboración basadas en la nube para empresas. Google Workspace incluye suscripciones para herramientas como Calen...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UBER</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Uber se enfoca en hacer crecer su estrategia de plataforma en movilidad y entrega. La conexión...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Uber entre los consumidores y los proveedores de servicios de entrega de preparación de comidas, comestibles y otros servicios subraya la importancia de la entrega de alimentos para sus operaciones. Las reservas brutas de entrega han crecido consistentemente año tras año, impulsadas p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google Cloud ofrece soluciones de ciberseguridad. Esto se ve reforzado por la integración de Gemini...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con la ciberseguridad es evidente a través de su Plataforma Google Cloud, que ofrece soluciones de ciberseguridad. Esto se ve reforzado por la integración de Gemini AI para detectar malware y priorizar amenazas, mejorando los flujos de trabajo de investigación. Además, la int...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google Cloud Platform ofrece tarifas basadas en consumo y suscripciones para infraestructura,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Google en el análisis de datos es evidente a través de su Plataforma de Google Cloud (GCP), que proporciona acceso a soluciones de análisis de datos. La empresa genera ingresos a través de GCP, que incluye análisis de datos, y está invirtiendo en infraestructura técnica, como ser...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google invierte en terrenos y edificios para centros de datos, oficinas y activos de TI. Una parte...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con el tema de los centros de datos es evidente a través de sus importantes inversiones en esta área. La empresa invierte en terrenos y edificios para centros de datos, oficinas y activos de TI, utilizando tanto la compra de propiedades como acuerdos de arrendamiento para exp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JOBY" data-company="JOBY AVIATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">JOBY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOBY AVIATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Joby Aviation se centra en la aviación eléctrica. El negocio de la empresa se extiende a la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Joby Aviation se centra en la aviación eléctrica, lo que se demuestra por su compromiso de una década con el diseño y la prueba de aeronaves eVTOL totalmente eléctricas destinadas a servicios de movilidad aérea urbana. El enfoque de la empresa se extiende a la creación e integración de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UBER</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Uber Freight enfrenta desafíos como se refleja en una disminución en las Reservas Brutas de Carga e...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Uber en la industria de intermediación de carga es evidente a través de su conexión entre Expedidores y Transportistas, ofreciendo servicios como reserva de envíos y gestión de transporte. Esta conexión se facilita por la red, la tecnología y la experiencia operativa de Uber. Si ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google Workspace proporciona herramientas de comunicación y colaboración basadas en la nube. Google...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con el tema SaaS es evidente a través de sus ofertas de Google Workspace y Google Cloud Platform, ambas operan con modelos basados en suscripción y consumo. Google Workspace proporciona herramientas de comunicación y colaboración basadas en la nube para empresas, incluyendo a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google compromiso with motores de búsqueda es sustancial. Google crecimiento de ingresos de dos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con los servicios de motores de búsqueda es sustancial, como lo demuestran los ingresos significativos generados a través de 'Google Search y otros', que abarcan los ingresos de las propiedades de búsqueda de Google y el tráfico de socios de distribución de búsqueda. El compr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los dispositivos Pixel muestran las capacidades de Google, como Gemini Live. El lanzamiento del...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Google en el mercado de teléfonos inteligentes es evidente a través de las ventas de su familia de dispositivos Pixel, que contribuyen a los ingresos de dispositivos de la empresa. Los teléfonos inteligentes, incluida la línea Pixel, son reconocidos como una modalidad clave a tra...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">YouTube ha liderado el tiempo de visualización de streaming en EE. UU. durante más de two años....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con las Plataformas y Servicios de Streaming es evidente a través de la prominencia de YouTube, que ha liderado el tiempo de visualización de streaming en EE. UU. durante más de dos años. Esto incluye un consumo significativo de contenido deportivo, con más de 40 mil millones...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UBER</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma de Uber impulsa el movimiento del punto A al punto B, lo cual es fundamental para sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Uber de consumidores con proveedores de servicios de transporte sustenta su participación en Soluciones de Movilidad. La plataforma de la empresa impulsa el movimiento del punto A al punto B, lo cual es fundamental para sus operaciones, como lo demuestra el crecimiento de las Reservas...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UBER</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La conexión de Uber de consumidores con proveedores de servicios de transporte es fundamental para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Uber de consumidores con proveedores de servicios de transporte es fundamental para sus operaciones, como lo demuestran las menciones constantes en varios documentos. La compañía ha experimentado un crecimiento sustancial en esta área, con aumentos en las reservas brutas de movilidad ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JOBY" data-company="JOBY AVIATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">JOBY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOBY AVIATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Joby está buscando activamente nuevos contratos e invirtiendo en tecnología de hidrógeno-eléctrica...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Joby en vehículos autónomos es evidente a través de su desarrollo de aeronaves híbridas para la defensa de EE. UU., combinando capacidades VTOL con tecnologías de vuelo autónomo en colaboración con L3Harris. Esta asociación tiene como objetivo entregar aeronaves autónomas e híbri...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JOBY" data-company="JOBY AVIATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">JOBY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOBY AVIATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Joby Aviation es una empresa de taxi aéreo. El enfoque principal gira en torno a los sistemas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque principal de Joby Aviation gira en torno a los sistemas de aviación, demostrado a través de su diseño, prueba y operación planificada de aeronaves eVTOL eléctricas y pilotadas para el transporte urbano. El compromiso de la empresa es evidente en su búsqueda de la certificación de la FAA, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LYFT" data-company="LYFT INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LYFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LYFT INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma ofrece una gama de servicios que incluyen viajes compartidos, taxis, uso compartido...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Lyft están profundamente entrelazadas con el tema del transporte urbano, como lo demuestra su papel como una de las redes de transporte multimodal más grandes de los Estados Unidos y Canadá. La plataforma de la empresa ofrece una gama de servicios que incluyen viajes compartidos, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JOBY" data-company="JOBY AVIATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">JOBY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOBY AVIATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Joby en Vehículos Eléctricos gira en torno al diseño, prueba y operación de aeronaves elécticas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Joby en Vehículos Eléctricos es evidente en su negocio principal, que gira en torno al diseño, prueba y operación de aeronaves eléctricas de despegue y aterrizaje vertical (eVTOL). La empresa ha dedicado más de una década a este esfuerzo, con el objetivo de proporcionar un servicio de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JOBY" data-company="JOBY AVIATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">JOBY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOBY AVIATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Joby se centra en el desarrollo de un servicio de transporte aéreo compartido basado en una...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Joby se centra en el desarrollo de un servicio de transporte aéreo compartido basado en una aplicación, con el objetivo de proporcionar transporte rápido y eficiente en áreas urbanas. La empresa se enfoca en fabricar, poseer y operar sus aeronaves para ofrecer estos servicios directame...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JOBY" data-company="JOBY AVIATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">JOBY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOBY AVIATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Aeronave eVTOL diseñada para la movilidad aérea urbana. El objetivo de proporcionar servicios de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Joby en la movilidad inteligente es evidente en el desarrollo de una aeronave eVTOL diseñada para la movilidad aérea urbana, con el objetivo de proporcionar servicios de transporte rápidos, silenciosos y convenientes en las ciudades. La empresa está construyendo un sistema operativo pa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LYFT" data-company="LYFT INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LYFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LYFT INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La integración de Lyft con la industria del alquiler de automóviles es evidente. Lyft permite a los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La integración de Lyft con la industria del alquiler de automóviles es evidente a través de su programa Express Drive, que permite a los conductores alquilar vehículos y contribuye a las reservas brutas de la empresa. Esto se apoya aún más en la inclusión de Flexdrive Services, LLC, una subsidiaria ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LYFT" data-company="LYFT INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LYFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LYFT INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio principal de Lyft gira en torno a la provisión de diversas soluciones de movilidad. Lyft...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Lyft gira en torno a la provisión de diversas soluciones de movilidad a través de su red de transporte multimodal en los Estados Unidos, Canadá y otros mercados internacionales. La plataforma de la empresa conecta a pasajeros y conductores para servicios a pedido y admite var...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LYFT" data-company="LYFT INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LYFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LYFT INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio principal de Lyft se centra en su mercado de viajes compartidos, que conecta conductores...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Lyft se centra en su mercado de viajes compartidos, que conecta conductores y pasajeros, y sustancialmente todos sus ingresos se generan a partir de este servicio. Los indicadores clave de rendimiento de la empresa, como Pasajeros Activos y Viajes, están directamente relacion...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LYFT" data-company="LYFT INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LYFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LYFT INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La aplicación Lyft conecta a pasajeros y conductores. La plataforma establecida ofrece viajes y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Lyft funciona como una plataforma de movilidad global, integrando viajes compartidos, taxis, vehículos de alquiler privado, uso compartido de automóviles, bicicletas y scooters en múltiples continentes. La aplicación Lyft conecta a pasajeros y conductores y, al mismo tiempo, admite soluciones de mov...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de Tesla con la Inteligencia Artificial es evidente en sus productos y servicios. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Tesla con la Inteligencia Artificial es evidente en sus productos y servicios, con un enfoque creciente en IA, robótica y automatización. La empresa está invirtiendo activamente en autonomía y productos habilitados por IA, lo que se refleja en un aumento de los gastos de I+D y las i...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla diseña, desarrolla, fabrica, arrienda y vende vehículos totalmente eléctricos of alto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Tesla con la industria de Fabricantes de Automóviles es evidente en sus operaciones principales, ya que la empresa diseña, desarrolla, fabrica, arrienda y vende vehículos totalmente eléctricos de alto rendimiento. Con la misión de acelerar la transición del mundo hacia la energía so...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla está trabajando activamente para mejorar las funciones del piloto automático. La empresa ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Tesla con la conducción autónoma es evidente a través de sus continuos esfuerzos para mejorar y desplegar las capacidades de conducción autónoma total (FSD) y su desarrollo del Robotaxi, Cybercab. La empresa ha lanzado servicios de robotaxi en Austin, con planes de expandirse a otra...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla está buscando activamente aprobaciones regulatorias para la expansión a nuevas áreas. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tesla en vehículos autónomos es evidente a través de su desarrollo y despliegue continuo de capacidades de conducción totalmente autónoma (FSD) y la creación del Robotaxi, Cybercab, diseñado específicamente. La compañía ha lanzado con éxito servicios de robotaxi en Austin, brinda...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla demuestra su compromiso con la industria de Materiales para Baterías. La compañía opera una...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Tesla demuestra su compromiso con la industria de Materiales para Baterías a través de varias iniciativas clave. La compañía opera una refinería de litio en el sur de Texas, identificada como la más grande fuera de China, y una refinería de cátodos en Austin, adyacente a su gigafábrica, con consider...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla se enfoca en mejorar y desarrollar sus vehículos y tecnologías de baterías, incluida la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Tesla con la tecnología de baterías es evidente a través de su misión de acelerar la transición del mundo hacia la energía sostenible mediante el diseño, desarrollo y fabricación de vehículos eléctricos de alto rendimiento y productos de almacenamiento de energía. La compañía se enf...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla participa en la industria de la energía solar a través de su diseño, desarrollo, fabricación,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tesla en la industria de la energía solar es evidente a través de su diseño, desarrollo, fabricación, arrendamiento y venta de sistemas de generación de energía solar. Este compromiso se alinea con la misión de Tesla de acelerar la transición del mundo hacia la energía sostenible...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía ha expandiendo activamente sus programas de financiamiento de vehículos. Tesla utiliza...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tesla en las finanzas del consumidor se refleja en la provisión de servicios financieros relacionados con sus productos. La compañía ha estado expandiendo activamente sus programas de financiamiento de vehículos, ofreciendo atractivas condiciones de arrendamiento a los clientes. ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla diseña, desarrolla, fabrica, arrienda y vende vehículos eléctricos. El Model Y ha alcanzado...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Tesla con el tema de los vehículos eléctricos está profundamente arraigado en su misión principal de acelerar la transición del mundo hacia la energía sostenible, ya que la empresa diseña, desarrolla, fabrica, arrienda y vende vehículos eléctricos de alto rendimiento. El Model Y ha ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla ofrece una gama de servicios relacionados with sus productos, incluida la carga. El mejoras...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Tesla con el tema de la Carga de Vehículos Eléctricos (VE) es evidente a través de la expansión de la red Supercharger y la infraestructura de carga a nivel mundial, que incluye personal y optimización de las ubicaciones de Supercharger. Esta expansión está impulsada en parte por la...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACHR" data-company="ARCHER AVIATION INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ACHR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCHER AVIATION INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Archer se centra en la aviación eléctrica, principalmente a través del desarrollo y la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Archer se centra en la aviación eléctrica, principalmente a través del desarrollo y la comercialización de su aeronave Midnight eVTOL. Esto se evidencia en las importantes inversiones de la empresa en investigación y desarrollo, fabricación y pruebas de vuelo, todo ello con e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AUR" data-company="AURORA INNOVATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AUR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AURORA INNOVATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Aurora Driver for Freight es un servicio de suscripción para servicios de Carga Completa. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Aurora con el tema de la industria de Servicios de Carga Completa es evidente a través del lanzamiento de operaciones de transporte comercial sin conductor en carreteras públicas, incluido el servicio de suscripción 'Aurora Driver for Freight'. El enfoque de la empresa en esta área ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Capgemini está aprovechando los agentes de ingeniería de software de Google para mejorar la calidad...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Google en el Desarrollo de Aplicaciones es evidente a través de varias vías. Un número significativo de desarrolladores, alrededor de 9 millones, ha utilizado Gemini. La empresa genera ingresos a través de las ventas de aplicaciones y compras dentro de la aplicación en Google Pla...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AUR" data-company="AURORA INNOVATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AUR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AURORA INNOVATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Aurora Driver es una plataforma diseñada para adaptarse a varios tipos de vehículos. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Aurora en las soluciones de movilidad es evidente en el desarrollo del Aurora Driver, una plataforma diseñada para adaptarse a varios tipos de vehículos y aplicaciones, con el objetivo de transformar el panorama del transporte. La compañía planea comercializar el Aurora Driver a través...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google Cloud Platform ofrece infraestructura, plataforma, herramientas de colaboración y otros...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Google en los servicios en la nube es evidente a través de la generación de ingresos mediante soluciones basadas en la nube, particularmente a través de Google Cloud Platform, que ofrece infraestructura, plataforma y otros servicios bajo un modelo de tarifas por consumo y suscrip...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google participa en el tema de la electrónica de consumo a través de sus ingresos por...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Google en el tema de la electrónica de consumo es evidente a través de sus ingresos por suscripciones, plataformas y dispositivos de Google, que incluyen las ventas de la familia de dispositivos Pixel. La compañía reconoce que los usuarios acceden a productos y servicios a través...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JOBY" data-company="JOBY AVIATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">JOBY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOBY AVIATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Joby se dedica a escalar la producción de aeronaves eVTOL. Esta expansión se suma a los esfuerzos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Joby en la fabricación aeroespacial es evidente a través de su producción activa de aeronaves eVTOL, con cinco aeronaves a escala completa ya producidas y planes para fabricar, poseer y operar estas aeronaves. La empresa se dedica a escalar la producción, como lo demuestra la expansión...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JOBY" data-company="JOBY AVIATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">JOBY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOBY AVIATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Joby es un negocio de pasajeros de Blade. La adquisición es un movimiento clave para acelerar su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Joby con el tema de la industria de las aerolíneas es evidente a través de sus iniciativas estratégicas destinadas a establecer operaciones comerciales de taxis aéreos. La adquisición por parte de la empresa del negocio de pasajeros de Blade es un movimiento clave para acelerar su ent...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla se enfoca en aumentar su capacidad de fabricación, que incluye el Tesla Semi. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tesla en el sector de vehículos eléctricos comerciales es evidente a través de varias iniciativas, incluida la producción piloto del Tesla Semi en Gigafactory Nevada y la construcción del Tesla Semi. Además, la compañía está desarrollando el Cybercab y planea lanzar un robotaxi e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LYFT" data-company="LYFT INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LYFT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LYFT INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Lyft tiene la intención de invertir más en vehículos eléctricos. La compañía tiene como objetivo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Lyft en el tema de los vehículos eléctricos está impulsada principalmente por el cumplimiento normativo y los objetivos de sostenibilidad. La compañía tiene la intención de invertir más en vehículos eléctricos para cumplir con mandatos como el California Clean Miles Standard, que...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla se enfoca en la logística automotriz para respaldar su creciente volumen de producción. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Tesla se enfoca en la logística automotriz para respaldar su creciente volumen de producción, enfatizando la necesidad de mejorar las capacidades de entrega de vehículos para prevenir cuellos de botella. La compañía ha demostrado sus capacidades de gestión operativa y de cadena de suministro al aume...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Tesla en la energía sostenible es un aspecto central of sus operaciones. El diseño,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La dedicación de Tesla al tema de la Energía Limpia es evidente en su misión principal de acelerar la transición mundial hacia la energía sostenible. Este compromiso está respaldado por el diseño, desarrollo, fabricación, arrendamiento y venta de vehículos eléctricos, sistemas de generación de energ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AUR" data-company="AURORA INNOVATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AUR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AURORA INNOVATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Aurora Driver es un negocio de Conductor como Servicio. La empresa se centra en proporcionar la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Aurora con el tema de las flotas comerciales es evidente en su modelo de negocio de Conductor como Servicio (DaaS), donde los clientes o terceros compran, gestionan y mantienen flotas mientras se suscriben al Aurora Driver. La empresa se centra en proporcionar la tecnología de condu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa genera ingresos por las ventas de Google Play, que incluyen aplicaciones y compras....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Google en el tema de los juegos móviles se refleja a través de varias vías. La empresa genera ingresos por las ventas de Google Play, que incluyen aplicaciones y compras dentro de la aplicación, lo que indica un flujo de ingresos conectado a los juegos móviles. Además, Google est...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Google en la Integración Empresarial de IA es evidente. Google ofrece soluciones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Google en la Integración Empresarial de IA es evidente a través de sus continuas inversiones en investigación y desarrollo destinadas a implementar rápidamente la IA en sus negocios. Esto se destaca por la Plataforma Cloud de Google, que ofrece soluciones de IA como infraestructura de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla está aumentando la producción y las capacidades de sus productos de almacenamiento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tesla en proyectos a escala de servicios públicos es evidente a través de sus despliegues de almacenamiento de energía Megapack, aunque estos despliegues pueden fluctuar de un trimestre a otro según los hitos del proyecto y la logística. Para satisfacer los altos niveles de deman...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El software de Tesla es evidente en sus continuos esfuerzos para mejorar el rendimiento y la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tesla en el software de vehículos es evidente en sus continuos esfuerzos para mejorar el rendimiento y la funcionalidad del vehículo a través de funciones impulsadas por IA como Autopilot y FSD (Supervisado), junto con otras mejoras de software. Esto está respaldado aún más por l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JOBY" data-company="JOBY AVIATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">JOBY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOBY AVIATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Joby diseñó una aeronave eVTOL diseñada para un servicio rápido y conveniente dentro of las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Joby en el transporte urbano es evidente en el desarrollo de una aeronave eVTOL diseñada para un servicio rápido y conveniente dentro de las ciudades. La compañía ha dedicado más de una década al diseño y prueba de esta aeronave eléctrica tripulada, optimizada para rutas urbanas con un...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Tesla en la tecnología automotriz es evidente. La compañía se dedica a mejorar el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Tesla en la tecnología automotriz es evidente en el diseño, desarrollo y fabricación de vehículos eléctricos de alto rendimiento, junto con un énfasis creciente en IA, robótica y automatización. La compañía se dedica a mejorar el rendimiento y la funcionalidad de los vehículos a través...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla diseña, desarrolla, fabrica, alquila y vende vehículos eléctricos. Estas actividades...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La dedicación de Tesla a la tecnología de energía limpia es evidente en su misión de acelerar la transición del mundo hacia la energía sostenible. La empresa diseña, desarrolla, fabrica, alquila y vende vehículos eléctricos, sistemas de generación de energía solar y productos de almacenamiento de en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UBER</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa utiliza su plataforma tecnológica para facilitar el movimiento. Uber está desarrollando...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Uber de consumidores con servicios de transporte, servicios de entrega y redes de transporte público destaca el papel de la empresa en la integración de diferentes soluciones de movilidad. La empresa utiliza su plataforma tecnológica para facilitar el movimiento y está desarrollando n...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UBER</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Uber en la facilitación del transporte es evidente. Uber impulsa el movimiento del...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Uber en la facilitación del transporte es evidente a través de su plataforma tecnológica, que impulsa el movimiento del punto A al punto B, conectando a los consumidores con servicios de transporte, servicios de entrega y redes de transporte público. Esto está respaldado por el crecimi...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

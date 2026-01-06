@@ -1,0 +1,1689 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Vehicle-to-grid Technology - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Vehicle-to-grid Technology</div>
+      <div class="sub-title">Investment Theme Detail - Transportation and Logistics Industry</div>
+    </div>
+    <a href="/main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Vehicle-to-grid Technology &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Transportation and Logistics &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 13
+    </div>
+
+    
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">13</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TSLA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TESLA INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha la inteligencia artificial de manera extensiva en el desarrollo de capacidades avanzadas de conducción autónoma y robótica inteligente, impu...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TSLA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">1211</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BYD CO LTD-H</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y fabrica una amplia gama de soluciones de baterías, incluidas las destinadas a vehículos eléctricos y almacenamiento de energía, lo que la...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/1211" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">F</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">FORD MOTOR CO</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye al sector de Piezas de Automóviles a través del abastecimiento e integración de componentes para su producción mundial de vehículos....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/F" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">3EC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">EATON CORP PLC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona sistemas críticos de gestión de energía, eléctricos e hidráulicos a los sectores aeroespacial y de defensa, permitiendo plataformas avanza...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/3EC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">005380</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">HYUNDAI MOTOR CO</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se dedica al diseño, desarrollo, fabricación y venta global integral de una diversa gama de vehículos de pasajeros, vehículos comerciales y piezas de ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/005380" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">7201</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">NISSAN MOTOR CO LTD</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera como un fabricante global de automóviles, contribuyendo al desarrollo y producción de una amplia gama de vehículos para diversos mercados....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/7201" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">GM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">GENERAL MOTORS CO</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Sirve como un importante consumidor e integrador de una amplia gama de piezas de automóviles, esenciales para sus operaciones globales de fabricación ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/GM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">RNO</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">RENAULT SA</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla e integra sistemas digitales avanzados, trenes motrices eléctricos y funciones de conectividad en su línea de vehículos, contribuyendo a la...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/RNO" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BWA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BORGWARNER INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona una amplia gama de componentes y sistemas avanzados críticos para las tecnologías de propulsión en vehículos de combustión interna, híbrid...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BWA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">RUN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SUNRUN INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Integra soluciones de almacenamiento de baterías en sus sistemas residenciales de energía solar para proporcionar energía confiable, optimizar el uso ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/RUN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">11</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ENPH</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ENPHASE ENERGY INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona soluciones integradas de almacenamiento de baterías para aplicaciones residenciales y comerciales, mejorando la utilización de la energía ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ENPH" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">12</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">7211</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">MITSUBISHI MOTORS CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se enfoca en desarrollar e integrar tecnologías que permiten a los vehículos eléctricos conectarse y suministrar energía de regreso a la red....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/7211" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">13</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">RIVN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">RIVIAN AUTOMOTIVE INC-A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Utiliza una diversa gama de piezas de automóviles en el diseño y producción de sus vehículos eléctricos....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/RIVN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">120</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="3EC" data-company="EATON CORP PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">3EC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EATON CORP PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Eaton de Ultra PCS produce soluciones de control electrónico y procesamiento de datos para clientes...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Eaton con el tema de Defensa Aeroespacial es evidente a través de varias iniciativas estratégicas y tendencias del mercado. La compañía se está beneficiando de un ciclo de crecimiento en los mercados aeroespacial comercial y de defensa, así como de aumentos en las ventas orgánicas d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="3EC" data-company="EATON CORP PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">3EC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EATON CORP PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Eaton has crecimiento en el sector del mercado de repuestos comerciales, particularmente dentro de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Eaton con el mercado de repuestos automotrices es evidente a través de su crecimiento en el sector del mercado de repuestos comerciales, particularmente dentro de su segmento de negocio aeroespacial. Este crecimiento en las ventas orgánicas se atribuye a la fortaleza en el mercado de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="3EC" data-company="EATON CORP PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">3EC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EATON CORP PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Eaton está orientados a acelerar la transición del planeta hacia fuentes de energía renovables. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Eaton con el tema de Energía Limpia es evidente en su posicionamiento estratégico para capitalizar las megatendencias de transición energética y electrificación. La empresa reconoce que el aumento del gasto en infraestructura global centrado en programas de energía limpia está expan...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="3EC" data-company="EATON CORP PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">3EC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EATON CORP PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Eaton experimentó un aumento de ingresos del 2%, incluido un crecimiento orgánico del 3%. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Eaton en el tema de Vehículos Eléctricos Comerciales se demuestra a través de su segmento de negocio eMobility, que experimentó un aumento de ingresos del 2%, incluido un crecimiento orgánico del 3%. Sin embargo, este crecimiento se vio parcialmente compensado por un impacto desf...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="3EC" data-company="EATON CORP PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">3EC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EATON CORP PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Eaton ha realizado adquisiciones clave, como Fibrebond para soluciones modulares y Resilient Power...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Eaton está significativamente involucrado en el mercado de centros de datos, lo que se demuestra por un crecimiento sustancial en pedidos y ventas. Este crecimiento está respaldado además por acciones estratégicas, incluidas asociaciones con NVIDIA y Siemens Energy para transformar la infraestructur...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="3EC" data-company="EATON CORP PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">3EC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EATON CORP PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Eaton fabrica productos específicamente para el mercado de servicios públicos. La empresa está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Eaton en el tema de Servicios Públicos Eléctricos es evidente a través de su oferta de productos e iniciativas estratégicas. La empresa fabrica productos específicamente para el mercado de servicios públicos y está fortaleciendo activamente su posición en toda la cadena de valor ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="3EC" data-company="EATON CORP PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">3EC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EATON CORP PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Eaton se centra en la transición energética, como lo demuestran sus esfuerzos para capitalizar...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Eaton se centra en la transición energética, como lo demuestran sus esfuerzos para capitalizar estas megatendencias. El trabajo de la empresa está orientado a acelerar la transición del planeta hacia fuentes de energía renovables. Las iniciativas estratégicas de Eaton incluyen capitalizar las megate...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="3EC" data-company="EATON CORP PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">3EC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EATON CORP PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Eaton fabrica controles electrónicos, sensores, expulsión de almacenamiento y soluciones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La relación de Eaton con la electrónica industrial se demuestra a través de sus productos para los mercados industrial y de fabricación de máquinas, así como la adquisición de Ultra PCS Limited, que produce controles electrónicos, sensores, expulsión de almacenamiento y soluciones de procesamiento d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="3EC" data-company="EATON CORP PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">3EC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EATON CORP PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Eaton ha reportado fortaleza en los mercados finales de maquinaria dentro of su segmento de negocio...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Eaton en el tema de Maquinaria Industrial es evidente a través de su producción de bienes para el mercado de construcción de maquinaria. La compañía ha reportado fortaleza en los mercados finales de OEM de maquinaria dentro de su segmento de negocio Electrical Global, lo que cont...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="3EC" data-company="EATON CORP PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">3EC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EATON CORP PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Eaton fabrica productos para el mercado industrial, incluidos los utilizados en centros de datos,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Eaton Corporation fabrica productos para el mercado industrial, incluidos los utilizados en centros de datos, servicios públicos, edificios comerciales, fabricación de maquinaria, áreas residenciales, aeroespacial y movilidad. Además, Fibrebond Corporation, un diseñador y constructor con sede en EE....</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="3EC" data-company="EATON CORP PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">3EC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EATON CORP PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Eaton fabrica productos para mercados de movilidad. sus ventas netas de eMobility han alcanzado los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Eaton en Soluciones de Movilidad se refleja en la producción de productos relacionados, como se destaca en varias secciones. La empresa fabrica productos para mercados de movilidad y sus ventas netas de eMobility han alcanzado los 162 millones de dólares. Si bien Eaton identifica...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BWA" data-company="BORGWARNER INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BWA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BORGWARNER INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BorgWarner es un líder mundial en productos. Proporciona soluciones tecnológicas limpias y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">BorgWarner es un líder mundial en productos que proporciona soluciones tecnológicas limpias y eficientes para vehículos de combustión, híbridos y eléctricos, fabricando y vendiendo sus productos a fabricantes de equipos originales (OEM) en todo el mundo. Sus productos mejoran el rendimiento del vehí...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BWA" data-company="BORGWARNER INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BWA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BORGWARNER INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BorgWarner participa en el mercado de repuestos automotrices. Si bien la empresa menciona...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">BorgWarner participa en el mercado de repuestos automotrices a través de la fabricación y venta de productos a proveedores de sistemas de vehículos de primer nivel y directamente en el mercado de repuestos para vehículos ligeros, comerciales y fuera de carretera. Si bien la empresa menciona constant...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BWA" data-company="BORGWARNER INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BWA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BORGWARNER INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BorgWarner se identifica como líder mundial en la provisión de soluciones tecnológicas limpias y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">BorgWarner se identifica como líder mundial en la provisión de soluciones tecnológicas limpias y eficientes para vehículos de combustión, híbridos y eléctricos. El enfoque de la empresa es evidente en su estrategia para impulsar el crecimiento rentable a través de su cartera de productos centrada en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BWA" data-company="BORGWARNER INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BWA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BORGWARNER INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BorgWarner participa en la Tecnología de Baterías y Carga. El segmento experimentó un aumento en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de BorgWarner en la Tecnología de Baterías es evidente a través de su segmento de Sistemas de Baterías y Carga, aunque el enfoque estratégico de la empresa implica tanto la expansión como la consolidación. Si bien el segmento experimentó un aumento en las ventas netas y una disminuc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BWA" data-company="BORGWARNER INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BWA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BORGWARNER INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BorgWarner demuestra una conexión con el tema de Vehículos Eléctricos Comerciales. Los sistemas EGR...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">BorgWarner demuestra una conexión con el tema de Vehículos Eléctricos Comerciales a través de varias vías, incluido el suministro de productos a los fabricantes de equipos originales de vehículos comerciales, aunque esta conexión no siempre se centra explícitamente en los vehículos eléctricos. Los s...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BWA" data-company="BORGWARNER INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BWA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BORGWARNER INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BorgWarner se identifica como un líder mundial de productos en soluciones tecnológicas limpias y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">BorgWarner se identifica como un líder mundial de productos en soluciones tecnológicas limpias y eficientes para vehículos eléctricos, con una estrategia centrada en el crecimiento rentable en su cartera de productos enfocada en la tecnología que apoya vehículos eléctricos, híbridos y de combustión....</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BWA" data-company="BORGWARNER INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BWA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BORGWARNER INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BorgWarner finalmente decidió salir del negocio de carga, incurriendo en cargos e amortizaciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de BorgWarner con la carga de vehículos eléctricos es complejo, marcado tanto por la inversión como por la desinversión. Si bien la compañía adquirió Hubei Surpass Sun Electric para expandir su presencia de carga a China y reportó un aumento en las ventas de su segmento de Sistemas de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BWA" data-company="BORGWARNER INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BWA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BORGWARNER INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BorgWarner es un líder mundial de productos en soluciones tecnológicas limpias y eficientes para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">BorgWarner se identifica como un líder mundial de productos en soluciones tecnológicas limpias y eficientes para vehículos híbridos, con una estrategia centrada en el crecimiento rentable en su cartera de productos enfocada en tecnología que soporta vehículos eléctricos, híbridos y de combustión. Es...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENPH" data-company="ENPHASE ENERGY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ENPH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENPHASE ENERGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Enphase demuestra un notable enfoque en la tecnología de baterías. La empresa está construyendo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Enphase demuestra un notable enfoque en la tecnología de baterías a través de su desarrollo, fabricación y despliegue de sistemas de almacenamiento IQ Battery. La empresa está construyendo activamente IQ Battery 5P en los EE. UU., utilizando componentes fabricados a nivel nacional, y está en camino ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENPH" data-company="ENPHASE ENERGY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ENPH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENPHASE ENERGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Enphase ofrece soluciones para la generación solar, el almacenamiento y la comunicación. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Enphase en ofrecer soluciones para la generación solar, el almacenamiento y la comunicación la posiciona como un actor clave en el sector de la energía limpia. La empresa afirma explícitamente que sus sistemas dan como resultado soluciones de energía limpia de alto rendimiento, y sus m...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENPH" data-company="ENPHASE ENERGY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ENPH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENPHASE ENERGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Enphase ha enviado aproximadamente 83.1 millones of microinversores. Está expandiendo sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Enphase en el tema de la tecnología de energía limpia es evidente en la entrega de soluciones para la gestión de la generación solar, el almacenamiento y la comunicación en una sola plataforma. Los microinversores inteligentes de la empresa, compatibles con prácticamente todos lo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENPH" data-company="ENPHASE ENERGY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ENPH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENPHASE ENERGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Enphase admitiendo conectores J1772 y NACS. Ofertas incluyen cargadores de vehículos eléctricos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Enphase en el tema de la carga de vehículos eléctricos se demuestra a través de sus ventas de cargadores de vehículos eléctricos compatibles con la mayoría de los vehículos eléctricos en América del Norte, admitiendo conectores J1772 y NACS. Sus ofertas incluyen cargadores de veh...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENPH" data-company="ENPHASE ENERGY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ENPH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENPHASE ENERGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Enphase Energy tiene como objetivo maximizar el potencial energético de un hogar. Este sistema está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Enphase Energy en la eficiencia energética es evidente a través de su Sistema de Energía Enphase, que permite el autoconsumo y tiene como objetivo maximizar el potencial energético de un hogar. Este sistema está diseñado para producir más energía y mejorar el tiempo de actividad y la c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENPH" data-company="ENPHASE ENERGY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ENPH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENPHASE ENERGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Enphase ofrece un portafolio completo de microinversores, baterías, cargadores de vehículos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Enphase se centra en proporcionar soluciones energéticas integrales a través de su plataforma integrada que gestiona la generación solar, el almacenamiento y la comunicación. Su Sistema de Energía Enphase permite el autoconsumo y maximiza el potencial energético de un hogar con capacid...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENPH" data-company="ENPHASE ENERGY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ENPH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENPHASE ENERGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Enphase está desarrollando activamente tecnología avanzada de baterías. La batería de quinta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Enphase en el tema de Almacenamiento de Energía es sustancial, como lo demuestran su línea de productos IQ Battery, un componente central de sus soluciones integradas de energía solar, almacenamiento y gestión de energía. El compromiso de la empresa se refleja en importantes enví...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENPH" data-company="ENPHASE ENERGY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ENPH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENPHASE ENERGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Enphase se centra en la energía solar. Sus microinversores inteligentes están...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Enphase se centra en la energía solar, como lo demuestran sus soluciones que gestionan la generación, el almacenamiento y la comunicación solar. Sus microinversores inteligentes están diseñados para funcionar con prácticamente todos los paneles solares, lo que resulta en sistemas de en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="F" data-company="FORD MOTOR CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">F</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FORD MOTOR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El EBIT de Ford Pro, que incluye repuestos, software y servicios, contribuyó with el 17% del EBIT....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Ford en la industria de autopartes es evidente a través de varias facetas de sus operaciones. La empresa genera ingresos por la venta de vehículos, repuestos, accesorios y servicios en sus segmentos Ford Blue, Ford Model e y Ford Pro. El negocio de posventa de Ford Pro, que inclu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="F" data-company="FORD MOTOR CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">F</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FORD MOTOR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La conexión de Ford con el tema de la industria de Fabricantes de Automóviles es fuerte, como lo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Ford con el tema de la industria de Fabricantes de Automóviles es fuerte, como lo demuestra su posición como un importante productor automotriz y la marca más vendida en los EE. UU. Las operaciones, el desempeño financiero y las decisiones estratégicas de la empresa se centran en su p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="F" data-company="FORD MOTOR CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">F</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FORD MOTOR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ford se ha comprometido hasta $6.6 mil millones con BlueOval SK, LLC. La empresa también monitorea...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Ford con el tema de Materiales para Baterías es evidente a través de sus iniciativas estratégicas para asegurar recursos críticos para la producción de vehículos eléctricos, incluyendo acuerdos de compra y inversiones en proveedores de materias primas y baterías. Para reforzar su ca...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="F" data-company="FORD MOTOR CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">F</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FORD MOTOR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ford Pro ofrece capacidades de Nivel 4 a algunos clientes comerciales en formato furgoneta. Está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Ford con el tema de Flotas Comerciales es evidente a través de las actividades de su división Ford Pro, que experimentó un aumento en las ventas al por mayor impulsado por un mayor volumen de alquiler diario y las ventas de la familia de vehículos Transit. Ford Pro se enfoca en el t...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="F" data-company="FORD MOTOR CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">F</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FORD MOTOR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Ford implica varias estrategias, incluida la compra de créditos de cumplimiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Ford para el cumplimiento de la política energética implica varias estrategias, incluida la compra de créditos de cumplimiento normativo, con obligaciones de compra futuras bajo estos acuerdos que suman aproximadamente $2.8 mil millones al 30 de junio de 2025. La estrategia de la empre...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="F" data-company="FORD MOTOR CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">F</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FORD MOTOR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ford Credit proporciona servicios financieros a los consumidores. Los sustanciales saldos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Ford con el tema de Finanzas al Consumidor es evidente a través de Ford Credit, que proporciona servicios financieros, incluidos financiamiento y arrendamiento de vehículos, a los consumidores. Los sustanciales saldos pendientes netos de Ford Credit, que totalizaron $ 143.7 mil mill...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="F" data-company="FORD MOTOR CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">F</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FORD MOTOR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ford ha observado tasas de adopción de vehículos eléctricos en toda la industria más bajas de lo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Ford está activamente involucrado en el mercado de vehículos eléctricos, como lo demuestra su continua inversión en su estrategia de vehículos eléctricos, incluido el desarrollo de nuevas plataformas de vehículos eléctricos y tecnología de baterías. La compañía está lanzando nuevos modelos de vehícu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="F" data-company="FORD MOTOR CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">F</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FORD MOTOR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Las soluciones de Ford Pro han mejorado el tiempo de actividad del cliente. Esto se suma a un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Ford con las Soluciones de Gestión de Flotas es evidente a través del crecimiento y el impacto de Ford Pro. Las soluciones de Ford Pro han mejorado el tiempo de actividad del cliente al reducir el tiempo de reparación en un 20%. Esto se suma a un aumento del 24% en las suscripciones...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="F" data-company="FORD MOTOR CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">F</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FORD MOTOR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ford Blue ha experimentado una creciente demanda de los clientes de sus híbridos. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Ford está ampliando su oferta de vehículos híbridos, incluidos EREV y PHEV, e invirtiendo en híbridos de alto rendimiento. Esto está respaldado por la producción del nuevo Ranger Plug-In Hybrid EV para los mercados europeo y australiano. Ford Blue ha experimentado una creciente demanda de los client...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="F" data-company="FORD MOTOR CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">F</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FORD MOTOR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ford se enfrenta a desafíos en la cadena de suministro, como interrupciones de proveedores. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Ford con la Gestión de la Cadena de Suministro es evidente a través de varias consideraciones operativas. La empresa utiliza un programa de financiación de la cadena de suministro que permite a los proveedores vender sus cuentas por cobrar de Ford a instituciones financieras. Ford s...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GM" data-company="GENERAL MOTORS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GENERAL MOTORS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El éxito financiero de la compañía está estrechamente ligado a su cartera de vehículos,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de General Motors como fabricante de automóviles son centrales para su negocio, como lo demuestran sus ventas de vehículos, producción y rendimiento financiero en diversas regiones. El éxito financiero de la compañía está estrechamente ligado a su cartera de vehículos, particularment...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GM" data-company="GENERAL MOTORS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GENERAL MOTORS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GM está innovando en tecnología autónoma, destacada por el crecimiento y la expansión of Super...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">GM está significativamente involucrada en el tema de la Conducción Autónoma a través de diversas iniciativas. La compañía está innovando en tecnología autónoma, destacada por el crecimiento y la expansión de la tecnología Super Cruise, ahora disponible en 23 modelos y guiando el desarrollo de vehícu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GM" data-company="GENERAL MOTORS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GENERAL MOTORS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GM está priorizando el desarrollo de ADAS como un camino hacia vehículos personales totalmente...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de GM en el tema de Vehículos Autónomos es evidente a través de sus continuos esfuerzos de desarrollo y comercialización, principalmente a través de Cruise, que está probando activamente vehículos autónomos y planeando un regreso a las operaciones comerciales sin conductor. Este com...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GM" data-company="GENERAL MOTORS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GENERAL MOTORS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GM está invirtiendo fuertemente en empresas conjuntas de fabricación de celdas de batería. GM...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de GM con la tecnología de baterías es evidente a través de sus inversiones estratégicas e iniciativas de fabricación. La compañía está invirtiendo fuertemente en empresas conjuntas de fabricación de celdas de batería, con un gasto de capital planificado entre 10.500 y 11.500 millones ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GM" data-company="GENERAL MOTORS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GENERAL MOTORS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GM Financial desempeña un papel crucial en el apoyo a las ventas de vehículos. La penetración de GM...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de GM con las Finanzas al Consumidor se facilita principalmente a través de GM Financial, que desempeña un papel crucial en el apoyo a las ventas de vehículos al proporcionar un conjunto completo de productos de financiamiento. Las operaciones de GM Financial se discuten extensamente, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GM" data-company="GENERAL MOTORS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GENERAL MOTORS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GM se ha convertido en la segunda marca de VE. Cadillac se ha establecido como líder en el segmento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de GM en vehículos eléctricos es evidente a través de su énfasis estratégico en la rentabilidad de los VE y el posicionamiento en el mercado. La estrategia de crecimiento de la empresa implica inversiones en VE, con un enfoque en la reducción de costos y la ampliación de la cartera ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GM" data-company="GENERAL MOTORS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GENERAL MOTORS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GM tiene como objetivo adaptarse a las preferencias de los clientes invirtiendo en híbridos. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de GM con los vehículos híbridos es evidente en su estrategia de crecimiento, que incluye inversiones tanto en vehículos eléctricos como híbridos. La empresa tiene como objetivo adaptarse a las preferencias de los clientes invirtiendo en híbridos, junto con vehículos eléctricos, tecnol...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GM" data-company="GENERAL MOTORS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GENERAL MOTORS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GM se centra en la innovación en software, como lo demuestra el progreso en sus procesos de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de GM con el software de vehículos es evidente a través de sus inversiones estratégicas en servicios habilitados por software y el desarrollo de una plataforma de vehículos definida por software de próxima generación. La empresa se centra en la innovación en software, como lo demuestra...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RIVN" data-company="RIVIAN AUTOMOTIVE INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RIVN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RIVIAN AUTOMOTIVE INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Rivian está sujeta a los ajustes del gobierno de EE. U.U. en los aranceles sobre las piezas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Rivian en la industria de piezas de automóviles se demuestra a través del suministro de piezas a centros de colisión asociados para reparaciones de vehículos. La empresa también está sujeta a los ajustes del gobierno de EE. UU. en los aranceles sobre las piezas de automóviles imp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RIVN" data-company="RIVIAN AUTOMOTIVE INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RIVN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RIVIAN AUTOMOTIVE INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Rivian es un fabricante de automóviles estadounidense centrado en el desarrollo, la construcción y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Rivian con el tema de Fabricantes de Automóviles es fuerte, ya que la empresa se identifica explícitamente como un fabricante de automóviles estadounidense centrado en el desarrollo, la construcción y la venta de vehículos eléctricos (VE) que definen categorías. El negocio principal d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RIVN" data-company="RIVIAN AUTOMOTIVE INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RIVN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RIVIAN AUTOMOTIVE INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Rivian lanzó una plataforma de segunda generación con mejoras en la pila de percepción y la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Rivian en Vehículos Autónomos es evidente a través del desarrollo y la mejora continua de la Plataforma de Autonomía de Rivian, que la empresa considera una ventaja tecnológica clave. La empresa lanzó una plataforma de segunda generación con mejoras en la pila de percepción y la comput...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RIVN" data-company="RIVIAN AUTOMOTIVE INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RIVN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RIVIAN AUTOMOTIVE INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Rivian diseña soluciones rentables destinadas a entregar energía limpia a los clientes. Los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Rivian demuestra su enfoque en el tema de la Energía Limpia a través de su objetivo de acelerar la transición global hacia el transporte y la energía de cero emisiones. Esto se logra a través del diseño de Rivian de soluciones rentables destinadas a entregar energía limpia a los clientes, garantizan...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RIVN" data-company="RIVIAN AUTOMOTIVE INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RIVN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RIVIAN AUTOMOTIVE INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Rivian ha ampliado sus ventas de furgonetas comerciales a otros clientes. Rivian está trabajando...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Rivian con el tema de los vehículos eléctricos comerciales es evidente a través del lanzamiento de su plataforma de furgonetas comerciales Rivian, que incluye la variante EDV diseñada en colaboración con Amazon. Más allá de la variante EDV, Rivian ha ampliado sus ventas de furgoneta...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RIVN" data-company="RIVIAN AUTOMOTIVE INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RIVN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RIVIAN AUTOMOTIVE INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Rivian se centra en los vehículos eléctricos. La plataforma R1, que consta de los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Rivian se centra en los vehículos eléctricos, ya que la empresa desarrolla y fabrica vehículos eléctricos que definen categorías, con el objetivo explícito de acelerar la transición global hacia el transporte con cero emisiones. La plataforma R1, que consta de los modelos R1T y R1S, ej...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RIVN" data-company="RIVIAN AUTOMOTIVE INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RIVN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RIVIAN AUTOMOTIVE INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Rivian ha abierto la Rivian Adventure Network a vehículos eléctricos que no son Rivian. Rivian...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Rivian con la Carga de Vehículos Eléctricos es evidente a través de su diseño, desarrollo, fabricación y operación de los cargadores rápidos de corriente continua Rivian Adventure Network en toda América del Norte. La compañía ha abierto la Rivian Adventure Network a vehículos eléct...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RIVN" data-company="RIVIAN AUTOMOTIVE INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RIVN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RIVIAN AUTOMOTIVE INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Rivian demuestra su compromiso con las Soluciones de Gestión de Flotas a través de FleetOS. FleetOS...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Rivian demuestra su compromiso con las Soluciones de Gestión de Flotas a través de FleetOS, una plataforma centralizada propietaria de extremo a extremo que ofrece junto con sus vehículos comerciales. FleetOS es un servicio de suscripción basado en la nube que abarca la distribución de vehículos, se...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RIVN" data-company="RIVIAN AUTOMOTIVE INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RIVN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RIVIAN AUTOMOTIVE INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Rivian participa en la logística de última milla. La furgoneta comercial Rivian y el EDV son...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Rivian en la logística de última milla es evidente en el diseño y la optimización de furgonetas comerciales para este propósito específico, incluidas las versiones de 500 y 700 pies cúbicos adaptadas para diversas aplicaciones comerciales. La furgoneta comercial Rivian y el EDV s...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RUN" data-company="SUNRUN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RUN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SUNRUN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Sunrun es proveedor líder de sistemas de almacenamiento de baterías domésticas y solares. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Sunrun está profundamente involucrada en la tecnología de baterías, como lo demuestra su posición como proveedor líder de sistemas de almacenamiento de baterías domésticas y solares. La empresa ha transformado su negocio para centrarse en la resiliencia energética, con casi 200.000 sistemas de almac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RUN" data-company="SUNRUN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RUN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SUNRUN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Sunrun ofrece soluciones residenciales de energía solar y almacenamiento. La misión principal de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La misión principal de Sunrun se centra en conectar a las personas con energía limpia, y su objetivo es ser la empresa de referencia para la electrificación del hogar limpia y fiable. Como proveedor líder nacional de energía limpia como servicio de suscripción, Sunrun ofrece soluciones residenciales...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RUN" data-company="SUNRUN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RUN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SUNRUN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Sunrun tiene como objetivo conectar a las personas con la energía más limpia del planeta....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Sunrun dependen en gran medida de tecnologías de energía limpia, particularmente de almacenamiento solar y de baterías, ya que la empresa tiene como objetivo conectar a las personas con la energía más limpia del planeta. Desarrollan e instalan sistemas de energía solar e integran ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RUN" data-company="SUNRUN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RUN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SUNRUN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Sunrun ofrece servicios de respuesta a la demanda y capacidad para satisfacer las necesidades...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Sunrun en la industria de las empresas de servicios públicos de electricidad es evidente a través de su red de plantas de energía de hogar a red, que proporcionan energía despachable a pedido, ayudando a prevenir apagones y reducir los costos de energía para las comunidades, las ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RUN" data-company="SUNRUN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RUN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SUNRUN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa reconoce los cargadores de vehículos eléctricos como una oportunidad de mercado...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de la empresa con el tema de la carga de vehículos eléctricos es evidente en su visión estratégica de capitalizar la electrificación de los hogares estadounidenses a través de energías renovables y el desarrollo de redes inteligentes. Si bien su enfoque principal sigue siendo la energía ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RUN" data-company="SUNRUN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RUN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SUNRUN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Sunrun se enfoca en proporcionar soluciones de energía a los hogares. Su objetivo es de ser la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Sunrun se enfoca en proporcionar soluciones de energía a los hogares, como lo demuestra su objetivo de ser la empresa de referencia para la electrificación del hogar limpia y confiable. Los productos y soluciones innovadores de la empresa están diseñados para proporcionar a los hogares seguridad ene...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RUN" data-company="SUNRUN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RUN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SUNRUN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Sunrun es el principal proveedor de América de sistemas de almacenamiento de baterías domésticas y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Sunrun se ha posicionado como un actor clave en el sector del almacenamiento de energía, particularmente a través de su enfoque en soluciones de baterías domésticas y la integración con sistemas de energía solar. La compañía se identifica como el principal proveedor de América de sistemas de almacen...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RUN" data-company="SUNRUN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RUN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SUNRUN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Sunrun participa activamente en la transición energética al ayudar a los operadores de la red con...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Sunrun participa activamente en la transición energética al ayudar a los operadores de la red con soluciones de energía bajo demanda, de hogar a red. La empresa tiene como objetivo explícito ser la marca de consumo líder para la modernización de hogares con energía asequible y resiliente, facilitand...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RUN" data-company="SUNRUN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RUN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SUNRUN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El empresa es el mayor operador de plantas de energía distribuidas de hogar a red del país. Esta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con las Soluciones de Microredes es evidente a través de su posición como el mayor operador de plantas de energía distribuidas de hogar a red del país, gestionando más de 3 gigavatios-hora de energía despachable de baterías domésticas y casi 8 gigavatios de capacidad de g...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RUN" data-company="SUNRUN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RUN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SUNRUN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Sunrun ofrece soluciones residenciales de energía solar y almacenamiento de baterías. Empresa se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Sunrun en la energía renovable es evidente en su misión de conectar a las personas con la energía más limpia y su transformación de la industria solar al democratizar el acceso a la energía renovable. Como proveedor líder de energía limpia como servicio de suscripción en el país, Sunru...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RUN" data-company="SUNRUN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RUN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SUNRUN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Sunrun se dedica al diseño, desarrollo, instalación, venta, propiedad y mantenimiento of sistemas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Sunrun en el tema de la Energía Solar está profundamente arraigada en su negocio principal, ya que la empresa declara explícitamente su enfoque en la venta de energía solar a clientes residenciales y la instalación de sistemas de energía solar. La empresa transformó la industria ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de Tesla con la Inteligencia Artificial es evidente en sus productos y servicios. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Tesla con la Inteligencia Artificial es evidente en sus productos y servicios, con un enfoque creciente en IA, robótica y automatización. La empresa está invirtiendo activamente en autonomía y productos habilitados por IA, lo que se refleja en un aumento de los gastos de I+D y las i...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla diseña, desarrolla, fabrica, arrienda y vende vehículos totalmente eléctricos of alto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Tesla con la industria de Fabricantes de Automóviles es evidente en sus operaciones principales, ya que la empresa diseña, desarrolla, fabrica, arrienda y vende vehículos totalmente eléctricos de alto rendimiento. Con la misión de acelerar la transición del mundo hacia la energía so...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla está trabajando activamente para mejorar las funciones del piloto automático. La empresa ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Tesla con la conducción autónoma es evidente a través de sus continuos esfuerzos para mejorar y desplegar las capacidades de conducción autónoma total (FSD) y su desarrollo del Robotaxi, Cybercab. La empresa ha lanzado servicios de robotaxi en Austin, con planes de expandirse a otra...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla está buscando activamente aprobaciones regulatorias para la expansión a nuevas áreas. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tesla en vehículos autónomos es evidente a través de su desarrollo y despliegue continuo de capacidades de conducción totalmente autónoma (FSD) y la creación del Robotaxi, Cybercab, diseñado específicamente. La compañía ha lanzado con éxito servicios de robotaxi en Austin, brinda...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla demuestra su compromiso con la industria de Materiales para Baterías. La compañía opera una...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Tesla demuestra su compromiso con la industria de Materiales para Baterías a través de varias iniciativas clave. La compañía opera una refinería de litio en el sur de Texas, identificada como la más grande fuera de China, y una refinería de cátodos en Austin, adyacente a su gigafábrica, con consider...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla se enfoca en mejorar y desarrollar sus vehículos y tecnologías de baterías, incluida la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Tesla con la tecnología de baterías es evidente a través de su misión de acelerar la transición del mundo hacia la energía sostenible mediante el diseño, desarrollo y fabricación de vehículos eléctricos de alto rendimiento y productos de almacenamiento de energía. La compañía se enf...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía ha expandiendo activamente sus programas de financiamiento de vehículos. Tesla utiliza...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tesla en las finanzas del consumidor se refleja en la provisión de servicios financieros relacionados con sus productos. La compañía ha estado expandiendo activamente sus programas de financiamiento de vehículos, ofreciendo atractivas condiciones de arrendamiento a los clientes. ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla diseña, desarrolla, fabrica, arrienda y vende vehículos eléctricos. El Model Y ha alcanzado...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Tesla con el tema de los vehículos eléctricos está profundamente arraigado en su misión principal de acelerar la transición del mundo hacia la energía sostenible, ya que la empresa diseña, desarrolla, fabrica, arrienda y vende vehículos eléctricos de alto rendimiento. El Model Y ha ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla ofrece una gama de servicios relacionados with sus productos, incluida la carga. El mejoras...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Tesla con el tema de la Carga de Vehículos Eléctricos (VE) es evidente a través de la expansión de la red Supercharger y la infraestructura de carga a nivel mundial, que incluye personal y optimización de las ubicaciones de Supercharger. Esta expansión está impulsada en parte por la...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla está desplegado cantidades significativas de productos de almacenamiento de energía,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tesla en el tema de Almacenamiento de Energía es evidente a través de su diseño, desarrollo, fabricación, arrendamiento y venta de productos de almacenamiento de energía, con un enfoque en aumentar la producción y la penetración en el mercado. La compañía ha desplegado cantidades...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de Tesla with el tema of la Transición Energética es evidente. Tesla se apoya en el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Tesla con el tema de la Transición Energética es evidente en su misión principal de acelerar la transición mundial hacia la energía sostenible. Esta misión se apoya en el diseño, desarrollo, fabricación y venta de vehículos eléctricos, sistemas de generación de energía solar y produ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de Tesla con la energía renovable es evidente en su misión principal. Este compromiso...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Tesla con la energía renovable es evidente en su misión principal de acelerar la transición mundial hacia la energía sostenible. Este compromiso se apoya en el diseño, desarrollo, fabricación y venta de vehículos eléctricos, sistemas de generación de energía solar y productos de alm...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla está evolucionando activamente el diseño de Optimus, con prototipos de Optimus 3 esperados...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tesla en el tema de la Robótica es evidente a través de su desarrollo y despliegue planificado de robots Optimus. Elon Musk ha enfatizado repetidamente la importancia de Optimus, prediciendo que será el 'mayor producto de la historia' de Tesla y destacando la ambición de la empre...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla participa en la industria de la energía solar a través de su diseño, desarrollo, fabricación,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tesla en la industria de la energía solar es evidente a través de su diseño, desarrollo, fabricación, arrendamiento y venta de sistemas de generación de energía solar. Este compromiso se alinea con la misión de Tesla de acelerar la transición del mundo hacia la energía sostenible...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="3EC" data-company="EATON CORP PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">3EC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EATON CORP PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Eaton reconoce el crecimiento de los vehículos eléctricos. Eaton continúa centrándose en soluciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Eaton en el tema de Vehículos Eléctricos se destaca por su asociación con ChargePoint para desarrollar soluciones integradas de carga de VE, distribución de energía y software, lo que permite la electrificación de vehículos a escala. Si bien la compañía reconoce el crecimiento de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="3EC" data-company="EATON CORP PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">3EC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EATON CORP PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Eaton se beneficia de la fortaleza en OEM de maquinaria dentro de su segmento de negocio Electrical...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Eaton en el tema de Aplicaciones Industriales se demuestra a través de sus productos y adquisiciones estratégicas, como Fibrebond Corporation, que diseña recintos de energía modulares para clientes industriales. La empresa fabrica productos adaptados para los sectores industrial ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BWA" data-company="BORGWARNER INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BWA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BORGWARNER INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BorgWarner mejorar sus capacidades de electrónica de potencia. Adquisiciones completadas del...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">BorgWarner demuestra su compromiso con la electrónica automotriz a través de adquisiciones estratégicas destinadas a mejorar sus capacidades de electrónica de potencia, como lo demuestran las adquisiciones completadas del negocio de sistemas híbridos eléctricos de Eldor Corporation y Drivetek AG. Se...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BWA" data-company="BORGWARNER INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BWA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BORGWARNER INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BorgWarner se identifica como un líder mundial de productos en soluciones tecnológicas limpias y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">BorgWarner se identifica como un líder mundial de productos en soluciones tecnológicas limpias y eficientes para vehículos de combustión, híbridos y eléctricos. El enfoque de la empresa en soluciones tecnológicas limpias y eficientes se alinea con la tecnología de energía limpia, ya que también menc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENPH" data-company="ENPHASE ENERGY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ENPH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENPHASE ENERGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Enphase se enfoca en expandir su papel en los servicios energéticos. La empresa está invirtiendo en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Enphase se enfoca en expandir su papel en los servicios energéticos a través de varias iniciativas clave. La empresa está invirtiendo en su plataforma de servicios para instaladores, que incluye herramientas como Solargraf y SolarLeadFactory, para reducir los costos indirectos y optimizar las operac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENPH" data-company="ENPHASE ENERGY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ENPH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENPHASE ENERGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Enphase Energy se centra en el suministro de equipos para energías renovables. Las ofertas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Enphase Energy se centra en el suministro de equipos para energías renovables, con un enfoque en soluciones de energía solar. Las ofertas principales de la empresa incluyen microinversores, baterías IQ y sistemas integrados para la generación, almacenamiento y comunicación solar. Enpha...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENPH" data-company="ENPHASE ENERGY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ENPH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENPHASE ENERGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Enphase utiliza una única plataforma tecnológica para una gestión fluida. Los propietarios pueden...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Enphase Energy en el tema de Infraestructura Inteligente es evidente en su enfoque de red para la generación solar y el almacenamiento de energía, aprovechando tecnologías de software basadas en la nube. El Sistema de Energía Enphase utiliza una única plataforma tecnológica para ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="F" data-company="FORD MOTOR CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">F</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FORD MOTOR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El mercado de repuestos automotrices constituyen el 17% del EBIT de Ford Pro. Ford tiene como...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Ford con el mercado de repuestos automotrices es evidente a través de los flujos de ingresos de Ford Pro, donde las piezas, el software y los servicios del mercado de repuestos desempeñan un papel. Específicamente, las contribuciones del mercado de repuestos constituyen el 17% del E...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="F" data-company="FORD MOTOR CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">F</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FORD MOTOR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ford Next ha cambiado su enfoque del desarrollo directo de vehículos autónomos a la incubación of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Ford en la conducción autónoma es evidente a través del desarrollo y avance de su tecnología BlueCruise, con un aumento de las millas recorridas sin manos. Si bien Ford está en camino con la autonomía de Nivel 3 y evaluando el Nivel 4, su división Ford Next ha cambiado su enfoque...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GM" data-company="GENERAL MOTORS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GENERAL MOTORS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GM se enfoca en expandir su negocio de vehículos eléctricos. La visión de la empresa incluye cero...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de GM con un futuro de cero emisiones es evidente en sus inversiones estratégicas en vehículos eléctricos y sus esfuerzos para escalar la producción de vehículos eléctricos, aunque los vehículos eléctricos comerciales no se mencionan específicamente. La visión de la empresa incluye cer...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GM" data-company="GENERAL MOTORS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GENERAL MOTORS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GM reconoce los riesgos asociados with las brechas de seguridad y los ciberataques. Esta visión...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de GM con los Vehículos Conectados es evidente en su visión de un futuro con cero accidentes y cero congestión, lo que requiere avances en tecnologías conectadas. Esta visión está respaldada por las inversiones estratégicas de GM en tecnología AV personal y servicios habilitados por so...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RIVN" data-company="RIVIAN AUTOMOTIVE INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RIVN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RIVIAN AUTOMOTIVE INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Rivian se enfoca en ofrecer autonomía "turn-by-turn" (giro a giro) y expandir la funcionalidad...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Rivian con la conducción autónoma es evidente a través del desarrollo de la Plataforma de Autonomía Rivian, incluido el lanzamiento de su plataforma de segunda generación que presenta mejoras en la pila de percepción y la potencia de cálculo. La compañía se enfoca en ofrecer autonom...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RIVN" data-company="RIVIAN AUTOMOTIVE INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RIVN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RIVIAN AUTOMOTIVE INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Rivian desarrolla software y servicios para sus vehículos eléctricos. El software y los servicios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Rivian desarrolla software y servicios para sus vehículos eléctricos, incluyendo una pila de software completa para el vehículo, plataforma de autonomía interna y arquitectura de red zonal. El software y los servicios de la empresa abarcan todo el ciclo de vida del vehículo, desde la compra hasta la...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RUN" data-company="SUNRUN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RUN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SUNRUN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Sunrun ofrece servicios energéticos que benefician a las comunidades, las empresas de servicios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Sunrun en el tema de Servicios Energéticos es evidente a través de su provisión de resiliencia energética para los propietarios de viviendas y su papel como productor independiente de energía, brindando servicios de respuesta a la demanda y capacidad. La empresa gestiona servicio...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RUN" data-company="SUNRUN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RUN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SUNRUN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Sunrun se centra en la integración de energía renovable. La misión principal implica...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Sunrun se centra en la integración de energía renovable, con un enfoque en proporcionar soluciones limpias de energía solar y almacenamiento a clientes residenciales. La misión principal de la empresa implica conectar a las personas con energía limpia ofreciendo energía solar y almacen...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla se enfoca en la logística automotriz para respaldar su creciente volumen de producción. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Tesla se enfoca en la logística automotriz para respaldar su creciente volumen de producción, enfatizando la necesidad de mejorar las capacidades de entrega de vehículos para prevenir cuellos de botella. La compañía ha demostrado sus capacidades de gestión operativa y de cadena de suministro al aume...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Tesla en la energía sostenible es un aspecto central of sus operaciones. El diseño,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La dedicación de Tesla al tema de la Energía Limpia es evidente en su misión principal de acelerar la transición mundial hacia la energía sostenible. Este compromiso está respaldado por el diseño, desarrollo, fabricación, arrendamiento y venta de vehículos eléctricos, sistemas de generación de energ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla se enfoca en aumentar su capacidad de fabricación, que incluye el Tesla Semi. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tesla en el sector de vehículos eléctricos comerciales es evidente a través de varias iniciativas, incluida la producción piloto del Tesla Semi en Gigafactory Nevada y la construcción del Tesla Semi. Además, la compañía está desarrollando el Cybercab y planea lanzar un robotaxi e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BWA" data-company="BORGWARNER INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BWA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BORGWARNER INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BorgWarner se identifica como un líder mundial en productos de tecnología limpia y eficiente. Hubei...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">BorgWarner se identifica como un líder mundial en productos de tecnología limpia y eficiente para vehículos de combustión, híbridos y eléctricos. Reforzando esta posición, BorgWarner completó la adquisición de Hubei Surpass Sun Electric, que incluye sus negocios de soluciones para vehículos eléctric...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENPH" data-company="ENPHASE ENERGY INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ENPH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENPHASE ENERGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Enphase vende soluciones de carga para vehículos eléctricos. Su línea de productos incluye...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Enphase en el tema de Vehículos Eléctricos se demuestra a través de sus ventas de soluciones de carga para vehículos eléctricos, que generan ingresos para la empresa. Su línea de productos incluye cargadores para vehículos eléctricos compatibles con la mayoría de los vehículos el...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENPH" data-company="ENPHASE ENERGY INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ENPH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENPHASE ENERGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Enphase está expandiendo su alcance al mercado solar a escala de servicios públicos. Se espera que...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Enphase está expandiendo su alcance al mercado solar a escala de servicios públicos a través de varias iniciativas. Se espera que los próximos microinversores IQ9 desbloqueen el mercado solar comercial de 480 voltios en los EE. UU., lo que representa una expansión significativa de su mercado abordab...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="F" data-company="FORD MOTOR CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">F</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FORD MOTOR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de Ford con la Tecnología Automotriz es evidente. La empresa se centra en integrar...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Ford con la Tecnología Automotriz es evidente en su continua transformación empresarial e inversiones estratégicas. La empresa se centra en integrar sus arquitecturas eléctricas para mejorar la entrega de software a los vehículos, ejemplificado por la fusión de sus dos arquitecturas...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="F" data-company="FORD MOTOR CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">F</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FORD MOTOR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ford está desarrollando activamente sistemas autónomos de Nivel 3. Sin embargo, Ford Next ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Ford está desarrollando activamente sistemas autónomos de Nivel 3 y explorando oportunidades de servicios de gestión de flotas para flotas comerciales de Nivel 4 a través de Ford Pro, lo que indica una inversión continua en tecnología de vehículos autónomos. Sin embargo, Ford Next ha cambiado su enf...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="F" data-company="FORD MOTOR CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">F</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FORD MOTOR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa monitorea los vehículos en el campo a través of la conectividad, aprovechando los datos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Ford en vehículos conectados es evidente a través de varios puntos clave. La empresa monitorea los vehículos en el campo a través de la conectividad, aprovechando los datos resultantes para impulsar el crecimiento. Esto está respaldado además por el creciente número de suscripcio...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GM" data-company="GENERAL MOTORS CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GENERAL MOTORS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GM se enfoca en desarrollar una plataforma de vehículo de próxima generación definida by software....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de GM con la Tecnología Automotriz es evidente a través de sus inversiones en vehículos eléctricos, híbridos, tecnología personal de vehículos autónomos y servicios habilitados por software. La empresa se enfoca en desarrollar una plataforma de vehículo de próxima generación definida p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GM" data-company="GENERAL MOTORS CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GENERAL MOTORS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GM es el mayor fabricante de celdas de batería en EE. UU. La empresa está desarrollando activamente...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de GM con los Materiales para Baterías es evidente en sus iniciativas estratégicas para asegurar una cadena de suministro sólida y resiliente para su producción de vehículos eléctricos. La empresa está desarrollando activamente fuentes en EE. UU. para componentes esenciales de baterías...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RIVN" data-company="RIVIAN AUTOMOTIVE INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RIVN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RIVIAN AUTOMOTIVE INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Rivian tiene como objetivo desarrollar características y capacidades líderes en la industria...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Rivian con la tecnología automotriz es evidente en el desarrollo de vehículos eléctricos, software y servicios tecnológicamente avanzados que abordan todo el ciclo de vida del vehículo. La empresa se enfoca en crear productos innovadores y tiene una arquitectura de red zonal integra...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RIVN" data-company="RIVIAN AUTOMOTIVE INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RIVN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RIVIAN AUTOMOTIVE INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Rivian emitió Notas Convertibles Verdes 2029 and 2030. Además, refinanció sus notas senior...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Rivian con los Bonos Verdes es evidente a través de varias acciones financieras, incluida la emisión de Notas Convertibles Verdes 2029 y 2030, que contribuyeron directamente a un aumento en los gastos por intereses para el año finalizado el 31 de diciembre de 2024. Además, la empres...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RUN" data-company="SUNRUN INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RUN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SUNRUN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Sunrun está estrechamente alineado with los hogares energéticamente eficientes. La empresa tiene...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Sunrun está estrechamente alineado con los hogares energéticamente eficientes, como lo demuestra su enfoque en la electrificación del hogar y las soluciones de energía renovable asequibles. La empresa tiene como objetivo ser el principal proveedor de electrificación del hogar limpia y ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RUN" data-company="SUNRUN INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RUN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SUNRUN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa instala sistemas de energía solar, vende paneles de energia solar, y compra módulos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de Equipos de Energía Renovable es evidente a través de su participación en el diseño, desarrollo, instalación, venta, propiedad y mantenimiento de sistemas residenciales de energía solar. La empresa instala sistemas de energía solar, vende paneles de energí...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Tesla en la tecnología automotriz es evidente. La compañía se dedica a mejorar el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Tesla en la tecnología automotriz es evidente en el diseño, desarrollo y fabricación de vehículos eléctricos de alto rendimiento, junto con un énfasis creciente en IA, robótica y automatización. La compañía se dedica a mejorar el rendimiento y la funcionalidad de los vehículos a través...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla diseña, desarrolla, fabrica, alquila y vende vehículos eléctricos. Estas actividades...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La dedicación de Tesla a la tecnología de energía limpia es evidente en su misión de acelerar la transición del mundo hacia la energía sostenible. La empresa diseña, desarrolla, fabrica, alquila y vende vehículos eléctricos, sistemas de generación de energía solar y productos de almacenamiento de en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tesla está aumentando la producción y las capacidades de sus productos de almacenamiento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tesla en proyectos a escala de servicios públicos es evidente a través de sus despliegues de almacenamiento de energía Megapack, aunque estos despliegues pueden fluctuar de un trimestre a otro según los hitos del proyecto y la logística. Para satisfacer los altos niveles de deman...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSLA" data-company="TESLA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSLA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TESLA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El software de Tesla es evidente en sus continuos esfuerzos para mejorar el rendimiento y la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tesla en el software de vehículos es evidente en sus continuos esfuerzos para mejorar el rendimiento y la funcionalidad del vehículo a través de funciones impulsadas por IA como Autopilot y FSD (Supervisado), junto con otras mejoras de software. Esto está respaldado aún más por l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="3EC" data-company="EATON CORP PLC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">3EC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EATON CORP PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Eaton demuestra su enfoque en soluciones energéticas a través ofrecer energía distribuida flexible...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Eaton demuestra su enfoque en soluciones energéticas a través de su asociación con Siemens Energy para ofrecer energía distribuida flexible e independiente de la red, ofreciendo plazos de proyecto más cortos y mayor flexibilidad operativa. Esta colaboración aborda las limitaciones de energía para lo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENPH" data-company="ENPHASE ENERGY INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ENPH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENPHASE ENERGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Enphase se centra en la integración de energías renovables. El Sistema de Energía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Enphase se centra en la integración de energías renovables, proporcionando una plataforma tecnológica que gestiona la generación solar, el almacenamiento y la comunicación. El Sistema de Energía Enphase permite el autoconsumo, maximiza el rendimiento energético, simplifica la instalaci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENPH" data-company="ENPHASE ENERGY INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ENPH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENPHASE ENERGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Enphase demuestra un interés en las soluciones de microrredes a través of varias iniciativas,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Enphase demuestra un interés en las soluciones de microrredes a través de varias iniciativas, incluido el lanzamiento del producto IQ Balcony Solar en Alemania y Bélgica, diseñado para que los residentes de apartamentos aprovechen la energía solar, y sus planes de expansión a otros países europeos y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="F" data-company="FORD MOTOR CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">F</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FORD MOTOR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ford considera baterías LFP una ventaja distintiva. Esto se demuestra aún más con la construcción...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Ford con la tecnología de baterías es evidente a través de sus inversiones estratégicas, particularmente en la tecnología de baterías LFP, que considera una ventaja distintiva. Esto se demuestra aún más con la construcción de una nueva planta en Marshall, Michigan, dedicada a la pro...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="F" data-company="FORD MOTOR CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">F</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FORD MOTOR CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Aproximadamente un tercio de las retiradas recientes están relacionadas with el software. Ford...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Ford con el software de vehículos es evidente en varios aspectos de sus operaciones. La empresa se centra en el uso de actualizaciones inalámbricas (OTA) para abordar retiradas relacionadas con el software y reducir los inconvenientes para los clientes, y aproximadamente un tercio d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GM" data-company="GENERAL MOTORS CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GENERAL MOTORS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GM supera al mercado en participación de mercado total de flotas comerciales año tras año. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de GM en el mercado de flotas comerciales es evidente a través de sus ventas a flotas, que incluyen ventas a grandes y pequeñas empresas, gobiernos y empresas de alquiler de automóviles diarios. La empresa ha demostrado su desempeño en este sector al superar al mercado en participac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENPH" data-company="ENPHASE ENERGY INC">
+            <td style="color: #666; font-size: 0.9rem;"></td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ENPH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENPHASE ENERGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">"I'm a little bit of a geek. I like to play around with computers. I'm not very good at it, but I'm...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">"[{'name': 'enph-Q225-10-Q'</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

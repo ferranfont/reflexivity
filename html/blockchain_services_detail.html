@@ -1,0 +1,1769 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Blockchain Services - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Blockchain Services</div>
+      <div class="sub-title">Investment Theme Detail - Technology Industry</div>
+    </div>
+    <a href="main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Blockchain Services &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Technology &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 20
+    </div>
+
+    
+    <!-- Theme Chart Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Theme Chart</span>
+             <a href="equity_blockchain_services.html" target="_blank" class="btn-view-chart">View Full Chart ↗</a>
+        </div>
+        <div class="box-body" style="height: 600px; overflow:hidden;">
+            <iframe src="equity_blockchain_services.html" style="width:100%; height:100%; border:none; display:block;"></iframe>
+        </div>
+    </div>
+        
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">20</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">COIN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona un conjunto integral de servicios financieros basados en blockchain, que incluyen intercambio de criptomonedas, custodia y productos relac...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/COIN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">MARA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">MARA HOLDINGS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha una infraestructura de computación especializada de alto rendimiento para ejecutar los cálculos criptográficos intensivos requeridos para la...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/MARA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">RIOT</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">RIOT PLATFORMS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se basa en una infraestructura de computación acelerada para ejecutar eficientemente sus operaciones de minería de Bitcoin a gran escala....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/RIOT" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CLSK</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CLEANSPARK INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye a la integridad y funcionalidad de las redes blockchain a través del suministro de recursos computacionales robustos para la validación de ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CLSK" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CORZ</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CORE SCIENTIFIC INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera en el dominio de la Computación Acelerada....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CORZ" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">WULF</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TERAWULF INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Utiliza infraestructura de computación de alto rendimiento, incluido hardware especializado, para realizar tareas computacionales intensivas para la m...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/WULF" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CME</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CME GROUP INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Facilita la negociación de futuros y opciones agrícolas, permitiendo a los participantes de la industria agroalimentaria gestionar el riesgo de precio...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CME" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">PYPL</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">PAYPAL HOLDINGS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha la inteligencia artificial para mejorar sus ofertas de fintech, centrándose en áreas como la prevención de fraudes, la gestión de riesgos y ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/PYPL" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CBOE</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CBOE GLOBAL MARKETS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se compromete con la tecnología blockchain para explorar oportunidades en activos digitales y mejorar la infraestructura del mercado....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CBOE" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">HOOD</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ROBINHOOD MARKETS INC - A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aplica inteligencia artificial para mejorar sus servicios de tecnología financiera, contribuyendo a experiencias de usuario más personalizadas y opera...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/HOOD" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">11</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">WT</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">WISDOMTREE INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona fondos cotizados en bolsa que ofrecen a los inversores exposición a diversas estrategias de inversión alternativas y clases de activos....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/WT" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">12</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">APLD</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">APPLIED DIGITAL CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona infraestructura especializada para centros de datos y servicios de alojamiento que permiten y respaldan aplicaciones de computación aceler...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/APLD" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">13</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DFDV</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">DEFI DEVELOPMENT CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se enfoca en el desarrollo de soluciones de finanzas descentralizadas que aprovechan la tecnología blockchain, contribuyendo al crecimiento y la aplic...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DFDV" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">14</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">IBM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">INTL BUSINESS MACHINES CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla e implementa soluciones y tecnologías de computación de alto rendimiento para abordar desafíos computacionales complejos y acelerar cargas ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/IBM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">15</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">MSTR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">STRATEGY INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Interactúa con información impulsada por IA en sus plataformas y servicios....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/MSTR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">16</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha información impulsada por IA para desarrollar y ofrecer soluciones innovadoras de tecnología financiera....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">17</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CUBI</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CUSTOMERS BANCORP INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Participa en la industria de Servicios de Blockchain....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CUBI" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">18</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">WIPRO</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">WIPRO LTD</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios integrales de consultoría en inteligencia artificial, guiando a los clientes a través del desarrollo, implementación y optimizac...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/WIPRO" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">19</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BEN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">FRANKLIN RESOURCES INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Está asociado con la industria de IA en Fintech....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BEN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">20</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TROW</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">T ROWE PRICE GROUP INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aborda las consideraciones e implicaciones de los Servicios de Blockchain dentro de su industria....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TROW" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">115</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="APLD" data-company="APPLIED DIGITAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/APLD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">APLD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLIED DIGITAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Applied Digital diseña y opera centros de datos de próxima generación adaptados para arquitecturas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Applied Digital en la Computación Acelerada es evidente a través de su Negocio de Alojamiento HPC, que diseña y opera centros de datos de próxima generación adaptados para arquitecturas de GPU de alta densidad y aplicaciones HPC como IA y aprendizaje automático. El enfoque de la ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="APLD" data-company="APPLIED DIGITAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/APLD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">APLD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLIED DIGITAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Applied Digital opera 286 megavatios de capacidad de alojamiento de centros de datos. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Applied Digital está significativamente involucrada en la industria de los Centros de Datos, operando a través de su Negocio de Alojamiento de Centros de Datos para minería de criptomonedas y su Negocio de Alojamiento HPC para aplicaciones de computación de alto rendimiento. La compañía opera 286 me...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="APLD" data-company="APPLIED DIGITAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/APLD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">APLD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLIED DIGITAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa construye y opera centros de datos, diseñándolos para proporcionar una potencia de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema de la Infraestructura de Datos es evidente en su papel como diseñador, desarrollador y operador de infraestructura digital de próxima generación en América del Norte, proporcionando soluciones a las industrias de computación de alto rendimiento y inteligencia ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/BR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge proporciona tecnología moderna a las empresas de mercados de capitales. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Broadridge con el tema de Mercados de Capitales es evidente a través de sus adquisiciones estratégicas y su amplia oferta de servicios. La empresa adquirió Securities Industry Services (SIS) de Kyndryl para reforzar sus soluciones de gestión de patrimonio, mercados de capitales y TI...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/BR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge ofrecen datos de distribución de productos de inversión, herramientas analíticas,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Broadridge con el análisis de datos es evidente a través de su suite de soluciones diseñadas para gestores de activos y proveedores de servicios de jubilación, que incluyen plataformas basadas en datos para la gestión de contenidos y la distribución omnicanal. Las soluciones de dato...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/BR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge ofreciendo soluciones impulsadas por la tecnología a una amplia gama of clientes...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Broadridge con Soluciones Fintech es evidente a través de su papel como líder global en tecnología financiera, ofreciendo soluciones impulsadas por la tecnología a una amplia gama de clientes financieros, incluidos bancos, corredores de bolsa y administradores de activos. Las ofertas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/BR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge participa en Tecnología Regulatoria. Esto está respaldado además por la adquisición of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Broadridge en Tecnología Regulatoria es evidente a través de la provisión de soluciones que ayudan a los clientes a cumplir con las necesidades de cumplimiento normativo, incluida la distribución de informes regulatorios y soluciones de informes fiscales. Las soluciones de la emp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/BR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge adquirió Servicios para la Industria de Valores (SIS) de Kyndryl para ofrecer soluciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Broadridge en Servicios de Gestión de Patrimonios es evidente a través de varias iniciativas estratégicas. La empresa adquirió Servicios para la Industria de Valores (SIS) de Kyndryl para ofrecer soluciones de gestión de patrimonios en Canadá y AdvisorTarget para mejorar los prog...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="APLD" data-company="APPLIED DIGITAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/APLD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">APLD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLIED DIGITAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El Aprendizaje Automático ofrece potencia de computación de alto rendimiento adaptada. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el Aprendizaje Automático es evidente a través de su Negocio de Servicios en la Nube, que ofrece potencia de computación de alto rendimiento adaptada para aplicaciones de aprendizaje automático. La empresa proporciona soluciones de infraestructura digital y servicios ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BEN" data-company="FRANKLIN RESOURCES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/BEN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BEN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FRANKLIN RESOURCES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Franklin Templeton tiene un AUM significativo. La compañía enfatiza las inversiones alternativas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Franklin Templeton en inversiones alternativas es evidente a través de sus sustanciales activos bajo gestión y su enfoque estratégico en la expansión dentro de este sector. La plataforma global de alternativas de la compañía tiene un AUM significativo y ha demostrado un compromis...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BEN" data-company="FRANKLIN RESOURCES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/BEN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BEN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FRANKLIN RESOURCES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Franklin Templeton ofrece estrategias a través de una amplia gama de vehículos de inversión. Ofrece...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Franklin Templeton con los productos financieros es evidente a través de su provisión de capacidades de inversión a través de varios productos de inversión, incluidos fondos patrocinados y cuentas separadas institucionales y de alto patrimonio neto. La firma ofrece estrategias a tra...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BEN" data-company="FRANKLIN RESOURCES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/BEN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BEN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FRANKLIN RESOURCES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Franklin Resources se identifica como una organización global de gestión de inversiones. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Franklin Resources se identifica como una organización global de gestión de inversiones, que obtiene ingresos operativos e ingresos netos de la prestación de servicios de gestión de inversiones y servicios relacionados a inversores de todo el mundo. La empresa ofrece estrategias a través de una ampl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BEN" data-company="FRANKLIN RESOURCES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/BEN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BEN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FRANKLIN RESOURCES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Franklin Templeton favorece el capital privado secundario como un área clave de oportunidad. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Franklin Templeton en el capital privado es evidente a través de varias actividades, incluida la provisión de soluciones a escala en capital privado secundario por parte de Lexington Partners, que se ha convertido en una fuente principal de liquidez para los inversores en medio d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/BR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge impulsa la digitalización y democratization de la inversión. La empresa impulsa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Broadridge en Soluciones Digitales es evidente a través de su provisión de soluciones impulsadas por la tecnología a diversos clientes de la industria financiera, incluidos bancos, corredores de bolsa y gestores de patrimonio. La empresa impulsa la digitalización y democratizació...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/BR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge ofrece soluciones impulsadas por la tecnología a varios clientes, incluidos bancos,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Broadridge, un líder global en tecnología financiera, proporciona soluciones impulsadas por la tecnología a varios clientes, incluidos bancos, corredores de bolsa, gestores de activos y patrimoniales, y fondos mutuos. Sus soluciones automatizan el ciclo de vida de las transacciones para acciones, fo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge ofrece una escalabilidad perfecta e interoperabilidad global, impulsando la demanda de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Broadridge con el tema de Tecnología Bancaria se deriva de su papel como líder mundial en tecnología financiera que proporciona soluciones impulsadas por la tecnología a los bancos. Estas soluciones permiten una mejor vida financiera al potenciar la inversión, la gobernanza y las comu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge ofrece tecnología moderna a las firmas de mercados de capitales, gestión de patrimonio e...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Broadridge con Software en la Nube es evidente a través de su papel como proveedor líder de SaaS, que ofrece tecnología moderna a las firmas de mercados de capitales, gestión de patrimonio e inversiones. Esta oferta permite a los clientes lograr crecimiento, simplificar la infrae...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge reportó un crecimiento de ingresos recurrentes del 10% al simplificar el trading. Sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Broadridge en el trading institucional es evidente a través de su negocio de Mercados de Capitales, que reportó un crecimiento de ingresos recurrentes del 10% al simplificar el trading en las oficinas frontales y de back office. Sus plataformas de liquidación han procesado un réc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge ofrecen soluciones tecnológicas para gestores de activos y patrimonios. La adquisición...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Broadridge con la Gestión de Inversiones es evidente a través de sus soluciones tecnológicas para gestores de activos y patrimonios, que incluyen soluciones de gestión de carteras y órdenes que ofrecen información sobre análisis de trading y riesgos. La adquisición del negocio de Se...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BR" data-company="BROADRIDGE FINANCIAL SOLUTIO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BROADRIDGE FINANCIAL SOLUTIO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Broadridge ofrecen sistemas globales de gestión de órdenes y ejecución de operaciones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Broadridge en el tema de los mercados financieros es evidente a través de su provisión de soluciones multiactivo, multientidad y multidivisa post-negociación, de negociación y de conectividad que respaldan el procesamiento de transacciones de valores. Las Soluciones de Negociació...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CBOE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CBOE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cboe ofreciendo soluciones de negociación, compensación e inversión en América del Norte, Europa y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Cboe están profundamente entrelazadas con los mercados de capitales, ya que funciona como una red líder de bolsas de derivados y valores, ofreciendo soluciones de negociación, compensación e inversión en América del Norte, Europa y Asia Pacífico. Los segmentos de negocio de la emp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CBOE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CBOE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cboe tiene exposición al comercio de criptomonedas, como lo demuestra su negocio de activos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cboe tiene exposición al comercio de criptomonedas, como lo demuestra su negocio de activos digitales, que incluye una bolsa de futuros y una cámara de compensación reguladas. Aunque la compañía cerró su mercado spot Cboe Digital, continúa facilitando la compensación de contratos de futuros de Bitco...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CBOE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CBOE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cboe participa en múltiples clases de activos, específicamente acciones, derivados y FX. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cboe en el tema de Productos Financieros es evidente a través de su provisión de soluciones y productos de negociación en múltiples clases de activos, específicamente acciones, derivados y FX, que abarcan América del Norte, Europa y Asia Pacífico. El enfoque de la empresa se ve a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CBOE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CBOE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación of Cboe en Soluciones Fintech es evidente. Aunque no se menciona explícitamente,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cboe en Soluciones Fintech es evidente en su entrega de 'soluciones comerciales, de compensación y de inversión de vanguardia', lo que refleja los esfuerzos de la empresa para optimizar la prestación de servicios financieros. Aunque no se indica explícitamente, el enfoque de la e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CBOE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CBOE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cboe ofrece soluciones de trading, compensación e inversión en acciones, derivados y divisas. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cboe en el trading institucional es evidente a través de su negocio principal como una red de bolsas líder a nivel mundial, que ofrece soluciones de trading, compensación e inversión en acciones, derivados y divisas. Esto se destaca por la operación de la empresa de las principal...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CBOE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CBOE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cboe Global Markets opera como una red líder de bolsas de derivados y valores. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cboe Global Markets opera como una red líder de bolsas de derivados y valores, ofreciendo soluciones de negociación, compensación e inversión en múltiples clases de activos, incluyendo renta variable, derivados y divisas, en América del Norte, Europa y Asia Pacífico. La empresa opera una red de bols...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CLSK" data-company="CLEANSPARK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CLSK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CLSK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CLEANSPARK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CleanSpark es una empresa de minería de Bitcoin integrada verticalmente. las operaciones se centran...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de CleanSpark con la tecnología blockchain está profundamente arraigado en su negocio principal como empresa de minería de Bitcoin integrada verticalmente. Identificándose como "America's Bitcoin Miner", las operaciones de la empresa se centran en asegurar y respaldar la red de Bitcoin...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CLSK" data-company="CLEANSPARK INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CLSK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CLSK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CLEANSPARK INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CleanSpark lanza función interna para administrar y monetizar sus tenencias de Bitcoin. Esta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CleanSpark ha lanzado recientemente una función de negociación interna de grado institucional para administrar y monetizar sus tenencias de Bitcoin. Esta iniciativa implica un cambio hacia un enfoque equilibrado que incorpora estrategias de derivados para generar rendimiento a partir de su saldo de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CME" data-company="CME GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CME" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CME</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CME GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de CME Group se ve influenciado por los productos básicos agrícolas. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de CME Group se ve significativamente influenciado por los productos básicos agrícolas, como lo demuestran los récords trimestrales de volumen de todos los tiempos logrados en este sector. Esto se ve respaldado además por un crecimiento del 19% en los volúmenes del sector de productos bás...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CME" data-company="CME GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CME" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CME</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CME GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CME Group opera mercados designados de contratos para futuros y opciones. Ofrece operaciones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La fuerte conexión de CME Group con el tema de los mercados de capitales es evidente en sus operaciones principales, que giran en torno a la facilitación del comercio en diversas clases de activos. La empresa opera mercados designados de contratos para futuros y opciones, junto con servicios de comp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CME" data-company="CME GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CME" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CME</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CME GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CME Group ha experimentado un aumento masivo en los mercados de criptomonedas. La empresa destaca...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de CME Group en el comercio de criptomonedas es evidente a través de la facilitación de futuros y opciones de Bitcoin y Ether por parte de la empresa, y la empresa señala nuevos récords en futuros de criptomonedas. Esto se ve respaldado además por el aumento en el volumen de product...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CME" data-company="CME GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CME" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CME</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CME GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los ingresos por datos de mercado de CME alcanzaron un nivel récord. CME equipa a los traders...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de CME en el análisis de datos es evidente a través de varios aspectos de sus operaciones. Los ingresos por datos de mercado de la compañía alcanzaron un nivel récord y equipa a los traders minoristas con más datos y análisis para prepararlos mejor para operar. Además, los ingresos ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CME" data-company="CME GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CME" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CME</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CME GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de CME Group se centra en gran medida en productos financieros. La empresa facilita la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de CME Group se centra en gran medida en productos financieros, como lo demuestra su amplia gama de ofertas, que incluyen futuros, opciones y swaps en diversas clases de activos como tasas de interés, índices bursátiles, divisas, materias primas agrícolas, energía y metales. La empresa fa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CME" data-company="CME GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CME" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CME</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CME GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CME participa en Soluciones Fintech, incluido el proyecto de transformación de Google Cloud. Los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de CME en Soluciones Fintech se refleja en sus inversiones en tecnología, incluido el proyecto de transformación de Google Cloud y las licencias de software. Esto se combina con la operación de plataformas de negociación electrónica como BrokerTec y EBS, que facilitan las transaccio...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CME" data-company="CME GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CME" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CME</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CME GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CME Group alcanzó récords de volumen trimestral en metales. El aumento de los volúmenes en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de CME Group con el tema de los metales preciosos es evidente a través de su oferta de contratos de futuros y opciones sobre metales, incluidos oro, plata y cobre. La empresa alcanzó récords de volumen trimestral en metales, y el volumen total de contratos de metales aumentó debido a l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CME" data-company="CME GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CME" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CME</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CME GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio principal de CME Group gira en torno a la operación of bolsas financieras. CME, CBOT,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de CME Group gira en torno a la operación de bolsas financieras, incluidas CME, CBOT, NYMEX y COMEX, como se destaca en todo el documento. Estas bolsas facilitan la negociación de futuros, opciones y diversos instrumentos financieros, desempeñando un papel central en la gestión ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase proporciona infraestructura de custodia, negociación y pago a más de 240 empresas. Esto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Coinbase con los servicios de Blockchain es evidente a través de su oferta de Cripto como Servicio (CaaS), que proporciona infraestructura de custodia, negociación y pago a más de 240 empresas. Esto incluye potenciar más del 80% de la custodia para los emisores de cripto ETFs y asoc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase aprovecha su infraestructura criptográfica para empoderar a las empresas a través of sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Coinbase demuestra su compromiso con la tecnología blockchain a través de varias iniciativas clave. La empresa aprovecha su infraestructura criptográfica para empoderar a las empresas a través de sus capacidades de Cripto como Servicio, que admiten custodia, comercio y pagos para más de 240 empresas...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase se centra en impulsar el crecimiento en negocios centrales como el comercio. Este...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de Coinbase al Comercio de Criptomonedas es sustancial, ya que es el núcleo de su modelo de negocio. Los ingresos de la empresa dependen en gran medida de los ingresos por transacciones derivados del comercio de criptomonedas, y están trabajando activamente para expandir su plataforma ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase almacena de forma segura el AOP adicional de los clientes. AOP representan el valor total...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Coinbase con los Servicios de Custodia es evidente a través de sus Activos en Plataforma (AOP), que representan el valor total de los activos de USDC y cripto mantenidos o administrados para los clientes, incluidos los servicios de custodia. Este AOP demuestra la confianza que los c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase está comprometido con las soluciones de pago. Esto incluye USDC, Base, aplicaciones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Coinbase está significativamente comprometido con las soluciones de pago, considerándolo un área de crecimiento central y el próximo caso de uso importante para las criptomonedas, con el objetivo de que la mayoría de los pagos se ejecuten en vías de stablecoin. Esto está respaldado por su pila de pa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase se enfoca en construir un 'exchange de todo' para facilitar la negociación of varios tipos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Coinbase se enfoca en construir un 'exchange de todo' para facilitar la negociación de varios tipos de activos en canales de criptomonedas, integrando exchanges descentralizados en su plataforma. Esta iniciativa incluye ofrecer un conjunto completo de derivados y futuros y opciones perpetuas, destac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CUBI" data-company="CUSTOMERS BANCORP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CUBI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CUBI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CUSTOMERS BANCORP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Customers Bank participa en la expansión de la banca digital a través de varias vías. El banco...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Customers Bank participa en la expansión de la banca digital a través de varias vías. El banco obtiene depósitos a nivel nacional a través de productos de banca digital sin sucursales y proporciona la plataforma de pagos digitales instantáneos basada en blockchain TassatPay a través de CBIT. Además,...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DFDV" data-company="DEFI DEVELOPMENT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DFDV" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DFDV</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DEFI DEVELOPMENT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa acumula Solana. La contribución de ingresos de los servicios de blockchain está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en Servicios de Blockchain es evidente a través de su estrategia de tesorería de activos digitales, que implica el staking de participaciones de Solana con plataformas de terceros y la operación de nodos validadores en la red de Solana. Esta operación incluye la adquis...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HOOD" data-company="ROBINHOOD MARKETS INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HOOD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HOOD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBINHOOD MARKETS INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Robinhood Banking ofrece servicios de crédito y funcionalidades de tarjetas de débito. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Robinhood en los servicios bancarios es evidente a través de varias iniciativas, en particular el lanzamiento de Robinhood Banking, que tiene como objetivo proporcionar una experiencia bancaria privada a una amplia audiencia con características como cuentas de ahorro de alto rend...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HOOD" data-company="ROBINHOOD MARKETS INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HOOD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HOOD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBINHOOD MARKETS INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Robinhood tiene como objetivo democratizar las finanzas proporcionando acceso al sistema...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Robinhood en las finanzas del consumidor es evidente a través de sus ofertas como la Gold Card, préstamos con margen y el lanzamiento de Robinhood Banking con cuentas de ahorro y corrientes. El programa de tarjetas de crédito de la empresa genera ingresos por intereses e incluye ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HOOD" data-company="ROBINHOOD MARKETS INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HOOD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HOOD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBINHOOD MARKETS INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa facilita el comercio de criptomonedas en su plataforma. Robinhood está desarrollando...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de Robinhood al comercio de criptomonedas es significativa, ya que la empresa facilita el comercio de criptomonedas en su plataforma, generando ingresos basados en transacciones al dirigir las órdenes de los clientes a los creadores de mercado. La dedicación de la empresa a las criptom...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HOOD" data-company="ROBINHOOD MARKETS INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HOOD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HOOD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBINHOOD MARKETS INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La misión principal de Robinhood es democratizar las finanzas. Robinhood innova constantemente en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La misión principal de Robinhood es democratizar las finanzas, y lo logra creando plataformas de servicios financieros modernas y basadas en tecnología, accesibles para todos. Todo el modelo de negocio de la empresa gira en torno a la provisión de estos servicios tecnológicamente avanzados, que incl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM Consulting es reconocida como un líder emergente en Servicios de Consultoría e Implementación...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en Consultoría de IA es evidente a través de varias actividades clave. La empresa es reconocida como un líder emergente en Servicios de Consultoría e Implementación de IA Generativa, con su brazo de consultoría interactuando activamente con los clientes para dar forma a sus e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM habilitado entornos de nube híbrida para cargas de trabajo de IA. La infraestructura juega un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en la Infraestructura de IA es evidente a través de su enfoque en habilitar entornos de nube híbrida para cargas de trabajo de IA, ya que la infraestructura juega un papel cada vez más importante para la empresa. Esto se destaca por el lanzamiento de IBM z17, que ofrece una a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM está transformando sus operaciones empresariales integrando IA en varias funciones. Esto se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de IBM con la Inteligencia Artificial es un elemento central de su estrategia general, y la empresa enfatiza su enfoque de nube híbrida e IA. Esto se demuestra mediante la integración de IA en más de 70 flujos de trabajo y el desarrollo de una cartera integral de IA diseñada para propo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM tiene varias iniciativas en Big Data, incluida la expansión de watsonx.data. La adquisición de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en Big Data es evidente a través de varias iniciativas, incluida la expansión de watsonx.data, que permite a los clientes empresariales acceder y obtener valor de datos no estructurados. Reforzando esto, la adquisición de DataStax agrega capacidades de datos escalables en tie...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La infraestructura juega un papel importante en la habilitación de entornos de nube híbrida para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en la Infraestructura Cloud es evidente a través de su estrategia de nube híbrida, que es un motor clave para la empresa. La infraestructura juega un papel importante en la habilitación de entornos de nube híbrida para transacciones críticas y cargas de trabajo de IA, especia...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de software de IBM está experimentando crecimiento, particularmente dentro of los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de IBM con el Software en la Nube es evidente en su enfoque estratégico y sus flujos de ingresos. El segmento de software de la empresa está experimentando crecimiento, particularmente dentro de los sectores de Nube Híbrida, Automatización y Datos, impulsado por su base de ingresos rec...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Consultoría ofrece servicios de estrategia, diseño de procesos, implementación de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en Servicios de Consultoría es evidente a través de sus ingresos de consultoría, que han mostrado signos de estabilización. El segmento de Consultoría de la compañía ofrece servicios de estrategia, diseño de procesos, implementación de sistemas y arquitectura en la nube, con ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM tiene un libro de negocios de GenAI que supera los $7.5 mil millones. IBM está expandiendo su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de IBM con la Integración Empresarial de IA es evidente a través de sus iniciativas estratégicas y la integración de IA en diversas funciones comerciales. La empresa está integrando IA en más de 70 flujos de trabajo y tiene un libro de negocios de GenAI que supera los $7.5 mil millones...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El volumen de negocio de IBM en IA generativa es sustancial. La empresa aprovecha sus ofertas de IA...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de IBM con la IA Generativa y los LLM es evidente a través de su liderazgo temprano y la plataforma Consulting Advantage. La estrategia de IA de la empresa es un elemento clave de su éxito, demostrado por una cartera enfocada que proporciona capacidades híbridas de nube e IA de extremo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de IBM en la computación híbrida en la nube es evidente en sus iniciativas estratégicas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de IBM en la computación híbrida en la nube es evidente en sus iniciativas estratégicas y soluciones. La estrategia de la empresa gira en torno a la nube híbrida y la IA, con IBM Z encarnando estas capacidades. La cartera de software de IBM se está reposicionando en torno a la nube híbrid...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM está transformando sus operaciones empresariales aprovechando la tecnología. IBM está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en Automatización Industrial es evidente a través de su cartera de automatización, que incluye la plataforma de automatización Red Hat Ansible y HashiCorp Terraform y Vault, con SAP planeando implementar esta cartera. Los ingresos por automatización han mostrado crecimiento, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM participa en el tema de Código abierto. Red Hat y OpenShift experimentan un crecimiento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en el tema de Código Abierto es evidente a través del rendimiento y la importancia estratégica de Red Hat y OpenShift. El crecimiento de Red Hat, con OpenShift alcanzando los 1.700 millones de dólares en ARR y experimentando un crecimiento de ingresos superior al 20%, demuest...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM demuestra su compromiso con la Computación Cuántica a través de despliegues y asociaciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">IBM demuestra su compromiso con la Computación Cuántica a través de despliegues y asociaciones estratégicas, incluida la instalación del IBM Quantum System Two en Japón con RIKEN, marcando el primer despliegue fuera de los Estados Unidos, y una asociación con el Gobierno Vasco para desplegar el prim...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MARA" data-company="MARA HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MARA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MARA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MARA HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa gestiona activamente estas tenencias, considerando Bitcoin como un activo productivo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en inversiones alternativas es evidente a través de sus importantes tenencias de Bitcoin, que totalizaron aproximadamente 44.893 bitcoins con un valor razonable de aproximadamente $4.2 mil millones al 31 de diciembre de 2024. La empresa gestiona activamente estas tenen...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MARA" data-company="MARA HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MARA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MARA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MARA HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Mara is una empresa de criptomonedas. La participación de MARA en el comercio de Bitcoin es...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de MARA en el comercio de criptomonedas es significativa, como lo demuestra su negocio principal de minería de Bitcoin y sus sustanciales tenencias de Bitcoin, que superan las 48,000. Los ingresos de la empresa están estrechamente ligados a los precios de Bitcoin, con un aumento not...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSTR" data-company="STRATEGY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MSTR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MSTR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STRATEGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MicroStrategy es la primera y más grande Compañía del Tesoro de Bitcoin del Mundo. Bitcoin is su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El sustancial compromiso de MicroStrategy con el Trading de Criptomonedas se deriva de su posición como la primera y más grande Compañía del Tesoro de Bitcoin del mundo, siendo Bitcoin su principal activo de reserva del tesoro. La compañía acumula estratégicamente Bitcoin, utilizando los ingresos de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSTR" data-company="STRATEGY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MSTR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MSTR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STRATEGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MicroStrategy tiene como objetivo automatizar y acelerar la implementación of aplicaciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de MicroStrategy en el software de análisis empresarial impulsado por IA subraya su compromiso con la integración empresarial de IA, ya que la empresa tiene como objetivo automatizar y acelerar la implementación de aplicaciones habilitadas para IA en diversos sectores, incluyendo el comer...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal demuestra su participación en las finanzas del consumidor a través de varias vías. Esto se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">PayPal demuestra su participación en las finanzas del consumidor a través de varias vías, incluidos productos de crédito a plazos y revolventes que se ofrecen a los consumidores al momento del pago. Esto se ve reforzado aún más por su producto de crédito al consumidor revolvente en EE. UU., junto co...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal gestiona activamente esta cartera, como lo demuestran los acuerdos para vender cuentas por...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de PayPal en los préstamos al consumidor es evidente a través de su importante cartera, que incluye opciones de "compra ahora, paga después", productos de crédito a plazos y productos de crédito rotatorio. El saldo de préstamos al consumidor e intereses por cobrar de la empresa ha c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal demuestra una presencia significativa en la industria de Crédito y Préstamos. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">PayPal demuestra una presencia significativa en la industria de Crédito y Préstamos a través de sus carteras de préstamos para consumidores y comerciantes. Las actividades de la empresa incluyen la oferta de productos de crédito rotatorio y a plazos para consumidores, así como opciones de financiaci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal introducido PYUSD, una moneda estable diseñada para facilitar el comercio global. PayPal...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de PayPal con el Trading de Criptomonedas es evidente a través de varias iniciativas, incluida la introducción de PYUSD, una moneda estable diseñada para facilitar el comercio global abordando problemas como las altas tarifas y la lentitud de las transacciones. La empresa genera ingres...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal espera continuar invirtiendo recursos significativos para reforzar estas protecciones. Se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La ciberseguridad es un área crítica de enfoque para PayPal, especialmente dadas las crecientes amenazas para las empresas globales de pagos y tecnología. La compañía ha desarrollado sistemas y procesos diseñados para proteger los datos, prevenir la pérdida de datos y permitir respuestas efectivas a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal está evolucionando de un procesador de pagos a una plataforma de comercio dinámica. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La misión principal de PayPal es revolucionar el comercio a nivel mundial al permitir pagos digitales y simplificar las experiencias comerciales para consumidores y comerciantes, tanto en línea como fuera de línea. La empresa está evolucionando de un procesador de pagos a una plataforma de comercio ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal demuestra su enfoque en los servicios financieros para PYMES. La empresa prioriza el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">PayPal demuestra su enfoque en los servicios financieros para PYMES a través de varias iniciativas. La empresa prioriza el empoderamiento de los comerciantes al proporcionar herramientas para gestionar y acelerar el crecimiento, incluida la migración de transacciones a PayPal Complete Payments (PPCP...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal lanzamienta billetera móvil NFC sin contacto de PayPal en iOS and Android. Billeteras...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de PayPal con el tema de los Pagos Móviles es evidente en su misión de revolucionar el comercio a nivel mundial, permitiendo pagos digitales y simplificando las experiencias comerciales para consumidores y comerciantes, incluidas las transacciones móviles. Este compromiso se refleja en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal se enfoca en transformarse de una empresa de pagos tradicional a una plataforma de comercio...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de PayPal con las Soluciones de Pago está profundamente arraigado en su misión de revolucionar el comercio a nivel mundial al permitir pagos digitales y simplificar las experiencias comerciales para consumidores y comerciantes. La compañía se enfoca en transformarse de una empresa de p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RIOT" data-company="RIOT PLATFORMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RIOT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RIOT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RIOT PLATFORMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Riot es una empresa de minería de Bitcoin integrada verticalmente. La principal fuente de ingresos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Riot en el Comercio de Criptomonedas está profundamente arraigada en su negocio principal como empresa de minería de Bitcoin integrada verticalmente. La principal fuente de ingresos de la empresa es la minería de Bitcoin, con ingresos sustanciales reportados, lo que resalta la im...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TROW" data-company="T ROWE PRICE GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/TROW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">TROW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">T ROWE PRICE GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de T. Rowe Price se centra en proporcionar un conjunto diverso de soluciones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de T. Rowe Price se centra en proporcionar un conjunto diverso de soluciones de inversión, que abarcan capacidades de renta variable, renta fija, multi-activos y alternativas, como oferta principal. Los ingresos de la firma se derivan principalmente de servicios de asesoría de inversión q...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TROW" data-company="T ROWE PRICE GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/TROW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">TROW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">T ROWE PRICE GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">T. Rowe Price ofrece servicios administrativos relacionados, como distribución, agente de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de T. Rowe Price gira en torno a los servicios financieros, como lo demuestra su provisión de gestión de inversiones, soluciones de jubilación y gestión de patrimonio. Los ingresos de la compañía se derivan principalmente de servicios de asesoramiento de inversión ofrecidos tant...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TROW" data-company="T ROWE PRICE GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/TROW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">TROW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">T ROWE PRICE GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de T. Rowe Price se centra en la gestión de inversiones. Más del 90% de los ingresos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de T. Rowe Price se centra en la gestión de inversiones, como lo demuestra el hecho de que los ingresos y el beneficio neto de la empresa se derivan principalmente de los servicios de asesoramiento de inversiones ofrecidos tanto a inversores individuales como institucionales. Esto se ve r...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TROW" data-company="T ROWE PRICE GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/TROW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">TROW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">T ROWE PRICE GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">T. Rowe Price proporciona servicios de asesoramiento de inversiones tanto a inversores individuales...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de T. Rowe Price con los servicios de gestión de patrimonio es evidente a través de sus servicios de asesoramiento de inversiones proporcionados tanto a inversores individuales como institucionales, que constituyen la principal fuente de ingresos de la empresa. Una parte significativa ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WULF" data-company="TERAWULF INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/WULF" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WULF</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TERAWULF INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">TeraWulf ha asegurado 72.5 MW de capacidad de alojamiento HPC en la Instalación Lake Mariner para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de TeraWulf en la computación acelerada es evidente a través de su cambio estratégico hacia el alojamiento y la colocalización de computación de alto rendimiento (HPC). La empresa ha asegurado 72.5 MW de capacidad de alojamiento HPC en la Instalación Lake Mariner para cargas de trab...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WULF" data-company="TERAWULF INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/WULF" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WULF</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TERAWULF INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de TeraWulf se centra en la minería de Bitcoin. La empresa genera ingresos en forma de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de TeraWulf se centra en la minería de Bitcoin, que intrínsecamente se basa en la tecnología blockchain para validar transacciones y asegurar la red. La empresa genera ingresos en forma de bitcoin al proporcionar servicios de cómputo hash para minar bitcoin y validar transacciones en la r...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BEN" data-company="FRANKLIN RESOURCES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/BEN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BEN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FRANKLIN RESOURCES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Franklin Templeton ofrece capacidades de inversión a través de varios productos. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Franklin Templeton en Servicios de Gestión de Patrimonios es evidente a través de varias iniciativas clave. El negocio de inversiones alternativas de la compañía, particularmente dentro del canal de gestión de patrimonios, ha contribuido fuertemente a su rendimiento, impulsando i...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CME" data-company="CME GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CME" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CME</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CME GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La conexión de CME Group with los Mercados Financieros es evidente en la operación of bolsas como...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de CME Group con los Mercados Financieros es evidente en la operación de bolsas como CME, CBOT, NYMEX y COMEX, que facilitan la negociación de diversas clases de activos. Una parte importante de los ingresos de la empresa se deriva de las tarifas de compensación y transacción generadas e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase ofrece capacidades de Criptomonedas como Servicio, que incluyen custodia, comercio y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Coinbase en las criptomonedas y la construcción de infraestructura financiera subraya su compromiso con las Soluciones Fintech, con el objetivo de ser la plataforma de servicios financieros número 1 a nivel mundial. La empresa proporciona infraestructura para nuevos participantes, vend...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HOOD" data-company="ROBINHOOD MARKETS INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/HOOD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HOOD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBINHOOD MARKETS INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma de Robinhood, que permite operar con acciones, opciones y criptomonedas, funciona de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Robinhood en el tema de la industria de Bolsas Financieras es evidente a través de su facilitación de operaciones en diversas clases de activos y su misión de democratizar las finanzas para todos. La plataforma de la empresa, que permite operar con acciones, opciones y criptomone...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM Z ofrece IA, seguridad y capacidad escalable. Los clientes invierten en IBM Z por su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de IBM en la ciberseguridad es evidente a través de su plataforma IBM Z, que ofrece IA, seguridad y capacidad escalable. Los clientes invierten en IBM Z por su fiabilidad, escalabilidad, seguridad y rendimiento, integrándose perfectamente con las estrategias de nube híbrida e IA. El próxi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM está aprovechando sus soluciones de software en la nube híbrida, automatización e IA para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en software empresarial es evidente en su enfoque estratégico y generación de ingresos. El crecimiento de la empresa está impulsado notablemente por su división de software, que incluye Red Hat, Automation, Data y Transaction Processing, siendo el software una parte sustancia...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSTR" data-company="STRATEGY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/MSTR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MSTR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STRATEGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de MicroStrategy en el análisis de datos es evidente a través of su provisión de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de MicroStrategy en el análisis de datos es evidente a través de su provisión de software de análisis empresarial impulsado por IA y su visión de 'Inteligencia en todas partes'. La empresa diseña, desarrolla, comercializa y vende su plataforma de software de análisis empresarial, que tran...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal se enfoca en crear experiencias innovadoras que simplifican el movimiento de dinero, la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de PayPal en Soluciones Fintech es evidente en su misión de revolucionar el comercio a nivel mundial, permitiendo pagos digitales y simplificando las experiencias comerciales para consumidores y comerciantes. La empresa se está transformando activamente de una empresa de pagos tradi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RIOT" data-company="RIOT PLATFORMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/RIOT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RIOT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RIOT PLATFORMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Riot está pivotando estratégicamente hacia la computación acelerada. La compañía está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Riot está pivotando estratégicamente hacia la computación acelerada al centrarse en centros de datos que sirven a la computación de alto rendimiento (HPC) y a la IA, con el objetivo de capitalizar la creciente demanda de cómputo. Esto se evidencia en la contratación de Jonathan Gibbs como Director d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WT" data-company="WISDOMTREE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/WT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WISDOMTREE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WETF aprovecha la tecnología blockchain en sus ofertas. Está desarrollando activamente productos y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">WETF aprovecha la tecnología blockchain en sus ofertas, identificándose como un innovador financiero global con una diversa gama de ETP, modelos, soluciones y productos que utilizan blockchain. La empresa está desarrollando activamente productos y servicios digitales de próxima generación, incluidos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WT" data-company="WISDOMTREE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/WT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WISDOMTREE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WETF ofrece productos y servicios digitales de próxima generación, incluidos Fondos Digitales,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de WETF en la Tecnología Blockchain es evidente en su diversa gama de ETPs, modelos, soluciones y productos que aprovechan blockchain. La compañía se identifica como un innovador financiero global y pionero en la tokenización, viendo la tecnología blockchain como la próxima fase en ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CBOE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CBOE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cboe NL's Data Provider Agreement con Pyth Data Association. Este acuerdo facilita la creación of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Cboe con las Finanzas Descentralizadas se demuestra a través de su subsidiaria Cboe NL's Data Provider Agreement con Pyth Data Association. Este acuerdo facilita la creación de un feed de datos para publicar datos derivados del mercado de acciones en la Red Pyth, una plataforma desc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CME" data-company="CME GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CME" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CME</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CME GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CME Group atiende a una clientela global, incluyendo operadores profesionales, instituciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de CME Group con la industria de Servicios Financieros es evidente a través de sus amplias ofertas de servicios, incluyendo servicios de compensación y transacciones, servicios de datos e información de mercado, y la operación de bolsas financieras. CME Group proporciona soluciones de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase promueve las finanzas onchain a través of recompensas de USDC. El desarrollo de Base por...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Coinbase con las Finanzas Descentralizadas es evidente a través de varias iniciativas, incluida la integración de exchanges descentralizados en la aplicación Coinbase, con el objetivo de proporcionar acceso a millones de tokens. El desarrollo de Base por parte de la empresa, una sol...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase se centra en profundizar la adopción institucional, escalar el crecimiento internacional....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Coinbase con la economía digital es evidente a través de sus esfuerzos para impulsar el crecimiento de los ingresos, mejorar la utilidad de las criptomonedas y lograr claridad regulatoria. La empresa se centra en profundizar la adopción institucional, escalar el crecimiento internac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase's volumen de trading institucional reportado constituye una parte importante de su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Coinbase en el trading institucional es evidente a través de su volumen de trading institucional reportado, que constituye una parte importante de su actividad de trading general. El enfoque de la empresa en 'profundizar la adopción institucional' indica un esfuerzo estratégico p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CUBI" data-company="CUSTOMERS BANCORP INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CUBI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CUBI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CUSTOMERS BANCORP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Customers Bank demuestra su compromiso con la tecnología blockchain a través de su plataforma...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Customers Bank demuestra su compromiso con la tecnología blockchain a través de su plataforma cubiX, que atiende a clientes institucionales en la industria de activos digitales al proporcionar una rampa de entrada y salida para la negociación y liquidación a través de API. Esta plataforma procesó ap...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CUBI" data-company="CUSTOMERS BANCORP INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CUBI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CUBI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CUSTOMERS BANCORP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Customers tiene una cartera de préstamos al consumo de $1.5 mil millones. Esta transición indica un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Customers se relaciona con el tema de la banca de consumo a través de su provisión de préstamos personales al consumo sin garantía, hipotecas residenciales y préstamos sobre el valor líquido de la vivienda a clientes en todo el país, principalmente a través de asociaciones fintech. Si bien Customers...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HOOD" data-company="ROBINHOOD MARKETS INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HOOD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HOOD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBINHOOD MARKETS INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Robinhood demuestra su compromiso con la tecnología blockchain a través de varias iniciativas....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Robinhood demuestra su compromiso con la tecnología blockchain a través de varias iniciativas, incluida la facilitación del comercio de criptomonedas en su plataforma y la adquisición de Bitstamp, un intercambio de criptomonedas a escala mundial. Además, Robinhood está desarrollando activamente Robi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HOOD" data-company="ROBINHOOD MARKETS INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HOOD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HOOD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBINHOOD MARKETS INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Robinhood es una empresa que facilitates the negociación of acciones, opciones y futuros. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Robinhood gira en torno a facilitar la negociación de diversas clases de activos, incluidas acciones, opciones, futuros y criptomonedas, que son componentes integrales de los mercados de capitales. Esto se logra a través de una plataforma que dirige las órdenes de los cliente...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MARA" data-company="MARA HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/MARA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MARA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MARA HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Mara está explorando diseños de infraestructura para cargas de trabajo híbridas. La empresa está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de MARA con la computación acelerada es evidente a través de su exploración de diseños de infraestructura para cargas de trabajo híbridas como la inferencia de IA y su enfoque en la infraestructura de borde soberana. La empresa está co-desarrollando plataformas de balanceo de carga sen...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSTR" data-company="STRATEGY INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/MSTR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MSTR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STRATEGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MicroStrategy enfatiza su papel en la obtención de información impulsada by IA. La empresa integra...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">MicroStrategy enfatiza su papel en la obtención de información impulsada por IA a través de su provisión de software de análisis empresarial líder en la industria impulsado por IA, promoviendo su visión de 'Inteligencia en todas partes'. La empresa integra capacidades de IA generativa en su platafor...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal se enfoca en expandir la base de usuarios de Venmo y aumentar las cuentas activas mensuales....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de PayPal con la expansión de la banca digital es evidente a través de varias iniciativas. El enfoque de la empresa en habilitar pagos digitales y simplificar las experiencias comerciales es fundamental para sus operaciones, ya que sus productos están diseñados para facilitar las trans...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal ofreciendo una plataforma de doble cara que sirve a millones. El negocio principal de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El fuerte compromiso de PayPal con el tema de la industria de Servicios Financieros es evidente en su misión de revolucionar el comercio global a través de pagos digitales y experiencias comerciales simplificadas. El negocio principal de la empresa gira en torno a permitir pagos digitales y personal...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RIOT" data-company="RIOT PLATFORMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/RIOT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RIOT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RIOT PLATFORMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio principal de Riot gira en torno a la minería de Bitcoin. Riot emplea a custodios como...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Riot gira en torno a la minería de Bitcoin, que depende intrínsecamente de la tecnología blockchain, y la empresa enfatiza su papel como entidad líder en minería de Bitcoin que apoya la blockchain de Bitcoin. Las operaciones de la empresa se centran en la minería de Bitcoin, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WT" data-company="WISDOMTREE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/WT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WISDOMTREE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa ofrece productos cotizados en bolsa (ETP) que abarcan una amplia gama de estrategias,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su compromiso con el tema de Inversiones Alternativas a través de sus productos cotizados en bolsa (ETP) que abarcan una amplia gama de estrategias, incluidas exposiciones a alternativas y criptomonedas. La empresa ofrece explícitamente ETP en estrategias alternativas, incluida ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WT" data-company="WISDOMTREE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/WT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WISDOMTREE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WisdomTree Prime proporcionar acceso directo al consumidor a activos digitales como Bitcoin and...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de WisdomTree con el Trading de Criptomonedas es evidente a través de su diversa gama de productos cotizados en bolsa (ETP) que incluyen exposiciones a criptomonedas. La billetera nativa de blockchain de la compañía, WisdomTree Prime, demuestra aún más este compromiso al proporcionar a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WT" data-company="WISDOMTREE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/WT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WISDOMTREE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WisdomTree opera como un patrocinador de ETP y gestor de activos. Brindando servicios de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">WisdomTree opera como un patrocinador de ETP y gestor de activos, brindando servicios de asesoramiento de inversiones en todo el mundo a través de sus subsidiarias en EE. UU. y Europa. La empresa gestiona un volumen sustancial de activos bajo gestión (AUM), ofreciendo una diversa gama de estrategias...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WT" data-company="WISDOMTREE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/WT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WISDOMTREE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La conexión de la empresa con la Inversión Socialmente Responsable se indica principalmente a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de la empresa con la Inversión Socialmente Responsable se indica principalmente a través de su participación en un Acuerdo de la SEC sobre ESG, como se destaca en varias secciones del documento. Este acuerdo resultó en gastos legales y otros relacionados, incluida una multa monetaria civ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WULF" data-company="TERAWULF INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/WULF" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WULF</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TERAWULF INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de TeraWulf presta servicios de cálculo de hash para minar Bitcoin. La empresa genera...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de TeraWulf se centra en la prestación de servicios de cálculo de hash para minar Bitcoin y validar transacciones en la red global de Bitcoin, utilizando mineros de propiedad de la empresa. Como propietario y operador verticalmente integrado de infraestructura digital de próxima generació...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WULF" data-company="TERAWULF INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/WULF" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WULF</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TERAWULF INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">TeraWulf demuestra un compromiso con la energía renovable a través of su enfoque. La Instalación...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">TeraWulf demuestra un compromiso con la energía renovable a través de su enfoque en operaciones de centros de datos ambientalmente responsables, alimentados predominantemente por energía de cero emisiones de carbono. La Instalación Lake Mariner utiliza fuentes de energía de bajo costo y predominante...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/CBOE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CBOE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cboe Global Markets ofrece soluciones de negociación, compensación e inversión a nivel mundial. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cboe Global Markets está profundamente integrado en el tema de los mercados financieros, operando como una red de intercambio líder que ofrece soluciones de negociación, compensación e inversión a nivel mundial. La compañía proporciona soluciones de negociación en múltiples clases de activos, incluy...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MARA" data-company="MARA HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/MARA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MARA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MARA HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Mara opera en cuatro continentes con 14 centros de datos, utilizando tecnologías avanzadas. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Mara con la tecnología blockchain es evidente en su negocio principal de computación a escala de servicios públicos, que se enfoca en la minería de Bitcoin. La empresa opera en cuatro continentes con 14 centros de datos, utilizando tecnologías avanzadas como su propio grupo de mi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal World tiene como objetivo mejorar las experiencias de marca dentro del ecosistema de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de PayPal con las billeteras digitales es evidente a través de varias iniciativas, incluido el desarrollo de una billetera inteligente dinámica diseñada para optimizar las opciones de pago y las recompensas para los consumidores. El enfoque de la empresa se demuestra aún más con el lanza...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

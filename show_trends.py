@@ -140,11 +140,36 @@ HTML_TEMPLATE = """
             justify-content: space-between;
             align-items: center;
         }
-        
+
         #current-selection {
             font-size: 1.4rem;
             font-weight: bold;
             color: var(--primary-color);
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .home-button:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .home-button svg {
+            width: 24px;
+            height: 24px;
         }
 
         #table-container {
@@ -243,7 +268,15 @@ HTML_TEMPLATE = """
     <div id="main-content">
         <div id="header-bar">
             <div id="current-selection">Select a Theme</div>
-            <div id="stats-container"></div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <div id="stats-container"></div>
+                <a href="main_trends.html" class="home-button" title="Return to Main Dashboard">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </a>
+            </div>
         </div>
         <div id="table-container">
             <div id="empty-state">
@@ -434,16 +467,22 @@ HTML_TEMPLATE = """
                 
                 if (industryName.includes(term) || hasVisibleTheme) {
                     group.style.display = 'block';
+                    const titleEl = group.querySelector('.industry-title');
+                    const themeListEl = group.querySelector('.theme-list');
+
                     // Auto expand if searching or filtering
                     if (term.length > 0) {
-                        group.querySelector('.theme-list').style.display = 'block';
+                        themeListEl.style.display = 'block';
+                        titleEl.classList.add('active');
+
                         // If exact match on industry, maybe highlight the header?
                         if (industryName === term) {
-                            group.querySelector('.industry-title').style.backgroundColor = '#e8f0fe';
+                            titleEl.style.backgroundColor = '#e8f0fe';
                         }
                     } else {
-                        group.querySelector('.theme-list').style.display = 'none';
-                        group.querySelector('.industry-title').style.backgroundColor = '';
+                        themeListEl.style.display = 'none';
+                        titleEl.classList.remove('active');
+                        titleEl.style.backgroundColor = '';
                     }
                 } else {
                     group.style.display = 'none';
@@ -451,19 +490,57 @@ HTML_TEMPLATE = """
             });
         }
 
-        // Auto-filter from URL params (simulating filtered page)
+        // Auto-expand industry from URL parameter
         window.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
-            const filterParam = params.get('industry') || params.get('filter');
-            
-            if (filterParam) {
-                // Decode URI component (e.g. %20 -> space) and clean
-                const cleanFilter = decodeURIComponent(filterParam).trim();
-                document.getElementById('filter-input').value = cleanFilter;
-                filterSidebar();
-                
-                // Update title to look like a specific page
-                document.title = `Industry: ${cleanFilter} - Reflexivity`;
+            const industryParam = params.get('industry');
+
+            if (industryParam) {
+                // Decode and clean the industry name
+                const targetIndustry = decodeURIComponent(industryParam).trim().toLowerCase();
+
+                // Wait for DOM to be fully ready
+                setTimeout(() => {
+                    const industryGroups = document.querySelectorAll('.industry-group');
+                    let foundAndExpanded = false;
+
+                    industryGroups.forEach(group => {
+                        const titleSpan = group.querySelector('.industry-title span');
+                        if (!titleSpan) return;
+
+                        const industryName = titleSpan.innerText.toLowerCase();
+
+                        // Exact or partial match
+                        if (industryName === targetIndustry ||
+                            industryName.includes(targetIndustry) ||
+                            targetIndustry.includes(industryName)) {
+
+                            const title = group.querySelector('.industry-title');
+                            const themeList = group.querySelector('.theme-list');
+
+                            if (title && themeList) {
+                                // Expand this industry
+                                themeList.style.display = 'block';
+                                title.classList.add('active');
+                                foundAndExpanded = true;
+
+                                // Scroll to this industry
+                                setTimeout(() => {
+                                    group.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                }, 100);
+
+                                console.log('Auto-expanded industry:', industryName);
+                            }
+                        }
+                    });
+
+                    if (!foundAndExpanded) {
+                        console.warn('Could not find industry to expand:', industryParam);
+                    }
+
+                    // Update page title
+                    document.title = `Industry: ${industryParam} - Reflexivity`;
+                }, 200);
             }
         });
     </script>

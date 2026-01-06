@@ -1,0 +1,1500 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Waste Management - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Waste Management</div>
+      <div class="sub-title">Investment Theme Detail - Industrial Industry</div>
+    </div>
+    <a href="/main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Waste Management &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Industrial &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 16
+    </div>
+
+    
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">16</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">WM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">WASTE MANAGEMENT INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Está asociado con el tema de Captura de Carbono....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/WM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">RSG</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">REPUBLIC SERVICES INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Facilita la economía circular proporcionando soluciones integrales de recolección, reciclaje y procesamiento de residuos que tienen como objetivo recu...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/RSG" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CLH</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CLEAN HARBORS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios ambientales e industriales que apoyan la reducción, reutilización y reciclaje de materiales de desecho, contribuyendo a la recup...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CLH" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">VIE</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">VEOLIA ENVIRONNEMENT</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desempeña un papel fundamental en la economía circular al proporcionar servicios esenciales en la gestión de agua, residuos y energía, facilitando la ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/VIE" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">WCN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">WASTE CONNECTIONS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios esenciales de reciclaje como componente central de sus operaciones de gestión de residuos, contribuyendo a la sostenibilidad amb...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/WCN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DAR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">DARLING INGREDIENTS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se dedica a la producción de ingredientes sostenibles a partir de subproductos animales y otros recursos agrícolas, que son insumos esenciales para la...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DAR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CWY</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CLEANAWAY WASTE MANAGEMENT L</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Implica la prestación de servicios de reciclaje, contribuyendo a prácticas sostenibles de gestión de residuos....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CWY" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CWST</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CASELLA WASTE SYSTEMS INC-A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Impulsa las tecnologías ambientales a través de sus operaciones de gestión de residuos, reciclaje y recuperación de recursos, críticas para prácticas ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CWST" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">OSK</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">OSHKOSH CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y fabrica vehículos y equipos tácticos especializados esenciales para operaciones militares y aplicaciones de defensa....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/OSK" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">FSS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">FEDERAL SIGNAL CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Depende de los fabricantes de automóviles para el suministro de chasis y otros componentes de vehículos utilizados en sus ofertas de productos especia...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/FSS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">11</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">PCT</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">PURECYCLE TECHNOLOGIES INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y comercializa un innovador proceso de reciclaje para transformar residuos plásticos en resinas de alta calidad, apoyando el avance de mate...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/PCT" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">12</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TTEK</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TETRA TECH INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios de consultoría centrados en soluciones de inteligencia artificial en diversos sectores....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TTEK" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">13</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">IRM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">IRON MOUNTAIN INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece servicios integrales de gestión de datos que abarcan soluciones de almacenamiento en la nube, lo que permite a las empresas almacenar, administ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/IRM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">14</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TEX</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TEREX CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona equipos esenciales para la construcción y el mantenimiento de proyectos de infraestructura civil....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TEX" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">15</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">KAI</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">KADANT INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye a la industria de Envases de Consumo....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/KAI" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">16</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">WTTR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SELECT WATER SOLUTIONS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye al tema de Fabricación Química a través de sus actividades operativas....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/WTTR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">96</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="TTEK" data-company="TETRA TECH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TTEK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TETRA TECH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Government Services Group (GSG) de Tetra Tech proporciona servicios de diseño de ingeniería para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El Government Services Group (GSG) de Tetra Tech proporciona servicios de diseño de ingeniería para clientes federales y municipales con sede en EE. UU., con un enfoque en la gestión de residuos sólidos. Esto indica que la empresa asigna recursos y personal a la gestión de residuos, aunque no se des...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TTEK" data-company="TETRA TECH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TTEK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TETRA TECH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tetra Tech ofrece servicios de consultoría e ingeniería a clientes del gobierno de EE. UU.,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tetra Tech en Servicios de Consultoría es evidente, ya que la empresa se identifica como un proveedor líder mundial de servicios de consultoría e ingeniería de alta gama. Esto se ve reforzado por los servicios ofrecidos a través de sus divisiones, como LST, GSG y CIG, que brindan...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TTEK" data-company="TETRA TECH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TTEK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TETRA TECH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tetra Tech apoya a clientes comerciales en el mercado energético. Este apoyo se extiende a nivel...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Tetra Tech, a través de su Grupo de Servicios Comerciales/Internacionales (CIG), apoya a clientes comerciales en el mercado energético, ofreciendo servicios de consultoría e ingeniería de alta gama. Este apoyo se extiende a nivel mundial, con actividad de desarrollo internacional centrada en la segu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TTEK" data-company="TETRA TECH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TTEK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TETRA TECH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tetra Tech es un proveedor global líder de servicios de consultoría e ingeniería de alta gama....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Tetra Tech está significativamente relacionado con los Servicios de Ingeniería, ya que la empresa se identifica como un proveedor global líder de servicios de consultoría e ingeniería de alta gama. Estos servicios son fundamentales tanto para su Government Services Group (GSG) como par...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TTEK" data-company="TETRA TECH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TTEK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TETRA TECH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tetra Tech es un proveedor global de servicios de consultoría e ingeniería centrados en el agua, el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Tetra Tech en Tecnologías Ambientales es evidente a través de su negocio principal como proveedor global de servicios de consultoría e ingeniería centrados en el agua, el medio ambiente y la infraestructura sostenible. El trabajo de la empresa para los gobiernos estatales y locales de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TTEK" data-company="TETRA TECH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TTEK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TETRA TECH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tetra Tech proporciona servicios de diseño de ingeniería a clientes federales y municipales de EE....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tetra Tech en el tema de Infraestructura de Servicios Públicos es evidente a través de su Grupo de Servicios Gubernamentales (GSG), que proporciona servicios de diseño de ingeniería a clientes federales y municipales de EE. UU. Una parte importante del trabajo de GSG se centra en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TTEK" data-company="TETRA TECH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TTEK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TETRA TECH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El crecimiento de los ingresos comerciales de EE. UU. de Tetra Tech se ha visto influenciado by...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tetra Tech en el tema de Energía Renovable es evidente a través de su Commercial/International Services Group (CIG), que apoya a clientes comerciales en todo el mundo en este sector. El crecimiento de los ingresos comerciales de EE. UU. de la empresa se ha visto influenciado por ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TTEK" data-company="TETRA TECH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TTEK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TETRA TECH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tetra Tech destaca la infraestructura sostenible como un área clave. El crecimiento de los ingresos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Tetra Tech en la infraestructura sostenible es evidente en su papel como proveedor global de servicios de consultoría e ingeniería, donde destaca explícitamente la infraestructura sostenible como un área clave. El compromiso de la empresa se demuestra aún más a través de su segmento GS...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TTEK" data-company="TETRA TECH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TTEK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TETRA TECH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tetra Tech es un proveedor global líder de servicios de consultoría e ingeniería centrados en el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Tetra Tech en la industria del tratamiento de agua es evidente en sus operaciones comerciales principales, ya que la empresa se identifica como un proveedor global líder de servicios de consultoría e ingeniería centrados en el agua, el medio ambiente y la infraestructura sostenible. El...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KAI" data-company="KADANT INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KAI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KADANT INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de manejo de materiales de Kadant proporciona productos y sistemas de ingeniería que se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de manejo de materiales de Kadant proporciona productos y sistemas de ingeniería que se utilizan en la industria de gestión de residuos, manejando materiales a granel y discretos para procesamiento secundario o transporte. El negocio de enfardado de la empresa ha experimentado un aumento...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RSG" data-company="REPUBLIC SERVICES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RSG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">REPUBLIC SERVICES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Republic Services opera una importante red de centros de reciclaje. Estos centros, junto with las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Republic Services demuestra su compromiso con los Servicios de Reciclaje a través de varias iniciativas operativas y estratégicas. La empresa opera una importante red de centros de reciclaje, con recuentos recientes que oscilan entre 75 y 79 en Estados Unidos y Canadá. Estos centros, junto con las i...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DAR" data-company="DARLING INGREDIENTS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DAR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DARLING INGREDIENTS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Darling Ingredients exhibe una presencia significativa en el sector energético. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Darling Ingredients exhibe una presencia significativa en el sector energético, principalmente a través de su segmento de Combustibles y la empresa conjunta Diamond Green Diesel (DGD), que se enfoca en la producción de diésel renovable y combustible de aviación sostenible (SAF). La compañía conviert...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WTTR" data-company="SELECT WATER SOLUTIONS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WTTR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SELECT WATER SOLUTIONS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Select Water Solutions demuestra un fuerte compromiso con el tema de la industria del Tratamiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Select Water Solutions demuestra un fuerte compromiso con el tema de la industria del Tratamiento de Agua, principalmente a través de su enfoque en proporcionar soluciones de agua sostenibles al sector energético. La estrategia principal de la empresa gira en torno a la infraestructura hídrica, incl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DAR" data-company="DARLING INGREDIENTS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DAR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DARLING INGREDIENTS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Darling Ingredients es un desarrollador y productor global de ingredientes naturales sostenibles a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Darling Ingredients es un desarrollador y productor global de ingredientes naturales sostenibles a partir de bio-nutrientes comestibles e in-comestibles, creando una amplia gama de ingredientes y soluciones especializadas personalizadas para clientes, incluidos los de la industria alimentaria. El se...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DAR" data-company="DARLING INGREDIENTS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DAR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DARLING INGREDIENTS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Darling Ingredients demuestra su participación en la industria de procesamiento de alimentos. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Darling Ingredients demuestra su participación en la industria de procesamiento de alimentos a través de su segmento de ingredientes alimentarios, que procesa astillas de huesos de res y cerdo, pieles de res, pieles de cerdo y pieles de pescado en colágeno, y recoge y procesa intestinos de porcino y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DAR" data-company="DARLING INGREDIENTS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DAR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DARLING INGREDIENTS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La Compañía vende aceites y grasas no alimentarias para uso en diversas aplicaciones industriales...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la Compañía en el tema de Productos Químicos Industriales es evidente a través de su producción y comercialización de aceites y grasas no alimentarias, que se venden a terceros para su uso como ingredientes en diversas aplicaciones industriales dentro de la industria oleoquímica....</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DAR" data-company="DARLING INGREDIENTS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DAR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DARLING INGREDIENTS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Darling Ingredients produce ingredientes naturales sostenibles y soluciones especializadas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Darling Ingredients participa en la industria de Productos Industriales a través de su producción de ingredientes naturales sostenibles y soluciones especializadas personalizadas para diversos sectores, incluido el sector industrial. Los aceites y grasas de grado no alimentario de la empresa se vend...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="OSK" data-company="OSHKOSH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">OSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">OSHKOSH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Oshkosh Corporation fabrica una diversa gama de productos relacionados with el transporte. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La implicación de Oshkosh Corporation en el tema de Transporte es evidente a través de sus operaciones en los segmentos de Acceso, Vocacional y Transporte, que fabrican una diversa gama de productos relacionados con el transporte. Específicamente, la empresa produce plataformas de trabajo aéreo y ma...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DAR" data-company="DARLING INGREDIENTS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DAR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DARLING INGREDIENTS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Darling Ingredients demuestra una fuerte conexión con el tema of Energía Renovable. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Darling Ingredients demuestra una fuerte conexión con el tema de Energía Renovable, principalmente a través de su segmento de Ingredientes para Combustibles y su importante inversión de capital en Diamond Green Diesel Holdings LLC (DGD). La empresa convierte diversas materias primas, incluidas grasa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DAR" data-company="DARLING INGREDIENTS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DAR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DARLING INGREDIENTS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Darling Ingredients se identifica como un desarrollador y productor global de ingredientes...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Darling Ingredients se identifica como un desarrollador y productor global de ingredientes naturales sostenibles derivados de bio-nutrientes comestibles e in-comestibles. La compañía transforma corrientes de subproductos animales en ingredientes utilizables y especiales como colágeno, grasas comesti...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DAR" data-company="DARLING INGREDIENTS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DAR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DARLING INGREDIENTS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Darling Ingredients demuestra su participación en la gestión de residuos a través of varias...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Darling Ingredients demuestra su participación en la gestión de residuos a través de varias actividades clave. La empresa recolecta y transforma corrientes de subproductos animales en ingredientes utilizables y reutiliza más del 15% de la producción mundial de carne y residuos de alimentos. Además, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="OSK" data-company="OSHKOSH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">OSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">OSHKOSH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Oshkosh fabrica vehículos de servicio de campo y grúas montadas en camiones explícitamente para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Oshkosh en el tema de Equipos de Minería es evidente a través de su segmento de Vehículos Comerciales, que fabrica vehículos de servicio de campo y grúas montadas en camiones explícitamente para empresas mineras. Estos vehículos y grúas representan un producto estrella para la em...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RSG" data-company="REPUBLIC SERVICES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RSG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">REPUBLIC SERVICES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Republic Services aborda problemas ambientales, incluida la remediación de incendios forestales....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Republic Services demuestra su enfoque en tecnologías ambientales a través de varias iniciativas clave. El negocio de Soluciones Ambientales de la compañía aborda problemas ambientales, incluida la remediación de incendios forestales, y genera ingresos a través de la gestión de residuos peligrosos y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="OSK" data-company="OSHKOSH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">OSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">OSHKOSH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Oshkosh Corporation se dedica al diseño y fabricación de pasarelas de embarque de pasajeros de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Oshkosh Corporation en Sistemas de Aviación es evidente a través de su segmento Vocacional, que se dedica al diseño y fabricación de pasarelas de embarque de pasajeros de aeronaves bajo la marca "Jetway", equipos de apoyo en tierra para aeropuertos bajo las marcas "Commander", “L...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PCT" data-company="PURECYCLE TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PCT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PURECYCLE TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PCT tiene como objetivo restaurar el polipropileno de desecho en resina. El proceso de PCT incluye...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de PCT en la comercialización de su tecnología patentada de reciclaje por disolución demuestra su participación en el tema de la Gestión de Residuos, ya que la empresa tiene como objetivo restaurar el polipropileno de desecho en resina. El proceso de PCT incluye Feed PreP, que recolecta, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="OSK" data-company="OSHKOSH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">OSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">OSHKOSH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Oshkosh está aumentando activamente la producción de vehículos de Entrega de Próxima Generación...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Oshkosh en Vehículos Eléctricos Comerciales es evidente a través de varias iniciativas clave. La empresa está aumentando activamente la producción de Vehículos de Entrega de Próxima Generación (NGDV) para el Servicio Postal de EE. UU., con hitos importantes logrados, incluido el ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IRM" data-company="IRON MOUNTAIN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IRM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">IRON MOUNTAIN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Iron Mountain impulsa el crecimiento de los ingresos orgánicos por alquiler de almacenamiento. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Iron Mountain con el tema de Centros de Datos es significativo, como lo demuestra el segmento dedicado de Negocios Globales de Centros de Datos de la compañía, que impulsa el crecimiento de los ingresos orgánicos por alquiler de almacenamiento. Este crecimiento se ve aún más impulsa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PCT" data-company="PURECYCLE TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PCT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PURECYCLE TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PureCycle Technologies se dedica al reciclaje de polipropileno, utilizando una tecnología de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">PureCycle Technologies se dedica al reciclaje de polipropileno, utilizando una tecnología de disolución patentada para convertir residuos en resina reutilizable, comercializada como PureFive. El enfoque de la empresa incluye la construcción de instalaciones de reciclaje a nivel mundial, como las de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RSG" data-company="REPUBLIC SERVICES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RSG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">REPUBLIC SERVICES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Republic Services es uno de los mayores proveedores de servicios medioambientales en los Estados...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Republic Services con el tema de la industria de la gestión de residuos es evidente a través de su extensa infraestructura y oferta de servicios. La empresa es uno de los mayores proveedores de servicios medioambientales en los Estados Unidos, operando numerosas operaciones de recol...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IRM" data-company="IRON MOUNTAIN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IRM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">IRON MOUNTAIN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa participa en el tema of los fideicomisos de inversión inmobiliaria (REIT) Esto es...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de los fideicomisos de inversión inmobiliaria (REIT) es evidente a través de su énfasis en mantener su calificación de REIT a efectos fiscales, que es un factor clave que influye en su condición financiera y operaciones comerciales. Esto está respaldado adem...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="OSK" data-company="OSHKOSH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">OSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">OSHKOSH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Oshkosh fabrica vehículos de recolección de residuos y reciclaje. El enfoque de la empresa en esta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Oshkosh en el tema de Gestión de Residuos es evidente a través de su segmento Vocacional, que fabrica vehículos de recolección de residuos y reciclaje para transportistas de residuos comerciales y municipales. El enfoque de la empresa en esta área se ve aún más resaltado por la m...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="OSK" data-company="OSHKOSH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">OSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">OSHKOSH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa fabrica camiones de defensa bajo la marca "Oshkosh" La segmento de Defensa proporciona...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Oshkosh en el tema de Aplicaciones Militares es evidente a través de su segmento de Defensa, que proporciona vehículos tácticos, remolques, integración de sistemas de armas y piezas al ejército de EE. UU. y a otros ejércitos a nivel mundial. La empresa fabrica camiones de defensa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="OSK" data-company="OSHKOSH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">OSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">OSHKOSH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Oshkosh ofrece equipos esenciales para el sector de the construcción. El segmento Acceso produce...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Oshkosh en la industria de servicios de construcción es evidente a través de sus segmentos de Acceso y Vocacional, que fabrican y comercializan equipos utilizados en una variedad de aplicaciones de construcción. El segmento de Acceso produce plataformas de trabajo aéreo y manipul...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KAI" data-company="KADANT INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KAI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KADANT INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kadant ha adquisido Key Knife, un proveedor de sistemas de cuchillas de ingeniería para las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Kadant con el tema de Productos Forestales es evidente a través de su segmento de Procesamiento Industrial, que proporciona equipos y maquinaria para el procesamiento de madera utilizada en las industrias de productos de madera. Esto se ve respaldado aún más por un aumento significa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KAI" data-company="KADANT INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KAI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KADANT INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kadant es proveedor mundial de tecnologías y sistemas de ingeniería. Los productos y servicios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Kadant en el tema de las Aplicaciones Industriales es evidente a través de su papel como proveedor mundial de tecnologías y sistemas de ingeniería que impulsan el Procesamiento Industrial Sostenible. Los productos y servicios de la empresa mejoran la eficiencia, optimizan la util...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KAI" data-company="KADANT INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KAI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KADANT INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa suministra tecnologías y sistemas de ingeniería que impulsan el Procesamiento Industrial...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Kadant en el tema de Maquinaria Industrial es evidente a través de su segmento de Procesamiento Industrial, que proporciona equipos, maquinaria y tecnologías para el procesamiento de papel y madera reciclados en diversas industrias. La empresa suministra tecnologías y sistemas de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="OSK" data-company="OSHKOSH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">OSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">OSHKOSH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Oshkosh Corporation produce vehículos y equipos especialmente diseñados. El segmento de Acceso...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Oshkosh Corporation en el tema de Maquinaria Industrial es evidente a través del diseño, desarrollo y fabricación de vehículos y equipos especialmente diseñados. El segmento de Acceso de la empresa produce plataformas elevadoras y manipuladores telescópicos, que se utilizan en di...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KAI" data-company="KADANT INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KAI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KADANT INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kadant demuestra su compromiso con los Servicios de Reciclaje a través of varios segmentos y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Kadant demuestra su compromiso con los Servicios de Reciclaje a través de varios segmentos y actividades comerciales. El segmento de Procesamiento Industrial proporciona equipos y tecnologías para el reciclaje de papel y cartón, mientras que el negocio de Upcycling se centra en el procesamiento de r...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KAI" data-company="KADANT INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KAI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KADANT INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Kadant en el Procesamiento Industrial Sostenible es evidente. Los productos y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Kadant en el Procesamiento Industrial Sostenible es evidente a través de sus tecnologías y sistemas de ingeniería diseñados para mejorar la eficiencia, optimizar la utilización de energía y maximizar la productividad. Los productos y servicios de la empresa desempeñan un papel integral...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TTEK" data-company="TETRA TECH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TTEK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TETRA TECH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tetra Tech is un proveedor global de servicios de consultoría e ingeniería. La empresa apoya...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Tetra Tech en el tema de Infraestructura Civil es evidente en su negocio principal como proveedor global de servicios de consultoría e ingeniería centrados en el agua, el medio ambiente y la infraestructura sostenible. La empresa apoya activamente al Cuerpo de Ingenieros del Ejército d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WCN" data-company="WASTE CONNECTIONS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WCN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WASTE CONNECTIONS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa opera como una integrada de servicios de residuos sólidos en 46 estados de los EE. U.U....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en la industria de la gestión de residuos es significativa, ya que opera como una empresa integrada de servicios de residuos sólidos, que proporciona servicios de recolección, transferencia y eliminación de residuos no peligrosos, incluso por ferrocarril, en 46 estados...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CLH" data-company="CLEAN HARBORS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CLH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CLEAN HARBORS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Clean Harbors es proveedor líder de servicios ambientales e industriales. Los servicios incluyen...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Clean Harbors con las Tecnologías Ambientales es evidente a través de su posición como proveedor líder de servicios ambientales e industriales, ofreciendo soluciones ambientalmente responsables para apoyar los objetivos de sostenibilidad de los clientes. Los servicios de la empresa ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CLH" data-company="CLEAN HARBORS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CLH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CLEAN HARBORS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Clean Harbors participa en el sector de servicios de petróleo y gas. La empresa refina y recicla...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Soluciones de Sostenibilidad Safety-Kleen de Clean Harbors participa en el sector de servicios de petróleo y gas a través de varias actividades. La empresa refina y recicla aceite usado, ofreciendo productos de aceite base y mezclado reciclado, así como otros lubricantes automotrices ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CLH" data-company="CLEAN HARBORS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CLH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CLEAN HARBORS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Clean Harbors se identifica como el principal proveedor de servicios ambientales e industriales de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Clean Harbors se identifica como el principal proveedor de servicios ambientales e industriales de América del Norte, enfatizando su compromiso de ofrecer soluciones ecológicas. Un aspecto clave de este compromiso es el papel de la empresa como el mayor re-refinador y reciclador de aceite usado en A...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CLH" data-company="CLEAN HARBORS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CLH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CLEAN HARBORS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Clean Harbors demuestra su enfoque en Productos Sostenibles a través ofrecer servicios y productos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Clean Harbors demuestra su enfoque en Productos Sostenibles a través de varias iniciativas, incluido el apoyo a los clientes para lograr sus objetivos de sostenibilidad al ofrecer servicios y productos ecológicos. El segmento de Soluciones de Sostenibilidad Safety-Kleen atiende la demanda de product...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CLH" data-company="CLEAN HARBORS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CLH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CLEAN HARBORS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Clean Harbors es un proveedor líder de servicios ambientales e industriales en América del Norte....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Clean Harbors se identifica como un proveedor líder de servicios ambientales e industriales en América del Norte, enfatizando su papel en el apoyo a los objetivos de sostenibilidad de los clientes a través de soluciones de residuos responsables. La empresa opera una red significativa de incineradore...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CWST" data-company="CASELLA WASTE SYSTEMS INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CWST</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CASELLA WASTE SYSTEMS INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Casella Waste Systems participa en la industria de Servicios de Reciclaje. La empresa opera...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Casella Waste Systems participa en la industria de Servicios de Reciclaje a través de sus servicios de gestión de recursos, que incluyen servicios de reciclaje y orgánicos. La empresa opera múltiples instalaciones de reciclaje y obtiene ingresos de tarifas de procesamiento, tarifas de vertido y vent...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CWST" data-company="CASELLA WASTE SYSTEMS INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CWST</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CASELLA WASTE SYSTEMS INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Casella Waste Systems está profundamente involucrada en la industria de la gestión de residuos. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Casella Waste Systems está profundamente involucrada en la industria de la gestión de residuos, como lo demuestran sus actividades comerciales principales que abarcan la recolección, eliminación, transferencia, reciclaje y servicios de orgánicos de residuos sólidos. La empresa opera numerosas instal...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IRM" data-company="IRON MOUNTAIN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IRM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">IRON MOUNTAIN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Iron Mountain ofrece servicios como el borrado de datos, el procesamiento y la disposición de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Iron Mountain en la Seguridad de Datos es evidente a través de su negocio de Gestión del Ciclo de Vida de Activos (ALM), que ofrece servicios como el borrado de datos, el procesamiento y la disposición de hardware de TI. Los servicios de ALM de la empresa están respaldados por lo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DAR" data-company="DARLING INGREDIENTS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DAR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DARLING INGREDIENTS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los precios de las materias primas agrícolas se publican en el Índice Jacobsen. La empresa también...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de Materias Primas Agrícolas es evidente a través de su segmento de Ingredientes para Piensos, donde los subproductos animales, los residuos de panadería, la recuperación de aceite de cocina usado y las operaciones de sangre se ven influenciados por los prec...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WCN" data-company="WASTE CONNECTIONS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WCN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WASTE CONNECTIONS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa genera ingresos por la venta de productos básicos reciclados derivados de la oferta de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en Servicios de Reciclaje es evidente a través de sus operaciones de recuperación de recursos. La empresa genera ingresos por la venta de productos básicos reciclados derivados de la oferta de servicios de reciclaje a clientes residenciales, comerciales, industriales y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WM" data-company="WASTE MANAGEMENT INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WASTE MANAGEMENT INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WM está evaluando activamente tecnologías de desvío emergentes e invirtiendo en tehnología y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de WM en Tecnologías Ambientales es evidente a través de sus soluciones ambientales integrales y un énfasis estratégico en la sostenibilidad. El enfoque de la empresa se extiende más allá de la gestión tradicional de residuos para incluir la expansión de los servicios de reciclaje, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WM" data-company="WASTE MANAGEMENT INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WASTE MANAGEMENT INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WM es líder en reciclaje en EE. UU. y Canadá, manejando una variedad of materiales. La empresa está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de WM con los Servicios de Reciclaje es evidente a través de su posición como líder en reciclaje en EE. UU. y Canadá, manejando una variedad de materiales. La empresa está comprometida a expandir los servicios de reciclaje tradicionales, como lo demuestran las inversiones en los segmen...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WM" data-company="WASTE MANAGEMENT INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WASTE MANAGEMENT INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Waste Management es el principal proveedor de soluciones ambientales integrales de América del...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones principales de Waste Management están profundamente arraigadas en la industria de la gestión de residuos, como lo demuestra su posición como el principal proveedor de soluciones ambientales integrales de América del Norte. La compañía gestiona los residuos en cada etapa, desde la rec...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WTTR" data-company="SELECT WATER SOLUTIONS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WTTR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SELECT WATER SOLUTIONS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se enfoca en soluciones eficientes, ambientalmente responsables y económicas. La gestión...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de Exploración de Petróleo es evidente en su provisión de soluciones de agua y productos químicos para la industria energética, con un enfoque en la gestión del agua de yacimientos petrolíferos durante todo el ciclo de vida de un pozo. Los servicios de la em...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WTTR" data-company="SELECT WATER SOLUTIONS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WTTR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SELECT WATER SOLUTIONS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra su compromiso con la industria de la gestión de residuos. La Infraestructura...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su compromiso con la industria de la gestión de residuos a través de su segmento de Infraestructura Hídrica, que incluye el reciclaje, almacenamiento, disposición y tuberías de recolección y distribución de agua. La empresa enfatiza el crecimiento de la Infraestructura Hídrica, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KAI" data-company="KADANT INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KAI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KADANT INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La menor demanda de papel ha generado desafíos como bajas tasas de operación de las fábricas y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Kadant en la industria de productos de papel es evidente a través de su segmento de Procesamiento Industrial, que proporciona equipos y tecnologías para el procesamiento de papel reciclado y madera utilizados en los sectores de embalaje y tisú. Las líneas de productos de preparac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="OSK" data-company="OSHKOSH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">OSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">OSHKOSH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Oshkosh fabrica vehículos tácticos, remolques y sistemas de armas para el ejército de EE. UU. y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Oshkosh en el tema de la contratación para la defensa es evidente a través de su segmento dedicado a la defensa, que fabrica vehículos tácticos, remolques y sistemas de armas para el ejército de EE. UU. y otras fuerzas mundiales. El compromiso de la empresa se demuestra aún más a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FSS" data-company="FEDERAL SIGNAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FSS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FEDERAL SIGNAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa también ha ampliado su red de socios distribuidores de equipos de apoyo para la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en la industria de equipos de minería es evidente a través de la fabricación y suministro de equipos de apoyo para la extracción de metales. Esto se demuestra con un crecimiento de dos dígitos en las ventas netas de estos equipos, impulsado por la fuerte demanda del me...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DAR" data-company="DARLING INGREDIENTS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DAR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DARLING INGREDIENTS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Darling Ingredients participa significativamente en el tema of Energía Limpia. La empresa conjunta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Darling Ingredients participa significativamente en el tema de Energía Limpia, principalmente a través de su empresa conjunta Diamond Green Diesel (DGD), que convierte grasas animales y otras materias primas en combustibles renovables como el diésel renovable y el combustible de aviación sostenible ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DAR" data-company="DARLING INGREDIENTS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DAR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DARLING INGREDIENTS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Darling Ingredients desarrolla y produce ingredientes naturales sostenibles. Se venden a terceros...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Darling Ingredients participa en la industria nutracéutica a través de varias vías. La empresa desarrolla y produce ingredientes naturales sostenibles, incluidos colágenos, que se venden a terceros para su uso en nutracéuticos y otras industrias. Darling Ingredients también se enfoca en el espacio d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WM" data-company="WASTE MANAGEMENT INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WASTE MANAGEMENT INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WM anticipa que los incentivos de crédito fiscal a la producción para inversiones en captura de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de WM en la captura de carbono está principalmente vinculada a la Ley de Reducción de la Inflación (IRA), que incluye incentivos fiscales para inversiones en producción de energía renovable, captura de carbono y otras acciones climáticas. La empresa anticipa que los incentivos de cr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WM" data-company="WASTE MANAGEMENT INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WASTE MANAGEMENT INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WM gestiona y reduce activamente los residuos, maximiza el valor de los recursos y minimiza el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de WM en Tecnología Climática es evidente a través de sus soluciones ambientales integrales y su enfoque estratégico en la sostenibilidad. La empresa gestiona y reduce activamente los residuos, maximiza el valor de los recursos y minimiza el impacto ambiental a través de iniciativas...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FSS" data-company="FEDERAL SIGNAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FSS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FEDERAL SIGNAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Empresa es fabricante y proveedor mundial líder de vehículos y equipos adaptados para los mercados...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema de Infraestructura Civil es evidente a través de su papel como fabricante y proveedor mundial líder de vehículos y equipos adaptados para los mercados finales de mantenimiento e infraestructura. Esto incluye una diversa gama de productos como limpiadores de al...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FSS" data-company="FEDERAL SIGNAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FSS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FEDERAL SIGNAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa está aumentando la producción en sus instalaciones ESG, especialmente para barredoras de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema de Maquinaria Industrial es evidente a través de su papel como fabricante y proveedor líder a nivel mundial de vehículos y equipos para mercados finales de mantenimiento e infraestructura, que incluyen barredoras de alcantarillas, aspiradoras industriales, bar...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FSS" data-company="FEDERAL SIGNAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FSS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FEDERAL SIGNAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa ofrece equipos esenciales como limpiadores de alcantarillado, aspiradoras industriales y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en la industria de la gestión de residuos es evidente a través de la fabricación y suministro de vehículos y equipos para mantenimiento e infraestructura, incluidos vehículos de recolección de residuos y reciclaje. La empresa proporciona equipos esenciales como limpiad...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WTTR" data-company="SELECT WATER SOLUTIONS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WTTR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SELECT WATER SOLUTIONS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía demuestra su participación en la industria de la fabricación de productos químicos. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La compañía demuestra su participación en la industria de la fabricación de productos químicos a través de su segmento de Tecnologías Químicas, que proporciona soluciones químicas al sector energético. Este segmento desarrolla, fabrica y gestiona la logística de una amplia gama de productos químicos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WTTR" data-company="SELECT WATER SOLUTIONS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WTTR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SELECT WATER SOLUTIONS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía gestiona el agua de los yacimientos petrolíferos a lo largo del ciclo de vida...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la compañía en la industria de Servicios de Petróleo y Gas es evidente a través de la provisión de soluciones sostenibles de agua y productos químicos para el sector energético. Como proveedor líder, la compañía gestiona el agua de los yacimientos petrolíferos a lo largo del cicl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IRM" data-company="IRON MOUNTAIN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IRM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">IRON MOUNTAIN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Iron Mountain está experimentando un crecimiento orgánico de los ingresos por servicios impulsado...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Iron Mountain en la Gestión de Almacenes es evidente a través de su negocio de gestión del ciclo de vida de los activos (ALM), que contribuye al crecimiento de los ingresos. El negocio de ALM de la empresa está experimentando un crecimiento orgánico de los ingresos por servicios ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KAI" data-company="KADANT INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KAI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KADANT INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Kadant está significativamente relacionado with la eficiencia energética. El enfoque...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Kadant está significativamente relacionado con la eficiencia energética, ya que sus productos y servicios mejoran la eficiencia, optimizan la utilización de la energía y maximizan la productividad dentro de las industrias de procesos. El enfoque de la empresa se extiende a ayudar a los...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="OSK" data-company="OSHKOSH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">OSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">OSHKOSH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Oshkosh Corporation demuestra su compromiso con los vehículos conectados a través of varias...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Oshkosh Corporation demuestra su compromiso con los vehículos conectados a través de varias iniciativas. La empresa se centra en la innovación acelerada en productos conectados inteligentes y está invirtiendo en su capacidad para crear el lugar de trabajo del futuro impulsando la conectividad y la i...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="OSK" data-company="OSHKOSH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">OSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">OSHKOSH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Oshkosh AeroTech se especializa en el diseño, desarrollo y fabricación de vehículos y equipos. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Oshkosh con Vehículos Autónomos es evidente a través de su desarrollo y aprovechamiento de tecnologías disruptivas en autonomía en toda su cartera. Esto se demuestra aún más por las inversiones de Oshkosh AeroTech en vehículos autónomos de manipulación de equipaje y su enfoque en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="OSK" data-company="OSHKOSH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">OSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">OSHKOSH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Oshkosh diseña y fabrica vehículos de rescate y extinción de incendios de aeronaves. El segmento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Oshkosh Corporation en la industria aeroespacial y de defensa es evidente a través de varias actividades clave. La compañía diseña y fabrica vehículos de rescate y extinción de incendios de aeronaves (ARFF) bajo la marca Oshkosh, y el segmento Vocacional proporciona productos de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IRM" data-company="IRON MOUNTAIN INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IRM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">IRON MOUNTAIN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Iron Mountain participa en servicios de reciclaje a través of su negocio de Gestión del Ciclo de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Iron Mountain participa en servicios de reciclaje a través de su negocio de Gestión del Ciclo de Vida de Activos (ALM), que incluye la gestión de la comercialización y el reciclaje de bastidores y equipos para clientes hiperscalares. Esto también implica la desmantelación, el borrado de datos, el pr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PCT" data-company="PURECYCLE TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PCT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PURECYCLE TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PCT está activamente involucrada en la economía circular a través of sus objetivos e inversiones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">PCT está activamente involucrada en la economía circular a través de sus objetivos e inversiones estratégicas. La empresa tiene como objetivo crear un nuevo segmento en el mercado del polipropileno centrado en la sostenibilidad, ayudando a las entidades multinacionales a cumplir sus objetivos de sos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PCT" data-company="PURECYCLE TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PCT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PURECYCLE TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de PureCycle Technologies en el reciclaje y la sostenibilidad es central para sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de PureCycle Technologies en el reciclaje y la sostenibilidad es central para sus operaciones, como lo demuestra su compromiso de proporcionar polipropileno reciclado y reducir los residuos plásticos. La dedicación de la empresa se evidencia aún más al obtener la Certificación de Contenid...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TTEK" data-company="TETRA TECH INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TTEK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TETRA TECH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tetra Tech se enfoca en consultoría y diseño de front-end para proyectos de agua y medio ambiente....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tetra Tech en el desarrollo de infraestructura es evidente a través de la anticipación de beneficios de aproximadamente $1 billón en nueva financiación federal de EE. UU., incluida la Ley de Inversión en Infraestructura y Empleos, que asigna inversiones sustanciales para agua, me...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PCT" data-company="PURECYCLE TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PCT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PURECYCLE TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PCT se destaca por su emisión de 250 millones de dólares en bonos senior convertibles verdes con...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de PCT con los bonos verdes se destaca por su emisión de 250 millones de dólares en bonos senior convertibles verdes con vencimiento en 2030, que la empresa completó a través de una oferta privada en agosto de 2023. Estos bonos son obligaciones senior no garantizadas, y la empresa tien...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IRM" data-company="IRON MOUNTAIN INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">IRM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">IRON MOUNTAIN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de centros de datos de Iron Mountain ha experimentado un crecimiento sustancial. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Iron Mountain en el tema de los REIT de centros de datos es evidente a través del crecimiento significativo y la importancia estratégica de su negocio de centros de datos. El negocio de centros de datos de la empresa ha experimentado un crecimiento sustancial de los ingresos, imp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DAR" data-company="DARLING INGREDIENTS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DAR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DARLING INGREDIENTS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Darling Ingredients es una compañía que convierte grasas en combustibles renovables y residuos en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Darling Ingredients con el tema de la Transición Energética es evidente a través de su segmento de Ingredientes para Combustibles, que convierte grasas en combustibles renovables y residuos en biogás. La inversión de la compañía en Diamond Green Diesel Holdings LLC, una empresa conj...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FSS" data-company="FEDERAL SIGNAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FSS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FEDERAL SIGNAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se refiere a sistemas de control sofisticados que simplifican la operación de los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de la electrónica industrial es evidente a través de la fabricación y el suministro de equipos de señalización industrial, sistemas de alerta pública y sistemas generales de alarma/megafonía. Esto está respaldado además por la internalización de ciertos comp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RSG" data-company="REPUBLIC SERVICES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RSG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">REPUBLIC SERVICES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Republic Services es uno de los mayores proveedores de servicios ambientales en los Estados Unidos....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Republic Services en el tema de la industria de Servicios Públicos es evidente a través de sus operaciones comerciales principales y adquisiciones estratégicas. Como uno de los mayores proveedores de servicios ambientales en los Estados Unidos, las actividades de la empresa, incl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="OSK" data-company="OSHKOSH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">OSK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">OSHKOSH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Oshkosh Corporation se identifica como una empresa global de tecnología industrial. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Oshkosh Corporation se identifica como una empresa global de tecnología industrial enfocada en hacer avanzar el mundo a través del diseño, desarrollo y fabricación de vehículos y equipos especialmente diseñados. La compañía enfatiza su papel como innovador e integrador, desarrollando y aprovechando ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DAR" data-company="DARLING INGREDIENTS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DAR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DARLING INGREDIENTS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Darling Ingredients se enfoca en la conversión de diversos materiales de desecho en combustibles...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Darling Ingredients con la tecnología climática es evidente a través de su segmento de Ingredientes para Combustibles, que se enfoca en la conversión de diversos materiales de desecho en combustibles renovables. La empresa conjunta Diamond Green Diesel Holdings LLC juega un papel cr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WM" data-company="WASTE MANAGEMENT INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WASTE MANAGEMENT INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Waste Management opera instalaciones de gas de vertedero a energía en los EE. UU. y Canadá. Estas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Waste Management en el tema de Energía Limpia es evidente a través de su segmento WM Renewable Energy, que se enfoca en convertir el gas de vertedero en fuentes de energía renovable, incluido gas natural renovable, electricidad, calor y vapor. La empresa opera instalaciones de ga...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DAR" data-company="DARLING INGREDIENTS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DAR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DARLING INGREDIENTS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Darling Ingredients es una desarrollador y productor global de ingredientes naturales sostenibles...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Darling Ingredients en el tema de los agronegocios proviene de su papel como desarrollador y productor global de ingredientes naturales sostenibles derivados de bio-nutrientes comestibles e inofensivos, que luego se suministran a las industrias de piensos y fertilizantes. La empr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TEX" data-company="TEREX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TEX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TEREX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Terex participa en proyectos de construcción e infraestructura, respaldada por el diseño, la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Terex en el tema de Servicios de Construcción es evidente a través de su participación en proyectos de construcción e infraestructura, respaldada por el diseño, la fabricación y el servicio de equipos especializados y de procesamiento de materiales, como trituradoras, camiones me...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TEX" data-company="TEREX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TEX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TEREX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Terex proporciona equipos y soluciones para servicios públicos, incluyen excavadoras y plataformas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Terex en la industria de Servicios Eléctricos es evidente a través de la fabricación de equipos adaptados para este sector. Específicamente, Terex proporciona equipos y soluciones para servicios públicos, que incluyen excavadoras y plataformas aéreas aisladas, esenciales para la ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TEX" data-company="TEREX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TEX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TEREX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Terex se identifica como un fabricante mundial de equipos industriales. La empresa diseña,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Terex se identifica como un fabricante mundial de equipos industriales, que produce maquinaria de procesamiento de materiales, plataformas elevadoras móviles de personal (MEWP) y equipos para la industria de servicios eléctricos. La empresa diseña, construye y da soporte a productos utilizados en di...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TEX" data-company="TEREX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TEX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TEREX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Terex es fabricante mundial de equipos industriales. La empresa diseña, construye y da soporte a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Terex con el tema de Productos Industriales es evidente a través de su negocio principal como fabricante mundial de equipos industriales, produciendo maquinaria de procesamiento de materiales, soluciones de residuos y reciclaje, plataformas elevadoras móviles y equipos para la indus...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TEX" data-company="TEREX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TEX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TEREX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Terex diseña, fabrica y da servicio a una gama de equipos de procesamiento de materiales. Esto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Terex con el tema de Equipos de Minería proviene de su segmento MP, que diseña, fabrica y da servicio a una gama de equipos de procesamiento de materiales. Esto incluye trituradoras, cribas, tromeles y alimentadores de delantal utilizados en aplicaciones de canteras y minería. Terex...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TEX" data-company="TEREX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TEX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TEREX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Terex es fabricante industrial global de soluciones de residuos y reciclaje. La empresa diseña,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Terex con los Servicios de Reciclaje es evidente a través de su posición como fabricante industrial global de soluciones de residuos y reciclaje. Esto se ve reforzado por la adquisición de Environmental Solutions Group (ESG), una medida destinada a fortalecer la cartera de Terex den...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WTTR" data-company="SELECT WATER SOLUTIONS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WTTR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SELECT WATER SOLUTIONS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Select Water Solutions demuestra un fuerte compromiso con los Servicios de Reciclaje. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Select Water Solutions demuestra un fuerte compromiso con los Servicios de Reciclaje, particularmente dentro de su segmento de Infraestructura Hídrica. La empresa enfatiza su compromiso de desarrollar alternativas sostenibles y rentables al agua dulce al ofrecer soluciones para la recolección, trata...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TEX" data-company="TEREX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TEX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TEREX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Terex fabrica soluciones de residuos y reciclaje. La adquisición de Environmental Solutions Group...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Terex en la industria de gestión de residuos es evidente a través de la fabricación de soluciones de residuos y reciclaje. Este compromiso se ve reforzado por la adquisición de Environmental Solutions Group (ESG), que fortalece la cartera de Terex con un negocio no cíclico en el ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TTEK" data-company="TETRA TECH INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TTEK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TETRA TECH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El crecimiento de los ingresos comerciales de EE. UU. de Tetra Tech ha sido impulsado by un aumento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tetra Tech en el tema de Energía Limpia es evidente a través de sus flujos de ingresos y la participación en proyectos. El crecimiento de los ingresos comerciales de EE. UU. de la compañía ha sido impulsado por un aumento en los proyectos de planificación y permisos relacionados ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RSG" data-company="REPUBLIC SERVICES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RSG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">REPUBLIC SERVICES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Republic Services demuestra su enfoque en la circularidad del plástico. Inversiones en Polymer...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Republic Services demuestra su enfoque en la circularidad del plástico a través de inversiones en Polymer Centers y las instalaciones de la empresa conjunta Blue Polymers, incluido el Indianapolis Polymer Center, que se espera que comience la producción comercial pronto. Estas instalaciones tienen c...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

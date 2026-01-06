@@ -1,0 +1,1885 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Electric Aviation - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Electric Aviation</div>
+      <div class="sub-title">Investment Theme Detail - Transportation and Logistics Industry</div>
+    </div>
+    <a href="main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Electric Aviation &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Transportation and Logistics &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 18
+    </div>
+
+    
+    <!-- Theme Chart Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Theme Chart</span>
+             <a href="equity_electric_aviation.html" target="_blank" class="btn-view-chart">View Full Chart ↗</a>
+        </div>
+        <div class="box-body" style="height: 600px; overflow:hidden;">
+            <iframe src="equity_electric_aviation.html" style="width:100%; height:100%; border:none; display:block;"></iframe>
+        </div>
+    </div>
+        
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">18</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">JOBY</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">JOBY AVIATION INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y fabrica aeronaves eléctricas de despegue y aterrizaje vertical (eVTOL), contribuyendo a la evolución de la fabricación aeroespacial con s...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/JOBY" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">AIR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">AAR CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece una amplia gama de servicios de aviación, que incluyen suministro de piezas, mantenimiento, reparación y revisión (MRO) y soluciones de cadena ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/AIR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ACHR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ARCHER AVIATION INC-A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Diseña y fabrica aeronaves eléctricas de despegue y aterrizaje vertical (eVTOL), contribuyendo al desarrollo de soluciones de movilidad aérea sostenib...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ACHR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BOEING CO/THE</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y fabrica una amplia gama de productos aeroespaciales y sistemas de defensa, contribuyendo significativamente a la seguridad global y a las...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">GE</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name"> lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   </div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/ge-FY24-10-K.html'}...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/GE" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">RTX</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">RTX CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y suministra sistemas, tecnologías y servicios aeroespaciales y de defensa avanzados, esenciales para la seguridad global y las operaciones...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/RTX" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">HON</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">HONEYWELL INTERNATIONAL INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece una cartera integral de aviónica avanzada, motores, sistemas mecánicos y tecnologías de defensa que son fundamentales para el rendimiento y la ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/HON" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SAF</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SAFRAN SA</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Fabrica una amplia gama de sistemas y componentes críticos, incluidos motores de aeronaves, trenes de aterrizaje y otros equipos esenciales para la in...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SAF" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TXT</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TEXTRON INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera como un participante clave dentro de la industria Aeroespacial y de Defensa....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TXT" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">EH</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">EHANG HOLDINGS LTD-SPS ADR</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Diseña y fabrica vehículos aéreos autónomos (AAV) cruciales para el desarrollo y despliegue de sistemas avanzados de entrega con drones....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/EH" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">11</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">AMPX</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">AMPRIUS TECHNOLOGIES INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y fabrica materiales avanzados para baterías de ánodo de silicio, contribuyendo a soluciones de baterías de iones de litio de alto rendimie...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/AMPX" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">12</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">LDO</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">LEONARDO SPA</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Participa en el sector de Defensa Aeroespacial, desarrollando y suministrando tecnologías y soluciones críticas....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/LDO" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">13</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">QS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">QUANTUMSCAPE CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla tecnología de baterías de estado sólido crucial para el avance de los vehículos eléctricos y otras innovaciones dentro del sector automotri...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/QS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">14</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">GRMN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">GARMIN LTD</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y fabrica sistemas avanzados de aviónica y navegación que son integrales para los procesos de fabricación aeroespacial y las operaciones de...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/GRMN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">15</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">AIN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ALBANY INTL CORP-CL A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona componentes de ingeniería especializados y materiales avanzados críticos para diversas aplicaciones dentro de la industria aeroespacial y ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/AIN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">16</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">HXL</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">HEXCEL CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye con materiales y estructuras compuestos avanzados críticos para mejorar el rendimiento y la eficiencia de las aplicaciones aeroespaciales y...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/HXL" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">17</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ATRO</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ASTRONICS CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se enfoca en proporcionar soluciones para la industria de Defensa Aeroespacial....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ATRO" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">18</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">UTHR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">UNITED THERAPEUTICS CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se dedica al desarrollo, fabricación y comercialización de medicamentos biológicos....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/UTHR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">130</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="AIR" data-company="AAR CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/AIR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AIR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AAR CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Reparación e Ingeniería proporciona servicios de mantenimiento. La empresa diseña,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su compromiso con el tema de la Fabricación Aeroespacial a través de varias actividades clave. El segmento de Reparación e Ingeniería proporciona servicios de mantenimiento, reparación y revisión (MRO) tanto para aeronaves comerciales como militares, incluyendo fuselajes, compon...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AIR" data-company="AAR CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/AIR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AIR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AAR CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa vende, arrienda y distribuye motores de aeronaves, material de fuselaje y piezas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La relación de la empresa con la industria de las aerolíneas es evidente a través de sus diversos segmentos comerciales. Específicamente, la empresa proporciona inventario de componentes por horas de vuelo y programas de reparación para aerolíneas comerciales y distribuye piezas de repuesto nuevas s...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AIR" data-company="AAR CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/AIR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AIR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AAR CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">AAR proporciona servicios de MRO de fuselaje, incluido el servicio e instalación de aviónica. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">AAR Corp. demuestra su participación en Sistemas de Aviación a través de varias ofertas clave. El negocio principal de la empresa incluye el suministro de piezas de aviación, reparación e ingeniería, y soluciones integradas, mejoradas por sus soluciones de software Trax. AAR proporciona servicios de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AIR" data-company="AAR CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/AIR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AIR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AAR CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se centra en la distribución de posventa de piezas de repuesto nuevas. Este segmento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de Distribución Industrial es evidente a través de su segmento de Suministro de Piezas, que se centra en la distribución de posventa de piezas de repuesto nuevas suministradas por el fabricante de equipos originales (OEM). Este segmento atiende a operadores ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AIR" data-company="AAR CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/AIR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AIR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AAR CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa opera y mantiene la flota global de aeronaves de ala fija y rotatoria del DoS....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su participación en la contratación de defensa a través de varias vías. Proporciona programas de logística de cadena de suministro personalizados basados en el rendimiento al Departamento de Defensa de EE. UU. y a gobiernos extranjeros, y su segmento de Servicios de Expedición a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACHR" data-company="ARCHER AVIATION INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ACHR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ACHR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCHER AVIATION INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Archer Defense se centra en aumentar la fabricación de aeronaves en EE. U.U. en sus instalaciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Archer en la fabricación aeroespacial es evidente a través de su activa producción de aeronaves y desarrollo tecnológico. La empresa se centra en aumentar la fabricación de aeronaves en EE. UU. en sus instalaciones de Silicon Valley y Georgia, incluida la instalación ARC de alto ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACHR" data-company="ARCHER AVIATION INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ACHR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ACHR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCHER AVIATION INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Archer está integrando varios sistemas para una operación segura y eficiente. La compañía también...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Archer en Sistemas de Aviación es evidente en su desarrollo, prueba y certificación del avión Midnight, integrando varios sistemas para una operación segura y eficiente. La compañía también está construyendo la próxima generación de aviones de defensa y utilizando IA para constru...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACHR" data-company="ARCHER AVIATION INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ACHR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ACHR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCHER AVIATION INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Archer UAM ofrecer servicios de transporte aéreo directo al consumidor. La compañía está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Archer en el tema Servicios de Transporte Compartido es evidente a través de sus planes de ofrecer servicios de transporte aéreo directo al consumidor, comercializados como 'Archer UAM', en varias áreas metropolitanas a nivel mundial. Estos servicios utilizarán las aeronaves Midn...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACHR" data-company="ARCHER AVIATION INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ACHR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ACHR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCHER AVIATION INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Archer en el Transporte Urbano es evidente en sus esfuerzos por comercializar el avión Midnight. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Archer en el Transporte Urbano es evidente en sus esfuerzos por comercializar el avión Midnight para su uso en las principales ciudades del mundo, colaborando con las autoridades de aviación y socios estratégicos para establecer redes de movilidad aérea urbana. La empresa está integran...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AIN" data-company="ALBANY INTL CORP-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALBANY INTL CORP-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento AEC de la empresa está significativamente involucrado en la industria aeroespacial y de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento AEC de la empresa está significativamente involucrado en la industria aeroespacial y de defensa, suministrando estructuras compuestas altamente diseñadas. Esto se demuestra a través de su participación en programas de defensa clave como el helicóptero Sikorsky CH-53K, el F-35 y los misil...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AIN" data-company="ALBANY INTL CORP-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALBANY INTL CORP-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento Albany Engineered Composites (AEC) es un proveedor clave para la industria...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento Albany Engineered Composites (AEC) es un proveedor clave para la industria aeroespacial, proporcionando estructuras compuestas avanzadas tanto para aplicaciones comerciales como de defensa. La participación de AEC se destaca por su suministro de componentes para importantes programas de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AIN" data-company="ALBANY INTL CORP-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALBANY INTL CORP-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Albany International proporciona estructuras compuestas avanzadas a las industrias aeroespaciales...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Albany International con los Materiales Aeroespaciales es evidente a través de su segmento Albany Engineered Composites (AEC), que proporciona estructuras compuestas avanzadas a las industrias aeroespaciales comerciales y de defensa. La especialización de AEC incluye la tecnología d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AIN" data-company="ALBANY INTL CORP-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALBANY INTL CORP-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Albany International participa activamente en programas espaciales. El segmento AEC continúa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Albany International con el tema de Exploración Espacial es evidente a través de su segmento Albany Engineered Composites (AEC), que participa activamente en programas espaciales. La estrategia del segmento AEC incluye aprovechar la tecnología para aplicaciones espaciales, suministr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AIR" data-company="AAR CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AIR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AIR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AAR CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Soluciones Integradas apoyan al Departamento de Defensa de EE. UU. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en aplicaciones militares es evidente a través de varias actividades clave. El segmento de Soluciones Integradas y el segmento de Servicios Expedicionarios apoyan al Departamento de Defensa de EE. UU. y a gobiernos extranjeros con logística de la cadena de suministro y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMPX" data-company="AMPRIUS TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AMPX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMPX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMPRIUS TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Aprius demuestra una fuerte conexión con la Tecnología de Baterías. La empresa enfatiza su papel...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Amprius demuestra una fuerte conexión con la Tecnología de Baterías, principalmente a través de su desarrollo, fabricación y comercialización de baterías de ánodo de silicio de alta energía y alta densidad de potencia dirigidas a aplicaciones de movilidad eléctrica. La empresa enfatiza su papel pion...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMPX" data-company="AMPRIUS TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AMPX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMPX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMPRIUS TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Aprius desarrolla, fabrica y comercializa baterías de ánodo de silicio para aplicaciones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Amprius desarrolla, fabrica y comercializa baterías de ánodo de silicio para aplicaciones de movilidad eléctrica, dirigidas explícitamente a la industria de vehículos eléctricos, junto con la aviación y los vehículos eléctricos ligeros. Si bien actualmente no produce baterías específicamente para ve...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMPX" data-company="AMPRIUS TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AMPX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMPX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMPRIUS TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Aprius Technologies fabrica baterías de iones de litio adaptadas para aplicaciones de movilidad. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Amprius Technologies con las Soluciones de Movilidad es evidente en su desarrollo, fabricación y comercialización de baterías de iones de litio adaptadas para aplicaciones de movilidad, dirigidas específicamente a las industrias de la aviación, vehículos eléctricos (VE) y vehículos ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ATRO" data-company="ASTRONICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ATRO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ATRO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ASTRONICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Astronics Corporation es un proveedor de tecnologías y productos para las industrias aeroespacial y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Astronics Corporation es un proveedor de tecnologías y productos para las industrias aeroespacial y de defensa a nivel mundial. El segmento Aeroespacial de la empresa vio cómo las ventas militares casi se duplicaron, un 95% más, principalmente debido al trabajo en el programa FLRAA y al aumento de l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ATRO" data-company="ASTRONICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ATRO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ATRO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ASTRONICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de Astronics en el tema of la fabricación aeroespacial es evidente. Astronics...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Astronics en el tema de la fabricación aeroespacial es evidente a través de su papel como proveedor líder de tecnologías y productos avanzados para la industria aeroespacial mundial. El segmento aeroespacial de la compañía diseña y fabrica una gama de productos, que incluyen estr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ATRO" data-company="ASTRONICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ATRO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ATRO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ASTRONICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Astronics identifica a las aerolíneas como clientes aeroespaciales principales. La empresa se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Astronics identifica a las aerolíneas como clientes aeroespaciales principales, y su crecimiento está relacionado con el aumento de la demanda por parte de las aerolíneas de productos de energía para cabinas y entretenimiento y conectividad en vuelo. La empresa se beneficia del aumento del tráfico d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ATRO" data-company="ASTRONICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ATRO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ATRO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ASTRONICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Astronics Corporation provisión de sistemas de iluminación y seguridad para las industrias...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Astronics Corporation en Seguridad Aeronáutica es evidente a través de su provisión de sistemas de iluminación y seguridad para las industrias aeroespacial y de defensa. Estos sistemas se mencionan explícitamente como parte de sus líneas de productos dentro del segmento Aeroespac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ATRO" data-company="ASTRONICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ATRO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ATRO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ASTRONICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Astronics Corporation está fuertemente involucrada en la industria de Sistemas de Aviación. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Astronics Corporation está fuertemente involucrada en la industria de Sistemas de Aviación, como lo demuestra su papel como proveedor líder de tecnologías y productos avanzados para la industria aeroespacial mundial. La empresa diseña y fabrica productos para este sector, incluidos sistemas de ilumi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BA" data-company="BOEING CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOEING CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Boeing es líder del mercado mundial en aviones militares, satélites, defensa antimisiles. Boeing...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Boeing en el tema de Defensa Aeroespacial se ve subrayada por su papel como líder del mercado mundial en aviones militares, satélites, defensa antimisiles y servicios relacionados. Esto se ejemplifica además en la selección de Boeing para diseñar, construir y entregar el avión de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BA" data-company="BOEING CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOEING CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Boeing es contratista para el programa F-47, el primer caza de sexta generación del mundo. Boeing...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El importante compromiso de Boeing con la fabricación aeroespacial es evidente a través de sus actividades comerciales principales, que incluyen el diseño, desarrollo, fabricación y soporte de aviones comerciales, aviones militares, satélites y sistemas espaciales. La participación de la empresa se ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BA" data-company="BOEING CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOEING CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Boeing es uno de los principales fabricantes de aviones comerciales del mundo. La empresa enfrenta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Boeing con la industria de las aerolíneas es evidente a través de su papel como uno de los principales fabricantes de aviones comerciales del mundo. El segmento de Aviones Comerciales de la empresa se discute extensamente, cubriendo ingresos, entregas y desafíos, con modelos específic...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BA" data-company="BOEING CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOEING CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Boeing está trabajando activamente con la administración para garantizar las implicaciones de los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Boeing con los Sistemas de Aviación se demuestra a través de sus programas de desarrollo y certificación en curso, incluida la expansión de las actividades de prueba de vuelo para el 777X y la continuación de los esfuerzos de certificación para los modelos 737-7 y 737-10. Esto está ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BA" data-company="BOEING CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOEING CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Boeing es un importante proveedor de bienes y servicios militares para entidades gubernamentales....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El importante compromiso de Boeing con la contratación de defensa es evidente a través de su segmento de Defensa, Espacio y Seguridad (BDS), un importante proveedor de bienes y servicios militares para entidades gubernamentales. La compañía fue seleccionada como contratista para el programa F-47, el...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BA" data-company="BOEING CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOEING CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Boeing se sitúa principalmente dentro de su segmento de Defensa, Espacio y Seguridad, que incluye...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Boeing en la tecnología satelital es evidente a través de su diseño, desarrollo, fabricación, venta, servicio y soporte de satélites. Esto se ve respaldado además por un contrato de $2.8 mil millones adjudicado por la Fuerza Espacial de EE. UU. para el desarrollo y producción de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GRMN" data-company="GARMIN LTD">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/GRMN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GRMN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GARMIN LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Garmin diseña, desarrolla, fabrica y distribuye productos habilitados para GPS, sistemas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Garmin en la Electrónica Automotriz es evidente a través de su segmento de OEM automotriz, donde diseña, desarrolla, fabrica y distribuye productos habilitados para GPS, sistemas de navegación, comunicación e información. El segmento de OEM automotriz de la empresa ha experimenta...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GRMN" data-company="GARMIN LTD">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/GRMN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GRMN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GARMIN LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Garmin diseña, desarrolla, fabrica y distribuye productos habilitados para GPS. Garmin está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Garmin en Tecnología Automotriz es evidente a través de su segmento Auto OEM, donde diseña, desarrolla, fabrica y distribuye productos habilitados para GPS y otros productos de información. El crecimiento de los ingresos de Auto OEM se atribuye principalmente al aumento de los en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GRMN" data-company="GARMIN LTD">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/GRMN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GRMN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GARMIN LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Garmin diseña, fabrica y vende una gama de productos de aviación. El compromiso de la empresa se ve...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Garmin en Sistemas de Aviación es evidente a través de su segmento de aviación dedicado, que diseña, fabrica y vende una gama de productos de aviación. El compromiso de la empresa se ve subrayado por el reconocimiento continuo de Embraer como uno de sus principales proveedores de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GRMN" data-company="GARMIN LTD">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/GRMN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GRMN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GARMIN LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Garmin diseña, desarrolla, fabrica y distribuye productos de navegación, comunicación e información...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Garmin en la industria del transporte marítimo es evidente a través de su segmento operativo marino dedicado, que diseña, desarrolla, fabrica y distribuye una gama de productos de navegación, comunicación e información habilitados para GPS. El compromiso de la compañía se demuest...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GRMN" data-company="GARMIN LTD">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/GRMN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GRMN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GARMIN LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Garmin se destaca por el lanzamiento de nuevos productos vestibles, incluyendo el Forerunner 570,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Garmin en el tema de Vestibles es evidente a través del segmento de fitness de la empresa, donde el crecimiento de los ingresos es impulsado consistentemente por una fuerte demanda de vestibles avanzados. Este énfasis se destaca por el lanzamiento de nuevos productos vestibles, i...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Tecnologías Aeroespaciales de Honeywell demuestra una fuerte conexión with el tema...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Tecnologías Aeroespaciales de Honeywell demuestra una fuerte conexión con el tema de Defensa Aeroespacial, subrayada por su posición de liderazgo en la industria como proveedor de sistemas de misión crítica en verticales y plataformas aeroespaciales. Esto está respaldado además por un...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell tiene la intención de separar en una entidad independiente que cotiza en bolsa. Este...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Honeywell con la Fabricación Aeroespacial es significativo, como lo subraya su segmento de Tecnologías Aeroespaciales, un negocio principal que la compañía tiene la intención de separar en una entidad independiente que cotiza en bolsa. Este segmento es un proveedor global líder de p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell is una proveedor de sistemas en verticales aeroespaciales. El aumento de las ventas de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Honeywell con los Materiales Aeroespaciales es evidente a través de su posición de liderazgo en la industria como proveedor de sistemas en verticales aeroespaciales, enfatizado aún más por la escisión planificada de su negocio de Materiales Avanzados en una empresa pública separada....</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell reportó unas ventas netas sustanciales de $1.837 millones para los tres meses finalizados...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Honeywell en Soluciones Energéticas es evidente a través de su segmento dedicado a Soluciones de Energía y Sostenibilidad, que es uno de sus cuatro segmentos de negocio reportables. Este segmento reportó unas ventas netas sustanciales, con $1.837 millones para los tres meses fina...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell tiene como objetivo crear una empresa de automatización enfocada, reflejada en sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Honeywell en Automatización Industrial es evidente a través de su segmento dedicado de Automatización Industrial, uno de sus cuatro segmentos de negocio clave. Este segmento proporciona soluciones de automatización industrial a varios sectores, incluyendo refino/petroquímicos, ci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell ha adquisiciado un negocio de tecnología de procesos y equipos de gas natural licuado de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Honeywell en proyectos de GNL es evidente a través de la adquisición del negocio de tecnología de procesos y equipos de gas natural licuado de Air Products, una medida alineada con la reconfiguración de la cartera de la empresa hacia las megatendencias de transición energética. E...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell colabora activamente with los proveedores para mitigar la escasez potencial. Estrategias...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Honeywell demuestra su compromiso con la Gestión de la Cadena de Suministro a través de varias estrategias clave. La compañía se enfoca en la simplificación de la cadena de suministro y la alineación con fuentes de suministro locales, empleando estrategias de mitigación para minimizar la escasez y l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell está evaluando alternativas estratégicas para estos negocios. Las ventas se han visto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Honeywell en la gestión de almacenes es evidente a través de su segmento de Automatización Industrial, que proporciona soluciones para clientes en almacenes y logística. El enfoque de la compañía en esta área se ve aún más resaltado por sus negocios de Soluciones de Almacén y Flu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HXL" data-company="HEXCEL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HXL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HXL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HEXCEL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hexcel está posicionada para beneficiarse del aumento del gasto en defensa. La empresa desarrolla...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Hexcel en la industria aeroespacial y de defensa es evidente a través de su apoyo a aplicaciones militares y su respuesta al creciente gasto mundial en defensa. La empresa desarrolla materiales para nuevas plataformas como cazas de sexta generación y drones autónomos, y ha asegur...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HXL" data-company="HEXCEL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HXL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HXL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HEXCEL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hexcel fabrica materiales estructurales ligeros y de alto rendimiento para aplicaciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Hexcel en la fabricación aeroespacial es evidente a través de su desarrollo, fabricación y comercialización de materiales estructurales ligeros y de alto rendimiento, incluidas las fibras de carbono y las estructuras compuestas, para aplicaciones aeroespaciales comerciales, espac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HXL" data-company="HEXCEL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HXL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HXL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HEXCEL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Hexcel se centra en materiales aeroespaciales, en particular compuestos avanzados y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Hexcel se centra en materiales aeroespaciales, en particular compuestos avanzados y ligeros, como lo demuestra su amplia gama de productos que incluyen fibra de carbono, preimpregnados y núcleos de ingeniería, que atienden tanto a programas comerciales como militares. La empresa enfati...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HXL" data-company="HEXCEL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HXL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HXL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HEXCEL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hexcel participa en el tema de Tecnología Satelital. Se observó un aumento en las ventas de this...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Hexcel en el tema de Tecnología Satelital es evidente a través de su segmento de ventas de 'Defensa, Espacio y Otros', donde el crecimiento se atribuye a programas espaciales que abarcan lanzadores, motores de cohetes y satélites. Se observó un aumento en las ventas de este segme...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HXL" data-company="HEXCEL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HXL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HXL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HEXCEL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hexcel participa en programas espaciales, incluidos lanzadores, motores de cohetes y satélites. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Hexcel en la Exploración Espacial es evidente a través de su participación en programas espaciales, incluidos lanzadores, motores de cohetes y satélites, lo que contribuye al crecimiento del segmento de ventas de Defensa, Espacio y Otros. El aumento de las ventas se debió a estos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JOBY" data-company="JOBY AVIATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/JOBY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">JOBY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOBY AVIATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Joby está buscando activamente nuevos contratos e invirtiendo en tecnología de hidrógeno-eléctrica...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Joby en vehículos autónomos es evidente a través de su desarrollo de aeronaves híbridas para la defensa de EE. UU., combinando capacidades VTOL con tecnologías de vuelo autónomo en colaboración con L3Harris. Esta asociación tiene como objetivo entregar aeronaves autónomas e híbri...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JOBY" data-company="JOBY AVIATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/JOBY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">JOBY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOBY AVIATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Joby Aviation es una empresa de taxi aéreo. El enfoque principal gira en torno a los sistemas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque principal de Joby Aviation gira en torno a los sistemas de aviación, demostrado a través de su diseño, prueba y operación planificada de aeronaves eVTOL eléctricas y pilotadas para el transporte urbano. El compromiso de la empresa es evidente en su búsqueda de la certificación de la FAA, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JOBY" data-company="JOBY AVIATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/JOBY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">JOBY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOBY AVIATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Joby Aviation se centra en la aviación eléctrica. El negocio de la empresa se extiende a la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Joby Aviation se centra en la aviación eléctrica, lo que se demuestra por su compromiso de una década con el diseño y la prueba de aeronaves eVTOL totalmente eléctricas destinadas a servicios de movilidad aérea urbana. El enfoque de la empresa se extiende a la creación e integración de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JOBY" data-company="JOBY AVIATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/JOBY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">JOBY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOBY AVIATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Joby en Vehículos Eléctricos gira en torno al diseño, prueba y operación de aeronaves elécticas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Joby en Vehículos Eléctricos es evidente en su negocio principal, que gira en torno al diseño, prueba y operación de aeronaves eléctricas de despegue y aterrizaje vertical (eVTOL). La empresa ha dedicado más de una década a este esfuerzo, con el objetivo de proporcionar un servicio de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JOBY" data-company="JOBY AVIATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/JOBY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">JOBY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOBY AVIATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Joby se centra en el desarrollo de un servicio de transporte aéreo compartido basado en una...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Joby se centra en el desarrollo de un servicio de transporte aéreo compartido basado en una aplicación, con el objetivo de proporcionar transporte rápido y eficiente en áreas urbanas. La empresa se enfoca en fabricar, poseer y operar sus aeronaves para ofrecer estos servicios directame...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JOBY" data-company="JOBY AVIATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/JOBY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">JOBY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOBY AVIATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Aeronave eVTOL diseñada para la movilidad aérea urbana. El objetivo de proporcionar servicios de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Joby en la movilidad inteligente es evidente en el desarrollo de una aeronave eVTOL diseñada para la movilidad aérea urbana, con el objetivo de proporcionar servicios de transporte rápidos, silenciosos y convenientes en las ciudades. La empresa está construyendo un sistema operativo pa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="QS" data-company="QUANTUMSCAPE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/QS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">QS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">QUANTUMSCAPE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">QuantumScape se enfoca en mejorar el rendimiento de las celdas de la batería. La empresa está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de QuantumScape en el tema de la Tecnología Automotriz es sustancial, impulsada principalmente por su desarrollo de tecnología de baterías de estado sólido para vehículos eléctricos. La empresa está colaborando activamente con los principales fabricantes de equipos originales (OEM) ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="QS" data-company="QUANTUMSCAPE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/QS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">QS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">QUANTUMSCAPE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El diseño de QuantumScape elimina el grafito, lo que reduce los riesgos y costos de la cadena de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de QuantumScape con el tema de los materiales para baterías es evidente en varios aspectos de su tecnología de baterías de estado sólido. La empresa se enfoca en mejorar los materiales del cátodo, incluida la exploración de composiciones sin cobalto como LFP, y también participa activa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="QS" data-company="QUANTUMSCAPE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/QS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">QS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">QUANTUMSCAPE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">QuantumScape gira en torno a la tecnología de baterías. La empresa está trabajando activamente para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de QuantumScape gira en torno a la tecnología de baterías, específicamente el desarrollo y la comercialización de baterías de litio-metal de estado sólido diseñadas para vehículos eléctricos y otras aplicaciones. Su tecnología tiene como objetivo proporcionar una mayor densidad ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="QS" data-company="QUANTUMSCAPE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/QS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">QS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">QUANTUMSCAPE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">QuantumScape reconoce la aplicabilidad potencial de su tecnología de baterías de estado sólido. Sin...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">QuantumScape reconoce la aplicabilidad potencial de su tecnología de baterías de estado sólido en el sector de la aviación en evolución, junto con otros mercados como centros de datos y electrónica de consumo, y tiene la intención de explorar oportunidades según corresponda. Sin embargo, el enfoque ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="QS" data-company="QUANTUMSCAPE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/QS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">QS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">QUANTUMSCAPE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">QuantumScape está diseñada para mejorar métricas clave de rendimiento. La plataforma QSE-5 ofrecer...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de QuantumScape en el desarrollo de tecnología de baterías de estado sólido de próxima generación está dirigido principalmente a aplicaciones de vehículos eléctricos. Esto se evidencia en sus asociaciones estratégicas con fabricantes de equipos originales (OEM) automotrices, incluida Powe...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="QS" data-company="QUANTUMSCAPE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/QS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">QS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">QUANTUMSCAPE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">QuantumScape reconoce la aplicabilidad de su tecnología de baterías de estado sólido. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">QuantumScape reconoce la aplicabilidad de su tecnología de baterías de estado sólido en mercados más allá de los vehículos eléctricos, incluido el almacenamiento estacionario, la electrónica de consumo, los centros de datos, la robótica, la defensa y la aviación, y la empresa tiene la intención de e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RTX está fuertemente involucrada en las industrias aeroespacial y de defensa. Posicionándose como...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">RTX está fuertemente involucrada en las industrias aeroespacial y de defensa, posicionándose como un proveedor de sistemas de primer nivel. El negocio de defensa de la compañía atiende a clientes nacionales e internacionales, funcionando principalmente como contratista principal o subcontratista en ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RTX is proveedor principal de sistemas para las industrias aeroespacial y de defensa. Está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de RTX con el tema de Fabricación Aeroespacial se ve subrayada por su papel como proveedor principal de sistemas para las industrias aeroespacial y de defensa, con operaciones que incluyen la fabricación de equipos originales (OEM) y amplios servicios posventa. La participación de la emp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Las operaciones aeroespaciales comerciales de RTX están vinculadas a la industria de las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones aeroespaciales comerciales de RTX están vinculadas a la industria de las aerolíneas, como lo demuestra el hecho de que la salud económica general de los transportistas aéreos y los fabricantes de aviones es un barómetro clave para su negocio. Esta conexión se ve aún más resaltada por...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de RTX está significativamente ligado a la contratación de defensa. Una parte sustancial...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de RTX está significativamente ligado a la contratación de defensa, como lo demuestra su papel como contratista principal y subcontratista para una amplia cartera de programas de defensa que sirven a clientes gubernamentales tanto nacionales como internacionales. Una parte sustancial de l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RTX es proveedor global de sistemas de productos y servicios de alta tecnología para los sectores...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de RTX en la industria de tecnología de defensa es evidente a través de su papel como proveedor global de sistemas de productos y servicios de alta tecnología para los sectores aeroespacial y de defensa. El portafolio de la empresa aprovecha tecnologías de próxima generación en vari...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de Raytheon en la industria de defensa antimisiles es significativa, como lo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Raytheon en la industria de defensa antimisiles es significativa, como lo demuestran los importantes pedidos de varios sistemas de defensa antimisiles. Estos incluyen contratos para sistemas de defensa aérea Patriot para Alemania y Rumania, Standard Missile 3 (SM-3) para la Armad...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TXT" data-company="TEXTRON INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/TXT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">TXT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TEXTRON INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Textron experimenta aumentos de ingresos debido a programas militares como el Future Long Range...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Textron en el tema de Defensa Aeroespacial es evidente a través de sus diversos segmentos, particularmente Bell, que experimenta aumentos de ingresos debido a programas militares como el Future Long Range Assault Aircraft (FLRAA), designado como MV-75 por el Ejército de EE. UU. E...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TXT" data-company="TEXTRON INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/TXT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">TXT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TEXTRON INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Textron Aviation fabrica aeronaves, piezas y proporciona servicios relacionados. Bell produce...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Textron en la Fabricación Aeroespacial es evidente a través de sus diversos segmentos. Textron Aviation fabrica aeronaves, piezas y proporciona servicios relacionados, mientras que Bell produce aeronaves militares y comerciales y programas de soporte, lo que contribuye a una part...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TXT" data-company="TEXTRON INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/TXT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">TXT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TEXTRON INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Textron Aviation fabrica y entrega jets Citation y turbohélices comerciales. La empresa ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Textron en la industria de las aerolíneas es evidente a través de su segmento Textron Aviation, que fabrica y entrega jets Citation y turbohélices comerciales. La empresa ha experimentado una sólida demanda en todos sus productos de aviación, con una importante cartera de pedidos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TXT" data-company="TEXTRON INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/TXT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">TXT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TEXTRON INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Aproximadamente el 25% de Textron's ingresos proviene de contratos con el Gobierno de EE. UU.,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Textron en la contratación de defensa es evidente a través de varias vías. Una parte importante de los ingresos de la empresa, aproximadamente el 25% en 2024, proviene de contratos con el Gobierno de EE. UU., incluidos los del programa de ventas militares extranjeras patrocinado ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TXT" data-company="TEXTRON INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/TXT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">TXT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TEXTRON INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Textron demuestra su participación en la aviación eléctrica a través del segmento Textron...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Textron demuestra su participación en la aviación eléctrica a través del segmento Textron eAviation, que se enfoca en los esfuerzos de desarrollo de aeronaves de propulsión híbrida y eléctrica. El Nuuva V300, una aeronave no tripulada VTOL híbrida-eléctrica de largo alcance y gran capacidad, está en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TXT" data-company="TEXTRON INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/TXT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">TXT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TEXTRON INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de Textron en la industria de productos de ocio se realiza principalmente a través...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Textron en la industria de productos de ocio se realiza principalmente a través de su segmento Textron Specialized Vehicles, que incluye productos de golf. Los ingresos de Textron Specialized Vehicles han disminuido, afectados por un menor volumen en productos de golf y la dispos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UTHR" data-company="UNITED THERAPEUTICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UTHR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UTHR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED THERAPEUTICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">United Therapeutics demuestra una fuerte conexión with los tratamientos biotecnológicos a través of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">United Therapeutics demuestra una fuerte conexión con los tratamientos biotecnológicos a través de sus productos comercializados como Tyvaso DPI, Tyvaso nebulizado, Remodulin, Orenitram, Unituxin y Adcirca, junto con sus terapias para afecciones raras y potencialmente mortales. El compromiso de la e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UTHR" data-company="UNITED THERAPEUTICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UTHR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UTHR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED THERAPEUTICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Uthr participa en I+D de Biotecnología. La empresa centra sus esfuerzos de investigación y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Uthr en I+D de Biotecnología es evidente a través de la dedicación de recursos sustanciales a ensayos clínicos y diversos esfuerzos de investigación y desarrollo, tanto internos como a través de terceros. La empresa centra sus esfuerzos de investigación y desarrollo en programas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UTHR" data-company="UNITED THERAPEUTICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UTHR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UTHR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED THERAPEUTICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">United Therapeutics se centra en el desarrollo of sistemas de aeronaves eléctricas pilotadas y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de United Therapeutics en la aviación eléctrica se centra en el desarrollo de sistemas de aeronaves eléctricas pilotadas y autónomas de despegue y aterrizaje vertical para la entrega de órganos, con el objetivo de crear un método sostenible para transportar órganos fabricados y alte...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UTHR" data-company="UNITED THERAPEUTICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UTHR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UTHR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED THERAPEUTICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">United Therapeutics está comprometida con la industria farmacéutica. Los ingresos de la empresa se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de United Therapeutics con la industria farmacéutica es evidente a través del desarrollo, fabricación y distribución de una gama de productos comerciales, que incluyen Tyvaso DPI, Tyvaso Nebulizado, Remodulin, Orenitram, Unituxin y Adcirca. Los ingresos de la empresa se generan princip...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UTHR" data-company="UNITED THERAPEUTICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UTHR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UTHR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED THERAPEUTICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">United Therapeutics participa activamente en la investigación y el desarrollo of tecnologías. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de United Therapeutics en la medicina regenerativa es evidente a través de su enfoque multifacético para abordar la escasez de órganos trasplantables. La empresa participa activamente en la investigación y el desarrollo de tecnologías, incluida la xenotrasplantación, alternativas de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACHR" data-company="ARCHER AVIATION INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/ACHR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ACHR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCHER AVIATION INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Archer se centra en la aviación eléctrica, principalmente a través del desarrollo y la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Archer se centra en la aviación eléctrica, principalmente a través del desarrollo y la comercialización de su aeronave Midnight eVTOL. Esto se evidencia en las importantes inversiones de la empresa en investigación y desarrollo, fabricación y pruebas de vuelo, todo ello con e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AIN" data-company="ALBANY INTL CORP-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/AIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALBANY INTL CORP-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Ropa para Máquinas participa en la industria de Productos de Papel. El segmento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Ropa para Máquinas de la empresa participa en la industria de Productos de Papel a través del suministro de cintas permeables e impermeables utilizadas en la fabricación de productos de papel, cartón, tisú y toalla. Aunque el segmento anticipa una disminución de los ingresos de papel ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMPX" data-company="AMPRIUS TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/AMPX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMPX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMPRIUS TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Aprius demuestra un fuerte enfoque en materiales para baterías. La empresa enfatiza su liderazgo en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Amprius demuestra un fuerte enfoque en materiales para baterías a través de su desarrollo, fabricación y comercialización de baterías de iones de litio para aplicaciones de movilidad, aprovechando su disruptiva tecnología de ánodo de silicio. La empresa enfatiza su liderazgo en el espacio de batería...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMPX" data-company="AMPRIUS TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/AMPX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMPX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMPRIUS TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Aprius fabrica baterías de ánodo de silicio para movilidad eléctrica. La empresa se utiliza en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Amprius desarrolla, fabrica y comercializa baterías de ánodo de silicio para movilidad eléctrica, con un enfoque significativo en la aviación. Las baterías de la empresa se utilizan en diversas aplicaciones de aviación, incluidos sistemas aéreos no tripulados como drones y pseudo satélites de gran a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BA" data-company="BOEING CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/BA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOEING CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Boeing presentó un plan integral de seguridad y calidad. Boeing redujo las tasas de producción,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Boeing con la seguridad aeronáutica es evidente en su respuesta al accidente del Alaska Airlines 737-9, que llevó a una investigación de la FAA y a la presentación de un plan integral de seguridad y calidad. Para abordar los problemas identificados, Boeing redujo las tasas de produc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BA" data-company="BOEING CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/BA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOEING CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se identifica como líder del mercado mundial en defensa antimisiles. Boeing's...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Boeing en la defensa antimisiles es evidente a través de sus actividades en el diseño, desarrollo, fabricación, venta, servicio y soporte de estos sistemas, siendo el programa Ground-based Midcourse Defense un ejemplo notable dentro de su segmento de Defensa, Espacio y Seguridad....</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BA" data-company="BOEING CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/BA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOEING CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Boeing enfrenta desafíos considerables en la gestión de la cadena de suministro. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Boeing enfrenta desafíos considerables en la gestión de la cadena de suministro, como lo demuestran las frecuentes menciones de interrupciones, restricciones y problemas de calidad que afectan la producción, las entregas y el rendimiento financiero. La compañía monitorea activamente la salud y estab...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GRMN" data-company="GARMIN LTD">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/GRMN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GRMN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GARMIN LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Garmin diseña productos para estilos de vida activos y opera en segmentos clave como fitness,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Garmin en el tema de Productos de Ocio es evidente a través de su diversa cartera y adquisiciones estratégicas. La empresa diseña productos para estilos de vida activos y opera en segmentos clave como fitness, outdoor y náutica. Esto está respaldado además por la adquisición de M...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Tecnologías Aeroespaciales de Honeywell es un proveedor clave de productos, software...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Tecnologías Aeroespaciales de Honeywell es un proveedor clave de productos, software y servicios para la industria de las aerolíneas, al servicio de los fabricantes de equipos originales y los operadores de aeronaves. La compañía ha visto un crecimiento significativo en las ventas de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell mejorando sus capacidades en metanol sostenible, combustible de aviación, hidrógeno and...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Honeywell en Energía Limpia se demuestra a través de la adquisición del negocio de Tecnologías de Catalizadores de Johnson Matthey, mejorando sus capacidades en metanol sostenible, combustible de aviación sostenible, hidrógeno y amoníaco. Esta adquisición complementa el segmento ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tecnologías Aeroespaciales de Honeywell demuestra su participación en el tema de Tecnología de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Tecnologías Aeroespaciales de Honeywell demuestra su participación en el tema de Tecnología de Defensa a través de su papel como proveedor global de productos, software y servicios para aeronaves, atendiendo a fabricantes de equipos originales y contratistas de defensa y espaciales. E...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell emplea activamente estrategias de mitigación, que incluyen acciones de precios,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Honeywell en Soluciones de Cadena de Suministro es evidente a través de varias iniciativas. La compañía se enfoca en esfuerzos de transformación de la cadena de suministro, como lo destacó el Presidente de Aeroespacial, lo que apoya su perfil de crecimiento. Honeywell emplea acti...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JOBY" data-company="JOBY AVIATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/JOBY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">JOBY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOBY AVIATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Joby se dedica a escalar la producción de aeronaves eVTOL. Esta expansión se suma a los esfuerzos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Joby en la fabricación aeroespacial es evidente a través de su producción activa de aeronaves eVTOL, con cinco aeronaves a escala completa ya producidas y planes para fabricar, poseer y operar estas aeronaves. La empresa se dedica a escalar la producción, como lo demuestra la expansión...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JOBY" data-company="JOBY AVIATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/JOBY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">JOBY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOBY AVIATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Joby es un negocio de pasajeros de Blade. La adquisición es un movimiento clave para acelerar su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Joby con el tema de la industria de las aerolíneas es evidente a través de sus iniciativas estratégicas destinadas a establecer operaciones comerciales de taxis aéreos. La adquisición por parte de la empresa del negocio de pasajeros de Blade es un movimiento clave para acelerar su ent...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de RTX con el tema de Materiales Aeroespaciales es evidente a través de varios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de RTX con el tema de Materiales Aeroespaciales es evidente a través de varios impactos operativos y financieros. La empresa enfrentó interrupciones en la cadena de suministro que afectaron la adquisición de materias primas, incluido el titanio, lo que generó mayores costos. Específica...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de RTX en el tema of Ciberseguridad es limitada, principalmente debido a la venta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de RTX en el tema de Ciberseguridad es limitada, principalmente debido a la venta de su negocio de Ciberseguridad, Inteligencia y Servicios (CIS) dentro del segmento de Raytheon, que se completó en el primer trimestre de 2024. Esta desinversión afectó significativamente las ventas n...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UTHR" data-company="UNITED THERAPEUTICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/UTHR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UTHR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED THERAPEUTICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">United Therapeutics demuestra su participación en el tema of Medicamentos Biológicos. Unituxin, un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">United Therapeutics demuestra su participación en el tema de Medicamentos Biológicos a través de la comercialización y el desarrollo de terapias farmacéuticas y biológicas, incluido Unituxin, un anticuerpo monoclonal infundido aprobado para el tratamiento del neuroblastoma de alto riesgo. Unituxin e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UTHR" data-company="UNITED THERAPEUTICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/UTHR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UTHR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED THERAPEUTICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">United Therapeutics está involucrada en la comercialización de medicamentos. Los ingresos de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">United Therapeutics está significativamente involucrada en la comercialización de medicamentos, como lo demuestra la comercialización y venta de varios productos comerciales, incluidos Tyvaso DPI, Tyvaso Nebulizado, Remodulin, Orenitram, Unituxin y Adcirca. Los ingresos de la empresa se derivan prin...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AIN" data-company="ALBANY INTL CORP-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/AIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALBANY INTL CORP-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía fabrica cuerpos de misiles para los misiles aire-superficie JASSM de Lockheed Martin....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la compañía en el tema de Defensa de Misiles es evidente a través de su segmento AEC, que fabrica cuerpos de misiles para los misiles aire-superficie JASSM de Lockheed Martin. Además, Gunnar Kleveland destacó oportunidades potenciales dentro de los programas de misiles, sugiriend...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ATRO" data-company="ASTRONICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/ATRO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ATRO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ASTRONICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Astronics Corporation suministra tecnologías y productos avanzados a las industrias aeroespacial y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Astronics Corporation suministra tecnologías y productos avanzados a las industrias aeroespacial y de defensa a nivel mundial, atendiendo a los fabricantes de equipos originales (OEM) y a los contratistas principales del gobierno para productos electrónicos y militares. Específicamente, los clientes...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ATRO" data-company="ASTRONICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/ATRO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ATRO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ASTRONICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Astronics diseña, desarrolla, fabrica y mantiene sistemas de prueba automatizados. Los productos de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Astronics en la industria de la electrónica de defensa es evidente a través de su segmento de Sistemas de Prueba, que diseña, desarrolla, fabrica y mantiene sistemas de prueba automatizados que dan soporte a los sectores aeroespacial y de defensa. Los productos de la compañía, in...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BA" data-company="BOEING CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/BA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOEING CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Boeing se comprometió a integrar sistemas de guerra electrónica para el F-15 Eagle. BGS recibió una...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Boeing con la Electrónica de Defensa se demuestra a través de su subsidiaria BGS, que recibió una modificación de contrato de la Fuerza Aérea de EE. UU. para integrar sistemas de guerra electrónica para el F-15 Eagle. Reforzando este enfoque, BDS integra sus recursos en defensa, int...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BA" data-company="BOEING CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/BA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOEING CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Boeing es líder del mercado mundial en aeronaves militares. El KC-46A Tanker, P-8A Poseidon,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Boeing en el tema de Aplicaciones Militares es evidente a través del diseño, desarrollo, fabricación, venta, servicio y soporte de aeronaves militares, así como su participación en aeronaves militares, satélites, defensa antimisiles y sistemas de lanzamiento. La empresa es líder ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BA" data-company="BOEING CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/BA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOEING CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Boeing es líder del mercado mundial en el segmento 'Defensa, Espacio y Seguridad' La financiación...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Boeing en la exploración espacial es evidente a través del diseño, desarrollo, fabricación, venta, servicio y soporte de vuelos espaciales tripulados y sistemas de lanzamiento. La empresa es líder del mercado mundial en este ámbito, como se destaca en sus informes. La financiació...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GE" data-company=" lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   ">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/GE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   </div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Aerospace impulsa una parte significativa de las flotas de combate y helicópteros militares de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de GE Aerospace en la industria aeroespacial y de defensa es evidente a través de su segmento de Tecnologías de Defensa y Propulsión (DPT), que impulsa una parte significativa de las flotas de combate y helicópteros militares de EE. UU. Este segmento no solo se enfoca en los program...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GE" data-company=" lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   ">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/GE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   </div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Aerospace demuestra una fuerte conexión con la fabricación aeroespacial a través of varias...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">GE Aerospace demuestra una fuerte conexión con la fabricación aeroespacial a través de varias actividades clave. La división de Motores y Servicios Comerciales (CES) de la empresa apoya una vasta base instalada comercial, impulsando una parte significativa de los vuelos comerciales a nivel mundial. ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GE" data-company=" lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   ">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/GE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   </div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Motores Comerciales y Servicios (CES) de GE Aerospace se dirige principalmente a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de GE Aerospace con la industria de las aerolíneas es evidente a través de su amplia presencia y soporte, ya que su tecnología está presente en tres de cada cuatro vuelos comerciales. El negocio de Motores Comerciales y Servicios (CES) de la empresa se dirige principalmente a fabricantes...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GE" data-company=" lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   ">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/GE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   </div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Aerospace mantiene una sólida posición en sistemas de aviación. La participación de la empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">GE Aerospace mantiene una sólida posición en sistemas de aviación, impulsada por su extensa flota de propulsión comercial y servicios de posventa, que constituyen una parte importante de sus ingresos. La participación de la empresa se extiende al diseño, desarrollo, fabricación y servicio de motores...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GE" data-company=" lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   ">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/GE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   </div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Aerospace impulsa parte importante de las flotas de combate y helicópteros militares de EE. UU....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de GE Aerospace en la contratación de defensa es evidente a través de su negocio de Defense & Propulsion Technologies (DPT), que impulsa una parte importante de las flotas de combate y helicópteros militares de EE. UU. Esto se ve respaldado además por un contrato de la Fuerza Aérea ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GE" data-company=" lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   ">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/GE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   </div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Aerospace trabaja con clientes gubernamentales en el desarrollo of productos avanzados,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">GE Aerospace demuestra su compromiso con los drones de defensa a través de sus esfuerzos colaborativos con Kratos para avanzar en las tecnologías de propulsión para sistemas aéreos no tripulados asequibles. Además, GE Aerospace trabaja con clientes gubernamentales en el desarrollo de productos avanz...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GE" data-company=" lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   ">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/GE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   </div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Aerospace ha demostrado sus capacidades al demostrar un sistema de propulsión híbrido eléctrico...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de GE Aerospace en el tema de la Aviación Eléctrica se demuestra a través de su participación en el programa RISE de CFM International, que se centra en sistemas híbridos eléctricos y compatibilidad con combustibles alternativos. Reforzando esto, la empresa ha demostrado sus capacid...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GRMN" data-company="GARMIN LTD">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/GRMN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GRMN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GARMIN LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Garmin es proveedor líder mundial de dispositivos inalámbricos. Muchos de los cuales incorporan...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Garmin en el tema de la electrónica de consumo es evidente en su papel como proveedor líder mundial de dispositivos inalámbricos, muchos de los cuales incorporan navegación GPS y aplicaciones adaptadas a estilos de vida activos. Los segmentos de fitness y aire libre de la empresa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell is un proveedor global líder de productos, software y servicios para aeronaves. Este...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El fuerte compromiso de Honeywell con los Sistemas de Aviación es evidente a través de su segmento de Tecnologías Aeroespaciales, un proveedor global líder de productos, software y servicios para aeronaves. Este segmento atiende a diversos mercados finales, incluyendo transporte aéreo, aviación regi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell ofrece soluciones de gestión de carbono a diversos sectores. Estas solucions se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Honeywell con el tema de la Captura de Carbono es evidente a través de su negocio UOP, que ofrece soluciones de gestión de carbono a diversos sectores. Estas soluciones se proporcionan a través de tecnología de procesos, catalizadores, adsorbentes, equipos y servicios posventa. Si b...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell demuestra su compromiso con la fabricación de productos químicos. La compra del negocio...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Honeywell demuestra su compromiso con la fabricación de productos químicos a través de adquisiciones estratégicas y segmentos de negocio dedicados. La compra del negocio de Tecnologías de Catalizadores de Johnson Matthey mejora las capacidades de Honeywell en metanol sostenible, combustible de aviac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Tecnologías Aeroespaciales de Honeywell suministra productos, software y servicios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Tecnologías Aeroespaciales de Honeywell suministra productos, software y servicios para aeronaves a fabricantes de equipos originales y contratistas de defensa y espacio, lo que incluye sistemas de radar y vigilancia. Estos sistemas, junto con instrumentos avanzados, se venden a contr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Automatización de Edificios de Honeywell desempeña un papel importante en la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Automatización de Edificios de Honeywell desempeña un papel importante en la eficiencia energética al proporcionar productos, software, soluciones y tecnologías que permiten a los propietarios de edificios garantizar la eficiencia energética de sus instalaciones. Esto incluye sensores...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de negocio de Soluciones de Energía y Sostenibilidad de Honeywell proporciona...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Honeywell en la transición energética es evidente a través de su alineación con tres poderosas megatendencias, incluida la automatización y el futuro de la aviación. El segmento de negocio de Soluciones de Energía y Sostenibilidad de la empresa proporciona tecnología, procesamiento, li...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell Forge ofrecen operaciones inteligentes, sostenibles y seguras. Esta plataforma habilita...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Honeywell en la Digitalización Industrial es evidente en sus ofertas de Automatización Industrial, que ofrecen operaciones inteligentes, sostenibles y seguras a través de la plataforma IoT Honeywell Forge. Esta plataforma habilita digitalmente productos y servicios utilizando alg...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell es una oferta de Automatización Industrial. sus ofertas incluyen tecnologías de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Honeywell en el tema de Sensores Industriales es evidente a través de sus ofertas de Automatización Industrial, que incluyen tecnologías de detección con una variedad de sensores y servicios diseñados a medida. Estos sensores también son integrales para los productos y servicios ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell Forge es una plataforma líder de IoT industrial. Honeywell Forge sustenta el enfoque de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Honeywell en Internet de las Cosas es evidente en su plataforma Honeywell Forge, que sustenta el enfoque de la empresa en la automatización, el futuro de la aviación y la transición energética. Las ofertas de Automatización Industrial están habilitadas digitalmente a través de Ho...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell integra algoritmos propietarios de aprendizaje automático e inteligencia artificial. Esta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Honeywell integra algoritmos propietarios de aprendizaje automático e inteligencia artificial en sus productos y proyectos, habilitándolos digitalmente a través de la plataforma IoT industrial Honeywell Forge. Esta integración se extiende a sus ofertas de Automatización Industrial, destacando el apr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell proporciona materiales para semiconductores de vanguardia. Este negocio también ofrece...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Honeywell en el tema de Materiales para Semiconductores es evidente a través de su negocio de Materiales Avanzados, que proporciona a los clientes materiales de semiconductores de vanguardia. Este negocio también ofrece otras soluciones de materiales avanzados, incluidas las fibras Sol...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JOBY" data-company="JOBY AVIATION INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/JOBY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">JOBY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">JOBY AVIATION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Joby diseñó una aeronave eVTOL diseñada para un servicio rápido y conveniente dentro of las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Joby en el transporte urbano es evidente en el desarrollo de una aeronave eVTOL diseñada para un servicio rápido y conveniente dentro de las ciudades. La compañía ha dedicado más de una década al diseño y prueba de esta aeronave eléctrica tripulada, optimizada para rutas urbanas con un...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Pratt & Whitney de RTX reconoce el impacto of las regulaciones gubernamentales y de la industria...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de RTX en la seguridad de la aviación es evidente a través de varios factores. La compañía reconoce el impacto de las regulaciones gubernamentales y de la industria sobre la seguridad y el rendimiento en sus negocios, así como las restricciones sobre el ruido y las emisiones de los ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NEW: Collins se enfoca en modernizar los sistemas de la FAA con radares y automatización. Esto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de RTX en Aviation Systems es evidente a través de su negocio de aviónica Collins, que se enfoca en modernizar los sistemas de la FAA con radares y automatización en el control del tráfico aéreo. Esto incluye una reserva significativa de $470 millones para el mantenimiento del siste...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RTX es part of aplicaciones militares para sistemas de radar como GhostEye y AN/SPY-6(V) Esto se ve...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de RTX en electrónica de defensa es evidente a través de su desarrollo e integración de sistemas electrónicos para aplicaciones militares, incluidos sistemas de radar como GhostEye y AN/SPY-6(V). Estos sistemas están diseñados para funciones críticas como el rastreo de drones, misil...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RTX opera como contratista principal o subcontratista para una amplia cartera de programas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El fuerte compromiso de RTX con las aplicaciones militares es evidente a través de su negocio de defensa, que opera como contratista principal o subcontratista para una amplia cartera de programas de defensa que sirven a clientes gubernamentales nacionales e internacionales. Esto se ve respaldado ad...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TXT" data-company="TEXTRON INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/TXT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">TXT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TEXTRON INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Bell and Textron Systems participan en importantes programas de aeronaves y soporte militar. Estos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Textron en aplicaciones militares es evidente a través de sus segmentos Bell y Textron Systems, que participan en importantes programas de aeronaves y soporte militar. Estos programas incluyen un contrato de desarrollo para el programa FLRAA del Ejército de EE. UU., así como cont...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UTHR" data-company="UNITED THERAPEUTICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/UTHR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UTHR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED THERAPEUTICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">United Therapeutics participa activamente en la mejora de medicamentos existentes y el desarrollo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de United Therapeutics en el tema de las Enfermedades Cardiovasculares es evidente en su enfoque en la hipertensión pulmonar, una condición cardiovascular específica, con productos comercializados como Tyvaso, Orenitram y Remodulin. Los ingresos de la compañía están significativamen...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UTHR" data-company="UNITED THERAPEUTICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/UTHR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UTHR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED THERAPEUTICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">United Therapeutics demuestra su enfoque en el desarrollo of fármacos a través of su extensa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">United Therapeutics demuestra su enfoque en el desarrollo de fármacos a través de su extensa cartera, ensayos clínicos y presentaciones regulatorias. La empresa participa activamente en la investigación y el desarrollo de nuevas indicaciones y dispositivos de administración para productos existentes...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UTHR" data-company="UNITED THERAPEUTICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/UTHR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UTHR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED THERAPEUTICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Uthr está fuertemente involucrada en tecnologías relacionadas with el trasplante de órganos. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Uthr en la industria de las Ciencias de la Vida es evidente a través de sus esfuerzos de investigación y desarrollo centrados en nuevas indicaciones y dispositivos de administración, incluida la bomba RemunityPRO. La compañía también está desarrollando ralinepag para tratar la HA...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HXL" data-company="HEXCEL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/HXL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HXL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HEXCEL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hexcel está estratégicamente posicionada para capitalizar el aumento del gasto de los gobiernos de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Hexcel en la contratación de defensa es evidente a través de su desarrollo, fabricación y comercialización de materiales estructurales para los mercados de Espacio y Defensa, con ventas que alcanzaron los 128,2 millones de dólares en el tercer trimestre de 2024 y 406,2 millones d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">LTAMDS mejora la protección contra amenazas, incluidos los sistemas de aeronaves no tripuladas. Los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de RTX en la industria de drones de defensa se demuestra a través de sus programas y sistemas de Sistemas de Aeronaves No Tripuladas (C-UAS), como el Coyote counter-UAS, que se considera una prioridad clave y una solución probada en batalla. Además, LTAMDS mejora la protección contr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GE" data-company=" lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   ">
+            <td style="color: #666; font-size: 0.9rem;"></td>
+            <td><a href="/profile/GE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> lo que indica una participación limitada pero presente en el tema."                                                                                                                                                                                                                                                                                                                                   </div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">'name': 'ge-Q324-10-Q' 'password': 'password' 'version': '1.0.1'</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">{'name': 'ge-Q324-10-Q'</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

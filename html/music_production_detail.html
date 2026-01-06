@@ -1,0 +1,828 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Music Production - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Music Production</div>
+      <div class="sub-title">Investment Theme Detail - Entertainment and Media Industry</div>
+    </div>
+    <a href="main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Music Production &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Entertainment and Media &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 7
+    </div>
+
+    
+    <!-- Theme Chart Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Theme Chart</span>
+             <a href="equity_music_production.html" target="_blank" class="btn-view-chart">View Full Chart ↗</a>
+        </div>
+        <div class="box-body" style="height: 600px; overflow:hidden;">
+            <iframe src="equity_music_production.html" style="width:100%; height:100%; border:none; display:block;"></iframe>
+        </div>
+    </div>
+        
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">7</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">WMG</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">WARNER MUSIC GROUP CORP-CL A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Juega un papel fundamental en la industria de las soluciones de audio a través de la producción, distribución y monetización de un vasto catálogo de m...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/WMG" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">UMG</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">UNIVERSAL MUSIC GROUP NV</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera como líder mundial en la creación, producción y distribución de música grabada, influyendo en el desarrollo y la comercialización de contenido m...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/UMG" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">6758</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SONY GROUP CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y fabrica una amplia gama de productos de audio, incluyendo auriculares, altavoces y equipos de audio profesional, avanzando en la tecnolog...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/6758" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">352820</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">HYBE CO LTD</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se dedica al proceso integral de creación, grabación y distribución de contenido musical para sus artistas, abarcando la composición, producción y arr...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/352820" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">AAPL</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">APPLE INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Integra la tecnología 5G en sus dispositivos de consumo, desempeñando un papel clave en el impulso de la adopción por parte de los consumidores y la u...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/AAPL" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TME</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TENCENT MUSIC ENTERTAINM-ADR</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Permite a artistas y creadores de contenido desarrollar y producir obras musicales, fomentando la creación de nuevo contenido dentro de la industria m...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TME" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">AMZN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">AMAZON.COM INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona una amplia infraestructura y servicios en la nube, incluyendo hardware especializado y chips de IA personalizados, lo que permite a los cl...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/AMZN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">43</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="AAPL" data-company="APPLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/AAPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AAPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El Mac mini fue el modelo de sobremesa más vendido en China. Apple se centra en el abastecimiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Apple en la fabricación de PC es evidente a través del aumento de las ventas netas de su línea Mac, que incluye tanto ordenadores portátiles como de sobremesa. Los ingresos de Mac de la empresa experimentaron un crecimiento interanual, impulsado por la fortaleza de modelos como e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AAPL" data-company="APPLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/AAPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AAPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La importante presencia de Apple en la industria de la electrónica de consumo es evidente. Estos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La importante presencia de Apple en la industria de la electrónica de consumo es evidente a través de su lanzamiento continuo de productos estrella, incluyendo MacBooks, iMacs, iPhones, Apple Watches y AirPods. Estos productos no solo representan una parte sustancial de los ingresos de la compañía, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WMG" data-company="WARNER MUSIC GROUP CORP-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/WMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER MUSIC GROUP CORP-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Warner Music Group genera ingresos de servicios de artistas y derechos ampliados. WMG ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Warner Music Group con el tema de los servicios de entretenimiento es evidente a través de sus diversos flujos de ingresos y ofertas de servicios. La compañía genera ingresos de servicios de artistas y derechos ampliados, que abarcan actividades más allá de la grabación de música tr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WMG" data-company="WARNER MUSIC GROUP CORP-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/WMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER MUSIC GROUP CORP-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Warner Music Group (WMG) se centra en la creación, distribución y comercialización of música. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Warner Music Group (WMG) con la Industria del Entretenimiento es evidente, ya que se identifica como una de las principales empresas de entretenimiento musical del mundo con operaciones que abarcan la música grabada y la edición musical. El negocio principal de la empresa se centra en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AAPL" data-company="APPLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/AAPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AAPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Apple has constantes actualizaciones y lanzamientos en una serie of sistemas operativos, incluyendo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Apple en el tema de los Sistemas Operativos se ve subrayada por sus constantes actualizaciones y lanzamientos en una serie de sistemas operativos, incluyendo iOS, macOS, iPadOS, watchOS, visionOS y tvOS. El énfasis estratégico de la empresa es evidente en los anuncios explícitos ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WMG" data-company="WARNER MUSIC GROUP CORP-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/WMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER MUSIC GROUP CORP-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de WMG está significativamente entrelazado with las plataformas y servicios de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de WMG está significativamente entrelazado con las plataformas y servicios de streaming, como lo demuestra la dependencia de la compañía de estas plataformas para la distribución de música y la generación de ingresos. La compañía distribuye su música a los principales servicios de streami...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AAPL" data-company="APPLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/AAPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AAPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa prevé obtener más de 19 mil millones de chips de varios estados. Sin embargo, las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Apple en la industria de los chips semiconductores es evidente a través de sus estrategias de diseño y abastecimiento, destacadas por el iPhone 16e, que funciona con el chip A18 e incluye el módem C1 diseñado por Apple. La empresa prevé obtener más de 19 mil millones de chips de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AAPL" data-company="APPLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/AAPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AAPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El iPhone is un motor de ingresos principal en varios segmentos geográficos, incluidas las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Apple en el tema de la industria de los teléfonos inteligentes es evidente a través de la presentación constante por parte de la empresa de las ventas de iPhone como un motor de ingresos principal en varios segmentos geográficos, incluidas las Américas, Europa, Gran China y Japón. El é...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AAPL" data-company="APPLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/AAPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AAPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El Apple Watch sigue siendo un producto clave, con la introducción of la Serie 10. La empresa ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Apple en el tema de los wearables es evidente a través de la mención constante de la categoría 'Wearables, Home and Accessories' en sus informes financieros. El Apple Watch sigue siendo un producto clave, con la introducción de la Serie 10 y la celebración de su décimo aniversari...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WMG" data-company="WARNER MUSIC GROUP CORP-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/WMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER MUSIC GROUP CORP-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Warner Music Group se centra en gran medida en el entretenimiento digital. La compañía distribuye...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Warner Music Group se centra en gran medida en el entretenimiento digital, como lo demuestran sus operaciones principales en servicios de streaming y distribución digital. La compañía distribuye música en formato digital a varios socios, incluidos servicios de streaming, sitios de rede...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WMG" data-company="WARNER MUSIC GROUP CORP-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/WMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER MUSIC GROUP CORP-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Warner Music Group participa integral en la cadena de valor de la música grabada. Esto incluye la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Warner Music Group con el tema de Producción Musical es evidente a través de su participación integral en la cadena de valor de la música grabada, desde el descubrimiento y desarrollo de talentos hasta la producción, distribución y venta de música. Esto incluye la gestión de derecho...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WMG" data-company="WARNER MUSIC GROUP CORP-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/WMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER MUSIC GROUP CORP-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WMG obtiene ingresos de transmisiones de televisión, radio y cable. Si bien la transmisión de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de WMG con el tema de Transmisión de Medios se deriva de las regalías e ingresos que la empresa recibe cuando sus grabaciones de sonido y composiciones musicales se interpretan públicamente a través de transmisiones de televisión, radio y cable. Como titular de derechos, WMG obtiene ingr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación of Amazon en el Comercio Electrónico es evidente. La principal fuente de ingresos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en el Comercio Electrónico es evidente, ya que la principal fuente de ingresos de la empresa proviene de la venta de una diversa gama de productos y servicios a clientes a través de sus plataformas electrónicas. El enfoque de la empresa en mejorar la experiencia del client...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Amazon también reconoce que los avances en tecnología, específicamente la mejora de la conectividad...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Amazon con el tema de la Infraestructura de Internet es evidente a través de sus importantes inversiones en tecnología e infraestructura, particularmente para apoyar a Amazon Web Services (AWS) y otros negocios de Amazon. Los costos de infraestructura de la compañía abarcan servidor...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Amazon demuestra un fuerte compromiso con la Inteligencia Artificial. El negocio de IA de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Amazon demuestra un fuerte compromiso con la Inteligencia Artificial, evidente en sus agresivas inversiones y amplias aplicaciones en toda la empresa. El negocio de IA de la compañía tiene una tasa de ingresos anual de miles de millones de dólares con un crecimiento interanual de tres dígitos, respa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa incurre en costos de ventas y marketing, que incluyen gastos de publicidad y nómina....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en servicios de marketing es evidente a través de varios aspectos de sus operaciones. La empresa incurre en costos de ventas y marketing, que incluyen gastos de publicidad y nómina para el personal dedicado a estas actividades, incluidas las comisiones de ventas relacionad...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Amazon está invirtiendo en el desarrollo of esta red satelital, registrando los costos asociados....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Amazon con el tema de Servicios de Banda Ancha es evidente a través del desarrollo del Proyecto Kuiper, una constelación de satélites en órbita terrestre baja diseñada para proporcionar conectividad de banda ancha a un número significativo de hogares a nivel mundial. Esta iniciativa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía está invirtiendo activamente en contenido deportivo en vivo, con la NASCAR atrayendo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en Plataformas y Servicios de Streaming es evidente a través de sus suscripciones de contenido digital y oportunidades publicitarias en plataformas como Prime Video y Twitch. La compañía está invirtiendo activamente en contenido deportivo en vivo, con la NASCAR atrayendo u...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de Amazon con la Gestión de Almacenes es evidente. La empresa se enfoca en expandir...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Amazon con la Gestión de Almacenes es evidente en la operación y dotación de personal de sus centros de distribución en América del Norte e Internacionales, lo que constituye una parte significativa de sus costos de cumplimiento. La empresa se enfoca en expandir su red de cumplimien...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Amazon destaca el papel de AWS en ayudar a las organizaciones a migrar a la nube. La tasa de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Amazon con los Servicios en la Nube es evidente a través de su extensa discusión sobre Amazon Web Services (AWS) en sus presentaciones y transcripciones. AWS no solo es un importante motor de ingresos, demostrado por una sustancial tasa de ingresos anualizada y un crecimiento consta...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Amazon se centra en la optimización de centros de datos como parte of su estrategia más amplia. No...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en los centros de datos es evidente a través de sus inversiones en infraestructura, que incluyen gastos en servidores, equipos de red y operaciones de centros de datos para dar soporte tanto a AWS como a otros negocios de Amazon. La empresa se centra en la optimización de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Amazon incluye la construcción y el despliegue of software y dispositivos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Amazon con el tema de Vehículos Autónomos es evidente a través de su inversión en el desarrollo de vehículos autónomos para servicios de transporte compartido. Esta iniciativa se destaca en el contexto de los costos de tecnología e infraestructura, lo que refleja los esfuerzos más a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa genera ingresos de contenido de medios digitales, incluidos video y música. Amazon...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en la industria del entretenimiento digital es evidente a través de sus diversas ofertas y servicios. La empresa genera ingresos de contenido de medios digitales, incluidos video y música, como parte de sus ventas de productos e incurre en costos relacionados con este cont...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AAPL" data-company="APPLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/AAPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AAPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La App Store se destaca constantemente como un contribuyente clave al crecimiento de los ingresos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Apple en el tema del Mercado en Línea es evidente a través del aumento de las ventas netas en su segmento de Servicios, impulsado principalmente por la App Store. La App Store se destaca constantemente como un contribuyente clave al crecimiento de los ingresos por servicios, tant...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Amazon Web Services (AWS) representa $123 mil millones de ingresos anualizada. La compañía continúa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Amazon con la Computación en la Nube es significativo, principalmente a través de Amazon Web Services (AWS). Los sustanciales ingresos de AWS, reflejados en su tasa de ingresos anualizada de $123 mil millones, junto con un crecimiento constante año tras año, subrayan su importancia ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Amazon investió mucho en infraestructura tecnológica, principalmente para respaldar el crecimiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Amazon con la Infraestructura en la Nube es evidente a través de sus importantes inversiones en infraestructura tecnológica, principalmente para respaldar el crecimiento de Amazon Web Services (AWS). Los costos de infraestructura de la empresa abarcan servidores, equipos de red y ga...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa invierte en la construcción y el despliegue de dispositivos electrónicos innovadores....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en la industria de dispositivos electrónicos es evidente a través de sus actividades de fabricación y ventas. La empresa invierte en la construcción y el despliegue de dispositivos electrónicos innovadores, junto con iniciativas como el desarrollo de una red de satélites y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se enfoca en mejorar la velocidad y eficiencia de entrega. Amazon reestructurando su red...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Amazon con la logística de comercio electrónico es evidente a través de sus importantes inversiones y mejoras continuas en su red de distribución. La empresa se enfoca en mejorar la velocidad y eficiencia de entrega reestructurando su red de entrada de EE. UU. en una estructura regi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WMG" data-company="WARNER MUSIC GROUP CORP-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/WMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER MUSIC GROUP CORP-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de WMG está significativamente entrelazado with la economía digital. La empresa se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de WMG está significativamente entrelazado con la economía digital, como lo demuestra su dependencia de los canales de distribución digital, los servicios de streaming y los servicios de música digital para la generación de ingresos tanto en Grabación Musical como en Edición Musical. La e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación of Amazon en la creación de contenido es evidente a través ofrece sus tiendas....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en la creación de contenido es evidente a través de su producción de contenido multimedia, que se ofrece a través de sus tiendas junto con otras mercancías. Esta actividad requiere una fuerza laboral dedicada involucrada en la curación y exhibición de estos productos y ser...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El precio de compra de estos productos constituye un componente principal of su costo de ventas....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en la industria de productos de consumo es evidente, ya que el precio de compra de estos productos constituye un componente principal de su costo de ventas. Esto se ve respaldado por el hecho de que el aumento de las ventas genera un aumento de los costos de productos y de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ventas de Amazon en Norteamérica aumentaron un 8% en el primer trimestre de 2025. Amazon anticipa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en la Economía Digital es evidente en su dependencia del crecimiento de Internet y el comercio en línea. Las ventas de la compañía en Norteamérica aumentaron un 8% en el primer trimestre de 2025, impulsadas por un aumento en las ventas de unidades, las ventas de terceros v...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AAPL" data-company="APPLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/AAPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AAPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa está aumentando significativamente sus inversiones en IA y ha presentado 'Apple...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Apple con la IA Generativa y los LLM es evidente a través de su integración de IA en sus dispositivos y plataformas. La empresa está aumentando significativamente sus inversiones en IA y ha presentado 'Apple Intelligence', un sistema de inteligencia personal que utiliza modelos gene...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AAPL" data-company="APPLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/AAPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AAPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Apple tiene como objetivo hacer accesibles las tecnologías avanzadas. La compañía está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Apple con la Inteligencia Artificial es evidente a través de su integración en dispositivos y plataformas, destacado por la introducción de 'Apple Intelligence', un sistema de inteligencia personal que aprovecha modelos generativos. El compromiso de la compañía se ve subrayado por i...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los ingresos de Amazon se derivan significativamente de su mercado en línea. La principal fuente de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Los ingresos de Amazon se derivan significativamente de su mercado en línea, que incluye tanto mercancías como contenido comprado para su reventa, así como productos ofrecidos por vendedores externos. La principal fuente de ingresos de la empresa proviene de la venta de una diversa gama de productos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El crecimiento de las ventas está impulsado principalmente by un aumento en las venta unitarias,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Amazon con las compras en línea es evidente a través de su principal fuente de ingresos, que proviene de la venta de una amplia gama de productos y servicios a los clientes. Esto se ve reforzado por el enfoque de la empresa en elementos clave como el precio, la selección y la conven...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de Amazon con los Servicios de Atención Médica se destaca por su adquisición of 1Life...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Amazon con los Servicios de Atención Médica se destaca por su adquisición de 1Life Healthcare, Inc. (One Medical), financiada con efectivo disponible. Esta adquisición representa un movimiento estratégico hacia el sector de la atención médica, indicando la dedicación de recursos a e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa invierte en el desarrollo of software y dispositivos electrónicos innovadores. Amazon...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en el tema Electrónica de Consumo es evidente a través de la fabricación y venta de dispositivos electrónicos, una fuente clave de ingresos junto con otros productos y servicios. La empresa invierte en el desarrollo de software y dispositivos electrónicos innovadores y dec...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa oferta de cómputo, almacenamiento y bases de datos son un componente central de las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en el almacenamiento en la nube es evidente a través de la provisión de ofertas de cómputo, almacenamiento y bases de datos. Estos servicios son un componente central de las ofertas de nube de la empresa, como se destaca dentro de AWS. Además, la principal fuente de ingres...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa está incurriendo en costos significativos relacionados with this proyecto. Amazon ya ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en el tema de las Comunicaciones por Satélite es evidente a través del desarrollo del Proyecto Kuiper, una constelación de satélites en órbita terrestre baja diseñada para proporcionar conectividad de banda ancha global. Esta iniciativa incluye inversiones en la construcci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Amazon está expandiendo los servicios de entrega el mismo día y al día siguiente para llegar a más...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Amazon con la logística de última milla es evidente a través de sus inversiones estratégicas y su enfoque operativo. La empresa está expandiendo los servicios de entrega el mismo día y al día siguiente para llegar a más clientes en Estados Unidos, incluidos aquellos en comunidades m...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Amazon en la Infraestructura de Datos es evidente a través of sus sustanciales...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Amazon en la Infraestructura de Datos es evidente a través de sus sustanciales inversiones en infraestructura tecnológica, principalmente para impulsar el crecimiento de su negocio AWS. Este compromiso se refleja en importantes gastos de capital, que cubren los costos asociados con ser...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMZN" data-company="AMAZON.COM INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/AMZN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AMZN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMAZON.COM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa ha logrado hitos significativos con el Proyecto Kuiper, incluyendo lanzamientos exitosos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Amazon en el tema de Tecnología Satelital está impulsada principalmente por el Proyecto Kuiper, una constelación de satélites en órbita terrestre baja destinada a proporcionar servicio de banda ancha global. La empresa ha logrado hitos significativos con el Proyecto Kuiper, inclu...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

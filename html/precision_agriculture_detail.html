@@ -1,0 +1,1072 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Precision Agriculture - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Precision Agriculture</div>
+      <div class="sub-title">Investment Theme Detail - Agriculture Industry</div>
+    </div>
+    <a href="/main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Precision Agriculture &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Agriculture &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 12
+    </div>
+
+    
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">12</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DE</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">DEERE & CO</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Fabrica y distribuye una amplia gama de maquinaria y equipos agrícolas, sirviendo como proveedor fundamental de tecnología y soluciones para operacion...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DE" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TRMB</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TRIMBLE INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona soluciones tecnológicas para el sector agrícola, incluyendo agricultura de precisión, sistemas de guiado y gestión de datos, para mejorar ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TRMB" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">AGCO</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">AGCO CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y fabrica una amplia gama de equipos y soluciones agrícolas, apoyando la producción mundial de alimentos y la eficiencia operativa de las e...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/AGCO" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">LNN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">LINDSAY CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona sistemas de riego e infraestructura esenciales que son críticos para las prácticas agrícolas modernas y la producción de alimentos....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/LNN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">6326</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">KUBOTA CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y suministra maquinaria agrícola que integra tecnologías avanzadas para mejorar la eficiencia y productividad agrícola a través de práctica...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/6326" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">PL</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">PLANET LABS PBC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona imágenes satelitales e inteligencia geoespacial, cruciales para la seguridad nacional, las operaciones de defensa y la recopilación de int...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/PL" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BAS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BASF SE</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Participa en la producción e innovación de productos químicos agrícolas, ofreciendo una cartera integral de productos de protección de cultivos que re...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BAS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CTVA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CORTEVA INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y comercializa productos de semillas y protección de cultivos, contribuyendo a la productividad agrícola y a la producción sostenible de al...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CTVA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">VMI</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">VALMONT INDUSTRIES</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye al tema de Infraestructura 5G....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/VMI" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">YAR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">YARA INTERNATIONAL ASA</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye a la producción mundial de alimentos al proporcionar soluciones esenciales de nutrición de cultivos, incluidos fertilizantes y otros produc...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/YAR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">11</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">GSAT</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">GLOBALSTAR INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona soluciones de conectividad basadas en satélite que complementan y extienden el alcance de las redes terrestres 5G, particularmente en área...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/GSAT" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">12</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TTC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TORO CO</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Apoya al sector agroindustrial suministrando equipos y sistemas de riego para necesidades agrícolas, de paisajismo y de gestión de césped....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TTC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">60</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="PL" data-company="PLANET LABS PBC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PLANET LABS PBC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Planet Labs atiende a clientes en el sector agrícola. La empresa experimenta fluctuaciones en this...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Planet Labs atiende a clientes en el sector agrícola, con planes para penetrar aún más en este mercado a través de ventas, marketing y soluciones de software dirigidas. La alta cadencia de imágenes satelitales y el archivo histórico de la empresa son utilizados por entidades como el gobierno galés p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PL" data-company="PLANET LABS PBC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PLANET LABS PBC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Planet Labs destaca el sector de Defensa e Inteligencia como un impulsor clave de crecimiento. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Planet Labs en el tema Aeroespacial y de Defensa es evidente a través de su significativo crecimiento de ingresos y contratos estratégicos. La empresa destaca el sector de Defensa e Inteligencia como un impulsor clave de crecimiento, con ingresos que aumentan sustancialmente año ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PL" data-company="PLANET LABS PBC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PLANET LABS PBC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Planet Labs participa activamente en la entrega de información global integrada. La plataforma de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Planet Labs participa activamente en la entrega de información global integrada a través de soluciones habilitadas por IA, mejorando la conciencia situacional y apoyando la toma de decisiones informadas para sus clientes. La plataforma de la empresa aprovecha imágenes, aprendizaje automático e IA pa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PL" data-company="PLANET LABS PBC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PLANET LABS PBC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Planet se utiliza para proporcionar indicaciones y advertencias vitales. La empresa también tiene...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Planet en el tema de Tecnología de Defensa es evidente a través de sus contratos con el Departamento de Defensa de EE. UU. y la Oficina Nacional de Reconocimiento de EE. UU., centrándose en la arquitectura espacial híbrida y la conciencia del dominio marítimo. Estos contratos res...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PL" data-company="PLANET LABS PBC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PLANET LABS PBC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Planet Labs y SKY Perfect JSAT have an acuerdo multimillonario de 230 millones de dólares. Planet...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Planet Labs con la Tecnología Satelital es evidente en el diseño, construcción y operación de cientos de satélites, estableciendo la flota de observación de la Tierra más grande. Su compromiso se demuestra aún más a través del desarrollo de tecnología satelital avanzada destinada a ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LNN" data-company="LINDSAY CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LNN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LINDSAY CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Lindsay Corporation ofrece controles de riego, sistemas de inyección de productos químicos, remoto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Lindsay Corporation demuestra su compromiso con la agricultura de precisión a través de varias actividades clave. La empresa produce y comercializa controles de riego, sistemas de inyección de productos químicos y sistemas de monitoreo remoto y programación de riego, que son utilizados por los agric...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LNN" data-company="LINDSAY CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LNN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LINDSAY CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se enfoca en la fabricación y comercialización de productos de seguridad para el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su compromiso con el tema de Infraestructura Civil a través de su segmento de infraestructura, que se enfoca en la fabricación y comercialización de productos de seguridad para el transporte. Esto incluye barreras móviles, amortiguadores de impacto, señalización vial y equipos d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PL" data-company="PLANET LABS PBC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PLANET LABS PBC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PlanetScope está invirtiendo en ventas, marketing y soluciones de software para penetrar aún más en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Planet en la Contratación de Defensa es evidente a través de su enfoque en el sector de Defensa e Inteligencia (D&I) como un motor clave de crecimiento, demostrado por un crecimiento de ingresos superior al 20% interanual. Este crecimiento está respaldado por contratos significat...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GSAT" data-company="GLOBALSTAR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GSAT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GLOBALSTAR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio principal de Globalstar se centra en las comunicaciones por satélite. Están expandiendo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Globalstar se centra en las comunicaciones por satélite, como lo demuestra su provisión de Servicios de Satélite Móvil (MSS) a través de una red de satélites global. Están expandiendo activamente la capacidad de su red, la resiliencia y el alcance mediante el lanzamiento de n...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GSAT" data-company="GLOBALSTAR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GSAT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GLOBALSTAR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio principal de Globalstar gira en torno a la tecnología satelital. Globalstar utiliza...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Globalstar gira en torno a la tecnología satelital, como lo demuestra su provisión de Servicios Satelitales Móviles (MSS) a través de una red satelital global que utiliza satélites de Órbita Terrestre Baja (LEO). Están invirtiendo activamente en la expansión y reposición de s...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DE" data-company="DEERE & CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DEERE & CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La conexión de Deere & Company con el tema of los Agribusiness es evidente a través of su negocio...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Deere & Company con el tema de los Agribusiness es evidente a través de su negocio principal como líder mundial en la producción de equipos y soluciones agrícolas, sirviendo a clientes que proporcionan alimentos, combustible, ropa, vivienda e infraestructura. Las operaciones de la emp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GSAT" data-company="GLOBALSTAR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GSAT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GLOBALSTAR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Globalstar en la Infraestructura de Telecomunicaciones es evidente. La compañía está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Globalstar en la Infraestructura de Telecomunicaciones es evidente a través de sus continuos esfuerzos para construir y expandir su red. La compañía está construyendo activamente una red de satélites móviles de próxima generación, expandiendo su infraestructura terrestre global mediant...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DE" data-company="DEERE & CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DEERE & CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Deere & Company incorpora la Inteligencia Artificial, particularmente el aprendizaje automático. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Deere & Company incorpora la Inteligencia Artificial, particularmente el aprendizaje automático, en sus productos actuales y procesos de negocio. La empresa se enfoca en fortalecer las capacidades digitales, la automatización y la autonomía, e integrar nuevas tecnologías para ofrecer tecnología y so...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DE" data-company="DEERE & CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DEERE & CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Deere & Company también destaca el Centro de Operaciones John Deere para la construcción of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Deere & Company en el tema de Infraestructura Civil es evidente a través de varios factores que impactan las ventas de sus equipos de construcción. Si bien la compañía anticipa una disminución en las ventas de equipos de construcción en EE. UU. y Canadá, esperan que los altos niv...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DE" data-company="DEERE & CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DEERE & CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Deere & Company está integrando motores John Deere, sistemas de guiado y pantallas en equipos de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Deere & Company en Tecnología de la Construcción es evidente a través de su segmento de Construcción y Silvicultura y su integración de tecnología en sus equipos. La empresa está invirtiendo 20.000 millones de dólares en los EE. UU. durante la próxima década, incluyendo manufactu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DE" data-company="DEERE & CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DEERE & CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">John Deere demuestra su enfoque en la automatización industrial a través of su estrategia...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su enfoque en la automatización industrial a través de su estrategia industrial inteligente, que combina inversiones en tecnología con la fabricación. Esto se evidencia en la integración de tecnologías de John Deere, como motores, sistemas de guiado y pantallas, en equipos de co...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GSAT" data-company="GLOBALSTAR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GSAT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GLOBALSTAR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Globalstar ofrece conectividad en áreas desatendidas por redes terrestres. La compañía se enfoca en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Globalstar con el tema de los Servicios Inalámbricos es evidente a través de su negocio principal de proporcionar servicios inalámbricos a través de su red satelital, que ofrece conectividad en áreas desatendidas por redes terrestres y admite comunicaciones de misión crítica. La com...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DE" data-company="DEERE & CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DEERE & CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">John Deere combina inversiones en tecnología avanzada con excelencia en fabricación. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de John Deere en Tecnologías Industriales es evidente en su estrategia industrial inteligente, que combina inversiones en tecnología avanzada con excelencia en fabricación. La compañía está invirtiendo $20 mil millones en los EE. UU. durante la próxima década para encabezar el desar...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DE" data-company="DEERE & CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DEERE & CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Deere & Company demuestra un fuerte enfoque en la Agricultura de Precisión. La empresa gestiona sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Deere & Company demuestra un fuerte enfoque en la Agricultura de Precisión, subrayado por su organización e iniciativas estratégicas. La empresa gestiona sus operaciones a través de segmentos dedicados, incluyendo Producción y Agricultura de Precisión (PPA). El compromiso de Deere se evidencia aún m...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DE" data-company="DEERE & CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DEERE & CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Deere & Company es líder mundial en equipos and soluciones forestales. Se demuestra aún más...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Deere & Company con la industria de Productos Forestales es evidente a través de su autoidentificación como líder mundial en equipos y soluciones forestales. El compromiso de la compañía se demuestra aún más mediante el establecimiento de un segmento operativo dedicado de 'Construcc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GSAT" data-company="GLOBALSTAR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GSAT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GLOBALSTAR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Globalstar se centra en el crecimiento continuo de suscriptores. Esto se ve reforzado por el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Globalstar con el Internet de las cosas es evidente a través de su apoyo a las transmisiones de datos de IoT y sus ofertas de productos de IoT comerciales. La empresa se centra en el crecimiento continuo de suscriptores, impulsado por las activaciones y la adopción de su módulo bidi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AGCO" data-company="AGCO CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AGCO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AGCO CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">AGCO es liderazgo mundial en el diseño, fabricación y distribución de maquinaria agrícola. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de AGCO en la agricultura de precisión es evidente a través de su liderazgo mundial en el diseño, fabricación y distribución de maquinaria agrícola y tecnología de agricultura de precisión. La empresa vende tecnología de agricultura de precisión junto con sus equipos y piezas de rep...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTVA" data-company="CORTEVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CTVA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CORTEVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Corteva está fundamentalmente ligado a la agroindustria. La empresa se dedica a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Corteva está fundamentalmente ligado a la agroindustria, principalmente a través de sus segmentos de Semillas y Protección de Cultivos. La empresa se dedica a desarrollar y suministrar germoplasma y rasgos avanzados, ofreciendo soluciones de protección de cultivos y proporcionando solu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTVA" data-company="CORTEVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CTVA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CORTEVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Corteva tiene un segmento de Protección de Cultivos dedicado a proporcionar productos que protegen...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Corteva con el tema de Productos Químicos Agrícolas es evidente a través de su segmento de Protección de Cultivos, dedicado a proporcionar productos que protegen contra malezas, insectos, plagas y enfermedades. El negocio de Protección de Cultivos de la empresa implica inherentement...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTVA" data-company="CORTEVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CTVA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CORTEVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La conexión de Corteva with el tema de los productos básicos agrícolas es evidente. Corteva se ve...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Corteva con el tema de los productos básicos agrícolas es evidente a través de varios aspectos de sus operaciones y rendimiento financiero. Las llamadas de resultados y los informes de la empresa abordan con frecuencia la dinámica de los productos básicos agrícolas, incluida la demand...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VMI" data-company="VALMONT INDUSTRIES">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VMI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VALMONT INDUSTRIES</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Valmont tiene una línea de productos solares, aunque las ventas han disminuido en general. Esta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Valmont en la energía solar a escala de servicios públicos se refleja en su segmento de Infraestructura, que incluye una línea de productos solares, aunque las ventas han disminuido en general. Esta disminución se atribuye en parte a la no recurrencia de un gran proyecto internac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TTC" data-company="TORO CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TTC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TORO CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">The Toro Company is una empresa de diseño, fabricación, comercialización y venta de sistemas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de The Toro Company con el tema de la Agroindustria surge de sus actividades comerciales principales, específicamente el diseño, fabricación, comercialización y venta de sistemas de riego agrícola. Este enfoque indica una dotación de personal e inversión dedicadas en el sector, aunque ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TTC" data-company="TORO CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TTC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TORO CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">The Toro Company es una de las empresa más importantes en el mercado de mejoras para el hogar....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de The Toro Company en el tema de Mejoras para el Hogar es evidente a través de sus actividades comerciales, que incluyen el diseño, la fabricación, la comercialización y la venta de equipos de jardinería, productos de iluminación y productos para el cuidado del césped y quitanieves...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VMI" data-company="VALMONT INDUSTRIES">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VMI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VALMONT INDUSTRIES</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Valmont Industries se identifica como un fabricante de productos y servicios para los mercados de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Valmont Industries se identifica como un fabricante de productos y servicios para los mercados de infraestructura y agricultura. La empresa declara explícitamente su compromiso de avanzar en la productividad agrícola, y el segmento de Agricultura se centra en equipos de riego y productos y servicios...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VMI" data-company="VALMONT INDUSTRIES">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VMI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VALMONT INDUSTRIES</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Valmont ha experimentado un aumento en las ventas impulsado by una fuerte demanda del mercado. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Valmont en el tema de la industria de servicios públicos de electricidad es evidente a través de su línea de productos dedicada 'Utility' dentro del segmento de Infraestructura, que ha experimentado un aumento en las ventas impulsado por una fuerte demanda del mercado e inversion...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VMI" data-company="VALMONT INDUSTRIES">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VMI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VALMONT INDUSTRIES</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Valmont se identifica como un fabricante de productos y servicios para los mercados de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Valmont se identifica como un fabricante de productos y servicios para los mercados de infraestructura y agricultura, con una parte significativa de sus ventas netas provenientes del segmento de infraestructura. La compañía enfatiza la inversión en infraestructura como un impulsor clave de crecimien...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VMI" data-company="VALMONT INDUSTRIES">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VMI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VALMONT INDUSTRIES</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Valmont demuestra una conexión significativa with el tema of Infraestructura de Servicios Públicos....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Valmont demuestra una conexión significativa con el tema de Infraestructura de Servicios Públicos a través de su línea de productos dedicada a Servicios Públicos dentro del segmento de Infraestructura. La empresa está capturando activamente las oleadas de infraestructura en el sector de servicios pú...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VMI" data-company="VALMONT INDUSTRIES">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VMI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VALMONT INDUSTRIES</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía ha salido del mercado solar norteamericano debido a condiciones desfavorables. Valmont...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Valmont con el tema de la Energía Solar es evidente a través de su línea de productos 'Solar' dentro del segmento de Infraestructura, aunque las ventas han disminuido en general. Esta disminución se atribuye a factores como condiciones de mercado más débiles, decisiones estratégicas...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AGCO" data-company="AGCO CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AGCO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AGCO CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">AGCO aporta valor a los agricultores a través of su cartera de marcas, que incluyen Fendt, Massey...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de AGCO con el tema de la Agribusiness es evidente a través de sus operaciones principales centradas en maquinaria agrícola, tecnología y servicios. Como líder mundial en el diseño, fabricación y distribución de maquinaria agrícola, AGCO aporta valor a los agricultores a través de su c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DE" data-company="DEERE & CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DEERE & CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Deere se ve afectado por diversos factores que impactan el mercado agrícola. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Deere se ve afectado por diversos factores que impactan el mercado agrícola, incluyendo los precios de los productos básicos, la superficie sembrada y los rendimientos de los cultivos, que influyen en los ingresos de los agricultores y su demanda de equipos. La empresa reconoce el impa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRMB" data-company="TRIMBLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRMB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIMBLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trimble se centró en mejorar la seguridad, la eficiencia y el cumplimiento de las flotas al...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Trimble en el tema de Flotas Comerciales se demuestra a través de sus clientes representativos, que incluyen compañías de transporte. Antes de su venta a Platform Science, el negocio de Movilidad de Trimble se centró en mejorar la seguridad, la eficiencia y el cumplimiento de las...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRMB" data-company="TRIMBLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRMB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIMBLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trimble Construction One (TC1) integra varias tecnologías de construcción. constituye la mayoría of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Trimble en el tema de Servicios de Construcción es evidente a través de su tecnología que digitaliza y transforma el trabajo en la industria de la construcción. Trimble Construction One (TC1) integra varias tecnologías de construcción y constituye la mayoría de las reservas de AC...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRMB" data-company="TRIMBLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRMB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIMBLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trimble participa en Soluciones de Gestión de Flotas. Compañía venta de Movilidad a Platform...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Trimble en Soluciones de Gestión de Flotas se refleja en sus soluciones utilizadas en diversas industrias, incluido el transporte, y los ingresos de su segmento T&L, que han aumentado debido al crecimiento de Transporeon, MAPS y los ingresos por suscripción Enterprise. El comprom...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTVA" data-company="CORTEVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CTVA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CORTEVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Corteva ofrece productos y soluciones diseñadas para defenderse contra malezas, insectos, plagas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Corteva demuestra su enfoque en la protección de cultivos a través de su segmento dedicado de Protección de Cultivos, que ofrece una gama de productos y soluciones diseñadas para defenderse contra malezas, insectos, plagas y enfermedades. Este compromiso se evidencia aún más en el Programa de Reestr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRMB" data-company="TRIMBLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRMB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIMBLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trimble se deshizo de su negocio agrícola, mantiene una participación del 15% en PTx Trimble. Esta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Trimble con la agricultura de precisión se demuestra principalmente a través de la formación de PTx Trimble, una empresa conjunta que opera en el mercado de la agricultura de precisión de flotas mixtas, destinada a mejorar la productividad, la eficiencia y la sostenibilidad para los...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRMB" data-company="TRIMBLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRMB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIMBLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trimble digitaliza y transforma el trabajo en las industrias de la construcción, la geoespacial y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Trimble en la industria del transporte es evidente a través de sus soluciones tecnológicas y su base de clientes, que incluye empresas de transporte. La tecnología de la empresa digitaliza y transforma el trabajo en las industrias de la construcción, la geoespacial y el transport...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DE" data-company="DEERE & CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DEERE & CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Deere & Company se identifica como líder mundial en la producción de equipos y soluciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Deere & Company se identifica como líder mundial en la producción de equipos y soluciones agrícolas, de césped, construcción y forestales, lo que demuestra un enfoque significativo en maquinaria industrial. Esto se ve respaldado aún más por la extensa discusión de la empresa sobre la producción, ven...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GSAT" data-company="GLOBALSTAR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GSAT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GLOBALSTAR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El soporte 5G actúa como un elemento secundario que refuerza sus ofertas de espectro terrestre....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Globalstar con el soporte de tecnología 5G es evidente a través de su banda de espectro terrestre, designada como Banda 53 con una variante 5G conocida como n53. Esto está respaldado además por los Acuerdos de Servicios Actualizados, que mejoran el ecosistema de dispositivos para la...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TTC" data-company="TORO CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TTC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TORO CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">The Toro Company se centra en el diseño, fabricación, comercialización y venta de maquinaria...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de The Toro Company se centra en el diseño, fabricación, comercialización y venta de una diversa gama de maquinaria industrial, incluyendo equipos profesionales de mantenimiento de césped, sistemas de riego de césped, equipos de paisajismo, productos de gestión de nieve y hielo, sistemas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GSAT" data-company="GLOBALSTAR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GSAT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GLOBALSTAR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Globalstar transmite datos por satélite y redes terrestres, utilizando dispositivos móviles y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Globalstar en las redes de datos es evidente a través de su provisión de transmisiones de datos por satélite y redes terrestres, utilizando dispositivos móviles y fijos. Los servicios de la compañía incluyen capacidad satelital mayorista y asignación de capacidad de red para resp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRMB" data-company="TRIMBLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRMB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIMBLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La conexión de Trimble con Soluciones de Movilidad se define principalmente por la desinversión. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Trimble con Soluciones de Movilidad se define principalmente por la desinversión de su negocio de Movilidad a Platform Science, una transacción que incluyó la recepción de participaciones accionarias. Si bien el enfoque estratégico de la empresa ha cambiado, sus soluciones tecnológica...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GSAT" data-company="GLOBALSTAR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GSAT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GLOBALSTAR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Globalstar ofreciendo una alternativa a la infraestructura tradicional. La empresa está autorizada...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Globalstar en el tema de Infraestructura Inalámbrica es evidente a través de su provisión de conectividad en áreas desatendidas por redes terrestres, ofreciendo una alternativa a la infraestructura tradicional. La empresa está autorizada a proporcionar servicios de banda ancha te...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRMB" data-company="TRIMBLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRMB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIMBLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trimble es una compañía de ingeniería civil en diversas industrias. El segmento de Sistemas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Trimble con el tema de Infraestructura Civil es evidente a través de sus soluciones utilizadas en ingeniería civil en diversas industrias, incluida la arquitectura, la construcción de edificios, el trabajo geoespacial y el transporte. La compañía reconoce el potencial de crecimiento...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VMI" data-company="VALMONT INDUSTRIES">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VMI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VALMONT INDUSTRIES</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Valmont fabrica estructuras para servicios públicos en México, que luego se envían a clientes en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Valmont con el tema de Servicios Públicos es evidente a través de su fabricación de estructuras para servicios públicos en México, que luego se envían a clientes en los Estados Unidos. Las ventas de la línea de productos de servicios públicos de la empresa han aumentado, impulsadas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AGCO" data-company="AGCO CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AGCO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AGCO CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">AGCO se deshizo de su negocio de Granos y Proteínas por $700 millones. La ventas de AGCO están...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las ventas de AGCO están influenciadas por la demanda de productos agrícolas, los precios de los productos básicos y las proteínas, así como por factores como los niveles de existencias de granos, las políticas gubernamentales, los aranceles, las condiciones climáticas, las hectáreas sembradas y los...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTVA" data-company="CORTEVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CTVA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CORTEVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Corteva ofrece tecnologías de rasgos que mejoran la resistencia al clima, las enfermedades, los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Corteva con la Biotecnología en la Agricultura es evidente a través de su segmento de Semillas, un líder mundial en el desarrollo y suministro de germoplasma y rasgos avanzados que producen un rendimiento óptimo para las granjas. La empresa ofrece tecnologías de rasgos que mejoran l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LNN" data-company="LINDSAY CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LNN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LINDSAY CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Lindsay Corporation fabrica sistemas de riego para aumentar y estabilizar la producción de cultivos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Lindsay Corporation en el tema de la Agribusiness es evidente a través de la fabricación y comercialización de sistemas de riego, incluyendo sistemas de pivote central, desplazamiento lateral y carrete de manguera, que son esenciales para aumentar y estabilizar la producción de c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTVA" data-company="CORTEVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CTVA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CORTEVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Corteva ofrece soluciones diferenciadas y con ventajas sostenibles a los agricultores. Esta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Corteva se enfoca en la agricultura sostenible al ofrecer soluciones diferenciadas y con ventajas sostenibles a los agricultores, lo que fortalece la seguridad alimentaria mundial y ayuda a los agricultores a abordar los impactos del cambio climático. La empresa tiene como objetivo explícito proporc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRMB" data-company="TRIMBLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRMB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIMBLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trimble sirve de soluciones tecnológicas para profesionales de la arquitectura, la construcción de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Trimble en la industria de servicios de ingeniería se refleja en su provisión de soluciones tecnológicas para profesionales de la arquitectura, la construcción de edificios y la ingeniería civil. Sus soluciones integrales de procesos de trabajo atienden a una variedad de industri...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LNN" data-company="LINDSAY CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LNN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LINDSAY CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se centra en la seguridad alimentaria y la conservación de los recursos hídricos. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su compromiso con la agricultura sostenible a través de la fabricación y comercialización de sistemas de riego, diseñados para conservar agua, energía y mano de obra. La empresa reconoce que los impulsores globales como la conservación del agua y la sostenibilidad ambiental son ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VMI" data-company="VALMONT INDUSTRIES">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VMI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VALMONT INDUSTRIES</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Valmont Industries se identifica como un proveedor de infraestructura vital. Esto se demuestra a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Valmont Industries se identifica como un proveedor de infraestructura vital, que es una parte central de su misión. Esto se demuestra a través de la presentación de informes de la empresa sobre ventas netas, beneficio bruto e ingreso operativo para su segmento de Infraestructura, que incluye líneas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRMB" data-company="TRIMBLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRMB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIMBLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trimble se deshizo de su negocio de movilidad, mantiene una relación comercial para integrar la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Trimble en el tema de la Red Logística es evidente a través de sus soluciones dirigidas a industrias como el transporte y sus clientes representativos, incluidas las empresas de transporte por carretera. El segmento de Transporte y Logística de la empresa, impulsado por la adquis...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VMI" data-company="VALMONT INDUSTRIES">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VMI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VALMONT INDUSTRIES</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El aumento de las ventas de productos de Transmisión, Distribución y Subestaciones durante el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Valmont con el tema de Transmisión de Electricidad es evidente a través de su segmento de Infraestructura, que incluye ventas de Transmisión, Distribución y Subestaciones, impulsado por una fuerte demanda del mercado de servicios públicos e inversiones en el endurecimiento de la red...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRMB" data-company="TRIMBLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRMB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIMBLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La tecnología de Trimble conecta el mundo físico y digital. Trimble está expandiendo su oferta de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Trimble en la tecnología de la construcción es evidente en su enfoque en la digitalización y transformación del trabajo dentro de la industria de la construcción. La tecnología de la compañía conecta el mundo físico y digital, vinculando a las partes interesadas a lo largo del ci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRMB" data-company="TRIMBLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRMB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIMBLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trimble se centra cada vez más en software y servicios. Este crecimiento está impulsado por la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Trimble se centra cada vez más en software y servicios, que representaron el 75% de los ingresos totales en el segundo trimestre de 2024. Este crecimiento está impulsado por la fuerte demanda de software de suscripción y licencias a plazo, particularmente las ofertas de productos Viewpoint y Archite...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

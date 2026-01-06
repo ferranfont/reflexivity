@@ -1,0 +1,813 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Theme Parks - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Theme Parks</div>
+      <div class="sub-title">Investment Theme Detail - Entertainment and Media Industry</div>
+    </div>
+    <a href="/main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Theme Parks &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Entertainment and Media &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 5
+    </div>
+
+    
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">5</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DIS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">WALT DISNEY CO/THE</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Su modelo de negocio está fundamentalmente ligado a la comprensión, influencia y adaptación a los comportamientos predominantes de los consumidores....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DIS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CMCSA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">COMCAST CORP-CLASS A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona soporte para la tecnología 5G....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CMCSA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">FUN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SIX FLAGS ENTERTAINMENT CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera parques temáticos que ofrecen una variedad de atracciones, espectáculos y atracciones, contribuyendo directamente a las experiencias de entreten...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/FUN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CDA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">COMPAGNIE DES ALPES</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Gestiona y opera una importante cartera de parques temáticos, ofreciendo diversas experiencias de ocio y entretenimiento....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CDA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">EPR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">EPR PROPERTIES</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se enfoca en poseer y arrendar una cartera diversa de propiedades inmobiliarias comerciales, generando ingresos a través de acuerdos de arrendamiento ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/EPR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">46</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DIS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de Disney con los Servicios de Entretenimiento es evidente a través oferta. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Disney con los Servicios de Entretenimiento es evidente a través de su diversa oferta, que incluye plataformas de streaming como Disney+ y Hulu, redes lineales, lanzamientos cinematográficos, parques temáticos, resorts y operaciones de cruceros. El enfoque de la empresa en estos ser...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DIS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Disney tiene negocio de Redes Lineales, que genera ingresos por tarifas de afiliación y publicidad....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Disney con el tema de Redes de Medios es evidente a través de su negocio de Redes Lineales, que genera ingresos por tarifas de afiliación y publicidad. La empresa discute los ingresos y el ingreso operativo de las Redes Lineales, incluidos los costos de programación y producción par...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DIS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Disney está invirtiendo más de 30.000 millones de dólares en sus parques temáticos de Florida y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El fuerte compromiso de Disney con la industria de los parques temáticos es evidente a través de sus importantes inversiones y proyectos de expansión. La empresa está invirtiendo más de 30.000 millones de dólares en sus parques temáticos de Florida y California, junto con el desarrollo de un nuevo D...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DIS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Disney en Plataformas y Servicios de Streaming es evidente. La compañía está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Disney en Plataformas y Servicios de Streaming es evidente a través de su segmento Directo al Consumidor, que incluye Disney+ y Hulu. La compañía está fortaleciendo sus ofertas de streaming integrando completamente Hulu en Disney+ para crear una experiencia de aplicación unificada y la...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DIS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ESPN genera ingresos de diversas fuentes, incluidas tarifas de afiliación, publicidad y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Disney en el entretenimiento deportivo es evidente a través de su segmento de Deportes, particularmente ESPN, que genera ingresos de diversas fuentes, incluidas tarifas de afiliación, publicidad y suscripciones. La empresa se centra en convertir ESPN en una plataforma deportiva d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DIS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de Disney con la producción cinematográfica es evidente. La compañía enfatiza el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Disney con la producción cinematográfica es evidente a través de su segmento de Entretenimiento, que genera ingresos a partir de contenido cinematográfico distribuido en redes lineales, plataformas directas al consumidor y ventas/licencias de contenido, incluidos los estrenos en cin...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DIS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Experiencias de Disney genera ingresos de parques temáticos y resorts. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Experiencias de Disney genera ingresos de parques temáticos y resorts, incluidos los cargos por noches de hotel, las ventas y alquileres de propiedades de clubes vacacionales y las ventas de vacaciones en crucero. El crecimiento en los ingresos de resorts y vacaciones se atribuye a fa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DIS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los productos de consumo son una fuente de ingresos constante para Disney. El éxito de franquicias...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Los productos de consumo son una fuente de ingresos constante para Disney, particularmente dentro del segmento de Experiencias, que incluye las regalías por licenciar propiedad intelectual para su uso en bienes de consumo, mercancía de marca y ventas de alimentos, bebidas y mercancía en parques temá...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DIS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Disney asigna fondos sustanciales a contenido producido. Esta inversión es crucial para atraer y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Disney en el contenido original es evidente a través de su importante inversión en la producción y licenciamiento de programación de cine y televisión, lo que impulsa los ingresos en sus segmentos de Redes Lineales, Directo al Consumidor y Ventas/Licenciamiento de Contenido. La compañí...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DIS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El Disney Adventure será el primero en atracar en Asia. El segmento de Experiencias genera ingresos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Disney con las Operaciones de Cruceros es evidente a través de su continua expansión e inversión en su línea de cruceros. La compañía se está preparando para lanzar dos nuevos barcos, incluido su barco más grande hasta la fecha, el Disney Adventure, que será el primero en atracar en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DIS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El crecimiento de los ingresos Directo al Consumidor demuestra la inversión y la dependencia of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Disney con el tema del Entretenimiento Digital es evidente a través de su segmento Directo al Consumidor, que genera ingresos a partir de tarifas de suscripción y publicidad relacionadas con contenido digital, particularmente a través de plataformas como Disney+ y Hulu. El enfoque d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DIS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Disney tiene una segmento de Experiencias que genera ingresos por admisiones a parques temáticos,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Disney con el tema de Resorts de Entretenimiento es evidente a través de su segmento de Experiencias, que genera ingresos por admisiones a parques temáticos, resorts, ventas de alimentos y bebidas, y mercancía. Las inversiones de capital se asignan a la expansión de parques temático...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FUN" data-company="SIX FLAGS ENTERTAINMENT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FUN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SIX FLAGS ENTERTAINMENT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa opera dentro de un único segmento enfocado in parques de atracciones y acuáticos. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La fuerte conexión de la empresa con la industria de los Parques Temáticos es evidente a través de su operación como el operador de parques de atracciones regionales más grande de América del Norte, con una cartera de 27 parques de atracciones y 15 parques acuáticos. Esto se ve respaldado aún más po...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DIS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de Disney en la radiodifusión de medios es evidente a través of sus redes lineales...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Disney en la radiodifusión de medios es evidente a través de sus redes lineales de entretenimiento como ABC y ESPN, junto con las tarifas de afiliación. Esto se demuestra aún más por la adquisición planificada por parte de ESPN de NFL Network y otros activos de medios de la NFL, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EPR" data-company="EPR PROPERTIES">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">EPR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPR PROPERTIES</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EPR Properties demuestra una fuerte conexión with la Industria del Entretenimiento. La cartera de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">EPR Properties demuestra una fuerte conexión con la Industria del Entretenimiento, principalmente a través de sus extensas inversiones en propiedades experienciales. La cartera de la compañía incluye importantes participaciones en propiedades de cines, locales de "comer y jugar" y propiedades de atr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EPR" data-company="EPR PROPERTIES">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">EPR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPR PROPERTIES</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EPR Properties demuestra una fuerte conexión con la industria de los parques temáticos. La cartera...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">EPR Properties demuestra una fuerte conexión con la industria de los parques temáticos a través de sus inversiones estratégicas y la composición de su cartera. La cartera experiencial de la empresa, que representa una parte importante de sus inversiones totales, incluye numerosas propiedades de atra...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EPR" data-company="EPR PROPERTIES">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">EPR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPR PROPERTIES</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EPR ha invertido en estas propiedades a través of empresas conjuntas. El enfoque en el alojamiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de EPR en el tema de Hoteles de Lujo se refleja en su cartera de propiedades de alojamiento experiencial. La empresa ha invertido en estas propiedades a través de empresas conjuntas, asignando 9.411 millones de dólares en 2024 y 16.034 millones de dólares en 2023, y la cartera exper...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EPR" data-company="EPR PROPERTIES">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">EPR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPR PROPERTIES</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EPR Properties asignó $44.715 millones a nuevos desarrollos de Comer y Jugar. La empresa se ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">EPR Properties demuestra su participación en el desarrollo inmobiliario a través de inversiones en desarrollos nuevos y redesarrollos dentro de su segmento Experiencial, específicamente en propiedades de Comer y Jugar y Fitness y Bienestar. La empresa asignó $44.715 millones a nuevos desarrollos de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EPR" data-company="EPR PROPERTIES">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">EPR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPR PROPERTIES</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EPR Properties demuestra una conexión significativa with la temática de Destinos Turísticos. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">EPR Properties demuestra una conexión significativa con la temática de Destinos Turísticos a través de su diversa cartera experiencial. La cartera de la empresa incluye propiedades de esquí y propiedades de alojamiento experiencial, con un enfoque en la expansión y mejora de sus ofertas, como la exp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FUN" data-company="SIX FLAGS ENTERTAINMENT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FUN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SIX FLAGS ENTERTAINMENT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Six Flags opera como el mayor operador regional de parques de atracciones de América del Norte. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Six Flags se centra en la industria del entretenimiento, ya que la empresa opera como el mayor operador regional de parques de atracciones de América del Norte con numerosos parques de atracciones, parques acuáticos y resorts. La empresa genera ingresos por admisiones, alimentos, merca...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FUN" data-company="SIX FLAGS ENTERTAINMENT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FUN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SIX FLAGS ENTERTAINMENT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa opera como el mayor operador regional de parques de atracciones de América del Norte. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa opera como el mayor operador regional de parques de atracciones de América del Norte, lo que incluye la operación de nueve complejos turísticos. Estos complejos turísticos contribuyen a los ingresos fuera del parque de la empresa, y la empresa tiene la intención de aumentar estos ingresos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMCSA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast enfatiza las inversiones en infraestructura de red para respaldar ofertas de banda ancha de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Comcast en Servicios de Banda Ancha es evidente a través de su enfoque en la conectividad residencial y plataformas, así como en la conectividad de servicios empresariales. La empresa enfatiza las inversiones en infraestructura de red para respaldar ofertas de banda ancha de mayo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMCSA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast ofrece servicios competitivos, incluidas soluciones empresariales. La empresa se enfoca en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Comcast en el tema de Redes Empresariales es evidente a través de su enfoque en el crecimiento del segmento de Conectividad de Servicios Empresariales, donde ofrece servicios competitivos, incluidas soluciones empresariales. Esto está respaldado además por el aumento de los ingre...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMCSA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast tiene como objetivo compensar la disminución de la televisión tradicional aumentando los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Comcast con el tema del Entretenimiento Digital es evidente a través de la operación de su segmento de Medios como un negocio combinado de televisión y streaming, con un enfoque en Peacock. La compañía tiene como objetivo compensar la disminución de la televisión tradicional aumenta...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMCSA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast's 'Contenido y Experiencias' abarca Medios, Estudios and Parques Temáticos. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Comcast con la Industria del Entretenimiento es evidente a través de su negocio de 'Contenido y Experiencias', que abarca Medios, Estudios y Parques Temáticos. La compañía invierte significativamente en contenido premium dentro de sus estudios, destacando exitosos estrenos cinematog...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMCSA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast es un negocio combinado de televisión y streaming. La empresa genera ingresos por la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Comcast en la difusión de medios es evidente a través de la operación del segmento de Medios como un negocio combinado de televisión y streaming, que incluye redes de televisión lineal, estaciones de televisión de transmisión local afiliadas a NBC y Telemundo, y redes internacion...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMCSA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast tiene diversas plataformas de transmisión y digitales, incluidas redes de televisión como...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Comcast en el tema de las Redes de Medios es evidente a través de la operación de diversas plataformas de transmisión y digitales, incluidas redes de televisión como NBC, Telemundo y Sky Sports, así como el servicio de transmisión Peacock. La empresa genera ingresos por la distri...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMCSA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast transmite eventos deportivos en vivo en NBC y Peacock, incluidos los Juegos Olímpicos. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Comcast en el entretenimiento deportivo es evidente a través de la transmisión de eventos deportivos en vivo en NBC y Peacock, incluidos los Juegos Olímpicos y el Super Bowl. El compromiso de la empresa se demuestra aún más por sus acuerdos de derechos deportivos, incluidos los d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMCSA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast está ejecutando una estrategia de operar los activos lineales y de streaming de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Comcast en Plataformas y Servicios de Streaming es evidente a través de la operación de Peacock, un componente clave de su segmento de Medios. La empresa está trabajando activamente para aumentar la base de suscriptores e ingresos de Peacock, ofreciendo una variedad de contenido,...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EPR" data-company="EPR PROPERTIES">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">EPR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPR PROPERTIES</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EPR Properties gira en torno a la inversión en propiedades experienciales y educativas. La cartera...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de EPR Properties gira en torno a la inversión en propiedades experienciales y educativas, con activos totales de aproximadamente 5.500 millones de dólares. La cartera de la empresa incluye la propiedad y las hipotecas a largo plazo sobre diversos tipos de propiedades, como teat...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DIS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La diversificación mediática de Disney es evidente a través of su operación en diversos segmentos....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La diversificación mediática de Disney es evidente a través de su operación en diversos segmentos, incluyendo Redes Lineales, servicios Directo al Consumidor como Disney+ y Hulu, Venta/Licencia de Contenidos, Deportes y Experiencias. El segmento de Entretenimiento genera ingresos de películas, conte...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DIS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La conexión de Disney with la industria del entretenimiento es evidente. La empresa genera ingresos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Disney con la industria del entretenimiento es evidente a través de su sólida cartera de negocios en crecimiento que generan valor de manera fluida, respaldada por una profunda biblioteca de propiedad intelectual (PI) querida y habilitada con tecnología de vanguardia. La empresa gener...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EPR" data-company="EPR PROPERTIES">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">EPR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPR PROPERTIES</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La cartera Experiencial de EPR incluye propiedades de "eat & play" y propiedade de alojamiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de EPR en la Industria de la Hospitalidad es evidente a través de su cartera Experiencial, que incluye propiedades de "eat & play" y propiedades de alojamiento experiencial. Específicamente, la cartera de la compañía consta de 58 propiedades de "eat & play", incluyendo siete teatros...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DIS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra un fuerte compromiso con la Creación de Contenidos. La inversión es integral...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra un fuerte compromiso con la Creación de Contenidos, como lo demuestra su importante inversión tanto en contenido producido como en programación licenciada, con gastos que reflejan aproximadamente $23 mil millones. Esta inversión es integral para el segmento de Entretenimiento, q...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">DIS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La versión de acción real de Lilo & Stitch está en camino de convertirse en la segunda franquicia...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Disney con las marcas de consumo es evidente a través del éxito de sus franquicias y la gestión estratégica de marcas. La versión de acción real de Lilo & Stitch está en camino de convertirse en la segunda franquicia de productos de consumo más grande de la compañía este año, experi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMCSA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast ofreciendo internet gigabit y servicios inalámbricos a una gran cantidad of hogares y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Comcast en los servicios inalámbricos es evidente a través de sus iniciativas estratégicas y su desempeño financiero. La compañía enfatiza los servicios inalámbricos como un área clave de crecimiento, ofreciendo internet gigabit y servicios inalámbricos a una gran cantidad de hogares y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMCSA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast's segmento de Estudios genera ingresos por estrenos en cines and licencias de contenido. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Comcast en la producción cinematográfica es evidente a través de su segmento de Estudios, que genera ingresos por estrenos en cines y licencias de contenido. El segmento de Estudios ha producido películas exitosas como *Cómo entrenar a tu dragón* y *Jurassic World: Rebirth*, cont...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMCSA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast está invirtiendo en atracciones, hoteles e infraestructura de parques temáticos existentes...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Comcast con la industria de los parques temáticos es evidente a través de la operación de parques temáticos como negocio principal dentro del segmento de Contenido y Experiencias. La empresa está invirtiendo en atracciones, hoteles e infraestructura de parques temáticos existentes y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMCSA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast investió $20,138 millones en its infraestructura de red. No hay mención explícita de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Comcast con el tema de Infraestructura de Telecomunicaciones se demuestra a través de sus inversiones continuas en su red para soportar ofertas de banda ancha de mayor velocidad y para expandir el número de hogares y negocios conectados. Esto se refleja en los ingresos de conectivid...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FUN" data-company="SIX FLAGS ENTERTAINMENT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FUN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SIX FLAGS ENTERTAINMENT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa define los ingresos fuera del parque como ingreso de los resorts. La dirección tiene la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema de Destinos Turísticos es evidente a través de la operación de nueve resorts como parte de su negocio de parques de atracciones. La empresa define los ingresos fuera del parque como ingresos de los resorts, y la dirección tiene la intención de aumentar estos i...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMCSA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast compromiso con Creación de Contenido es evidente. El segmento de Estudios genera ingresos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Comcast con la Creación de Contenido es evidente a través de sus significativos costos de programación y producción, particularmente dentro de los segmentos de Contenido y Experiencias, que abarcan tanto las divisiones de Medios como de Estudios. El segmento de Estudios genera ingre...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMCSA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast opera su segmento de Medios como un negocio combinado de televisión y streaming. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Comcast abarcan conectividad y plataformas, contenido y experiencias, incluyendo medios, estudios y parques temáticos. La compañía opera su segmento de Medios como un negocio combinado de televisión y streaming, con esfuerzos centrados en aumentar los suscriptores de pago y los in...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMCSA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Peacock invierte en series y películas originales para atraer suscriptores. El segmento de Estudios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Comcast con el Contenido Original es evidente a través de su enfoque estratégico en Peacock, donde invierte en series y películas originales para atraer suscriptores, como lo destaca el éxito de 'Love Island USA'. El segmento de Estudios de la compañía juega un papel crucial en la p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EPR" data-company="EPR PROPERTIES">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">EPR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPR PROPERTIES</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EPR Properties demuestra una fuerte conexión con el tema de Resorts de Entretenimiento a través...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">EPR Properties demuestra una fuerte conexión con el tema de Resorts de Entretenimiento a través de sus inversiones estratégicas y la composición de su cartera. La cartera experiencial de la empresa, que representa el 94% de sus inversiones totales, incluye opciones de entretenimiento y ocio, lo que ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FUN" data-company="SIX FLAGS ENTERTAINMENT CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FUN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SIX FLAGS ENTERTAINMENT CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa gestiona una cartera sustancial que incluye parques de atracciones, parques acuáticos y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de Gestión Hotelera es evidente a través de la operación de nueve resorts, que contribuyen a los ingresos fuera del parque. Como el mayor operador regional de parques de atracciones de América del Norte, la empresa gestiona una cartera sustancial que incluye...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EPR" data-company="EPR PROPERTIES">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">EPR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPR PROPERTIES</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EPR Properties se centra en la propiedad y gestión de propiedades experienciales y educativas. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de EPR Properties en las tenencias inmobiliarias es evidente a través de su modelo de negocio principal, que se centra en la propiedad y gestión de propiedades experienciales y educativas. La importante cartera de inversiones de la empresa, valorada en aproximadamente $6.9 mil millones, i...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

@@ -1,0 +1,521 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Crop Protection - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Crop Protection</div>
+      <div class="sub-title">Investment Theme Detail - Agriculture Industry</div>
+    </div>
+    <a href="main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Crop Protection &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Agriculture &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 6
+    </div>
+
+    
+    <!-- Theme Chart Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Theme Chart</span>
+             <a href="equity_crop_protection.html" target="_blank" class="btn-view-chart">View Full Chart ↗</a>
+        </div>
+        <div class="box-body" style="height: 600px; overflow:hidden;">
+            <iframe src="equity_crop_protection.html" style="width:100%; height:100%; border:none; display:block;"></iframe>
+        </div>
+    </div>
+        
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">6</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CTVA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CORTEVA INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y comercializa productos de semillas y protección de cultivos, contribuyendo a la productividad agrícola y a la producción sostenible de al...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CTVA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BAYN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BAYER AG-REG</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y proporciona soluciones agrícolas innovadoras, incluyendo productos para la protección de cultivos, semillas y herramientas de agricultura...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BAYN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">FMC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">FMC CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona productos avanzados de protección de cultivos y tecnologías de salud vegetal, incluidos insecticidas, herbicidas y fungicidas, esenciales ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/FMC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BAS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BASF SE</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Participa en la producción e innovación de productos químicos agrícolas, ofreciendo una cartera integral de productos de protección de cultivos que re...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BAS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">4005</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SUMITOMO CHEMICAL CO LTD</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y suministra una amplia gama de productos para la protección de cultivos, incluidos insecticidas, fungicidas y herbicidas, lo que contribuy...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/4005" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SMG</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SCOTTS MIRACLE-GRO CO</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Participa en actividades dentro del alcance del tema Agribusiness....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SMG" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">14</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="SMG" data-company="SCOTTS MIRACLE-GRO CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/SMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCOTTS MIRACLE-GRO CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa tiene una participación accionaria en Bonnie Plants, LLC, que se enfoca en plantar,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de la Agroindustria proviene de su posición como fabricante y comercializador líder de productos de marca para césped y jardín para consumidores en América del Norte a través de sus segmentos de Consumidor de EE. UU. y Otros. Las marcas clave incluyen el fer...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SMG" data-company="SCOTTS MIRACLE-GRO CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/SMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCOTTS MIRACLE-GRO CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra exposición a la industria de Químicos Agrícolas a través de su segmento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra exposición a la industria de Químicos Agrícolas a través de su segmento de Consumo en EE. UU., donde fabrica y comercializa productos de marca para césped y jardín. Específicamente, la empresa comercializa el fertilizante para césped Scotts® Turf Builder® y los productos herbici...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTVA" data-company="CORTEVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CTVA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTVA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CORTEVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Corteva está fundamentalmente ligado a la agroindustria. La empresa se dedica a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Corteva está fundamentalmente ligado a la agroindustria, principalmente a través de sus segmentos de Semillas y Protección de Cultivos. La empresa se dedica a desarrollar y suministrar germoplasma y rasgos avanzados, ofreciendo soluciones de protección de cultivos y proporcionando solu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTVA" data-company="CORTEVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CTVA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTVA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CORTEVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Corteva tiene un segmento de Protección de Cultivos dedicado a proporcionar productos que protegen...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Corteva con el tema de Productos Químicos Agrícolas es evidente a través de su segmento de Protección de Cultivos, dedicado a proporcionar productos que protegen contra malezas, insectos, plagas y enfermedades. El negocio de Protección de Cultivos de la empresa implica inherentement...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTVA" data-company="CORTEVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CTVA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTVA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CORTEVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La conexión de Corteva with el tema de los productos básicos agrícolas es evidente. Corteva se ve...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Corteva con el tema de los productos básicos agrícolas es evidente a través de varios aspectos de sus operaciones y rendimiento financiero. Las llamadas de resultados y los informes de la empresa abordan con frecuencia la dinámica de los productos básicos agrícolas, incluida la demand...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FMC" data-company="FMC CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/FMC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FMC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FMC CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">FMC Corporation es una empresa global de ciencias agrícolas centrada en ayudar a los productores a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de FMC Corporation con el tema de la Agribusiness es evidente en su dedicación a proporcionar soluciones innovadoras a los agricultores. La compañía se identifica como una empresa global de ciencias agrícolas centrada en ayudar a los productores a producir alimentos, piensos, fibras y ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FMC" data-company="FMC CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/FMC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FMC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FMC CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">FMC Corporation opera como una empresa global de ciencias agrícolas. Desarrollando, comercializando...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">FMC Corporation opera como una empresa global de ciencias agrícolas, desarrollando, comercializando y vendiendo insecticidas, herbicidas y fungicidas, que son las tres clases principales de productos químicos para la protección de cultivos. El enfoque de la empresa se extiende al descubrimiento de n...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FMC" data-company="FMC CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/FMC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FMC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FMC CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">FMC participa en el tema de Biotecnología en la Agricultura. La cartera de la empresa incluye...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de FMC en el tema de Biotecnología en la Agricultura es evidente a través de su desarrollo, comercialización y venta de biológicos como parte de su oferta de salud vegetal. La cartera de la empresa incluye biológicos que van desde nuevas tecnologías de diamidas hasta ingredientes ac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTVA" data-company="CORTEVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CTVA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTVA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CORTEVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Corteva ofrece tecnologías de rasgos que mejoran la resistencia al clima, las enfermedades, los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Corteva con la Biotecnología en la Agricultura es evidente a través de su segmento de Semillas, un líder mundial en el desarrollo y suministro de germoplasma y rasgos avanzados que producen un rendimiento óptimo para las granjas. La empresa ofrece tecnologías de rasgos que mejoran l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTVA" data-company="CORTEVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CTVA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTVA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CORTEVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Corteva ofrece productos y soluciones diseñadas para defenderse contra malezas, insectos, plagas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Corteva demuestra su enfoque en la protección de cultivos a través de su segmento dedicado de Protección de Cultivos, que ofrece una gama de productos y soluciones diseñadas para defenderse contra malezas, insectos, plagas y enfermedades. Este compromiso se evidencia aún más en el Programa de Reestr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FMC" data-company="FMC CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/FMC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FMC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FMC CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">FMC está capitalizando activamente su cartera de productos vendiendo directamente a grandes...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de FMC con el tema de los Productos Agrícolas es evidente a través de su enfoque estratégico en proporcionar soluciones innovadoras a los agricultores y expandir su presencia en el mercado en regiones agrícolas clave. La empresa está capitalizando activamente su cartera de productos ve...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTVA" data-company="CORTEVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CTVA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTVA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CORTEVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Corteva ofrece soluciones diferenciadas y con ventajas sostenibles a los agricultores. Esta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Corteva se enfoca en la agricultura sostenible al ofrecer soluciones diferenciadas y con ventajas sostenibles a los agricultores, lo que fortalece la seguridad alimentaria mundial y ayuda a los agricultores a abordar los impactos del cambio climático. La empresa tiene como objetivo explícito proporc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FMC" data-company="FMC CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/FMC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FMC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FMC CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">FMC desarrolla, comercializa y vende clases importantes de productos químicos para la protección de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de FMC está significativamente ligado a la industria de Protección de Cultivos, ya que la empresa desarrolla, comercializa y vende clases importantes de productos químicos para la protección de cultivos, incluidos insecticidas, herbicidas y fungicidas. Las innovadoras soluciones de protec...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SMG" data-company="SCOTTS MIRACLE-GRO CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/SMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCOTTS MIRACLE-GRO CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía enfatiza que los consumidores consideran el cuidado del césped y los jardines como...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de la compañía con el tema de Mejoras para el Hogar proviene de su importante presencia en el mercado de césped y jardines, donde es un fabricante y comercializador líder de productos de consumo de marca en América del Norte. La compañía enfatiza que los consumidores consideran el cuidad...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

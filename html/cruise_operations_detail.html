@@ -1,0 +1,755 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Cruise Operations - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Cruise Operations</div>
+      <div class="sub-title">Investment Theme Detail - Transportation and Logistics Industry</div>
+    </div>
+    <a href="main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Cruise Operations &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Transportation and Logistics &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 8
+    </div>
+
+    
+    <!-- Theme Chart Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Theme Chart</span>
+             <a href="equity_cruise_operations.html" target="_blank" class="btn-view-chart">View Full Chart ↗</a>
+        </div>
+        <div class="box-body" style="height: 600px; overflow:hidden;">
+            <iframe src="equity_cruise_operations.html" style="width:100%; height:100%; border:none; display:block;"></iframe>
+        </div>
+    </div>
+        
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">8</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CCL</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CARNIVAL CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera como una importante empresa de cruceros a nivel mundial, ofreciendo una amplia gama de experiencias vacacionales y ostentando una presencia sign...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CCL" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">NCLH</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">NORWEGIAN CRUISE LINE HOLDIN</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera una flota global de cruceros a través de múltiples marcas, brindando diversas experiencias vacacionales y contribuyendo significativamente a la ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/NCLH" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CUK</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CARNIVAL PLC-ADR</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece una amplia gama de vacaciones de crucero globales, utilizando una extensa flota para dar forma y servir al mercado de operaciones de cruceros....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CUK" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">RCL</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ROYAL CARIBBEAN CRUISES LTD</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera una flota global de cruceros, brindando diversas experiencias vacacionales e impulsando el desarrollo y la expansión de la industria de cruceros...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/RCL" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DIS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">WALT DISNEY CO/THE</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Su modelo de negocio está fundamentalmente ligado a la comprensión, influencia y adaptación a los comportamientos predominantes de los consumidores....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DIS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">VIK</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">VIKING HOLDINGS LTD</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera una flota de cruceros, ofreciendo itinerarios a nivel mundial y contribuyendo a la industria de viajes y ocio a través de sus servicios de cruce...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/VIK" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TUI1</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TUI AG</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Realiza Operaciones de Cruceros....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TUI1" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">OSW</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ONESPAWORLD HOLDINGS LTD</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece productos de salud para el consumidor a través de sus operaciones globales de spa y bienestar....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/OSW" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">34</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de Disney con los Servicios de Entretenimiento es evidente a través oferta. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Disney con los Servicios de Entretenimiento es evidente a través de su diversa oferta, que incluye plataformas de streaming como Disney+ y Hulu, redes lineales, lanzamientos cinematográficos, parques temáticos, resorts y operaciones de cruceros. El enfoque de la empresa en estos ser...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los productos de consumo son una fuente de ingresos constante para Disney. El éxito de franquicias...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Los productos de consumo son una fuente de ingresos constante para Disney, particularmente dentro del segmento de Experiencias, que incluye las regalías por licenciar propiedad intelectual para su uso en bienes de consumo, mercancía de marca y ventas de alimentos, bebidas y mercancía en parques temá...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de Disney con la producción cinematográfica es evidente. La compañía enfatiza el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Disney con la producción cinematográfica es evidente a través de su segmento de Entretenimiento, que genera ingresos a partir de contenido cinematográfico distribuido en redes lineales, plataformas directas al consumidor y ventas/licencias de contenido, incluidos los estrenos en cin...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El Disney Adventure será el primero en atracar en Asia. El segmento de Experiencias genera ingresos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Disney con las Operaciones de Cruceros es evidente a través de su continua expansión e inversión en su línea de cruceros. La compañía se está preparando para lanzar dos nuevos barcos, incluido su barco más grande hasta la fecha, el Disney Adventure, que será el primero en atracar en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Disney tiene negocio de Redes Lineales, que genera ingresos por tarifas de afiliación y publicidad....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Disney con el tema de Redes de Medios es evidente a través de su negocio de Redes Lineales, que genera ingresos por tarifas de afiliación y publicidad. La empresa discute los ingresos y el ingreso operativo de las Redes Lineales, incluidos los costos de programación y producción par...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Disney asigna fondos sustanciales a contenido producido. Esta inversión es crucial para atraer y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Disney en el contenido original es evidente a través de su importante inversión en la producción y licenciamiento de programación de cine y televisión, lo que impulsa los ingresos en sus segmentos de Redes Lineales, Directo al Consumidor y Ventas/Licenciamiento de Contenido. La compañí...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Experiencias de Disney genera ingresos de parques temáticos y resorts. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Experiencias de Disney genera ingresos de parques temáticos y resorts, incluidos los cargos por noches de hotel, las ventas y alquileres de propiedades de clubes vacacionales y las ventas de vacaciones en crucero. El crecimiento en los ingresos de resorts y vacaciones se atribuye a fa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ESPN genera ingresos de diversas fuentes, incluidas tarifas de afiliación, publicidad y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Disney en el entretenimiento deportivo es evidente a través de su segmento de Deportes, particularmente ESPN, que genera ingresos de diversas fuentes, incluidas tarifas de afiliación, publicidad y suscripciones. La empresa se centra en convertir ESPN en una plataforma deportiva d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Disney en Plataformas y Servicios de Streaming es evidente. La compañía está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Disney en Plataformas y Servicios de Streaming es evidente a través de su segmento Directo al Consumidor, que incluye Disney+ y Hulu. La compañía está fortaleciendo sus ofertas de streaming integrando completamente Hulu en Disney+ para crear una experiencia de aplicación unificada y la...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Disney está invirtiendo más de 30.000 millones de dólares en sus parques temáticos de Florida y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El fuerte compromiso de Disney con la industria de los parques temáticos es evidente a través de sus importantes inversiones y proyectos de expansión. La empresa está invirtiendo más de 30.000 millones de dólares en sus parques temáticos de Florida y California, junto con el desarrollo de un nuevo D...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CCL" data-company="CARNIVAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CCL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CCL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARNIVAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Carnival Corporation se centra fundamentalmente en las operaciones de cruceros. La compañía realiza...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Carnival Corporation se centra fundamentalmente en las operaciones de cruceros, como lo demuestran los extensos detalles proporcionados sobre los ingresos por billetes de pasajeros, las tasas de ocupación y los despliegues de barcos en varios segmentos geográficos. El desempeño financi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Disney tiene una segmento de Experiencias que genera ingresos por admisiones a parques temáticos,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Disney con el tema de Resorts de Entretenimiento es evidente a través de su segmento de Experiencias, que genera ingresos por admisiones a parques temáticos, resorts, ventas de alimentos y bebidas, y mercancía. Las inversiones de capital se asignan a la expansión de parques temático...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CCL" data-company="CARNIVAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CCL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CCL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARNIVAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Carnival Corporation se centra en el transporte marítimo, como lo demuestra la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Carnival Corporation se centra en el transporte marítimo, como lo demuestra la operación de sus cruceros. El enfoque de la empresa en las operaciones de cruceros implica inherentemente el transporte marítimo, con importantes gastos de capital asignados a la expansión y mejora de su flo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CCL" data-company="CARNIVAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CCL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CCL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARNIVAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Celebration Key, un nuevo destino exclusivo de puerto de cruceros en Gran Bahama. Half Moon Cay, su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con los destinos turísticos es evidente a través de su estrategia mejorada de destinos, diseñada para atraer a los huéspedes de cruceros. Esta estrategia incluye el desarrollo de Celebration Key, un nuevo destino exclusivo de puerto de cruceros en Gran Bahama, con una ina...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CUK" data-company="CARNIVAL PLC-ADR">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CUK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CUK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARNIVAL PLC-ADR</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Las operaciones de cruceros son centrales para la empresa. La compañía dio la bienvenida a tres...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de cruceros son centrales para la empresa, como lo demuestran las extensas discusiones sobre capacidad de pasajeros, ingresos y gastos relacionados con los viajes en crucero, y los ingresos por billetes de pasajeros constituyen una parte significativa de los ingresos totales de la em...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CUK" data-company="CARNIVAL PLC-ADR">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CUK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CUK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARNIVAL PLC-ADR</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El modelo de negocio de la compañía depende del transporte de pasajeros a través of rutas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de la compañía se centran en operaciones de cruceros, dependiendo fundamentalmente del transporte marítimo para el transporte de pasajeros a través de barcos. Las discusiones sobre operaciones de barcos, capacidad, rutas, número de pasajeros, reparaciones de barcos, mantenimiento, re...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CUK" data-company="CARNIVAL PLC-ADR">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CUK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CUK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARNIVAL PLC-ADR</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía demuestra un enfoque en mejorar su estrategia de destinos. Esto se destaca por el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La compañía demuestra un enfoque en mejorar su estrategia de destinos a través de inversiones en destinos exclusivos de puertos de cruceros. Esto se destaca por el desarrollo de Celebration Key, un nuevo destino exclusivo de puerto de cruceros en Gran Bahama, y las mejoras en Half Moon Cay, incluido...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El crecimiento de los ingresos Directo al Consumidor demuestra la inversión y la dependencia of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Disney con el tema del Entretenimiento Digital es evidente a través de su segmento Directo al Consumidor, que genera ingresos a partir de tarifas de suscripción y publicidad relacionadas con contenido digital, particularmente a través de plataformas como Disney+ y Hulu. El enfoque d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de Disney en la radiodifusión de medios es evidente a través of sus redes lineales...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Disney en la radiodifusión de medios es evidente a través de sus redes lineales de entretenimiento como ABC y ESPN, junto con las tarifas de afiliación. Esto se demuestra aún más por la adquisición planificada por parte de ESPN de NFL Network y otros activos de medios de la NFL, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NCLH" data-company="NORWEGIAN CRUISE LINE HOLDIN">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/NCLH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NCLH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NORWEGIAN CRUISE LINE HOLDIN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Norwegian Cruise Line Holdings se centra en las operaciones de cruceros. El enfoque de la empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Norwegian Cruise Line Holdings se centra en las operaciones de cruceros, como lo demuestra la categorización de los ingresos de la empresa en billetes de pasajero y actividades a bordo. El enfoque de la empresa en este negocio principal se destaca por la entrega de nuevos barcos como e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NCLH" data-company="NORWEGIAN CRUISE LINE HOLDIN">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/NCLH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NCLH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NORWEGIAN CRUISE LINE HOLDIN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Norwegian Cruise Line Holdings está ligado a los destinos turísticos. Great Stirrup Cay, su destino...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Norwegian Cruise Line Holdings está significativamente ligado a los destinos turísticos, como lo demuestran sus operaciones de cruceros que intrínsecamente implican visitar dichos lugares y ofrecer opciones de ocio relacionadas. El enfoque de la compañía en crear experiencias vacaciona...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="OSW" data-company="ONESPAWORLD HOLDINGS LTD">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/OSW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">OSW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ONESPAWORLD HOLDINGS LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">OneSpaWorld vende productos de salud y bienestar a clientes en cruceros, en resorts de destino y a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">OneSpaWorld participa en la industria de Productos de Salud para el Consumidor a través de la prestación de servicios de salud y bienestar y la venta de productos relacionados. La empresa vende una variedad de productos de salud y bienestar, que incluyen cuidado facial, cuidado corporal, ortopedia y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="OSW" data-company="ONESPAWORLD HOLDINGS LTD">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/OSW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">OSW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ONESPAWORLD HOLDINGS LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">OneSpaWorld son un operador global preeminente de centros de salud y bienestar a bordo de los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de OneSpaWorld depende en gran medida de las operaciones de cruceros, ya que son un operador global preeminente de centros de salud y bienestar a bordo de los barcos de cruceros. Una parte importante de sus ingresos se deriva de estas operaciones de cruceros, donde operan centros de salud...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CCL" data-company="CARNIVAL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CCL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CCL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARNIVAL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Carnival Corporation se centra en las operaciones de cruceros. La empresa se enfoca...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Carnival Corporation se centra en las operaciones de cruceros, que están intrínsecamente ligadas a la industria hotelera, proporcionando alojamiento, comida y servicios turísticos. La empresa se enfoca en mejorar las experiencias de los huéspedes a través de comodidades a bordo y desar...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La versión de acción real de Lilo & Stitch está en camino de convertirse en la segunda franquicia...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Disney con las marcas de consumo es evidente a través del éxito de sus franquicias y la gestión estratégica de marcas. La versión de acción real de Lilo & Stitch está en camino de convertirse en la segunda franquicia de productos de consumo más grande de la compañía este año, experi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra un fuerte compromiso con la Creación de Contenidos. La inversión es integral...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra un fuerte compromiso con la Creación de Contenidos, como lo demuestra su importante inversión tanto en contenido producido como en programación licenciada, con gastos que reflejan aproximadamente $23 mil millones. Esta inversión es integral para el segmento de Entretenimiento, q...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La conexión de Disney with la industria del entretenimiento es evidente. La empresa genera ingresos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Disney con la industria del entretenimiento es evidente a través de su sólida cartera de negocios en crecimiento que generan valor de manera fluida, respaldada por una profunda biblioteca de propiedad intelectual (PI) querida y habilitada con tecnología de vanguardia. La empresa gener...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La diversificación mediática de Disney es evidente a través of su operación en diversos segmentos....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La diversificación mediática de Disney es evidente a través de su operación en diversos segmentos, incluyendo Redes Lineales, servicios Directo al Consumidor como Disney+ y Hulu, Venta/Licencia de Contenidos, Deportes y Experiencias. El segmento de Entretenimiento genera ingresos de películas, conte...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NCLH" data-company="NORWEGIAN CRUISE LINE HOLDIN">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/NCLH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NCLH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NORWEGIAN CRUISE LINE HOLDIN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NCLH se centra en las operaciones de cruceros, clasificando los ingresos en boletos de pasajeros y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de NCLH se centra en las operaciones de cruceros, clasificando los ingresos en boletos de pasajeros y actividades a bordo, lo que inherentemente implica transporte marítimo. Los barcos de la compañía son sus activos más importantes, con todo el modelo de negocio enfocado en transportar pa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RCL" data-company="ROYAL CARIBBEAN CRUISES LTD">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/RCL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RCL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROYAL CARIBBEAN CRUISES LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Royal Caribbean se centra fundamentalmente en las operaciones de cruceros. La empresa se enfoca en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Royal Caribbean se centra fundamentalmente en las operaciones de cruceros, como lo demuestran sus iniciativas estratégicas y su rendimiento financiero. La empresa se enfoca en ofrecer experiencias excepcionales a los huéspedes, optimizar los ingresos y ejecutar estrategias a largo plaz...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RCL" data-company="ROYAL CARIBBEAN CRUISES LTD">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/RCL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RCL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROYAL CARIBBEAN CRUISES LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Royal Caribbean Cruises Ltd. enfatiza la entrega de experiencias vacacionales excepcionales a sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Royal Caribbean Cruises Ltd. enfatiza la entrega de experiencias vacacionales excepcionales a sus huéspedes, ganando una mayor cuota del creciente mercado vacacional. Este compromiso se refleja en su enfoque en optimizar los ingresos, gestionar los costos e invertir en programas de fidelización y te...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RCL" data-company="ROYAL CARIBBEAN CRUISES LTD">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/RCL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RCL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROYAL CARIBBEAN CRUISES LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Royal Caribbean Cruises está significativamente invertida en la expansión of su cartera de destinos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Royal Caribbean Cruises está significativamente invertida en la expansión de su cartera de destinos turísticos. La compañía está desarrollando ubicaciones de Royal Beach Club en Paradise Island, Cozumel y Lelepa, así como Perfect Day Mexico, todas diseñadas para mejorar la experiencia vacacional y g...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NCLH" data-company="NORWEGIAN CRUISE LINE HOLDIN">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/NCLH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NCLH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NORWEGIAN CRUISE LINE HOLDIN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Norwegian Cruise Line Holdings se enfoca constantemente en mejorar las experiencias de los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Norwegian Cruise Line Holdings están profundamente entrelazadas con la industria hotelera, como lo demuestra su negocio principal de proporcionar vacaciones en crucero. Los ingresos de la compañía se clasifican en ingresos por boletos de pasajeros e ingresos a bordo, directamente ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NCLH" data-company="NORWEGIAN CRUISE LINE HOLDIN">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/NCLH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NCLH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NORWEGIAN CRUISE LINE HOLDIN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Norwegian Cruise Line se centra en las operaciones de cruceros. La gestión hotelera...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Norwegian Cruise Line se centra en las operaciones de cruceros, donde la gestión hotelera es fundamental para gestionar los ingresos, controlar los costos y garantizar la satisfacción del cliente. La empresa clasifica sus ingresos en billetes de pasajero y actividades a bordo, lo que r...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

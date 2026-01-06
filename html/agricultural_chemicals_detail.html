@@ -1,0 +1,1198 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Agricultural Chemicals - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Agricultural Chemicals</div>
+      <div class="sub-title">Investment Theme Detail - Industrial Industry</div>
+    </div>
+    <a href="main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Agricultural Chemicals &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Industrial &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 17
+    </div>
+
+    
+    <!-- Theme Chart Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Theme Chart</span>
+             <a href="equity_agricultural_chemicals.html" target="_blank" class="btn-view-chart">View Full Chart ↗</a>
+        </div>
+        <div class="box-body" style="height: 600px; overflow:hidden;">
+            <iframe src="equity_agricultural_chemicals.html" style="width:100%; height:100%; border:none; display:block;"></iframe>
+        </div>
+    </div>
+        
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">17</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">MOS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">MOSAIC CO/THE</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona nutrientes esenciales para cultivos como la potasa y los fosfatos, que son fundamentales para la productividad agrícola mundial y la segur...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/MOS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CTVA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CORTEVA INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y comercializa productos de semillas y protección de cultivos, contribuyendo a la productividad agrícola y a la producción sostenible de al...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CTVA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CF</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CF INDUSTRIES HOLDINGS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desempeña un papel crucial en el agronegocio mediante la fabricación y distribución de fertilizantes nitrogenados, insumos esenciales para la producci...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CF" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">FMC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">FMC CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona productos avanzados de protección de cultivos y tecnologías de salud vegetal, incluidos insecticidas, herbicidas y fungicidas, esenciales ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/FMC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BAYN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BAYER AG-REG</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y proporciona soluciones agrícolas innovadoras, incluyendo productos para la protección de cultivos, semillas y herramientas de agricultura...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BAYN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">NTR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">NUTRIEN LTD</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desempeña un papel fundamental en la agroindustria mundial al proporcionar nutrientes esenciales para los cultivos, servicios y soluciones que apoyan ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/NTR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BAS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BASF SE</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Participa en la producción e innovación de productos químicos agrícolas, ofreciendo una cartera integral de productos de protección de cultivos que re...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BAS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">YAR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">YARA INTERNATIONAL ASA</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye a la producción mundial de alimentos al proporcionar soluciones esenciales de nutrición de cultivos, incluidos fertilizantes y otros produc...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/YAR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SMG</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SCOTTS MIRACLE-GRO CO</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Participa en actividades dentro del alcance del tema Agribusiness....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SMG" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SDF</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">K+S AG-REG</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye al sector de productos químicos agrícolas como productor líder de productos de potasa y magnesio, esenciales para la nutrición de las plant...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SDF" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">11</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ANDE</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ANDERSONS INC/THE</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desempeña un papel vital en la cadena de suministro agrícola al proporcionar productos y servicios esenciales, incluida la originación de granos, la p...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ANDE" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">12</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CVI</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CVR ENERGY INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Produce fertilizantes nitrogenados cruciales para mejorar la productividad agrícola y apoyar los rendimientos de los cultivos....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CVI" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">13</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DOW</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">DOW INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye al sector de productos químicos agrícolas proporcionando productos y soluciones químicas esenciales....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DOW" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">14</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">NGVT</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">INGEVITY CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye a la industria de productos químicos agrícolas....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/NGVT" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">15</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SITE</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SITEONE LANDSCAPE SUPPLY INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Suministra una amplia gama de productos, incluidos sistemas de riego, fertilizantes, pesticidas y semillas, que se utilizan tanto en paisajismo profes...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SITE" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">16</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ASH</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ASHLAND INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y suministra ingredientes y soluciones especializadas que respaldan la formulación y el rendimiento de los productos químicos agrícolas....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ASH" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">17</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CENT</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CENTRAL GARDEN & PET CO</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye al sector de la Agroindustria....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CENT" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">63</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="SMG" data-company="SCOTTS MIRACLE-GRO CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/SMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCOTTS MIRACLE-GRO CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa tiene una participación accionaria en Bonnie Plants, LLC, que se enfoca en plantar,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de la Agroindustria proviene de su posición como fabricante y comercializador líder de productos de marca para césped y jardín para consumidores en América del Norte a través de sus segmentos de Consumidor de EE. UU. y Otros. Las marcas clave incluyen el fer...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CENT" data-company="CENTRAL GARDEN & PET CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/CENT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CENT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CENTRAL GARDEN & PET CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de jardinería está directamente involucrado. Central Garden & Pet Company ofreciendo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Central Garden & Pet Company en el tema de la agroindustria es evidente a través de sus operaciones en los segmentos de mascotas y jardinería. El segmento de jardinería está directamente involucrado, ofreciendo consumibles para césped y jardín como semillas de césped, semillas de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CENT" data-company="CENTRAL GARDEN & PET CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/CENT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CENT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CENTRAL GARDEN & PET CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Central Garden & Pet ofrece herbicidas para malezas, pasto y otros. Ofrece productos insecticidas y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Central Garden & Pet con el tema de los productos químicos agrícolas es evidente a través de su segmento de Jardín, que incluye una variedad de productos relevantes. Específicamente, la empresa ofrece herbicidas para malezas, pasto y otros, productos insecticidas y pesticidas, así c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CENT" data-company="CENTRAL GARDEN & PET CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/CENT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CENT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CENTRAL GARDEN & PET CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Central Garden & Pet Company demuestra una fuerte conexión with la industria de Productos para el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Central Garden & Pet Company demuestra una fuerte conexión con la industria de Productos para el Cuidado de Mascotas, respaldada por el hecho de que su segmento de Mascotas representó aproximadamente $1.8 mil millones de los $3.2 mil millones en ventas netas consolidadas de la empresa en el año fisc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SMG" data-company="SCOTTS MIRACLE-GRO CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/SMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCOTTS MIRACLE-GRO CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra exposición a la industria de Químicos Agrícolas a través de su segmento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra exposición a la industria de Químicos Agrícolas a través de su segmento de Consumo en EE. UU., donde fabrica y comercializa productos de marca para césped y jardín. Específicamente, la empresa comercializa el fertilizante para césped Scotts® Turf Builder® y los productos herbici...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ANDE" data-company="ANDERSONS INC/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ANDE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ANDE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ANDERSONS INC/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa ha reestructurado su organización para crear un segmento de Agroindustria. Este segmento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema Agroindustria es evidente a través de su estructura organizativa y actividades comerciales. La empresa ha reestructurado su organización para crear un segmento de Agroindustria, que combina los antiguos segmentos de Comercio y Nutrientes e Industrial, y que se...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ANDE" data-company="ANDERSONS INC/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ANDE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ANDE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ANDERSONS INC/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se encarga de la distribución, venta y aplicación of nutrientes agrícolas primarios,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en la industria de productos químicos agrícolas es evidente a través de su segmento de Nutrientes e Industriales y su segmento de Agroindustria. Estos segmentos se encargan de la distribución, venta y aplicación de nutrientes agrícolas primarios, incluidos nitrógeno, f...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ANDE" data-company="ANDERSONS INC/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ANDE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ANDE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ANDERSONS INC/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">The Andersons está ligado a las materias primas agrícolas. La empresa gestiona activamente...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de The Andersons está significativamente ligado a las materias primas agrícolas, particularmente a través de sus segmentos de Comercio y Agroindustria, donde los ingresos y los costos se ven directamente influenciados por los precios de las materias primas. La empresa gestiona activamente...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ASH" data-company="ASHLAND INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ASH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ASH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ASHLAND INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ashland is part of a segmento de Ciencias de la Vida que incluye productos farmacéuticos,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Ashland en el tema de la industria de Químicos Agrícolas es evidente a través de su segmento de Ciencias de la Vida, que incluye explícitamente químicos agrícolas junto con productos farmacéuticos, nutrición, películas de diagnóstico y productos químicos finos. Si bien los químic...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ASH" data-company="ASHLAND INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ASH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ASH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ASHLAND INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ashland produce 1,4 butanodiol (BDO) y derivados relacionados como the n-metilpirrolidona. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Ashland en la fabricación de productos químicos es evidente a través de su segmento de Intermediarios, que produce 1,4 butanodiol (BDO) y derivados relacionados como la n-metilpirrolidona, utilizados en polímeros de ingeniería, poliuretanos y disolventes de procesos especiales en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ASH" data-company="ASHLAND INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ASH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ASH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ASHLAND INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ashland ofrece Aditivos Especiales, que mejoran la reología y el rendimiento. Estos aditivo se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Ashland con la industria de materiales de construcción es evidente a través de su segmento de Aditivos Especiales, que ofrece aditivos que mejoran la reología y el rendimiento. Estos aditivos se destinan a recubrimientos arquitectónicos y sirven directamente al mercado de la construcc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FMC" data-company="FMC CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/FMC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FMC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FMC CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">FMC Corporation es una empresa global de ciencias agrícolas centrada en ayudar a los productores a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de FMC Corporation con el tema de la Agribusiness es evidente en su dedicación a proporcionar soluciones innovadoras a los agricultores. La compañía se identifica como una empresa global de ciencias agrícolas centrada en ayudar a los productores a producir alimentos, piensos, fibras y ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ASH" data-company="ASHLAND INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ASH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ASH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ASHLAND INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ashland's segmento de Cuidado Personal formula soluciones para el hogar. Se suministra ingredientes...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Ashland con el tema de Productos para el Hogar proviene de su segmento de Cuidado Personal, que formula soluciones para el hogar y proporciona diversos ingredientes. Específicamente, el segmento de Cuidado Personal suministra ingredientes reológicos de origen natural, agentes humectan...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ASH" data-company="ASHLAND INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ASH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ASH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ASHLAND INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Intermediarios representó el 6% y el 8% of las ventas consolidadas totales de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Ashland con el tema de los Químicos Industriales es evidente a través de su segmento de Intermediarios, que se enfoca en la producción de 1,4 butanodiol (BDO) y derivados relacionados, incluyendo la n-metilpirrolidona. Estos intermedios químicos son esenciales en la producción de po...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ASH" data-company="ASHLAND INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ASH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ASH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ASHLAND INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ashland desarrolla y suministra una gama de ingredientes y soluciones. El negocio de Cuidado...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Ashland en el tema de la industria de Productos de Cuidado Personal es evidente a través de su dedicado segmento de Cuidado Personal, que desarrolla y suministra una gama de ingredientes y soluciones. El negocio de Cuidado Personal de la compañía se centra en aditivos clave, prot...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ASH" data-company="ASHLAND INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ASH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ASH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ASHLAND INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ashland produce 1,4 butanodiol (BDO) y derivados relacionados, incluido el n-metilpirrolidona....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de Ashland al tema del tratamiento del agua proviene de su segmento de Intermediarios, que produce 1,4 butanodiol (BDO) y derivados relacionados, incluido el n-metilpirrolidona. Estos productos funcionan como intermedios químicos y disolventes de procesos especiales en diversas aplicac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CF" data-company="CF INDUSTRIES HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CF" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CF</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CF INDUSTRIES HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CF Industries demuestra una fuerte conexión with el tema de los productos químicos agrícolas. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CF Industries demuestra una fuerte conexión con el tema de los productos químicos agrícolas, principalmente a través de su producción y venta de fertilizantes a base de nitrógeno. El producto principal de la compañía, el amoníaco anhidro, y sus derivados como la urea granular y el UAN, se utilizan p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CF" data-company="CF INDUSTRIES HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CF" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CF</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CF INDUSTRIES HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CF Industries está significativamente involucrada en la captura de carbono. El Proyecto de Captura...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CF Industries está significativamente involucrada en la captura de carbono, principalmente a través de proyectos en sus complejos de Donaldsonville y Yazoo City, destinados a convertir la producción de amoníaco a alternativas de bajas emisiones de carbono. Los esfuerzos de descarbonización de la emp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FMC" data-company="FMC CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/FMC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FMC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FMC CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">FMC Corporation opera como una empresa global de ciencias agrícolas. Desarrollando, comercializando...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">FMC Corporation opera como una empresa global de ciencias agrícolas, desarrollando, comercializando y vendiendo insecticidas, herbicidas y fungicidas, que son las tres clases principales de productos químicos para la protección de cultivos. El enfoque de la empresa se extiende al descubrimiento de n...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FMC" data-company="FMC CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/FMC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FMC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FMC CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">FMC participa en el tema de Biotecnología en la Agricultura. La cartera de la empresa incluye...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de FMC en el tema de Biotecnología en la Agricultura es evidente a través de su desarrollo, comercialización y venta de biológicos como parte de su oferta de salud vegetal. La cartera de la empresa incluye biológicos que van desde nuevas tecnologías de diamidas hasta ingredientes ac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MOS" data-company="MOSAIC CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MOS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MOS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MOSAIC CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Mosaic abarcan toda la cadena de valor agrícola, desde la extracción de materias primas hasta la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Mosaic con el tema de la Agribusiness es evidente en sus operaciones principales, que abarcan la producción, distribución y venta de nutrientes para cultivos como fosfato y potasa. Las actividades de la compañía abarcan toda la cadena de valor agrícola, desde la extracción de materi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CF" data-company="CF INDUSTRIES HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CF" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CF</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CF INDUSTRIES HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CF Industries se enfoca en la gestión ambiental. Está trabajando activamente para descarbonizar su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CF Industries demuestra su compromiso con las tecnologías ambientales a través de varias iniciativas. La empresa se enfoca en la gestión ambiental y está trabajando activamente para descarbonizar su red de producción de amoníaco, incluida la inversión considerable en tecnologías de captura y secuest...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CF" data-company="CF INDUSTRIES HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CF" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CF</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CF INDUSTRIES HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CF Industries considera el amoníaco como un componente clave tanto para el transporte y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CF Industries se enfoca en habilitar hidrógeno y productos de nitrógeno bajos en carbono, aprovechando su experiencia en la producción de amoníaco para apoyar estos esfuerzos. La empresa considera el amoníaco como un componente clave tanto para el transporte y almacenamiento de hidrógeno, como para ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MOS" data-company="MOSAIC CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MOS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MOS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MOSAIC CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Mosaic está significativamente ligado a la industria de productos químicos agrícolas....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Mosaic está significativamente ligado a la industria de productos químicos agrícolas, principalmente a través de la producción y venta de fertilizantes a base de fosfato y potasa. Los resultados financieros de la empresa se ven fuertemente influenciados por los volúmenes de ventas, los...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NGVT" data-company="INGEVITY CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/NGVT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NGVT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INGEVITY CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ingevity fabrica, fabrica y comercializa soluciones que son en gran medida de origen renovable. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Ingevity con el tema de la industria de Productos Químicos Agrícolas se deriva del uso de sus productos en aplicaciones agroquímicas. La compañía reconoce ampliamente que sus productos sirven para diversas aplicaciones exigentes, incluidos los agroquímicos, junto con adhesivos, pavime...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTVA" data-company="CORTEVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CTVA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTVA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CORTEVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Corteva está fundamentalmente ligado a la agroindustria. La empresa se dedica a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Corteva está fundamentalmente ligado a la agroindustria, principalmente a través de sus segmentos de Semillas y Protección de Cultivos. La empresa se dedica a desarrollar y suministrar germoplasma y rasgos avanzados, ofreciendo soluciones de protección de cultivos y proporcionando solu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTVA" data-company="CORTEVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CTVA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTVA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CORTEVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Corteva tiene un segmento de Protección de Cultivos dedicado a proporcionar productos que protegen...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Corteva con el tema de Productos Químicos Agrícolas es evidente a través de su segmento de Protección de Cultivos, dedicado a proporcionar productos que protegen contra malezas, insectos, plagas y enfermedades. El negocio de Protección de Cultivos de la empresa implica inherentement...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTVA" data-company="CORTEVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CTVA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTVA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CORTEVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La conexión de Corteva with el tema de los productos básicos agrícolas es evidente. Corteva se ve...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Corteva con el tema de los productos básicos agrícolas es evidente a través de varios aspectos de sus operaciones y rendimiento financiero. Las llamadas de resultados y los informes de la empresa abordan con frecuencia la dinámica de los productos básicos agrícolas, incluida la demand...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NGVT" data-company="INGEVITY CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/NGVT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NGVT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INGEVITY CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ingevity demuestra su compromiso con el tema Bioplásticos y Embalajes Sostenibles. Los productos de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Ingevity demuestra su compromiso con el tema Bioplásticos y Embalajes Sostenibles a través del desarrollo, fabricación y comercialización de soluciones que son en gran medida de origen renovable, ayudando a los clientes a abordar problemas complejos y promoviendo la sostenibilidad global. Los produc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NGVT" data-company="INGEVITY CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/NGVT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NGVT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INGEVITY CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ingevity está reposicionando estratégicamente su segmento de Productos Químicos de Rendimiento. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Ingevity con el tema de Infraestructura Civil es evidente a través de varias vías. Los productos de la empresa encuentran aplicación en pavimentación de asfalto y pintura para marcas viales, y las líneas de productos de Productos Químicos de Rendimiento incluyen tecnologías para carre...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CVI" data-company="CVR ENERGY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CVI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CVI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CVR ENERGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CVR Energy está involucrada en la industria de productos químicos agrícolas. El Segmento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CVR Energy está involucrada en la industria de productos químicos agrícolas a través de su participación en CVR Partners, que produce y comercializa fertilizantes nitrogenados, principalmente nitrato de urea y amonio (UAN) y amoníaco. El Segmento de Fertilizantes Nitrogenados de la empresa se ve afe...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NGVT" data-company="INGEVITY CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/NGVT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NGVT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INGEVITY CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ingevity Corporation está reduciendo estratégicamente su exposición al mercado petrolero dentro of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Ingevity Corporation en la industria de Servicios de Petróleo y Gas es evidente a través del uso de sus productos en aplicaciones de perforación petrolera. Sin embargo, la empresa está reduciendo estratégicamente su exposición al mercado petrolero dentro de su segmento de Product...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DOW" data-company="DOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DOW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DOW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dow completó la venta de Telone a TriCal Soil Solutions por $121 millones. La venta sugiere un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dow en la industria de Químicos Agrícolas se refleja en su operación pasada de la línea de productos de fumigación de suelos Telone, de la cual ahora se ha deshecho. La compañía completó la venta de Telone a TriCal Soil Solutions por $121 millones, como parte de un esfuerzo más a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DOW" data-company="DOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DOW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DOW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dow funciona como una entidad química con operaciones en segmentos como Plásticos de Empaque y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Dow están profundamente arraigadas en la fabricación de productos químicos, como lo demuestra su estructura organizativa y sus actividades. La empresa funciona como una entidad química con operaciones en segmentos como Plásticos de Empaque y Especialidad, Intermedios Industriales ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DOW" data-company="DOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DOW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DOW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Envases y Plásticos Especiales desempeña un papel crucial. Dow identifica el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Dow con el tema de los envases de consumo es evidente a través de varias iniciativas y segmentos operativos. El segmento de Envases y Plásticos Especiales, un importante contribuyente a los ingresos, desempeña un papel crucial, con unas ventas netas de 5.025 millones de dólares en e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DOW" data-company="DOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DOW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DOW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa experimenta aumentos de volumen en Recubrimientos y Monómeros de Rendimiento impulsados...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dow en el tema de Recubrimientos Industriales es evidente a través de su segmento de Materiales y Recubrimientos de Rendimiento, donde se discuten activamente las aplicaciones de recubrimientos y los monómeros de rendimiento. La empresa experimenta aumentos de volumen en Recubrim...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DOW" data-company="DOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DOW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DOW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa destaca su enfoque en aplicaciones y soluciones industriales. Dow reconoce que los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dow en el tema de Productos Industriales es evidente a través de sus segmentos de negocio principales, que incluyen Packaging & Specialty Plastics, Industrial Intermediates & Infrastructure, y Performance Materials & Coatings. La empresa destaca su enfoque en aplicaciones y soluc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ASH" data-company="ASHLAND INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/ASH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ASH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ASHLAND INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ashland ofrece soluciones de nutrición diseñados para mejorar la sensación en boca, controlar la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Ashland, como empresa global de aditivos e ingredientes especiales, interactúa con el mercado de Alimentos y Bebidas a través de su segmento de Ciencias de la Vida, que ofrece soluciones de nutrición. Estas soluciones abarcan espesantes, estabilizantes, emulsionantes y aditivos diseñados para mejora...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CF" data-company="CF INDUSTRIES HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CF" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CF</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CF INDUSTRIES HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CF Industries demuestra una fuerte conexión con la industria de fabricación de productos químicos....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CF Industries demuestra una fuerte conexión con la industria de fabricación de productos químicos a través de sus operaciones principales. La empresa utiliza el proceso Haber-Bosch para producir amoníaco anhidro, que se vende directamente o se mejora a productos como urea granular, UAN y DEF. Este p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CF" data-company="CF INDUSTRIES HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CF" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CF</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CF INDUSTRIES HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CF Industries depende del gas natural como materia prima clave en sus procesos de producción de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de CF Industries en el tema del Gas Natural es sustancial, principalmente debido a la dependencia de la empresa del gas natural como materia prima clave en sus procesos de producción de amoníaco. La empresa utiliza el proceso Haber-Bosch, que fija el nitrógeno atmosférico con hidróg...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTVA" data-company="CORTEVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CTVA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTVA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CORTEVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Corteva ofrece tecnologías de rasgos que mejoran la resistencia al clima, las enfermedades, los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Corteva con la Biotecnología en la Agricultura es evidente a través de su segmento de Semillas, un líder mundial en el desarrollo y suministro de germoplasma y rasgos avanzados que producen un rendimiento óptimo para las granjas. La empresa ofrece tecnologías de rasgos que mejoran l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTVA" data-company="CORTEVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CTVA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTVA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CORTEVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Corteva ofrece productos y soluciones diseñadas para defenderse contra malezas, insectos, plagas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Corteva demuestra su enfoque en la protección de cultivos a través de su segmento dedicado de Protección de Cultivos, que ofrece una gama de productos y soluciones diseñadas para defenderse contra malezas, insectos, plagas y enfermedades. Este compromiso se evidencia aún más en el Programa de Reestr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FMC" data-company="FMC CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/FMC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FMC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FMC CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">FMC está capitalizando activamente su cartera de productos vendiendo directamente a grandes...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de FMC con el tema de los Productos Agrícolas es evidente a través de su enfoque estratégico en proporcionar soluciones innovadoras a los agricultores y expandir su presencia en el mercado en regiones agrícolas clave. La empresa está capitalizando activamente su cartera de productos ve...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CVI" data-company="CVR ENERGY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CVI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CVI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CVR ENERGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CVR Energy funciona como una refinería independiente enfocada en la producción de combustibles para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de CVR Energy con el tema de la Producción de Petróleo surge de sus operaciones principales en el refinado y comercialización de petróleo, donde el segmento de Petróleo funciona como una refinería independiente enfocada en la producción de combustibles para el transporte como gasolina ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DOW" data-company="DOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/DOW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DOW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de Dow en Aplicaciones Industriales es evidente en varios segmentos,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dow en Aplicaciones Industriales es evidente en varios segmentos, particularmente dentro de Poliuretanos y Químicos para la Construcción y Soluciones Industriales, donde los volúmenes aumentados son impulsados por aplicaciones industriales, aunque esto se ve compensado por una di...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NGVT" data-company="INGEVITY CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/NGVT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NGVT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INGEVITY CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ingevity está en proceso de reposicionamiento para priorizar líneas de productos rentables. Se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Ingevity en el tema de Productos Químicos Industriales es evidente a través de sus diversas aplicaciones de productos, que incluyen adhesivos, agroquímicos, pavimentación asfáltica, bioplásticos, recubrimientos, elastómeros, lubricantes y componentes automotrices. El segmento de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CVI" data-company="CVR ENERGY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CVI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CVI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CVR ENERGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa señala una volatilidad y costos significativos asociados with las leyes, reglas,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de la empresa se ven significativamente influenciadas por el cumplimiento de la política energética, particularmente en lo que respecta al Estándar de Combustible Renovable (RFS), las obligaciones de Números de Identificación Renovable (RIN) y las exenciones para pequeñas refinerías ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SITE" data-company="SITEONE LANDSCAPE SUPPLY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SITE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SITE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SITEONE LANDSCAPE SUPPLY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SiteOne Landscape Supply vende fertilizantes y productos de control. La compañía ha experimentado...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de SiteOne Landscape Supply en el tema de los Productos Químicos Agrícolas es evidente a través de la venta de fertilizantes y productos de control, incluyendo herbicidas, a profesionales del paisajismo. Estos productos forman parte de una selección completa de aproximadamente 170.0...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SITE" data-company="SITEONE LANDSCAPE SUPPLY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SITE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SITE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SITEONE LANDSCAPE SUPPLY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de la empresa se ve afectado por las tendencias en los precios de la vivienda, las tasas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de la empresa con el tema de la Mejora del Hogar es evidente a través de su base de clientes de profesionales del paisajismo residencial y comercial, que se especializan en el diseño, instalación y mantenimiento de espacios exteriores. El negocio de la empresa se ve afectado por las tend...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SITE" data-company="SITEONE LANDSCAPE SUPPLY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SITE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SITE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SITEONE LANDSCAPE SUPPLY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El 21% del negocio de la empresa se centra en la construcción residencial nueva. La empusa reconoce...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de la empresa con el tema de la construcción de viviendas se deriva de que su negocio se ve afectado por las tendencias en los precios de las viviendas, las tasas de interés hipotecarias y las ventas de viviendas, así como por la alineación histórica de la industria de suministro de pais...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CVI" data-company="CVR ENERGY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CVI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CVI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CVR ENERGY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CVR Energy produce y comercializa fertilizantes nitrogenados. La empresa reconoce el impacto de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de CVR Energy en el tema de la Agroindustria proviene de su Segmento de Fertilizantes Nitrogenados, llevado a cabo a través de su participación en CVR Partners, LP, que produce y comercializa fertilizantes nitrogenados como nitrato de urea y amoníaco. La empresa reconoce el impacto ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CF" data-company="CF INDUSTRIES HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CF" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CF</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CF INDUSTRIES HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra su compromiso con la tecnología de energía limpia. Están comisionando una...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su compromiso con la tecnología de energía limpia a través de varias iniciativas destinadas a descarbonizar la producción de amoníaco. Están comisionando una instalación de producción de hidrógeno verde que utiliza una planta de electrólisis de agua alcalina de 20 megavatios par...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CF" data-company="CF INDUSTRIES HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CF" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CF</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CF INDUSTRIES HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se enfoca en acelerar la transición hacia la energía limpia. Su estrategia implica la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa se enfoca en acelerar la transición hacia la energía limpia a través de varias iniciativas. Su estrategia implica la descarbonización de su red de producción de amoníaco, el aprovechamiento de la captura y el secuestro de carbono, y la utilización de la electrólisis para producir amoníaco...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CF" data-company="CF INDUSTRIES HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CF" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CF</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CF INDUSTRIES HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía produce amoníaco anhidro, que contiene 82% de nitrógeno. La compaña también produce...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la compañía en el tema de Productos Químicos Industriales es evidente a través de su producción de amoníaco anhidro, su producto principal, que contiene 82% de nitrógeno y 18% de hidrógeno. La compañía también produce ácido nítrico, un ácido mineral a base de nitrógeno, y licor d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FMC" data-company="FMC CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/FMC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FMC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FMC CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">FMC desarrolla, comercializa y vende clases importantes de productos químicos para la protección de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de FMC está significativamente ligado a la industria de Protección de Cultivos, ya que la empresa desarrolla, comercializa y vende clases importantes de productos químicos para la protección de cultivos, incluidos insecticidas, herbicidas y fungicidas. Las innovadoras soluciones de protec...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DOW" data-company="DOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/DOW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DOW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dow emitió $1.25 mil millones en pagarés senior no garantizados bajo su Marco de Financiación...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Dow en la economía circular se demuestra a través de varias iniciativas, incluida la adquisición de Circulus Holdings, una empresa de reciclaje mecánico que transforma los residuos plásticos en resina posconsumo. Subrayando aún más este compromiso, Dow emitió $1.25 mil millones en paga...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DOW" data-company="DOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/DOW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DOW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dow se destaca por su adquisición de Circulus Holdings, una empresa estadounidense de reciclaje...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Dow con el tema de Servicios de Reciclaje se destaca por su adquisición de Circulus Holdings, una empresa estadounidense de reciclaje mecánico, el 1 de agosto de 2024, por aproximadamente 130 millones de dólares. Esta adquisición demuestra el énfasis estratégico de Dow en la convers...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DOW" data-company="DOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/DOW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DOW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dow is una empresa que mejorará la gestión del agua a nivel de cuenca. El tratamiento de aguas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Dow con el tratamiento del agua es evidente a través de su dedicación a avanzar en la gestión del agua en sus operaciones, cadena de suministro y con clientes aguas abajo, incluidos los esfuerzos de colaboración para mejorar la gestión del agua a nivel de cuenca. Esto se ve respalda...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DOW" data-company="DOW INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/DOW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DOW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOW INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dow demuestra su enfoque en bioplásticos y embalajes sostenibles a través of varias acciones clave....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Dow demuestra su enfoque en bioplásticos y embalajes sostenibles a través de varias acciones clave. La empresa adquirió Circulus Holdings, una empresa de reciclaje mecánico, por 130 millones de dólares para convertir residuos plásticos en resina postconsumo. Subrayando aún más este compromiso, Dow e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NGVT" data-company="INGEVITY CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/NGVT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NGVT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INGEVITY CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ingevity Corporation se centra en reducir la ciclicidad y mejorar la rentabilidad. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Ingevity Corporation se centra en reducir la ciclicidad y mejorar la rentabilidad, como lo demuestran las acciones estratégicas tomadas para reposicionar su segmento de Químicos de Rendimiento. Estas acciones implican el crecimiento de líneas de productos rentables como las tecnologías de carreteras...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SITE" data-company="SITEONE LANDSCAPE SUPPLY INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/SITE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SITE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SITEONE LANDSCAPE SUPPLY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SiteOne is el mayor distribuidor mayorista de suministros de paisajismo en los Estados Unidos. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El papel de SiteOne Landscape Supply como el mayor distribuidor mayorista de suministros de paisajismo en los Estados Unidos, con una creciente presencia en Canadá, destaca su conexión con el tema de la Agribusiness. La empresa ofrece una extensa gama de aproximadamente 170.000 SKUs, que incluyen su...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTVA" data-company="CORTEVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CTVA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTVA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CORTEVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Corteva ofrece soluciones diferenciadas y con ventajas sostenibles a los agricultores. Esta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Corteva se enfoca en la agricultura sostenible al ofrecer soluciones diferenciadas y con ventajas sostenibles a los agricultores, lo que fortalece la seguridad alimentaria mundial y ayuda a los agricultores a abordar los impactos del cambio climático. La empresa tiene como objetivo explícito proporc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SMG" data-company="SCOTTS MIRACLE-GRO CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/SMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCOTTS MIRACLE-GRO CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía enfatiza que los consumidores consideran el cuidado del césped y los jardines como...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de la compañía con el tema de Mejoras para el Hogar proviene de su importante presencia en el mercado de césped y jardines, donde es un fabricante y comercializador líder de productos de consumo de marca en América del Norte. La compañía enfatiza que los consumidores consideran el cuidad...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

@@ -1,0 +1,1706 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Industrial Gas Turbine - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Industrial Gas Turbine</div>
+      <div class="sub-title">Investment Theme Detail - Industrial Industry</div>
+    </div>
+    <a href="main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Industrial Gas Turbine &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Industrial &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 11
+    </div>
+
+    
+    <!-- Theme Chart Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Theme Chart</span>
+             <a href="equity_industrial_gas_turbine.html" target="_blank" class="btn-view-chart">View Full Chart ↗</a>
+        </div>
+        <div class="box-body" style="height: 600px; overflow:hidden;">
+            <iframe src="equity_industrial_gas_turbine.html" style="width:100%; height:100%; border:none; display:block;"></iframe>
+        </div>
+    </div>
+        
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">11</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">GEV</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">GE VERNOVA INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla soluciones y tecnologías para la captura de carbono....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/GEV" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ENR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ENERGIZER HOLDINGS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Suministra productos de baterías que son componentes integrales dentro del sector de piezas de automóviles....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ENR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">7011</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">MITSUBISHI HEAVY INDUSTRIES</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Suministra una cartera diversa de maquinaria pesada, equipos industriales y sistemas complejos esenciales para las operaciones en diversas industrias ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/7011" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CAT</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CATERPILLAR INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Participa en Tecnología de Baterías, reflejando su relevancia para el negocio de la empresa....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CAT" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BKR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BAKER HUGHES CO</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye significativamente al avance y la implementación de tecnologías y servicios de captura de carbono....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BKR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">WWD</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">WOODWARD INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y suministra sistemas y componentes de control avanzados críticos para la propulsión, actuación y gestión de fluidos en diversas plataforma...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/WWD" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">HWM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">HOWMET AEROSPACE INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desempeña un papel importante en la industria aeroespacial y de defensa....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/HWM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">HON</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">HONEYWELL INTERNATIONAL INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece una cartera integral de aviónica avanzada, motores, sistemas mecánicos y tecnologías de defensa que son fundamentales para el rendimiento y la ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/HON" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">RTX</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">RTX CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y suministra sistemas, tecnologías y servicios aeroespaciales y de defensa avanzados, esenciales para la seguridad global y las operaciones...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/RTX" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CRS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CARPENTER TECHNOLOGY</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona materiales y aleaciones especiales avanzadas cruciales para la fabricación y el rendimiento de componentes dentro de los sectores aeroespa...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CRS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">11</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SARO</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">STANDARDAERO INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios esenciales de mantenimiento, reparación y revisión para motores y componentes de aeronaves, apoyando la preparación operativa en...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SARO" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">124</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="CRS" data-company="CARPENTER TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/CRS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CRS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARPENTER TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Carpenter Technology es reconocido en el suministro de materiales de aleaciones especiales de alto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Carpenter Technology con la industria aeroespacial y de defensa es significativo, respaldado por su posición como líder reconocido en el suministro de materiales de aleaciones especiales de alto rendimiento y soluciones de procesos para aplicaciones críticas. Las ventas de la empres...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRS" data-company="CARPENTER TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/CRS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CRS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARPENTER TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Carpenter Technology produce aleaciones especiales premium para aplicaciones críticas en las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Carpenter Technology con el tema de los materiales aeroespaciales es evidente a través de su producción y distribución de aleaciones especiales premium, incluidas aleaciones de titanio, que son esenciales para aplicaciones críticas en las industrias aeroespacial y de defensa. La emp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRS" data-company="CARPENTER TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/CRS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CRS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARPENTER TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa produce y distribuye aleaciones especiales, incluidos aceros inoxidables y aceros...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa produce y distribuye aleaciones especiales, incluidos aceros inoxidables y aceros aleados, para el mercado del transporte, que incluye aplicaciones automotrices. Si bien la empresa reconoce su presencia en el mercado del transporte, las ventas a este sector han disminuido, lo que refleja ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRS" data-company="CARPENTER TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/CRS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CRS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARPENTER TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Carpenter Technology produce materiales para aplicaciones de generación de energía. Estos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Carpenter Technology en el tema de las turbinas de gas industriales (IGT) es evidente a través de su suministro de materiales a la industria de generación de energía, donde estos materiales se utilizan tanto en turbinas de gas industriales nuevas como reacondicionadas. La empresa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRS" data-company="CARPENTER TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/CRS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CRS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARPENTER TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Carpenter Technology is un líder reconocido en materiales de aleaciones especiales de alto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Carpenter Technology demuestra su compromiso con el tema de Materiales para la Salud a través de su producción y distribución de aleaciones especiales premium, incluidas aleaciones de titanio, metales en polvo y aceros inoxidables, para aplicaciones críticas en el mercado médico. La compañía es un l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENR" data-company="ENERGIZER HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/ENR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ENR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENERGIZER HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de cuidado del automóvil de Energizer ha experimentado un crecimiento, impulsado por...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Energizer con el mercado de posventa automotriz es evidente a través de su diseño, marketing y distribución de productos de apariencia, rendimiento, refrigerantes y ambientadores automotrices. Esto se demuestra además con la adquisición de Centralsul Ltda., un fabricante de producto...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENR" data-company="ENERGIZER HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/ENR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ENR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENERGIZER HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Energizer ofreciendo baterías que utilizan diversas tecnologías como litio, alcalinas,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Energizer con la tecnología de baterías es evidente a través de su larga historia de innovación, ofreciendo baterías que utilizan diversas tecnologías como litio, alcalinas, zinc-carbono, hidruro metálico de níquel, zinc-aire y óxido de plata. Este compromiso se demuestra aún más con ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WWD" data-company="WOODWARD INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/WWD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WWD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WOODWARD INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de la empresa en la industria Aeroespacial y de Defensa es evidente a través of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en la industria Aeroespacial y de Defensa es evidente a través de sus productos y sistemas aeroespaciales utilizados en aplicaciones comerciales y de defensa, incluidos aviones de ala fija, helicópteros y sistemas de defensa inteligentes. Específicamente, las ventas de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WWD" data-company="WOODWARD INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/WWD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WWD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WOODWARD INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía se destaca aún más por su contenido en varios modelos de aeronaves como el Airbus A220,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Woodward en la Fabricación Aeroespacial es evidente a través de su diseño, producción y servicio de soluciones de control para el mercado aeroespacial, incluyendo sistemas de propulsión, actuación y control de movimiento utilizados en aeronaves comerciales y de defensa. La dedica...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WWD" data-company="WOODWARD INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/WWD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WWD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WOODWARD INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Woodward selección para proporcionar actuadores de control de alerones para el Airbus A350....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Woodward con los Sistemas de Aviación se destaca por varias actividades clave, incluida su selección para proporcionar actuadores de control de alerones para el Airbus A350, marcando su primera victoria de LRU de actuación para una superficie de control de vuelo primaria en una plat...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WWD" data-company="WOODWARD INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/WWD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WWD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WOODWARD INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Woodward abarca varios programas de defensa, incluyendo aeronaves de ala fija, helicópteros y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Woodward en el tema de Tecnología de Defensa es evidente a través de sus sólidas ventas a OEMs de defensa, que han aumentado significativamente debido a la creciente demanda de sus programas de defensa inteligentes. La participación de la empresa abarca varios programas de defens...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WWD" data-company="WOODWARD INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/WWD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WWD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WOODWARD INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Woodward se ha enfocado en mejorar sus sistemas de turbinas de gas. Los productos industriales de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Woodward en el tema de Turbinas de Gas Industriales es evidente a través de varias actividades, incluida la entrega del primer sistema de control avanzado de turbinas de gas MicroNet XT de producción para destructores de la Marina de los EE. UU., con un contrato para entregas adi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WWD" data-company="WOODWARD INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/WWD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WWD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WOODWARD INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Woodward reporta ingresos de $143,652 y $141,734 para los tres meses finalizados el 30 de junio de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Woodward en el tema de Transporte es evidente a través de su segmento Industrial, donde el Transporte se identifica como un mercado principal. Este segmento generó ingresos de $143,652 y $141,734 para los tres meses finalizados el 30 de junio de 2025 y el 31 de marzo de 2025, res...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKR" data-company="BAKER HUGHES CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BKR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BKR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BAKER HUGHES CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa espera un crecimiento continuo en nuevas soluciones energéticas. Baker Hughes obtuvo uno...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Baker Hughes demuestra su compromiso con la captura de carbono a través de varias iniciativas. La empresa espera un crecimiento continuo en nuevas soluciones energéticas, incluida la captura, utilización y almacenamiento de carbono, destinadas a reducir las emisiones de carbono en todo el sector ene...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKR" data-company="BAKER HUGHES CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BKR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BKR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BAKER HUGHES CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa reservó mil millones de dólares en nuevos pedidos de energía. Baker Hughes también...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Baker Hughes demuestra su compromiso con la Tecnología Climática a través de su división de Soluciones de Tecnología Climática (CTS), que es un motor de ingresos de IET. La empresa reservó mil millones de dólares en nuevos pedidos de energía y aseguró un pedido significativo de CCS, lo que refleja s...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKR" data-company="BAKER HUGHES CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BKR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BKR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BAKER HUGHES CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Baker Hughes se identifica como una empresa de tecnología energética con una cartera amplia y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Baker Hughes se identifica como una empresa de tecnología energética con una cartera amplia y diversificada de tecnologías y servicios que abarcan la cadena de valor energética e industrial. La empresa opera a través de sus segmentos de negocio OFSE e IET, vendiendo productos y servicios principalme...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKR" data-company="BAKER HUGHES CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BKR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BKR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BAKER HUGHES CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa considera la transición a nuevas soluciones energéticas como un motor de crecimiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su compromiso con las Soluciones Energéticas a través de su enfoque en la entrega de soluciones innovadoras, de bajas emisiones y rentables en toda la cadena de valor energética. Esto incluye la participación en nuevas soluciones energéticas como hidrógeno, geotérmica, CCUS, alm...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKR" data-company="BAKER HUGHES CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BKR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BKR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BAKER HUGHES CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Baker Hughes demuestra su compromiso con la tecnología de combustible de hidrógeno. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Baker Hughes demuestra su compromiso con la tecnología de combustible de hidrógeno a través de varias iniciativas destinadas a reducir las emisiones de carbono. La empresa prevé un crecimiento continuo en soluciones de nueva energía, incluido el hidrógeno, como parte de su estrategia más amplia para...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKR" data-company="BAKER HUGHES CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BKR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BKR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BAKER HUGHES CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Baker Hughes ofrece una cartera diversa de tecnologías y servicios. La empresa se enfoca en escalar...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Baker Hughes se identifica como una empresa de tecnología energética que ofrece una cartera diversa de tecnologías y servicios en toda la cadena de valor de la energía y la industria, con su segmento de Tecnología Industrial y Energética que incluye Soluciones Industriales. La empresa se enfoca en e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKR" data-company="BAKER HUGHES CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BKR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BKR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BAKER HUGHES CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Baker Hughes demuestra un fuerte compromiso con los proyectos de GNL. La empresa anticipa una...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Baker Hughes demuestra un fuerte compromiso con los proyectos de GNL, respaldado por sus perspectivas positivas sobre los mercados globales de gas natural y GNL. La empresa anticipa una continua resiliencia en el GNL y ve fortaleza en la infraestructura de GNL y gas, lo que refuerza su optimismo par...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKR" data-company="BAKER HUGHES CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BKR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BKR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BAKER HUGHES CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Baker Hughes demuestra un enfoque significativo en el gas natural. La compañía anticipa que la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Baker Hughes demuestra un enfoque significativo en el gas natural, impulsado por las expectativas de un crecimiento sustancial de la demanda y una perspectiva positiva en el mercado global de GNL. La compañía anticipa que la demanda de gas natural aumentará más del 20% para 2040, con un aumento del ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKR" data-company="BAKER HUGHES CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BKR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BKR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BAKER HUGHES CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Baker Hughes demuestra un interés significativo en la infraestructura de gas natural. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Baker Hughes demuestra un interés significativo en el tema de la infraestructura de gas natural, respaldado por una perspectiva positiva sobre los proyectos a largo plazo vinculados al gas, incluida la GNL y la infraestructura de gas. Esto se evidencia aún más al asegurar adjudicaciones para estacio...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKR" data-company="BAKER HUGHES CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BKR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BKR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BAKER HUGHES CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Baker Hughes is part of the segmento de Servicios y Equipos para Campos Petroleros (OFSE) su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Baker Hughes con el tema de Servicios de Petróleo y Gas es evidente a través de su operación del segmento de Servicios y Equipos para Campos Petroleros (OFSE) y su enfoque principal en la venta de productos y servicios dentro de los segmentos de exploración y producción (upstream), ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAT" data-company="CATERPILLAR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CAT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CAT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CATERPILLAR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Caterpillar ha experimentado mayores ventas de equipos a usuarios finales. Además, el gasto general...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Caterpillar en Servicios de Construcción es evidente a través de varios factores. La empresa ha experimentado mayores ventas de equipos a usuarios finales, fuertes tasas de pedidos y crecimiento de la cartera de pedidos dentro de su segmento de Industrias de Construcción. Además,...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAT" data-company="CATERPILLAR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CAT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CAT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CATERPILLAR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Energía y Transporte de Caterpillar juega un papel importante. La empresa anticipa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Energía y Transporte de Caterpillar juega un papel importante, ya que las ventas en este sector han aumentado mientras que otros segmentos han experimentado declives. La empresa anticipa una demanda continua y sólida en la generación de energía, con un crecimiento esperado en motores ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAT" data-company="CATERPILLAR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CAT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CAT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CATERPILLAR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Caterpillar señala que el gasto en construcción en América del Norte se mantiene sólido. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Caterpillar con el desarrollo de infraestructuras es evidente a través de múltiples menciones de su dependencia del gasto en infraestructuras para mantener una demanda resiliente en todos sus segmentos. La empresa reconoce que se espera que los proyectos de infraestructuras relacion...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAT" data-company="CATERPILLAR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CAT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CAT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CATERPILLAR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Caterpillar señala un impulso positivo con sólidas tasas de pedidos y crecimiento of la cartera de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Caterpillar con el tema de Equipos de Minería es evidente a través de su segmento de Industrias de Recursos, que apoya a los clientes que utilizan maquinaria en minería, construcción pesada y cantería. Si bien la empresa anticipa menores ventas generales de equipos, señala un impuls...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAT" data-company="CATERPILLAR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CAT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CAT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CATERPILLAR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Caterpillar apoya a los clientes que utilizan motores alternativos, turbinas y servicios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Caterpillar en Servicios de Petróleo y Gas es evidente a través de su segmento de Energía y Transporte, que apoya a los clientes que utilizan motores alternativos, turbinas y servicios relacionados en la industria del petróleo y el gas, y una sólida actividad de pedidos en Petról...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAT" data-company="CATERPILLAR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CAT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CAT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CATERPILLAR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Caterpillar es part of the segmento de Energía y Transporte. La empresa anticipa un crecimiento en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Caterpillar en la industria del transporte es evidente a través de su segmento de Energía y Transporte, que apoya a los clientes que utilizan locomotoras diésel-eléctricas y servicios relacionados, incluidos los negocios marítimos y ferroviarios. Si bien las ventas de transporte ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRS" data-company="CARPENTER TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CRS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CRS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARPENTER TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa informó un aumento del 29 por ciento en las ventas al mercado de uso final Aeroespacial...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de la empresa en el tema de la industria de Contratación de Defensa es evidente a través de su posición como líder reconocido en materiales de aleaciones especiales de alto rendimiento y soluciones de procesos para aplicaciones críticas en los mercados aeroespacial y de defensa. Esto está...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRS" data-company="CARPENTER TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CRS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CRS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARPENTER TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra su participación en el tema de la industria de Fabricación de Metales....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su participación en el tema de la industria de Fabricación de Metales a través del procesamiento de materias primas, como níquel, cobalto, titanio, manganeso, cromo y molibdeno. Este procesamiento implica instalaciones de fusión, conformado en caliente y trabajo en frío para pro...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRS" data-company="CARPENTER TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CRS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CRS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARPENTER TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Carpenter Technology Corporation es líder en el mercado del transporte. Sin embargo, las ventas al...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Carpenter Technology Corporation participa en el tema de Soluciones de Movilidad a través de su provisión de materiales de aleaciones especiales de alto rendimiento y soluciones de procesos para el mercado del transporte. La compañía se identifica como líder en esta área; sin embargo, las ventas al ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEV" data-company="GE VERNOVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/GEV" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GEV</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE VERNOVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Vernova apoya la energía renovable a través oferta de productos y servicios. Está ayudando a los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de GE Vernova en Energía Limpia es evidente a través de su enfoque en la descarbonización y la creciente demanda de alternativas de energía renovable, a medida que la industria energética cambia del carbón a fuentes de energía de cero o bajas emisiones de carbono. La empresa simplif...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEV" data-company="GE VERNOVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/GEV" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GEV</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE VERNOVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GEV participa en Tecnología de Energía Limpia. La empresa reconoce la importancia de la transición...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de GEV en Tecnología de Energía Limpia se refleja en su enfoque en avances tecnológicos que mejoran la viabilidad y eficiencia de las alternativas de energía renovable, así como en sus Soluciones de Red en el segmento de Electrificación. La empresa reconoce la importancia de la tran...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEV" data-company="GE VERNOVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/GEV" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GEV</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE VERNOVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Vernova es un líder mundial en la industria de la energía eléctrica. Una parte sustancial de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de GE Vernova en la generación de electricidad es evidente a través de sus diversas actividades y enfoque estratégico. La empresa es un líder mundial en la industria de la energía eléctrica, y una parte sustancial de la electricidad mundial se genera utilizando sus tecnologías. GE V...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEV" data-company="GE VERNOVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/GEV" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GEV</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE VERNOVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GEV se enfoca en las tecnologías necesarias para la transmisión de electricidad. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de GEV en la Transmisión de Electricidad es evidente a través de su segmento de Electrificación, particularmente Grid Solutions, que se enfoca en las tecnologías necesarias para la transmisión de electricidad desde la generación hasta el consumo. La empresa anticipa pedidos signific...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEV" data-company="GE VERNOVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/GEV" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GEV</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE VERNOVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GEV participa en inversiones energéticas. La empresa reconoce que el acceso al capital y la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de GEV en inversiones energéticas es evidente en su enfoque en las dinámicas financieras y de inversión, que son cruciales para avanzar en iniciativas estratégicas y desplegar nuevos proyectos de generación de energía. La empresa reconoce que el acceso al capital y la comprensión de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEV" data-company="GE VERNOVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/GEV" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GEV</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE VERNOVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de GE Vernova en la industria de servicios energéticos es evidente a través of sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de GE Vernova en la industria de servicios energéticos es evidente a través de sus importantes ingresos por servicios en los segmentos de Energía, Eólica y Electrificación, y los servicios representan una parte sustancial de su cartera de pedidos. Esto está respaldado además por la ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEV" data-company="GE VERNOVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/GEV" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GEV</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE VERNOVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Electrificación de la empresa incluye tecnologías de soluciones solares y de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">GE Vernova demuestra su participación en el almacenamiento de energía a través de varias actividades clave. El segmento de Electrificación de la empresa incluye tecnologías de soluciones solares y de almacenamiento, lo que indica una dedicación de recursos a esta área. Para consolidar aún más este c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEV" data-company="GE VERNOVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/GEV" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GEV</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE VERNOVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Energía de GE Vernova incluye tecnologías de gas. La compañía reservó 20 turbinas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de GE Vernova con el tema de las turbinas de gas industriales es significativo, como lo demuestra su importante participación en la tecnología de turbinas de gas. El segmento de Energía de la compañía incluye tecnologías de gas, que proporcionan una base crítica de energía despachable ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEV" data-company="GE VERNOVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/GEV" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GEV</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE VERNOVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra su participación en Software Industrial a través of su segmento de Software de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su participación en Software Industrial a través de su segmento de Software de Electrificación, que es un componente del segmento más amplio de Electrificación. Esto se evidencia en la presentación de ingresos y EBITDA del segmento para Software de Electrificación. Si bien la em...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEV" data-company="GE VERNOVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/GEV" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GEV</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE VERNOVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Vernova diseña, fabrica y ofrece servicios de tecnologías que contribuyen a un sistema de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de GE Vernova en la Integración de Energías Renovables es evidente a través de sus tecnologías e innovación, que posicionan a la empresa para capitalizar la creciente demanda de alternativas de energía renovable y el cambio de la generación de carbón a fuentes de energía bajas en ca...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEV" data-company="GE VERNOVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/GEV" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GEV</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE VERNOVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Vernova firmó contratos por 9 gigavatios de nuevo equipo de gas. Enfatiza el papel crítico de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">GE Vernova demuestra una conexión significativa con la industria del Gas Natural, subrayada por la considerable contribución de ingresos de su segmento Gas Power. La empresa firmó contratos por 9 gigavatios de nuevo equipo de gas y enfatiza el papel crítico de la energía del gas en la transición ene...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEV" data-company="GE VERNOVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/GEV" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GEV</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE VERNOVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Vernova participa en el proyecto de reactor modular pequeño (SMR) de 300 megavatios. El segmento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de GE Vernova en la Energía Nuclear es evidente a través de varias actividades, incluido el progreso de su proyecto de reactor modular pequeño (SMR) de 300 megavatios, con la construcción en marcha en Ontario y la NRC aceptando la solicitud de TVA para construir en el sitio de Clinc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEV" data-company="GE VERNOVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/GEV" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GEV</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE VERNOVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de la empresa en el tema of las Energías Renovables es multifacética. La creciente...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de las Energías Renovables es multifacética, demostrada a través de su segmento Eólico, equipos de energía hidroeléctrica y soluciones de estabilización de red como condensadores síncronos, que abordan la intermitencia renovable. La creciente demanda de alte...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEV" data-company="GE VERNOVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/GEV" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GEV</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE VERNOVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GEV apoya la expansión y modernización of las redes a nivel mundial. La empresa reconoce la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de GEV en Infraestructura Inteligente es evidente a través de su negocio de Soluciones de Redes Eléctricas, que apoya la expansión y modernización de las redes a nivel mundial. La empresa reconoce la necesidad de actualizar la infraestructura obsoleta con nuevas soluciones de integr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEV" data-company="GE VERNOVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/GEV" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GEV</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE VERNOVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Vernova se centra tanto en turbinas eólicas y palas en tierra como en alta mar. Los ingresos del...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de GE Vernova con la energía eólica es evidente a través de su segmento dedicado a la Eólica, que se centra tanto en turbinas eólicas y palas en tierra como en alta mar. La empresa simplifica su oferta de productos, enfatizando productos robustos como las unidades mar adentro Haliade-X...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Tecnologías Aeroespaciales de Honeywell demuestra una fuerte conexión with el tema...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Tecnologías Aeroespaciales de Honeywell demuestra una fuerte conexión con el tema de Defensa Aeroespacial, subrayada por su posición de liderazgo en la industria como proveedor de sistemas de misión crítica en verticales y plataformas aeroespaciales. Esto está respaldado además por un...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell tiene la intención de separar en una entidad independiente que cotiza en bolsa. Este...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Honeywell con la Fabricación Aeroespacial es significativo, como lo subraya su segmento de Tecnologías Aeroespaciales, un negocio principal que la compañía tiene la intención de separar en una entidad independiente que cotiza en bolsa. Este segmento es un proveedor global líder de p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell is una proveedor de sistemas en verticales aeroespaciales. El aumento de las ventas de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Honeywell con los Materiales Aeroespaciales es evidente a través de su posición de liderazgo en la industria como proveedor de sistemas en verticales aeroespaciales, enfatizado aún más por la escisión planificada de su negocio de Materiales Avanzados en una empresa pública separada....</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell reportó unas ventas netas sustanciales de $1.837 millones para los tres meses finalizados...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Honeywell en Soluciones Energéticas es evidente a través de su segmento dedicado a Soluciones de Energía y Sostenibilidad, que es uno de sus cuatro segmentos de negocio reportables. Este segmento reportó unas ventas netas sustanciales, con $1.837 millones para los tres meses fina...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell tiene como objetivo crear una empresa de automatización enfocada, reflejada en sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Honeywell en Automatización Industrial es evidente a través de su segmento dedicado de Automatización Industrial, uno de sus cuatro segmentos de negocio clave. Este segmento proporciona soluciones de automatización industrial a varios sectores, incluyendo refino/petroquímicos, ci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell ha adquisiciado un negocio de tecnología de procesos y equipos de gas natural licuado de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Honeywell en proyectos de GNL es evidente a través de la adquisición del negocio de tecnología de procesos y equipos de gas natural licuado de Air Products, una medida alineada con la reconfiguración de la cartera de la empresa hacia las megatendencias de transición energética. E...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell colabora activamente with los proveedores para mitigar la escasez potencial. Estrategias...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Honeywell demuestra su compromiso con la Gestión de la Cadena de Suministro a través de varias estrategias clave. La compañía se enfoca en la simplificación de la cadena de suministro y la alineación con fuentes de suministro locales, empleando estrategias de mitigación para minimizar la escasez y l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell está evaluando alternativas estratégicas para estos negocios. Las ventas se han visto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Honeywell en la gestión de almacenes es evidente a través de su segmento de Automatización Industrial, que proporciona soluciones para clientes en almacenes y logística. El enfoque de la compañía en esta área se ve aún más resaltado por sus negocios de Soluciones de Almacén y Flu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HWM" data-company="HOWMET AEROSPACE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HWM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HWM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HOWMET AEROSPACE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Aproximadamente el 69% de los ingresos de Howmet se derivan de productos vendidos a los mercados...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Howmet con el tema de Defensa Aeroespacial es evidente a través de su importante generación de ingresos y crecimiento en este sector. Aproximadamente el 69% de los ingresos de la empresa se derivan de productos vendidos a los mercados aeroespaciales comerciales y de defensa. Esto se...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HWM" data-company="HOWMET AEROSPACE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HWM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HWM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HOWMET AEROSPACE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Aproximadamente el 69% de Howmet's ingresos se deriva de productos vendidos a los mercados...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Howmet en la industria de Fabricación Aeroespacial es significativa, como lo demuestra el hecho de que una parte sustancial de sus ingresos, aproximadamente el 69%, se deriva de productos vendidos a los mercados aeroespaciales comerciales y de defensa. Esto está respaldado además...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HWM" data-company="HOWMET AEROSPACE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HWM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HWM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HOWMET AEROSPACE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Estructuras de Ingeniería produce forjas de aluminio y componentes mecanizados,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Howmet en la Producción de Aluminio es evidente a través de sus productos multimateriales que incluyen aluminio, utilizado en varios mercados como el aeroespacial y el transporte comercial. El segmento de Estructuras de Ingeniería produce forjas de aluminio y componentes mecaniza...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HWM" data-company="HOWMET AEROSPACE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HWM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HWM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HOWMET AEROSPACE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Howmet atiende al sector de transporte comercial con sus productos multiespecie. Si bien el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Howmet atiende al sector de transporte comercial con sus productos multiespecie, incluidos los utilizados en camiones comerciales. Si bien el Transporte Comercial representa una parte de los ingresos de Fasteners, sus ventas han experimentado caídas, lo que afecta tanto a los segmentos de Sistemas d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HWM" data-company="HOWMET AEROSPACE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HWM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HWM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HOWMET AEROSPACE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Howmet produce sujetadores para el sector aeroespacial, industrial y de transporte comercial. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Howmet en el tema de sujetadores industriales es evidente a través de su segmento de Sistemas de Sujeción, que produce sujetadores para el sector aeroespacial, industrial y de transporte comercial. El equipo de Sistemas de Sujeción ha mostrado crecimiento en ingresos y progresión...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HWM" data-company="HOWMET AEROSPACE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HWM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HWM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HOWMET AEROSPACE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Howmet está construyendo activamente nueva capacidad para componentes de IGT, incluidas las álabes...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Howmet en el tema de las turbinas de gas industriales (IGT) es evidente a través de varios factores clave. La empresa está construyendo activamente nueva capacidad para componentes de IGT, incluidas las álabes de turbina, con expectativas de desarrollo durante 2026 y 2027, y una ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HWM" data-company="HOWMET AEROSPACE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HWM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HWM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HOWMET AEROSPACE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Productos para Motores de Howmet demuestra su participación en el tema de Servicios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Productos para Motores de Howmet demuestra su participación en el tema de Servicios de Petróleo y Gas a través del aumento de las ventas y el crecimiento en los mercados de petróleo y gas. Este crecimiento es un factor que contribuye al rendimiento general del segmento de Productos pa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RTX está fuertemente involucrada en las industrias aeroespacial y de defensa. Posicionándose como...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">RTX está fuertemente involucrada en las industrias aeroespacial y de defensa, posicionándose como un proveedor de sistemas de primer nivel. El negocio de defensa de la compañía atiende a clientes nacionales e internacionales, funcionando principalmente como contratista principal o subcontratista en ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RTX is proveedor principal de sistemas para las industrias aeroespacial y de defensa. Está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de RTX con el tema de Fabricación Aeroespacial se ve subrayada por su papel como proveedor principal de sistemas para las industrias aeroespacial y de defensa, con operaciones que incluyen la fabricación de equipos originales (OEM) y amplios servicios posventa. La participación de la emp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Las operaciones aeroespaciales comerciales de RTX están vinculadas a la industria de las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones aeroespaciales comerciales de RTX están vinculadas a la industria de las aerolíneas, como lo demuestra el hecho de que la salud económica general de los transportistas aéreos y los fabricantes de aviones es un barómetro clave para su negocio. Esta conexión se ve aún más resaltada por...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de RTX está significativamente ligado a la contratación de defensa. Una parte sustancial...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de RTX está significativamente ligado a la contratación de defensa, como lo demuestra su papel como contratista principal y subcontratista para una amplia cartera de programas de defensa que sirven a clientes gubernamentales tanto nacionales como internacionales. Una parte sustancial de l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RTX es proveedor global de sistemas de productos y servicios de alta tecnología para los sectores...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de RTX en la industria de tecnología de defensa es evidente a través de su papel como proveedor global de sistemas de productos y servicios de alta tecnología para los sectores aeroespacial y de defensa. El portafolio de la empresa aprovecha tecnologías de próxima generación en vari...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de Raytheon en la industria de defensa antimisiles es significativa, como lo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Raytheon en la industria de defensa antimisiles es significativa, como lo demuestran los importantes pedidos de varios sistemas de defensa antimisiles. Estos incluyen contratos para sistemas de defensa aérea Patriot para Alemania y Rumania, Standard Missile 3 (SM-3) para la Armad...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SARO" data-company="STANDARDAERO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/SARO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SARO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STANDARDAERO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Aero Turbine proporciona servicios de reparación, revisión e ingeniería de componentes de motores....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de StandardAero en la industria aeroespacial y de defensa es evidente a través de sus ventas militares, que experimentaron un crecimiento debido a la adquisición de Aero Turbine y la expansión en programas como AE1107 y J85. Aero Turbine proporciona servicios de reparación, revisión...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKR" data-company="BAKER HUGHES CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/BKR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BKR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BAKER HUGHES CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Baker Hughes en el suministro al sector energético es evidente en sus operaciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Baker Hughes en el suministro al sector energético es evidente en sus operaciones comerciales, ya que la empresa genera ingresos por la venta de productos y servicios a compañías de petróleo y gas natural a nivel mundial, específicamente dentro de los segmentos de exploración y producc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKR" data-company="BAKER HUGHES CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/BKR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BKR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BAKER HUGHES CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los ingresos de Baker Hughes estrechamente ligados a la industria de exploración de hidrocarburos....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Los ingresos de Baker Hughes están estrechamente ligados a la industria de exploración de hidrocarburos, ya que se generan predominantemente de la venta de productos y servicios a empresas petroleras y de gas natural importantes, nacionales e independientes en todo el mundo. Estos ingresos dependen ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKR" data-company="BAKER HUGHES CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/BKR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BKR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BAKER HUGHES CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Baker Hughes obtuvo un pedido de Turbine-X Energy para turbinas de gas NovaLT. IET reservó 69...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Baker Hughes con el tema de las turbinas de gas industriales es evidente a través de múltiples pedidos de sus turbinas de gas NovaLT, particularmente para soluciones de energía para centros de datos. La compañía obtuvo un pedido de Turbine-X Energy para turbinas de gas NovaLT, engra...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKR" data-company="BAKER HUGHES CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/BKR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BKR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BAKER HUGHES CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los ingresos de Baker Hughes están ligados a la industria de exploración petrolera. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Los ingresos de Baker Hughes están significativamente ligados a la industria de exploración petrolera, ya que se generan predominantemente por la venta de productos y servicios a las principales compañías de petróleo y gas natural a nivel mundial. Estos ingresos dependen directamente del gasto de lo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKR" data-company="BAKER HUGHES CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/BKR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BKR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BAKER HUGHES CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Baker Hughes estrechamente ligados a la industria de producción de petróleo. Esta fuente de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Los ingresos de Baker Hughes están estrechamente ligados a la industria de producción de petróleo, ya que se generan principalmente a partir de la venta de productos y servicios a una amplia gama de empresas de petróleo y gas natural a nivel mundial. Esta fuente de ingresos depende directamente de l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAT" data-company="CATERPILLAR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CAT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CAT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CATERPILLAR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de generación de energía de Caterpillar se ve significativamente influenciado by la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de generación de energía de Caterpillar se ve significativamente influenciado por la industria de los centros de datos, como lo demuestra el enfoque de la compañía en satisfacer las crecientes demandas de energía de los centros de datos relacionadas con la computación en la nube y la IA ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAT" data-company="CATERPILLAR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CAT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CAT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CATERPILLAR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Caterpillar participa en aplicaciones industriales. Las ventas a usuarios han crecido, pero...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Caterpillar en aplicaciones industriales es evidente a través de su segmento de Energía y Transporte, donde el crecimiento de las ventas se atribuye en parte a esta área, impulsado específicamente por las ventas en aplicaciones de energía eléctrica. Si bien las ventas industriale...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAT" data-company="CATERPILLAR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CAT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CAT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CATERPILLAR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Caterpillar participa en el tema of Turbinas de Gas Industriales. La empresa ha notado una fuerte...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Caterpillar en el tema de Turbinas de Gas Industriales es evidente a través de su segmento de Energía y Transporte, que incluye turbinas y servicios relacionados con turbinas. La empresa ha notado una fuerte demanda dentro de la Generación de Energía para turbinas y servicios rel...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAT" data-company="CATERPILLAR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CAT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CAT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CATERPILLAR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Caterpillar apoya a clientes en diversas industrias, incluidas las empresas marítimas. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Caterpillar en la industria del transporte marítimo es evidente a través de su segmento de Transporte, que apoya a clientes en diversas industrias, incluidas las empresas marítimas. Si bien las ventas en aplicaciones marinas han contribuido al crecimiento dentro del sector de Tra...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAT" data-company="CATERPILLAR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CAT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CAT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CATERPILLAR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de Caterpillar en Servicios de Minería es evidente a través of su sector de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Caterpillar en Servicios de Minería es evidente a través de su sector de Industrias de Recursos, que muestra fuertes tasas de pedidos y crecimiento de la cartera, particularmente para camiones mineros grandes. Si bien las ventas de minería experimentaron ligeros contratiempos deb...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRS" data-company="CARPENTER TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CRS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CRS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARPENTER TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El mercado de uso final Aeroespacial y de Defensa representa aproximadamente el 60% de Carpenter...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Carpenter Technology con la temática de Fabricación Aeroespacial es significativo, ya que la empresa se identifica como líder en materiales de aleaciones especiales de alto rendimiento y soluciones de procesos para aplicaciones críticas en este mercado. Esto se ve reforzado por el h...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRS" data-company="CARPENTER TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CRS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CRS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARPENTER TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Aplicaciones Militares es evidente a través of su papel como líder en el suministro de materiales...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de Aplicaciones Militares es evidente a través de su papel como líder en el suministro de materiales de aleaciones especiales de alto rendimiento y soluciones de procesos para aplicaciones críticas en los mercados aeroespacial y de defensa. Esto se ve reforz...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEV" data-company="GE VERNOVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/GEV" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GEV</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE VERNOVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GEV participa en proyectos de HVDC de líneas de transmisión largas. La empresa proporciona equipos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de GEV con el tema de Infraestructura de Servicios Públicos es evidente a través de sus inversiones en infraestructura de red, impulsadas por la electrificación acelerada. La empresa proporciona equipos de estabilización de red, productos de aparamenta y participa en proyectos de HVDC ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Tecnologías Aeroespaciales de Honeywell es un proveedor clave de productos, software...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Tecnologías Aeroespaciales de Honeywell es un proveedor clave de productos, software y servicios para la industria de las aerolíneas, al servicio de los fabricantes de equipos originales y los operadores de aeronaves. La compañía ha visto un crecimiento significativo en las ventas de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell mejorando sus capacidades en metanol sostenible, combustible de aviación, hidrógeno and...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Honeywell en Energía Limpia se demuestra a través de la adquisición del negocio de Tecnologías de Catalizadores de Johnson Matthey, mejorando sus capacidades en metanol sostenible, combustible de aviación sostenible, hidrógeno y amoníaco. Esta adquisición complementa el segmento ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tecnologías Aeroespaciales de Honeywell demuestra su participación en el tema de Tecnología de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Tecnologías Aeroespaciales de Honeywell demuestra su participación en el tema de Tecnología de Defensa a través de su papel como proveedor global de productos, software y servicios para aeronaves, atendiendo a fabricantes de equipos originales y contratistas de defensa y espaciales. E...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell emplea activamente estrategias de mitigación, que incluyen acciones de precios,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Honeywell en Soluciones de Cadena de Suministro es evidente a través de varias iniciativas. La compañía se enfoca en esfuerzos de transformación de la cadena de suministro, como lo destacó el Presidente de Aeroespacial, lo que apoya su perfil de crecimiento. Honeywell emplea acti...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HWM" data-company="HOWMET AEROSPACE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/HWM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HWM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HOWMET AEROSPACE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Howmet participa en el tema de Productos Industriales a nivel mundial. La compañía ha experimentado...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Howmet en el tema de Productos Industriales es evidente a través de la aplicación de sus productos multimateriales, que incluyen níquel, titanio, aluminio y cobalto, en mercados industriales a nivel mundial. La compañía ha experimentado un crecimiento en las ventas y un aumento d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de RTX con el tema de Materiales Aeroespaciales es evidente a través de varios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de RTX con el tema de Materiales Aeroespaciales es evidente a través de varios impactos operativos y financieros. La empresa enfrentó interrupciones en la cadena de suministro que afectaron la adquisición de materias primas, incluido el titanio, lo que generó mayores costos. Específica...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de RTX en el tema of Ciberseguridad es limitada, principalmente debido a la venta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de RTX en el tema de Ciberseguridad es limitada, principalmente debido a la venta de su negocio de Ciberseguridad, Inteligencia y Servicios (CIS) dentro del segmento de Raytheon, que se completó en el primer trimestre de 2024. Esta desinversión afectó significativamente las ventas n...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SARO" data-company="STANDARDAERO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SARO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SARO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STANDARDAERO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">StandardAero fabrica y repara componentes para motores aeroespaciales como LEAP, CFM56 y CF34....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de StandardAero en la Fabricación Aeroespacial es evidente a través de su cartera diversificada que abarca más de 40 plataformas de motores en aviación comercial, aviación de negocios, militar y helicópteros. El enfoque de la empresa incluye la aceleración del programa LEAP, la expa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SARO" data-company="STANDARDAERO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SARO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SARO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STANDARDAERO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">StandardAero ofrece servicios de mantenimiento, reparación, actualización y relacionados para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de StandardAero con los Sistemas de Aviación se refleja en la provisión de servicios de posventa para motores de turbina de gas de aeronaves de ala fija y rotatoria, unidades de potencia auxiliar y fuselajes de aviación comercial y helicópteros. La empresa ofrece servicios de mantenimi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKR" data-company="BAKER HUGHES CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/BKR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BKR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BAKER HUGHES CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Baker Hughes está invirtiendo activamente en nuevas soluciones energéticas. El empresa refleja un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Baker Hughes con las Inversiones Energéticas es evidente a través de sus transacciones estratégicas destinadas a la optimización de la cartera y la mejora del valor para el accionista a largo plazo. La empresa está invirtiendo activamente en nuevas soluciones energéticas, incluyendo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKR" data-company="BAKER HUGHES CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/BKR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BKR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BAKER HUGHES CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa vende productos y servicios principalmente en los mercados mundiales de petróleo y gas....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con la Producción de Hidrocarburos es evidente, ya que vende productos y servicios principalmente en los mercados mundiales de petróleo y gas en los segmentos de exploración y producción (upstream), transporte y almacenamiento (midstream) y refinación y distribución (down...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKR" data-company="BAKER HUGHES CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/BKR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BKR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BAKER HUGHES CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Baker Hughes se identifica como una empresa de tecnología energética. La cartera de Baker Hughes...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Baker Hughes se identifica como una empresa de tecnología energética que mantiene una cartera amplia y diversificada de tecnologías y servicios en toda la cadena de valor energética e industrial. La empresa vende productos y servicios principalmente en los mercados globales de petróleo y gas, dentro...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKR" data-company="BAKER HUGHES CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/BKR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BKR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BAKER HUGHES CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Baker Hughes apoya proyectos en la producción de gas natural en tierra and en alta mar. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Baker Hughes en la Producción de Gas Natural es evidente a través de sus productos y servicios en los mercados globales de petróleo y gas, donde apoya proyectos en la producción de gas natural en tierra y en alta mar. El optimismo de la compañía para el desarrollo del gas natural...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKR" data-company="BAKER HUGHES CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/BKR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BKR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BAKER HUGHES CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Equinor demuestra su participación en la industria del petróleo en alta mar a través of varios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su participación en la industria del petróleo en alta mar a través de varios contratos y servicios. Obtuvieron contratos para optimizar la producción, el rendimiento y la confiabilidad para los principales operadores en alta mar en Angola y la Costa del Golfo de EE. UU., aprovec...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAT" data-company="CATERPILLAR INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CAT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CAT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CATERPILLAR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Caterpillar establece una participación en el transporte de mercancías por ferrocarril. Se espera...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Caterpillar en el transporte de mercancías por ferrocarril es evidente a través de su segmento de Transporte, donde se espera que el crecimiento previsto tanto en 2024 como en 2025 sea impulsado por los servicios ferroviarios. El segmento de Energía y Transporte apoya a clientes ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENR" data-company="ENERGIZER HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/ENR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ENR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENERGIZER HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio automotriz de la empresa experimenta un crecimiento, impulsado by factores como las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su participación en el tema de piezas de automóviles a través de su categoría de productos de rendimiento, que incluye aditivos para combustible y aceite de marca STP, fluidos funcionales y otros productos químicos dirigidos a entusiastas de los automóviles y al mundo de las car...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ENR" data-company="ENERGIZER HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/ENR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ENR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ENERGIZER HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Energizer es un actor importante en el sector de productos de consumo, principalmente a través of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Energizer es un actor importante en el sector de productos de consumo, principalmente a través de su fabricación, comercialización y distribución de baterías para el hogar, baterías especiales y productos de iluminación. El enfoque de la compañía se extiende a los productos de cuidado automotriz, so...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell is un proveedor global líder de productos, software y servicios para aeronaves. Este...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El fuerte compromiso de Honeywell con los Sistemas de Aviación es evidente a través de su segmento de Tecnologías Aeroespaciales, un proveedor global líder de productos, software y servicios para aeronaves. Este segmento atiende a diversos mercados finales, incluyendo transporte aéreo, aviación regi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell ofrece soluciones de gestión de carbono a diversos sectores. Estas solucions se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Honeywell con el tema de la Captura de Carbono es evidente a través de su negocio UOP, que ofrece soluciones de gestión de carbono a diversos sectores. Estas soluciones se proporcionan a través de tecnología de procesos, catalizadores, adsorbentes, equipos y servicios posventa. Si b...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell demuestra su compromiso con la fabricación de productos químicos. La compra del negocio...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Honeywell demuestra su compromiso con la fabricación de productos químicos a través de adquisiciones estratégicas y segmentos de negocio dedicados. La compra del negocio de Tecnologías de Catalizadores de Johnson Matthey mejora las capacidades de Honeywell en metanol sostenible, combustible de aviac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Tecnologías Aeroespaciales de Honeywell suministra productos, software y servicios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Tecnologías Aeroespaciales de Honeywell suministra productos, software y servicios para aeronaves a fabricantes de equipos originales y contratistas de defensa y espacio, lo que incluye sistemas de radar y vigilancia. Estos sistemas, junto con instrumentos avanzados, se venden a contr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Automatización de Edificios de Honeywell desempeña un papel importante en la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Automatización de Edificios de Honeywell desempeña un papel importante en la eficiencia energética al proporcionar productos, software, soluciones y tecnologías que permiten a los propietarios de edificios garantizar la eficiencia energética de sus instalaciones. Esto incluye sensores...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de negocio de Soluciones de Energía y Sostenibilidad de Honeywell proporciona...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Honeywell en la transición energética es evidente a través de su alineación con tres poderosas megatendencias, incluida la automatización y el futuro de la aviación. El segmento de negocio de Soluciones de Energía y Sostenibilidad de la empresa proporciona tecnología, procesamiento, li...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell Forge ofrecen operaciones inteligentes, sostenibles y seguras. Esta plataforma habilita...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Honeywell en la Digitalización Industrial es evidente en sus ofertas de Automatización Industrial, que ofrecen operaciones inteligentes, sostenibles y seguras a través de la plataforma IoT Honeywell Forge. Esta plataforma habilita digitalmente productos y servicios utilizando alg...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell es una oferta de Automatización Industrial. sus ofertas incluyen tecnologías de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Honeywell en el tema de Sensores Industriales es evidente a través de sus ofertas de Automatización Industrial, que incluyen tecnologías de detección con una variedad de sensores y servicios diseñados a medida. Estos sensores también son integrales para los productos y servicios ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell Forge es una plataforma líder de IoT industrial. Honeywell Forge sustenta el enfoque de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Honeywell en Internet de las Cosas es evidente en su plataforma Honeywell Forge, que sustenta el enfoque de la empresa en la automatización, el futuro de la aviación y la transición energética. Las ofertas de Automatización Industrial están habilitadas digitalmente a través de Ho...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell integra algoritmos propietarios de aprendizaje automático e inteligencia artificial. Esta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Honeywell integra algoritmos propietarios de aprendizaje automático e inteligencia artificial en sus productos y proyectos, habilitándolos digitalmente a través de la plataforma IoT industrial Honeywell Forge. Esta integración se extiende a sus ofertas de Automatización Industrial, destacando el apr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HON" data-company="HONEYWELL INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HON" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HON</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HONEYWELL INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Honeywell proporciona materiales para semiconductores de vanguardia. Este negocio también ofrece...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Honeywell en el tema de Materiales para Semiconductores es evidente a través de su negocio de Materiales Avanzados, que proporciona a los clientes materiales de semiconductores de vanguardia. Este negocio también ofrece otras soluciones de materiales avanzados, incluidas las fibras Sol...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HWM" data-company="HOWMET AEROSPACE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HWM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HWM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HOWMET AEROSPACE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Howmet es líder mundial en ingeniería y fabricación de metales ligeros. Produce productos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Howmet en el tema de Materiales Aeroespaciales es evidente a través de su posición como líder mundial en ingeniería y fabricación de metales ligeros, donde produce productos innovadores de materiales múltiples, incluidos níquel, titanio, aluminio y cobalto, para el mercado aeroes...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Pratt & Whitney de RTX reconoce el impacto of las regulaciones gubernamentales y de la industria...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de RTX en la seguridad de la aviación es evidente a través de varios factores. La compañía reconoce el impacto de las regulaciones gubernamentales y de la industria sobre la seguridad y el rendimiento en sus negocios, así como las restricciones sobre el ruido y las emisiones de los ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NEW: Collins se enfoca en modernizar los sistemas de la FAA con radares y automatización. Esto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de RTX en Aviation Systems es evidente a través de su negocio de aviónica Collins, que se enfoca en modernizar los sistemas de la FAA con radares y automatización en el control del tráfico aéreo. Esto incluye una reserva significativa de $470 millones para el mantenimiento del siste...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RTX es part of aplicaciones militares para sistemas de radar como GhostEye y AN/SPY-6(V) Esto se ve...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de RTX en electrónica de defensa es evidente a través de su desarrollo e integración de sistemas electrónicos para aplicaciones militares, incluidos sistemas de radar como GhostEye y AN/SPY-6(V). Estos sistemas están diseñados para funciones críticas como el rastreo de drones, misil...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RTX opera como contratista principal o subcontratista para una amplia cartera de programas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El fuerte compromiso de RTX con las aplicaciones militares es evidente a través de su negocio de defensa, que opera como contratista principal o subcontratista para una amplia cartera de programas de defensa que sirven a clientes gubernamentales nacionales e internacionales. Esto se ve respaldado ad...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WWD" data-company="WOODWARD INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/WWD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WWD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WOODWARD INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Las ventas de camiones de gas natural para carretera en China experimentaron un crecimiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de la empresa en el transporte industrial es evidente a través de sus mercados clave, que incluyen camiones de gas natural comprimido y licuado en Asia, junto con los sectores marítimos de minería, comercial y de defensa. Si bien las ventas de camiones de gas natural para carretera en Chi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAT" data-company="CATERPILLAR INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/CAT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CAT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CATERPILLAR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Caterpillar apoya a los clientes que utilizan maquinaria en la construcción. La compañía anticipa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Caterpillar con el tema de Infraestructura Civil es evidente a través de su segmento de Industrias de la Construcción, que apoya a los clientes que utilizan maquinaria en la construcción de infraestructuras y edificios. La compañía anticipa proyectos de infraestructura saludables re...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEV" data-company="GE VERNOVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/GEV" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GEV</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE VERNOVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Vernova demuestra un compromiso con el tema de Tecnología Climática. La empresa participa en la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">GE Vernova demuestra un compromiso con el tema de Tecnología Climática a través de su enfoque en permitir la electrificación y la descarbonización, así como en innovar e invertir en tecnologías para reducir la intensidad de carbono de las redes eléctricas. El compromiso de la empresa se evidencia aú...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEV" data-company="GE VERNOVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/GEV" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GEV</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE VERNOVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Vernova desempeña un papel importante en el sector de los servicios eléctricos. El segmento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">GE Vernova desempeña un papel importante en el sector de los servicios eléctricos, centrándose en la electrificación y la descarbonización a través de sus productos y servicios que generan, transfieren, orquestan, convierten y almacenan electricidad. El enfoque de la empresa en la energía y la elect...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEV" data-company="GE VERNOVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/GEV" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GEV</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE VERNOVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Vernova ofreciendo una amplia gama de productos y servicios que generan, transfieren, orquestan,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La posición de GE Vernova como líder mundial en la industria de la energía eléctrica resalta su fuerte conexión con el sector energético, ofreciendo una amplia gama de productos y servicios que generan, transfieren, orquestan, convierten y almacenan electricidad. La empresa diseña, fabrica, entrega ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEV" data-company="GE VERNOVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/GEV" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GEV</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE VERNOVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Vernova diseña, fabrica, entrega y da servicio a tecnologías para un sistema de energía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de GE Vernova con la transición energética es evidente en su enfoque en la innovación e inversión en tecnologías que reducen la intensidad de carbono de las redes eléctricas, al tiempo que garantizan la fiabilidad y la asequibilidad. La estructura especialmente diseñada de la compañía ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEV" data-company="GE VERNOVA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/GEV" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GEV</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE VERNOVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">GE Vernova se enfoca en tecnologías de generación eólica. La empresa también señala una fuerte...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de GE Vernova con el tema de Equipos de Energía Renovable es evidente a través de su segmento de Energía Eólica, que se enfoca en tecnologías de generación eólica, incluidas turbinas eólicas y palas terrestres y marinas. Además, el segmento de Electrificación de la empresa aporta tecno...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RTX" data-company="RTX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/RTX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RTX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RTX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">LTAMDS mejora la protección contra amenazas, incluidos los sistemas de aeronaves no tripuladas. Los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de RTX en la industria de drones de defensa se demuestra a través de sus programas y sistemas de Sistemas de Aeronaves No Tripuladas (C-UAS), como el Coyote counter-UAS, que se considera una prioridad clave y una solución probada en batalla. Además, LTAMDS mejora la protección contr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GEV" data-company="GE VERNOVA INC">
+            <td style="color: #666; font-size: 0.9rem;"></td>
+            <td><a href="/profile/GEV" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">GEV</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GE VERNOVA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">'name': 'gev-Q125-10-Q' 'type': 'text/plain' 'url': 'http://www.gev.com/gev/Q125/10/Q'</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">{'name': 'gev-Q125-10-Q'</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

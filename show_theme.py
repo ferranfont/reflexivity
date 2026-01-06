@@ -24,14 +24,67 @@ DATA_DIR = BASE_DIR / "data" / "all_themes"
 def find_theme_csv(theme_name):
     if not DATA_DIR.exists():
         return None
+        
+    # Pre-check: Look up in industry_summary_offline.csv
+    summary_path = BASE_DIR / "data" / "industry_summary_offline.csv"
+    if summary_path.exists():
+        try:
+            # Optimize: read only needed columns if large, but file is small
+            df_sum = pd.read_csv(summary_path)
+            # strict case-insensitive match
+            match = df_sum[df_sum['Theme'].astype(str).str.lower() == theme_name.lower()]
+            if not match.empty:
+                fname = match.iloc[0]['Filename']
+                if isinstance(fname, str) and fname.strip():
+                    file_path = DATA_DIR / fname.strip()
+                    if file_path.exists():
+                        return file_path
+        except Exception:
+            pass # Fallback to fuzzy search
+
     target = theme_name.lower().replace(' ', '_')
     target_and = target.replace('&', 'and')
+
+    # First pass: exact matches
     for f in DATA_DIR.iterdir():
         if f.suffix.lower() == '.csv':
             name = f.stem.lower()
             if name == target or name.replace('-', '_') == target or name == target_and or name.replace('-', '_') == target_and:
                 return f
-    # fallback: search CSVs for a theme column match
+
+    # Second pass: fuzzy matching using similarity score
+    # Handle cases like "biologic" vs "biological"
+    best_match = None
+    best_score = 0
+
+    for f in DATA_DIR.iterdir():
+        if f.suffix.lower() == '.csv':
+            name = f.stem.lower().replace('-', '_')
+
+            # Simple similarity: ratio of matching characters in order
+            # Count how many characters from target appear in name in the same order
+            target_parts = target.split('_')
+            name_parts = name.split('_')
+
+            # Check if all parts of target are in name (allowing for longer versions)
+            matches = 0
+            for tp in target_parts:
+                for np in name_parts:
+                    if tp in np or np in tp:  # "biologic" in "biological"
+                        if len(tp) >= 3:  # Avoid short word false matches
+                            matches += 1
+                        break
+
+            score = matches / len(target_parts) if target_parts else 0
+
+            if score > best_score and score >= 0.8:  # 80% match threshold
+                best_score = score
+                best_match = f
+
+    if best_match:
+        return best_match
+
+    # Third pass: search CSVs for a theme column match
     for f in DATA_DIR.glob('*.csv'):
         try:
             df = pd.read_csv(f, nrows=5)
@@ -150,9 +203,38 @@ def generate_theme_html(theme_name):
         color: var(--header-text);
         padding: 25px 40px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
+    .header-content { flex: 1; }
     .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
     .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
     
     .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
     
@@ -283,8 +365,8 @@ def generate_theme_html(theme_name):
             <span class="header-text">Theme Chart</span>
              <a href="{chart_filename}" target="_blank" class="btn-view-chart">View Full Chart ↗</a>
         </div>
-        <div class="box-body" style="height: 500px; overflow:hidden;">
-            <iframe src="{chart_filename}" style="width:100%; height:100%; border:none; overflow:hidden;"></iframe>
+        <div class="box-body" style="height: 600px; overflow:hidden;">
+            <iframe src="{chart_filename}" style="width:100%; height:100%; border:none; display:block;"></iframe>
         </div>
     </div>
         """
@@ -302,8 +384,16 @@ def generate_theme_html(theme_name):
 
   <!-- Header -->
   <div class="main-header">
-    <div class="main-title">{theme_name}</div>
-    <div class="sub-title">Investment Theme Detail - {industry_name} Industry</div>
+    <div class="header-content">
+      <div class="main-title">{theme_name}</div>
+      <div class="sub-title">Investment Theme Detail - {industry_name} Industry</div>
+    </div>
+    <a href="main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
   </div>
 
   <div class="container">
@@ -422,7 +512,7 @@ def generate_theme_html(theme_name):
         html += f"""
         <tr class="evidence-item" data-symbol="{symbol}" data-company="{company_name}">
             <td style="color: #666; font-size: 0.9rem;">{date_str}</td>
-            <td><span class="symbol-text action-link" style="font-size:1rem;">{symbol}</span></td>
+            <td><a href="/profile/{symbol}" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">{symbol}</a></td>
             <td><div style="color: #444; font-size: 0.9rem;">{company_name}</div></td>
             <td>
                 <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">{head}</div>
@@ -464,7 +554,7 @@ def generate_theme_html(theme_name):
     with open(html_path, 'w', encoding='utf-8') as f:
         f.write(html)
 
-    print(f"✅ Theme page written to: {html_path}")
+    print(f"Theme page written to: {html_path}")
     return html_path
 
 

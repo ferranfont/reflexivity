@@ -1,0 +1,563 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Synthetic Biology - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Synthetic Biology</div>
+      <div class="sub-title">Investment Theme Detail - Technology Industry</div>
+    </div>
+    <a href="/main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Synthetic Biology &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Technology &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 5
+    </div>
+
+    
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">5</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TWST</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TWIST BIOSCIENCE CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Participa en actividades relevantes para la industria agroindustrial....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TWST" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CRSP</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CRISPR THERAPEUTICS AG</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha tecnologías avanzadas de edición genética para desarrollar nuevas terapias biológicas, particularmente en el ámbito de la medicina basada en...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CRSP" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BAS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BASF SE</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Participa en la producción e innovación de productos químicos agrícolas, ofreciendo una cartera integral de productos de protección de cultivos que re...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BAS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">EVK</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">EVONIK INDUSTRIES AG</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye al tema de Biología Sintética....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/EVK" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">GIVN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">GIVAUDAN-REG</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Es un desarrollador y proveedor líder de ingredientes alimentarios, contribuyendo al sabor, la textura y los perfiles nutricionales de productos de al...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/GIVN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">21</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="TWST" data-company="TWIST BIOSCIENCE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TWST</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TWIST BIOSCIENCE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Twist Bioscience fabrica ARN sintético y proteínas de anticuerpos. La empresa también fabrica...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Twist Bioscience con el tema de los Medicamentos Biológicos es evidente a través de la fabricación de ARN sintético y proteínas de anticuerpos, así como de sus asociaciones de descubrimiento para medicamentos biológicos. La empresa también fabrica bibliotecas de anticuerpos para el ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TWST" data-company="TWIST BIOSCIENCE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TWST</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TWIST BIOSCIENCE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Twist Bioscience con Biologics Solutions es evidente a través of sus servicios biofarmacéuticos....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Twist Bioscience con Biologics Solutions es evidente a través de sus servicios biofarmacéuticos, que incluyen el descubrimiento, la optimización y el desarrollo de anticuerpos. Esto se apoya en la contratación de representantes de desarrollo de negocios y ventas dedicados a estas...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TWST" data-company="TWIST BIOSCIENCE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TWST</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TWIST BIOSCIENCE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Twist Bioscience genera $5.7 millones en ingresos, lo que representa un crecimiento interanual del...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Twist Bioscience con la Fabricación Biofarmacéutica es evidente a través de sus servicios biofarmacéuticos, que generaron $5.7 millones en ingresos, lo que representa un crecimiento interanual del 21%, y sus pedidos crecientes que alcanzan los $6.4 millones. El enfoque de la empresa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TWST" data-company="TWIST BIOSCIENCE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TWST</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TWIST BIOSCIENCE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Twist Bioscience se extiende a las asociaciones de descubrimiento para medicamentos biológicos. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Twist Bioscience en el Desarrollo de Fármacos es evidente a través de su fabricación de bibliotecas de anticuerpos y servicios biofarmacéuticos que apoyan el descubrimiento, la optimización y el desarrollo de anticuerpos. El enfoque de la empresa se extiende a las asociaciones de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TWST" data-company="TWIST BIOSCIENCE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TWST</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TWIST BIOSCIENCE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Twist Bioscience se identifica como una empresa líder en biología sintética. La plataforma...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Twist Bioscience se identifica como una empresa líder en biología sintética con una plataforma disruptiva de síntesis de ADN diseñada para industrializar la ingeniería de la biología. La plataforma central de la empresa aprovecha tecnología patentada para fabricar ADN sintético escribiéndolo en un c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Empresa de CRISPR/Cas9 trabaja con Tratamientos Biotecnológicos. Esto se ve subrayado por su misión...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con los Tratamientos Biotecnológicos es evidente a través de su enfoque en el desarrollo de terapias basadas en CRISPR y medicamentos basados en genes dirigidos al tratamiento de enfermedades genéticas y la ingeniería de terapias celulares avanzadas. Esto se ve subrayado ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa está activamente comprometida en abordar las enfermedades cardiovasculares. Estos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa está activamente comprometida en abordar las enfermedades cardiovasculares a través de sus programas in vivo, en particular CTX310 y CTX320, que utilizan una plataforma patentada de LNP para interrumpir ANGPTL3 y Lp(a), respectivamente. Estos programas se están investigando actualmente en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CRISPR Therapeutics AG es una empresa de medicamentos transformadores basados en genes utilizando...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de CRISPR Therapeutics AG con la tecnología CRISPR es evidente en su propio nombre y en su misión central de crear medicamentos transformadores basados en genes utilizando la tecnología CRISPR/Cas9. El enfoque principal de la empresa es el desarrollo de terapias basadas en CRISPR, avan...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque principal de la empresa es la edición génica, específicamente a través of terapias...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque principal de la empresa es la edición génica, específicamente a través de terapias basadas en CRISPR y la tecnología CRISPR/Cas9, que consideran revolucionaria para alterar con precisión las secuencias de ADN genómico. Este enfoque es evidente en su misión de crear medicamentos transforma...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Medicamentos Genéticos es una empresa líder en edición genética centrada en el desarrollo de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de la empresa en Medicamentos Genéticos es evidente en su misión principal de crear medicamentos transformadores basados en genes para enfermedades humanas graves. Es una empresa líder en edición genética centrada en el desarrollo de terapias basadas en CRISPR, incluido el uso de la tecno...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de la empresa en la terapia génica es evidente en su misión de crear medicamentos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de la empresa en la terapia génica es evidente en su misión de crear medicamentos transformadores basados en genes, utilizando la tecnología CRISPR/Cas9 para interrumpir, eliminar, corregir e insertar genes para tratar enfermedades genéticas e ingeniar terapias celulares avanzadas. Este c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de la empresa en los medicamentos oncológicos es evidente. Estos programas incluyen...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de la empresa en los medicamentos oncológicos es evidente a través del avance de varios programas de terapia celular dirigidos a esta área. Estos programas incluyen terapias CAR T alogénicas de próxima generación como CTX112 y CTX131, y CTX131 se está desarrollando específicamente tanto p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TWST" data-company="TWIST BIOSCIENCE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TWST</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TWIST BIOSCIENCE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Twist Bioscience tiene exposición a la temática de Agribusiness a través of sus productos y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Twist Bioscience tiene exposición a la temática de Agribusiness a través de sus productos y servicios dirigidos a la industria alimentaria y agrícola. Los productos de la compañía están diseñados para mejorar la salud y la sostenibilidad en diversos sectores, incluyendo la alimentación y la agricult...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CRISPR Therapeutics está desarrollando terapias basadas en CRISPR. Su compromiso se ve subrayado...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de CRISPR Therapeutics en la creación de medicamentos transformadores basados en genes los posiciona dentro de la industria de medicamentos biológicos, particularmente a través de su desarrollo de terapias basadas en CRISPR. Su compromiso se ve subrayado por la aprobación de CASGEVY, una ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra un fuerte compromiso con las asociaciones biofarmacéuticas a través of su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra un fuerte compromiso con las asociaciones biofarmacéuticas a través de su alianza estratégica con Vertex Pharmaceuticals, que condujo al codesarrollo y la comercialización conjunta de CASGEVY para TDT y SCD. Esta colaboración, iniciada en 2015, se centra en tratamientos basados ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El capital de la empresa se asigna principalmente a actividades de investigación y desarrollo. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de la empresa en I+D de Biotecnología es evidente en la dedicación de prácticamente todos sus recursos a estos esfuerzos desde su inicio, abarcando el descubrimiento de fármacos, el desarrollo preclínico y el establecimiento de capacidades de fabricación internas. El capital de la empresa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Empresa está desarrollando CTX112, un programa alogénico de CAR T, para enfermedades autoinmunes....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema de Inmunología es evidente a través del avance de sus programas de terapia celular dirigidos tanto a indicaciones oncológicas como autoinmunes. En particular, la empresa está desarrollando CTX112, un programa alogénico de CAR T, para enfermedades autoinmunes c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía tiene como objetivo aprovechar sus capacidades de edición genética. Esto incluye...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la compañía en Medicina Regenerativa está impulsada principalmente por el desarrollo de terapias derivadas de células madre editadas genéticamente para tratar la Diabetes Tipo 1 (DT1). Esto incluye esfuerzos para crear un candidato a producto de reemplazo de células beta, que pot...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de CRISPR Therapeutics en el desarrollo de terapias basadas en CRISpr. La compañía tiene...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de CRISPR Therapeutics en el desarrollo de terapias basadas en CRISPR, incluido el uso de la tecnología CRISPR/Cas9 para la edición genética, los posiciona como proveedores de soluciones biológicas. La compañía tiene una cartera de programas terapéuticos en hemoglobinopatías, CAR T, enfoq...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía demuestra su enfoque en la Investigación Oncológica a través de múltiples programas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La compañía demuestra su enfoque en la Investigación Oncológica a través del avance de múltiples programas de terapia celular dirigidos a indicaciones oncológicas y autoinmunes, incluidos programas CAR T alogénicos de próxima generación como CTX112 y CTX131. Además, la compañía está avanzando activa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CRISPR Therapeutics se dedica a crear medicamentos transformadores basados en genes. Este...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CRISPR Therapeutics se dedica a crear medicamentos transformadores basados en genes, en particular terapias basadas en CRISPR, para enfermedades humanas graves. Este compromiso se refleja en el desarrollo de terapias basadas en CRISPR, su medicamento aprobado CASGEVY y sus asociaciones estratégicas ...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

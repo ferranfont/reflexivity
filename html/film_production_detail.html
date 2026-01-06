@@ -1,0 +1,1296 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Film Production - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Film Production</div>
+      <div class="sub-title">Investment Theme Detail - Entertainment and Media Industry</div>
+    </div>
+    <a href="main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Film Production &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Entertainment and Media &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 11
+    </div>
+
+    
+    <!-- Theme Chart Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Theme Chart</span>
+             <a href="equity_film_production.html" target="_blank" class="btn-view-chart">View Full Chart ↗</a>
+        </div>
+        <div class="box-body" style="height: 600px; overflow:hidden;">
+            <iframe src="equity_film_production.html" style="width:100%; height:100%; border:none; display:block;"></iframe>
+        </div>
+    </div>
+        
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">11</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DIS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">WALT DISNEY CO/THE</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Su modelo de negocio está fundamentalmente ligado a la comprensión, influencia y adaptación a los comportamientos predominantes de los consumidores....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DIS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">WBD</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">WARNER BROS DISCOVERY INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla, produce y distribuye una vasta cartera de películas, series de televisión y programación fáctica a nivel mundial, lo que la convierte en u...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/WBD" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CMCSA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">COMCAST CORP-CLASS A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona soporte para la tecnología 5G....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CMCSA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">NFLX</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/nflx-Q125-10-Q.html'}</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/nflx-Q225-10-Q.html'}...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/NFLX" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">PSKY</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">PARAMOUNT SKYDANCE CL B</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se enfoca en la creación y distribución de una amplia gama de contenido para plataformas digitales, abarcando servicios de streaming y entretenimiento...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/PSKY" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">9602</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TOHO CO LTD</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Es un contribuyente clave para la industria de producción cinematográfica....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/9602" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">9601</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SHOCHIKU CO LTD</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Produce y distribuye una amplia gama de películas, contribuyendo a la industria del cine japonés....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/9601" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">HAS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">HASBRO INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y comercializa una cartera diversa de marcas de juguetes, juegos y entretenimiento reconocidas a nivel mundial, contribuyendo directamente ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/HAS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">MAT</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">MATTEL INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla, fabrica y comercializa una diversa cartera de marcas icónicas de juguetes y productos de consumo, contribuyendo significativamente al merc...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/MAT" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">IMAX</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">IMAX CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Integra tecnología de audio propietaria avanzada como componente central de su experiencia cinematográfica inmersiva, mejorando la calidad y la entreg...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/IMAX" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">11</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DLB</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">DOLBY LABORATORIES INC-CL A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y licencia tecnologías de audio avanzadas que mejoran la calidad del sonido y las experiencias inmersivas en una amplia gama de plataformas...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DLB" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">83</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque principal de Dolby es mejorar las experiencias de entretenimiento. Las tecnologías de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque principal de Dolby es mejorar las experiencias de entretenimiento a través de sus tecnologías de audio y video. Las tecnologías de la empresa se integran en diversas formas de entretenimiento, incluidas películas, televisión, música, deportes en vivo y eGaming, y son utilizadas por creado...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Disney tiene negocio de Redes Lineales, que genera ingresos por tarifas de afiliación y publicidad....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Disney con el tema de Redes de Medios es evidente a través de su negocio de Redes Lineales, que genera ingresos por tarifas de afiliación y publicidad. La empresa discute los ingresos y el ingreso operativo de las Redes Lineales, incluidos los costos de programación y producción par...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DD+ permite la experiencia de audio Dolby en teléfonos inteligentes. Dolby promueve activamente la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Dolby con el tema de los teléfonos inteligentes es evidente a través de la integración de sus tecnologías de audio y video en los principales ecosistemas móviles. DD+ permite la experiencia de audio Dolby en teléfonos inteligentes, y la empresa promueve activamente la adopción de su...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Disney asigna fondos sustanciales a contenido producido. Esta inversión es crucial para atraer y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Disney en el contenido original es evidente a través de su importante inversión en la producción y licenciamiento de programación de cine y televisión, lo que impulsa los ingresos en sus segmentos de Redes Lineales, Directo al Consumidor y Ventas/Licenciamiento de Contenido. La compañí...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Experiencias de Disney genera ingresos de parques temáticos y resorts. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Experiencias de Disney genera ingresos de parques temáticos y resorts, incluidos los cargos por noches de hotel, las ventas y alquileres de propiedades de clubes vacacionales y las ventas de vacaciones en crucero. El crecimiento en los ingresos de resorts y vacaciones se atribuye a fa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ESPN genera ingresos de diversas fuentes, incluidas tarifas de afiliación, publicidad y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Disney en el entretenimiento deportivo es evidente a través de su segmento de Deportes, particularmente ESPN, que genera ingresos de diversas fuentes, incluidas tarifas de afiliación, publicidad y suscripciones. La empresa se centra en convertir ESPN en una plataforma deportiva d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Disney en Plataformas y Servicios de Streaming es evidente. La compañía está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Disney en Plataformas y Servicios de Streaming es evidente a través de su segmento Directo al Consumidor, que incluye Disney+ y Hulu. La compañía está fortaleciendo sus ofertas de streaming integrando completamente Hulu en Disney+ para crear una experiencia de aplicación unificada y la...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dolby mejorar las experiencias de audio y video en diversos formatos de contenido. Las tecnologías...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Dolby con el tema del entretenimiento digital es evidente a través de su enfoque en mejorar las experiencias de audio y video en diversos formatos de contenido. Las tecnologías de la empresa, como Dolby Atmos y Dolby Vision, son ampliamente adoptadas por los principales servicios de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Disney está invirtiendo más de 30.000 millones de dólares en sus parques temáticos de Florida y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El fuerte compromiso de Disney con la industria de los parques temáticos es evidente a través de sus importantes inversiones y proyectos de expansión. La empresa está invirtiendo más de 30.000 millones de dólares en sus parques temáticos de Florida y California, junto con el desarrollo de un nuevo D...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa colabora con los fabricantes de equipos originales de televisores. Dolby Atmos se está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dolby en la radiodifusión de medios es evidente a través de la amplia adopción de sus tecnologías de audio de marca y licencias de patentes en servicios y dispositivos de radiodifusión, incluyendo televisores y decodificadores. La empresa colabora con los fabricantes de equipos o...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El Disney Adventure será el primero en atracar en Asia. El segmento de Experiencias genera ingresos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Disney con las Operaciones de Cruceros es evidente a través de su continua expansión e inversión en su línea de cruceros. La compañía se está preparando para lanzar dos nuevos barcos, incluido su barco más grande hasta la fecha, el Disney Adventure, que será el primero en atracar en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio principal de Dolby se centra en soluciones de audio, como lo demuestra su enfoque en la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Dolby se centra en soluciones de audio, como lo demuestra su enfoque en la invención e innovación de tecnologías que avanzan la captura, transmisión y reproducción de audio. Tecnologías emblemáticas como Dolby Atmos y códecs de audio de marca como DD+ y Dolby AC-4 son compone...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dolby Atmos y Dolby Vision están disponibles en varios modelos de automóviles. Dolby ha establecido...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Dolby con el tema de la electrónica automotriz es evidente a través de la integración de Dolby Atmos y Dolby Vision en varios modelos de automóviles. La compañía ha establecido alianzas con numerosos fabricantes de equipos originales (OEM) automotrices, incluidos Porsche, Cadillac, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa apoya la producción teatral y televisiva ofreciendo servicios. Dolby colabora with...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dolby en el tema de Servicios de Entretenimiento es evidente a través de su provisión de soluciones de audio, imagen y accesibilidad, junto con hardware y software, principalmente para el cine, pero también para la televisión, la radiodifusión y el entretenimiento en vivo. La emp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dolby genera ingresos de la industria automotriz a través ofrecer Dolby Atmos y Dolby Vision....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Dolby genera ingresos de la industria automotriz a través de la adopción de Dolby Atmos y Dolby Vision en automóviles, con asociaciones con más de 20 OEM. Varios fabricantes de automóviles importantes, incluidos Porsche y Cadillac, están integrando Dolby Atmos en sus modelos de vehículos, y Volvo, X...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa licencia su marca y patentes a aproximadamente 1.000 fabricantes. Dolby Atmos y Dolby...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dolby en el tema de la Electrónica de Consumo es evidente a través de la concesión de licencias de su tecnología de audio y video a fabricantes de electrónica, con una parte significativa de sus ingresos proveniente de este sector. Las tecnologías de Dolby son componentes crítico...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los productos de consumo son una fuente de ingresos constante para Disney. El éxito de franquicias...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Los productos de consumo son una fuente de ingresos constante para Disney, particularmente dentro del segmento de Experiencias, que incluye las regalías por licenciar propiedad intelectual para su uso en bienes de consumo, mercancía de marca y ventas de alimentos, bebidas y mercancía en parques temá...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dolby trabaja con desarrolladores de tecnología para crear y promover tecnologies estandarizadas....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dolby con soluciones digitales es evidente en la provisión de tecnologías de marca que permiten experiencias de audio y video atractivas, ofreciendo una integración y fiabilidad perfectas en los dispositivos. Las tecnologías de la empresa forman parte de un amplio ecosistema que ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de Disney con los Servicios de Entretenimiento es evidente a través oferta. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Disney con los Servicios de Entretenimiento es evidente a través de su diversa oferta, que incluye plataformas de streaming como Disney+ y Hulu, redes lineales, lanzamientos cinematográficos, parques temáticos, resorts y operaciones de cruceros. El enfoque de la empresa en estos ser...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de Disney con la producción cinematográfica es evidente. La compañía enfatiza el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Disney con la producción cinematográfica es evidente a través de su segmento de Entretenimiento, que genera ingresos a partir de contenido cinematográfico distribuido en redes lineales, plataformas directas al consumidor y ventas/licencias de contenido, incluidos los estrenos en cin...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dolby Vision y Dolby Atmos mejoran el contenido. Las tecnologías de Dolby son integrales para el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dolby en el tema de Plataformas y Servicios de Streaming es evidente a través de su amplia integración con los principales socios de streaming como Netflix, Disney+, Apple TV+, Amazon, Max y Paramount+, donde Dolby Vision y Dolby Atmos mejoran el contenido. Las tecnologías de Dol...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Disney tiene una segmento de Experiencias que genera ingresos por admisiones a parques temáticos,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Disney con el tema de Resorts de Entretenimiento es evidente a través de su segmento de Experiencias, que genera ingresos por admisiones a parques temáticos, resorts, ventas de alimentos y bebidas, y mercancía. Las inversiones de capital se asignan a la expansión de parques temático...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dolby colabora con creadores de música, TV y cine para desarrollar tecnologías destinadas a mejorar...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Dolby en la Producción Cinematográfica es evidente a través de su provisión de soluciones diseñadas como herramientas creativas para cineastas, artistas musicales y mezcladores de sonido, permitiéndoles realizar plenamente sus visiones artísticas. La empresa apoya la producción teat...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El crecimiento de los ingresos Directo al Consumidor demuestra la inversión y la dependencia of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Disney con el tema del Entretenimiento Digital es evidente a través de su segmento Directo al Consumidor, que genera ingresos a partir de tarifas de suscripción y publicidad relacionadas con contenido digital, particularmente a través de plataformas como Disney+ y Hulu. El enfoque d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de Disney en la radiodifusión de medios es evidente a través of sus redes lineales...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Disney en la radiodifusión de medios es evidente a través de sus redes lineales de entretenimiento como ABC y ESPN, junto con las tarifas de afiliación. Esto se demuestra aún más por la adquisición planificada por parte de ESPN de NFL Network y otros activos de medios de la NFL, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dolby Vision y Dolby Atmos integra en ordenadores personales de los principales fabricantes de PC....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dolby en el tema de fabricación de PC es evidente a través de la integración de las tecnologías Dolby Vision y Dolby Atmos en ordenadores personales de los principales fabricantes como Apple, Lenovo, Dell, Samsung, Microsoft y ASUS. Esto se ve reforzado por el lanzamiento del pri...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Las consolas de videojuegos como Sony PlayStation y Microsoft Xbox utilizan la tecnología DD+ de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dolby en el tema de la Tecnología de Videojuegos es evidente a través de la integración de sus tecnologías de audio y video en las principales plataformas de videojuegos. Las consolas de videojuegos como Sony PlayStation y Microsoft Xbox utilizan la tecnología DD+ de Dolby para m...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HAS" data-company="HASBRO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HAS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HAS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HASBRO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hasbro ofrece experiencias de marca en juegos, productos de consumo and entretenimiento. La cartera...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Hasbro está significativamente ligado a los productos de consumo, ya que la empresa ofrece experiencias de marca en juegos, productos de consumo y entretenimiento. La cartera de la empresa incluye marcas icónicas como PLAY-DOH, NERF y TRANSFORMERS, con un enfoque en inversiones estraté...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HAS" data-company="HASBRO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HAS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HAS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HASBRO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hasbro ofreciendo experiencias de marca en juegos, productos de consumo y entretenimiento. Hasbro...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Hasbro con la Industria del Entretenimiento es evidente a través de su misión de entretener y conectar a los fans, ofreciendo experiencias de marca en juegos, productos de consumo y entretenimiento. La empresa crea experiencias de juego a través de diversos medios, incluyendo cine, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HAS" data-company="HASBRO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HAS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HAS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HASBRO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hasbro participa en la producción cinematográfica como part of su oferta de entretenimiento más...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Hasbro participa en la producción cinematográfica como parte de su oferta de entretenimiento más amplia, ofreciendo experiencias de juego a través del cine y la televisión. Si bien la compañía se deshizo de su negocio de cine y televisión eOne, conserva la capacidad de desarrollar y producir entrete...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HAS" data-company="HASBRO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HAS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HAS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HASBRO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hasbro es una empresa líder de juegos y juguetes, con la misión de conectar generaciones a través...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Hasbro con la Industria de los Juegos es evidente a través de su negocio principal como una empresa líder de juegos y juguetes, con la misión de conectar generaciones a través del juego. El segmento de Wizards of the Coast y Juegos Digitales de la compañía es un motor de ingresos cl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HAS" data-company="HASBRO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HAS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HAS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HASBRO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hasbro ofrece juegos físicos y digitales, incluidos los videojuegs. Esto se destaca por su segmento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Hasbro en el tema de Videojuegos es multifacética, ya que la empresa se identifica como una empresa líder en juegos y ofrece experiencias de juego a través de juegos físicos y digitales, incluidos los videojuegos. Esto se destaca por su segmento de Wizards of the Coast y Digital ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MAT" data-company="MATTEL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MAT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MAT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MATTEL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Mattel es una empresa líder mundial de juguetes y entretenimiento familiar. La compañía se enfoca...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Mattel con el tema de Marcas de Consumo es evidente a través de su auto-descripción como una empresa líder mundial de juguetes y entretenimiento familiar, enfatizando su propiedad de un portafolio de marcas icónicas. La compañía se enfoca en crear productos y experiencias innovadora...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MAT" data-company="MATTEL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MAT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MAT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MATTEL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Mattel se centra en los productos de consumo, como lo demuestra su diversa cartera de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Mattel se centra en los productos de consumo, como lo demuestra su diversa cartera de marcas propias y licenciadas organizadas en categorías como Muñecas, Bebés, Niños pequeños y Preescolares, Vehículos, Figuras de acción, Juegos de construcción y Juegos. La compañía se compromete a pr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MAT" data-company="MATTEL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MAT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MAT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MATTEL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Mattel se identifica como una empresa de entretenimiento familiar centrada en expandir su oferta....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Mattel se identifica como una empresa de entretenimiento familiar centrada en expandir su oferta de entretenimiento para aprovechar su propiedad intelectual. Esto se destaca por la formación de Mattel Studios, que consolida las unidades de cine y televisión de la empresa. Mattel Studios tiene como o...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NFLX" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/nflx-Q125-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/NFLX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NFLX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/nflx-Q125-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El modelo de negocio principal de Netflix gira en torno al entretenimiento digital. Netflix ofrece...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El modelo de negocio principal de Netflix gira en torno al entretenimiento digital, como lo demuestra el hecho de que la empresa genera ingresos principalmente a través de tarifas de membresía mensuales por contenido de streaming. Como uno de los servicios de entretenimiento líderes en el mundo, Net...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NFLX" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/nflx-Q125-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/NFLX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NFLX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/nflx-Q125-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Netflix ofreciendo series de televisión, películas y juegos en numerosos géneros e idiomas. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Netflix con el tema de Servicios de Entretenimiento es evidente en su modelo de negocio principal, ya que la compañía se identifica como uno de los principales servicios de entretenimiento del mundo, ofreciendo series de televisión, películas y juegos en numerosos géneros e idiomas a ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NFLX" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/nflx-Q125-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/NFLX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NFLX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/nflx-Q125-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Netflix en el contenido original es evidente a través of su inversión significativa....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Netflix en el contenido original es evidente a través de su inversión significativa y continua en contenido global, particularmente en programación original, lo que impacta su liquidez. Esta inversión se destaca por el aumento de la amortización de contenido y una sólida lista de títul...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NFLX" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/nflx-Q125-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/NFLX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NFLX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/nflx-Q125-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio principal de Netflix gira en torno a las plataformas y servicios de streaming. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Netflix gira en torno a las plataformas y servicios de streaming, como lo demuestra su principal fuente de ingresos, las cuotas de membresía mensual por contenido de streaming. La empresa se identifica como un servicio de entretenimiento líder, que ofrece una amplia variedad ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La diversificación mediática de Disney es evidente a través of su operación en diversos segmentos....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La diversificación mediática de Disney es evidente a través de su operación en diversos segmentos, incluyendo Redes Lineales, servicios Directo al Consumidor como Disney+ y Hulu, Venta/Licencia de Contenidos, Deportes y Experiencias. El segmento de Entretenimiento genera ingresos de películas, conte...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Porsche y Cadillac integrando Dolby Atmos en sus modelos de 2026. NIO y Zeekr implementando Dolby...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Dolby con las Pantallas Automotrices es evidente a través de sus colaboraciones e integraciones con los principales fabricantes de automóviles. La empresa enfatiza el sector automotriz como una parte cada vez más importante de su negocio, impulsada por la demanda de experiencias de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CMCSA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CMCSA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast transmite eventos deportivos en vivo en NBC y Peacock, incluidos los Juegos Olímpicos. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Comcast en el entretenimiento deportivo es evidente a través de la transmisión de eventos deportivos en vivo en NBC y Peacock, incluidos los Juegos Olímpicos y el Super Bowl. El compromiso de la empresa se demuestra aún más por sus acuerdos de derechos deportivos, incluidos los d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CMCSA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CMCSA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast enfatiza las inversiones en infraestructura de red para respaldar ofertas de banda ancha de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Comcast en Servicios de Banda Ancha es evidente a través de su enfoque en la conectividad residencial y plataformas, así como en la conectividad de servicios empresariales. La empresa enfatiza las inversiones en infraestructura de red para respaldar ofertas de banda ancha de mayo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CMCSA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CMCSA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast ofrece servicios competitivos, incluidas soluciones empresariales. La empresa se enfoca en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Comcast en el tema de Redes Empresariales es evidente a través de su enfoque en el crecimiento del segmento de Conectividad de Servicios Empresariales, donde ofrece servicios competitivos, incluidas soluciones empresariales. Esto está respaldado además por el aumento de los ingre...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CMCSA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CMCSA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast tiene como objetivo compensar la disminución de la televisión tradicional aumentando los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Comcast con el tema del Entretenimiento Digital es evidente a través de la operación de su segmento de Medios como un negocio combinado de televisión y streaming, con un enfoque en Peacock. La compañía tiene como objetivo compensar la disminución de la televisión tradicional aumenta...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CMCSA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CMCSA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast's 'Contenido y Experiencias' abarca Medios, Estudios and Parques Temáticos. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Comcast con la Industria del Entretenimiento es evidente a través de su negocio de 'Contenido y Experiencias', que abarca Medios, Estudios y Parques Temáticos. La compañía invierte significativamente en contenido premium dentro de sus estudios, destacando exitosos estrenos cinematog...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CMCSA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CMCSA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast's segmento de Estudios genera ingresos por estrenos en cines and licencias de contenido. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Comcast en la producción cinematográfica es evidente a través de su segmento de Estudios, que genera ingresos por estrenos en cines y licencias de contenido. El segmento de Estudios ha producido películas exitosas como *Cómo entrenar a tu dragón* y *Jurassic World: Rebirth*, cont...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CMCSA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CMCSA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast es un negocio combinado de televisión y streaming. La empresa genera ingresos por la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Comcast en la difusión de medios es evidente a través de la operación del segmento de Medios como un negocio combinado de televisión y streaming, que incluye redes de televisión lineal, estaciones de televisión de transmisión local afiliadas a NBC y Telemundo, y redes internacion...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CMCSA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CMCSA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast tiene diversas plataformas de transmisión y digitales, incluidas redes de televisión como...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Comcast en el tema de las Redes de Medios es evidente a través de la operación de diversas plataformas de transmisión y digitales, incluidas redes de televisión como NBC, Telemundo y Sky Sports, así como el servicio de transmisión Peacock. La empresa genera ingresos por la distri...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IMAX" data-company="IMAX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/IMAX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IMAX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">IMAX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IMAX utiliza software propietario, arquitectura de auditorio y equipos especializados. Los sistemas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IMAX en soluciones de audio es evidente en sus experiencias de contenido inmersivo de extremo a extremo, utilizando software propietario, arquitectura de auditorio y equipos especializados. Los sistemas IMAX de la compañía incorporan componentes avanzados de sistemas de sonido, q...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IMAX" data-company="IMAX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/IMAX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IMAX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">IMAX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IMAX opera como una plataforma tecnológica global profundamente integrada. La cartera de contenido...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">IMAX opera como una plataforma tecnológica global profundamente integrada en la industria del entretenimiento, ofreciendo soluciones de extremo a extremo para experiencias de contenido inmersivas. Los principales cineastas y estudios utilizan la tecnología de IMAX, lo que la convierte en una platafo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IMAX" data-company="IMAX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/IMAX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IMAX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">IMAX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IMAX aprovecha su tecnología patentada en la remasterización digital de películas al formato IMAX....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IMAX en la Producción Cinematográfica es evidente a través de su provisión de tecnología y servicios a cineastas y estudios. El proceso de remasterización de películas IMAX de la empresa mejora la fidelidad de imagen y sonido, mientras que su programa IMAX DNA y su programa de cá...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CMCSA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CMCSA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast está ejecutando una estrategia de operar los activos lineales y de streaming de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Comcast en Plataformas y Servicios de Streaming es evidente a través de la operación de Peacock, un componente clave de su segmento de Medios. La empresa está trabajando activamente para aumentar la base de suscriptores e ingresos de Peacock, ofreciendo una variedad de contenido,...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CMCSA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CMCSA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast investió $20,138 millones en its infraestructura de red. No hay mención explícita de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Comcast con el tema de Infraestructura de Telecomunicaciones se demuestra a través de sus inversiones continuas en su red para soportar ofertas de banda ancha de mayor velocidad y para expandir el número de hogares y negocios conectados. Esto se refleja en los ingresos de conectivid...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CMCSA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CMCSA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast está invirtiendo en atracciones, hoteles e infraestructura de parques temáticos existentes...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Comcast con la industria de los parques temáticos es evidente a través de la operación de parques temáticos como negocio principal dentro del segmento de Contenido y Experiencias. La empresa está invirtiendo en atracciones, hoteles e infraestructura de parques temáticos existentes y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CMCSA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CMCSA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast ofreciendo internet gigabit y servicios inalámbricos a una gran cantidad of hogares y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Comcast en los servicios inalámbricos es evidente a través de sus iniciativas estratégicas y su desempeño financiero. La compañía enfatiza los servicios inalámbricos como un área clave de crecimiento, ofreciendo internet gigabit y servicios inalámbricos a una gran cantidad de hogares y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La versión de acción real de Lilo & Stitch está en camino de convertirse en la segunda franquicia...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Disney con las marcas de consumo es evidente a través del éxito de sus franquicias y la gestión estratégica de marcas. La versión de acción real de Lilo & Stitch está en camino de convertirse en la segunda franquicia de productos de consumo más grande de la compañía este año, experi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra un fuerte compromiso con la Creación de Contenidos. La inversión es integral...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra un fuerte compromiso con la Creación de Contenidos, como lo demuestra su importante inversión tanto en contenido producido como en programación licenciada, con gastos que reflejan aproximadamente $23 mil millones. Esta inversión es integral para el segmento de Entretenimiento, q...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DIS" data-company="WALT DISNEY CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/DIS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DIS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WALT DISNEY CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La conexión de Disney with la industria del entretenimiento es evidente. La empresa genera ingresos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Disney con la industria del entretenimiento es evidente a través de su sólida cartera de negocios en crecimiento que generan valor de manera fluida, respaldada por una profunda biblioteca de propiedad intelectual (PI) querida y habilitada con tecnología de vanguardia. La empresa gener...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PSKY" data-company="PARAMOUNT SKYDANCE CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/PSKY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PSKY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PARAMOUNT SKYDANCE CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Paramount Global abarcan entretenimiento cinematográfico, medios de TV and servicios de streaming...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Paramount Global con la Industria del Entretenimiento es significativo, como lo demuestra su enfoque en la entrega de series exitosas, películas taquilleras y deportes en vivo a audiencias de todo el mundo. Las operaciones de la empresa abarcan entretenimiento cinematográfico, medio...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WBD" data-company="WARNER BROS DISCOVERY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/WBD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WBD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER BROS DISCOVERY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Warner Bros. es líder mundial de medios y entretenimiento, creando y distribuyendo una cartera...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Warner Bros. Discovery en la Creación de Contenidos es evidente en su papel como empresa líder mundial de medios y entretenimiento, creando y distribuyendo una cartera diversa de contenidos a través de varias plataformas, incluidas la televisión, el cine, el streaming y los video...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WBD" data-company="WARNER BROS DISCOVERY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/WBD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WBD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER BROS DISCOVERY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Warner Bros. se identifica como una empresa líder mundial de medios y entretenimiento. Discovery...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Warner Bros. Discovery se identifica como una empresa líder mundial de medios y entretenimiento, que crea y distribuye contenido a través de televisión, cine, streaming, videojuegos interactivos, publicaciones, experiencias temáticas y productos de consumo. La empresa enfatiza su compromiso con la n...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WBD" data-company="WARNER BROS DISCOVERY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/WBD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WBD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER BROS DISCOVERY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Warner Bros. se enfoca en la producción y lanzamiento de largometrajes. La estrategia de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Warner Bros. Discovery en la producción cinematográfica es evidente a través de su segmento de Estudios, que se enfoca en la producción y lanzamiento de largometrajes. La estrategia de la compañía involucra una mezcla de éxitos de taquilla basados en propiedad intelectual (IP) y ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WBD" data-company="WARNER BROS DISCOVERY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/WBD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WBD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER BROS DISCOVERY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Warner Bros. Discovery opera como una empresa global de medios y entretenimiento. La compañía crea...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Warner Bros. Discovery opera como una empresa global de medios y entretenimiento con una presencia significativa en la transmisión de medios a través de sus redes lineales globales, que incluyen redes de televisión nacionales e internacionales. La compañía crea y distribuye contenido a través de pla...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WBD" data-company="WARNER BROS DISCOVERY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/WBD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WBD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER BROS DISCOVERY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Warner Bros. Discovery posee y opera numerosas plataformas de transmisión y digitales. El segmento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Warner Bros. Discovery se identifica como una empresa líder mundial de medios y entretenimiento con una cartera integral de contenido distribuido en plataformas de televisión y streaming. Las operaciones de la compañía se clasifican en tres segmentos informables: Streaming, Estudios y Redes Lineales...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WBD" data-company="WARNER BROS DISCOVERY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/WBD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WBD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER BROS DISCOVERY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Warner Bros. Discovery posee activos y propiedad intelectual significativos en deportes. La cartera...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Warner Bros. Discovery en el entretenimiento deportivo es evidente a través de sus diversos activos y canales de distribución. La cartera de la empresa incluye marcas como TNT Sports y Eurosport, y distribuye contenido a través de estas plataformas. Además, Warner Bros. Discovery...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WBD" data-company="WARNER BROS DISCOVERY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/WBD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WBD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER BROS DISCOVERY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Warner Bros. Discovery muestra una fuerte conexión con el tema Plataformas y Servicios de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Warner Bros. Discovery muestra una fuerte conexión con el tema Plataformas y Servicios de Streaming, como lo demuestra el énfasis estratégico de la empresa en su negocio de streaming. El segmento DTC de la empresa consta principalmente de servicios premium de televisión de pago y streaming, con un e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CMCSA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CMCSA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast opera su segmento de Medios como un negocio combinado de televisión y streaming. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Comcast abarcan conectividad y plataformas, contenido y experiencias, incluyendo medios, estudios y parques temáticos. La compañía opera su segmento de Medios como un negocio combinado de televisión y streaming, con esfuerzos centrados en aumentar los suscriptores de pago y los in...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MAT" data-company="MATTEL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/MAT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MAT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MATTEL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Mattel se centra en expandir sus ofertas de entretenimiento para capturar el valor total de su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Mattel se centra en expandir sus ofertas de entretenimiento para capturar el valor total de su propiedad intelectual fuera de los juguetes tradicionales, lo que incluye el crecimiento de marcas franquiciadas y la aceleración de contenidos. Como parte de esta estrategia, la empresa se está expandiend...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WBD" data-company="WARNER BROS DISCOVERY INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/WBD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WBD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER BROS DISCOVERY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Warner Bros. se enfoca en aumentar los suscriptores, los ingresos y el EBITDA de su servicio de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Warner Bros. Discovery con el entretenimiento digital es evidente a través de su creación y distribución de contenido en diversas plataformas, incluyendo televisión, cine, streaming y videojuegos. La compañía opera servicios de streaming directo al consumidor como Max y discovery+, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NFLX" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/nflx-Q125-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/NFLX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NFLX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/nflx-Q125-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Netflix demuestra un fuerte enfoque en la creación of contenido a través of diversas iniciativas....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Netflix demuestra un fuerte enfoque en la creación de contenido a través de diversas iniciativas. La empresa invierte fuertemente en contenido global y original, como se refleja en importantes amortizaciones de contenido y pagos de activos. Netflix produce contenido original en numerosos países, aso...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WBD" data-company="WARNER BROS DISCOVERY INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/WBD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WBD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER BROS DISCOVERY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Warner Bros. Discovery opera como una empresa global de medios y entretenimiento. La combinación de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Warner Bros. Discovery opera como una empresa global de medios y entretenimiento, creando y distribuyendo contenido a través de diversas plataformas, incluyendo televisión, cine, streaming y videojuegos. La combinación de activos de la compañía abarca todo el ecosistema del entretenimiento, proporci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WBD" data-company="WARNER BROS DISCOVERY INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/WBD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WBD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER BROS DISCOVERY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Warner Bros. Games se enfoca en el juego interactivo. Se distribuye contenido a través of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Warner Bros. Discovery con la Industria del Juego es evidente a través de su creación y distribución de contenido en diversas plataformas, incluido el juego interactivo. El segmento de Estudios de la empresa se enfoca en el juego interactivo y distribuye contenido a través de televi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CMCSA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CMCSA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Comcast compromiso con Creación de Contenido es evidente. El segmento de Estudios genera ingresos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Comcast con la Creación de Contenido es evidente a través de sus significativos costos de programación y producción, particularmente dentro de los segmentos de Contenido y Experiencias, que abarcan tanto las divisiones de Medios como de Estudios. El segmento de Estudios genera ingre...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WBD" data-company="WARNER BROS DISCOVERY INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/WBD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WBD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER BROS DISCOVERY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Warner Bros. Discovery en Contenido Original es evidente en su creación y distribución de una...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Warner Bros. Discovery en Contenido Original es evidente en su creación y distribución de una cartera diversa de contenido de marca en plataformas de televisión, cine, streaming y videojuegos. La empresa enfatiza la narración original de alta calidad, ejemplificada por títulos co...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NFLX" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/nflx-Q125-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/NFLX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NFLX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/nflx-Q125-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Netflix está activamente comprometida en la diversificación of medios. La compañía está produciendo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Netflix está activamente comprometida en la diversificación de medios a través de varias iniciativas clave. La compañía está produciendo contenido original en 50 países y explorando diversos formatos de contenido, incluidos eventos en vivo, juegos y podcasts de video, para ampliar su atractivo y lle...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMCSA" data-company="COMCAST CORP-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CMCSA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CMCSA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMCAST CORP-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Peacock invierte en series y películas originales para atraer suscriptores. El segmento de Estudios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Comcast con el Contenido Original es evidente a través de su enfoque estratégico en Peacock, donde invierte en series y películas originales para atraer suscriptores, como lo destaca el éxito de 'Love Island USA'. El segmento de Estudios de la compañía juega un papel crucial en la p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WBD" data-company="WARNER BROS DISCOVERY INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/WBD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WBD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER BROS DISCOVERY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Warner Bros. Games es una de las marcas de la empresa. Se centra en juegos interactivos junto with...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Warner Bros. Discovery en la industria de los videojuegos es evidente a través de su creación y distribución de contenido de juegos interactivos en diversas plataformas. La cartera de la empresa incluye juegos interactivos, con ingresos de contenido derivados de las ventas de jue...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NFLX" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/nflx-Q125-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/NFLX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NFLX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/nflx-Q125-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Netflix ofreciéndolos junto with series de televisión y películas. Esto incluye asociaciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Netflix en la industria de los videojuegos es evidente a través de la integración de juegos en su servicio de entretenimiento, ofreciéndolos junto con series de televisión y películas a su extensa base de miembros de pago. Esto incluye asociaciones estratégicas con marcas de jueg...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HAS" data-company="HASBRO INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/HAS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HAS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HASBRO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hasbro tiene como objetivo fortalecer las asociaciones minoristas. La compañía se enfoca en brindar...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Hasbro con el tema de las Marcas de Consumo es evidente a través de su misión de entretener y conectar generaciones de fans, ofreciendo experiencias de marca atractivas a través de su diversa cartera de marcas icónicas como MAGIC: THE GATHERING, PLAY-DOH, NERF, TRANSFORMERS, DUNGEONS ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NFLX" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/nflx-Q125-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/NFLX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NFLX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/nflx-Q125-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Netflix se enfoca en convertirse en la empresa de entretenimiento más querida y valorada, con...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Netflix está profundamente entrelazado con la industria del entretenimiento, como lo demuestra su autoidentificación como uno de los principales servicios de entretenimiento del mundo con una membresía global sustancial. La estrategia principal de la empresa gira en torno al crecimient...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WBD" data-company="WARNER BROS DISCOVERY INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/WBD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WBD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER BROS DISCOVERY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Warner Bros. Discovery demuestra su diversificación mediática a través of sus operaciones en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Warner Bros. Discovery demuestra su diversificación mediática a través de sus operaciones en televisión, cine, streaming y videojuegos, creando y distribuyendo contenido de marca en estas plataformas. La combinación de activos de la empresa, que abarca redes nacionales e internacionales, televisión ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NFLX" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/nflx-Q125-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;"></td>
+            <td><a href="/profile/NFLX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NFLX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/nflx-Q125-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">'name': 'nflx-FY24-10-K' 'type': 'news' 'url':...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">{'name': 'nflx-FY24-10-K'</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

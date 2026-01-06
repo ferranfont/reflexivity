@@ -1,0 +1,918 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Organic Agriculture - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Organic Agriculture</div>
+      <div class="sub-title">Investment Theme Detail - Agriculture Industry</div>
+    </div>
+    <a href="main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Organic Agriculture &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Agriculture &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 7
+    </div>
+
+    
+    <!-- Theme Chart Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Theme Chart</span>
+             <a href="equity_organic_agriculture.html" target="_blank" class="btn-view-chart">View Full Chart ↗</a>
+        </div>
+        <div class="box-body" style="height: 600px; overflow:hidden;">
+            <iframe src="equity_organic_agriculture.html" style="width:100%; height:100%; border:none; display:block;"></iframe>
+        </div>
+    </div>
+        
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">7</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">UNFI</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">UNITED NATURAL FOODS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Distribuye productos alimenticios naturales, orgánicos y especiales, contribuyendo a la cadena de suministro dentro del sector agroindustrial....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/UNFI" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DAN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">DANA INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Fabrica y proporciona sistemas críticos de transmisión, sellado y gestión térmica que son parte integral de la industria de autopartes, apoyando tanto...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DAN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">GIS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">GENERAL MILLS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera como un fabricante y comercializador global de alimentos de consumo de marca, proporcionando productos esenciales que los consumidores compran r...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/GIS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">VITL</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">VITAL FARMS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera dentro del sector agrícola, enfocándose en la producción y distribución de productos agrícolas....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/VITL" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SFM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SPROUTS FARMERS MARKET INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece una selección de productos de salud para el consumidor, alineándose con su enfoque en alimentos naturales y orgánicos....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SFM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SMG</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SCOTTS MIRACLE-GRO CO</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Participa en actividades dentro del alcance del tema Agribusiness....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SMG" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">KR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">KROGER CO</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Sirve como un importante proveedor de artículos de primera necesidad, incluidos comestibles y artículos para el hogar, cruciales para la industria de ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/KR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">52</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="KR" data-company="KROGER CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/KR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">KR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KROGER CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kroger se enfoca en mejorar sus capacidades de comercio electrónico y rentabilidad. Las ventas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Kroger en la Logística de Comercio Electrónico es evidente a través de sus diversas soluciones de entrega y envío, que incluyen opciones para que los clientes reciban productos en las ubicaciones de las tiendas minoristas, centros de cumplimiento de clientes o a través de platafo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KR" data-company="KROGER CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/KR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">KR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KROGER CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kroger está mejorando activamente sus pilares, expandiendo su red de tiendas. Kroger establece una...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Kroger con el tema de Estrategia Omnicanal está profundamente arraigado en su modelo de negocio principal, y la compañía declara explícitamente que su modelo de creación de valor se basa en su negocio minorista omnicanal. Esta estrategia no es solo una adición superficial sino un el...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KR" data-company="KROGER CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/KR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">KR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KROGER CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kroger opera supermercados bajo varias marcas locales en 35 estados y el Distrito de Columbia. A...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Kroger se basa en su segmento minorista de comestibles, que incluye farmacias y centros de combustible, y la empresa opera supermercados bajo varias marcas locales en 35 estados y el Distrito de Columbia. A principios de 2025, Kroger operaba 2.731 supermercados, y la empresa dirige inv...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KR" data-company="KROGER CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/KR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">KR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KROGER CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kroger genera ingresos principalmente a través of productos de consumo. Una parte sustancial de las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El importante compromiso de Kroger con el tema de los productos de consumo es evidente en sus operaciones comerciales principales, ya que la empresa genera ingresos principalmente a través de la venta de estos productos en sus tiendas, centros de combustible y plataformas en línea. Una parte sustanc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KR" data-company="KROGER CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/KR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">KR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KROGER CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kroger se enfoca en mejorar la experiencia del cliente y operar excelentes tiendas. La base of la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Kroger en el tema de Minorista de Comestibles es evidente a través de su modelo de negocio e inversiones estratégicas. La base de la empresa es su negocio minorista omnicanal, que incluye combustible y salud y bienestar. Kroger se enfoca en mejorar la experiencia del cliente y op...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KR" data-company="KROGER CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/KR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">KR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KROGER CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kroger se enfoca en mejorar su negocio de farmacia. Kroger reconoce oportunidades de crecimiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Kroger con el tema de Retail de Atención Médica es evidente a través de sus operaciones farmacéuticas establecidas dentro de sus supermercados, con un número significativo de ubicaciones que ofrecen servicios farmacéuticos. El modelo de creación de valor de la empresa incorpora salu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UNFI" data-company="UNITED NATURAL FOODS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/UNFI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UNFI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED NATURAL FOODS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UNFI tiene como objetivo ser el socio más valorado de la industria alimentaria. Estos productos se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de UNFI en la industria de Alimentos y Bebidas es evidente a través de su papel como distribuidor líder de productos de comestibles y no comestibles, ofreciendo aproximadamente 250.000 productos que incluyen marcas nacionales, regionales y de marca propia. Estos productos se clasifi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SMG" data-company="SCOTTS MIRACLE-GRO CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/SMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCOTTS MIRACLE-GRO CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra exposición a la industria de Químicos Agrícolas a través de su segmento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra exposición a la industria de Químicos Agrícolas a través de su segmento de Consumo en EE. UU., donde fabrica y comercializa productos de marca para césped y jardín. Específicamente, la empresa comercializa el fertilizante para césped Scotts® Turf Builder® y los productos herbici...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UNFI" data-company="UNITED NATURAL FOODS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/UNFI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UNFI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED NATURAL FOODS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UNFI participa en el tema de la industria de alimentos especializados. La empresa también destaca...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de UNFI en el tema de la industria de alimentos especializados es evidente a través de su estructura organizacional y enfoque de ventas. La empresa ha realineado su organización comercial mayorista para incluir una división específicamente para Productos Naturales, Orgánicos, Especi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UNFI" data-company="UNITED NATURAL FOODS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/UNFI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UNFI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED NATURAL FOODS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UNFI ofrece una amplia gama de aproximadamente 250.000 productos, que incluyen comestibles,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El papel de UNFI en la industria minorista y de servicios de alimentos es evidente a través de sus operaciones como distribuidor de productos de comestibles y no alimentarios y como proveedor de servicios de apoyo a minoristas en todo Estados Unidos y Canadá. La empresa ofrece una amplia gama de apr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UNFI" data-company="UNITED NATURAL FOODS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/UNFI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UNFI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED NATURAL FOODS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UNFI opera farmacias dentro de sus tiendas minoristas y las de sus franquiciados. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de UNFI en la industria de productos de salud del consumidor se refleja en su provisión de artículos de bienestar y cuidado personal como parte de su amplia gama de productos. La empresa distribuye estos artículos junto con otras categorías como comestibles, perecederos y alimentos ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UNFI" data-company="UNITED NATURAL FOODS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/UNFI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UNFI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED NATURAL FOODS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UNFI distribuye productos de comestibles que incluyen alimentos empaquetados. No hay evidencia...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de UNFI en el tema de la industria de Alimentos Empaquetados proviene de su distribución de una amplia gama de productos, que incluyen comestibles y mercancía general, productos perecederos y alimentos congelados, abarcando marcas nacionales y de marca propia. Como distribuidor de p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UNFI" data-company="UNITED NATURAL FOODS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/UNFI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UNFI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED NATURAL FOODS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Productos Naturales al by Mayor de la empresa experimentó un aumento del 12% en las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de UNFI en la temática de Productos Orgánicos es evidente a través de varias operaciones comerciales clave. El compromiso de la empresa se destaca por la reestructuración de su organización comercial mayorista en dos divisiones centradas en productos, una de las cuales está dedicada...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UNFI" data-company="UNITED NATURAL FOODS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/UNFI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UNFI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED NATURAL FOODS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UNFI sirviendo a más de 30,000 ubicaciones de clientes, incluyendo grandes supermercados e...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de UNFI en el tema de Venta Minorista de Comestibles es significativa, como lo demuestra su papel como distribuidor líder de productos de comestibles y servicios de apoyo a minoristas en todo Estados Unidos y Canadá, sirviendo a más de 30,000 ubicaciones de clientes, incluyendo gran...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SMG" data-company="SCOTTS MIRACLE-GRO CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/SMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCOTTS MIRACLE-GRO CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa tiene una participación accionaria en Bonnie Plants, LLC, que se enfoca en plantar,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de la Agroindustria proviene de su posición como fabricante y comercializador líder de productos de marca para césped y jardín para consumidores en América del Norte a través de sus segmentos de Consumidor de EE. UU. y Otros. Las marcas clave incluyen el fer...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UNFI" data-company="UNITED NATURAL FOODS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/UNFI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UNFI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED NATURAL FOODS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UNFI ofrece aproximadamente 250.000 productos, y los 'productos a granel y para servicios de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de UNFI en la industria de Distribución de Servicios de Alimentos es evidente a través de la distribución de productos comestibles y no comestibles a más de 30.000 ubicaciones de clientes en América del Norte, incluidos proveedores de servicios de alimentos. La empresa ofrece aproxi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DAN" data-company="DANA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DAN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DAN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DANA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dana ofrece una amplia gama de soluciones de posventa, para todas las marcas y de valor. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Dana con el mercado de posventa automotriz es evidente a través de su grupo global dedicado a identificar y desarrollar oportunidades de crecimiento en el mercado de posventa, con el objetivo de aumentar las ventas futuras. La empresa ofrece una amplia gama de soluciones de posventa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DAN" data-company="DANA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DAN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DAN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DANA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dana ofrece tecnologías electrodinámicas como motores, inversores, software y sistemas de control....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dana en la Electrónica Automotriz se refleja en su diversa cartera de tecnología, que incluye tecnologías electrodinámicas como motores, inversores, software y sistemas de control, y sistemas de gestión de baterías. La empresa también ofrece soluciones digitales con controles de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DAN" data-company="DANA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DAN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DAN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DANA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dana se refleja en el desarrollo de tecnologías electrodinámicas. No se divulga ningún compromiso...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dana en la Tecnología de Baterías se refleja en el desarrollo de tecnologías electrodinámicas, incluidos sistemas de gestión de baterías. Estos sistemas son componentes de la cartera tecnológica de la empresa. Si bien los sistemas de gestión de baterías se mencionan en varias sec...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DAN" data-company="DANA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DAN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DAN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DANA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dana ofrece una gama de soluciones de posventa, que incluyen líneas genuinas, todas las marcas y de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dana en la industria de autopartes es evidente a través de su papel como proveedor global de sistemas de transmisión que incluyen ejes, árboles de transmisión y transmisiones, así como productos de sellado y gestión térmica. Las tecnologías de la compañía también abarcan sistemas...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DAN" data-company="DANA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DAN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DAN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DANA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dana es líder mundial en soluciones de transmisión de potencia y gestión de energía. La cartera de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dana en el tema de Soluciones Energéticas es evidente a través de su provisión de soluciones de gestión de energía para vehículos de carretera, un aspecto clave de su negocio. Esto está respaldado por la cartera de la empresa, que mejora la eficiencia, el rendimiento y la sosteni...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DAN" data-company="DANA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DAN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DAN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DANA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dana suministra motores, inversores de potencia y sistemas de control para vehículos eléctricos....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dana en el tema de Vehículos Eléctricos es multifacética. La empresa suministra motores, inversores de potencia y sistemas de control para vehículos eléctricos, y su contenido vehicular es mayor en vehículos híbridos y eléctricos. Dana tiene como objetivo acelerar la electrificac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SFM" data-company="SPROUTS FARMERS MARKET INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/SFM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SFM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SPROUTS FARMERS MARKET INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Sprouts Farmers Market ofrece una 'experiencia única de comestibles especializados' Con una...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Sprouts Farmers Market en el tema de la venta minorista de comestibles es evidente en su modelo de negocio, ya que la empresa se identifica explícitamente como un minorista de 'comestibles especializados' que ofrece una 'experiencia única de comestibles especializados' con productos fr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SFM" data-company="SPROUTS FARMERS MARKET INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/SFM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SFM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SPROUTS FARMERS MARKET INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Sprouts Farmers Market demuestra un fuerte enfoque en la marca consciente de la salud. Sprouts...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Sprouts Farmers Market demuestra un fuerte enfoque en la marca consciente de la salud a través de varias estrategias. El compromiso de la empresa de ayudar a las personas a vivir y comer mejor es evidente en su enfoque en productos frescos, locales, innovadores, naturales y orgánicos que resuenan co...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SFM" data-company="SPROUTS FARMERS MARKET INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/SFM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SFM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SPROUTS FARMERS MARKET INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Las inversiones estratégicas en la gestión de inventario están arrojando resultados positivos. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las inversiones estratégicas en la gestión de inventario están arrojando resultados positivos para la empresa, como lo demuestran los mayores márgenes brutos. La empresa atribuye este aumento a mejores prácticas de gestión de inventario. Se espera que las inversiones continuas en tecnología agilicen...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SFM" data-company="SPROUTS FARMERS MARKET INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/SFM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SFM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SPROUTS FARMERS MARKET INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Sprouts Farmers Market demuestra una fuerte conexión with la industria de productos orgánicos. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Sprouts Farmers Market demuestra una fuerte conexión con la industria de productos orgánicos, lo que es evidente en su estrategia comercial y cifras de ventas. La empresa se identifica como uno de los minoristas especializados de alimentos frescos, naturales y orgánicos más grandes y de más rápido c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SFM" data-company="SPROUTS FARMERS MARKET INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/SFM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SFM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SPROUTS FARMERS MARKET INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Sprouts Farmers Market ofreciendo productos innovadores y saludables elaborados with ingredientes...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Sprouts Farmers Market en alternativas de origen vegetal es evidente en su estrategia para atender a clientes entusiastas de la salud. La empresa continúa ofreciendo productos innovadores y saludables elaborados con ingredientes amigables con el estilo de vida, mencionando explíc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SFM" data-company="SPROUTS FARMERS MARKET INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/SFM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SFM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SPROUTS FARMERS MARKET INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Sprouts Farmers Market ofrece artículos integrales e innovadores dirigidos a clientes entusiastas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Sprouts Farmers Market demuestra su compromiso con el tema de los productos de origen vegetal al ofrecer una gama de artículos integrales e innovadores dirigidos a clientes entusiastas de la salud. La empresa menciona explícitamente 'de origen vegetal' como un ingrediente clave en su surtido curado ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SFM" data-company="SPROUTS FARMERS MARKET INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/SFM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SFM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SPROUTS FARMERS MARKET INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Sprouts Farmers Market ofrece una 'experiencia de supermercado especializada única' La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Sprouts Farmers Market se identifica como un minorista especializado que ofrece una 'experiencia de supermercado especializada única' con productos frescos en el centro de la tienda. La empresa enfatiza su posición dentro del 'panorama minorista de alimentos especializados', centrándose en 'comida r...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VITL" data-company="VITAL FARMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/VITL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">VITL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VITAL FARMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Vital Farms demuestra una fuerte conexión con el tema of Agribusiness. La empresa expande...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Vital Farms demuestra una fuerte conexión con el tema de Agribusiness a través de su extensa red de más de 500 granjas familiares y su compromiso con la producción ética de alimentos. La empresa expande activamente su red de agricultores, apoyada por un equipo agrícola dedicado, e invierte en infrae...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VITL" data-company="VITAL FARMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/VITL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">VITL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VITAL FARMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Vital Farms demuestra su compromiso con la agricultura sostenible. La empresa cree that sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Vital Farms demuestra su compromiso con la agricultura sostenible a través de sus estándares éticos, que priorizan el bienestar animal y las prácticas agrícolas sostenibles. La empresa cree que sus estándares producen gallinas felices con dietas variadas, que producen mejores huevos. Este compromiso...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VITL" data-company="VITAL FARMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/VITL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">VITL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VITAL FARMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Vital Farms demuestra su participación en el tema of productos orgánicos. La empresa atiende a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Vital Farms demuestra su participación en el tema de productos orgánicos a través de su cumplimiento de regulaciones como la Ley de Producción de Alimentos Orgánicos y el Programa Orgánico Nacional del USDA para productos etiquetados como 'orgánicos'. La empresa atiende a consumidores interesados en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KR" data-company="KROGER CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/KR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">KR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KROGER CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kroger experimentan un crecimiento sustancial, como lo demuestra un aumento del 20 % en el primer...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Kroger con la logística de última milla es evidente en su enfoque en las 'soluciones de entrega', que abarcan pedidos entregados desde ubicaciones de tiendas minoristas, centros de cumplimiento de clientes y plataformas de terceros. La estrategia de comercio electrónico de la empres...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KR" data-company="KROGER CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/KR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">KR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KROGER CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kroger también vendió su negocio de Farmacia Especializada de Kroger. Estos factores indican un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Kroger en el tema de Productos de Salud del Consumidor es evidente a través de múltiples menciones de 'Salud y Bienestar' como un componente de su negocio. El modelo de creación de valor de la empresa incluye salud y bienestar, y el aumento de las ventas de Salud y Bienestar se c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UNFI" data-company="UNITED NATURAL FOODS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/UNFI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UNFI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED NATURAL FOODS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Un nuevo centro de distribución en Pensilvania distribuye principalmente productos naturales. UNFI...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de UNFI con el tema de la agricultura orgánica es evidente en su distribución de productos naturales y orgánicos y su objetivo de aumentar las ventas, incluidos los alimentos naturales y orgánicos de mayor margen. La mezcla de productos de la empresa incluye opciones naturales y orgánica...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DAN" data-company="DANA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/DAN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DAN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DANA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dana ha experimentado ventas con márgenes relativamente altos desde la perspectiva de los Vehículos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dana en el mercado de vehículos comerciales eléctricos es evidente a través de sus sistemas de transmisión para camiones y autobuses medianos y pesados, que incluyen el mercado emergente de vehículos híbridos y eléctricos. El segmento de Vehículos Comerciales de la compañía apoya...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UNFI" data-company="UNITED NATURAL FOODS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/UNFI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UNFI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED NATURAL FOODS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UNFI participa de 76 tiendas de comestibles minoristas, incluidas Cub Foods y Shoppers Food...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de UNFI en el segmento Minorista es evidente a través de la operación de 76 tiendas de comestibles minoristas, incluidas Cub Foods y Shoppers Food Warehouse, y el suministro a 26 tiendas Cub Foods adicionales mediante acuerdos de franquicia. El enfoque de la empresa se extiende a la...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UNFI" data-company="UNITED NATURAL FOODS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/UNFI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UNFI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED NATURAL FOODS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UNFI se centra en optimizar su red de centros de distribución para crear una cadena de suministro...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de UNFI con la Gestión de la Cadena de Suministro es evidente en sus iniciativas estratégicas para optimizar su red de distribución y mejorar la resiliencia de la cadena de suministro. La empresa se centra en optimizar su red de centros de distribución para crear una cadena de suminist...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UNFI" data-company="UNITED NATURAL FOODS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/UNFI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UNFI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED NATURAL FOODS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UNFI enfatiza su posición como un mayorista de comestibles de primer nivel. La empresa se enfoca en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">UNFI enfatiza su posición como un mayorista de comestibles de primer nivel, respaldado por su extensa red de más de 50 centros de distribución y almacenes que abarcan aproximadamente 31 millones de pies cuadrados. La empresa se enfoca en optimizar su red de distribución mediante la implementación de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VITL" data-company="VITAL FARMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/VITL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">VITL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VITAL FARMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Vital Farms demuestra un fuerte compromiso con la inversión socialmente responsable. El propósito...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Vital Farms demuestra un fuerte compromiso con la inversión socialmente responsable a través de sus valores fundamentales y su estructura corporativa. El propósito declarado de la empresa es mejorar la vida de las personas, los animales y el planeta a través de la alimentación, enfatizando un compro...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VITL" data-company="VITAL FARMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/VITL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">VITL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VITAL FARMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los ingresos de la empresa se derivan principalmente de la venta de huevos y mantequilla. Vital...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Vital Farms con el tema de Alimentos Especializados es evidente en su enfoque en el envasado, marketing y distribución de huevos de cáscara, mantequilla y otros productos relacionados principalmente bajo la marca Vital Farms. Los ingresos de la empresa se derivan principalmente de l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DAN" data-company="DANA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/DAN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DAN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DANA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El empresa reconoce la creciente importancia de los vehículos híbridos. Esto se enfatiza aún más en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con los vehículos híbridos es evidente en su mayor contenido de vehículos para estos modelos, así como en vehículos de tracción trasera, tracción total y tracción total. Esto se enfatiza aún más en su enfoque en los sistemas de transmisión para camiones y autobuses median...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DAN" data-company="DANA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/DAN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DAN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DANA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa ofrece soluciones innovadoras a los mercados de movilidad. La participación en la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en la Tecnología Automotriz es evidente en su enfoque estratégico en la tecnología como base para ofrecer soluciones innovadoras a los mercados de movilidad, particularmente a medida que evoluciona hacia la era de la electrificación de vehículos. Esta estrategia aprove...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SFM" data-company="SPROUTS FARMERS MARKET INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/SFM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SFM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SPROUTS FARMERS MARKET INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Sprouts ofrece opciones de entrega y recogida a través de su sitio web y la aplicación Sprouts....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la compañía en la entrega de alimentos es evidente a través de sus crecientes ventas de comercio electrónico, que crecieron un 27% y ahora constituyen aproximadamente el 15% de las ventas totales. Este crecimiento se facilita a través de asociaciones con plataformas como Uber Eat...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VITL" data-company="VITAL FARMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/VITL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">VITL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VITAL FARMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Vitl is una Corporación B Certificada, reservada para empresas que equilibran el beneficio y el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La dedicación de Vitl a las inversiones ESG se demuestra a través de su estatus como corporación de beneficio público de Delaware y como Corporación B Certificada, una designación reservada para empresas que equilibran el beneficio y el propósito y cumplen altos estándares de desempeño social y ambi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SMG" data-company="SCOTTS MIRACLE-GRO CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/SMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCOTTS MIRACLE-GRO CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía enfatiza que los consumidores consideran el cuidado del césped y los jardines como...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de la compañía con el tema de Mejoras para el Hogar proviene de su importante presencia en el mercado de césped y jardines, donde es un fabricante y comercializador líder de productos de consumo de marca en América del Norte. La compañía enfatiza que los consumidores consideran el cuidad...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VITL" data-company="VITAL FARMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/VITL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">VITL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VITAL FARMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Venta Minorista y Servicio de Alimentos es evidente a través of su red de distribución. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de la empresa en el tema de Venta Minorista y Servicio de Alimentos es evidente a través de su red de distribución, que incluye minoristas naturales, minoristas convencionales, distribuidores y clientes de servicio de alimentos. Los productos de la empresa se venden a través de canales mi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VITL" data-company="VITAL FARMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/VITL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">VITL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VITAL FARMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los huevos representaron aproximadamente el 96% de los ingresos netos de la empresa en el año...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema de Bienes de Consumo Básico es evidente, ya que los huevos y la mantequilla, ambos bienes de consumo básico, son centrales para su negocio. Específicamente, los huevos y productos relacionados con los huevos representaron aproximadamente el 96% de los ingresos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KR" data-company="KROGER CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/KR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">KR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KROGER CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kroger es un importante operador de supermercados con un modelo de negocio diverso que genera...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La importancia de Kroger como Gigante Minorista se ve subrayada por sus extensas redes de tiendas, su amplia oferta de productos y su fuerte presencia de marca entre los consumidores. El modelo de creación de valor probado de la empresa y sus pilares estratégicos, que incluyen Frescura, Nuestras Mar...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KR" data-company="KROGER CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/KR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">KR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KROGER CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kroger tiene como objetivo mantener precios más bajos. Busca maximizar las oportunidades de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Kroger se centra en la operación de supermercados, haciendo que los productos básicos de consumo sean integrales para sus operaciones, como lo demuestra su pilar estratégico 'Fresco'. El enfoque de la empresa se ve subrayado por las discusiones sobre ventas a clientes minoristas, exclu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KR" data-company="KROGER CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/KR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">KR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KROGER CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kroger enfatiza los programas de fidelización a través ofertas personalizadas. La empresa tiene...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Kroger enfatiza los programas de fidelización a través de diversas estrategias, que incluyen descuentos por fidelidad, ofertas personalizadas y recompensas de combustible dentro del programa Kroger Plus. La empresa tiene como objetivo fomentar la lealtad, aumentar la participación del cliente e impu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KR" data-company="KROGER CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-06-30</td>
+            <td><a href="/profile/KR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">KR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KROGER CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kroger se centra en mejorar la velocidad de entrega, con el objetivo of entregas en menos of two...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Kroger en la entrega de alimentos es evidente en su creciente estrategia de comercio electrónico, donde las ventas de entrega han superado a las ventas de recogida en tienda. La empresa se centra en mejorar la velocidad de entrega, con el objetivo de entregas en menos de dos hora...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

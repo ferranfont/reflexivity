@@ -1,0 +1,2211 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Steel Industry - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Steel Industry</div>
+      <div class="sub-title">Investment Theme Detail - Industrial Industry</div>
+    </div>
+    <a href="/main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Steel Industry &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Industrial &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 29
+    </div>
+
+    
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">29</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">NUE</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">NUCOR CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Sirve como un importante proveedor de productos de acero esenciales para la industria automotriz....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/NUE" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">STLD</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">STEEL DYNAMICS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">El alcance operativo de la empresa no abarca la producción de aluminio....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/STLD" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CLF</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CLEVELAND-CLIFFS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona productos de acero esenciales para los procesos de fabricación de empresas de automóviles....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CLF" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">005490</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">POSCO HOLDINGS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Un productor líder de productos de acero de alta calidad esenciales para la industria automotriz mundial....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/005490" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">5401</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">NIPPON STEEL CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Un proveedor global líder de productos de acero de alto rendimiento diseñados específicamente para la industria automotriz, que aporta materiales esen...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/5401" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TATASTEEL</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TATA STEEL LTD</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Lidera iniciativas en reciclaje de acero, contribuyendo al avance de prácticas sostenibles dentro de la industria del acero....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TATASTEEL" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CMC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">COMMERCIAL METALS CO</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Suministra productos metálicos esenciales, como acero y barras de refuerzo, cruciales para la construcción y el mantenimiento de diversos proyectos de...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CMC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">RS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">RELIANCE INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye a la capacidad industrial de materiales que se utilizan en la fabricación y desarrollo aeroespacial....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/RS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">AMR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ALPHA METALLURGICAL RESOURCE</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Directamente involucrado en la producción y suministro de carbón y combustibles consumibles, desempeñando un papel clave en la industria....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/AMR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">VOE</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">VOESTALPINE AG</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye significativamente al sector del reciclaje de acero procesando materiales de desecho para producir acero de alta calidad, apoyando una econ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/VOE" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">11</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">HCC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">WARRIOR MET COAL INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Dedicada a la minería y producción de carbón metalúrgico, un combustible consumible clave esencial para los procesos de fabricación de acero a nivel m...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/HCC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">12</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">WS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">WORTHINGTON STEEL INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona productos de acero que son componentes esenciales para la fabricación de piezas de automóviles....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/WS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">13</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TKA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">THYSSEN-KRUPP AG</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y suministra productos y materiales de acero especializados cruciales para la fabricación y la integridad estructural de los vehículos en l...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TKA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">14</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BTU</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">PEABODY ENERGY CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Sirve como un importante productor mundial de carbón, desempeñando un papel fundamental en la cadena de suministro de combustibles consumibles para la...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BTU" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">15</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">METC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">RAMACO RESOURCES INC-A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera como productor y proveedor de carbón metalúrgico y térmico, componentes esenciales dentro de la industria de combustibles consumibles....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/METC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">16</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CRS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CARPENTER TECHNOLOGY</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona materiales y aleaciones especiales avanzadas cruciales para la fabricación y el rendimiento de componentes dentro de los sectores aeroespa...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CRS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">17</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">LECO</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">LINCOLN ELECTRIC HOLDINGS</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Brinda apoyo a la industria de Fabricantes de Automóviles....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/LECO" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">18</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">AZZ</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">AZZ INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye a la industria de materiales de construcción a través de sus operaciones comerciales....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/AZZ" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">19</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CNR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CORE NATURAL RESOURCES INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se enfoca en la producción y suministro de carbón y combustibles consumibles, desempeñando un papel clave en el apoyo a las demandas energéticas de di...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CNR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">20</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CCK</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CROWN HOLDINGS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Impulsa la demanda de aluminio a través de sus extensas operaciones de fabricación de envases de aluminio....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CCK" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">21</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">MTX</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">MINERALS TECHNOLOGIES INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se especializa en la fabricación de diversos productos químicos, que son integrales para diversos procesos y aplicaciones industriales....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/MTX" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">22</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">KWR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">QUAKER CHEMICAL CORPORATION</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Fabrica fluidos para procesos industriales y productos químicos especiales cruciales para diversas operaciones de fabricación....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/KWR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">23</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">USLM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">UNITED STATES LIME & MINERAL</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Suministra productos esenciales a base de minerales que apoyan al sector Agroindustrial....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/USLM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">24</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ROCK</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">GIBRALTAR INDUSTRIES INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona una gama de productos y soluciones fundamentales para proyectos de infraestructura civil, apoyando la construcción y el mantenimiento de o...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ROCK" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">25</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TRN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TRINITY INDUSTRIES INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Fabrica y arrienda vagones de ferrocarril, que son componentes esenciales de las flotas de carga comercial, facilitando el transporte de mercancías en...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TRN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">26</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">MLM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">MARTIN MARIETTA MATERIALS</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Suministra agregados, hormigón y productos de asfalto esenciales que son fundamentales para la construcción y el mantenimiento de proyectos de infraes...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/MLM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">27</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">LEG</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">LEGGETT & PLATT INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye al sector automotriz mediante la fabricación de componentes y productos de ingeniería que incorporan acero....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/LEG" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">28</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ACA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ARCOSA INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona productos y servicios esenciales que sustentan el desarrollo y mantenimiento de proyectos de infraestructura civil críticos....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ACA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">29</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">WOR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">WORTHINGTON ENTERPRISES INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Mantiene operaciones dentro del sector de Materiales de Construcción....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/WOR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">145</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="AZZ" data-company="AZZ INC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AZZ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AZZ INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">AZZ está construyendo una nueva instalación de recubrimiento de bobinas de aluminio. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de AZZ en la industria de materiales de construcción es evidente a través de su provisión de soluciones de galvanizado en caliente y recubrimiento de bobinas, que mejoran y protegen estos materiales. La empresa reconoce el mercado de la construcción como una fuente de demanda de los...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AZZ" data-company="AZZ INC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AZZ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AZZ INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">AZZ is un proveedor de soluciones de galvanizado en caliente y recubrimiento de bobinas. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de AZZ con el tema de Recubrimientos Industriales es significativo, ya que la empresa es un proveedor de soluciones de galvanizado en caliente y recubrimiento de bobinas, sirviendo a una amplia gama de mercados finales principalmente en América del Norte. La empresa opera a través de l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AZZ" data-company="AZZ INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AZZ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AZZ INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">AZZ procesa un volumen significativo de acero. El segmento de Recubrimientos Metálicos experimentó...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de AZZ con la Industria del Acero es evidente a través de sus operaciones en los segmentos de Recubrimientos Metálicos y Metales Pre-recubiertos, donde la empresa procesa un volumen significativo de acero. Específicamente, el segmento de Recubrimientos Metálicos experimentó un aumento ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRS" data-company="CARPENTER TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARPENTER TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Carpenter Technology es reconocido en el suministro de materiales de aleaciones especiales de alto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Carpenter Technology con la industria aeroespacial y de defensa es significativo, respaldado por su posición como líder reconocido en el suministro de materiales de aleaciones especiales de alto rendimiento y soluciones de procesos para aplicaciones críticas. Las ventas de la empres...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRS" data-company="CARPENTER TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARPENTER TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Carpenter Technology produce aleaciones especiales premium para aplicaciones críticas en las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Carpenter Technology con el tema de los materiales aeroespaciales es evidente a través de su producción y distribución de aleaciones especiales premium, incluidas aleaciones de titanio, que son esenciales para aplicaciones críticas en las industrias aeroespacial y de defensa. La emp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRS" data-company="CARPENTER TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARPENTER TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa produce y distribuye aleaciones especiales, incluidos aceros inoxidables y aceros...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa produce y distribuye aleaciones especiales, incluidos aceros inoxidables y aceros aleados, para el mercado del transporte, que incluye aplicaciones automotrices. Si bien la empresa reconoce su presencia en el mercado del transporte, las ventas a este sector han disminuido, lo que refleja ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRS" data-company="CARPENTER TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARPENTER TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Carpenter Technology produce materiales para aplicaciones de generación de energía. Estos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Carpenter Technology en el tema de las turbinas de gas industriales (IGT) es evidente a través de su suministro de materiales a la industria de generación de energía, donde estos materiales se utilizan tanto en turbinas de gas industriales nuevas como reacondicionadas. La empresa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WOR" data-company="WORTHINGTON ENTERPRISES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WOR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WORTHINGTON ENTERPRISES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa usa instrumentos financieros derivados para gestionar el riesgo de mercado asociado with...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de la Industria del Acero es evidente a través de su uso de instrumentos financieros derivados para gestionar el riesgo de mercado asociado con las fluctuaciones de los precios del acero. La empresa reconoce la exposición a las fluctuaciones de precios en la...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WS" data-company="WORTHINGTON STEEL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WORTHINGTON STEEL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Worthington Steel es un procesador de metales de valor agregado de primer nivel en América del...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Worthington Steel están fuertemente influenciadas por la industria del acero, como lo demuestra su posición como un procesador de metales de valor agregado de primer nivel en América del Norte. La empresa mantiene posiciones de liderazgo en el mercado de acero plano laminado al ca...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AZZ" data-company="AZZ INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AZZ</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AZZ INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">AZZ Metal Coatings y AZZ Precoat Metals are segmentos de la empresa. El segmento de Recubrimientos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de AZZ en la industria de Fabricación de Metales es evidente a través de su liderazgo en el mercado norteamericano de recubrimientos metálicos y la operación de sus segmentos AZZ Metal Coatings y AZZ Precoat Metals. El segmento de Recubrimientos Metálicos de la empresa experimentó u...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMC" data-company="COMMERCIAL METALS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMMERCIAL METALS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CMC está expandiendo sus capacidades en soluciones especializadas, como la producción de cable...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de CMC en el tema de Materiales de Construcción es evidente a través de su provisión de productos y tecnologías diseñadas para satisfacer las demandas de refuerzo del sector de la construcción global. Las soluciones de la empresa son integrales para la construcción en sus primeras e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMC" data-company="COMMERCIAL METALS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMMERCIAL METALS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CMC Construction Services desempeña un papel dentro of las operaciones de la empresa. El aumento en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CMC Construction Services desempeña un papel dentro de las operaciones de la empresa, como lo demuestra el aumento en el segmento de Emerging Businesses Group, impulsado por un aumento en la demanda de las operaciones de CMC Construction Services. Esto está respaldado además por un aumento de las op...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMC" data-company="COMMERCIAL METALS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMMERCIAL METALS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CMC es proveedor de soluciones con una red de fabricación en EE. UU. y Europa Central, ofreciendo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El papel de CMC en el tema de Suministro para la Industria Pesada está respaldado por su posición como proveedor de soluciones con una red de fabricación en EE. UU. y Europa Central, ofreciendo productos y tecnologías para el sector de la construcción. Las soluciones de la empresa apoyan la construc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMC" data-company="COMMERCIAL METALS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMMERCIAL METALS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CMC tiene un extensa red de fabricación ubicada principalmente en los EE. UU. y Europa Central. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de CMC en la industria del acero es evidente a través de su extensa red de fabricación ubicada principalmente en los EE. UU. y Europa Central, lo que les permite satisfacer las necesidades de refuerzo del sector de la construcción mundial. Las operaciones de la empresa se llevan a c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRS" data-company="CARPENTER TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARPENTER TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Carpenter Technology is un líder reconocido en materiales de aleaciones especiales de alto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Carpenter Technology demuestra su compromiso con el tema de Materiales para la Salud a través de su producción y distribución de aleaciones especiales premium, incluidas aleaciones de titanio, metales en polvo y aceros inoxidables, para aplicaciones críticas en el mercado médico. La compañía es un l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WOR" data-company="WORTHINGTON ENTERPRISES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WOR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WORTHINGTON ENTERPRISES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Worthington se enfoca en componentes de estructuras y sistemas HVAC. El segmento de Productos para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Worthington en la industria de materiales de construcción es evidente a través de su segmento de Productos para la Construcción, que se enfoca en componentes de estructuras y sistemas HVAC, particularmente después de adquirir Elgen Manufacturing, un líder en componentes HVAC y es...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WOR" data-company="WORTHINGTON ENTERPRISES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WOR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WORTHINGTON ENTERPRISES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa experimentó un crecimiento de ventas netas interanual del 25% en el cuarto trimestre. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su participación en la industria de servicios de construcción a través de su segmento de Productos para la Construcción, que experimentó un crecimiento de ventas netas interanual del 25 % en el cuarto trimestre, alcanzando los 192 millones de dólares. Esto se ve respaldado ademá...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WOR" data-company="WORTHINGTON ENTERPRISES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WOR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WORTHINGTON ENTERPRISES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa monitorea activamente indicadores clave como el gasto en construcción residencial en EE....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en la industria de la construcción de viviendas es evidente a través de su provisión de productos y servicios al mercado de la construcción residencial, lo que a su vez impulsa la demanda del segmento de Productos para la Construcción. La empresa monitorea activamente ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WS" data-company="WORTHINGTON STEEL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WORTHINGTON STEEL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Worthington Steel está invirtiendo activamente en el mercado del acero eléctrico. Más del 50% de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Worthington Steel con el tema de Productos de Acero para Automoción es significativo, ya que la industria automotriz representa su mercado final más grande. Esto se ve subrayado por el hecho de que más del 50% de los ingresos de la empresa provienen del sector automotriz. Para forta...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WS" data-company="WORTHINGTON STEEL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WORTHINGTON STEEL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Worthington Steel no parece ser un enfoque principal. Brindando capacidades de procesamiento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Worthington Steel en la industria de materiales de construcción es evidente a través de sus capacidades de procesamiento de acero adaptadas a este sector, aunque no parece ser un enfoque principal. La empresa reconoce consistentemente la construcción como uno de sus mercados fina...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMR" data-company="ALPHA METALLURGICAL RESOURCE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHA METALLURGICAL RESOURCE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Alpha Metallurgical Resources tiene una conexión significativa con el tema del carbón and los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Alpha Metallurgical Resources tiene una conexión significativa con el tema del carbón y los combustibles consumibles, como lo demuestra su papel como proveedor líder de carbón metalúrgico para la industria del acero. La empresa opera varias minas activas e instalaciones de preparación de carbón, pro...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMR" data-company="ALPHA METALLURGICAL RESOURCE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHA METALLURGICAL RESOURCE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Alpha Metallurgical Resources mantiene una fuerte conexión with la industria del acero. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Alpha Metallurgical Resources mantiene una fuerte conexión con la industria del acero, ya que se identifica como un proveedor líder de productos de carbón metalúrgico, con ventas dirigidas principalmente a empresas siderúrgicas de Asia, Europa y América. El desempeño de la empresa está estrechamente...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BTU" data-company="PEABODY ENERGY CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BTU</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PEABODY ENERGY CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Las operaciones de Peabody se centran en la producción y venta of carbón metalúrgico y térmico. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Peabody se centran en la producción y venta de carbón metalúrgico y térmico, y la empresa se identifica como un productor líder en la industria. Esto se demuestra a través de sus importantes volúmenes de producción, como lo evidencian las 118.0 millones de toneladas de carbón vend...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BTU" data-company="PEABODY ENERGY CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BTU</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PEABODY ENERGY CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Las operaciones de Peabody están influenciadas por la política energética y el cumplimiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Peabody están significativamente influenciadas por la política energética y el cumplimiento normativo, como lo demuestra su seguimiento de asuntos regulatorios y climáticos globales. Esto incluye la reconsideración por parte de la EPA de las acciones relacionadas con las emisiones...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BTU" data-company="PEABODY ENERGY CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BTU</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PEABODY ENERGY CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El CEO de Peabody destacó las órdenes ejecutivas destinadas a revitalizar la industria del carbón...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Peabody en la industria de Generación de Electricidad es evidente a través de sus segmentos operativos térmicos, que se centran en la minería, preparación y venta de carbón térmico principalmente a empresas de servicios públicos de electricidad en EE. UU. bajo contratos a largo p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BTU" data-company="PEABODY ENERGY CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BTU</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PEABODY ENERGY CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Peabody es productor líder de carbón metalúrgico, esencial para la producción de acero. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Peabody con la industria del acero es evidente a través de su papel como productor líder de carbón metalúrgico, esencial para la producción de acero. El desempeño de la empresa está estrechamente ligado al mercado global del acero, ya que las fluctuaciones en la demanda y producción d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CCK" data-company="CROWN HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CROWN HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Crown Holdings fabrica latas y tapas de aluminio para bebidas. Las ventas netas de la empresa se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Crown Holdings en el tema de Producción de Aluminio es evidente a través de su fabricación de latas y tapas de aluminio para bebidas en sus segmentos de Bebidas de América y Europa. Las ventas netas de la empresa se ven directamente influenciadas por las fluctuaciones en los cost...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CCK" data-company="CROWN HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CROWN HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Crown Holdings está involucrada en la industria del envasado de consumo. La empresa fabrica latas,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Crown Holdings está significativamente involucrada en la industria del envasado de consumo, particularmente a través de la fabricación de latas y tapas de aluminio para bebidas, tapas de acero, botellas de vidrio y cierres de aluminio. Las operaciones de la empresa se extienden por varios continente...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CCK" data-company="CROWN HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CROWN HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CCK fabrica coronas de acero dentro of su segmento de bebidas para América. La empresa también...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de CCK en la industria del acero es evidente a través de varios aspectos de sus operaciones. La empresa fabrica coronas de acero dentro de su segmento de bebidas para América y utiliza consumibles de acero y plástico, incluidas las cinchas de acero, en su segmento de embalaje de trá...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CCK" data-company="CROWN HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CROWN HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CCK eleva activamente su compromiso con la sostenibilidad. Este compromiso le ha valido a la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de CCK con los Productos Sostenibles es evidente a través de múltiples iniciativas. La empresa eleva activamente su compromiso con la sostenibilidad, demostrado por el programa 'Twentyby30' que describe objetivos ambientales, sociales y de gobernanza específicos. Este compromiso le ha ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CLF" data-company="CLEVELAND-CLIFFS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CLF</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CLEVELAND-CLIFFS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cleveland-Cliffs enfatiza su papel como productor líder de acero con sede en América del Norte. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cleveland-Cliffs enfatiza su papel como productor líder de acero con sede en América del Norte, particularmente para la industria automotriz, y el sector automotriz representa el mercado más grande para sus productos de acero y la producción de vehículos ligeros es un impulsor clave de la demanda. L...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CLF" data-company="CLEVELAND-CLIFFS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CLF</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CLEVELAND-CLIFFS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cleveland-Cliffs enfatiza su papel como proveedor principal de acero para la industria automotriz...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cleveland-Cliffs enfatiza su papel como proveedor principal de acero para la industria automotriz norteamericana, y el sector automotriz representa el mercado más grande de la compañía. La compañía está estratégicamente posicionada para suministrar acero producido a nivel nacional y colabora activam...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CLF" data-company="CLEVELAND-CLIFFS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CLF</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CLEVELAND-CLIFFS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cleveland-Cliffs está profundamente involucrada en la industria de la minería de mineral de hierro....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cleveland-Cliffs está profundamente involucrada en la industria de la minería de mineral de hierro debido a su integración vertical, que comienza con la minería de mineral de hierro y se extiende a través de la producción de pellets y hierro de reducción directa, hasta la siderurgia y el acabado pos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CLF" data-company="CLEVELAND-CLIFFS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CLF</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CLEVELAND-CLIFFS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cleveland-Cliffs es un importante productor de acero norteamericano enfocado en productos de chapa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cleveland-Cliffs está fuertemente involucrada con la industria del acero, particularmente como un importante productor de acero norteamericano enfocado en productos de chapa de valor agregado para la industria automotriz. El compromiso de la empresa se ve subrayado por su integración vertical, desde...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMC" data-company="COMMERCIAL METALS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMMERCIAL METALS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CMC está preparada para beneficiarse de las inversiones gubernamentales y empresariales en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de CMC en el tema de Infraestructura Civil es evidente a través de sus soluciones que apoyan la construcción en sus primeras etapas en diversas aplicaciones, incluidos proyectos de infraestructura en América del Norte y Europa. La empresa proporciona productos y tecnologías para sat...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CNR" data-company="CORE NATURAL RESOURCES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CNR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CORE NATURAL RESOURCES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Carbón y Combustibles Consumibles vende principalmente a usuarios finales industriales,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La significativa exposición de la empresa al tema del Carbón y Combustibles Consumibles es evidente a través de sus actividades comerciales principales, que incluyen la minería, preparación y comercialización de carbón bituminoso. Como productor líder de bajo costo enfocado en la Cuenca de los Apala...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CNR" data-company="CORE NATURAL RESOURCES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CNR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CORE NATURAL RESOURCES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra una conexión notable with la industria del acero. Desempeña un papel esencial...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra una conexión notable con la industria del acero a través de sus significativas operaciones de carbón metalúrgico. Desempeña un papel esencial en la satisfacción de la creciente demanda mundial de acero, respaldada por sus participaciones en terminales de exportación marítima. La...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRS" data-company="CARPENTER TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARPENTER TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa informó un aumento del 29 por ciento en las ventas al mercado de uso final Aeroespacial...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de la empresa en el tema de la industria de Contratación de Defensa es evidente a través de su posición como líder reconocido en materiales de aleaciones especiales de alto rendimiento y soluciones de procesos para aplicaciones críticas en los mercados aeroespacial y de defensa. Esto está...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRS" data-company="CARPENTER TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARPENTER TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra su participación en el tema de la industria de Fabricación de Metales....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su participación en el tema de la industria de Fabricación de Metales a través del procesamiento de materias primas, como níquel, cobalto, titanio, manganeso, cromo y molibdeno. Este procesamiento implica instalaciones de fusión, conformado en caliente y trabajo en frío para pro...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRS" data-company="CARPENTER TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARPENTER TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Carpenter Technology Corporation es líder en el mercado del transporte. Sin embargo, las ventas al...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Carpenter Technology Corporation participa en el tema de Soluciones de Movilidad a través de su provisión de materiales de aleaciones especiales de alto rendimiento y soluciones de procesos para el mercado del transporte. La compañía se identifica como líder en esta área; sin embargo, las ventas al ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HCC" data-company="WARRIOR MET COAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HCC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARRIOR MET COAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se dedica por completo a la minería de carbón para la fabricación de acero no térmico....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema de la industria del carbón y los combustibles consumibles es sustancial, ya que se dedica por completo a la minería de carbón para la fabricación de acero no térmico, un componente crítico de la producción de acero. Operando minas a gran escala y de bajo costo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HCC" data-company="WARRIOR MET COAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HCC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARRIOR MET COAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">HCC depende sustancialmente de las reservas minerales. Estas reservas se basan en un informe de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de HCC con las Reservas Minerales es evidente a través de sus detalladas divulgaciones sobre sus tenencias, que incluyen aproximadamente 82.4 millones de toneladas métricas de reservas recuperables en la Mina No. 4 y la Mina No. 7, y 69.0 millones de toneladas métricas de reservas recu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KWR" data-company="QUAKER CHEMICAL CORPORATION">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KWR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">QUAKER CHEMICAL CORPORATION</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Quaker Houghton es líder mundial en fluidos de procesos industriales. Este rol de liderazgo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La posición de Quaker Houghton como líder mundial en fluidos de procesos industriales significa una fuerte conexión con la industria de fabricación de productos químicos, ya que estos fluidos son cruciales para los procesos de fabricación. La compañía enfatiza la entrega de soluciones innovadoras y ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KWR" data-company="QUAKER CHEMICAL CORPORATION">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KWR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">QUAKER CHEMICAL CORPORATION</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Quaker Houghton se deriva de su posición como líder mundial en fluidos de procesos industriales. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La prominencia de Quaker Houghton en la industria de productos químicos industriales se deriva de su posición como líder mundial en fluidos de procesos industriales. El liderazgo de la empresa en esta área señala una inversión y un enfoque significativos en el servicio al sector de productos químico...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KWR" data-company="QUAKER CHEMICAL CORPORATION">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KWR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">QUAKER CHEMICAL CORPORATION</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Quaker Houghton asigna recursos para ayudar a estos clientes a fabricar metales. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Quaker Houghton con la industria de fabricación de metales es evidente a través de su enfoque en servir a las empresas de metalurgia. La empresa identifica la metalurgia como un segmento de clientes clave, destacando que su base de clientes incluye miles de empresas de metalurgia av...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KWR" data-company="QUAKER CHEMICAL CORPORATION">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KWR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">QUAKER CHEMICAL CORPORATION</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Quaker Houghton atiende a clientes en diversas industrias, incluidas la del acero, aluminio,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Quaker Houghton enfatiza su papel en la industria de servicios de minería al declarar explícitamente que su base de clientes incluye numerosas empresas mineras. La empresa identifica a estos clientes mineros como algunos de los más avanzados y especializados del mundo, lo que resalta la importancia ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KWR" data-company="QUAKER CHEMICAL CORPORATION">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KWR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">QUAKER CHEMICAL CORPORATION</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Quaker Houghton sirve a empresas siderúrgicas especializadas. La empresa se identifica como líder...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Quaker Houghton con la Industria del Acero es evidente a través de su sólida base de clientes, que incluye miles de empresas siderúrgicas especializadas. La empresa se identifica como líder mundial en fluidos de procesos industriales, sirviendo a empresas siderúrgicas con estos fluido...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LECO" data-company="LINCOLN ELECTRIC HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LECO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LINCOLN ELECTRIC HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La Compañía es el diseñador y fabricante más grande del mundo de productos de soldadura y corte por...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la Compañía en el tema de Aplicaciones Industriales es significativa, principalmente debido a su posición como el diseñador y fabricante más grande del mundo de productos de soldadura y corte por arco. Esto incluye una amplia gama de equipos de soldadura por arco, consumibles de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LECO" data-company="LINCOLN ELECTRIC HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LECO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LINCOLN ELECTRIC HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">LECO is el mayor diseñador y fabricante mundial de productos de soldadura and corte por arco. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">LECO, como el mayor diseñador y fabricante mundial de productos de soldadura y corte por arco, demuestra su compromiso con el tema de Automatización Industrial a través de su amplia línea de productos, que incluye equipos de soldadura por arco, cortadoras de control numérico por computadora y de pla...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LECO" data-company="LINCOLN ELECTRIC HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LECO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LINCOLN ELECTRIC HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Leco es el mayor diseñador y fabricante mundial de productos de soldadura y corte por arco. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Leco está significativamente ligado al tema de Productos Industriales, ya que la empresa es el mayor diseñador y fabricante mundial de productos de soldadura y corte por arco, ofreciendo una amplia gama de equipos, consumibles y otros productos relacionados. Estos productos, que incluy...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LECO" data-company="LINCOLN ELECTRIC HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LECO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LINCOLN ELECTRIC HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Leco is el mayor diseñador y fabricante del mundo en this sector. Leco produce una amplia gama de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Leco en el tema de Suministros Industriales es evidente en su fabricación de productos de soldadura y corte por arco. Como el mayor diseñador y fabricante del mundo en este sector, Leco produce una amplia gama de productos consumibles de soldadura, que incluyen electrodos consumi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LECO" data-company="LINCOLN ELECTRIC HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LECO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LINCOLN ELECTRIC HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa fabrica paquetes de soldadura robótica y sistemas de automatización integrados. Si bien...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de Robótica es evidente a través de la fabricación de paquetes de soldadura robótica y sistemas de automatización integrados. Como el diseñador y fabricante más grande del mundo de productos de soldadura y corte por arco, la empresa incorpora la robótica en ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LEG" data-company="LEGGETT & PLATT INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LEG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LEGGETT & PLATT INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa fabrican componentes para automóviles, como sistemas de soporte lumbar. La conexión se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de la empresa con el tema de Productos de Acero para Automoción se deriva de su producción de alambrón y alambre de acero, que se suministran a clientes comerciales, incluidos los de la industria automotriz. También fabrican componentes para automóviles, como sistemas de soporte lumbar y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LEG" data-company="LEGGETT & PLATT INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LEG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LEGGETT & PLATT INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Leggett & Platt es una de las principales fabricantes de muebles residenciales. Su segmento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Leggett & Platt en la industria del mueble para el hogar es evidente a través del suministro de componentes para fabricantes de muebles residenciales y líneas selectas de muebles terminados de marca propia. Su segmento de Productos de Muebles, Pisos y Textiles, que incluye mueble...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LEG" data-company="LEGGETT & PLATT INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LEG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LEGGETT & PLATT INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Leggett & Platt suministra componentes y maquinaria utilizados por los fabricantes de colchones. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Leggett & Platt en el tema de Maquinaria Industrial es multifacética. La compañía suministra componentes y maquinaria utilizados por los fabricantes de colchones en la producción y ensamblaje de sus productos terminados. Sin embargo, se deshizo de un pequeño negocio de maquinaria...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LEG" data-company="LEGGETT & PLATT INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LEG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LEGGETT & PLATT INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Leggett & Platt depende de la industria del acero. El segmento de productos para camas de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de Leggett & Platt a la industria del acero es evidente a través de su dependencia del acero como su principal materia prima y su producción de alambrón y alambre de acero tanto para uso interno como para ventas externas. El segmento de productos para camas de la empresa está integrado...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LEG" data-company="LEGGETT & PLATT INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LEG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LEGGETT & PLATT INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Leggett & Platt venden componentes a clientes asiáticos que exportan muebles terminados a los EE....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Leggett & Platt en la industria del mueble minorista es evidente a través de su suministro de componentes para fabricantes de muebles residenciales y de oficina, así como de líneas selectas de muebles terminados de marca privada. El segmento de Productos de Muebles, Pisos y Texti...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="METC" data-company="RAMACO RESOURCES INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">METC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RAMACO RESOURCES INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MetC es un operador y desarrollador de carbón metalúrgico. Se centran en optimizar los planes de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de METC se centra en la producción y venta de carbón metalúrgico, siendo la venta de carbón su principal fuente de ingresos. La empresa es un operador y desarrollador de carbón metalúrgico, manteniendo importantes toneladas de reservas y planeando aumentar la producción anual. Se centran ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="METC" data-company="RAMACO RESOURCES INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">METC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RAMACO RESOURCES INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa está en proceso de transición para convertirse into doble plataforma. La mina Brook...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa está en proceso de transición para convertirse en una empresa de doble plataforma centrada tanto en la producción de carbón metalúrgico como de minerales críticos, con la mina Brook destacada como un suministro nacional vital. Esta transición incluye el nombramiento de un Vicepresidente E...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="METC" data-company="RAMACO RESOURCES INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">METC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RAMACO RESOURCES INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa está en proceso de transición hacia una operación de plataforma dual centrada tanto en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa está en proceso de transición hacia una operación de plataforma dual centrada tanto en el carbón metalúrgico como en los elementos de tierras raras, y el proyecto de la Mina Brook juega un papel central en este cambio estratégico. La empresa enfatiza que sus operaciones de elementos de ti...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="METC" data-company="RAMACO RESOURCES INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">METC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RAMACO RESOURCES INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MetC estrechamente ligadas a la industria del acero. La principal fuente de ingresos de la empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de METC están estrechamente ligadas a la industria del acero, principalmente a través de su papel como proveedor de carbón metalúrgico. La principal fuente de ingresos de la empresa es la venta de carbón metalúrgico a acerías de altos hornos de América del Norte, plantas de coque y c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MLM" data-company="MARTIN MARIETTA MATERIALS">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MLM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MARTIN MARIETTA MATERIALS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Martin Marietta usa materiales de construcción pesada en proyectos de infraestructura, incluyendo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Martin Marietta con el tema de la Infraestructura Civil es evidente a través del uso de sus materiales de construcción pesada en proyectos de infraestructura, incluyendo autopistas, calles, carreteras y puentes. La empresa se beneficia de los proyectos de infraestructura y la IIJA, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MLM" data-company="MARTIN MARIETTA MATERIALS">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MLM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MARTIN MARIETTA MATERIALS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Martin Marietta está ligado a la industria de materiales de construcción. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Martin Marietta está significativamente ligado a la industria de materiales de construcción, como lo demuestra su papel como empresa de materiales de construcción basada en recursos naturales. La empresa suministra materiales esenciales como agregados, cemento, concreto premezclado y a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MLM" data-company="MARTIN MARIETTA MATERIALS">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MLM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MARTIN MARIETTA MATERIALS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Materiales de Construcción de Martin Marietta registró ingresos de $1.3 mil millones....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Martin Marietta en Servicios de Construcción es evidente a través de su provisión de materiales y servicios esenciales para diversos proyectos de construcción, incluyendo infraestructura, edificios no residenciales (centros de datos, almacenes) y residenciales. El negocio de Mate...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MLM" data-company="MARTIN MARIETTA MATERIALS">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MLM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MARTIN MARIETTA MATERIALS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Martin Marietta suministra materiales de construcción pesados utilizados. El mercado residencial...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Martin Marietta suministra materiales de construcción pesados utilizados en proyectos de construcción residencial, y el mercado residencial representa un porcentaje notable de sus envíos de agregados. Si bien la empresa reconoce la debilidad actual en la vivienda unifamiliar debido a los vientos en ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MTX" data-company="MINERALS TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MINERALS TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa aborda activamente la contaminación por PFAS a través of sus productos FLUORO-SORB®,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su compromiso con las tecnologías ambientales a través de varias iniciativas, incluido el desarrollo de productos y procesos para la gestión de residuos y el reciclaje para reducir el impacto ambiental y el consumo de energía para sus clientes. La empresa aborda activamente la c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MTX" data-company="MINERALS TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MINERALS TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se centra en expandir su modelo de mantenimiento refractario a fabricantes de acero a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en la Industria del Acero es evidente a través de su segmento de Soluciones de Ingeniería, que proporciona mezclas, tecnologías y sistemas a base de minerales para las industrias del acero. La empresa se centra en expandir su modelo de mantenimiento refractario a fabri...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MTX" data-company="MINERALS TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MINERALS TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa está buscando activamente oportunidades para expandir el uso of sus productos....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su compromiso con la industria del tratamiento del agua a través de sus tecnologías de filtración de agua, en particular con los productos FLUORO-SORB®, que abordan la contaminación por PFAS en diversas fuentes de agua, incluidos el suelo, las aguas subterráneas, el agua potable...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ROCK" data-company="GIBRALTAR INDUSTRIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ROCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GIBRALTAR INDUSTRIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Gibraltar Industries es un fabricante y proveedor líder de productos y servicios para el mercado de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Gibraltar Industries es un fabricante y proveedor líder de productos y servicios para el mercado de infraestructura, operando y reportando sus resultados dentro de un segmento dedicado a Infraestructura. El enfoque de la compañía en los mercados de Estructuras, que incluye Infraestructura, está resp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ROCK" data-company="GIBRALTAR INDUSTRIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ROCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GIBRALTAR INDUSTRIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento Residencial de la compañía incluye un negocio de Techos Metálicos. La expansión de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La compañía demuestra su compromiso con el tema de Materiales de Construcción a través de adquisiciones estratégicas y un enfoque en productos de construcción específicos. El segmento Residencial de la compañía incluye un negocio de Techos Metálicos, reforzado aún más por la adquisición de Gideon St...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ROCK" data-company="GIBRALTAR INDUSTRIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ROCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GIBRALTAR INDUSTRIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento Residencial de Gibraltar Industries se enfoca en productos y accesorios de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Gibraltar Industries con el tema de la mejora del hogar es evidente a través de su servicio a minoristas de mejora del hogar y su operación dentro del mercado residencial. El segmento Residencial de la empresa se enfoca en productos y accesorios de construcción, incluido el techado de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ROCK" data-company="GIBRALTAR INDUSTRIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ROCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GIBRALTAR INDUSTRIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La exposición de la empresa a la Industria del Acero se deriva de su uso de acero y aluminio como...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de la empresa a la Industria del Acero se deriva de su uso de acero y aluminio como materias primas en sus procesos de fabricación. Debido a esto, la empresa está monitoreando de cerca las condiciones macroeconómicas, ya que su negocio podría verse afectado negativamente por la posible...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RS" data-company="RELIANCE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RELIANCE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Reliance es una de las principales centros de servicios de metales de la industria del acero. Esto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Reliance en la industria del acero es evidente a través de sus operaciones como centro de servicios de metales, procesando y distribuyendo productos de acero terminados como tubos, vigas, placas y barras. Esto se ve reforzado por las adquisiciones estratégicas de la empresa de mú...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STLD" data-company="STEEL DYNAMICS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STLD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STEEL DYNAMICS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Steel Dynamics está activamente involucrada en la producción de aluminio. La empresa ya ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Steel Dynamics está activamente involucrada en la producción de aluminio, como lo demuestra la construcción de una planta de productos planos de aluminio reciclado en Columbus, Mississippi, junto con dos centros satélite de planchas de aluminio reciclado. La empresa ya ha invertido aproximadamente 2...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STLD" data-company="STEEL DYNAMICS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STLD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STEEL DYNAMICS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa planea suministrar productos planos laminados de aluminio, incluidos aquellos con alto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en la industria de los fabricantes de automóviles es evidente a través de su papel como proveedor de productos de aluminio y acero. La empresa se está convirtiendo en un proveedor preferente para los productores automotrices europeos y asiáticos con sede en EE. UU. deb...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STLD" data-company="STEEL DYNAMICS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STLD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STEEL DYNAMICS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Steel Dynamics fabrica y vende productos de acero, incluyendo vigas, viguetas, cubiertas of acero....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Steel Dynamics en el tema Materiales de Construcción es evidente a través de sus operaciones de acero y fabricación de acero, que contribuyen significativamente a sus ingresos. La empresa fabrica y vende productos de acero, incluyendo vigas, viguetas de acero y cubiertas de acero...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STLD" data-company="STEEL DYNAMICS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STLD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STEEL DYNAMICS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa está invirtiendo en operaciones de aluminio para suministrar productos planos laminados....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de Productos Industriales es evidente a través de su fabricación y venta de productos de acero, procesamiento y venta de metales ferrosos y no ferrosos reciclados, y fabricación y venta de viguetas y productos de cubierta de acero. Los flujos de ingresos de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STLD" data-company="STEEL DYNAMICS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STLD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STEEL DYNAMICS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra una sólida posición en la industria del reciclaje de acero. Las acerías...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra una sólida posición en la industria del reciclaje de acero, ya que es uno de los mayores productores de acero y recicladores de metales del país en los Estados Unidos. Las acerías de la empresa utilizan una gran parte de la chatarra férrea vendida por sus operaciones de reciclaj...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STLD" data-company="STEEL DYNAMICS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STLD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STEEL DYNAMICS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía participa en la fabricación de metales a través of sus New Millennium Building Systems....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La compañía participa en la fabricación de metales a través de sus New Millennium Building Systems, que incluyen plantas de viguetas y cubiertas ubicadas en todo Estados Unidos y el norte de México. Estas plantas generan ingresos por la fabricación de vigas, viguetas de acero y cubiertas de acero ut...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STLD" data-company="STEEL DYNAMICS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STLD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STEEL DYNAMICS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El acero es fundamental para las operaciones de la empresa, como lo demuestra su posición como uno...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El acero es fundamental para las operaciones de la empresa, como lo demuestra su posición como uno de los mayores productores de acero y recicladores de metales a nivel nacional en los Estados Unidos. Esto se apoya en una capacidad de producción y recubrimiento de acero de aproximadamente 16 millone...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRN" data-company="TRINITY INDUSTRIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRINITY INDUSTRIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa proporciona servicios de logística como parte of su segmento de Alquiler de Vagones y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su participación en el tema de la Red Logística a través de varias actividades clave. La empresa proporciona servicios de logística como parte de su segmento de Alquiler de Vagones y Servicios, y ofrece servicios digitales y de logística. También monitorean activamente el tráfic...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRN" data-company="TRINITY INDUSTRIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRINITY INDUSTRIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trinity Industries se enfoca en minimizar los impactos of las interrupciones en su cadena de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Trinity Industries en Soluciones de Cadena de Suministro es evidente a través de su monitoreo activo y mitigación de las interrupciones de la cadena de suministro, que pueden afectar la producción y la entrega. Los Grupos de Productos Ferroviarios y Arrendamiento de la empresa pa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="USLM" data-company="UNITED STATES LIME & MINERAL">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">USLM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED STATES LIME & MINERAL</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa identifica consistentemente la agricultura como una of las industrias a las that sirve....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de la Agroindustria es evidente a través de su papel como proveedor de productos de cal y piedra caliza para el sector agrícola, incluidos los productores avícolas. Si bien la empresa identifica consistentemente la agricultura como una de las industrias a la...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="USLM" data-company="UNITED STATES LIME & MINERAL">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">USLM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED STATES LIME & MINERAL</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los ingresos de la empresa aumentaron en 2024 en comparación con 2023, principalmente debido a un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de la empresa con la industria de Materiales de Construcción es evidente a través de su producción y venta de materiales esenciales como piedra caliza triturada, cal viva y lechada de cal. Suministrando principalmente a la industria de la construcción, la empresa reconoce que sus ingreso...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="USLM" data-company="UNITED STATES LIME & MINERAL">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">USLM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED STATES LIME & MINERAL</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">USLM proveedor de productos de cal y piedra caliza para el sector medioambiental. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de USLM con el tema de las Tecnologías Ambientales es evidente en su papel como proveedor de productos de cal y piedra caliza para el sector medioambiental, que incluye el saneamiento municipal, las instalaciones de tratamiento de agua y los procesos de tratamiento de gases de combusti...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="USLM" data-company="UNITED STATES LIME & MINERAL">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">USLM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED STATES LIME & MINERAL</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La conexión de la empresa con la industria de Servicios de Petróleo y Gas es evidente. La demanda...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de la empresa con la industria de Servicios de Petróleo y Gas es evidente a través de su papel como proveedor de productos de cal y piedra caliza. La demanda de estos productos se ve afectada por el nivel de actividad de perforación de petróleo y gas en sus áreas de mercado, y el aumento...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="USLM" data-company="UNITED STATES LIME & MINERAL">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">USLM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED STATES LIME & MINERAL</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La conexión de la empresa con la Industria del Acero es evidente. La disminución of la demanda de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de la empresa con la Industria del Acero es evidente a través del suministro de productos de cal y piedra caliza a los productores de acero, y el aumento de la demanda de estos clientes contribuye al aumento de los ingresos. Sin embargo, la dependencia de la empresa de la industria del a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WS" data-company="WORTHINGTON STEEL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WORTHINGTON STEEL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Worthington Steel supera el 50% de las ventas netas del sector automotriz. La compañía colabora en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Worthington Steel en la industria de piezas de automóviles es evidente a través de su significativa contribución de ingresos del sector automotriz, superando consistentemente el 50% de las ventas netas. Esto está respaldado además por el papel de la compañía en el procesamiento d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACA" data-company="ARCOSA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ACA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCOSA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Arcosa es un proveedor de productos y soluciones relacionadas with la infraestructura. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Arcosa es un proveedor de productos y soluciones relacionadas con la infraestructura, sirviendo a los mercados de construcción, estructuras de ingeniería y transporte. La empresa espera beneficiarse de la inversión continua en la infraestructura envejecida de la nación, señalando que la inversión en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACA" data-company="ARCOSA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ACA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCOSA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Arcosa atiende a mercados de la construcción en América del Norte. La adquisición de Stavola...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Arcosa en la industria de materiales de construcción es evidente a través de su posicionamiento estratégico y adquisiciones recientes. Como proveedor de productos y soluciones relacionados con la infraestructura, Arcosa atiende a mercados de la construcción en América del Norte, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACA" data-company="ARCOSA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ACA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCOSA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Arcosa se integra en la industria del transporte marítimo. La compañía fabrica barcazas interiores....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Arcosa en la industria del transporte marítimo es evidente a través de su segmento de Productos de Transporte, que incluye la fabricación de barcazas interiores. El backlog de barcazas interiores de la compañía ha mostrado un crecimiento constante, alcanzando los 280,1 millones d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACA" data-company="ARCOSA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ACA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCOSA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Arcosa está beneficiando de las inversiones en infraestructura y el crecimiento del mercado de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Arcosa en el tema de la Infraestructura de Servicios Públicos es evidente a través de varias actividades clave. El segmento de Estructuras de Ingeniería de la empresa incluye estructuras de servicios públicos, y han observado una actividad de pedidos saludable impulsada por clien...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACA" data-company="ARCOSA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ACA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCOSA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Arcosa está ampliando activamente su planta de torres eólicas. La energía renovable debe desempeñar...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Arcosa en el sector de la energía renovable es evidente a través de su segmento de Estructuras de Ingeniería, particularmente su negocio de torres eólicas. La empresa está ampliando activamente su planta de torres eólicas, lo que contribuye a la mejora del volumen y los márgenes,...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACA" data-company="ARCOSA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ACA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCOSA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Arcosa se identifica como un proveedor de productos y soluciones relacionados with la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Arcosa se identifica como un proveedor de productos y soluciones relacionados con la infraestructura con posiciones de liderazgo en los mercados de transporte en América del Norte, respaldado por su segmento de Productos de Transporte, que incluye barcazas interiores. La participación de la compañía...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CCK" data-company="CROWN HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CROWN HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Crown Holdings fabrica latas y tapas de aluminio para bebidas en sus segmentos de América, Europa y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Crown Holdings con la industria de fabricación de bebidas es evidente a través de sus operaciones globales e inversiones estratégicas. La empresa fabrica latas y tapas de aluminio para bebidas en sus segmentos de América, Europa y Asia Pacífico, abasteciendo a una base de clientes d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CLF" data-company="CLEVELAND-CLIFFS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CLF</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CLEVELAND-CLIFFS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se enfoca en productos de chapa de valor agregado, particularmente para la industria...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de Productos Industriales es evidente a través de su posición como un importante productor de acero con sede en América del Norte, con operaciones verticalmente integradas que van desde la minería de materias primas hasta el acabado, estampado, utillaje y tu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMC" data-company="COMMERCIAL METALS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMMERCIAL METALS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CMC adquirió múltiples instalaciones de reciclaje de metales, incluidas ASR, Kodiak y Roane. CMC...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La posición de CMC en el sector del reciclaje de acero se ve reforzada por la adquisición de Advanced Steel Recovery, LLC (ASR), un proveedor de chatarra de metales ferrosos reciclados. CMC tiene una larga historia en el reciclaje de metales. La compañía adquirió múltiples instalaciones de reciclaje...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRS" data-company="CARPENTER TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARPENTER TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El mercado de uso final Aeroespacial y de Defensa representa aproximadamente el 60% de Carpenter...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Carpenter Technology con la temática de Fabricación Aeroespacial es significativo, ya que la empresa se identifica como líder en materiales de aleaciones especiales de alto rendimiento y soluciones de procesos para aplicaciones críticas en este mercado. Esto se ve reforzado por el h...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRS" data-company="CARPENTER TECHNOLOGY">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARPENTER TECHNOLOGY</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Aplicaciones Militares es evidente a través of su papel como líder en el suministro de materiales...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de Aplicaciones Militares es evidente a través de su papel como líder en el suministro de materiales de aleaciones especiales de alto rendimiento y soluciones de procesos para aplicaciones críticas en los mercados aeroespacial y de defensa. Esto se ve reforz...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KWR" data-company="QUAKER CHEMICAL CORPORATION">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KWR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">QUAKER CHEMICAL CORPORATION</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Quaker Houghton señala una mezcla de productos con menos minería en relación with la automotriz. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Quaker Houghton con el tema de equipos de minería es evidente a través de su servicio a empresas mineras especializadas, ya que la empresa identifica la minería como una de sus industrias de clientes clave a nivel mundial. Sin embargo, la empresa indica una presencia reducida en la ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LECO" data-company="LINCOLN ELECTRIC HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LECO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LINCOLN ELECTRIC HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Leco es el mayor diseñador y fabricante Mundial de productos de soldadura y corte por arco. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Leco en el tema de Maquinaria Industrial es evidente en su posición como el mayor diseñador y fabricante mundial de productos de soldadura y corte por arco, incluidos equipos de soldadura por arco, cortadoras de plasma CNC y sistemas de alimentación de alambre. El enfoque de la e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MLM" data-company="MARTIN MARIETTA MATERIALS">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MLM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MARTIN MARIETTA MATERIALS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El mercado de infraestructura representando el 33% de los envíos de agregados del primer trimestre....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de Desarrollo de Infraestructura es evidente a través de sus materiales de construcción pesada utilizados en proyectos de infraestructura, con el mercado de infraestructura representando el 33% de los envíos de agregados del primer trimestre. Esto se ve aún ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MLM" data-company="MARTIN MARIETTA MATERIALS">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MLM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MARTIN MARIETTA MATERIALS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Martin Marietta produce cal dolomítica vendida principalmente a productores de acero. Una parte...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Martin Marietta en la industria del acero es evidente a través de su negocio de Especialidades de Magnesia, que produce cal dolomítica vendida principalmente a productores de acero. Una parte importante, el 44%, de los ingresos de Especialidades de Magnesia en 2024 está ligada a ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NUE" data-company="NUCOR CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NUE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NUCOR CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nucor fabrica estos sujetadores como parte of una gama más amplia de productos de acero. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Nucor en el tema de sujetadores industriales es evidente a través de su segmento de productos de acero, que incluye sujetadores de acero. La empresa fabrica estos sujetadores como parte de una gama más amplia de productos de acero, que incluyen viguetas, vigas y sistemas de const...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NUE" data-company="NUCOR CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NUE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NUCOR CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nucor es el mayor reciclador de América del Norte. La dependencia de la chatarra ferrosa como...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La prominencia de Nucor en el tema de Líder en Reciclaje de Acero se deriva de su posición como el mayor reciclador de América del Norte, utilizando chatarra de acero como materia prima principal para su acero y productos de acero. La dependencia de la empresa de la chatarra ferrosa como materia pri...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NUE" data-company="NUCOR CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NUE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NUCOR CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nucor es la empresa de productos de acero más grande y capaz de América del Norte. Nucor informa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Nucor gira en torno a la industria del acero, ya que la empresa fabrica acero y productos de acero. Nucor informa sus resultados en los siguientes segmentos: acerías, productos de acero y materias primas. La empresa también se enfoca en la reinstauración y ampliación de los a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ROCK" data-company="GIBRALTAR INDUSTRIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ROCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GIBRALTAR INDUSTRIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Gibraltar Industries participa en la industria de la construcción de viviendas. La empresa fabrica...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Gibraltar Industries participa en la industria de la construcción de viviendas a través de su segmento residencial, que constituye una parte importante de sus ingresos. La empresa fabrica y proporciona productos y servicios para el mercado residencial, incluidos sistemas de techos metálicos, accesor...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ROCK" data-company="GIBRALTAR INDUSTRIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ROCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GIBRALTAR INDUSTRIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se identifica como fabricante y proveedor de productos y servicios para el mercado de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de la energía solar es evidente a través de su servicio a desarrolladores de energías renovables (solares) en América del Norte. La empresa se identifica como fabricante y proveedor de productos y servicios para el mercado de energías renovables, con un segm...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STLD" data-company="STEEL DYNAMICS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STLD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STEEL DYNAMICS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra su compromiso con el tema de Productos de Acero para Automoción. Se ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su compromiso con el tema de Productos de Acero para Automoción a través de varias actividades clave. Se ha convertido en un proveedor de elección para los fabricantes de automóviles, en particular los fabricantes europeos y asiáticos con sede en EE. UU., debido a sus capacidade...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STLD" data-company="STEEL DYNAMICS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STLD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STEEL DYNAMICS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa es el mayor reciclador de metales de América del Norte. Para respaldar sus operaciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de la tecnología de reciclaje de metales es evidente a través de su posición como el mayor reciclador de metales de América del Norte, tanto para metales ferrosos como no ferrosos. Para respaldar sus operaciones de acero y aluminio, la empresa está creciendo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRN" data-company="TRINITY INDUSTRIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRINITY INDUSTRIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trinity Industries se identifica como un proveedor líder de productos y servicios de vagones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Trinity Industries se identifica como un proveedor líder de productos y servicios de vagones de ferrocarril en América del Norte, operando principalmente a través de su marca TrinityRail. La participación de la empresa en el transporte de carga ferroviaria es evidente a través de su participación en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="USLM" data-company="UNITED STATES LIME & MINERAL">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">USLM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED STATES LIME & MINERAL</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa proveedor de productos de cal y piedra caliza para clientes ambientales. El aumento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema de Tratamiento de Agua es evidente a través de su papel como proveedor de productos de cal y piedra caliza para clientes ambientales, incluidas las instalaciones municipales de saneamiento y tratamiento de agua. El aumento de la demanda de estos clientes ambie...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WOR" data-company="WORTHINGTON ENTERPRISES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WOR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WORTHINGTON ENTERPRISES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Worthington Industries tiene productos para el hogar al aire libre y de celebración. Los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de Worthington Industries a la temática de Productos de Ocio es evidente a través de su participación en productos para el hogar al aire libre y de celebración. El segmento de Productos de Consumo de la empresa incluye estas ofertas, con productos que desempeñan un papel importante en ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACA" data-company="ARCOSA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ACA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCOSA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Arcosa está influenciado por la Ley de Reducción de the Inflación (IRA) La Ley actúa como un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Arcosa con el tema de Tecnología de Energía Limpia está significativamente influenciado por la Ley de Reducción de la Inflación (IRA), que actúa como un importante catalizador para su negocio de torres eólicas. Esto se evidencia en más de $1.1 mil millones en nuevos pedidos de torre...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACA" data-company="ARCOSA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ACA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCOSA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Arcosa fabrica barcazas fluviales. El libro de pedidos de la empresa fue sustancial, con valores de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Arcosa participa en el tema del transporte industrial a través de su segmento de Productos de Transporte, que fabrica barcazas fluviales. El libro de pedidos de la empresa para estas barcazas fue sustancial, con valores de $277.0 millones al 30 de junio de 2025 y $280.1 millones al 31 de diciembre d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACA" data-company="ARCOSA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ACA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCOSA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Arcosa se realiza principalmente a través of su negocio de torres eólicas. La empresa está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Arcosa en la industria de Equipos de Energía Renovable se realiza principalmente a través de su negocio de torres eólicas, particularmente su planta totalmente en funcionamiento en Belen, Nuevo México, que es acreedora de márgenes. Los volúmenes de torres eólicas de la empresa ha...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACA" data-company="ARCOSA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ACA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCOSA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Arcosa está experimentando una recuperación del mercado, impulsada by la Ley de Reducción de the...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Arcosa con el sector de la energía eólica es evidente a través de sus operaciones de fabricación de torres eólicas, especialmente destacadas por la planta totalmente operativa en Belen, Nuevo México, que aumenta los márgenes y contribuye al crecimiento de los ingresos. El negocio de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AMR" data-company="ALPHA METALLURGICAL RESOURCE">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AMR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHA METALLURGICAL RESOURCE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Las ventas de carbón metalúrgico se realizan principalmente en Asia, Europa y América. 78% de los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Alpha Metallurgical Resources con el tema de las exportaciones de energía es sustancial, como lo demuestra la importante porción de sus ingresos del carbón derivados de las ventas internacionales. Las ventas de carbón metalúrgico de la empresa se realizan principalmente en Asia, Eur...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BTU" data-company="PEABODY ENERGY CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BTU</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PEABODY ENERGY CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Peabody Energy se centra principalmente en la exportación, sirviendo a clientes en varios países....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Peabody Energy en el tema de Exportaciones de Energía es evidente a través de su plataforma operativa marítima, que se centra principalmente en la exportación, sirviendo a clientes en varios países. La empresa participa activamente en los mercados de carbón térmico marítimo, con ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CCK" data-company="CROWN HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CROWN HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CCK fabrica latas de alimentos, comida para mascotas, aerosoles y cierres. La empresa ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de CCK en la industria del procesamiento de alimentos es evidente a través de su negocio de latas de alimentos norteamericano, que incluye la fabricación de latas de alimentos, latas de aerosoles y cierres. Esto se ve respaldado por la adición de una tercera línea de latas de alimen...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CLF" data-company="CLEVELAND-CLIFFS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CLF</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CLEVELAND-CLIFFS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cleveland-Cliffs se enfoca en reducir las emisiones de GEI utilizando de manera óptima la chatarra...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cleveland-Cliffs se enfoca en reducir las emisiones de GEI utilizando de manera óptima la chatarra en sus instalaciones y reciclando los gases de escape para una generación de energía eficiente. La integración vertical de la compañía incluye el procesamiento de chatarra ferrosa a través de la sideru...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMC" data-company="COMMERCIAL METALS CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CMC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COMMERCIAL METALS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CMC espera que los impulsores estructurales respalden la actividad de construcción. Los productos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de CMC en la industria de la construcción residencial es evidente a través de su apoyo a la construcción en diversas aplicaciones, incluidos proyectos residenciales. Los productos Tensar de la empresa se dirigen a los desarrolladores de sitios residenciales, y CMC reconoce la escase...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CNR" data-company="CORE NATURAL RESOURCES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CNR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CORE NATURAL RESOURCES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CEIX se destina al mercado de exportación, con el 60% del total de toneladas vendidas exportadas en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de CEIX en las exportaciones de energía es evidente a través de su uso estratégico de la Terminal Marítima CONSOL, que proporciona acceso a los mercados internacionales de carbón. Una parte sustancial del carbón de la empresa se destina al mercado de exportación, con el 60% del total de t...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HCC" data-company="WARRIOR MET COAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HCC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARRIOR MET COAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de la empresa estrechamente ligado a la industria del acero. Es un proveedor de carbón...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de la empresa está estrechamente ligado a la industria del acero, ya que es un proveedor de carbón metalúrgico para la fabricación de acero, un componente crítico en la producción de acero. La empresa dedica sus operaciones a la minería de carbón metalúrgico no térmico para la fabricación...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LECO" data-company="LINCOLN ELECTRIC HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LECO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LINCOLN ELECTRIC HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa está experimentando crecimiento en el sector automotriz, respaldado por proyectos de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema Fabricantes de Automóviles es evidente a través de sus ventas de productos de soldadura y corte por arco a las industrias automotriz y de transporte, que se consideran importantes mercados de usuarios finales. La empresa está experimentando crecimiento en el...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LECO" data-company="LINCOLN ELECTRIC HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LECO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LINCOLN ELECTRIC HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa ha experimentado un crecimiento en el sector automotriz, con aplicaciones específicas....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el mercado de repuestos automotrices es evidente a través de sus productos de soldadura y corte por arco que se venden a las industrias automotriz y de transporte, que se identifican como mercados de usuarios finales importantes. La empresa ha experimentado un creci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LECO" data-company="LINCOLN ELECTRIC HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LECO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LINCOLN ELECTRIC HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa experimentó un crecimiento de las ventas orgánicas en aplicaciones de infraestructura de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de Servicios de Construcción se demuestra a través de sus productos de soldadura y corte por arco que se venden a las industrias de la construcción y la infraestructura, con la construcción y la infraestructura identificadas como mercados finales importantes...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LECO" data-company="LINCOLN ELECTRIC HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LECO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LINCOLN ELECTRIC HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa está abordando el impacto de los aranceles sobre el acero y los componentes, que afectan...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de Suministro de Industria Pesada es evidente a través de sus productos de soldadura y corte por arco que se venden a industrias pesadas, incluyendo fabricación pesada, construcción naval, mantenimiento y reparación, que identifica como un mercado de usuario...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LECO" data-company="LINCOLN ELECTRIC HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LECO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LINCOLN ELECTRIC HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Leco es el mayor diseñador y fabricante mundial de productos de soldadura y corte por arco. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Leco en Tecnologías Industriales es evidente en su posición como el mayor diseñador y fabricante mundial de productos de soldadura y corte por arco, que incluyen fuentes de alimentación para soldadura por arco, cortadoras de plasma CNC, sistemas de alimentación de alambre, paquetes de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LECO" data-company="LINCOLN ELECTRIC HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LECO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LINCOLN ELECTRIC HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Leco es el diseñador y fabricante más grande del mundo de productos de soldadura y corte por arco....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Leco en el tema de Fabricación de Metales es evidente a través de su posición como el diseñador y fabricante más grande del mundo de productos de soldadura y corte por arco, que son esenciales para la fabricación de metales. Su oferta de productos incluye fuentes de energía para ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MTX" data-company="MINERALS TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MINERALS TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa ha experimentado un sólido comienzo de año para sus sistemas de revestimiento ambiental...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en la industria de Materiales de Construcción es evidente a través de la búsqueda de un uso ampliado de productos en la construcción de edificios, así como en proyectos ambientales e de infraestructura. Esto está respaldado además por la estabilidad observada en proyec...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MTX" data-company="MINERALS TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MINERALS TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se enfoca en expandir su presencia en el mercado de papel y embalaje. Esto se apoya en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa se enfoca en expandir su presencia en el mercado de papel y embalaje, particularmente en Asia, con soluciones de embalaje y productos sostenibles como NewYield. Esto se apoya en el desarrollo de nuevas instalaciones satélite, algunas de las cuales están dedicadas a aplicaciones de embalaj...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NUE" data-company="NUCOR CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NUE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NUCOR CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nucor suministra acero a diversos proyectos de construcción, incluidas instalaciones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Nucor con la industria de Materiales de Construcción es evidente a través de su segmento de productos de acero, que abarca una variedad de materiales relacionados con la construcción, como acero corrugado para hormigón armado, losa de acero, productos de pilotes, viguetas de acero y v...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NUE" data-company="NUCOR CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NUE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NUCOR CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nucor está involucrado en el desarrollo de infraestructura. Más de la mitad de los productos de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Nucor está significativamente involucrado en el desarrollo de infraestructura, impulsado principalmente por legislación que asigna más de $1.5 billones para reconstruir infraestructura. Más de la mitad de los productos de Nucor se envían al mercado de la construcción, posicionando a la empresa para ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RS" data-company="RELIANCE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RELIANCE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Las operaciones de procesamiento por contrato de Reliance sirven aproximadamente el 4% de las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Reliance con el tema de Productos de Acero para Automoción se deriva de varias operaciones. Las operaciones de procesamiento por contrato de la compañía sirven al mercado automotriz, representando aproximadamente el 4% de las ventas del segundo trimestre de 2025. Además, MidWest Mater...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RS" data-company="RELIANCE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RELIANCE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Un tercio tanto en el primer como en el segundo trimestre de 2025, proviene de tubos de acero al...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Reliance en el tema de Materiales de Construcción es evidente en sus ventas y adquisiciones estratégicas. Una parte importante de los ingresos de la empresa, aproximadamente un tercio tanto en el primer como en el segundo trimestre de 2025, proviene de tubos de acero al carbono, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="STLD" data-company="STEEL DYNAMICS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">STLD</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STEEL DYNAMICS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">OmniSource es uno de los mayores recicladores de metales en los Estados Unidos. La empresa brindan...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El sólido compromiso de la empresa con los Servicios de Reciclaje es evidente a través de sus extensas operaciones de reciclaje de metales. Como uno de los mayores recicladores de metales en los Estados Unidos, las operaciones OmniSource de la empresa brindan servicios de procesamiento, transporte, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRN" data-company="TRINITY INDUSTRIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRINITY INDUSTRIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trinity Industries posee y opera una flota significativa de vagones de ferrocarril. La tasa de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Trinity Industries con el tema de Flotas Comerciales se demuestra a través de su Grupo de Arrendamiento, que posee y opera una flota significativa de vagones de ferrocarril, con un total de 109.635 vagones de ferrocarril de propiedad de la empresa. La tasa de utilización de esta flo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRN" data-company="TRINITY INDUSTRIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRN</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRINITY INDUSTRIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Trinity Industries es proveedor líder de productos y servicios de vagones de ferrocarril en América...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Trinity Industries está significativamente involucrada en la industria del transporte, principalmente a través de su posición como proveedor líder de productos y servicios de vagones de ferrocarril en América del Norte. La dependencia de la empresa de las redes de transporte es evidente en sus opera...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KWR" data-company="QUAKER CHEMICAL CORPORATION">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">KWR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">QUAKER CHEMICAL CORPORATION</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Quaker Houghton experimentó impactos de la débil producción automotriz, de transporte y de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Quaker Houghton en el tema de Maquinaria Industrial es evidente a través de varias facetas de sus operaciones. El segmento de Américas de la empresa experimentó impactos de la débil producción automotriz, de transporte y de maquinaria pesada, mientras que su adquisición de Dipsol...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LECO" data-company="LINCOLN ELECTRIC HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">LECO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LINCOLN ELECTRIC HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La Compañía es el diseñador y fabricante más grande del mundo de productos de soldadura y corte por...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de la Compañía con el tema de la Electrónica Industrial es evidente en su extensa línea de productos de soldadura, que incluye fuentes de alimentación para soldadura por arco y cortadoras de plasma de control numérico por computadora (CNC). Como el diseñador y fabricante más grande del m...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MTX" data-company="MINERALS TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MINERALS TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa suministra productos como refractarios de alta durabilidad y mezclas de fundición de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su participación en el tema del suministro de la industria pesada a través de sus soluciones de fundición a base de bentonita para la industria de la fundición de metales, particularmente en mercados emergentes. Esto está respaldado además por el despliegue de formulaciones de v...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NUE" data-company="NUCOR CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NUE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NUCOR CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nucor ofrece diversas soluciones a fabricantes estructurales para proyectos como centros de datos,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Nucor en el tema de Productos Industriales es evidente a través de su negocio principal de fabricación de acero y productos de acero, organizado en los segmentos de 'acerías', 'productos de acero' y 'materias primas'. El segmento de productos de acero de la empresa ofrece diversa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NUE" data-company="NUCOR CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">NUE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NUCOR CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nucor is el mayor reciclador de América del Norte. utilizando chatarra de acero como su principal...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La posición de Nucor como el mayor reciclador de América del Norte, utilizando chatarra de acero como su principal materia prima para la producción de acero y productos de acero, demuestra la fuerte alineación de la compañía con la tecnología de reciclaje de metales. Esto se apoya aún más en la incl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RS" data-company="RELIANCE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">RS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RELIANCE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Reliance ofrece soluciones de procesamiento de metales de valor agregado a los clientes. Mid-West...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Reliance en el tema de la Fabricación de Metales es evidente a través de la provisión de soluciones de procesamiento de metales de valor agregado a los clientes e inversiones en equipos de procesamiento avanzados. La adquisición de Mid-West Materials, un proveedor de productos de...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

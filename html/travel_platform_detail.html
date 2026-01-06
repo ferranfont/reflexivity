@@ -1,0 +1,1523 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Travel Platform - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Travel Platform</div>
+      <div class="sub-title">Investment Theme Detail - Entertainment and Media Industry</div>
+    </div>
+    <a href="/main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Travel Platform &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Entertainment and Media &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 15
+    </div>
+
+    
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">15</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BKNG</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BOOKING HOLDINGS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Facilita los viajes aéreos globales al proporcionar plataformas en línea integrales que permiten a los consumidores buscar, comparar y reservar billet...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BKNG" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">EXPE</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">EXPEDIA GROUP INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Permite a los clientes reservar vuelos de varias aerolíneas, desempeñando un papel importante en la conexión de viajeros con opciones de transporte aé...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/EXPE" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ABNB</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">AIRBNB INC-CLASS A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera una plataforma global que conecta directamente a anfitriones individuales que ofrecen alojamientos y experiencias con huéspedes que los buscan, ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ABNB" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">GOOGL</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ALPHABET INC-CL A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y utiliza hardware especializado, incluidas las Unidades de Procesamiento Tensorial (TPU), para acelerar cargas de trabajo de inteligencia ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/GOOGL" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TRIP</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TRIPADVISOR INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Integra opciones de reserva de alquiler de coches dentro de su plataforma más amplia de planificación y reserva de viajes....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TRIP" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">AMS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">AMADEUS IT GROUP SA</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona soluciones tecnológicas integrales que impulsan el ecosistema global de viajes, permitiendo a las aerolíneas, hoteles y agencias de viajes...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/AMS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TUI1</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TUI AG</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Realiza Operaciones de Cruceros....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TUI1" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">MMYT</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">MAKEMYTRIP LTD</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Facilita la reserva y el registro en línea para una amplia gama de servicios de aerolíneas, conectando a los viajeros con diversas opciones de vuelo y...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/MMYT" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">UBER</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">UBER TECHNOLOGIES INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha la inteligencia artificial para optimizar sus plataformas de transporte compartido y entrega, mejorando la eficiencia de las rutas, la fijac...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/UBER" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">WEX</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">WEX INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona soluciones de tecnología financiera que facilitan el procesamiento de pagos y otros servicios relacionados, apoyando diversos aspectos de ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/WEX" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">11</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">PRO</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">PROS HOLDINGS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha la inteligencia artificial para proporcionar información que optimiza las estrategias de precios y ventas para las empresas....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/PRO" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">12</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">AXP</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">AMERICAN EXPRESS CO</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece un conjunto completo de productos y servicios financieros, que incluyen procesamiento de pagos, tarjetas de crédito y soluciones de préstamos, ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/AXP" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">13</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">FLYW</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">FLYWIRE CORP-VOTING</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Participa en procesos y servicios financieros centrados en el consumidor, contribuyendo al sector más amplio de Finanzas del Consumidor....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/FLYW" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">14</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">YOU</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CLEAR SECURE INC -CLASS A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Apoya a la industria de las aerolíneas proporcionando servicios de control de seguridad acelerado en los aeropuertos, mejorando el flujo y la experien...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/YOU" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">15</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TNL</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TRAVEL + LEISURE CO</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye al tema de Resorts de Entretenimiento al proporcionar servicios y experiencias de viajes y ocio dentro de este sector....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TNL" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">100</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="ABNB" data-company="AIRBNB INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ABNB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AIRBNB INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Airbnb está profundamente entrelazado with la industria de la hospitalidad. El modelo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Airbnb está profundamente entrelazado con la industria de la hospitalidad, como lo demuestra su plataforma que conecta a anfitriones que ofrecen alojamientos y experiencias con huéspedes que buscan estos servicios. Los ingresos de la empresa se ven significativamente impulsados por 'No...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ABNB" data-company="AIRBNB INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ABNB</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AIRBNB INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Airbnb opera una plataforma de viajes que conecta anfitriones y huéspedes para estancias. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Airbnb opera una plataforma de viajes que conecta anfitriones y huéspedes para estancias y experiencias, como lo demuestra su facilitación de la planificación y reserva de viajes. Métricas clave como 'Noches y Asientos Reservados' y 'Valor Bruto de las Reservas' subrayan la escala de la plataforma y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AXP" data-company="AMERICAN EXPRESS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AXP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN EXPRESS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">American Express ofrece una gama de productos bancarios. Estos servicios se prestan a través de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de American Express en Servicios Bancarios es significativa, como lo demuestra su estatus como compañía tenedora de bancos sujeta a las regulaciones de la Reserva Federal. La compañía ofrece una gama de productos bancarios, incluidas tarjetas de crédito, tarjetas de cargo y cuentas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AXP" data-company="AMERICAN EXPRESS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AXP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN EXPRESS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">American Express ofrece una gama de tarjetas corporativas y para pequeñas empresas propias. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de American Express en la industria de la Banca Comercial se demuestra a través de sus Servicios Comerciales, que ofrece una gama de tarjetas corporativas y para pequeñas empresas propias, junto con productos de gestión de pagos y gastos, banca y financiación no con tarjeta a empres...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TNL" data-company="TRAVEL + LEISURE CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TNL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRAVEL + LEISURE CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa proporciona servicios de gestión de propiedades en resorts. Esto incluye servicios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de la industria de la Gestión de Propiedades es evidente a través de su segmento de Propiedad Vacacional, que proporciona servicios de gestión de propiedades en resorts. Esto incluye servicios diarios como limpieza, mantenimiento y tareas administrativas par...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TNL" data-company="TRAVEL + LEISURE CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TNL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRAVEL + LEISURE CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Margaritaville ofrece servicios de alojamiento, comida y turismo. El empresa es proveedor global de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con la Industria de la Hospitalidad es evidente a través de su autoidentificación como proveedor global de servicios de hospitalidad y productos de viaje. Operando a través de sus segmentos de Propiedad Vacacional y Viajes y Membresía, la empresa ofrece servicios de aloja...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AXP" data-company="AMERICAN EXPRESS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AXP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN EXPRESS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">American Express demuestra una fuerte conexión with la industria de Finanzas del Consumidor. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">American Express demuestra una fuerte conexión con la industria de Finanzas del Consumidor a través de sus operaciones comerciales principales. La empresa ofrece una variedad de productos y servicios financieros a los consumidores, incluidas tarjetas de crédito, tarjetas de cargo, servicios bancario...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AXP" data-company="AMERICAN EXPRESS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AXP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN EXPRESS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">American Express ofrece servicios de crédito y préstamos a individuos y empresas. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de American Express con el tema de la industria de Crédito y Préstamos es significativo, como lo demuestran sus funciones comerciales principales. La empresa ofrece una gama de servicios de crédito y préstamos a individuos y empresas a través de tarjetas de crédito, tarjetas de cargo y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AXP" data-company="AMERICAN EXPRESS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AXP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN EXPRESS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">AXP demuestra su compromiso con la ciberseguridad a través de varias iniciativas clave. El programa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">American Express demuestra su compromiso con la ciberseguridad a través de varias iniciativas clave. El programa de Riesgo Tecnológico y Seguridad de la Información (TRIS) de la empresa está diseñado para garantizar la seguridad, confidencialidad, integridad y disponibilidad de su información y sist...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AXP" data-company="AMERICAN EXPRESS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AXP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN EXPRESS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">American Express integra el análisis de datos en su Global Merchant and Network Services (GMNS),...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">American Express integra el análisis de datos en su Global Merchant and Network Services (GMNS), que opera una red de pagos global. GMNS aprovecha su red integrada para proporcionar análisis de datos junto con otros servicios como el procesamiento de transacciones con tarjetas, la adquisición de com...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AXP" data-company="AMERICAN EXPRESS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AXP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN EXPRESS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de American Express está significativamente ligado al tema de Productos Financieros. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de American Express está significativamente ligado al tema de la industria de Productos Financieros, como lo demuestran sus amplias ofertas. La compañía proporciona una gama de productos y servicios financieros, que incluyen tarjetas de crédito, tarjetas de cargo, servicios bancarios y ot...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PRO" data-company="PROS HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PRO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PROS HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa reconoce el creciente interés del mercado en la IA generativa. Esta tendencia impulsa la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa reconoce el creciente interés del mercado en la IA generativa y su influencia en las empresas de todas las industrias, señalando que esta tendencia impulsa la consideración, la inversión y el uso de aplicaciones que aprovechan tanto la IA generativa como otras formas de IA. La empresa ha ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="YOU" data-company="CLEAR SECURE INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">YOU</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CLEAR SECURE INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CLEAR se enfoca en la industria de viajes, con el objetivo of fortalecer la seguridad. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CLEAR se enfoca en la industria de viajes, con el objetivo de fortalecer la seguridad y crear experiencias fluidas para los viajeros a través de su plataforma de identidad. La oferta principal de la empresa, CLEAR Plus, proporciona acceso expedito a la seguridad en aeropuertos de todo el país y cubr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AXP" data-company="AMERICAN EXPRESS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AXP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN EXPRESS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">American Express aprovecha la tecnología para ofrecer productos y servicios financieros. American...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de American Express con las Soluciones Fintech es evidente en su papel como empresa global de pagos que aprovecha la tecnología para ofrecer productos y servicios financieros. La empresa se identifica como "impulsada por la tecnología" y utiliza nuevas tecnologías para crear soluciones...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google Cloud Platform genera ingresos a través de tarifas basadas en el consumo. Google Workspace...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con el Almacenamiento en la Nube es evidente a través de sus ofertas de Google Cloud Platform y Google Workspace. Google Cloud Platform genera ingresos a través de tarifas basadas en el consumo y suscripciones para servicios de infraestructura y plataforma, que implícitamente...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AXP" data-company="AMERICAN EXPRESS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AXP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN EXPRESS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa diseña y opera programas de fidelización de clientes. Estos programas ofrecen acceso a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">American Express participa activamente en programas de fidelización a través de diversas iniciativas. La empresa diseña y opera programas de fidelización de clientes, incluido el programa Membership Rewards, para recompensar a los clientes habituales y fomentar la lealtad a la marca. Estos programas...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AXP" data-company="AMERICAN EXPRESS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AXP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN EXPRESS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de American Express en la marca de lujo es evidente a través de su posición como marca...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de American Express en la marca de lujo es evidente a través de su posición como marca global de pagos y estilo de vida premium, con un liderazgo de larga data en la categoría de tarjetas premium. Esto se ve reforzado por su compromiso de enriquecer las propuestas de valor con beneficios ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AXP" data-company="AMERICAN EXPRESS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AXP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN EXPRESS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">American Express emplea una amplia gama de canales para distribuir sus productos y servicios. These...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">American Express emplea una amplia gama de canales para distribuir sus productos y servicios, que incluyen aplicaciones móviles y en línea, marketing de afiliación, programas de referencia de clientes y asociaciones con proveedores de servicios externos y socios comerciales. Estas ofertas también se...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AXP" data-company="AMERICAN EXPRESS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AXP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN EXPRESS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio principal de American Express gira en torno a las soluciones de pago. American Express...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de American Express gira en torno a las soluciones de pago, como lo demuestra la operación de una red de pagos global que procesa y liquida transacciones con tarjetas. Las operaciones de emisión de tarjetas, adquisición de comercios y redes de tarjetas de la compañía ofrecen una...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AXP" data-company="AMERICAN EXPRESS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AXP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN EXPRESS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">American Express ofrece servicios de viajes y estilo de vida a sus clientes. Las ofertas de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">American Express ofrece servicios de viajes y estilo de vida a sus clientes, con un mayor uso de beneficios relacionados con viajes entre las cuentas de tarjetas premium. Las ofertas de la empresa incluyen comisiones y tarifas de viajes, así como una plataforma de gastronomía que proporciona herrami...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKNG" data-company="BOOKING HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BKNG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOOKING HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Booking Holdings facilita las reservas de billetes de avión a través oferta de Booking.com and...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Booking Holdings facilita las reservas de billetes de avión a través de sus plataformas, Booking.com y Agoda, con un notable aumento en los billetes de avión reservados. Este crecimiento se atribuye a la expansión de la oferta de vuelos en estas plataformas, lo que ha resultado en un aumento interan...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKNG" data-company="BOOKING HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BKNG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOOKING HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Booking Holdings ofrece servicios de reserva de alquiler de coches. Está trabajando para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Booking Holdings con el tema de Integración de Alquiler de Coches es evidente a través del crecimiento en los días de alquiler de coches reservados a través de sus servicios, impulsado principalmente por Booking.com y Priceline. La empresa ofrece servicios de reserva de alquiler de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">YouTube ha liderado el tiempo de visualización de streaming en EE. UU. durante más de two años....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con las Plataformas y Servicios de Streaming es evidente a través de la prominencia de YouTube, que ha liderado el tiempo de visualización de streaming en EE. UU. durante más de dos años. Esto incluye un consumo significativo de contenido deportivo, con más de 40 mil millones...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKNG" data-company="BOOKING HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BKNG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOOKING HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Booking Holdings se centra en facilitar las reservas de viajes en línea, y la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Booking Holdings se centra en facilitar las reservas de viajes en línea, y la práctica totalidad de sus ingresos se derivan de esta actividad. El enfoque de la empresa en mejorar la experiencia del viajero es evidente en sus esfuerzos por atraer tanto a viajeros nuevos como recurrentes...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los dispositivos Pixel muestran las capacidades de Google, como Gemini Live. El lanzamiento del...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Google en el mercado de teléfonos inteligentes es evidente a través de las ventas de su familia de dispositivos Pixel, que contribuyen a los ingresos de dispositivos de la empresa. Los teléfonos inteligentes, incluida la línea Pixel, son reconocidos como una modalidad clave a tra...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google compromiso with motores de búsqueda es sustancial. Google crecimiento de ingresos de dos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con los servicios de motores de búsqueda es sustancial, como lo demuestran los ingresos significativos generados a través de 'Google Search y otros', que abarcan los ingresos de las propiedades de búsqueda de Google y el tráfico de socios de distribución de búsqueda. El compr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google Workspace proporciona herramientas de comunicación y colaboración basadas en la nube. Google...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con el tema SaaS es evidente a través de sus ofertas de Google Workspace y Google Cloud Platform, ambas operan con modelos basados en suscripción y consumo. Google Workspace proporciona herramientas de comunicación y colaboración basadas en la nube para empresas, incluyendo a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKNG" data-company="BOOKING HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BKNG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOOKING HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Booking Holdings se basa en motores de búsqueda en línea, principalmente Google. Una gran mayoría...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La estrategia de marketing de rendimiento de Booking Holdings se basa en motores de búsqueda en línea, principalmente Google, para generar tráfico y reservas en sus plataformas. Una gran mayoría de los gastos de marketing de la empresa se asignan a estos motores de búsqueda, junto con el marketing d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKNG" data-company="BOOKING HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BKNG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOOKING HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Booking Holdings opera una plataforma de viajes con la misión de facilitar que todos experimenten...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Booking Holdings opera una plataforma de viajes con la misión de facilitar que todos experimenten el mundo, conectando a los consumidores con proveedores de servicios de viajes a través de marcas como Booking.com, Priceline, Agoda, KAYAK y OpenTable. La empresa obtiene sustancialmente todos sus ingr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EXPE" data-company="EXPEDIA GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">EXPE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EXPEDIA GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Expedia ofrece servicios de más de 500 aerolíneas. La empresa apoya a las aerolía aprovechando la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Expedia Group con la industria de las aerolíneas es evidente a través de su facilitación de reservas de viajes aéreos y asociaciones con numerosas aerolíneas, incluidas Southwest y Ryanair. Estas asociaciones han arrojado resultados positivos, como contribuir a una parte del volumen d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EXPE" data-company="EXPEDIA GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">EXPE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EXPEDIA GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Expedia Group participa en la integración de alquiler de coches. CarRentals.com figura como una de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Expedia Group en la integración de alquiler de coches es evidente a través de su propiedad de CarRentals.com, que figura como una de las marcas de consumo dentro de su segmento B2C. Demostrando aún más su compromiso, Expedia lanzó su primer socio en su API de alquiler de coches y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EXPE" data-company="EXPEDIA GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">EXPE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EXPEDIA GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El alojamiento representa una parte sustancial de los ingresos de Expedia. La empresa ofrece una...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La fuerte conexión de Expedia Group con la industria hotelera es evidente a través de su negocio principal de impulsar los viajes globales. La empresa ofrece una amplia gama de servicios de viaje, incluidos los relacionados con propiedades de alojamiento, aerolíneas, alquiler de automóviles y alojam...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EXPE" data-company="EXPEDIA GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">EXPE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EXPEDIA GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Expedia Group demuestra un fuerte compromiso con los programas de lealtad. 'One Key' abarca...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Expedia Group demuestra un fuerte compromiso con los programas de lealtad, subrayado por el lanzamiento y la expansión de 'One Key', un programa de lealtad unificado que abarca Expedia, Hotels.com y Vrbo, permitiendo recompensas entre marcas. Esta iniciativa refleja un cambio estratégico hacia la co...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google invierte en terrenos y edificios para centros de datos, oficinas y activos de TI. Una parte...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con el tema de los centros de datos es evidente a través de sus importantes inversiones en esta área. La empresa invierte en terrenos y edificios para centros de datos, oficinas y activos de TI, utilizando tanto la compra de propiedades como acuerdos de arrendamiento para exp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EXPE" data-company="EXPEDIA GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">EXPE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EXPEDIA GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Expedia Group posee una participación mayoritaria en trivago, un sitio web de metabúsqueda de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Expedia Group con el tema de los servicios de motores de búsqueda es evidente a través de sus estrategias de marketing, que incluyen la búsqueda en Internet y la metabúsqueda. La empresa reconoce la influencia competitiva de las empresas de motores de búsqueda como Google y posee una ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EXPE" data-company="EXPEDIA GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">EXPE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EXPEDIA GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La misión principal de Expedia Group es impulsar los viajes globales para todos, en todas partes....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La misión principal de Expedia Group es impulsar los viajes globales para todos, en todas partes, posicionando a la empresa firmemente dentro del tema de Plataforma de Viajes. La empresa aprovecha su plataforma, tecnología y amplia cartera de marcas para permitir a los viajeros investigar, planifica...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google Cloud Platform ofrece tarifas basadas en consumo y suscripciones para infraestructura,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Google en el análisis de datos es evidente a través de su Plataforma de Google Cloud (GCP), que proporciona acceso a soluciones de análisis de datos. La empresa genera ingresos a través de GCP, que incluye análisis de datos, y está invirtiendo en infraestructura técnica, como ser...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google ofrece soluciones de IA como infraestructura de IA, la plataforma Vertex AI y Gemini para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con la Infraestructura de IA es evidente a través de su Plataforma Google Cloud, que ofrece soluciones de IA como infraestructura de IA, la plataforma Vertex AI y Gemini para Google Cloud. La empresa opera una red global líder de centros de datos optimizados para IA y regione...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google Cloud ofrece soluciones de ciberseguridad. Esto se ve reforzado por la integración de Gemini...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con la ciberseguridad es evidente a través de su Plataforma Google Cloud, que ofrece soluciones de ciberseguridad. Esto se ve reforzado por la integración de Gemini AI para detectar malware y priorizar amenazas, mejorando los flujos de trabajo de investigación. Además, la int...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google está incorporando innovaciones de IA en todos sus productos, incluida la IA en la Búsqueda....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con la Inteligencia Artificial es evidente en sus iniciativas estratégicas y ofertas de productos. La empresa enfatiza que la IA es central para su crecimiento, destacada por su enfoque diferenciado de pila completa y el lanzamiento de modelos avanzados como Gemini, que se in...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Waymo está escalando y expandiendo activamente sus servicios de transporte autónomo. Los servicios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con la conducción autónoma es evidente a través de Waymo, que está escalando y expandiendo activamente sus servicios de transporte autónomo. Los servicios de Waymo incluyen el lanzamiento en nuevas ubicaciones como Atlanta, la expansión de territorios en Austin, Los Ángeles y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Waymo está experimentando un crecimiento sustancial, demostrado por un aumento significativo en los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Google en el tema de Vehículos Autónomos es principalmente a través de Waymo, que está generando ingresos de servicios de transporte autónomo. Waymo está experimentando un crecimiento sustancial, demostrado por un aumento significativo en los viajes pagados de pasajeros y la expa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa incurre en Costos de Adquisición de Tráfico pagados a socios de distribución. Google...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Google en los Servicios de Banda Ancha se refleja en varios aspectos de su negocio. La empresa incurre en Costos de Adquisición de Tráfico pagados a socios de distribución como proveedores de navegadores y operadores móviles, lo que implica una dependencia de la infraestructura d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google Cloud Platform genera tarifas y suscripciones para infraestructura, plataforma, herramientas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con la computación en la nube es evidente a través de sus soluciones basadas en la nube para clientes empresariales, que abarcan infraestructura, servicios de plataforma y aplicaciones. Los ingresos de Google Cloud, que incluyen Google Cloud Platform y Google Workspace, refle...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La Plataforma Google Cloud de la empresa, que incluye servicios de infraestructura, es un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con la Infraestructura Cloud es evidente a través de sus sustanciales inversiones y generación de ingresos. La Plataforma Google Cloud de la empresa, que incluye servicios de infraestructura, es un importante motor de ingresos, con ingresos que aumentan sustancialmente año tr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google Workspace incluye suscripciones para herramientas como Calendar, Gmail, Docs, Drive y Meet....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con el tema de la industria de Herramientas de Comunicación es evidente a través de su oferta de Google Workspace, que proporciona herramientas de comunicación y colaboración basadas en la nube para empresas. Google Workspace incluye suscripciones para herramientas como Calen...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google Workspace es un conjunto de herramientas de comunicación y colaboración basadas en la nube...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Google con el tema de Software en la Nube es evidente a través de Google Workspace, un conjunto de herramientas de comunicación y colaboración basadas en la nube para empresas, que incluye aplicaciones como Calendar, Gmail, Docs, Drive y Meet, mejoradas con funciones como Gemini. Go...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TNL" data-company="TRAVEL + LEISURE CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TNL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRAVEL + LEISURE CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra su compromiso con los destinos turísticos. Esto se ve respaldado aún más por...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su compromiso con los destinos turísticos a través de su segmento de Propiedad Vacacional, que se enfoca en el desarrollo, comercialización y venta de intereses de propiedad vacacional y la prestación de servicios de administración de propiedades en resorts. Esto se ve respaldad...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TNL" data-company="TRAVEL + LEISURE CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TNL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRAVEL + LEISURE CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Club Wyndham abarca plataformas de tecnología de viajes, marcas de intercambio de vacaciones,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La compañía demuestra su compromiso con el tema de Plataformas de Viaje a través de su segmento 'Viajes y Membresía', que abarca plataformas de tecnología de viajes, marcas de intercambio de vacaciones, membresías de viaje y alquileres directos al consumidor. Su aplicación Club Wyndham, con un númer...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRIP" data-company="TRIPADVISOR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRIP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIPADVISOR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tripadvisor funciona como una familia de marcas, conectando a las personas con experiencias...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Tripadvisor con el Comercio Electrónico es evidente a través de la operación de múltiples plataformas en línea, especialmente Viator y TheFork. El grupo Tripadvisor funciona como una familia de marcas, conectando a las personas con experiencias compartidas a través de sus marcas, te...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRIP" data-company="TRIPADVISOR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRIP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIPADVISOR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tripadvisor Group ofrece contenido enriquecido, orientación de viajes y mercados bidireccionales....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de Tripadvisor Group a la Industria Hotelera es significativa, como lo demuestra su misión principal de conectar a las personas con experiencias de viaje. La visión de la empresa es ser la fuente más confiable del mundo para viajes y experiencias, aprovechando sus marcas y tecnología p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRIP" data-company="TRIPADVISOR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRIP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIPADVISOR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma de Tripadvisor facilita el contenido generado by el usuario. La empresa tiene la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tripadvisor en Operaciones Hoteleras es evidente a través de los ingresos de sus hoteles de marca Tripadvisor, influenciados por los flujos de ingresos de meta hoteles y B2B, aunque estos ingresos experimentaron una disminución debido a un cambio de un modelo liderado por ventas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRIP" data-company="TRIPADVISOR INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRIP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIPADVISOR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tripadvisor opera una familia de marcas, incluidas Brand Tripadvisor, Viator y TheFork. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tripadvisor en el tema de Plataformas de Viajes es evidente en su misión de conectar a las personas con experiencias compartibles y su visión de ser la fuente más confiable de viajes del mundo. La empresa opera una familia de marcas, incluidas Brand Tripadvisor, Viator y TheFork,...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UBER</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Uber ofreciendo servicios como la reserva de envíos y la gestión del transporte. En el primer...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Uber en Servicios de Carga es evidente a través de su papel en la conexión de Expedidores con Transportistas en la industria del transporte de mercancías, ofreciendo servicios como la reserva de envíos y la gestión del transporte. Esto se ve respaldado por el hecho de que en el p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UBER</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Uber se enfoca en hacer crecer su estrategia de plataforma en movilidad y entrega. La conexión...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Uber entre los consumidores y los proveedores de servicios de entrega de preparación de comidas, comestibles y otros servicios subraya la importancia de la entrega de alimentos para sus operaciones. Las reservas brutas de entrega han crecido consistentemente año tras año, impulsadas p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UBER</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Uber Freight enfrenta desafíos como se refleja en una disminución en las Reservas Brutas de Carga e...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Uber en la industria de intermediación de carga es evidente a través de su conexión entre Expedidores y Transportistas, ofreciendo servicios como reserva de envíos y gestión de transporte. Esta conexión se facilita por la red, la tecnología y la experiencia operativa de Uber. Si ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UBER</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma de Uber impulsa el movimiento del punto A al punto B, lo cual es fundamental para sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Uber de consumidores con proveedores de servicios de transporte sustenta su participación en Soluciones de Movilidad. La plataforma de la empresa impulsa el movimiento del punto A al punto B, lo cual es fundamental para sus operaciones, como lo demuestra el crecimiento de las Reservas...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UBER</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La conexión de Uber de consumidores con proveedores de servicios de transporte es fundamental para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Uber de consumidores con proveedores de servicios de transporte es fundamental para sus operaciones, como lo demuestran las menciones constantes en varios documentos. La compañía ha experimentado un crecimiento sustancial en esta área, con aumentos en las reservas brutas de movilidad ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UBER</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Uber en el transporte urbano es evidente a través of su plataforma tecnológica. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Uber en el transporte urbano es evidente a través de su plataforma tecnológica que impulsa el movimiento de un punto A a un punto B y conecta a los consumidores con servicios de transporte y redes de transporte público. Las reservas brutas de movilidad han mostrado un aumento interanua...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WEX" data-company="WEX INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WEX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WEX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WEX Inc. ofrece servicios de custodia y depósito no bancarios para HSA. WEX Bank gestiona depósitos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de WEX en servicios bancarios se facilita principalmente a través de WEX Bank, que proporciona servicios de custodia de HSA. WEX Bank también ofrece servicios de custodia y depósito no bancarios para HSA y gestiona depósitos, incluida la retención de depósitos para los clientes de H...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WEX" data-company="WEX INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WEX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WEX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WEX ofrece soluciones de pago para flotas, procesamiento de transacciones y conocimientos basados...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La fuerte conexión de WEX con el tema de la industria de Flotas Comerciales es evidente a través de su segmento de Movilidad, que ofrece soluciones de pago para flotas, procesamiento de transacciones y conocimientos basados en datos a una vasta red de más de 600.000 operadores y gestores de flotas a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WEX" data-company="WEX INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WEX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WEX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WEX ofrece soluciones de pago para flotas, procesamiento de transacciones y conocimientos basados...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de WEX en Soluciones de Gestión de Flotas es evidente a través de su segmento de Movilidad, que ofrece soluciones de pago para flotas, procesamiento de transacciones y conocimientos basados en datos a operadores y gerentes de flotas a nivel mundial. Como líder en soluciones de pago para f...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WEX" data-company="WEX INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WEX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WEX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WEX ofrece soluciones para la inscripción y administración de beneficios. El ecosistema más amplio...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de WEX en la industria de Servicios de Atención Médica se evidencia a través de su segmento de Beneficios, que simplifica la administración de beneficios para empleados al proporcionar una plataforma integral que abarca HSA, FSA, HRA y COBRA. Este segmento, que representa aproximada...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WEX" data-company="WEX INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WEX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WEX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WEX ofrece soluciones de pago para flotas, procesamiento de transacciones e información basada on...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de WEX está significativamente entrelazado con las Soluciones de Pago, como lo demuestra su posición como proveedor líder de soluciones adaptadas a la industria impulsadas por la inteligencia de pagos. El enfoque de la empresa en las soluciones de pago es evidente en sus tres segmentos de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WEX" data-company="WEX INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WEX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WEX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Beneficios de WEX utiliza software SaaS para agilizar la administración de planes de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Beneficios de WEX utiliza software SaaS para agilizar la administración de planes de beneficios para empleados, ofreciendo soluciones de pago integradas y diversas ofertas de productos como Administración de Beneficios, HSA, FSA, HRA, COBRA, Facturación Directa y administración de cum...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="YOU" data-company="CLEAR SECURE INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">YOU</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CLEAR SECURE INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CLEAR+ proporciona acceso de seguridad acelerado en numerosos aeropuertos. Este servicio se ve...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de la empresa con la industria de las aerolíneas es evidente a través de su servicio de suscripción de aviación para consumidores CLEAR+, que proporciona acceso de seguridad acelerado en numerosos aeropuertos. Este servicio se ve reforzado por asociaciones estratégicas de distribución co...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="YOU" data-company="CLEAR SECURE INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">YOU</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CLEAR SECURE INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El programa CLEAR+ de la empresa proporciona acceso a carriles de entrada dedicados to los puntos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su enfoque en la seguridad de la aviación a través de su plataforma de identidad segura, que tiene como objetivo crear experiencias de viaje fluidas. Están implementando NextGen Identity y EnVe's para mejorar la experiencia y el rendimiento de los carriles, y se centran en forta...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="YOU" data-company="CLEAR SECURE INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">YOU</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CLEAR SECURE INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CLEAR se identifica como una empresa de identidad segura centrada en hacer las experiencias más...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CLEAR se identifica como una empresa de identidad segura centrada en hacer las experiencias más seguras y fáciles a través de su plataforma de identidad segura, CLEAR1, que tiene como objetivo maximizar la seguridad y minimizar la fricción para socios y consumidores. La oferta principal de la empres...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TNL" data-company="TRAVEL + LEISURE CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TNL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRAVEL + LEISURE CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra su compromiso con el tema de Resorts de Entretenimiento a través of varias...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su compromiso con el tema de Resorts de Entretenimiento a través de varias iniciativas. Su segmento de Propiedad Vacacional, que desarrolla, comercializa y vende intereses de propiedad vacacional y proporciona servicios de gestión de propiedades en resorts, es un componente cent...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AXP" data-company="AMERICAN EXPRESS CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AXP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN EXPRESS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">American Express demuestra su participación en el tema de Soluciones de Servicio de Alimentos. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">American Express demuestra su participación en el tema de Soluciones de Servicio de Alimentos a través de iniciativas estratégicas destinadas a mejorar su propuesta de valor dentro de la categoría de restaurantes. La empresa se enfoca en las facturaciones de restaurantes, particularmente entre los c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google Cloud Platform ofrece infraestructura, plataforma, herramientas de colaboración y otros...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Google en los servicios en la nube es evidente a través de la generación de ingresos mediante soluciones basadas en la nube, particularmente a través de Google Cloud Platform, que ofrece infraestructura, plataforma y otros servicios bajo un modelo de tarifas por consumo y suscrip...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Google participa en el tema de la electrónica de consumo a través de sus ingresos por...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Google en el tema de la electrónica de consumo es evidente a través de sus ingresos por suscripciones, plataformas y dispositivos de Google, que incluyen las ventas de la familia de dispositivos Pixel. La compañía reconoce que los usuarios acceden a productos y servicios a través...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WEX" data-company="WEX INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WEX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WEX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WEX ofrece soluciones de pago B2B a diversas industrias, incluido el turismo en línea. El segmento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de WEX en el tema de Plataformas de Viajes es evidente a través de su segmento de Pagos Corporativos, que ofrece soluciones de pago B2B a diversas industrias, incluido el turismo en línea, al integrar capacidades de pago virtual en los flujos de trabajo existentes. El segmento de Pa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Capgemini está aprovechando los agentes de ingeniería de software de Google para mejorar la calidad...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Google en el Desarrollo de Aplicaciones es evidente a través de varias vías. Un número significativo de desarrolladores, alrededor de 9 millones, ha utilizado Gemini. La empresa genera ingresos a través de las ventas de aplicaciones y compras dentro de la aplicación en Google Pla...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WEX" data-company="WEX INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WEX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WEX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WEX automatiza las cuentas por pagar integrándose con software de planificación de recursos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de WEX en software empresarial es evidente a través de su segmento de Pagos Corporativos, que automatiza las cuentas por pagar integrándose con sistemas de software de planificación de recursos empresariales (ERP) y flujos de trabajo contables. Esta integración es una característica...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WEX" data-company="WEX INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WEX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WEX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WEX ofrece soluciones financieras impulsadas por la tecnología. Su ecosistema B2B simplifica los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de WEX en Soluciones Fintech es evidente a través de su ecosistema B2B, que simplifica los procesos comerciales y gestiona los beneficios de atención médica a través de software SaaS y soluciones de pago integradas. El enfoque de la empresa en soluciones financieras impulsadas por l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WEX" data-company="WEX INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WEX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WEX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WEX ofrece ingresos financieros principalmente de cargos por demora sobre saldos pendientes de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de WEX en Crédito y Préstamos es evidente a través de su segmento de Movilidad, que proporciona soluciones de pago para flotas y procesamiento de transacciones. La empresa genera ingresos financieros principalmente de cargos por demora sobre saldos pendientes de cuentas por cobrar d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PRO" data-company="PROS HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PRO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PROS HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PROS se enfoca en avanzar la IA autónoma para permitir una ejecución organizacional más rápida y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de PROS con las perspectivas impulsadas por IA es evidente en sus iniciativas estratégicas y ofertas de productos. La empresa se enfoca en avanzar la IA autónoma para permitir una ejecución organizacional más rápida y precisa, combinando IA de agente con capacidades predictivas y presc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PRO" data-company="PROS HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PRO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PROS HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Software en the Nube es una fuente principal de ingresos para la empresa. Esta dependencia de los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema de Software en la Nube es evidente, ya que sus ingresos se derivan principalmente de servicios de suscripción, que otorgan a los clientes acceso a su conjunto de aplicaciones en la nube. Los ingresos por suscripción, que incluyen las tarifas de acceso a aplica...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AXP" data-company="AMERICAN EXPRESS CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AXP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN EXPRESS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de American Express está fundamentalmente vinculado a la industria de Servicios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de American Express está fundamentalmente vinculado a la industria de Servicios Financieros, como lo demuestran sus operaciones de pago integradas a nivel mundial y su completa gama de ofertas financieras, que incluyen tarjetas de crédito, productos bancarios, procesamiento de pagos y ges...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PRO" data-company="PROS HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PRO</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PROS HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El empresa compromiso con los Servicios de Marketing es evidente. Estos gastos de venta y marketing...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con los Servicios de Marketing es evidente a través de su reinversión estratégica de los ingresos incrementales en iniciativas de ventas y marketing destinadas a respaldar sus estrategias de adquisición y expansión de clientes. Esta inversión abarca una variedad de activi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UBER</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa utiliza su plataforma tecnológica para facilitar el movimiento. Uber está desarrollando...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Uber de consumidores con servicios de transporte, servicios de entrega y redes de transporte público destaca el papel de la empresa en la integración de diferentes soluciones de movilidad. La empresa utiliza su plataforma tecnológica para facilitar el movimiento y está desarrollando n...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FLYW" data-company="FLYWIRE CORP-VOTING">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">FLYW</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FLYWIRE CORP-VOTING</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Flywire tiene una presencia creciente en el sector de viajes. La adquisición de Sertifi fortalece...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Flywire tiene una presencia creciente en el sector de viajes, demostrada por su creciente cartera de clientes de aproximadamente 1.300 clientes e iniciativas estratégicas para replicar su éxito del vertical de educación. Esta expansión está respaldada por ventajas competitivas, flujos de trabajo esp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AXP" data-company="AMERICAN EXPRESS CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AXP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN EXPRESS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">American Express es una marca de consumo prominente en el sector de servicios financieros. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de American Express con el tema de la industria de Marcas de Consumo se deriva de su marca reconocida a nivel mundial y sus ofertas directas a los consumidores, incluidas tarjetas de crédito, tarjetas de cargo, servicios bancarios y otros productos de pago. La compañía enfatiza la constr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AXP" data-company="AMERICAN EXPRESS CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AXP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN EXPRESS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">American Express participa activamente en el tema of Servicios Financieros para PYMES. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">American Express participa activamente en el tema de Servicios Financieros para PYMES al proporcionar servicios comerciales a pequeñas y medianas empresas, que incluyen gestión de pagos y gastos, servicios bancarios y productos de financiación no crediticia. La empresa está desarrollando activamente...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TNL" data-company="TRAVEL + LEISURE CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TNL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRAVEL + LEISURE CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa brinda servicios de administración de propiedades en resorts. Las responsabilidades de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en Operaciones Hoteleras es evidente a través de su segmento de Propiedad Vacacional, que brinda servicios de administración de propiedades en resorts, que incluyen limpieza, mantenimiento y servicios administrativos. Las responsabilidades de este segmento incluyen la ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TNL" data-company="TRAVEL + LEISURE CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TNL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRAVEL + LEISURE CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El modelo de negocio de la empresa se basa en clientes recurrentes. Su segmento de Viajes y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El modelo de negocio de la empresa se basa en clientes recurrentes, como lo demuestra un alto porcentaje de ingresos vinculados a fuentes predecibles como las mejoras para propietarios y las tarifas de gestión. Su segmento de Viajes y Membresías incluye marcas de intercambio vacacional, plataformas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AXP" data-company="AMERICAN EXPRESS CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AXP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">AMERICAN EXPRESS CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">American Express ofrece productos bancarios y servicios financieros a personas. La gestión de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">American Express ofrece productos bancarios y servicios financieros a personas, incluida la gestión de cuentas, ahorros y acceso a crédito, principalmente a través de su segmento USCS, que ofrece una gama de tarjetas y servicios de consumo propietarios, incluidos productos de financiación bancaria y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WEX" data-company="WEX INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">WEX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WEX INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WEX proporciona soluciones de pago para vehículos de flota, procesamiento de transacciones y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de WEX en la industria de Servicios de Carga Completa es evidente a través de su segmento de Movilidad, que proporciona soluciones de pago para vehículos de flota, procesamiento de transacciones y servicios de gestión de información a flotas de diversos tamaños, incluidos los transp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EXPE" data-company="EXPEDIA GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">EXPE</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EXPEDIA GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Vrbo opera un mercado en línea específicamente para alojamientos alternativos. La cartera de Vrbo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Expedia Group con el tema del Mercado en Línea se produce principalmente a través de Vrbo, que opera un mercado en línea específicamente para alojamientos alternativos. La cartera de Vrbo incluye sitios web localizados y marcas regionales, lo que destaca su enfoque dentro del sector d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Google en la Integración Empresarial de IA es evidente. Google ofrece soluciones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Google en la Integración Empresarial de IA es evidente a través de sus continuas inversiones en investigación y desarrollo destinadas a implementar rápidamente la IA en sus negocios. Esto se destaca por la Plataforma Cloud de Google, que ofrece soluciones de IA como infraestructura de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="GOOGL" data-company="ALPHABET INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">GOOGL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ALPHABET INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa genera ingresos por las ventas de Google Play, que incluyen aplicaciones y compras....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Google en el tema de los juegos móviles se refleja a través de varias vías. La empresa genera ingresos por las ventas de Google Play, que incluyen aplicaciones y compras dentro de la aplicación, lo que indica un flujo de ingresos conectado a los juegos móviles. Además, Google est...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKNG" data-company="BOOKING HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BKNG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOOKING HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Booking.com ofrece precios y beneficios con descuento a los viajeros. La visión del 'Viaje...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Booking.com con los programas de fidelización es evidente a través de su programa Genius, que ofrece precios y beneficios con descuento a los viajeros. La empresa está ampliando activamente el programa Genius más allá del alojamiento a otros verticales de viajes y experimentando con...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKNG" data-company="BOOKING HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BKNG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOOKING HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque principal de la empresa son los viajes, también obtiene ingresos de servicios de reserva...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de la empresa gira en torno a la facilitación de reservas de servicios de viajes, conectando a los consumidores con los proveedores de servicios de viajes y obteniendo prácticamente todos sus ingresos al permitir a los consumidores realizar estas reservas. Si bien el enfoque pri...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKNG" data-company="BOOKING HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BKNG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOOKING HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Booking Holdings exhibe una fuerte conexión con la industria de la hospitalidad. La empresa obtiene...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Booking Holdings exhibe una fuerte conexión con la industria de la hospitalidad, principalmente a través de su negocio principal de permitir reservas de servicios de viaje. La empresa obtiene sustancialmente todos sus ingresos de esta actividad, facilitada por sus marcas principales como Booking.com...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BKNG" data-company="BOOKING HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BKNG</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOOKING HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Booking Holdings se integra en la economía digital. La compañía deriva sustancialmente todos sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Booking Holdings en la economía digital es evidente en su modelo de negocio principal, que gira en torno a los servicios de reserva de viajes en línea ofrecidos a través de plataformas como Booking.com, Priceline, Agoda, KAYAK y OpenTable. La compañía deriva sustancialmente todos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UBER</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Uber en la facilitación del transporte es evidente. Uber impulsa el movimiento del...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Uber en la facilitación del transporte es evidente a través de su plataforma tecnológica, que impulsa el movimiento del punto A al punto B, conectando a los consumidores con servicios de transporte, servicios de entrega y redes de transporte público. Esto está respaldado por el crecimi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TNL" data-company="TRAVEL + LEISURE CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TNL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRAVEL + LEISURE CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se centra en mejorar la experiencia del cliente y forma alianzas with marcas hoteleras...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en la industria de la gestión hotelera es evidente a través de su segmento de Propiedad Vacacional, que gestiona resorts y presta servicios a propietarios e invitados. Este segmento proporciona servicios de gestión de propiedades en resorts y representa una parte impor...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRIP" data-company="TRIPADVISOR INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRIP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIPADVISOR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tripadvisor opera en publicidad digital y utiliza métodos de adquisición de tráfico online de pago....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Tripadvisor con la Tecnología de Marketing Digital es evidente en sus operaciones y estrategias. La empresa opera en publicidad digital y utiliza métodos de adquisición de tráfico online de pago, incluido SEM. Además, Tripadvisor evalúa oportunidades de inversión en datos, productos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TRIP" data-company="TRIPADVISOR INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TRIP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIPADVISOR INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tripadvisor mejora la experiencia del usuario de su hotel al proporcionar contenido detallado....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Tripadvisor en la Gestión Hotelera es evidente a través de sus segmentos de negocio principales, que incluyen Brand Tripadvisor, Viator y TheFork, todos diseñados para conectar a las personas con viajes y experiencias. La empresa mejora la experiencia del usuario de su hotel al p...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

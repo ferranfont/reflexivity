@@ -1,0 +1,1317 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Fast Food Leader - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Fast Food Leader</div>
+      <div class="sub-title">Investment Theme Detail - Consumer and Retail Industry</div>
+    </div>
+    <a href="main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Fast Food Leader &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Consumer and Retail &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 14
+    </div>
+
+    
+    <!-- Theme Chart Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Theme Chart</span>
+             <a href="equity_fast_food_leader.html" target="_blank" class="btn-view-chart">View Full Chart ↗</a>
+        </div>
+        <div class="box-body" style="height: 600px; overflow:hidden;">
+            <iframe src="equity_fast_food_leader.html" style="width:100%; height:100%; border:none; display:block;"></iframe>
+        </div>
+    </div>
+        
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">14</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">MCD</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">MC DONALD'S-CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Influye en los hábitos alimentarios y las preferencias de alimentos a nivel mundial al adaptar sus ofertas y servicios a las demandas cambiantes de lo...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/MCD" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">YUM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">YUM! BRANDS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Impulsa la industria global de comida rápida a través de su extensa cartera de marcas icónicas de restaurantes de servicio rápido, llegando a consumid...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/YUM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DPZ</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">DOMINO'S PIZZA INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Responde a las cambiantes demandas de los clientes de conveniencia y pedidos digitales adaptando continuamente su menú, tecnología y servicios de entr...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DPZ" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">QSR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">RESTAURANT BRANDS INTERN</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Gestiona una cartera de marcas de restaurantes de servicio rápido reconocidas a nivel mundial, contribuyendo a la industria de marcas de consumo a tra...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/QSR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">YUMC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">YUM CHINA HOLDINGS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Adapta sus ofertas de restaurantes y estrategias operativas para alinearse con las preferencias cambiantes de los consumidores y las tendencias gastro...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/YUMC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SBUX</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">STARBUCKS CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Es un comprador global significativo de granos de café, influyendo directamente en las prácticas agrícolas y las cadenas de suministro dentro del merc...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SBUX" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">WEN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">WENDY'S CO/THE</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera como una marca líder de restaurantes de servicio rápido, manteniendo una posición influyente dentro de la industria más amplia de comida rápida....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/WEN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CMG</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CHIPOTLE MEXICAN GRILL INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Es altamente receptiva a las cambiantes preferencias gastronómicas y decisiones de compra, dando forma a su menú, modelos de servicio y estrategias de...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CMG" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">WING</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">WINGSTOP INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Implica la adaptación continua de su menú y modelos de servicio para alinearse con las preferencias cambiantes de los clientes y los patrones de compr...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/WING" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">PZZA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">PAPA JOHN'S INTL INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Operando como una destacada cadena global de pizzas, contribuye significativamente a la industria de la comida rápida al ofrecer opciones de comida de...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/PZZA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">11</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ARCO</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ARCOS DORADOS HOLDINGS INC-A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera como un franquiciado líder en la industria de comida rápida, impulsando la presencia en el mercado y la participación del consumidor en su exten...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ARCO" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">12</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ALSEA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ALSEA SAB DE CV</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Mantiene una posición de liderazgo dentro del sector de la comida rápida....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ALSEA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">13</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BROS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">DUTCH BROS INC-CLASS A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera una cadena de cafeterías con servicio de auto rápido en rápida expansión, contribuyendo al segmento de bebidas de servicio rápido dentro de la i...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BROS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">14</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SHAK</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SHAKE SHACK INC - CLASS A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera una cadena de restaurantes de comida rápida informal, contribuyendo directamente a la oferta dentro del sector de la comida rápida....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SHAK" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">80</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="SBUX" data-company="STARBUCKS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/SBUX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SBUX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARBUCKS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Starbucks participa en la industria de Productos de Consumo a través of la venta of una variedad of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Starbucks participa en la industria de Productos de Consumo a través de la venta de una variedad de bienes de consumo envasados, que distribuye principalmente a través de la Global Coffee Alliance con Nestlé y otras alianzas. La empresa se enfoca en la optimización de SKU de productos, lo que indica...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SBUX" data-company="STARBUCKS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/SBUX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SBUX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARBUCKS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La estrategia "Back to Starbucks" enfatiza la mejora de la experiencia del cliente. El modelo Green...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Starbucks con la Innovación Minorista es evidente a través de varias iniciativas. La estrategia "Back to Starbucks" de la compañía enfatiza la mejora de la experiencia del cliente y la innovación en la experiencia de degustación de café a través del desarrollo de productos, marketin...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SBUX" data-company="STARBUCKS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/SBUX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SBUX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARBUCKS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Starbucks es el principal tostador, comercializador y minorista de café especial a nivel mundial....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Starbucks están profundamente arraigadas en la industria de alimentos y bebidas, ya que son el principal tostador, comercializador y minorista de café especial a nivel mundial, con presencia en numerosos mercados en todo el mundo. La compañía se enfoca en remodelar su negocio a tr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SBUX" data-company="STARBUCKS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/SBUX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SBUX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARBUCKS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa genera ingresos de estas tiendas con licencia a través of la venta of productos y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Starbucks emplea un modelo de franquicia a través de la operación de tiendas con licencia junto con tiendas operadas por la empresa, con más de 40.500 de estas tiendas a diciembre de 2024. La empresa genera ingresos de estas tiendas con licencia a través de la venta de productos y equipos, así como ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SBUX" data-company="STARBUCKS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/SBUX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SBUX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARBUCKS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa está construyendo una línea de innovación de menú centrada en café premium. Esto incluye...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Starbucks con el tema de Alimentos Especializados es evidente en su posición como el 'principal tostador, comercializador y minorista de café especializado a nivel mundial'. La empresa está construyendo una línea de innovación de menú centrada en experiencias de café premium, bebida...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BROS" data-company="DUTCH BROS INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BROS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BROS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DUTCH BROS INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dutch Bros es un operador y franquiciador de tiendas "drive-thru" enfocadas en servir bebidas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Dutch Bros se alinea con el tema "Fast Food Leader", ya que se identifica como un operador y franquiciador de alto crecimiento de tiendas "drive-thru" enfocadas en servir bebidas de alta calidad con rapidez y servicio. La empresa enfatiza su posición como una de las marcas de más rápido crecimiento ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BROS" data-company="DUTCH BROS INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BROS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BROS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DUTCH BROS INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dutch Bros opera con un modelo de franquicia, como lo demuestra su identificación como...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Dutch Bros opera con un modelo de franquicia, como lo demuestra su identificación explícita como franquiciador de tiendas drive-thru. La empresa informa tener tiendas operadas por la empresa y franquiciadas, con 317 ubicaciones franquiciadas al 31 de marzo de 2025 y 318 al 30 de junio de 2025. Este ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WEN" data-company="WENDY'S CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/WEN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WEN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WENDY'S CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Wendy's demuestra un compromiso con la expansión of restaurantes. El marco estratégico de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Wendy's demuestra un compromiso con la expansión de restaurantes a través de diversas iniciativas estratégicas. El marco estratégico de la empresa incluye la expansión de su huella global y el impulso del crecimiento de unidades a nivel mundial, respaldado por programas de incentivos para franquicia...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BROS" data-company="DUTCH BROS INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/BROS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BROS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DUTCH BROS INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dutch Bros ajusta su programa de fidelización Dutch Rewards para compensar los aumentos de costos....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dutch Bros en programas de fidelización es evidente a través de su programa Dutch Rewards, que representa una parte sustancial de las transacciones del sistema. La empresa incentiva estratégicamente las visitas en todos los segmentos, geografías y franjas horarias utilizando Dutc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WING" data-company="WINGSTOP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/WING" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WING</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WINGSTOP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Wingstop es una empresa de restaurantes de comida rápida informal centrada en alitas de pollo más...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Wingstop con el tema "Líder de Comida Rápida" es evidente a través de su autoproclamado estatus como la cadena de restaurantes de comida rápida informal centrada en alitas de pollo más grande del mundo, con más de 2.450 a 2.800 locales a nivel mundial. Esto se ve respaldado además por...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WING" data-company="WINGSTOP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/WING" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WING</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WINGSTOP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Wingstop es la cadena de restaurantes fast-casual más grande centrada en alitas de pollo. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Wingstop están profundamente arraigadas en la industria de alimentos y bebidas, ya que es la cadena de restaurantes fast-casual más grande centrada en alitas de pollo, con más de 2.800 locales en todo el mundo. La compañía genera ingresos a través de ventas de restaurantes, regalí...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WING" data-company="WINGSTOP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/WING" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WING</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WINGSTOP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Wingstop Smart Kitchen tiene como objetivo mejorar la experiencia del cliente y las tasas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Wingstop con la entrega de alimentos es evidente a través de sus iniciativas estratégicas para expandir los canales de entrega y capitalizar las oportunidades dentro del mercado de entrega. El enfoque de la empresa en mejorar los tiempos de entrega, particularmente a través de Wings...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WING" data-company="WINGSTOP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/WING" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WING</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WINGSTOP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El 98% de Wingstop restaurantes are propiedad y operados por franquiciados. La empresa genera...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Wingstop está significativamente estructurado en torno al modelo de franquicia, con aproximadamente el 98% de sus restaurantes siendo propiedad y operados por franquiciados independientes. La empresa genera ingresos a través de regalías, tarifas de publicidad y tarifas de franquicia, y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WING" data-company="WINGSTOP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/WING" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WING</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WINGSTOP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Wingstop está demostrando un fuerte compromiso con la expansión de restaurantes. El número of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Wingstop está demostrando un fuerte compromiso con la expansión de restaurantes, respaldado por un crecimiento sustancial tanto en mercados nacionales como internacionales. El número de restaurantes en todo el sistema de la compañía aumentó significativamente, impulsado por numerosas aperturas netas...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMG" data-company="CHIPOTLE MEXICAN GRILL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CHIPOTLE MEXICAN GRILL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Chipotle está presente en la entrega de alimentos y bebidas. Sin embargo, la empresa está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Chipotle en la entrega de alimentos es evidente a través de su dependencia de servicios de entrega de terceros y la notificación de ingresos por servicios de entrega. Las ventas digitales, que incluyen la entrega, constituyen una parte notable de los ingresos totales de alimentos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMG" data-company="CHIPOTLE MEXICAN GRILL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CHIPOTLE MEXICAN GRILL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía abrió 304 restaurantes en 2024 y espera abrir entre 315 y 345 nuevos restaurantes in...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Chipotle está activamente involucrado en la expansión de restaurantes, como lo demuestra la apertura de nuevos restaurantes en América del Norte e internacionalmente, incluidas las Chipotlanes. La compañía abrió 304 restaurantes en 2024 y espera abrir entre 315 y 345 nuevos restaurantes en 2025, con...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="YUM" data-company="YUM! BRANDS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/YUM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">YUM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">YUM! BRANDS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">KFC, Taco Bell y Pizza Hut ocupan posiciones líderes en las categorías de pollo, inspiración...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Yum! Brands mantiene una sólida posición en la industria de la comida rápida, principalmente a través de sus marcas mundialmente reconocidas KFC, Taco Bell y Pizza Hut, que ocupan posiciones líderes en las categorías de pollo, inspiración mexicana y pizza, respectivamente. La empresa opera un vasto ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DPZ" data-company="DOMINO'S PIZZA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DPZ" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DPZ</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOMINO'S PIZZA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Domino's se identifica como una marca global altamente reconocida. Se enfoca en el valor y el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Domino's se identifica como una marca global altamente reconocida que se enfoca en el valor y el servicio local a través de su extensa red de franquiciados y tiendas propias. La empresa ha pasado más de 60 años construyendo Domino's hasta convertirla en una de las marcas de consumo más reconocidas d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DPZ" data-company="DOMINO'S PIZZA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DPZ" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DPZ</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOMINO'S PIZZA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Domino's es un actor destacado en la industria de la comida rápida. La empresa enfatiza...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Domino's es un actor destacado en la industria de la comida rápida, particularmente como la 'empresa de pizza más grande del mundo', con una presencia generalizada de más de 21.000 locales en más de 90 mercados. La empresa enfatiza consistentemente su liderazgo en la categoría de pizza QSR, impulsad...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DPZ" data-company="DOMINO'S PIZZA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DPZ" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DPZ</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOMINO'S PIZZA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Domino's opera en la industria de alimentos y bebidas. La empresa ha estado vendiendo alimento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Domino's opera en la industria de alimentos y bebidas, principalmente a través de sus ventas minoristas, regalías, tarifas y operaciones de la cadena de suministro relacionadas con los alimentos. La empresa ha estado vendiendo alimentos de calidad y asequibles desde 1960, y su compromiso con el valo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DPZ" data-company="DOMINO'S PIZZA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DPZ" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DPZ</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOMINO'S PIZZA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa tiene acuerdos con Uber Technologies y DoorDash. Domino's está trabajando activamente...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Domino's mantiene una presencia significativa en el sector de la entrega de alimentos a través de su modelo de negocio principal, que incluye servicios de entrega y para llevar. La empresa tiene acuerdos con Uber Technologies y DoorDash, lo que permite a los clientes pedir productos de Domino's a tr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="YUM" data-company="YUM! BRANDS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/YUM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">YUM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">YUM! BRANDS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">YUM! Brands reconoce la creciente prevalencia de clientes que utilizan servicios de terceros. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">YUM! Brands reconoce la creciente prevalencia de clientes que utilizan servicios de terceros para facilitar el pedido y la entrega de sus productos. Como tal, la empresa incorpora una parte de las tarifas pagadas a estos terceros en sus ventas del sistema, específicamente cuando YUM! recibe una tari...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DPZ" data-company="DOMINO'S PIZZA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DPZ" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DPZ</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOMINO'S PIZZA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Domino's opera principalmente como franquiciador, con aproximadamente el 99% de sus tiendas a nivel...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Domino's opera principalmente como franquiciador, con aproximadamente el 99% de sus tiendas a nivel mundial propiedad y operadas por franquiciados independientes. La empresa enfatiza que sus franquiciados son la 'salsa secreta' de su éxito, destacando su economía de primer nivel y la sólida relación...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="YUM" data-company="YUM! BRANDS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/YUM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">YUM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">YUM! BRANDS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Yum! Brands opera principalmente a través of un modelo de franquicia. Aproximadamente, el 98% of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Yum! Brands opera principalmente a través de un modelo de franquicia, con una parte importante de sus restaurantes operados por franquiciados. Específicamente, aproximadamente el 98% de sus restaurantes son operados por franquiciados, lo que demuestra una considerable dependencia de este modelo. Est...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DPZ" data-company="DOMINO'S PIZZA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DPZ" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DPZ</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOMINO'S PIZZA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Domino's participa activamente en la expansión of restaurantes como estrategia comercial principal....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Domino's participa activamente en la expansión de restaurantes como estrategia comercial principal. El enfoque de la empresa en 'MÁS ventas, MÁS tiendas y MÁS beneficios' se ve respaldado por su posición como la empresa de pizza más grande del mundo, con más de 21.500 locales en más de 90 mercados. ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="YUM" data-company="YUM! BRANDS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/YUM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">YUM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">YUM! BRANDS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Yum! Brands está activamente involucrada en la expansión de restaurantes a través de franquicias y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Yum! Brands está activamente involucrada en la expansión de restaurantes a través de franquicias y la apertura de nuevas ubicaciones, operando más de 61.000 restaurantes en más de 155 países. Esto se destaca por 871 aperturas brutas de unidades en un trimestre y 1.622 año hasta la fecha. El rápido c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCD" data-company="MC DONALD'S-CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MCD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MCD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MC DONALD'S-CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">McDonald's se enfoca en ofrecer alimentos y bebidas de calidad. La empresa fue nombrada la Marca de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">McDonald's demuestra una fuerte conexión con el tema de la industria de marcas de consumo, impulsada por su marca reconocida mundialmente y sus esfuerzos estratégicos para mantener la lealtad del cliente. La empresa enfatiza la construcción de confianza a través de experiencias de marca consistentes...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCD" data-company="MC DONALD'S-CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MCD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MCD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MC DONALD'S-CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">McDonald's genera ingresos de acuerdos de licencia de marca. Estos ingresas se clasifican dentro of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">McDonald's genera ingresos de acuerdos de licencia de marca, lo que permite la comercialización y venta de productos de consumo envasados bajo la marca McDonald's. Estos ingresos se clasifican dentro de los 'Otros ingresos' de la empresa, junto con las tarifas de los franquiciados relacionadas con l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCD" data-company="MC DONALD'S-CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MCD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MCD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MC DONALD'S-CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">McDonald's posee o asegura arrendamientos a largo plazo del terreno. Se cree que esta estrategia...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de McDonald's con la Tenencia de Bienes Raíces es evidente en su acuerdo de franquicia convencional, donde la empresa generalmente posee o asegura arrendamientos a largo plazo del terreno y los edificios para las ubicaciones de los restaurantes. Se cree que esta estrategia permite a la...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCD" data-company="MC DONALD'S-CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MCD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MCD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MC DONALD'S-CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">McDonald's ofreciendo servicios desde 36.000 a 39.000 restaurantes en aproximadamente 100 mercados....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">McDonald's demuestra un fuerte enfoque en la entrega de alimentos, ofreciendo servicios desde más de 36.000 a 39.000 restaurantes en aproximadamente 100 mercados, lo que representa casi el 90% de sus ubicaciones. La empresa está mejorando activamente la experiencia de entrega al cliente al permitir ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCD" data-company="MC DONALD'S-CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MCD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MCD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MC DONALD'S-CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">McDonald's opera principalmente como franquiciador, con aproximadamente el 95% of sus restaurantes...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">McDonald's opera principalmente como franquiciador, con aproximadamente el 95% de sus restaurantes franquiciados. La empresa enfatiza que la franquicia es fundamental para ofrecer alimentos de gran sabor, experiencias de cliente relevantes a nivel local y para impulsar la rentabilidad. El modelo de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCD" data-company="MC DONALD'S-CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MCD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MCD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MC DONALD'S-CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">McDonald's se enfoca en expandir su programa de lealtad digital. La empresa tiene como objetivo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">McDonald's se enfoca en expandir su programa de lealtad digital, que ya tiene una presencia significativa en 60 mercados. La empresa tiene como objetivo aumentar sus usuarios activos de 90 días a 250 millones para fines de 2027 y aumentar las ventas anuales del sistema a miembros leales a $45 mil mi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCD" data-company="MC DONALD'S-CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MCD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MCD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MC DONALD'S-CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">McDonald's se identifica como una marca líder mundial de restaurantes omnicanal. La empresa tiene...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">McDonald's se identifica como una marca líder mundial de restaurantes omnicanal, con su estrategia de crecimiento 'Accelerating the Arches' que abarca todos los aspectos de su negocio. Esta estrategia aprovecha las herramientas digitales para ofrecer ofertas personalizadas, un programa de fidelizaci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCD" data-company="MC DONALD'S-CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MCD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MCD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MC DONALD'S-CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa plana abrir 2.200 nuevos restaurantes a nivel mundial en 2025. Esta expansión forma part...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La expansión de restaurantes es un elemento clave de la estrategia de la empresa, con planes de abrir aproximadamente 2.200 nuevos restaurantes a nivel mundial en 2025, lo que contribuirá a un crecimiento de nuevas unidades de más del 4%. Esta expansión forma parte de una iniciativa más amplia para ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PZZA" data-company="PAPA JOHN'S INTL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PZZA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PZZA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAPA JOHN'S INTL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Papa John's opera y otorga franquicias de restaurantes de entrega y para llevar de pizza. Una parte...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Papa John's opera y otorga franquicias de restaurantes de entrega y para llevar de pizza, con una parte significativa de sus ventas ocurriendo a través de canales digitales. Para mejorar la experiencia del cliente, están realizando inversiones estratégicas en infraestructura tecnológica, incluida un...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PZZA" data-company="PAPA JOHN'S INTL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PZZA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PZZA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAPA JOHN'S INTL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Papa John's opera principalmente a través ofrecer un modelo de franquicia. La empresa obtiene...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Papa John's opera principalmente a través de un modelo de franquicia, como lo demuestra el número considerable de restaurantes franquiciados, como las 5.435 ubicaciones franquiciadas de un total de 5.989 restaurantes a junio de 2025. La empresa obtiene ingresos de las regalías de franquicias y la ve...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PZZA" data-company="PAPA JOHN'S INTL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PZZA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PZZA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAPA JOHN'S INTL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Papa John's pone un énfasis significativo en los programas de fidelización. La empresa está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Papa John's pone un énfasis significativo en los programas de fidelización, en particular el programa Papa Rewards Loyalty Program. La empresa está invirtiendo en sus capacidades de CRM y en el programa Papa Rewards Loyalty Program, mejorando el programa para permitir a los miembros desbloquear Papa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PZZA" data-company="PAPA JOHN'S INTL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PZZA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PZZA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAPA JOHN'S INTL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Papa John's participa activamente en la expansión de restaurantes. La empresa está expandiendo su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Papa John's participa activamente en la expansión de restaurantes, considerándola un motor clave de crecimiento a largo plazo. Esto se demuestra a través de la apertura de cientos de nuevos restaurantes a nivel mundial, incluida su 6.000ª ubicación, y planes para abrir un número similar en el próxim...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="QSR" data-company="RESTAURANT BRANDS INTERN">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/QSR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">QSR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RESTAURANT BRANDS INTERN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Burger King es una de las empresas de restaurantes de servicio rápido (QSR) más grandes del mundo....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La fuerte asociación de la empresa con el tema Líder de Comida Rápida es evidente a través de su autoidentificación como una de las empresas de restaurantes de servicio rápido (QSR) más grandes del mundo, respaldada por ventas anuales sustanciales a nivel de sistema de casi $45 mil millones y una re...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="QSR" data-company="RESTAURANT BRANDS INTERN">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/QSR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">QSR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RESTAURANT BRANDS INTERN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Más del 90% de Tim Hortons restaurantes son franquiciados. El negocio de la empresa depende en gran...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de la empresa depende en gran medida del modelo de franquicia, como lo demuestra el hecho de que más del 90% de sus restaurantes son franquiciados. Esta es una parte central de la estrategia comercial de la empresa, y los resultados a nivel de sistema son impulsados principalmente por res...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="YUM" data-company="YUM! BRANDS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/YUM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">YUM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">YUM! BRANDS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Yum! Brands demuestra una fuerte conexión with la industria Minorista y de Servicios de Alimentos....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Yum! Brands demuestra una fuerte conexión con la industria Minorista y de Servicios de Alimentos a través de la operación y franquicia de más de 60.000-61.000 restaurantes en más de 155 países y territorios. Estos restaurantes operan principalmente bajo los conceptos de KFC, Taco Bell, Pizza Hut y T...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SBUX" data-company="STARBUCKS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/SBUX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SBUX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARBUCKS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa está reintroduciendo la Experiencia Starbucks. Starbucks aprovecha un enfoque ágil de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Starbucks está activamente involucrada en la innovación de bebidas a través de varias iniciativas. La empresa está reintroduciendo la Experiencia Starbucks con un enfoque renovado en la innovación de productos, construyendo una sólida cartera de innovación de menús centrada en experiencias de café p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SHAK" data-company="SHAKE SHACK INC - CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/SHAK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SHAK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SHAKE SHACK INC - CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Shake Shack participa en el tema de la entrega de alimentos. La ventas digitales representan...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Shake Shack en el tema de la entrega de alimentos es evidente a través de sus canales de venta digital, que incluyen pedidos realizados en la aplicación, el sitio web de Shake Shack y plataformas de entrega de terceros. Las ventas digitales representan consistentemente una parte ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WEN" data-company="WENDY'S CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/WEN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WEN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WENDY'S CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Wendy's opera como un restaurante de servicio rápido. Ocupando el segundo lugar en EE. UU. en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Wendy's opera como un restaurante de servicio rápido, ocupando el segundo lugar en EE. UU. en sándwiches de hamburguesa y el tercer lugar a nivel mundial. El enfoque de la empresa está en estrategias para ganar clientes, gestionar costos y mantener la competitividad dentro del espacio de restaurante...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WEN" data-company="WENDY'S CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/WEN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WEN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WENDY'S CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Wendy's participa fundamentalmente en la industria de Alimentos y Bebidas. El enfoque de la empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Wendy's participa fundamentalmente en la industria de Alimentos y Bebidas a través de su operación, desarrollo y franquicia de restaurantes de servicio rápido. El enfoque de la empresa en ofrecer alimentos frescos y de alta calidad es un pilar estratégico clave, ejemplificado por su compromiso de ob...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WEN" data-company="WENDY'S CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/WEN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WEN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WENDY'S CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Wendy's opera, desarrolla y concede franquicias de restaurantes de servicio rápido. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Wendy's opera, desarrolla y concede franquicias de restaurantes de servicio rápido, con una parte significativa de sus ingresos derivada de actividades relacionadas con las franquicias. Wendy's International, LLC posee y concede franquicias del sistema de restaurantes Wendy's en los EE. UU. y en la ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SHAK" data-company="SHAKE SHACK INC - CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SHAK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SHAK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SHAKE SHACK INC - CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Shake Shack utiliza un modelo de franquicia para expandir su negocio. Este modelo genera ingresos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Shake Shack utiliza un modelo de franquicia para expandir su negocio, como lo demuestra la operación de 256 Shacks licenciados. Este modelo genera ingresos por licencias a través de tarifas, lo que contribuye al rendimiento financiero general de la empresa. Shake Shack está persiguiendo activamente ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WEN" data-company="WENDY'S CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/WEN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WEN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WENDY'S CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Wendy's demuestra su compromiso con el tema de la entrega de alimentos. Este enfoque se refleja en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Wendy's demuestra su compromiso con el tema de la entrega de alimentos a través de sus inversiones en tecnología orientada al consumidor, incluido el establecimiento de acuerdos de entrega con proveedores externos para sus restaurantes en EE. UU. y Canadá. Este enfoque se refleja en el crecimiento d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SHAK" data-company="SHAKE SHACK INC - CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SHAK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SHAK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SHAKE SHACK INC - CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Shake Shack se enfoca actualmente en la expansión de restaurantes. Este año será transformador, con...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Shake Shack se enfoca actualmente en la expansión de restaurantes, con el objetivo de cuadruplicar el número de Shacks operados por la empresa, con un objetivo de al menos 1.500 ubicaciones. Este año será transformador, con planes de abrir un número récord de 45 a 50 Shacks operados por la empresa. ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BROS" data-company="DUTCH BROS INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/BROS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BROS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DUTCH BROS INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dutch Bros se identifica como un minorista que depende del gasto discrecional del consumidor. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Dutch Bros se identifica como un minorista que depende del gasto discrecional del consumidor, lo que hace que sus operaciones sean sensibles a las condiciones macroeconómicas. La empresa opera tiendas operadas por la empresa y franquiciadas, con más de 1.012 ubicaciones en 18 estados al 31 de marzo ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="QSR" data-company="RESTAURANT BRANDS INTERN">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/QSR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">QSR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RESTAURANT BRANDS INTERN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Tim Hortons, Burger King, Popeyes and Firehouse Subs are marcas orientadas al consumidor. Estas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de la empresa en el tema de Marcas de Consumo es evidente a través de la propiedad y franquicia de cuatro marcas icónicas: Tim Hortons, Burger King, Popeyes y Firehouse Subs. Estas marcas se benefician de la escala global, las combinaciones complementarias de franjas horarias y el interca...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMG" data-company="CHIPOTLE MEXICAN GRILL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CHIPOTLE MEXICAN GRILL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Las operaciones de Chipotle se centran en gran medida en la industria de alimentos y bebidas. Los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Chipotle se centran en gran medida en la industria de alimentos y bebidas, como lo demuestran las extensas discusiones sobre ingresos, costos y tendencias de ventas de alimentos y bebidas a lo largo de sus presentaciones y transcripciones. Los ingresos de la compañía se derivan pr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="QSR" data-company="RESTAURANT BRANDS INTERN">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/QSR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">QSR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RESTAURANT BRANDS INTERN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">QSR demuestra su compromiso con las Soluciones de Servicio de Alimentos. Los flujos de ingresos de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">QSR demuestra su compromiso con las Soluciones de Servicio de Alimentos a través de varias iniciativas. Los flujos de ingresos de la compañía incluyen tarifas tecnológicas cobradas a restaurantes franquiciados, que se utilizan para compensar parcialmente los gastos relacionados con iniciativas tecno...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCD" data-company="MC DONALD'S-CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/MCD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MCD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MC DONALD'S-CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">McDonald's se enfoca en construir una plataforma operativa de restaurantes eficiente. Esto incluye...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">McDonald's se enfoca en construir una plataforma operativa de restaurantes eficiente que aproveche la tecnología basada en la nube para mejorar las operaciones y el servicio al cliente. Esto incluye la implementación de software nuevo y universal en todos los restaurantes para acelerar la innovación...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SBUX" data-company="STARBUCKS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SBUX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SBUX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARBUCKS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La exposición de Starbucks al tema de Materias Primas Agrícolas es significativa. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de Starbucks al tema de Materias Primas Agrícolas es significativa debido a su dependencia del café verde y los productos lácteos, que están sujetos a fluctuaciones de precios que impactan directamente en sus resultados financieros. La empresa identifica el riesgo de precios de las mat...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DPZ" data-company="DOMINO'S PIZZA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/DPZ" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DPZ</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOMINO'S PIZZA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Domino's opera extensamente dentro of los sectores minorista y de servicios de alimentos. Los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Domino's opera extensamente dentro de los sectores minorista y de servicios de alimentos, como lo demuestra su posición como la empresa de pizza más grande a nivel mundial, con más de 21.000 locales que ofrecen servicios de entrega a domicilio y para llevar. Los ingresos de la empresa se derivan pri...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SBUX" data-company="STARBUCKS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SBUX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SBUX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARBUCKS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Starbucks está invirtiendo activamente en la renovación de sus cafeterías y evaluando...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Starbucks mantiene una importante presencia física, operando más de 40.500 tiendas operadas por la empresa y con licencia. Esto se evidencia en el enfoque de la empresa en restablecer sus cafeterías como un 'tercer lugar' para que los clientes pasen tiempo y construyan comunidad, evolucionando los e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SBUX" data-company="STARBUCKS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SBUX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SBUX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARBUCKS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Starbucks utiliza activamente asociaciones minoristas, incluidas tiendas with licencia. Estas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Starbucks utiliza activamente asociaciones minoristas, incluidas tiendas con licencia, para generar ingresos a través de la venta de productos y equipos, así como ingresos por regalías. Estas asociaciones se ejemplifican a través de la Alianza Global del Café con Nestlé y otras empresas conjuntas, q...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SBUX" data-company="STARBUCKS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SBUX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SBUX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARBUCKS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Starbucks sirve alimentos y bebidas directamente a los consumidores. El modelo de negocio principal...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La prominencia de Starbucks en los sectores minorista y de servicios de alimentos es evidente a través de la operación de más de 40.500 tiendas operadas por la empresa y con licencia en 88 mercados, donde sirve alimentos y bebidas directamente a los consumidores. El modelo de negocio principal de la...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SBUX" data-company="STARBUCKS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SBUX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SBUX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARBUCKS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La posición de Starbucks como un gigante minorista está respaldada por su extensa presencia global....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La posición de Starbucks como un gigante minorista está respaldada por su extensa presencia global, con más de 40,500 tiendas operadas por la compañía y con licencia en 88 mercados, que crecieron un 5% en el último año. Las operaciones de la compañía se dividen en tres segmentos: América del Norte, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="YUM" data-company="YUM! BRANDS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/YUM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">YUM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">YUM! BRANDS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Yum! Brands tiene una presencia significativa en la industria de Alimentos y Bebidas. Con KFC...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Yum! Brands tiene una presencia significativa en la industria de Alimentos y Bebidas, principalmente a través de la operación y franquicia de más de 60,000 restaurantes en más de 155 países, con marcas como KFC, Taco Bell, Pizza Hut y The Habit Burger & Grill. Estas marcas, en particular KFC, Taco B...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCD" data-company="MC DONALD'S-CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/MCD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MCD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MC DONALD'S-CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">McDonald's es un actor dominante en la industria de la comida rápida. La compañía se enfoca en el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">McDonald's es un actor dominante en la industria de la comida rápida, enfatizando constantemente su posición como la 'marca líder mundial de restaurantes omnicanal' a través de su estrategia de crecimiento 'Accelerating the Arches'. La compañía se enfoca en el valor, la asequibilidad y la innovación...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SBUX" data-company="STARBUCKS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SBUX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SBUX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARBUCKS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Starbucks es el principal tostador, comercializador y minorista de café especial a nivel mundial....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Starbucks con la industria de fabricación de bebidas es evidente en sus operaciones principales, ya que la empresa se identifica como el principal tostador, comercializador y minorista de café especial a nivel mundial. Esto incluye la fabricación y distribución de bebidas como café ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WEN" data-company="WENDY'S CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/WEN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WEN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WENDY'S CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Wendy's demuestra un fuerte enfoque en los programas de lealtad, subrayado por el lanzamiento of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Wendy's demuestra un fuerte enfoque en los programas de lealtad, subrayado por el lanzamiento de Wendy’s Rewards en EE. UU. y Canadá y las mejoras continuas en sus aplicaciones móviles y programas de lealtad. Esta inversión en tecnología orientada al consumidor ha resultado en un crecimiento sustanc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PZZA" data-company="PAPA JOHN'S INTL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/PZZA" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PZZA</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAPA JOHN'S INTL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Papa John's depende en gran medida de los canales digitales, donde se produce la mayor parte of sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Papa John's depende en gran medida de los canales digitales, donde se produce la mayor parte de sus ventas, y la empresa busca activamente oportunidades para mejorar la experiencia del usuario agilizando el proceso de pedido y brindando un acceso más rápido a la información. Con este fin, Papa John'...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BROS" data-company="DUTCH BROS INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/BROS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BROS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DUTCH BROS INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dutch Bros demuestra su enfoque en la innovación de bebidas. Introducción de nuevos sabores y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Dutch Bros demuestra su enfoque en la innovación de bebidas a través de la introducción de nuevos sabores y elementos del menú, como Dulce de Leche, Sour Berry y Matcha, junto con el regreso de Lavender en respuesta a la demanda de los clientes. La innovación ha sido una piedra angular de la marca d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BROS" data-company="DUTCH BROS INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/BROS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BROS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DUTCH BROS INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dutch Bros está expandiendo significativamente su presencia de restaurantes. La compañía planea...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Dutch Bros está expandiendo significativamente su presencia de restaurantes, como lo demuestra la apertura de 151 locales en todo el sistema y un aumento del 18% con respecto al año anterior. La compañía planea abrir los próximos 1.000 nuevos locales, con el objetivo de alcanzar un total de 2.029 lo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="QSR" data-company="RESTAURANT BRANDS INTERN">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/QSR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">QSR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RESTAURANT BRANDS INTERN</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa planea asignar entre $400 y $450 millones en 2025 para gastos de capital consolidados....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La expansión de restaurantes es central para las operaciones de la empresa, como lo demuestra su posición como una de las compañías de restaurantes de servicio rápido más grandes del mundo, con casi $45 mil millones en ventas anuales a nivel de sistema y más de 32,000 restaurantes en más de 120 país...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BROS" data-company="DUTCH BROS INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/BROS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BROS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DUTCH BROS INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dutch Bros opera como un operador y franquiciador de alto crecimiento de tiendas de drive-thru,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Dutch Bros opera como un operador y franquiciador de alto crecimiento de tiendas de drive-thru, generando $1.3 mil millones en ingresos para el año finalizado el 31 de diciembre de 2024, con la mayoría proveniente de los ingresos de las tiendas operadas por la empresa. Como minorista dependiente del...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMG" data-company="CHIPOTLE MEXICAN GRILL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CHIPOTLE MEXICAN GRILL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se enfoca en optimizar las operaciones a través of inversiones en tecnología e...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Chipotle con el tema de Líder de Comida Rápida es evidente en su énfasis en la velocidad, la eficiencia y el valor dentro del mercado fast-casual. La empresa se enfoca en optimizar las operaciones a través de inversiones en tecnología e iniciativas de rendimiento, incluida la adición ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CMG" data-company="CHIPOTLE MEXICAN GRILL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CHIPOTLE MEXICAN GRILL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Chipotle se centra en los sectores minorista y de servicios de alimentos. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Chipotle se centra en los sectores minorista y de servicios de alimentos, como lo demuestran sus operaciones de restaurantes, estrategias de experiencia del cliente e iniciativas de marketing. La empresa opera miles de restaurantes Chipotle tanto a nivel nacional como internacional, ge...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SHAK" data-company="SHAKE SHACK INC - CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/SHAK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SHAK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SHAKE SHACK INC - CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Shake Shack demuestra una fuerte conexión with el tema of Gestión Hotelera. Esto se refleja en su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Shake Shack demuestra una fuerte conexión con el tema de Gestión Hotelera a través de su énfasis en la satisfacción de los miembros del equipo y de los huéspedes, lo cual considera su 'norte verdadero'. Esto se refleja en su cultura de 'hospitalidad ilustrada' y un enfoque láser en el cuidado de los...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SHAK" data-company="SHAKE SHACK INC - CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/SHAK" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SHAK</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SHAKE SHACK INC - CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Shake Shack es un restaurante de servicio rápido que sirve clásicos americanos. La compañía es...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La asociación de Shake Shack con el tema Líder de Comida Rápida proviene de su operación como un restaurante de servicio rápido que sirve clásicos americanos. Si bien la compañía es conocida por sus hamburguesas de carne Angus hechas a pedido y pollo crujiente, se distingue creando una categoría 'fi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SBUX" data-company="STARBUCKS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/SBUX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SBUX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">STARBUCKS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Starbucks demuestra un enfoque en el comportamiento del consumidor. La compañía está invirtiendo en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Starbucks demuestra un enfoque en el comportamiento del consumidor a través de varias iniciativas, que incluyen el monitoreo cercano de los datos de transacciones de los clientes y la segmentación de los clientes en categorías de recompensas y no recompensas para ajustar las estrategias. La compañía...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WING" data-company="WINGSTOP INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/WING" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WING</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WINGSTOP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Wingstop Smart Kitchen is una solución tecnológica co-desarrollada with una startup. Esta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Wingstop con las Soluciones de Servicio de Alimentos es evidente a través de la implementación de Wingstop Smart Kitchen, una solución tecnológica co-desarrollada con una startup, diseñada para mejorar la calidad y consistencia del servicio. Esta plataforma, ahora activa en 1.000 re...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WING" data-company="WINGSTOP INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/WING" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WING</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WINGSTOP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La ventas digitales representan un sustancial 69% de las ventas a nivel de sistema de Wingstop....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Wingstop en las compras en línea es evidente, ya que las ventas digitales representan un sustancial 69% de las ventas a nivel de sistema de la empresa. Esto significa un compromiso considerable con los canales en línea. El aumento de las ventas digitales de la empresa, que aument...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="YUM" data-company="YUM! BRANDS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/YUM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">YUM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">YUM! BRANDS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Yum! Brands está activamente involucrada en la mejora de sus soluciones de servicio de alimentos....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Yum! Brands está activamente involucrada en la mejora de sus soluciones de servicio de alimentos a través del desarrollo e implementación de su plataforma Byte. Byte Connect, una plataforma de integración de menús y pedidos para proveedores de entrega externos, se está escalando en Pizza Hut U.S. pa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WEN" data-company="WENDY'S CO/THE">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/WEN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WEN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WENDY'S CO/THE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Wendy's opera, desarrolla y franquicia restaurantes de servicio rápido. Su negocio principal esté...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Wendy's opera, desarrolla y franquicia restaurantes de servicio rápido, lo que hace que su negocio principal esté profundamente entrelazado con la industria Minorista y de Servicios de Alimentación. Como la segunda compañía de restaurantes de servicio rápido más grande en el segmento de sándwiches d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DPZ" data-company="DOMINO'S PIZZA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/DPZ" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DPZ</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOMINO'S PIZZA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Domino's Rewards está diseñado para atraer nuevos clientes y aumentar la frecuencia de compra entre...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Domino's pone un fuerte énfasis en su programa de fidelización Domino's Rewards, considerándolo un impulsor clave de las ventas y la participación del cliente, particularmente dentro del negocio de comida para llevar. El programa está diseñado para atraer nuevos clientes y aumentar la frecuencia de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DPZ" data-company="DOMINO'S PIZZA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/DPZ" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DPZ</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOMINO'S PIZZA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se enfoca en mejorar el servicio y las operaciones. La estrategia 'Hungry for MORE'...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Domino's integra la tecnología en su modelo de negocio para mejorar la experiencia del cliente a través de pedidos sencillos y un servicio eficiente. La empresa se enfoca en mejorar el servicio y las operaciones implementando programas de capacitación y mejorando su tecnología DomOS. Estos esfuerzos...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

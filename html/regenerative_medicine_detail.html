@@ -1,0 +1,1192 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Regenerative Medicine - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Regenerative Medicine</div>
+      <div class="sub-title">Investment Theme Detail - Health Industry</div>
+    </div>
+    <a href="/main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Regenerative Medicine &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Health &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 12
+    </div>
+
+    
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">12</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">UTHR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">UNITED THERAPEUTICS CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se dedica al desarrollo, fabricación y comercialización de medicamentos biológicos....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/UTHR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CRSP</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CRISPR THERAPEUTICS AG</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha tecnologías avanzadas de edición genética para desarrollar nuevas terapias biológicas, particularmente en el ámbito de la medicina basada en...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CRSP" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">VRTX</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">VERTEX PHARMACEUTICALS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se dedica al descubrimiento, desarrollo y comercialización de medicamentos biológicos, que son fundamentales para su cartera terapéutica y sus estrate...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/VRTX" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BEAM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BEAM THERAPEUTICS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla medicinas genéticas de precisión, incluidas terapias de edición de bases, que son un tipo de medicamento biológico diseñado para tratar enf...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BEAM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">FUJIY</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">FUJIFILM HOLDINGS-UNSP ADR</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye a los avances dentro del tema de Medicina Regenerativa....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/FUJIY" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">4502</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TAKEDA PHARMACEUTICAL CO LTD</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se dedica a la producción y desarrollo de productos biofarmacéuticos, aprovechando procesos de fabricación avanzados para ofrecer terapias innovadoras...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/4502" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">4503</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ASTELLAS PHARMA INC.</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Participa en la industria de la medicina genética....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/4503" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">VCEL</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">VERICEL CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Contribuye a los avances dentro del sector de Medicamentos Biológicos....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/VCEL" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">MSB</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">MESOBLAST LTD</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Participa activamente en el desarrollo de terapias de medicina regenerativa....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/MSB" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TSHA</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TAYSHA GENE THERAPIES INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se enfoca en el desarrollo de medicamentos biológicos a través de terapias génicas para tratar enfermedades monogénicas graves que afectan al sistema ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TSHA" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">11</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">AORT</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ARTIVION INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona dispositivos y soluciones médicas innovadoras para el tratamiento y manejo de enfermedades cardiovasculares....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/AORT" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">12</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BDX</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BECTON DICKINSON AND CO</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Integra inteligencia artificial en sus soluciones de tecnología médica para mejorar diagnósticos, optimizar resultados para pacientes y mejorar la pre...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BDX" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">72</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="BDX" data-company="BECTON DICKINSON AND CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BDX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BECTON DICKINSON AND CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Becton, Dickinson and Company es una empresa mundial de tecnología médica. La inversión en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Becton, Dickinson and Company con la I+D biotecnológica es evidente a través de su papel como empresa mundial de tecnología médica que participa en el desarrollo, la fabricación y la venta de suministros médicos, dispositivos, equipos de laboratorio y productos de diagnóstico utiliz...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BDX" data-company="BECTON DICKINSON AND CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BDX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BECTON DICKINSON AND CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BD Interventional y su plataforma avanzada de regeneración de tejidos. La participación of BD en la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de BD en la Medicina Regenerativa es evidente a través de su segmento BD Interventional y su plataforma avanzada de regeneración de tejidos, destacada por la expansión de las indicaciones para Phasix, incluido el lanzamiento en la UE de un andamio reabsorbible diseñado para prevenir...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BDX" data-company="BECTON DICKINSON AND CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BDX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BECTON DICKINSON AND CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BD es una empresa global de tecnología médica. Desarrolla, fabrica y vende una amplia gama of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de BD con el tema de Servicios de Atención Médica proviene de su papel como empresa global de tecnología médica que desarrolla, fabrica y vende una amplia gama de suministros médicos, dispositivos, equipos de laboratorio y productos de diagnóstico utilizados por instituciones de atención...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BDX" data-company="BECTON DICKINSON AND CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BDX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BECTON DICKINSON AND CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Becton, Dickinson and Company tiene un segmento dedicado a BD Life Sciences. Este compromiso se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Becton, Dickinson and Company en el tema de Ciencias de la Vida es evidente a través de su estructura organizacional, ofertas de productos e iniciativas estratégicas. La empresa tiene un segmento dedicado a BD Life Sciences, que es uno de sus tres segmentos de negocio principales...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BDX" data-company="BECTON DICKINSON AND CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BDX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BECTON DICKINSON AND CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Becton, Dickinson and Company es una empresa global de tecnología médica involucrada en el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Becton, Dickinson and Company en el tema de Dispositivos Médicos es evidente a través de su negocio principal como empresa global de tecnología médica involucrada en el desarrollo, fabricación y venta de una amplia gama de suministros médicos, dispositivos, equipos de laboratorio...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BDX" data-company="BECTON DICKINSON AND CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BDX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BECTON DICKINSON AND CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de BD en el Monitoreo de la Salud está significativamente influenciada by la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de BD en el Monitoreo de la Salud está significativamente influenciada por la adquisición de Advanced Patient Monitoring (APM) por $3.911 mil millones, un líder mundial en soluciones de monitoreo avanzadas. El crecimiento de los ingresos de la empresa refleja las ventas en la unidad...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BDX" data-company="BECTON DICKINSON AND CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BDX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BECTON DICKINSON AND CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Becton, Dickinson and Company demuestra su enfoque en la enfermedad cardiovascular. La unidad de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Becton, Dickinson and Company demuestra su enfoque en la enfermedad cardiovascular a través de su unidad de Intervención Periférica, que ha experimentado un fuerte crecimiento en su cartera de enfermedades vasculares periféricas, impulsado particularmente por las ventas del Sistema de Aterectomía Ro...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BDX" data-company="BECTON DICKINSON AND CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BDX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BECTON DICKINSON AND CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Becton, Dickinson and Company es una empresa global de tecnología médica. El segmento BD Medical...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Becton, Dickinson and Company es una empresa global de tecnología médica involucrada en el desarrollo, fabricación y venta de una amplia gama de suministros médicos, dispositivos, equipos de laboratorio y productos de diagnóstico dirigidos a instituciones de atención médica, médicos, investigadores,...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BDX" data-company="BECTON DICKINSON AND CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BDX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BECTON DICKINSON AND CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Becton, Dickinson and Company participa en el tema of Diagnóstico Sanitario. El negocio de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Becton, Dickinson and Company participa en el tema de Diagnóstico Sanitario a través del desarrollo, fabricación y venta de una gama de productos de diagnóstico. El negocio de Soluciones de Diagnóstico de la empresa incluye productos como el sistema BACTEC de próxima generación y BD MAX IVD, utiliza...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BDX" data-company="BECTON DICKINSON AND CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BDX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BECTON DICKINSON AND CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Becton, Dickinson and Company es unidad dedicada Pharmaceutical Systems. La empresa fabrica...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Becton, Dickinson and Company con la industria farmacéutica es evidente a través de su unidad dedicada Pharmaceutical Systems y su desarrollo, fabricación y venta de suministros médicos, dispositivos, equipos de laboratorio y productos de diagnóstico utilizados por la industria farm...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AORT" data-company="ARTIVION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AORT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARTIVION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Artivion fabrica dispositivos médicos y tejidos humanos implantables. La empresa es esenciales para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Artivion en el tema de los Materiales para la Salud es evidente en su fabricación, procesamiento y distribución de dispositivos médicos y tejidos humanos implantables, esenciales para procedimientos quirúrgicos cardíacos y vasculares. Las familias de productos de la empresa inclu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AORT" data-company="ARTIVION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AORT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARTIVION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Artivion fabrica y suministra polvo hemostático PerClot y distribuye parches quirúrgicos bovinos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Artivion en la industria de suministros médicos es evidente a través de la fabricación y distribución de diversos productos. La compañía fabrica y suministra polvo hemostático PerClot y distribuye parches quirúrgicos bovinos PhotoFix, ambos productos consumibles utilizados en cen...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSHA" data-company="TAYSHA GENE THERAPIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSHA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TAYSHA GENE THERAPIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Taysha Gene Therapies está profundamente involucrada en el tema of Medicamentos Genéticos. Su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Taysha Gene Therapies está profundamente involucrada en el tema de Medicamentos Genéticos, como lo demuestra su enfoque en el avance de terapias génicas basadas en AAV para enfermedades monogénicas graves del sistema nervioso central. Su programa clínico principal, TSHA-102, está en desarrollo para ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de la empresa en la terapia génica es evidente en su misión de crear medicamentos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de la empresa en la terapia génica es evidente en su misión de crear medicamentos transformadores basados en genes, utilizando la tecnología CRISPR/Cas9 para interrumpir, eliminar, corregir e insertar genes para tratar enfermedades genéticas e ingeniar terapias celulares avanzadas. Este c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa está activamente comprometida en abordar las enfermedades cardiovasculares. Estos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa está activamente comprometida en abordar las enfermedades cardiovasculares a través de sus programas in vivo, en particular CTX310 y CTX320, que utilizan una plataforma patentada de LNP para interrumpir ANGPTL3 y Lp(a), respectivamente. Estos programas se están investigando actualmente en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BEAM" data-company="BEAM THERAPEUTICS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BEAM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BEAM THERAPEUTICS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Beam Therapeutics se dedica a proporcionar curas de por vida para pacientes que sufren enfermedades...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Beam Therapeutics en Tratamientos Biotecnológicos es evidente a través de su compromiso de establecer una plataforma para medicinas genéticas de precisión y su búsqueda de múltiples programas de edición de bases. La empresa está avanzando activamente en programas de edición de bases en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AORT" data-company="ARTIVION INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">AORT</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARTIVION INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Artivion se centra en abordar las enfermedades cardiovasculares. La empresa fabrica dispositivos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Artivion se centra en abordar las enfermedades cardiovasculares a través de la fabricación y distribución de dispositivos médicos y tejidos humanos implantables utilizados en procedimientos quirúrgicos cardíacos y vasculares. Las principales familias de productos de la empresa, que inc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BEAM" data-company="BEAM THERAPEUTICS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BEAM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BEAM THERAPEUTICS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Beam Therapeutics se enfoca en avanzar una cartera diversificada de terapias genéticas de precisión...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Beam Therapeutics se enfoca en avanzar una cartera diversificada de terapias genéticas de precisión utilizando tecnologías de edición genética, incluyendo la edición de bases. Esto incluye el desarrollo de terapias investigacionales de HSC autólogas específicas para el paciente, como BEAM-101, diseñ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CRISPR Therapeutics AG es una empresa de medicamentos transformadores basados en genes utilizando...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de CRISPR Therapeutics AG con la tecnología CRISPR es evidente en su propio nombre y en su misión central de crear medicamentos transformadores basados en genes utilizando la tecnología CRISPR/Cas9. El enfoque principal de la empresa es el desarrollo de terapias basadas en CRISPR, avan...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de la empresa en los medicamentos oncológicos es evidente. Estos programas incluyen...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de la empresa en los medicamentos oncológicos es evidente a través del avance de varios programas de terapia celular dirigidos a esta área. Estos programas incluyen terapias CAR T alogénicas de próxima generación como CTX112 y CTX131, y CTX131 se está desarrollando específicamente tanto p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BEAM" data-company="BEAM THERAPEUTICS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BEAM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BEAM THERAPEUTICS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Beam Therapeutics colabora con Verve Therapeutic y Eli Lilly. Beam otorgó a Verve licencias...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Beam Therapeutics colabora con Verve Therapeutics y Eli Lilly para avanzar en programas de edición genética centrados en enfermedades cardiovasculares, dirigidos a PCSK9, ANGPTL3 y un objetivo cardiovascular no revelado mediado por el hígado. Beam otorgó a Verve licencias exclusivas a nivel mundial ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BEAM" data-company="BEAM THERAPEUTICS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BEAM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BEAM THERAPEUTICS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Beam Therapeutics ha licenciado tecnologías adicionales de edición genética. La compañía también ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Beam Therapeutics con la tecnología CRISPR es evidente a través de su tecnología patentada de edición de bases, que aprovecha la capacidad de direccionamiento del ADN de las proteínas CRISPR. Esta tecnología insignia está diseñada para dirigirse a una sola base en el genoma sin caus...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BEAM" data-company="BEAM THERAPEUTICS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BEAM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BEAM THERAPEUTICS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Beam Therapeutics participa activamente en el desarrollo of fármacos. La compañía está avanzando en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Beam Therapeutics participa activamente en el desarrollo de fármacos, en particular a través de su tecnología de edición de bases para crear terapias in vivo para enfermedades genéticas raras que afectan al hígado, los músculos y el sistema nervioso central. Esto incluye el avance de programas de ed...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BEAM" data-company="BEAM THERAPEUTICS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BEAM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BEAM THERAPEUTICS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Beam Therapeutics establece una plataforma líder para medicinas genéticas de precisión. El enfoque...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Beam Therapeutics con la edición genética es fundamental para su negocio principal, como lo demuestra su dedicación a establecer una plataforma líder para medicinas genéticas de precisión. El enfoque de la empresa se basa en su tecnología patentada de edición de bases y se apoya ade...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BEAM" data-company="BEAM THERAPEUTICS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BEAM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BEAM THERAPEUTICS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Beam Therapeutics está profundamente invertida en medicinas genéticas. La visión de Beam se centra...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Beam Therapeutics está profundamente invertida en medicinas genéticas, lo que se demuestra en su compromiso de establecer una plataforma líder e integrada para medicinas genéticas de precisión. La visión de la empresa se centra en proporcionar curas de por vida a pacientes que sufren de enfermedades...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BEAM" data-company="BEAM THERAPEUTICS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BEAM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BEAM THERAPEUTICS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Beam Therapeutics está profundamente involucrada en la terapia génica. La compañía está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Beam Therapeutics está profundamente involucrada en la terapia génica, como lo demuestra su enfoque en medicamentos genéticos de precisión destinados a proporcionar curas de por vida para pacientes con enfermedades graves. La compañía está construyendo activamente una plataforma integrada para la me...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque principal de la empresa es la edición génica, específicamente a través of terapias...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque principal de la empresa es la edición génica, específicamente a través de terapias basadas en CRISPR y la tecnología CRISPR/Cas9, que consideran revolucionaria para alterar con precisión las secuencias de ADN genómico. Este enfoque es evidente en su misión de crear medicamentos transforma...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSHA" data-company="TAYSHA GENE THERAPIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSHA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TAYSHA GENE THERAPIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Taysha Gene Therapies se dedica a avanzar en terapias génicas basadas en AAV. Programa clínico...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Taysha Gene Therapies se dedica a avanzar en terapias génicas basadas en AAV para enfermedades monogénicas graves del sistema nervioso central (SNC), demostrando un claro enfoque en neurociencia. Este compromiso es evidente en su programa clínico principal, TSHA-102, que está en desarrollo para el t...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Medicamentos Genéticos es una empresa líder en edición genética centrada en el desarrollo de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de la empresa en Medicamentos Genéticos es evidente en su misión principal de crear medicamentos transformadores basados en genes para enfermedades humanas graves. Es una empresa líder en edición genética centrada en el desarrollo de terapias basadas en CRISPR, incluido el uso de la tecno...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Empresa de CRISPR/Cas9 trabaja con Tratamientos Biotecnológicos. Esto se ve subrayado por su misión...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con los Tratamientos Biotecnológicos es evidente a través de su enfoque en el desarrollo de terapias basadas en CRISPR y medicamentos basados en genes dirigidos al tratamiento de enfermedades genéticas y la ingeniería de terapias celulares avanzadas. Esto se ve subrayado ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSHA" data-company="TAYSHA GENE THERAPIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSHA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TAYSHA GENE THERAPIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Taysha Gene Therapies está profundamente involucrada en la industria de la Terapia Génica. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Taysha Gene Therapies está profundamente involucrada en la industria de la Terapia Génica, principalmente a través del desarrollo de su programa clínico principal, TSHA-102, una terapia génica diseñada para abordar la causa subyacente del síndrome de Rett restaurando la expresión de la proteína MECP...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSHA" data-company="TAYSHA GENE THERAPIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSHA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TAYSHA GENE THERAPIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La FDA otorgó la designación de Terapia Avanzada de Medicina Regenerativa (RMAT) a TSHA-102 para el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La FDA otorgó la designación de Terapia Avanzada de Medicina Regenerativa (RMAT) a TSHA-102 para el síndrome de Rett, tras una revisión de los datos de seguridad y eficacia de pacientes en los ensayos REVEAL de Fase 1/2. Esta designación se basó en datos de ensayos en adolescentes, adultos y pediátr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UTHR" data-company="UNITED THERAPEUTICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UTHR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED THERAPEUTICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">United Therapeutics demuestra una fuerte conexión with los tratamientos biotecnológicos a través of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">United Therapeutics demuestra una fuerte conexión con los tratamientos biotecnológicos a través de sus productos comercializados como Tyvaso DPI, Tyvaso nebulizado, Remodulin, Orenitram, Unituxin y Adcirca, junto con sus terapias para afecciones raras y potencialmente mortales. El compromiso de la e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UTHR" data-company="UNITED THERAPEUTICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UTHR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED THERAPEUTICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Uthr participa en I+D de Biotecnología. La empresa centra sus esfuerzos de investigación y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Uthr en I+D de Biotecnología es evidente a través de la dedicación de recursos sustanciales a ensayos clínicos y diversos esfuerzos de investigación y desarrollo, tanto internos como a través de terceros. La empresa centra sus esfuerzos de investigación y desarrollo en programas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UTHR" data-company="UNITED THERAPEUTICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UTHR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED THERAPEUTICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">United Therapeutics se centra en el desarrollo of sistemas de aeronaves eléctricas pilotadas y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de United Therapeutics en la aviación eléctrica se centra en el desarrollo de sistemas de aeronaves eléctricas pilotadas y autónomas de despegue y aterrizaje vertical para la entrega de órganos, con el objetivo de crear un método sostenible para transportar órganos fabricados y alte...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UTHR" data-company="UNITED THERAPEUTICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UTHR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED THERAPEUTICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">United Therapeutics está comprometida con la industria farmacéutica. Los ingresos de la empresa se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de United Therapeutics con la industria farmacéutica es evidente a través del desarrollo, fabricación y distribución de una gama de productos comerciales, que incluyen Tyvaso DPI, Tyvaso Nebulizado, Remodulin, Orenitram, Unituxin y Adcirca. Los ingresos de la empresa se generan princip...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UTHR" data-company="UNITED THERAPEUTICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UTHR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED THERAPEUTICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">United Therapeutics participa activamente en la investigación y el desarrollo of tecnologías. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de United Therapeutics en la medicina regenerativa es evidente a través de su enfoque multifacético para abordar la escasez de órganos trasplantables. La empresa participa activamente en la investigación y el desarrollo de tecnologías, incluida la xenotrasplantación, alternativas de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VCEL" data-company="VERICEL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VCEL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VERICEL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Vericel es una proveedor líder de terapias avanzadas para medicina deportiva y atención de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Vericel en el tema de Medicamentos Biológicos es evidente a través de su identidad como empresa biofarmacéutica con una cartera de productos de terapia celular y biológicos especializados, que incluyen MACI, Epicel y NexoBrid. La compañía comercializa dos productos de terapia cel...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VCEL" data-company="VERICEL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VCEL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VERICEL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Vericel se centra en soluciones biológicas. La compañía comercializa múltiples productos de terapia...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Vericel se centra en soluciones biológicas, como lo demuestra su enfoque en la investigación, el desarrollo de productos, la fabricación y la distribución de terapias celulares y biológicos especializados. La compañía comercializa múltiples productos de terapia celular autóloga y bioló...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VCEL" data-company="VERICEL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VCEL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VERICEL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Vericel se centra en tratamientos biotecnológicos, como lo demuestra su cartera de productos de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Vericel se centra en tratamientos biotecnológicos, como lo demuestra su cartera de productos de terapia celular y biológicos especializados, que incluyen MACI, Epicel y NexoBrid. Estos productos aprobados por la FDA se utilizan en medicina deportiva y atención de quemaduras graves, esp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VRTX" data-company="VERTEX PHARMACEUTICALS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VRTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VERTEX PHARMACEUTICALS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Vertex invierte en innovación científica para crear medicamentos transformadores para enfermedades...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Vertex en el desarrollo y la comercialización de tratamientos biotecnológicos es evidente a través de su diversa cartera y cartera de proyectos. Como empresa global de biotecnología, Vertex invierte en innovación científica para crear medicamentos transformadores para enfermedades grav...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VRTX" data-company="VERTEX PHARMACEUTICALS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VRTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VERTEX PHARMACEUTICALS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Vertex tiene múltiples medicamentos aprobados que abordan las causas subyacentes de la fibrosis...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Vertex demuestra un fuerte compromiso con el tema de Medicamentos Genéticos a través de su desarrollo de terapias para enfermedades genéticas. La compañía tiene múltiples medicamentos aprobados que abordan las causas subyacentes de la fibrosis quística (FQ), una enfermedad genética potencialmente mo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VRTX" data-company="VERTEX PHARMACEUTICALS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VRTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VERTEX PHARMACEUTICALS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CASGEVY, una terapia celular editada genéticamente ex vivo, no viral, con CRISPR/Cas9, está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Vertex demuestra su compromiso con la terapia génica a través del desarrollo, aprobación y comercialización de CASGEVY, una terapia celular editada genéticamente ex vivo, no viral, con CRISPR/Cas9, para tratar la enfermedad de células falciformes y la beta talasemia dependiente de transfusiones. CAS...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VRTX" data-company="VERTEX PHARMACEUTICALS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VRTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VERTEX PHARMACEUTICALS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Povetacicept, un doble antagonista de las citoquinas BAFF and APRIL, se está explorando como...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Vertex en el tema de Inmunología es evidente a través del desarrollo de povetacicept, un doble antagonista de las citoquinas BAFF y APRIL, que se está explorando como tratamiento para la nefropatía IgA, la nefropatía membranosa primaria y otras enfermedades renales autoinmunes. L...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VRTX" data-company="VERTEX PHARMACEUTICALS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VRTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VERTEX PHARMACEUTICALS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Vertex es una empresa global de biotecnología. Invierte en innovación científica para crear...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La posición de Vertex como empresa global de biotecnología se ve reforzada por su enfoque en la innovación científica para crear medicamentos transformadores para enfermedades graves. La empresa tiene múltiples medicamentos aprobados, incluidos tratamientos para la fibrosis quística, la enfermedad d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VRTX" data-company="VERTEX PHARMACEUTICALS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VRTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VERTEX PHARMACEUTICALS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">JOURNAVX es un tratamiento no opioide para el dolor agudo de moderado a grave. Vertex está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Vertex demuestra su enfoque en el manejo del dolor a través de la comercialización de JOURNAVX, un tratamiento no opioide para el dolor agudo de moderado a grave, y está recopilando activamente más datos a través de ensayos clínicos de Fase 4. La empresa también está avanzando suzetrigine, actualmen...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa demuestra un fuerte compromiso con las asociaciones biofarmacéuticas a través of su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra un fuerte compromiso con las asociaciones biofarmacéuticas a través de su alianza estratégica con Vertex Pharmaceuticals, que condujo al codesarrollo y la comercialización conjunta de CASGEVY para TDT y SCD. Esta colaboración, iniciada en 2015, se centra en tratamientos basados ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El capital de la empresa se asigna principalmente a actividades de investigación y desarrollo. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de la empresa en I+D de Biotecnología es evidente en la dedicación de prácticamente todos sus recursos a estos esfuerzos desde su inicio, abarcando el descubrimiento de fármacos, el desarrollo preclínico y el establecimiento de capacidades de fabricación internas. El capital de la empresa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Empresa está desarrollando CTX112, un programa alogénico de CAR T, para enfermedades autoinmunes....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema de Inmunología es evidente a través del avance de sus programas de terapia celular dirigidos tanto a indicaciones oncológicas como autoinmunes. En particular, la empresa está desarrollando CTX112, un programa alogénico de CAR T, para enfermedades autoinmunes c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía tiene como objetivo aprovechar sus capacidades de edición genética. Esto incluye...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la compañía en Medicina Regenerativa está impulsada principalmente por el desarrollo de terapias derivadas de células madre editadas genéticamente para tratar la Diabetes Tipo 1 (DT1). Esto incluye esfuerzos para crear un candidato a producto de reemplazo de células beta, que pot...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSHA" data-company="TAYSHA GENE THERAPIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSHA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TAYSHA GENE THERAPIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Taysha Gene Therapies en el avance of terapias génicas basadas in AAV es evidente en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Taysha Gene Therapies en el avance de terapias génicas basadas en AAV es evidente en sus actividades de fabricación biofarmacéutica. La empresa colabora con organizaciones de fabricación por contrato (CMO) para producir material de Buenas Prácticas de Fabricación actuales (cGMP) para e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TSHA" data-company="TAYSHA GENE THERAPIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">TSHA</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TAYSHA GENE THERAPIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Taysha Gene Therapies está involucrada en ensayos clínicos, particularmente para TSHA-102, un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Taysha Gene Therapies está profundamente involucrada en ensayos clínicos, particularmente para TSHA-102, un candidato a terapia génica para el síndrome de Rett, y esto es fundamental para sus operaciones como empresa de biotecnología en etapa clínica. La empresa está llevando a cabo activamente los ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BDX" data-company="BECTON DICKINSON AND CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BDX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BECTON DICKINSON AND CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Two dígitos de biológicos constituyen el 50% de las ventas totales de Pharm System. Este...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de BD con Soluciones Biológicas es evidente a través de su crecimiento de dos dígitos en biológicos, que ahora constituyen el 50% de las ventas totales de Pharm System. Este crecimiento está impulsado significativamente por los GLP-1, lo que contribuye al retorno al crecimiento de P...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BDX" data-company="BECTON DICKINSON AND CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BDX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BECTON DICKINSON AND CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BD experimentó un crecimiento de los ingresos atribuible a adquisiciones recientes de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de BD con la Automatización Sanitaria es evidente a través del sólido rendimiento de su unidad de Soluciones de Gestión de Medicamentos, particularmente su cartera de automatización farmacéutica con tecnologías Parata Systems y BD Rowa. Esta unidad experimentó un crecimiento de los ing...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UTHR" data-company="UNITED THERAPEUTICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UTHR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED THERAPEUTICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">United Therapeutics demuestra su participación en el tema of Medicamentos Biológicos. Unituxin, un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">United Therapeutics demuestra su participación en el tema de Medicamentos Biológicos a través de la comercialización y el desarrollo de terapias farmacéuticas y biológicas, incluido Unituxin, un anticuerpo monoclonal infundido aprobado para el tratamiento del neuroblastoma de alto riesgo. Unituxin e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BDX" data-company="BECTON DICKINSON AND CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BDX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BECTON DICKINSON AND CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BD está integrando activamente sus sistemas, como el sistema de infusión Alaris. Esto se ve...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de BD en Soluciones de Atención Médica es evidente a través de su amplia cartera de suministros médicos, dispositivos y productos de diagnóstico que atienden a diversas instituciones y profesionales de la salud. El enfoque de la empresa en soluciones de atención conectada, como BD P...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CRISPR Therapeutics está desarrollando terapias basadas en CRISPR. Su compromiso se ve subrayado...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de CRISPR Therapeutics en la creación de medicamentos transformadores basados en genes los posiciona dentro de la industria de medicamentos biológicos, particularmente a través de su desarrollo de terapias basadas en CRISPR. Su compromiso se ve subrayado por la aprobación de CASGEVY, una ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UTHR" data-company="UNITED THERAPEUTICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UTHR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED THERAPEUTICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">United Therapeutics está involucrada en la comercialización de medicamentos. Los ingresos de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">United Therapeutics está significativamente involucrada en la comercialización de medicamentos, como lo demuestra la comercialización y venta de varios productos comerciales, incluidos Tyvaso DPI, Tyvaso Nebulizado, Remodulin, Orenitram, Unituxin y Adcirca. Los ingresos de la empresa se derivan prin...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UTHR" data-company="UNITED THERAPEUTICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UTHR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED THERAPEUTICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">United Therapeutics participa activamente en la mejora de medicamentos existentes y el desarrollo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de United Therapeutics en el tema de las Enfermedades Cardiovasculares es evidente en su enfoque en la hipertensión pulmonar, una condición cardiovascular específica, con productos comercializados como Tyvaso, Orenitram y Remodulin. Los ingresos de la compañía están significativamen...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UTHR" data-company="UNITED THERAPEUTICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UTHR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED THERAPEUTICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">United Therapeutics demuestra su enfoque en el desarrollo of fármacos a través of su extensa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">United Therapeutics demuestra su enfoque en el desarrollo de fármacos a través de su extensa cartera, ensayos clínicos y presentaciones regulatorias. La empresa participa activamente en la investigación y el desarrollo de nuevas indicaciones y dispositivos de administración para productos existentes...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VCEL" data-company="VERICEL CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VCEL</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VERICEL CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Vericel es una empresa biofarmacéutica en etapa comercial. Ofrece terapias avanzadas para medicina...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Vericel es una empresa biofarmacéutica en etapa comercial que ofrece terapias avanzadas para medicina deportiva y cuidado de quemaduras graves, con un enfoque en terapia celular y productos biológicos especializados. El compromiso de la empresa con la medicina regenerativa es evidente en su uso de i...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de CRISPR Therapeutics en el desarrollo de terapias basadas en CRISpr. La compañía tiene...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de CRISPR Therapeutics en el desarrollo de terapias basadas en CRISPR, incluido el uso de la tecnología CRISPR/Cas9 para la edición genética, los posiciona como proveedores de soluciones biológicas. La compañía tiene una cartera de programas terapéuticos en hemoglobinopatías, CAR T, enfoq...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VRTX" data-company="VERTEX PHARMACEUTICALS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VRTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VERTEX PHARMACEUTICALS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Vertex es una compañía global de biotecnología. La empresa participa activamente en investigación y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Vertex en I+D de biotecnología es evidente a través de sus inversiones estratégicas en innovación científica para crear medicamentos transformadores, como lo destaca la identidad de la empresa como una compañía global de biotecnología. Este compromiso se demuestra aún más por una carte...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VRTX" data-company="VERTEX PHARMACEUTICALS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VRTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VERTEX PHARMACEUTICALS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Vertex emplea la tecnología CRISPR/Cas9 en su programa de células de islotes hipoinmunes. Vertex ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Vertex en la tecnología CRISPR es evidente a través de su terapia aprobada, CASGEVY (exagamglogene autotemcel), una terapia celular editada genéticamente con CRISPR/Cas9 aprobada en varios países para tratar la enfermedad de células falciformes (SCD) y la beta talasemia dependien...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VRTX" data-company="VERTEX PHARMACEUTICALS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VRTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VERTEX PHARMACEUTICALS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La estrategia comercial central de Vertex se centra en el desarrollo of fármacos. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La estrategia comercial central de Vertex se centra en el desarrollo de fármacos, como lo demuestra su enfoque en el descubrimiento y desarrollo de medicamentos innovadores a través de avances transformadores en biología y terapéutica humanas. Esto está respaldado por su participación activa en el d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía demuestra su enfoque en la Investigación Oncológica a través de múltiples programas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La compañía demuestra su enfoque en la Investigación Oncológica a través del avance de múltiples programas de terapia celular dirigidos a indicaciones oncológicas y autoinmunes, incluidos programas CAR T alogénicos de próxima generación como CTX112 y CTX131. Además, la compañía está avanzando activa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UTHR" data-company="UNITED THERAPEUTICS CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UTHR</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED THERAPEUTICS CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Uthr está fuertemente involucrada en tecnologías relacionadas with el trasplante de órganos. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Uthr en la industria de las Ciencias de la Vida es evidente a través de sus esfuerzos de investigación y desarrollo centrados en nuevas indicaciones y dispositivos de administración, incluida la bomba RemunityPRO. La compañía también está desarrollando ralinepag para tratar la HA...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRSP" data-company="CRISPR THERAPEUTICS AG">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CRSP</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CRISPR THERAPEUTICS AG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CRISPR Therapeutics se dedica a crear medicamentos transformadores basados en genes. Este...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CRISPR Therapeutics se dedica a crear medicamentos transformadores basados en genes, en particular terapias basadas en CRISPR, para enfermedades humanas graves. Este compromiso se refleja en el desarrollo de terapias basadas en CRISPR, su medicamento aprobado CASGEVY y sus asociaciones estratégicas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BDX" data-company="BECTON DICKINSON AND CO">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BDX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BECTON DICKINSON AND CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">BD se centra cada vez más en integrar la inteligencia artificial en sus soluciones de atención...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">BD se centra cada vez más en integrar la inteligencia artificial en sus soluciones de atención médica para mejorar la eficiencia y la atención al paciente. La empresa está acelerando la innovación en IA para permitir nuevos entornos de atención, mejorar los resultados, optimizar los flujos de trabaj...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BEAM" data-company="BEAM THERAPEUTICS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">BEAM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BEAM THERAPEUTICS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Beam Therapeutics dedica recursos sustanciales a I+D biotecnológica. La empresa también se enfoca...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Beam Therapeutics dedica recursos sustanciales a I+D biotecnológica, centrándose principalmente en la construcción de su plataforma de edición de bases y el avance de su cartera de programas. Este compromiso es evidente en la importante inversión de la empresa en actividades de investigación y desar...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VRTX" data-company="VERTEX PHARMACEUTICALS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VRTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VERTEX PHARMACEUTICALS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Vertex abarcan el desarrollo, la fabricación y la distribución of medicamentos en una variedad of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Vertex en la industria farmacéutica es evidente a través de sus actividades comerciales principales, que abarcan el desarrollo, la fabricación y la distribución de medicamentos en una variedad de áreas terapéuticas, incluidas la fibrosis quística, la enfermedad de células falcifo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="VRTX" data-company="VERTEX PHARMACEUTICALS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">VRTX</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">VERTEX PHARMACEUTICALS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Vertex aprovecha la tecnología CRISPR/Cas9 en su programa de células de islotes hipoinmunes. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Vertex en el tema de Edición Genética es evidente a través del desarrollo y aprobación de CASGEVY, una terapia celular editada genéticamente ex vivo y no viral CRISPR/Cas9 aprobada para el tratamiento de la enfermedad de células falciformes y la beta talasemia en múltiples region...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

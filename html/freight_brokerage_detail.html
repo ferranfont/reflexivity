@@ -1,0 +1,2072 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Freight Brokerage - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Freight Brokerage</div>
+      <div class="sub-title">Investment Theme Detail - Transportation and Logistics Industry</div>
+    </div>
+    <a href="main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Freight Brokerage &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Transportation and Logistics &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 19
+    </div>
+
+    
+    <!-- Theme Chart Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Theme Chart</span>
+             <a href="equity_freight_brokerage.html" target="_blank" class="btn-view-chart">View Full Chart ↗</a>
+        </div>
+        <div class="box-body" style="height: 600px; overflow:hidden;">
+            <iframe src="equity_freight_brokerage.html" style="width:100%; height:100%; border:none; display:block;"></iframe>
+        </div>
+    </div>
+        
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">19</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">RXO</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">RXO INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece soluciones integrales de transporte de carga y logística, desempeñando un papel crucial en el movimiento y la gestión de mercancías....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/RXO" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CHRW</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">C.H. ROBINSON WORLDWIDE INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Apoya al sector Agribusiness a través de su marco operativo integral....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CHRW" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">LSTR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">LANDSTAR SYSTEM INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios de transporte y logística esenciales para el movimiento eficiente de componentes automotrices y vehículos terminados dentro de l...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/LSTR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">YMM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">FULL TRUCK ALLIANCE -SPN ADR</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera una plataforma digital integral que conecta a los expedidores con los camioneros, facilitando servicios de emparejamiento de carga y transaccion...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/YMM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">JBHT</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">HUNT (JB) TRANSPRT SVCS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios integrales de transporte y logística esenciales para el movimiento eficiente de componentes automotrices y vehículos terminados....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/JBHT" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">UBER</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">UBER TECHNOLOGIES INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha la inteligencia artificial para optimizar sus plataformas de transporte compartido y entrega, mejorando la eficiencia de las rutas, la fijac...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/UBER" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DSV</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">DSV A/S</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios integrales de logística y gestión de la cadena de suministro adaptados a la industria automotriz, facilitando el movimiento glob...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DSV" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">KNIN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">KUEHNE + NAGEL INTL AG-REG</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona soluciones logísticas integrales que sustentan las operaciones de la cadena de suministro de la industria automotriz....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/KNIN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">EXPD</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">EXPEDITORS INTL WASH INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece soluciones logísticas globales integrales, que abarcan el transporte aéreo, marítimo y terrestre, junto con el corretaje de aduanas y la gestió...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/EXPD" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SNDR</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SCHNEIDER NATIONAL INC-CL B</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios esenciales de transporte y gestión de la cadena de suministro adaptados a la industria automotriz, facilitando el movimiento efi...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SNDR" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">11</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">XPO</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">XPO INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona soluciones logísticas integrales adaptadas a la industria automotriz, apoyando el movimiento eficiente de piezas y vehículos terminados....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/XPO" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">12</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">HUBG</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">HUB GROUP INC-CL A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">La participación en la provisión de soluciones integrales de transporte y logística, que incluyen servicios intermodales, de corretaje de camiones y d...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/HUBG" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">13</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">9147</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">NIPPON EXPRESS HOLDINGS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Sirve como un proveedor clave de soluciones logísticas para la industria automotriz....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/9147" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">14</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">WERN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">WERNER ENTERPRISES INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios de transporte y logística esenciales para la cadena de suministro automotriz, garantizando el movimiento eficiente de piezas y v...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/WERN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">15</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">UPS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">UNITED PARCEL SERVICE-CL B</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera una de las aerolíneas de carga más grandes del mundo, que es esencial para sus servicios globales de entrega de paquetes y un contribuyente sign...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/UPS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">16</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">R</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">RYDER SYSTEM INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios integrales de mantenimiento, reparación y gestión de piezas para vehículos comerciales, contribuyendo directamente al mercado de...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/R" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">17</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ARCB</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ARCBEST CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Explora la integración de tecnologías de vehículos autónomos para mejorar las operaciones futuras de logística y transporte....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ARCB" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">18</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">MATX</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">MATSON INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios de transporte y logística marítima, facilitando el movimiento de carga a través del Pacífico y dentro de los mercados nacionales...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/MATX" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">19</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TFIN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TRIUMPH FINANCIAL INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Está involucrado en el dominio en evolución de la inteligencia artificial dentro de la tecnología financiera....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TFIN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">147</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="ARCB" data-company="ARCBEST CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ARCB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ARCB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCBEST CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ArcBest Corporation opera como una empresa de logística integrada. Ofrece un conjunto de soluciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">ArcBest Corporation opera como una empresa de logística integrada, que ofrece un conjunto de soluciones para satisfacer las necesidades de la cadena de suministro de los clientes a través de sus segmentos Basado en Activos y Ligero en Activos, siendo este último el que incluye Panther Premium Logist...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ARCB" data-company="ARCBEST CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ARCB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ARCB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCBEST CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ArcBest demuestra su compromiso con la industria de corretaje de carga a través de su segmento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">ArcBest demuestra su compromiso con la industria de corretaje de carga a través de su segmento Asset-Light, que incluye MoLo Solutions, una empresa de corretaje de carga. La empresa se centra estratégicamente en este segmento reduciendo los volúmenes de carga completa menos rentables e invirtiendo e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ARCB" data-company="ARCBEST CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ARCB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ARCB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCBEST CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La adquisición de MoLo amplió sus servicios de corretaje de carga completa. ArcBest también se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de ArcBest con los servicios de carga completa es evidente a través de varias iniciativas estratégicas. La adquisición de MoLo por parte de la empresa amplió sus servicios de corretaje de carga completa, y ArcBest también se enfoca en mejorar la rentabilidad en su segmento de carga com...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ARCB" data-company="ARCBEST CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ARCB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ARCB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCBEST CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ArcBest Corporation opera como una empresa de logística integrada. Ofrece un conjunto de soluciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">ArcBest Corporation opera como una empresa de logística integrada, que ofrece un conjunto de soluciones para satisfacer las necesidades de la cadena de suministro de los clientes a través de su segmento Asset-Light, que se enfoca en satisfacer requisitos de envío complejos y únicos. La participación...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ARCB" data-company="ARCBEST CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ARCB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ARCB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCBEST CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa aprovecha la tecnología para satisfacer las necesidades de la cadena de suministro de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de ArcBest con la Innovación Logística es evidente a través de sus inversiones estratégicas en tecnología y soluciones destinadas a mejorar la eficiencia y la productividad. La empresa aprovecha la tecnología para satisfacer las necesidades de la cadena de suministro de sus clientes y ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ARCB" data-company="ARCBEST CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ARCB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ARCB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCBEST CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ArcBest opera como una empresa de logística integrada multimillonaria. El segmento Asset-Light...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">ArcBest opera como una empresa de logística integrada multimillonaria, aprovechando la tecnología para proporcionar un conjunto de soluciones adaptadas a las necesidades de la cadena de suministro de los clientes. El segmento Asset-Light de la empresa desempeña un papel clave en la oferta de solucio...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ARCB" data-company="ARCBEST CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ARCB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ARCB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCBEST CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación of ArcBest en la industria del transporte es evidente a través of sus operaciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ArcBest en la industria del transporte es evidente a través de sus operaciones logísticas integradas, con un enfoque en la prestación de servicios de transporte de carga a través de su segmento basado en activos, que incluye ABF Freight, un importante transportista LTL en América...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ARCB" data-company="ARCBEST CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ARCB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ARCB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCBEST CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ArcBest ofrece Vaux Smart Autonomy y Vaux, suites of hardware and software. Vaux automatizan el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">ArcBest demuestra su compromiso con la gestión de almacenes a través de varias iniciativas clave. La empresa aprovecha la IA y el análisis predictivo para optimizar las operaciones de muelles en tiempo real y está implementando un sistema de gestión de muelles basado en Box Technology. ArcBest ofrec...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CHRW" data-company="C.H. ROBINSON WORLDWIDE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CHRW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CHRW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">C.H. ROBINSON WORLDWIDE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">C.H. Robinson is un forwarder de carga líder. Su segmento de forwarding global abarca servicios de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de C.H. Robinson con el Forwarding de Carga es evidente a través de su activa participación en el mercado global de forwarding, que ha experimentado volatilidad debido a desvíos, tiempos de tránsito extendidos y demanda cambiante. La empresa se identifica como un forwarder de carga líd...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CHRW" data-company="C.H. ROBINSON WORLDWIDE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CHRW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CHRW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">C.H. ROBINSON WORLDWIDE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">C.H. Robinson mueve una cantidad significativa de carga completa en América del Norte. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de C.H. Robinson con los servicios de carga completa es evidente a través de su segmento North American Surface Transportation (NAST), donde la empresa se enfoca en optimizar el volumen y el margen. La empresa ha demostrado un crecimiento de la cuota de mercado en servicios de carga co...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CHRW" data-company="C.H. ROBINSON WORLDWIDE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CHRW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CHRW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">C.H. ROBINSON WORLDWIDE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">C.H. Robinson ofrece soluciones logísticas, reimagina las cadenas de suministro y resuelve desafíos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La importante participación de C.H. Robinson en el tema de Logística Global es evidente a través de su autoidentificación como uno de los mayores proveedores de logística global del mundo. La empresa ofrece soluciones logísticas, reimagina las cadenas de suministro y resuelve desafíos logísticos par...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CHRW" data-company="C.H. ROBINSON WORLDWIDE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CHRW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CHRW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">C.H. ROBINSON WORLDWIDE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">C.H. Robinson Worldwide se enfoca en la innovación logística a través del uso of IA y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">C.H. Robinson Worldwide se enfoca en la innovación logística a través del uso de IA y automatización para mejorar la eficiencia, reducir costos y aumentar la flexibilidad en la cadena de suministro global. La empresa está escalando innovaciones, incluyendo agentes de IA, en todos los aspectos del ci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CHRW" data-company="C.H. ROBINSON WORLDWIDE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CHRW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CHRW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">C.H. ROBINSON WORLDWIDE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">C.H. Robinson gestiona el flete marítimo y monitorea los volúmenes y tarifas relacionadas. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de C.H. Robinson en la industria del transporte marítimo es evidente a través de su segmento de transporte global, que gestiona el flete marítimo y monitorea los volúmenes y tarifas relacionadas. Las operaciones de la empresa se ven afectadas por factores como las desviaciones del C...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CHRW" data-company="C.H. ROBINSON WORLDWIDE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CHRW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CHRW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">C.H. ROBINSON WORLDWIDE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">C.H. Robinson tiene como objetivo reimaginar las cadenas de suministro y avanzar en la tecnología...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de C.H. Robinson con la Gestión de la Cadena de Suministro es significativo, ya que la empresa declara explícitamente su papel en ayudar a los clientes a navegar por cadenas de suministro globales cada vez más complejas y resolver desafíos logísticos. Los servicios de la empresa incluy...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CHRW" data-company="C.H. ROBINSON WORLDWIDE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CHRW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CHRW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">C.H. ROBINSON WORLDWIDE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">C.H. Robinson participa en Soluciones de Cadena de Suministro. La empresa ayuda a los clientes a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de C.H. Robinson en Soluciones de Cadena de Suministro es evidente a través de su conjunto integral de servicios destinados a optimizar las cadenas de suministro de los clientes. La empresa declara explícitamente su papel en ayudar a los clientes a trazar estrategias para mejorar la...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CHRW" data-company="C.H. ROBINSON WORLDWIDE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CHRW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CHRW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">C.H. ROBINSON WORLDWIDE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">C.H. Robinson está fuertemente enfocado en el transporte, como lo demuestran los ingresos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de C.H. Robinson está fuertemente enfocado en el transporte, como lo demuestran los ingresos significativos derivados de los servicios de transporte, que constituyen una parte importante de los ingresos totales de la compañía. La compañía opera como un proveedor de logística global, ofrec...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CHRW" data-company="C.H. ROBINSON WORLDWIDE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CHRW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CHRW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">C.H. ROBINSON WORLDWIDE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">C.H. Robinson depende de los transportistas ferroviarios contratados como parte of su red de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de C.H. Robinson en el transporte de mercancías por ferrocarril es evidente a través de su dependencia de los transportistas ferroviarios contratados como parte de su red de transporte más amplia, que también incluye opciones de camión, marítimo y aéreo. La empresa reconoce los ingr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HUBG" data-company="HUB GROUP INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HUBG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HUBG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUB GROUP INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Logística de Hub Group ofrece servicios de intermediación de carga. La empresa se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Logística de Hub Group ofrece servicios de intermediación de carga, proporcionando una gama de opciones de transporte por camión, como furgón seco, exprés, carga parcial (LTL), refrigerado y plataforma, utilizando transportistas externos. La empresa ha mencionado explícitamente sus op...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HUBG" data-company="HUB GROUP INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HUBG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HUBG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUB GROUP INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hub Group proporciona un conjunto completo de servicios de transporte de carga y logística. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Hub Group con el tema de Servicios de Carga Completa es evidente a través de sus diversas ofertas de servicios. La empresa proporciona un conjunto completo de servicios de transporte de carga y logística, que incluye carga completa, carga parcial, plataforma, control de temperatura,...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HUBG" data-company="HUB GROUP INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HUBG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HUBG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUB GROUP INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hub Group mejora la capacidad de Hub Group para ofrecer servicios transfronterizos. Las ofertas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Hub Group en la logística global es evidente a través de su adquisición de EASO, un proveedor de logística especializado en servicios intermodales, de transporte y de corretaje con una fuerte presencia en el mercado mexicano y operaciones transfronterizas con EE. UU. Esta adquisi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HUBG" data-company="HUB GROUP INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HUBG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HUBG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUB GROUP INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hub Group ofrece servicios de entrega de última milla. La compañía ha enfatizado la fortaleza y el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Hub Group en la logística de última milla es evidente a través de su segmento de Logística, que ofrece servicios de entrega de última milla, incluida la entrega residencial e instalación de electrodomésticos y productos voluminosos, operando a través de una red de proveedores de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HUBG" data-company="HUB GROUP INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HUBG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HUBG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUB GROUP INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hub Group ofrece servicios integrales de gestión de transporte y logística. La estrategia de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Hub Group en la Gestión de la Cadena de Suministro es evidente a través de su autoidentificación como un proveedor líder de soluciones de cadena de suministro en América del Norte, que ofrece servicios integrales de gestión de transporte y logística. La estrategia de la empresa i...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HUBG" data-company="HUB GROUP INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HUBG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HUBG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUB GROUP INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hub Group es un proveedor líder de soluciones de cadena de suministro en América del Norte. Ofrece...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Hub Group se identifica como un proveedor líder de soluciones de cadena de suministro en América del Norte, que ofrece servicios integrales de gestión de transporte y logística. La empresa aprovecha tecnología patentada y relaciones colaborativas con proveedores de servicios externos para ofrecer ah...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HUBG" data-company="HUB GROUP INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HUBG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HUBG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUB GROUP INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hub Group ofrece una gama completa de servicios de transporte de carga. La compañía opera una...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Hub Group en el tema de Transporte es evidente en sus servicios integrales de gestión de transporte y logística, que incluyen intermodal, carga completa, carga parcial, plataforma, control de temperatura, dedicado y transporte regional. La compañía se identifica como un proveedor...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HUBG" data-company="HUB GROUP INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HUBG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HUBG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUB GROUP INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hub Group proporciona transporte intermodal nacional puerta a puERTa combinando el transporte...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Hub Group en el tema del transporte de mercancías por ferrocarril es evidente a través de su segmento de Soluciones Intermodales y de Transporte (ITS), que proporciona transporte intermodal nacional puerta a puerta combinando el transporte ferroviario con el transporte local por ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HUBG" data-company="HUB GROUP INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HUBG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HUBG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUB GROUP INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hub Group ofrece servicios de almacenamiento y cumplimiento. La empresa opera o tiene acceso a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Hub Group con la gestión de almacenes es evidente a través de su segmento de Logística, que ofrece servicios de almacenamiento y cumplimiento. La empresa opera o tiene acceso a aproximadamente 7 millones de pies cuadrados de espacio de almacenamiento y transbordo en América del Nort...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LSTR" data-company="LANDSTAR SYSTEM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/LSTR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LSTR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LANDSTAR SYSTEM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa organiza envíos de carga individuales a través de múltiples modos. El negocio de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Landstar está conectado con el tema de la industria de servicios de carga a través de su amplia gama de soluciones de transporte. La empresa organiza envíos de carga individuales a través de múltiples modos, incluyendo carga completa (truckload), carga parcial (less-than-truckload), in...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LSTR" data-company="LANDSTAR SYSTEM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/LSTR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LSTR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LANDSTAR SYSTEM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa abarca carga aérea, marítima y corretaje de aduanas. La participación de Landstar en el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Landstar en el transporte de mercancías se evidencia a través de la provisión de diversos servicios de transporte, que incluyen el transporte transfronterizo entre EE. UU. y Canadá, y entre EE. UU. y México, junto con servicios intra-México e intra-Canadá. El segmento de logístic...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LSTR" data-company="LANDSTAR SYSTEM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/LSTR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LSTR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LANDSTAR SYSTEM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Landstar ofrece servicios de carga completa (truckload) a través de equipos de furgoneta y equipos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Landstar está significativamente ligado a los servicios de carga completa (truckload), como lo demuestran las ofertas de servicios principales de la empresa en esta área. La empresa ofrece servicios de carga completa a través de equipos de furgoneta y equipos sin laterales/plataforma, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LSTR" data-company="LANDSTAR SYSTEM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/LSTR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LSTR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LANDSTAR SYSTEM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Landstar presta servicios de transporte entre Estados Unidos, Canadá, México y otros países. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Landstar en la logística global se refleja en la prestación de servicios de transporte entre Estados Unidos, Canadá, México y otros países, incluidos servicios transfronterizos, intra-México, intra-Canadá y de carga de proyectos. La empresa monitorea el impacto de los aranceles y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LSTR" data-company="LANDSTAR SYSTEM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/LSTR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LSTR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LANDSTAR SYSTEM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa está involucrando activamente a agentes y dedicando recursos al transporte de cargas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Landstar en el tema de Transporte Industrial es evidente a través de su servicio a industrias como repuestos de automóviles, productos de construcción, metales, productos químicos, alimentos, maquinaria pesada y equipo militar. La empresa está involucrando activamente a agentes y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LSTR" data-company="LANDSTAR SYSTEM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/LSTR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LSTR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LANDSTAR SYSTEM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Landstar System ofrece servicios de transporte seguros y especializados a una amplia gama of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Landstar System en el tema de Gestión de la Cadena de Suministro es evidente a través de su papel como proveedor ligero en activos y habilitado por tecnología de soluciones integradas de gestión de transporte, que ofrece servicios de transporte seguros y especializados a una ampl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LSTR" data-company="LANDSTAR SYSTEM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/LSTR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LSTR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LANDSTAR SYSTEM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Landstar ofrece servicios en múltiples modos de transporte, organizando envíos de carga...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El papel de Landstar en Soluciones de Cadena de Suministro se refleja en su provisión de soluciones integradas de gestión de transporte, utilizando una red de agentes y proveedores de capacidad externos. La compañía ofrece servicios en múltiples modos de transporte, organizando envíos de carga indiv...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LSTR" data-company="LANDSTAR SYSTEM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/LSTR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LSTR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LANDSTAR SYSTEM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Landstar opera como un proveedor de soluciones integradas de gestión de transporte, habilitado por...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Landstar gira en torno a la industria del transporte, ya que opera como un proveedor de soluciones integradas de gestión de transporte, habilitado por la tecnología y con pocos activos. La empresa ofrece servicios de transporte especializados a diversos clientes, utilizando u...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LSTR" data-company="LANDSTAR SYSTEM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/LSTR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LSTR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LANDSTAR SYSTEM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa genera ingresos de los ferrocarriles y a través del intermodal ferroviario. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Landstar en el transporte de carga ferroviaria es evidente a través de la prestación de servicios intermodales ferroviarios y su uso de ferrocarriles como proveedores de capacidad de terceros. La empresa genera ingresos de los ferrocarriles y a través del intermodal ferroviario, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MATX" data-company="MATSON INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MATX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MATX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MATSON INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Logística de Matson incorpora la intermediación de transporte. influyendo tanto en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Logística de Matson incorpora la intermediación de transporte, influyendo tanto en el ingreso operativo como en los ingresos. Las fluctuaciones en la contribución de la intermediación de transporte impactan directamente el desempeño financiero del segmento de Logística, como lo demues...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MATX" data-company="MATSON INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MATX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MATX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MATSON INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Matson se adapta a las incertidumbres del comercio mundial y a los aranceles. La empresa ajusta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Matson en la logística global es evidente a través de sus servicios de transporte marítimo y logística, que incluyen la gestión del movimiento de mercancías a través de fronteras internacionales. La empresa se adapta a las incertidumbres del comercio mundial y a los aranceles, co...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MATX" data-company="MATSON INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MATX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MATX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MATSON INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio principal de Matson gira en torno al transporte marítimo. El rendimiento financiero de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Matson gira en torno al transporte marítimo, como lo demuestra su amplia discusión sobre volúmenes de contenedores y tarifas de flete en regiones clave como Hawái, China, Guam y Alaska. El rendimiento financiero de la empresa se ve significativamente influenciado por su segme...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="R" data-company="RYDER SYSTEM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/R" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">R</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RYDER SYSTEM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa ofrece servicios de soporte SelectCare y de flotas dentro de su segmento de negocio FMS....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el mercado de posventa automotriz es evidente a través de su segmento de negocio SCS, que atiende al sector automotriz y generó $1.080 mil millones en ingresos en 2024. Este segmento proporciona soluciones de cadena de suministro a la industria automotriz, incluyend...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="R" data-company="RYDER SYSTEM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/R" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">R</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RYDER SYSTEM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ryder System ofrece opciones de ChoiceLease y alquiler comercial. El segmento FMS proporciona...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Ryder System en Soluciones de Gestión de Flotas es evidente a través de su segmento de negocio dedicado a FMS, que ofrece opciones de ChoiceLease y alquiler comercial. El segmento FMS de la empresa alquila equipos que generan ingresos y proporciona vehículos de alquiler, combusti...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="R" data-company="RYDER SYSTEM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/R" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">R</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RYDER SYSTEM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía está experimentando vientos en contra en las ventas a corto plazo. La prolongada...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la compañía en el tema de la Red Logística es evidente en su beneficio de tendencias seculares favorables a largo plazo en soluciones de logística y transporte, que brindan oportunidades de crecimiento de ingresos y ganancias a largo plazo. Este beneficio ayuda a mitigar el impac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="R" data-company="RYDER SYSTEM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/R" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">R</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RYDER SYSTEM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía se beneficia de tendencias seculares a largo plazo en soluciones de logística y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la compañía en Soluciones de Movilidad es evidente a través de la provisión de servicios de transporte y logística en sus segmentos de negocio SCS y DTS, así como la gestión de flotas a través de FMS. La compañía se beneficia de tendencias seculares a largo plazo en soluciones de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="R" data-company="RYDER SYSTEM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/R" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">R</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RYDER SYSTEM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ryder es segmento de negocio de Soluciones de Cadena de Suministro (SCS) La compañía se enfoca en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Ryder en el tema de Estrategia Omnicanal es evidente a través de su segmento de negocio de Soluciones de Cadena de Suministro (SCS), que atiende a la industria minorista omnicanal. La compañía se enfoca en optimizar su red de almacenes minoristas omnicanal a través de esfuerzos d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="R" data-company="RYDER SYSTEM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/R" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">R</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RYDER SYSTEM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ryder demuestra una fuerte conexión with el tema of Soluciones de Cadena de Suministro a través of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Ryder demuestra una fuerte conexión con el tema de Soluciones de Cadena de Suministro a través de su segmento de negocio dedicado de Soluciones de Cadena de Suministro (SCS), que es un área clave de enfoque para la empresa. Esto se evidencia por el hecho de que la empresa se beneficia de tendencias ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="R" data-company="RYDER SYSTEM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/R" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">R</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RYDER SYSTEM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Ryder está significativamente influenciado por la industria del transporte. La base...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Ryder está significativamente influenciado por la industria del transporte, como lo demuestra su operación en transporte y logística y su beneficio de las tendencias seculares a largo plazo en soluciones de transporte. El segmento de negocio de Soluciones de Transporte Dedicado (DTS) d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RXO" data-company="RXO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RXO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RXO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RXO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RXO ofrece servicios de agenciamiento de carga, que abarcan la facilitación del transporte marítimo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de RXO en el tema de Agentes de Carga (Freight Forwarding) se demuestra a través de la provisión de servicios de agenciamiento de carga, que abarcan la facilitación del transporte marítimo y aéreo, el corretaje de aduanas y servicios domésticos adicionales. Además, RXO ofrece servic...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RXO" data-company="RXO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RXO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RXO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RXO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RXO es el mayor proveedor de transporte de última milla externalizado para productos pesados en los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de RXO en la Logística de Comercio Electrónico es evidente a través de sus servicios de transporte de última milla, que atienden específicamente a minoristas de comercio electrónico y fabricantes directos al consumidor. La empresa se identifica como el mayor proveedor de transporte ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RXO" data-company="RXO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RXO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RXO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RXO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RXO opera como una plataforma de transporte intermediado, con su negocio principal de corretaje de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">RXO opera como una plataforma de transporte intermediado, con su negocio principal de corretaje de camiones representando el componente más grande de sus operaciones. Esto se evidencia en la descripción constante que la empresa hace de sí misma y en las significativas contribuciones de ingresos del ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RXO" data-company="RXO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RXO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RXO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RXO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RXO es el mayor proveedor de transporte externo de última milla para mercancías pesadas en EE. UU....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de RXO en la logística de última milla es significativa, como lo demuestra su posición como el mayor proveedor de transporte externo de última milla para mercancías pesadas en EE. UU., llegando a la gran mayoría de la población estadounidense. Este servicio complementa su negocio de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RXO" data-company="RXO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RXO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RXO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RXO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RXO ofrecen soluciones ligeras en activos para expedidores que buscan confiabilidad, visibilidad y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de RXO en la Gestión de la Cadena de Suministro es evidente a través de sus servicios de transporte gestionado, que ofrecen soluciones ligeras en activos para expedidores que buscan confiabilidad, visibilidad y ahorro de costos. Estos servicios aprovechan la tecnología propietaria p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TFIN" data-company="TRIUMPH FINANCIAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/TFIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">TFIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIUMPH FINANCIAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Triumph Financial ha invertido estratégicamente en Factoring, Pagos e Inteligencia. La división...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Triumph Financial con la industria de intermediación de carga es evidente a través de su completa gama de servicios adaptados a intermediarios de carga de todos los tamaños, incluidas las entidades de Nivel 1. La división TriumphPay de la compañía facilita el procesamiento de factur...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TFIN" data-company="TRIUMPH FINANCIAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/TFIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">TFIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIUMPH FINANCIAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Triumph Financial participa en la Innovación Logística a través of its plataforma TriumphPay....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Triumph Financial en la Innovación Logística es evidente a través de su plataforma TriumphPay, que agiliza los procesos de facturación de transporte al conectar corredores, cargadores, factores y transportistas. Esto se ve reforzado por sus adquisiciones estratégicas de Greenscre...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UBER" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UBER</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Uber ofreciendo servicios como la reserva de envíos y la gestión del transporte. En el primer...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Uber en Servicios de Carga es evidente a través de su papel en la conexión de Expedidores con Transportistas en la industria del transporte de mercancías, ofreciendo servicios como la reserva de envíos y la gestión del transporte. Esto se ve respaldado por el hecho de que en el p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UBER" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UBER</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Uber se enfoca en hacer crecer su estrategia de plataforma en movilidad y entrega. La conexión...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Uber entre los consumidores y los proveedores de servicios de entrega de preparación de comidas, comestibles y otros servicios subraya la importancia de la entrega de alimentos para sus operaciones. Las reservas brutas de entrega han crecido consistentemente año tras año, impulsadas p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UBER" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UBER</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Uber Freight enfrenta desafíos como se refleja en una disminución en las Reservas Brutas de Carga e...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Uber en la industria de intermediación de carga es evidente a través de su conexión entre Expedidores y Transportistas, ofreciendo servicios como reserva de envíos y gestión de transporte. Esta conexión se facilita por la red, la tecnología y la experiencia operativa de Uber. Si ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UBER" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UBER</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma de Uber impulsa el movimiento del punto A al punto B, lo cual es fundamental para sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Uber de consumidores con proveedores de servicios de transporte sustenta su participación en Soluciones de Movilidad. La plataforma de la empresa impulsa el movimiento del punto A al punto B, lo cual es fundamental para sus operaciones, como lo demuestra el crecimiento de las Reservas...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UBER" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UBER</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La conexión de Uber de consumidores con proveedores de servicios de transporte es fundamental para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Uber de consumidores con proveedores de servicios de transporte es fundamental para sus operaciones, como lo demuestran las menciones constantes en varios documentos. La compañía ha experimentado un crecimiento sustancial en esta área, con aumentos en las reservas brutas de movilidad ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UBER" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UBER</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Uber en el transporte urbano es evidente a través of su plataforma tecnológica. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Uber en el transporte urbano es evidente a través de su plataforma tecnológica que impulsa el movimiento de un punto A a un punto B y conecta a los consumidores con servicios de transporte y redes de transporte público. Las reservas brutas de movilidad han mostrado un aumento interanua...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UPS" data-company="UNITED PARCEL SERVICE-CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UPS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UPS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED PARCEL SERVICE-CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UPS ajusta su red aérea y realiza ajustes frecuentes en los vuelos para adaptarse a las cambiantes...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de UPS en los servicios de carga es evidente a través de sus iniciativas estratégicas y ajustes operativos, particularmente dentro de sus operaciones de carga aérea. La compañía ha incorporado volúmenes de carga aérea del Servicio Postal de los Estados Unidos (USPS), convirtiéndose ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UPS" data-company="UNITED PARCEL SERVICE-CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UPS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UPS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED PARCEL SERVICE-CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UPS experimentó un crecimiento de los ingresos en el negocio de transporte de mercancías. Los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de UPS en el transporte de mercancías es evidente a través de su segmento de Soluciones de Cadena de Suministro, donde experimentó un crecimiento de los ingresos en el negocio de transporte de mercancías, impulsado particularmente por la fuerte demanda del mercado procedente de Asia...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UPS" data-company="UNITED PARCEL SERVICE-CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UPS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UPS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED PARCEL SERVICE-CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UPS capta el crecimiento de los clientes de comercio electrónico y las PYMES. Programa de Acceso...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de UPS con el comercio electrónico es evidente a través de varias iniciativas y ajustes de volumen. La empresa capta el crecimiento de los clientes de comercio electrónico y las PYMES a través del Programa de Acceso Digital, que ha contribuido a aumentos en el volumen de negocio a cons...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UPS" data-company="UNITED PARCEL SERVICE-CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UPS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UPS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED PARCEL SERVICE-CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UPS se enfoca estratégicamente en los mercados internacionales, gestionando los cambios en las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de UPS en la Logística Global es fundamental para sus operaciones, como lo demuestran sus operaciones globales de paquetes pequeños y su red integrada que abarca más de 200 países. La empresa se enfoca estratégicamente en los mercados internacionales, gestionando los cambios en las ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UPS" data-company="UNITED PARCEL SERVICE-CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UPS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UPS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED PARCEL SERVICE-CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UPS demuestra un fuerte enfoque en la industria de Servicios de Salud. El compromiso de la empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">UPS demuestra un fuerte enfoque en la industria de Servicios de Salud, subrayado por iniciativas estratégicas para crecer dentro de este mercado. El compromiso de la empresa es evidente a través de las adquisiciones de Frigo-Trans y Biotech & Pharma Logistics, mejorando sus capacidades de logística ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UPS" data-company="UNITED PARCEL SERVICE-CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UPS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UPS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED PARCEL SERVICE-CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UPS internalizó la entrega de volumen de SurePost, esperando que las entregas adicionales dentro of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de UPS con la logística de última milla es evidente a través de varias iniciativas estratégicas. La compañía internalizó la entrega de volumen de SurePost, esperando que las entregas adicionales dentro de su red ejerzan un mayor control operativo y mantengan la calidad del servicio. Es...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UPS" data-company="UNITED PARCEL SERVICE-CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/UPS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UPS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED PARCEL SERVICE-CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UPS está optimizando activamente su red a través of iniciativas como 'Network of the Future' y 'Fit...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de UPS con el tema del Transporte es evidente en sus operaciones comerciales principales, que dependen en gran medida del movimiento de paquetes y mercancías a través de redes aéreas, terrestres y ferroviarias. La estrategia de la empresa implica centrarse en el crecimiento en segmento...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WERN" data-company="WERNER ENTERPRISES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/WERN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WERN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WERNER ENTERPRISES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Werner Logistics gestiona los requisitos de transporte. Este segmento incluye el corretaje de carga...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Werner participa en el corretaje de carga a través de su segmento Werner Logistics, que gestiona los requisitos de transporte y proporciona capacidad de camiones. Este segmento incluye el corretaje de carga completa que complementa su división de Carga Completa, ofreciendo a los clientes capacidad y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WERN" data-company="WERNER ENTERPRISES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/WERN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WERN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WERNER ENTERPRISES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Servicios de Transporte de Carga Completa (TTS) de Werner genera ingresos por milla....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Werner con el tema de los servicios de carga completa es evidente a través de su operación en los sectores de carga completa y logística de la industria del transporte. El segmento de Servicios de Transporte de Carga Completa (TTS) de la empresa, que incluye servicios de carga compl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WERN" data-company="WERNER ENTERPRISES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/WERN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WERN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WERNER ENTERPRISES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Werner tiene más de 25 años de experiencia con México. La compañía considera su experiencia en esta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Werner en la logística global se refleja principalmente en sus operaciones transfronterizas con México, donde tiene más de 25 años de experiencia y genera aproximadamente el 10% de sus ingresos totales. La compañía considera su experiencia en esta región una ventaja competitiva y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WERN" data-company="WERNER ENTERPRISES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/WERN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WERN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WERNER ENTERPRISES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Werner aprovecha la plataforma EDGE TMS y Werner Bridge para automatizar procesos, mejorar la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Werner con la innovación en logística es evidente en sus inversiones estratégicas en tecnología para mejorar la eficiencia y la productividad. La empresa aprovecha la plataforma EDGE TMS y Werner Bridge para automatizar procesos, mejorar la reserva de cargas y optimizar las operacio...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WERN" data-company="WERNER ENTERPRISES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/WERN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WERN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WERNER ENTERPRISES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Werner participa en la logística de âltima milla a través of su segmento Werner Logistics, que...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Werner participa en la logística de última milla a través de su segmento Werner Logistics, que incluye una división de Última Milla. Esta división se encarga de la entrega de artículos grandes y voluminosos a nivel nacional a hogares y empresas, cubriendo verticales como muebles, electrodomésticos, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WERN" data-company="WERNER ENTERPRISES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/WERN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WERN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WERNER ENTERPRISES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Werner se enfoca en la gestión de los requisitos de transporte. La empresa proporciona una red de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Werner con el tema de la Red de Logística es evidente en su operación dentro del sector logístico de la industria del transporte, donde se enfoca en la gestión de los requisitos de transporte y la optimización de las necesidades de transporte para clientes individuales. La empresa p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WERN" data-company="WERNER ENTERPRISES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/WERN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WERN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WERNER ENTERPRISES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Werner ofrece diversos servicios de transporte, incluidas flotas dedicadas, carga completa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Werner en soluciones de movilidad se deriva de sus operaciones en los sectores de carga completa y logística de la industria del transporte, donde proporciona servicios de transporte y logística a los clientes. La empresa ofrece diversos servicios de transporte, incluidas flotas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WERN" data-company="WERNER ENTERPRISES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/WERN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WERN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WERNER ENTERPRISES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Werner tiene una exposición significativa a la industria del transporte. El enfoque de Werner es...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Werner tiene una exposición significativa a la industria del transporte, como lo demuestra sus operaciones principales en los sectores de carga completa y logística. La empresa declara explícitamente que opera en la industria del transporte a través de sus dos segmentos informables, TTS y Werner Log...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XPO" data-company="XPO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/XPO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XPO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">XPO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El transporte de mercancías se realiza principalmente a través ofrecer estos servicios junto with...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de XPO en el transporte de mercancías se realiza principalmente a través de su segmento de Transporte Europeo, donde ofrece estos servicios junto con otros como carga completa dedicada, LTL y transporte gestionado. Los servicios de transporte de mercancías de la empresa en Europa ta...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XPO" data-company="XPO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/XPO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XPO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">XPO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">XPO es el corredor de carga completa número 1 en Francia e Iberia. La plataforma de transporte...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de XPO con la intermediación de carga es evidente a través de sus posiciones de liderazgo en geografías europeas clave, particularmente como el corredor de carga completa número 1 en Francia e Iberia. La plataforma de transporte paneuropea única de la empresa apoya una extensa base de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XPO" data-company="XPO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/XPO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XPO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">XPO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">XPO es el bróker de carga completa número uno tanto en Francia como en Iberia. La empresa se enfoca...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de XPO en la industria de servicios de carga completa (Truckload Services) es evidente a través de sus posiciones de liderazgo en geografías europeas clave, ya que la empresa es el bróker de carga completa número uno tanto en Francia como en Iberia, al mismo tiempo que es un proveed...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XPO" data-company="XPO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/XPO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XPO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">XPO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">XPO ofrece servicios de transporte de mercancías en Europa. La participación de XPO en la logística...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de XPO en la logística de última milla se realiza principalmente a través de sus servicios de transporte de mercancías en Europa, que abarcan carga completa dedicada, LTL, intermediación de camiones, transporte gestionado, última milla, transporte de mercancías, almacenamiento y sol...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XPO" data-company="XPO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/XPO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XPO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">XPO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">XPO capturando aproximadamente el 9% del mercado estadounidense, estimado en $53 mil millones en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de XPO con el tema de Redes Logísticas se ve subrayado por su posición como una de las redes LTL más grandes de América del Norte, capturando aproximadamente el 9% del mercado estadounidense, estimado en $53 mil millones en 2024. La compañía se identifica explícitamente como una red LT...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XPO" data-company="XPO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/XPO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XPO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">XPO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">XPO es proveedor líder de servicios de transporte de carga. utiliza tecnología propietaria para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de XPO en la Gestión de la Cadena de Suministro es evidente en su papel como proveedor líder de servicios de transporte de carga, utilizando tecnología propietaria para mover eficientemente bienes a través de las cadenas de suministro de los clientes en América del Norte y Europa. S...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XPO" data-company="XPO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/XPO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XPO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">XPO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">XPO es proveedor líder de servicios de transporte de carga. utilizando tecnología propietaria para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de XPO en Soluciones de Cadena de Suministro es evidente en su papel como proveedor líder de servicios de transporte de carga, utilizando tecnología propietaria para mover eficientemente bienes a través de las cadenas de suministro de los clientes en América del Norte y Europa. Un a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XPO" data-company="XPO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/XPO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XPO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">XPO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">XPO se extiende a una gama de servicios de carga tanto en América del Norte como en Europa. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de XPO gira en torno a los servicios de transporte de carga, como lo demuestra su posición como proveedor líder en la industria. Esto se ve respaldado además por las inversiones estratégicas de la empresa, incluida la adición de casi 6.000 tractores y más de 17.000 remolques a s...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XPO" data-company="XPO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/XPO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XPO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">XPO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">XPO ofrece servicios de carga más amplios en Europa. La empresa ofreces soluciones multimodales...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de XPO en la Gestión de Almacenes se demuestra a través de la provisión de servicios de almacenamiento como parte de sus servicios de carga más amplios en Europa. Estos servicios forman parte de una gama que incluye carga dedicada, LTL, intermediación de carga completa, transporte g...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ARCB" data-company="ARCBEST CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/ARCB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ARCB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCBEST CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ArcBest investió en Phantom Auto, un proveedor de software de operación remota. Phantom Auto cesó...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ArcBest con vehículos autónomos se refleja en su inversión de capital anterior en Phantom Auto, un proveedor de software de operación remota; sin embargo, esta inversión se canceló debido a que Phantom Auto cesó sus operaciones durante el primer trimestre de 2024. ArcBest también...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EXPD" data-company="EXPEDITORS INTL WASH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/EXPD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EXPD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EXPEDITORS INTL WASH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Expeditors International of Washington está muy involucrada en Servicios de Carga. Esto abarca el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Expeditors International of Washington está muy involucrada en Servicios de Carga, proporcionando un conjunto integral de servicios de logística global que incluye la consolidación y el reenvío de carga aérea y marítima. Esto abarca el corretaje de aduanas, el almacenamiento y la distribución, la ge...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EXPD" data-company="EXPEDITORS INTL WASH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/EXPD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EXPD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EXPEDITORS INTL WASH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Expeditors se ve afectado por la logística del comercio electrónico. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Expeditors se ve afectado por la logística del comercio electrónico, como lo demuestra el impacto de la demanda del negocio de comercio electrónico en la capacidad de carga aérea y la evolución de las plataformas internacionales de comercio electrónico directo. La empresa presta servic...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EXPD" data-company="EXPEDITORS INTL WASH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/EXPD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EXPD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EXPEDITORS INTL WASH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Expeditors gestiona su empresa en cinco áreas geográficas de responsabilidad. La logística global...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Expeditors se identifica como un proveedor de servicios de logística global, operando a través de una red mundial de oficinas y agentes. La empresa proporciona un conjunto completo de estos servicios, que incluyen la consolidación y el transporte de carga aérea y marítima, el corretaje de aduanas y ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EXPD" data-company="EXPEDITORS INTL WASH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/EXPD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EXPD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EXPEDITORS INTL WASH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Expeditors International of Washington ofrece 'otras soluciones de cadena de suministro' La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Expeditors International of Washington en la Gestión de la Cadena de Suministro es evidente en la provisión de un conjunto integral de servicios de logística global. Estos servicios abarcan la consolidación de carga aérea y marítima, el corretaje de aduanas, el almacenamiento y l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EXPD" data-company="EXPEDITORS INTL WASH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/EXPD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EXPD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EXPEDITORS INTL WASH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Expeditors International of Washington proporciona un conjunto completo de servicios de logística...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Expeditors International of Washington declara explícitamente que proporciona un conjunto completo de servicios de logística global, que incluye una variedad de soluciones de cadena de suministro. Estas soluciones abarcan la consolidación de carga aérea y marítima, corretaje de aduanas, almacenamien...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EXPD" data-company="EXPEDITORS INTL WASH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/EXPD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EXPD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EXPEDITORS INTL WASH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Expeditors International of Washington incorpora la gestión de almacenes en su conjunto de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Expeditors International of Washington incorpora la gestión de almacenes en su conjunto de servicios de logística global. Las ofertas de servicios de la empresa incluyen almacenamiento y distribución, que se mencionan explícitamente en su descripción de servicios. Expeditors proporciona estos servic...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JBHT" data-company="HUNT (JB) TRANSPRT SVCS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/JBHT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">JBHT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUNT (JB) TRANSPRT SVCS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">J.B. Hunt ofreciendo una amplia gama de servicios de transporte, corretaje y entrega. El transporte...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de J.B. Hunt con los Servicios de Carga es evidente a través de su operación como una de las empresas de transporte terrestre, entrega y logística más grandes de América del Norte, ofreciendo una amplia gama de servicios de transporte, corretaje y entrega. Las ofertas de servicios de l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JBHT" data-company="HUNT (JB) TRANSPRT SVCS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/JBHT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">JBHT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUNT (JB) TRANSPRT SVCS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">J.B. Hunt opera un segmento de Soluciones de Capacidad Integrada (ICS), que incluye servicios de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de J.B. Hunt en la intermediación de carga es evidente a través de sus servicios integrales de intermediación de transporte de carga y logística, utilizando miles de transportistas externos. La empresa opera un segmento de Soluciones de Capacidad Integrada (ICS), que incluye servici...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JBHT" data-company="HUNT (JB) TRANSPRT SVCS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/JBHT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">JBHT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUNT (JB) TRANSPRT SVCS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">J.B. Hunt proporciona transporte de carga contenerizada de camión completo. El segmento de Carga...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de J.B. Hunt con los servicios de transporte de carga completa es evidente a través de sus diversos segmentos operativos y ofertas de servicios. La empresa proporciona transporte de carga contenerizada de camión completo, utilizando equipos controlados por la empresa, conductores de la...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JBHT" data-company="HUNT (JB) TRANSPRT SVCS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/JBHT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">JBHT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUNT (JB) TRANSPRT SVCS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">J.B. Hunt opera un segmento de negocio de Servicios de Última Milla (FMS) La empresa se enfoca en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de J.B. Hunt en la logística de última milla es evidente a través de la provisión y organización de servicios de entrega local y a domicilio a través de una red de ubicaciones de sistemas de cross-dock y entrega en todo el territorio continental de los Estados Unidos. La empresa ope...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JBHT" data-company="HUNT (JB) TRANSPRT SVCS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/JBHT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">JBHT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUNT (JB) TRANSPRT SVCS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">J.B. Hunt gestiona el flujo de mercancías desde la recogida hasta la entrega. La empresa controla...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de J.B. Hunt con la Gestión de la Cadena de Suministro es evidente en sus prácticas operativas y soluciones tecnológicas. La empresa gestiona el flujo de mercancías desde la recogida hasta la entrega y controla el cumplimiento de los servicios prometidos, operando como principal en est...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JBHT" data-company="HUNT (JB) TRANSPRT SVCS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/JBHT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">JBHT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUNT (JB) TRANSPRT SVCS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">J.B. Hunt Transport Services es una de las mayores empresas de transporte terrestre. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">J.B. Hunt Transport Services se identifica como una de las mayores empresas de transporte terrestre, entrega y logística de América del Norte, enfatizando su enfoque comercial principal. La empresa opera una importante flota de tractores, camiones, contenedores, chasis y remolques, lo que demuestra ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JBHT" data-company="HUNT (JB) TRANSPRT SVCS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/JBHT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">JBHT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUNT (JB) TRANSPRT SVCS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">JB Hunt participa en el Transporte de Carga Ferroviaria. La dependencia de la empresa del...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de JB Hunt en el Transporte de Carga Ferroviaria es evidente a través de sus acuerdos con los principales transportistas ferroviarios de América del Norte para el transporte de carga en contenedores y remolques, complementados por sus servicios de recogida y entrega. La dependencia ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MATX" data-company="MATSON INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/MATX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MATX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MATSON INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Matson impacta tanto en los ingresos como en el beneficio operativo de logística. Matson también se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Matson en el transporte de mercancías es evidente a través de su inclusión en el segmento de Logística, donde impacta tanto en los ingresos como en el beneficio operativo. Si bien los ingresos de logística han experimentado aumentos debido a mayores ingresos en transporte de merc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MATX" data-company="MATSON INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/MATX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MATX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MATSON INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Matson se identifica como un socio de confianza en la cadena de suministro. Esta contribución se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Matson con la Gestión de la Cadena de Suministro es evidente a través de su segmento de Logística, donde gestiona el flujo de bienes, información y recursos. La empresa se identifica como un socio de confianza en la cadena de suministro, enfatizando un servicio confiable y adaptándo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="R" data-company="RYDER SYSTEM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/R" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">R</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RYDER SYSTEM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa Ryder atiende a diversas industrias, incluida la automotriz. Ryder se beneficia de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Ryder en la logística automotriz es evidente a través de su segmento de Soluciones de Cadena de Suministro (SCS), que incluye el sector automotriz, y Soluciones de Transporte Dedicado (DTS). La empresa obtiene ingresos de clientes automotrices a través de su negocio SCS, con una ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="R" data-company="RYDER SYSTEM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/R" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">R</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RYDER SYSTEM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se beneficia de las tendencias a largo plazo en logística y transporte. Actualmente se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en servicios de carga completa se evidencia a través de su segmento de negocio de Soluciones de Transporte Dedicado (DTS). Si bien la empresa se beneficia de las tendencias a largo plazo en logística y transporte, actualmente se enfrenta a vientos en contra en las vent...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="R" data-company="RYDER SYSTEM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/R" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">R</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RYDER SYSTEM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de negocio de Soluciones de Cadena de Suministro (SCS) incluye logística global. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con la logística global es evidente a través de su segmento de negocio de Soluciones de Cadena de Suministro (SCS), que incluye logística global y contribuyó significativamente a los ingresos en 2024. La empresa se beneficia de tendencias seculares favorables a largo plaz...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="R" data-company="RYDER SYSTEM INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/R" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">R</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RYDER SYSTEM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ryder está involucrado en la gestión de la cadena de suministro. La empresa se beneficia de las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Ryder está significativamente involucrado en la gestión de la cadena de suministro, principalmente a través de su segmento de negocio Supply Chain Solutions (SCS), que proporciona soluciones de cadena de suministro a los clientes. La empresa se beneficia de las tendencias seculares a largo plazo en ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RXO" data-company="RXO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/RXO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RXO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RXO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RXO opera como una plataforma de transporte intermediado que utiliza tecnología de vanguardia. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de RXO gira en torno al transporte, ya que opera como una plataforma de transporte intermediado que utiliza tecnología de vanguardia y un modelo de negocio de bajo activo. La intermediación de camiones constituye el componente más grande de sus operaciones, complementado por el ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SNDR" data-company="SCHNEIDER NATIONAL INC-CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SNDR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SNDR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCHNEIDER NATIONAL INC-CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La intermediación de carga es un componente de los servicios de logística. La compañía identifica...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La intermediación de carga es un componente de los servicios de logística de la compañía, que incluyen intermediación de carga de activos ligeros, intermediación tradicional y servicios de Power Only que aprovechan grupos de remolques de propiedad de la empresa a nivel nacional. La compañía identifi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SNDR" data-company="SCHNEIDER NATIONAL INC-CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SNDR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SNDR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCHNEIDER NATIONAL INC-CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Schneider ofrece una cartera multimodal de soluciones, incluidos servicios de carga completa. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Schneider es una empresa de transporte y logística que ofrece una cartera multimodal de soluciones, incluidos servicios de carga completa. Estos servicios de carga completa consisten en transporte de carga por carretera a través de varios tipos y configuraciones de remolques, incluidas opciones tant...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SNDR" data-company="SCHNEIDER NATIONAL INC-CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SNDR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SNDR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCHNEIDER NATIONAL INC-CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El T-MEC conecta el Medio Oeste y el Sureste de EE. UU. a través de México. Schneider es el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Schneider en la logística global es evidente a través de varios aspectos clave de sus operaciones. Los servicios de logística de la empresa abarcan servicios de importación/exportación, lo que refleja su participación en el comercio internacional. Una parte importante del negocio...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SNDR" data-company="SCHNEIDER NATIONAL INC-CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SNDR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SNDR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCHNEIDER NATIONAL INC-CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Sndr aprovecha una plataforma tecnológica integrada que proporciona soporte para la toma of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Como empresa de servicios de transporte y logística, el compromiso de sndr con el tema de Red de Logística es evidente en su cartera multimodal que abarca soluciones de carga completa, intermodal y logística. El éxito de la empresa depende de su capacidad para equilibrar su red de transporte y gesti...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SNDR" data-company="SCHNEIDER NATIONAL INC-CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SNDR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SNDR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCHNEIDER NATIONAL INC-CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía aprovecha su huella en América del Norte para ofrecer alternativas de cadena de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Schneider en la Gestión de la Cadena de Suministro es evidente a través de sus servicios de logística, que abarcan soluciones de cadena de suministro que incluyen 3PL, almacenamiento y servicios de importación/exportación. La compañía aprovecha su huella en América del Norte para...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SNDR" data-company="SCHNEIDER NATIONAL INC-CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SNDR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SNDR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCHNEIDER NATIONAL INC-CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Schneider ofrece una cartera multimodal de soluciones de carga completa, intermodal and logística....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Schneider se identifica como una empresa de servicios de transporte y logística, que ofrece una cartera multimodal de soluciones de carga completa, intermodal y logística. La dedicación de la empresa al transporte se enfatiza aún más por su compromiso de impulsar cambios estructurales continuos en s...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SNDR" data-company="SCHNEIDER NATIONAL INC-CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SNDR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SNDR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCHNEIDER NATIONAL INC-CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa enfatiza sus ofertas intermodales basadas en activos de arrastre, chasis y contenedores....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema del Transporte de Carga Ferroviaria es evidente a través de sus servicios intermodales, que combinan el transporte ferroviario y de arrastre. Estos servicios, que incluyen el transporte de contenedores puerta a puerta en vagones planos, se basan en sólidas r...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SNDR" data-company="SCHNEIDER NATIONAL INC-CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SNDR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SNDR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCHNEIDER NATIONAL INC-CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El almacenamiento no se destaca como un enfoque principal, y no se proporciona un desglose de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema de la Gestión de Almacenes surge de su prestación de servicios de almacenamiento como parte de sus ofertas logísticas más amplias, que también incluyen corretaje de carga, soluciones de cadena de suministro y servicios de importación/exportación. Si bien el al...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TFIN" data-company="TRIUMPH FINANCIAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/TFIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">TFIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIUMPH FINANCIAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Banca de la empresa genera ingresos principalmente de activos que generan intereses....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Triumph Financial con el tema de Banca Comercial es evidente a través de sus servicios bancarios diversificados ofrecidos a través de TBK Bank, una piedra angular de sus operaciones. El segmento de Banca de la empresa genera ingresos principalmente de activos que generan intereses e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WERN" data-company="WERNER ENTERPRISES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/WERN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WERN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WERNER ENTERPRISES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Werner utiliza transportistas externos a través of Power Only, que constituye una parte importante...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Werner en los sectores de carga completa y logística implican la gestión de los requisitos de transporte y la adjudicación de contratos de flotas, lo que destaca su compromiso con las flotas comerciales. Su dependencia de tractores y remolques, junto con la gestión de conductores ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WERN" data-company="WERNER ENTERPRISES INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/WERN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WERN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WERNER ENTERPRISES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Werner ofrece soluciones diversas y ágiles para satisfacer las necesidades de transporte y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Werner participa en soluciones de cadena de suministro a través de su sector de logística, gestionando los requisitos de transporte y proporcionando una red de entrega en América del Norte. La empresa ofrece soluciones diversas y ágiles para satisfacer las necesidades de transporte y logística de lo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XPO" data-company="XPO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/XPO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XPO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">XPO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">XPO ofrece servicios de transporte de carga en América del Norte y Europa. La presencia de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de XPO en el tema de la Logística Global es evidente a través de sus servicios de transporte de carga, que aprovechan tecnología propietaria para mover eficientemente bienes a través de las cadenas de suministro de los clientes en América del Norte y Europa. La presencia de la empre...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ARCB" data-company="ARCBEST CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/ARCB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ARCB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCBEST CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ArcBest demuestra su compromiso con la automatización de la cadena de suministro a través ofertas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">ArcBest demuestra su compromiso con la automatización de la cadena de suministro a través de su suite Vaux, que incluye Vaux Smart Autonomy, integrando carretillas elevadoras autónomas móviles, software inteligente y teleoperación remota para el manejo de materiales en almacenes y centros de distrib...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ARCB" data-company="ARCBEST CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/ARCB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ARCB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ARCBEST CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ArcBest opera como una empresa de logística integrada de miles de millones of dólares. Proporciona...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">ArcBest opera como una empresa de logística integrada de miles de millones de dólares, que proporciona un conjunto de soluciones que abordan las demandas de la cadena de suministro de los clientes. La empresa se enfoca en ayudar a los clientes a adaptarse rápidamente optimizando los modos y las estr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CHRW" data-company="C.H. ROBINSON WORLDWIDE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CHRW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CHRW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">C.H. ROBINSON WORLDWIDE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía garantiza la entrega fluida de mercancías entre industrias y continentes. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la compañía en servicios de carga es evidente a través de sus servicios de transporte y logística, que abarcan carga completa, carga parcial, transporte marítimo y aéreo. En 2024, la compañía experimentó un aumento en los volúmenes de carga marítima y el tonelaje de carga aérea, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CHRW" data-company="C.H. ROBINSON WORLDWIDE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CHRW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CHRW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">C.H. ROBINSON WORLDWIDE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Chrw señala que esta demanda ha provocado el reposicionamiento de la capacidad de carga aérea. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Chrw con la logística de comercio electrónico se refleja en su discusión sobre la elevada demanda de exportación de comercio electrónico de Asia y sus efectos en la capacidad de carga aérea. La empresa señala que esta demanda ha provocado el reposicionamiento de la capacidad de carg...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CHRW" data-company="C.H. ROBINSON WORLDWIDE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CHRW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CHRW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">C.H. ROBINSON WORLDWIDE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los ingresos por abastecimiento y las ganancias brutas de la empresa han experimentado aumentos,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Chrw con las Soluciones de Servicios de Alimentos es evidente a través de sus soluciones integradas de cadena de suministro que atienden tanto a clientes minoristas como de servicios de alimentos. Los ingresos por abastecimiento y las ganancias brutas de la empresa han experimentado...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CHRW" data-company="C.H. ROBINSON WORLDWIDE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CHRW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CHRW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">C.H. ROBINSON WORLDWIDE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">C.H. Robinson es uno de los mayores proveedores de logística global. Se enfocan en mejorar el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de C.H. Robinson está significativamente ligado a la intermediación de carga, como lo demuestra su papel en la conexión de expedidores con proveedores de transporte y la facilitación del movimiento de mercancías. La empresa se identifica como uno de los mayores proveedores de logística gl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CHRW" data-company="C.H. ROBINSON WORLDWIDE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CHRW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CHRW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">C.H. ROBINSON WORLDWIDE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Las ganancias brutas ajustadas de NAST disminuyeron debido a una caída. La participación de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en la Gestión de Almacenes se refleja en sus arrendamientos operativos de almacenes. Sin embargo, las ganancias brutas ajustadas de NAST disminuyeron debido a una caída en las ganancias brutas ajustadas de almacenamiento e intermodal. Esto indica que, si bien el almace...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EXPD" data-company="EXPEDITORS INTL WASH INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/EXPD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EXPD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EXPEDITORS INTL WASH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Expeditors International of Washington ofrece el transporte de mercancías. El transporte marítimo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Expeditors International of Washington identifica el transporte de mercancías, específicamente la consolidación y el transporte de carga aérea y marítima, como un componente central de sus servicios de logística global. La empresa declara explícitamente que ofrece estos servicios como parte de un co...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EXPD" data-company="EXPEDITORS INTL WASH INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/EXPD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EXPD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EXPEDITORS INTL WASH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Expeditors International of Washington ofrece servicios de corretaje de aduanas. Los clientes...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Expeditors International of Washington en el tema de Corretaje de Carga es evidente a través de sus servicios de corretaje de aduanas, identificados como una de las ofertas principales de la empresa. Los clientes valoran estos servicios de corretaje, especialmente al navegar por ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HUBG" data-company="HUB GROUP INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HUBG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HUBG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUB GROUP INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hub Group ofrece servicios integrales de gestión de transporte y logística. Ofrece una amplia gama...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Hub Group en servicios de carga es evidente a través de sus servicios integrales de gestión de transporte y logística. La empresa ofrece una amplia gama de opciones de transporte de carga, que incluyen intermodal, carga completa, carga parcial, plataforma, control de temperatura,...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HUBG" data-company="HUB GROUP INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HUBG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HUBG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUB GROUP INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Hub Group brinda una gama de servicios cruciales para comercio electrónico. Estos servicios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Hub Group con la logística de comercio electrónico es evidente a través de su segmento de Logística, que brinda una gama de servicios cruciales para este tema. Estos servicios incluyen almacenamiento, cumplimiento y entrega de última milla, atendiendo a empresas de bienes de consumo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JBHT" data-company="HUNT (JB) TRANSPRT SVCS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/JBHT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">JBHT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUNT (JB) TRANSPRT SVCS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">J.B. Hunt tiene un número significativo de tractores, camiones, contenedores, chasis y remolques....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de J.B. Hunt en flotas comerciales es evidente a través de la operación de un número significativo de tractores, camiones, contenedores, chasis y remolques, que son integrales para su negocio. Los Servicios de Contrato Dedicado de la compañía, que se centran en soluciones de flotas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JBHT" data-company="HUNT (JB) TRANSPRT SVCS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/JBHT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">JBHT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUNT (JB) TRANSPRT SVCS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">J.B. Hunt en Logística Global es evidente a través of sus servicios de transporte, corretaje y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de J.B. Hunt en Logística Global es evidente a través de sus servicios de transporte, corretaje y entrega en todo el territorio continental de Estados Unidos, Canadá y México. El lanzamiento del servicio Quantum en México por parte de la empresa, con expectativas de crecimiento cont...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="JBHT" data-company="HUNT (JB) TRANSPRT SVCS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/JBHT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">JBHT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUNT (JB) TRANSPRT SVCS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">J.B. Hunt 360° proporciona a los expedidores y transportistas un acceso, visibilidad y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de J.B. Hunt con las Soluciones de Cadena de Suministro es evidente a través de su plataforma J.B. Hunt 360°, que proporciona a los expedidores y transportistas un acceso, visibilidad y transparencia mejorados en toda la cadena de suministro. La empresa enfatiza su capacidad para perso...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LSTR" data-company="LANDSTAR SYSTEM INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/LSTR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LSTR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LANDSTAR SYSTEM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Landstar Investment Holdco, LLC, una subsidiaria de propiedad total, compró unidades de Clase A de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Landstar en el tema de Vehículos Autónomos se demuestra a través de su inversión en Cavnue, LLC, una empresa centrada en la integración de tecnología e infraestructura vial para avanzar en vehículos conectados y autónomos. Landstar Investment Holdco, LLC, una subsidiaria de propi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LSTR" data-company="LANDSTAR SYSTEM INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/LSTR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LSTR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LANDSTAR SYSTEM INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Landstar utiliza transportistas de corretaje de camiones bajo acuerdos contractuales no exclusivos....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Landstar en el corretaje de carga es evidente a través de su estructura operativa, donde los agentes de ventas independientes por comisión desempeñan un papel crucial en la localización y coordinación de la carga tanto con los clientes como con los proveedores de capacidad. La em...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MATX" data-company="MATSON INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/MATX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MATX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MATSON INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Matson se ve significativamente influenciado by las rutas de envío. El volumen of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Matson se ve significativamente influenciado por las rutas de envío, como lo demuestra la gestión de su volumen de contenedores en ubicaciones clave como Hawái, China, Guam y Alaska. El enfoque de la compañía en servicios oceánicos acelerados como CLX y MAX en la región Transpacífica r...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RXO" data-company="RXO INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/RXO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RXO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RXO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RXO se define por tecnología de vanguardia y un enfoque ligero en activos. La plataforma de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de RXO con la Innovación Logística es evidente en su modelo de negocio principal, que se define por tecnología de vanguardia y un enfoque ligero en activos. La plataforma de corretaje digital patentada de la compañía es un diferenciador clave, que proporciona a los clientes un acceso e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SNDR" data-company="SCHNEIDER NATIONAL INC-CL B">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/SNDR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SNDR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCHNEIDER NATIONAL INC-CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Schneider National participa en servicios de carga a través ofertas de transporte, chasis y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Schneider National participa en servicios de carga a través de su cartera multimodal de soluciones de carga completa, intermodales y logísticas. Los servicios intermodales de la compañía, que incluyen ofertas de transporte, chasis y contenedores, contribuyen a su participación en servicios de carga,...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SNDR" data-company="SCHNEIDER NATIONAL INC-CL B">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/SNDR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SNDR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCHNEIDER NATIONAL INC-CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa tiene una flota considerable de camiones y remolques dentro of sus segmentos de Carga...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en el tema de Flotas Comerciales es evidente a través de la gestión de una flota considerable de camiones y remolques, particularmente dentro de sus segmentos de Carga Completa e Intermodal, que incluye un gran número de remolques. Esta operación de flota se ve aún más...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SNDR" data-company="SCHNEIDER NATIONAL INC-CL B">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/SNDR" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SNDR</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCHNEIDER NATIONAL INC-CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Schneider es una empresa que reconoce la importancia de la innovación logística. Schneider's...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Schneider con la innovación logística es evidente en sus operaciones de corretaje de carga, que funcionan como un centro de innovación de activos ligeros. Esta correduría se enfoca en análisis predictivos, automatización de procesos y generación de nuevas relaciones con clientes, im...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="TFIN" data-company="TRIUMPH FINANCIAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/TFIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">TFIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">TRIUMPH FINANCIAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa de factoring proporciona capital de trabajo a flotas de camiones pequeñas y medianas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa demuestra su compromiso con los Servicios Financieros para PYMES a través de su negocio de factoring, que proporciona capital de trabajo a flotas de camiones pequeñas y medianas mediante la compra de sus facturas. Este servicio de factoring se enfoca principalmente en la industria del tra...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/UBER" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UBER</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa utiliza su plataforma tecnológica para facilitar el movimiento. Uber está desarrollando...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Uber de consumidores con servicios de transporte, servicios de entrega y redes de transporte público destaca el papel de la empresa en la integración de diferentes soluciones de movilidad. La empresa utiliza su plataforma tecnológica para facilitar el movimiento y está desarrollando n...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UPS" data-company="UNITED PARCEL SERVICE-CL B">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/UPS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UPS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED PARCEL SERVICE-CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UPS capta crecimiento a través de clientes adicionales de comercio electrónico. El empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de UPS con la logística del comercio electrónico es evidente en varios aspectos de sus operaciones. La empresa capta crecimiento a través de clientes adicionales de comercio electrónico y PYMES que aprovechan el Programa de Acceso Digital, al tiempo que experimenta un aumento en el vol...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UPS" data-company="UNITED PARCEL SERVICE-CL B">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/UPS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UPS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED PARCEL SERVICE-CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UPS demuestra su enfoque en la innovación logística a través of la implementación of su iniciativa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">UPS demuestra su enfoque en la innovación logística a través de la implementación de su iniciativa Network of the Future, que tiene como objetivo mejorar la eficiencia de la red mediante la automatización y la consolidación de clasificación operativa. Como parte de esta iniciativa, UPS está automati...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UPS" data-company="UNITED PARCEL SERVICE-CL B">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/UPS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UPS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED PARCEL SERVICE-CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UPS tiene como objetivo tener 400 instalaciones total o parcialmente automatizadas. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de UPS en la Automatización de la Cadena de Suministro es evidente a través de sus iniciativas de 'Red del Futuro', diseñadas para mejorar la eficiencia de la red mediante la automatización y la consolidación de clasificación. La compañía está ejecutando actualmente su mayor reconfiguraci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UPS" data-company="UNITED PARCEL SERVICE-CL B">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/UPS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UPS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED PARCEL SERVICE-CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa gestiona cadenas de suministro para sus clientes. El enfoque de UPS en mejorar la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de UPS en la Gestión de la Cadena de Suministro es evidente a través de sus iniciativas estratégicas y su enfoque operativo. La empresa gestiona cadenas de suministro para sus clientes, aprovechando su cartera global y su tecnología de corretaje de próxima generación para ayudarles ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UPS" data-company="UNITED PARCEL SERVICE-CL B">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/UPS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UPS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITED PARCEL SERVICE-CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UPS aprovecha su cartera global y su tecnología de corretaje de próxima generación para ayudar a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de UPS con Soluciones de la Cadena de Suministro es evidente a través de su segmento de negocio dedicado a Soluciones de la Cadena de Suministro, que abarca el transporte de carga global, la logística de atención médica y UPS Digital. La empresa aprovecha su cartera global y su tecn...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="XPO" data-company="XPO INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/XPO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">XPO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">XPO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">XPO utiliza tecnología patentada para mover eficientemente bienes. El papel de XPO como proveedor...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El papel de XPO como proveedor líder de servicios de transporte de carga es fundamental para su participación en los servicios de carga, ya que utiliza tecnología patentada para mover eficientemente bienes a través de las cadenas de suministro en América del Norte y Europa. Este enfoque se ve aún má...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RXO" data-company="RXO INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/RXO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RXO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RXO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RXO de Coyote is una compañía principal gira en torno a la intermediación de camiones. El volumen...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de RXO en el tema de Servicios de Carga Completa es significativa, como lo demuestra el hecho de que su negocio principal gira en torno a la intermediación de camiones, con los servicios de carga completa desempeñando un papel central. Esto se enfatiza aún más con la adquisición por...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UBER" data-company="UBER TECHNOLOGIES INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/UBER" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">UBER</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UBER TECHNOLOGIES INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Uber en la facilitación del transporte es evidente. Uber impulsa el movimiento del...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Uber en la facilitación del transporte es evidente a través de su plataforma tecnológica, que impulsa el movimiento del punto A al punto B, conectando a los consumidores con servicios de transporte, servicios de entrega y redes de transporte público. Esto está respaldado por el crecimi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EXPD" data-company="EXPEDITORS INTL WASH INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-06-30</td>
+            <td><a href="/profile/EXPD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EXPD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EXPEDITORS INTL WASH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Expeditors ofrece servicios como expedición marítima directa y gestión de pedidos. El transporte...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Expeditors participa en la industria del transporte marítimo a través de la prestación de servicios de transporte marítimo, incluyendo consolidación y expedición. El transporte marítimo y los servicios oceánicos son uno de los tres servicios principales de la compañía, y la consolidación de carga ma...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

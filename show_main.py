@@ -53,7 +53,7 @@ body {
     align-items: center;
 }
 .navbar-brand {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 700;
 }
 .navbar-subtitle {
@@ -291,6 +291,21 @@ def generate_html(industries, themes):
             </div>
         </div>
 
+        <!-- Themes Section -->
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">All Themes</h2>
+                <span class="badge">{len(themes)}</span>
+            </div>
+            <p style="color:#666; margin-bottom:15px;">Explore all investment themes. Click on a theme to view detailed analysis.</p>
+            
+            <input type="text" id="themeFilter" class="filter-input" placeholder="Filter themes..." onkeyup="filterThemes()">
+            
+            <div class="grid" id="themesGrid">
+                {thm_html}
+            </div>
+        </div>
+
         <!-- Industries Section -->
         <div class="section-container">
             <div class="section-header">
@@ -304,21 +319,6 @@ def generate_html(industries, themes):
 
             <div class="grid">
                 {ind_html}
-            </div>
-        </div>
-
-        <!-- Themes Section -->
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">All Themes</h2>
-                <span class="badge">{len(themes)}</span>
-            </div>
-            <p style="color:#666; margin-bottom:15px;">Explore all investment themes. Click on a theme to view detailed analysis.</p>
-            
-            <input type="text" id="themeFilter" class="filter-input" placeholder="Filter themes..." onkeyup="filterThemes()">
-            
-            <div class="grid" id="themesGrid">
-                {thm_html}
             </div>
         </div>
     
@@ -347,7 +347,7 @@ def main():
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
         f.write(html_content)
         
-    print(f"✅ Dashboard generated: {OUTPUT_FILE}")
+    print(f"Dashboard generated: {OUTPUT_FILE}")
 
     # Server Start Logic (copied from show_trends.py)
     server_port = 8000

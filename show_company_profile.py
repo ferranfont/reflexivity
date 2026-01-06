@@ -60,6 +60,9 @@ body {
 
 .header-content {
     flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .header-logo {
@@ -70,6 +73,32 @@ body {
     border-radius: 8px;
     padding: 5px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.home-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
+}
+
+.home-button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.home-button svg {
+    width: 24px;
+    height: 24px;
 }
 
 .company-subtitle {
@@ -447,6 +476,45 @@ def calculate_performance_metrics(symbol):
     }
 
 
+# --- FUZZY MATCHING HELPERS ---
+DATA_DIR = Path(__file__).parent / "data"
+
+def load_known_themes():
+    """Load canonical theme names from industry summary CSV."""
+    summary_file = DATA_DIR / "industry_summary_offline.csv"
+    if not summary_file.exists():
+        return []
+    
+    try:
+        df = pd.read_csv(summary_file)
+        if 'Theme' in df.columns:
+            return df['Theme'].dropna().unique().tolist()
+    except:
+        pass
+    return []
+
+def fuzzy_match_theme(target, choices):
+    """
+    Find best matching theme name from choices.
+    Returns the canonical name if a good match is found, else None.
+    """
+    if not choices:
+        return None
+        
+    import difflib
+    
+    # 1. Exact match (case insensitive)
+    target_lower = target.lower().strip()
+    for choice in choices:
+        if choice.lower().strip() == target_lower:
+            return choice
+            
+    # 2. Fuzzy match
+    matches = difflib.get_close_matches(target, choices, n=1, cutoff=0.7)
+    if matches:
+        return matches[0]
+        
+    return None
 
 SPY_PATH = Path(__file__).parent / "data/spy_benchmark.csv"
 
@@ -461,22 +529,25 @@ def get_spy_data(start_date, end_date):
     if SPY_PATH.exists():
         try:
             df = pd.read_csv(SPY_PATH)
-            df['date'] = pd.to_datetime(df['date'])
+            df['date'] = pd.to_datetime(df['date'], errors='coerce')
+            # Remove any rows with invalid dates
+            df = df.dropna(subset=['date'])
         except Exception:
+            df = None
             pass
-    
+
     # If missing or doesn't cover range, download
     need_download = False
-    if df is None:
+    if df is None or len(df) == 0:
         need_download = True
     else:
         if df['date'].min() > pd.to_datetime(start_date) + pd.Timedelta(days=10):
             need_download = True
         if df['date'].max() < pd.to_datetime(end_date) - pd.Timedelta(days=5):
             need_download = True
-            
+
     if need_download:
-        print("⬇️ Bajando datos actualizados del SPY (Yahoo Finance)...")
+        print("Downloading updated SPY data (Yahoo Finance)...")
         try:
             ticker = yf.Ticker("SPY")
             # Using 1970 to align with theme chart robustness
@@ -486,7 +557,7 @@ def get_spy_data(start_date, end_date):
             df = hist[['date', 'Close']].rename(columns={'Close': 'spy_val'})
             df.to_csv(SPY_PATH, index=False)
         except Exception as e:
-            print(f"❌ Error bajando SPY: {e}")
+            print(f"ERROR downloading SPY: {e}")
             if df is not None: return df # Return what we have
             return None
 
@@ -600,6 +671,14 @@ def generate_interactive_stock_chart(symbol, height=450):
     ))
 
     # Layout
+    
+    # Calculate Default 10Y Range
+    max_d = equity_df['date'].max()
+    min_d = equity_df['date'].min()
+    start_10y = max_d - pd.DateOffset(years=10)
+    if start_10y < min_d:
+        start_10y = min_d
+
     fig.update_layout(
         title=dict(
             text=f"Stock Performance: {symbol.upper()} vs Benchmark (ROI %)<br><sub>{subtitle_init}</sub>",
@@ -613,6 +692,7 @@ def generate_interactive_stock_chart(symbol, height=450):
         margin=dict(t=180, l=60, r=40, b=60),
         
         xaxis=dict(
+            range=[start_10y, max_d], # Default to 10Y
             type="date",
             showgrid=False,
             showline=True,
@@ -1106,6 +1186,9 @@ def generate_company_profile_html(symbol):
     else:
         performance_html = '<div class="no-data" style="margin-top: 20px;">No performance data available</div>'
 
+    # Load known themes for fuzzy matching
+    known_themes = load_known_themes()
+
     # Build rankings table HTML
     if ranks:
         rank_rows_html = ""
@@ -1113,6 +1196,9 @@ def generate_company_profile_html(symbol):
             theme = r['theme']
             rank_num = r['rank']
 
+            # Fuzzy match to ensure correct filename
+            matched_theme = fuzzy_match_theme(theme, known_themes)
+            
             # Determine badge class
             if rank_num <= 3:
                 badge_class = "rank-badge rank-top3"
@@ -1125,9 +1211,26 @@ def generate_company_profile_html(symbol):
             has_evidence = len(evidence_list) > 0  # Simplified check
             evidence_icon = '<span class="check-icon">✓</span>' if has_evidence else '<span class="no-icon">—</span>'
 
+            # Create theme link (Relative link to HTML file)
+            # Use matched theme if available, otherwise fallback to simple conversion
+            target_theme = matched_theme if matched_theme else theme
+            theme_url = target_theme.lower().replace(' ', '_').replace('-', '_').replace('&', 'and')
+            
+            # Point to relative HTML file
+            theme_link = f"{theme_url}_detail.html"
+
             rank_rows_html += f"""
             <tr>
                 <td>{theme}</td>
+                <td style="text-align: center;">
+                    <a href="{theme_link}" class="action-link" title="View {theme} theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
                 <td><span class="{badge_class}">#{rank_num}</span></td>
                 <td style="text-align: center;">{evidence_icon}</td>
             </tr>
@@ -1138,6 +1241,7 @@ def generate_company_profile_html(symbol):
             <thead>
                 <tr>
                     <th>Theme Name</th>
+                    <th style="text-align: center; width: 60px;">Theme</th>
                     <th>Rank</th>
                     <th style="text-align: center;">Evidence</th>
                 </tr>
@@ -1243,12 +1347,20 @@ def generate_company_profile_html(symbol):
 <body>
     <div class="header">
         <div class="header-content">
-            {symbol.upper()} - {company_name}
-            <div class="company-subtitle">
-                {f'<a href="https://{company_domain}" target="_blank">🌐 {company_domain}</a>' if company_domain else 'Company Investment Profile'}
+            {logo_html}
+            <div>
+                <div>{symbol.upper()} - {company_name}</div>
+                <div class="company-subtitle">
+                    {f'<a href="https://{company_domain}" target="_blank">🌐 {company_domain}</a>' if company_domain else 'Company Investment Profile'}
+                </div>
             </div>
         </div>
-        {logo_html}
+        <a href="main_trends.html" class="home-button" title="Back to Home">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="9 22 9 12 15 12 15 22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
     </div>
 
     <div class="container">

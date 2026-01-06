@@ -1,0 +1,1986 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>IT Consulting - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">IT Consulting</div>
+      <div class="sub-title">Investment Theme Detail - Technology Industry</div>
+    </div>
+    <a href="main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> IT Consulting &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Technology &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 21
+    </div>
+
+    
+    <!-- Theme Chart Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Theme Chart</span>
+             <a href="equity_it_consulting.html" target="_blank" class="btn-view-chart">View Full Chart ↗</a>
+        </div>
+        <div class="box-body" style="height: 600px; overflow:hidden;">
+            <iframe src="equity_it_consulting.html" style="width:100%; height:100%; border:none; display:block;"></iframe>
+        </div>
+    </div>
+        
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">21</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ACN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ACCENTURE PLC-CL A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece servicios de consultoría e implementación que permiten a los clientes aprovechar la inteligencia artificial para extraer información valiosa de...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ACN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">IBM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">INTL BUSINESS MACHINES CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla e implementa soluciones y tecnologías de computación de alto rendimiento para abordar desafíos computacionales complejos y acelerar cargas ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/IBM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CAP</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CAPGEMINI SE</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios de consultoría integrales para ayudar a los clientes a desarrollar estrategias, desarrollar e implementar soluciones de intelige...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CAP" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">TCS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">TATA CONSULTANCY SVCS LTD</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios integrales de consultoría en inteligencia artificial, guiando a los clientes a través de la estrategia, implementación y optimiz...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/TCS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">INFY</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">INFOSYS LTD</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios integrales de consultoría en inteligencia artificial, lo que permite a los clientes diseñar, desarrollar e implementar solucione...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/INFY" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CTSH</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece servicios y soluciones que permiten a los clientes aprovechar la inteligencia artificial para extraer información procesable de los datos, mejo...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CTSH" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DXC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">DXC TECHNOLOGY CO</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece experiencia en consultoría de IA, asistiendo a organizaciones en el desarrollo de estrategias e implementación de tecnologías de inteligencia a...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DXC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">WIPRO</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">WIPRO LTD</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios integrales de consultoría en inteligencia artificial, guiando a los clientes a través del desarrollo, implementación y optimizac...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/WIPRO" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">KD</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">KYNDRYL HOLDINGS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece soluciones y servicios que permiten a las organizaciones aprovechar la inteligencia artificial para el análisis de datos y la generación de inf...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/KD" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">EPAM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">EPAM SYSTEMS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se centra en el desarrollo e implementación de soluciones que aprovechan la inteligencia artificial para generar información procesable para las empre...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/EPAM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">11</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ASGN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ASGN INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece servicios de consultoría centrados en la inteligencia artificial, ayudando a los clientes con la implementación estratégica y soluciones avanza...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ASGN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">12</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BAH</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BOOZ ALLEN HAMILTON HOLDINGS</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios estratégicos de consultoría, tecnología e ingeniería que apoyan programas de defensa críticos y mejoran las capacidades operativ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BAH" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">13</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">IT</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">GARTNER INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece servicios de investigación y asesoría, guiando a las organizaciones en el desarrollo e implementación de estrategias y soluciones de inteligenc...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/IT" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">14</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">LDOS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">LEIDOS HOLDINGS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Es un contribuyente líder al sector de Defensa Aeroespacial....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/LDOS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">15</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SAIC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SCIENCE APPLICATIONS INTE</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona soluciones técnicas, de ingeniería y de TI a agencias gubernamentales dentro de los sectores aeroespacial y de defensa....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SAIC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">16</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">RHI</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ROBERT HALF INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece servicios de consultoría profesional, aprovechando su experiencia en soluciones de talento y negocios para apoyar a clientes en diversos sector...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/RHI" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">17</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ICFI</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ICF INTERNATIONAL INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece servicios en el sector de Consultoría de IA....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ICFI" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">18</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">MAN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">MANPOWERGROUP INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona asesoramiento experto y soluciones estratégicas a clientes dentro del dominio de los servicios de consultoría....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/MAN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">19</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">PLUS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">EPLUS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece servicios especializados de consultoría en inteligencia artificial, guiando a las empresas en el desarrollo e integración de estrategias y tecn...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/PLUS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">20</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CDW</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CDW CORP/DE</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Facilita la integración y el despliegue de tecnologías de inteligencia artificial en entornos de atención médica al proporcionar soluciones e infraest...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CDW" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">21</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">WTY</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">WILLIS TOWERS WATSON PLC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Sirve como un proveedor destacado de servicios de consultoría, desempeñando un papel importante en la industria....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/WTY" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">135</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="BAH" data-company="BOOZ ALLEN HAMILTON HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/BAH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BAH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOOZ ALLEN HAMILTON HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Booz Allen Hamilton aprovecha su experiencia para servir a clientes comerciales en diversas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Booz Allen Hamilton con la IA en la atención médica es evidente a través del desarrollo de soluciones tecnológicas impulsadas por IA, incluidas aplicaciones en los sectores de la salud y las ciencias de la vida. La empresa aprovecha su experiencia para servir a clientes comercial...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BAH" data-company="BOOZ ALLEN HAMILTON HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/BAH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BAH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOOZ ALLEN HAMILTON HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Booz Allen en la ciberseguridad es evidente. La empresa aporta su experiencia a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Booz Allen en la ciberseguridad es evidente a través de su desarrollo de soluciones tecnológicas que aprovechan las cibertecnologías para proteger los intereses nacionales y su posición como proveedor líder de ciberseguridad. La empresa aporta su experiencia a clientes comerciales de d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BAH" data-company="BOOZ ALLEN HAMILTON HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/BAH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BAH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOOZ ALLEN HAMILTON HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Booz Allen ofrece resultados técnicos y de misión de vanguardia vitales para los combatientes y los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Booz Allen en la industria de Contratación de Defensa es evidente en su misión de promover las prioridades civiles, de defensa y de seguridad nacional del país. El negocio de defensa de la compañía ofrece resultados técnicos y de misión de vanguardia vitales para los combatientes...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BAH" data-company="BOOZ ALLEN HAMILTON HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/BAH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BAH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOOZ ALLEN HAMILTON HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El Grupo de Tecnología de Defensa de Booz Allen se enfoca en inyectar tecnologías avanzadas en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Booz Allen en Tecnología de Defensa es evidente a través de su dedicación a avanzar en prioridades críticas civiles, de defensa y de seguridad nacional. El Grupo de Tecnología de Defensa de la compañía se enfoca en inyectar tecnologías avanzadas en misiones de defensa, ejemplific...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BAH" data-company="BOOZ ALLEN HAMILTON HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/BAH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BAH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOOZ ALLEN HAMILTON HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Booz Allen Hamilton en Soluciones Digitales es evidente en su compromiso de avanzar...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Booz Allen Hamilton en Soluciones Digitales es evidente en su compromiso de avanzar en prioridades críticas civiles, de defensa y de seguridad nacional a través de la tecnología. La empresa crea soluciones tecnológicas utilizando IA, ciberseguridad y otras tecnologías de vanguardia par...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DXC" data-company="DXC TECHNOLOGY CO">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/DXC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DXC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DXC TECHNOLOGY CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Consulting & Engineering Services (CES) es un segmento clave reportable liderado by Ramnath...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de DXC en servicios de consultoría es evidente a través de su estructura organizativa, donde Consulting & Engineering Services (CES) es un segmento clave reportable liderado por Ramnath Venkataraman, quien aporta una experiencia sustancial de Accenture. Este segmento representó una ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DXC" data-company="DXC TECHNOLOGY CO">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/DXC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DXC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DXC TECHNOLOGY CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El compromiso de DXC con los Servicios de Ingeniería (CES) es evidente a través ofertas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de DXC con los Servicios de Ingeniería es evidente a través de su estructura organizativa y sus ofertas de servicios. El compromiso de la empresa se destaca por el segmento de Servicios de Consultoría e Ingeniería (CES), que está liderado por Ramnath Venkataraman y representa una parte...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DXC" data-company="DXC TECHNOLOGY CO">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/DXC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DXC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DXC TECHNOLOGY CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DWC es un proveedor global líder de servicios de TI. La empresa genera ingresos al ofrecer una...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de DXC en Soluciones de TI es evidente a través de sus operaciones comerciales principales, ya que la empresa se identifica como un proveedor global líder de servicios de TI. Esto se ve respaldado además por la entrega de paisajes de servicios SAP unificados y procesos estandarizado...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KD" data-company="KYNDRYL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/KD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">KD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KYNDRYL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kyndryl aborda tendencias de TI seculares como migración a la nube, la ciberseguridad y la adopción...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Kyndryl en soluciones de TI es evidente a través de su posición como proveedor líder de servicios de infraestructura de TI. La empresa aborda tendencias de TI seculares como la migración a la nube, la ciberseguridad y la adopción de IA, y transforma entornos de TI híbridos de misión cr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BAH" data-company="BOOZ ALLEN HAMILTON HOLDINGS">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/BAH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BAH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BOOZ ALLEN HAMILTON HOLDINGS</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Booz Allen en la industria aeroespacial y de defensa es evidente. La empresa crea...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Booz Allen en la industria aeroespacial y de defensa es evidente a través de su dedicación a la promoción de prioridades críticas civiles, de defensa y de seguridad nacional, respaldado por una gran fuerza laboral de aproximadamente 35.800 empleados que atienden a diversos clientes del...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DXC" data-company="DXC TECHNOLOGY CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/DXC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DXC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DXC TECHNOLOGY CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DXC ayuda a las empresas a alcanzar sus objetivos de transformación digital. No se detallan...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de DXC con la transformación digital es evidente en sus esfuerzos por modernizar la TI para empresas globales, optimizar las arquitecturas de datos y garantizar la seguridad y escalabilidad en diversos entornos de nube. DXC ayuda a estas organizaciones a alcanzar nuevos niveles de rend...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DXC" data-company="DXC TECHNOLOGY CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/DXC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DXC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DXC TECHNOLOGY CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DXC ayuda a las empresas globales a modernizar la TI, optimizar las arquitecturas de datos y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de DXC con la Computación en la Nube Híbrida es evidente en sus ofertas de servicios principales, ya que la empresa ayuda a las empresas globales a modernizar la TI, optimizar las arquitecturas de datos y garantizar la seguridad y escalabilidad en las nubes públicas, privadas e híbrida...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DXC" data-company="DXC TECHNOLOGY CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/DXC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DXC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DXC TECHNOLOGY CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DXC ayuda a los clientes a adoptar tecnologías de próxima generación. La empresa se asocia with...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de DXC en Consultoría de TI es evidente a través de su segmento de Servicios de Consultoría e Ingeniería, liderado por Ramnath Venkataraman, quien ayuda a los clientes a adoptar tecnologías de próxima generación. La empresa se asocia con Boomi para proporcionar automatización de int...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACN" data-company="ACCENTURE PLC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/ACN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ACN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACCENTURE PLC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Accenture colabora con empresas en diversas etapas de adopción de IA. Accenture combina su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Los ingresos de consultoría de Accenture se ven impulsados significativamente por la asistencia a clientes en transformaciones digitales lideradas por tecnología, datos e IA, con un enfoque en ayudarlos a estar preparados para la IA y desplegar IA en toda la empresa. Accenture colabora con empresas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACN" data-company="ACCENTURE PLC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/ACN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ACN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACCENTURE PLC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Accenture ayuda a clientes en la modernización y mantenimiento of aplicaciones. Esto incluye ayudar...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Accenture en el Desarrollo de Aplicaciones es evidente a través de su asistencia a clientes en la modernización y el mantenimiento de aplicaciones, que está experimentando una creciente demanda. Esto incluye ayudar a un importante cliente de servicios financieros a modernizar su ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACN" data-company="ACCENTURE PLC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/ACN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ACN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACCENTURE PLC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Accenture tiene una fuerza laboral significativa de 77.000 profesionales de IA y datos. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Accenture con la Inteligencia Artificial es evidente en sus iniciativas estratégicas e inversiones sustanciales. La empresa declara explícitamente su liderazgo en IA, respaldado por una fuerza laboral significativa de 77.000 profesionales de IA y datos y el objetivo de alcanzar 80.0...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACN" data-company="ACCENTURE PLC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/ACN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ACN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACCENTURE PLC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Accenture demuestra su participación en servicios bancarios a través de los ingresos en Banca y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Accenture demuestra su participación en servicios bancarios a través del crecimiento de los ingresos en Banca y Mercados de Capitales en múltiples regiones geográficas, incluidas las Américas, EMEA y Asia Pacífico. Este crecimiento está respaldado además por asociaciones, como la colaboración con Na...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACN" data-company="ACCENTURE PLC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/ACN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ACN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACCENTURE PLC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Accenture demuestra una fuerte conexión con la computación en la nube. La empresa ayuda a los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Accenture demuestra una fuerte conexión con la computación en la nube, enfatizando su liderazgo en tecnologías de nube, datos e IA. La empresa ayuda a los clientes con transformaciones digitales, incluida la migración a la nube y la habilitación de la nube. La experiencia de Accenture es evidente en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACN" data-company="ACCENTURE PLC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/ACN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ACN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACCENTURE PLC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Accenture enfatiza su liderazgo en tecnología en la nube como un componente clave de sus servicios....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Accenture enfatiza su liderazgo en tecnología en la nube como un componente clave de sus servicios, combinando esta fortaleza con datos e IA para ayudar a las empresas a construir su núcleo digital. Los ingresos por consultoría de Accenture se impulsan al ayudar a los clientes con transformaciones d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACN" data-company="ACCENTURE PLC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/ACN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ACN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACCENTURE PLC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Accenture ofrece una gama de soluciones en Estrategia and Consultoría. El crecimiento de los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Accenture en los Servicios de Consultoría es evidente en su clasificación como una empresa líder mundial de servicios profesionales, que ofrece una gama de soluciones en Estrategia y Consultoría. La consultoría es uno de los dos tipos principales de trabajo de Accenture, y los in...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACN" data-company="ACCENTURE PLC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/ACN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ACN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACCENTURE PLC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Accenture en la ciberseguridad es evidente a través of múltiples vías, incluida la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Accenture en la ciberseguridad es evidente a través de múltiples vías, incluida la asistencia a clientes con 'ciberseguridad como servicio' en respuesta a la creciente demanda. Esto se ve respaldado aún más por la asociación de Accenture con Nationwide Building Society para transformar...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACN" data-company="ACCENTURE PLC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/ACN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ACN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACCENTURE PLC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Accenture enfatiza sus capacidades en análisis de datos, destacando su combinación de tecnología y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Accenture enfatiza sus capacidades en análisis de datos, destacando su combinación de tecnología y liderazgo en la nube, datos e IA para ayudar a los clientes a construir su núcleo digital y optimizar las operaciones. Los ingresos por consultoría de la empresa se impulsan significativamente al ayuda...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACN" data-company="ACCENTURE PLC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/ACN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ACN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACCENTURE PLC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Accenture en soluciones digitales es evidente en sus esfuerzos. La empresa ayuda a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Accenture en soluciones digitales es evidente en sus esfuerzos por ayudar a los clientes a construir su núcleo digital, optimizar operaciones y acelerar las transformaciones digitales a través de la tecnología, los datos y la IA. La empresa ayuda a los clientes con planes empresariales...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACN" data-company="ACCENTURE PLC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/ACN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ACN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACCENTURE PLC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Accenture en la transformación digital es evidente en sus iniciativas estratégicas y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Accenture en la transformación digital es evidente en sus iniciativas estratégicas y compromisos con los clientes, ya que la empresa se posiciona como un socio de reinvención de confianza, ayudando a los clientes con transformaciones a gran escala y la construcción de un núcleo digital...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACN" data-company="ACCENTURE PLC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/ACN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ACN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACCENTURE PLC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Accenture demuestra su compromiso con el software empresarial a través de varias iniciativas clave....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Accenture demuestra su compromiso con el software empresarial a través de varias iniciativas clave. La empresa participa activamente en la modernización de los núcleos digitales, incluidos los sistemas ERP, y es relevante para industrias centrales como la fabricación digital. Accenture también está ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACN" data-company="ACCENTURE PLC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/ACN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ACN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACCENTURE PLC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Accenture generó $3.2 mil millones en el primer trimestre del año fiscal 2025. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Accenture en la industria de Servicios Financieros es evidente a través de sus flujos de ingresos, con el grupo de la industria de Servicios Financieros generando $3.2 mil millones en el primer trimestre del año fiscal 2025 y representando aproximadamente el 18% de los ingresos totales...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACN" data-company="ACCENTURE PLC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/ACN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ACN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACCENTURE PLC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Accenture demuestra su compromiso con los Servicios de Atención Médica. La empresa ha experimentado...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Accenture demuestra su compromiso con los Servicios de Atención Médica a través de una importante generación de ingresos dentro de su segmento de Salud y Servicios Públicos, reportando $3.813 mil millones. La empresa ha experimentado un fuerte crecimiento de los ingresos en Salud en varias regiones,...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACN" data-company="ACCENTURE PLC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/ACN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ACN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACCENTURE PLC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Accenture experimenta un crecimiento de los ingresos en Seguros en múltiples regiones, incluidas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Accenture experimenta un crecimiento de los ingresos en Seguros en múltiples regiones, incluidas EMEA y Asia Pacífico, donde contribuye al crecimiento general junto con sectores como Ciencias de la Vida, Banca y Servicio Público. Específicamente en Asia Pacífico, el crecimiento en Seguros y Servicio...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACN" data-company="ACCENTURE PLC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/ACN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ACN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACCENTURE PLC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Accenture ayuda a los clientes a acelerar su reinvención a través of la tecnología, los datos y las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Accenture en Soluciones de TI es evidente a través de su amplia gama de servicios, que incluyen tecnología y operaciones. La empresa ayuda a los clientes a acelerar su reinvención a través de la tecnología, los datos y las transformaciones digitales impulsadas por IA, y mediante ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DXC" data-company="DXC TECHNOLOGY CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DXC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DXC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DXC TECHNOLOGY CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DWC ayuda a las empresas globales a ejecutar sistemas de misión crítica. Los equipos de seguridad...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de DXC en Ciberseguridad es evidente a través de sus esfuerzos para ayudar a las empresas globales a ejecutar sistemas de misión crítica, modernizar TI, optimizar arquitecturas de datos y garantizar la seguridad en diversos entornos de nube. Los equipos de seguridad de DXC están apr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KD" data-company="KYNDRYL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/KD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">KD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KYNDRYL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kyndryl Consult representó el 22% de las firmas totales de la compañía. Este servicio es un motor...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Kyndryl con la Consultoría de TI es evidente a través del crecimiento y el impacto de Kyndryl Consult, que ha generado consistentemente aumentos de ingresos superiores al mercado, incluido un aumento del 25% este año. Este servicio es un motor clave de crecimiento, con muchos compro...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PLUS" data-company="EPLUS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/PLUS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PLUS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPLUS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa incluye las redes entre sus áreas principales de experiencia. La adquisición de SPG tuvo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con la Red Empresarial es evidente a través de varios puntos clave. Como proveedor líder de soluciones, la empresa incluye explícitamente las redes entre sus áreas principales de experiencia, junto con la seguridad, la nube, la colaboración y la IA. La estrategia de la em...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PLUS" data-company="EPLUS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/PLUS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PLUS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPLUS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se identifica como un proveedor líder de soluciones en redes. Ofreciendo estos servicios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La empresa se identifica como un proveedor líder de soluciones en redes, ofreciendo estos servicios a organizaciones nacionales y extranjeras en diversos segmentos de la industria. Las redes se destacan constantemente como una de sus áreas clave de experiencia, lo que indica un énfasis estratégico e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SAIC" data-company="SCIENCE APPLICATIONS INTE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/SAIC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SAIC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCIENCE APPLICATIONS INTE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SAIC ofrece soluciones de seguridad nacional a agencias de defensa e inteligencia de EE. UU. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de SAIC en el tema de Defensa Aeroespacial se demuestra a través de su segmento de Defensa e Inteligencia, que ofrece soluciones de seguridad nacional a agencias de defensa e inteligencia de EE. UU. Esto incluye la integración de tecnologías emergentes en operaciones críticas, la mo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SAIC" data-company="SCIENCE APPLICATIONS INTE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/SAIC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SAIC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCIENCE APPLICATIONS INTE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SAIC tiene un programa de nube significativo con el Departamento del Tesoro. La participación de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de SAIC con la computación en la nube es evidente a través de su Innovation Factory, que alberga equipos dedicados que se centran en tecnologías en la nube y utiliza un conjunto de herramientas alojado en la nube para el desarrollo de soluciones. La participación de la empresa en la nu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SAIC" data-company="SCIENCE APPLICATIONS INTE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/SAIC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SAIC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCIENCE APPLICATIONS INTE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SAIC está posicionada para capitalizar paquetes de gasto como la ley de infraestructura, la Ley de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de SAIC en ciberseguridad es evidente a través de su apoyo a las prioridades del Departamento de Defensa, incluida la ciberseguridad crítica prioritaria. Esto se demuestra aún más por la Fábrica de Innovación de SAIC, que incluye equipos designados centrados en ciberseguridad, y los...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SAIC" data-company="SCIENCE APPLICATIONS INTE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/SAIC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SAIC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCIENCE APPLICATIONS INTE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de SAIC en el segmento de Defensa e Inteligencia proporciona soluciones de seguridad...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de SAIC en el segmento de Defensa e Inteligencia proporciona soluciones de seguridad nacional al gobierno de EE. UU., en particular a las agencias de defensa e inteligencia. Esto incluye la integración de tecnologías emergentes en operaciones críticas para la misión, como la modernización...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SAIC" data-company="SCIENCE APPLICATIONS INTE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/SAIC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SAIC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCIENCE APPLICATIONS INTE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SAIC ofrece soluciones de seguridad nacional a agencias de defensa e inteligencia del gobierno de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de SAIC en el segmento de Defensa e Inteligencia, que ofrece soluciones de seguridad nacional a agencias de defensa e inteligencia del gobierno de EE. UU., destaca la participación de la empresa en el tema de Tecnología de Defensa. Sus ofertas integran tecnologías emergentes, como la mode...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SAIC" data-company="SCIENCE APPLICATIONS INTE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/SAIC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SAIC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCIENCE APPLICATIONS INTE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación of SAIC en la Integración Empresarial de IA es evidente. SAIC prioriza la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de SAIC en la Integración Empresarial de IA es evidente a través de la integración de tecnologías emergentes, incluida la IA, en operaciones críticas para la misión en ambos segmentos informables, modernizando y habilitando imperativos nacionales. Esto está respaldado además por el ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SAIC" data-company="SCIENCE APPLICATIONS INTE">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/SAIC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SAIC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SCIENCE APPLICATIONS INTE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SAIC brinda servicios y soluciones de ciclo de vida completo en el mercado de TI. La estrategia de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de SAIC en Soluciones de TI es evidente en su cambio estratégico hacia TI empresarial y de misión, alineándose con las prioridades de la administración actual para mejorar la adopción de tecnología. Como integrador de tecnología líder, SAIC brinda servicios y soluciones de ciclo de vida c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ASGN" data-company="ASGN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ASGN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ASGN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ASGN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de ASGN en la consultoría de TI es evidente a través ofertas de servicios tanto en el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de ASGN en la consultoría de TI es evidente a través de sus ofertas de servicios tanto en el sector comercial como en el gubernamental. Una parte sustancial de los ingresos de la empresa proviene de la consultoría de TI, y los ingresos totales de consultoría de TI representan un porcentaj...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDW" data-company="CDW CORP/DE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CDW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CDW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CDW CORP/DE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CDW aborda la evolución de los modelos de consumo de TI ofreciendo opciones 'como servicio',...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de CDW con la Infraestructura en la Nube se refleja en su provisión de soluciones y servicios de TI que incorporan capacidades tanto locales como en la nube en infraestructuras híbridas. Esto incluye una gama de ofertas, desde productos discretos de hardware y software hasta soluciones...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDW" data-company="CDW CORP/DE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CDW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CDW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CDW CORP/DE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CDW orquesta soluciones aprovechando ofertas de seguridad, software, híbridas y en la nube. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de CDW con Soluciones Digitales se refleja en su provisión de soluciones y servicios integrados de TI, que abarcan capacidades locales y en la nube en infraestructura híbrida, experiencia digital y seguridad. Estas soluciones son entregadas a través de una considerable fuerza laboral d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDW" data-company="CDW CORP/DE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CDW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CDW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CDW CORP/DE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CDW ofrece una amplia gama de productos de software, respaldados por especialistas e ingenieros de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de CDW en el software empresarial es evidente a través de su papel como revendedor para los principales editores de software, facilitando la adquisición de software y productos con licencia por parte de los usuarios finales. Las ventas netas de la empresa han aumentado debido a la d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDW" data-company="CDW CORP/DE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CDW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CDW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CDW CORP/DE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CDW aprovecha las ofertas de seguridad, software e híbridas y en la nube para ayudar a los clientes...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de CDW con la computación en la nube híbrida es evidente en sus inversiones estratégicas en áreas como la adopción y optimización de la nube, así como en sus soluciones y servicios de TI que abarcan capacidades locales y en la nube en infraestructura híbrida. Las ofertas de la empresa ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDW" data-company="CDW CORP/DE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CDW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CDW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CDW CORP/DE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CDW proveedor líder multimarca de estas soluciones para diversos sectores, incluidos negocios,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de CDW con las Soluciones de TI es evidente en su papel como proveedor líder multimarca de estas soluciones para diversos sectores, incluidos negocios, gobierno, educación y atención médica, en EE. UU., Reino Unido y Canadá. Las ofertas de la empresa van desde hardware y software hasta...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDW" data-company="CDW CORP/DE">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CDW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CDW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CDW CORP/DE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CDW ofrece una gama de productos de hardware y software, incluidos servidores, entregados a través...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de CDW con el tema de los servidores se evidencia en su variado desempeño de ventas en diferentes segmentos. Los aumentos en las ventas netas han sido impulsados por la demanda de los clientes de almacenamiento de datos y servidores, particularmente dentro de los segmentos Corporativo ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CTSH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTSH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant utiliza cada vez más tecnologías basadas en IA, incluida la IA generativa, en sus ofertas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Cognizant con la Consultoría de IA es evidente a través de sus esfuerzos para ayudar a los clientes a modernizar la tecnología y transformar experiencias en un mundo donde la IA está remodelando las organizaciones. La empresa utiliza cada vez más tecnologías basadas en IA, incluida ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CTSH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTSH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant es una de las empresa colaborativos más importantes en el desarrollo de aplicaciones. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cognizant en el Desarrollo de Aplicaciones es evidente a través de varias iniciativas. La empresa lanzó la Semana de Codificación Vibe para sus asociados con el fin de promover un ciclo de desarrollo de software habilitado por IA, y casi el 30% de su código fue generado por IA en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CTSH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTSH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant es un proveedor líder de servicios profesionales, diseñando negocios modernos. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cognizant en Servicios de Consultoría es evidente a través de sus servicios colaborativos, que incluyen explícitamente la consultoría. La empresa es reconocida como un proveedor líder de servicios profesionales, diseñando negocios modernos y entregando resultados estratégicos par...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CTSH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTSH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant ofrece servicios avanzados en ciberseguridad. Un nuevo GCC con Citizens Financial...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cognizant en el tema de Ciberseguridad es evidente a través de sus servicios colaborativos, que incluyen infraestructura y seguridad. La compañía ofrece servicios avanzados en ciberseguridad a través de sus centros de capacidad global (GCC), respaldados por plataformas de IA como...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CTSH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTSH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant es una empresa colaborativos con las Soluciones Digitales. Estas ofertas incluyen...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Cognizant con las Soluciones Digitales es evidente a través de sus servicios colaborativos, que incluyen explícitamente servicios y soluciones digitales. Estas ofertas, que incluyen implementaciones de tecnología impulsadas por IA, plataformas de IA y sistemas agénticos, se adaptan ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CTSH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTSH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant está activamente 'diseñando negocios modernos' La empresa proporciona 'investigación y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cognizant en Servicios de Ingeniería es evidente a través de varias actividades clave. La empresa está activamente 'diseñando negocios modernos' y proporciona 'investigación y desarrollo de ingeniería' como parte de sus servicios colaborativos. Cognizant está invirtiendo en ingen...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CTSH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTSH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant participa en la Integración Empresarial de IA. La empresa está ayudando activamente a los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cognizant en la Integración Empresarial de IA es evidente en sus iniciativas estratégicas y servicios centrados en el cliente. La empresa está ayudando activamente a los clientes en su transformación digital para convertirse en empresas preparadas para la IA y está incorporando t...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DXC" data-company="DXC TECHNOLOGY CO">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DXC" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DXC</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DXC TECHNOLOGY CO</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa destaca que las mejoras en GIS están impulsadas por las ofertas en la nube. DXC se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de DXC con los servicios en la nube es evidente en su apoyo a empresas globales a través de la modernización de TI, la optimización de la arquitectura de datos y la garantía de seguridad y escalabilidad en diversos entornos en la nube. La empresa destaca que las mejoras en GIS están...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EPAM" data-company="EPAM SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/EPAM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EPAM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPAM SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EPAM es un socio líder en consultoría de negocios y experiencia para empresas globales. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de EPAM con los Servicios de Consultoría es evidente a través de su autoidentificación como un socio líder en consultoría de negocios y experiencia para empresas globales. La empresa integra la consultoría de estrategia, experiencia y tecnología con su ejecución de ingeniería para ayud...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EPAM" data-company="EPAM SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/EPAM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EPAM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPAM SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EPAM ofrece servicios de transformación digital de extremo a extremo. El enfoque de EPAM en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de EPAM en soluciones digitales es evidente en su papel como proveedor líder de servicios de transformación digital, en la nube y habilitados por IA. La empresa ofrece servicios de transformación digital de extremo a extremo al combinar su herencia de ingeniería de software con consultorí...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EPAM" data-company="EPAM SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/EPAM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EPAM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPAM SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EPAM ofrece servicios de transformación digital de extremo a extremo, combinando su herencia con...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">EPAM enfatiza su papel como proveedor líder mundial de servicios de ingeniería digital, nube y transformación habilitada por IA, aprovechando su experiencia en ingeniería de software y estrategia integrada para abordar los desafíos de transformación de los clientes. La empresa ofrece servicios de tr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EPAM" data-company="EPAM SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/EPAM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EPAM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPAM SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EPAM es una proveedor global líder de servicios de transformación digital, en la nube and...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de EPAM con los Servicios de Ingeniería es evidente en su enfoque estratégico de combinar servicios nativos de IA con fortalezas centrales de ingeniería y consultoría, enfatizando la ejecución, el diseño, la construcción y la implementación de productos y plataformas empresariales de m...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EPAM" data-company="EPAM SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/EPAM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EPAM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPAM SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EPAM está posicionando estratégicamente como líder en la integración empresarial de IA. El enfoque...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">EPAM se está posicionando estratégicamente como líder en la integración empresarial de IA, lo que se demuestra en su objetivo declarado de convertirse en una empresa líder mundial en transformación nativa de IA. Esta ambición está respaldada por el desarrollo de plataformas como EPAM AI/RUN™ e inici...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EPAM" data-company="EPAM SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/EPAM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EPAM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPAM SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EPAM se está posicionando estratégicamente como una empresa de transformación nativa de IA. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">EPAM se está posicionando estratégicamente como una empresa de transformación nativa de IA, aprovechando la IA y la IA Generativa para proporcionar soluciones transformadoras y mejorar la innovación digital de los clientes. Esto se logra a través de plataformas como EPAM AI/RUN™ e iniciativas como D...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EPAM" data-company="EPAM SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/EPAM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EPAM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPAM SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EPAM ofrece servicios de transformación digital de extremo a extremo. La empresa construye...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">EPAM ofrece servicios de transformación digital de extremo a extremo, combinando su herencia de ingeniería de software con consultoría estratégica de negocios e innovación, pensamiento de diseño y capacidades físico-digitales. La empresa construye asociaciones a largo plazo proporcionando estrategia...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM Consulting es reconocida como un líder emergente en Servicios de Consultoría e Implementación...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en Consultoría de IA es evidente a través de varias actividades clave. La empresa es reconocida como un líder emergente en Servicios de Consultoría e Implementación de IA Generativa, con su brazo de consultoría interactuando activamente con los clientes para dar forma a sus e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM habilitado entornos de nube híbrida para cargas de trabajo de IA. La infraestructura juega un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en la Infraestructura de IA es evidente a través de su enfoque en habilitar entornos de nube híbrida para cargas de trabajo de IA, ya que la infraestructura juega un papel cada vez más importante para la empresa. Esto se destaca por el lanzamiento de IBM z17, que ofrece una a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM está transformando sus operaciones empresariales integrando IA en varias funciones. Esto se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de IBM con la Inteligencia Artificial es un elemento central de su estrategia general, y la empresa enfatiza su enfoque de nube híbrida e IA. Esto se demuestra mediante la integración de IA en más de 70 flujos de trabajo y el desarrollo de una cartera integral de IA diseñada para propo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM tiene varias iniciativas en Big Data, incluida la expansión de watsonx.data. La adquisición de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en Big Data es evidente a través de varias iniciativas, incluida la expansión de watsonx.data, que permite a los clientes empresariales acceder y obtener valor de datos no estructurados. Reforzando esto, la adquisición de DataStax agrega capacidades de datos escalables en tie...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La infraestructura juega un papel importante en la habilitación de entornos de nube híbrida para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en la Infraestructura Cloud es evidente a través de su estrategia de nube híbrida, que es un motor clave para la empresa. La infraestructura juega un papel importante en la habilitación de entornos de nube híbrida para transacciones críticas y cargas de trabajo de IA, especia...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de software de IBM está experimentando crecimiento, particularmente dentro of los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de IBM con el Software en la Nube es evidente en su enfoque estratégico y sus flujos de ingresos. El segmento de software de la empresa está experimentando crecimiento, particularmente dentro de los sectores de Nube Híbrida, Automatización y Datos, impulsado por su base de ingresos rec...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Consultoría ofrece servicios de estrategia, diseño de procesos, implementación de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en Servicios de Consultoría es evidente a través de sus ingresos de consultoría, que han mostrado signos de estabilización. El segmento de Consultoría de la compañía ofrece servicios de estrategia, diseño de procesos, implementación de sistemas y arquitectura en la nube, con ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM tiene un libro de negocios de GenAI que supera los $7.5 mil millones. IBM está expandiendo su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de IBM con la Integración Empresarial de IA es evidente a través de sus iniciativas estratégicas y la integración de IA en diversas funciones comerciales. La empresa está integrando IA en más de 70 flujos de trabajo y tiene un libro de negocios de GenAI que supera los $7.5 mil millones...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El volumen de negocio de IBM en IA generativa es sustancial. La empresa aprovecha sus ofertas de IA...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de IBM con la IA Generativa y los LLM es evidente a través de su liderazgo temprano y la plataforma Consulting Advantage. La estrategia de IA de la empresa es un elemento clave de su éxito, demostrado por una cartera enfocada que proporciona capacidades híbridas de nube e IA de extremo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de IBM en la computación híbrida en la nube es evidente en sus iniciativas estratégicas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de IBM en la computación híbrida en la nube es evidente en sus iniciativas estratégicas y soluciones. La estrategia de la empresa gira en torno a la nube híbrida y la IA, con IBM Z encarnando estas capacidades. La cartera de software de IBM se está reposicionando en torno a la nube híbrid...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM está transformando sus operaciones empresariales aprovechando la tecnología. IBM está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en Automatización Industrial es evidente a través de su cartera de automatización, que incluye la plataforma de automatización Red Hat Ansible y HashiCorp Terraform y Vault, con SAP planeando implementar esta cartera. Los ingresos por automatización han mostrado crecimiento, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM participa en el tema de Código abierto. Red Hat y OpenShift experimentan un crecimiento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en el tema de Código Abierto es evidente a través del rendimiento y la importancia estratégica de Red Hat y OpenShift. El crecimiento de Red Hat, con OpenShift alcanzando los 1.700 millones de dólares en ARR y experimentando un crecimiento de ingresos superior al 20%, demuest...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM demuestra su compromiso con la Computación Cuántica a través de despliegues y asociaciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">IBM demuestra su compromiso con la Computación Cuántica a través de despliegues y asociaciones estratégicas, incluida la instalación del IBM Quantum System Two en Japón con RIKEN, marcando el primer despliegue fuera de los Estados Unidos, y una asociación con el Gobierno Vasco para desplegar el prim...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICFI" data-company="ICF INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ICFI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ICFI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ICF INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de ICF en la consultoría de IA implica la combinación of su profundo conocimiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de ICF en la consultoría de IA implica la combinación de su profundo conocimiento institucional de los mercados y datos de los clientes con una experiencia probada en IA, código abierto, nativo de la nube y plataformas de código bajo y sin código disponibles comercialmente. Esta combinaci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICFI" data-company="ICF INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ICFI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ICFI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ICF INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ICF participa en los mercados de Energía, Medio Ambiente, Infraestructura y Recuperación de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ICF en el tema de Infraestructura Civil es evidente a través de su operación en los mercados de Energía, Medio Ambiente, Infraestructura y Recuperación de Desastres, donde la infraestructura se identifica como una de sus áreas clave. La experiencia de la empresa en esfuerzos de a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICFI" data-company="ICF INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ICFI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ICFI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ICF INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ICF demuestra su compromiso con la tecnología de energía limpia a través de adquisiciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">ICF demuestra su compromiso con la tecnología de energía limpia a través de adquisiciones estratégicas y un enfoque en soluciones tecnológicas. La empresa adquirió AEG, una empresa de tecnología y servicios de asesoramiento energético, mejorando sus ofertas de servicios a empresas de electricidad y ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICFI" data-company="ICF INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ICFI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ICFI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ICF INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ICF abarcan consultoría e implementación en gestión, tecnología and políticas. La empresa apoya a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ICF en Servicios de Consultoría es evidente a través de la provisión de servicios profesionales y soluciones basadas en tecnología, que abarcan consultoría e implementación en gestión, tecnología y políticas. La empresa apoya a los clientes en el desarrollo e implementación de so...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICFI" data-company="ICF INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ICFI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ICFI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ICF INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ICF es una oferta de servicios digitales adecuadas para el propósito. La empresa identifica...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ICF en Soluciones Digitales es evidente en su provisión de servicios digitales y soluciones tecnológicas adecuadas para el propósito, que están diseñadas para ser innovadoras, ágiles y escalables. La empresa identifica oportunidades de crecimiento en estas soluciones tecnológicas...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICFI" data-company="ICF INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ICFI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ICFI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ICF INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación of ICF en la industria de servicios públicos de electricidad es evidente. ICF...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ICF en la industria de servicios públicos de electricidad es evidente a través de sus relaciones con clientes de servicios públicos, que impulsan una parte significativa de su negocio de energía comercial. Esto se destaca por el aumento de los ingresos de los clientes de energía ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICFI" data-company="ICF INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ICFI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ICFI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ICF INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ICF demuestra su participación en la consultoría energética a través of sus servicios de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">ICF demuestra su participación en la consultoría energética a través de sus servicios de asesoramiento energético, que incluyen análisis de restricciones de combustible y pronóstico de precios. Esto está respaldado además por un aumento secuencial de los ingresos en la práctica de asesoramiento ener...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICFI" data-company="ICF INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ICFI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ICFI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ICF INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ICF participa en el tema de Eficiencia Energética. Esta experiencia es un componente central of su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ICF en el tema de Eficiencia Energética es evidente en su liderazgo en el mercado en el diseño, desarrollo e implementación de programas residenciales de eficiencia energética. Esta experiencia es un componente central de su trabajo energético comercial, contribuyendo a un sustan...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICFI" data-company="ICF INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ICFI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ICFI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ICF INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ICF también es reconocida como líder del mercado en el diseño e implementación of programas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ICF en Servicios Energéticos es evidente a través de varias actividades clave. La experiencia de la empresa en áreas como la gestión flexible de la carga, la electrificación y la resiliencia de la red impulsa el crecimiento de los ingresos, particularmente con clientes de energía...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICFI" data-company="ICF INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ICFI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ICFI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ICF INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ICF proporciona soluciones ambientales y de infraestructura, incluida la mitigación de desastres....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ICF en el tema de Tecnologías Ambientales es evidente a través de sus servicios ambientales y de planificación, que incluyen el desarrollo de evaluaciones de impacto ambiental. La empresa experimentó una fuerte demanda de estos servicios, particularmente en permisos de energía re...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ICFI" data-company="ICF INTERNATIONAL INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ICFI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ICFI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ICF INTERNATIONAL INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ICF ayuda a los clientes a abordar problemas tecnológicos complejos. La empresa aprovecha la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ICF en Consultoría de TI es evidente en la provisión de servicios profesionales y soluciones basadas en tecnología, incluyendo servicios de consultoría e implementación de tecnología. La empresa aprovecha la experiencia en áreas como IA, código abierto y plataformas nativas de la...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IT" data-company="GARTNER INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/IT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GARTNER INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Gartner Consulting es uno of los tres segmentos de negocio principales de la empresa. Esta división...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Gartner en Servicios de Consultoría es evidente a través de su establecimiento como uno de los tres segmentos de negocio principales de la empresa, junto con Investigación y Conferencias. Gartner Consulting amplía las capacidades de investigación de la empresa, ayudando a los cli...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KD" data-company="KYNDRYL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/KD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">KD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KYNDRYL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Kyndryl Consult es ahora un flujo de ingresos de 3.000 millones de dólares. El rendimiento de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Kyndryl con los Servicios de Consultoría es evidente a través del crecimiento y la importancia de Kyndryl Consult. El rendimiento de la empresa se vio impulsado por un crecimiento de ingresos de dos dígitos en Kyndryl Consult, con ingresos un 18% más altos y firmas un 45% más altas....</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MAN" data-company="MANPOWERGROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MAN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MAN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MANPOWERGROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa ofrece servicios de asesoramiento y consultoría en diversos sectores. La participación...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ManpowerGroup en servicios de consultoría es evidente a través de varias facetas de sus operaciones. La empresa ofrece servicios de asesoramiento y consultoría en diversos sectores, habilitados por su Work Intelligence Lab, y aprovecha información del mercado laboral en tiempo re...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PLUS" data-company="EPLUS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PLUS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PLUS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPLUS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa posee habilidades en gestión de datos, visualización of datos y análisis. No hay mención...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en la Infraestructura de Datos se demuestra a través de la provisión de soluciones de TI que optimizan los entornos de TI y los procesos de la cadena de suministro, lo que implícitamente involucra la infraestructura de datos. La empresa posee habilidades en gestión de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RHI" data-company="ROBERT HALF INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RHI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RHI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBERT HALF INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa enfatiza el apoyo a las necesidades de talento y consultoría de los clientes. Robert...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Robert Half en Servicios de Consultoría es evidente a través de su segmento Protiviti, que se especializa en soluciones de auditoría interna, gestión de riesgos, consultoría de negocios y tecnología. La empresa enfatiza el apoyo a las necesidades de talento y consultoría de los c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RHI" data-company="ROBERT HALF INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RHI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RHI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBERT HALF INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de Robert Half en Consultoría de TI se canaliza principalmente a través ofrece...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Robert Half en Consultoría de TI se canaliza principalmente a través de su segmento Protiviti, que ofrece soluciones de consultoría tecnológica. Este segmento se identifica repetidamente como un proveedor de estos servicios, lo que indica un enfoque y una inversión dedicados en e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ACN" data-company="ACCENTURE PLC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/ACN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ACN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ACCENTURE PLC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Accenture demuestra un fuerte enfoque en la integración empresarial de IA a través of su apoyo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Accenture demuestra un fuerte enfoque en la integración empresarial de IA a través de su apoyo integral a los clientes en diversas etapas de adopción de IA. Los ingresos por consultoría de la empresa se impulsan significativamente al ayudar a los clientes con transformaciones digitales lideradas por...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ASGN" data-company="ASGN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/ASGN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ASGN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ASGN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ASGN participa en el tema de servicios de consultoría. El segmento Comercial, el más grande de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ASGN en el tema de la industria de servicios de consultoría es evidente a través de su oferta de servicios en los sectores Comercial y de Gobierno Federal. El segmento Comercial, el más grande de la empresa, proporciona servicios de consultoría a empresas Fortune 1000 y grandes e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ASGN" data-company="ASGN INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/ASGN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ASGN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ASGN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ASGN ofrece soluciones de TI avanzadas al Departamento de Defensa, la comunidad de inteligencia y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ASGN en la contratación de defensa se realiza principalmente a través de su Segmento de Gobierno Federal, que ofrece soluciones de TI avanzadas al Departamento de Defensa, la comunidad de inteligencia y otras agencias críticas en apoyo de la seguridad nacional. Este segmento repr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDW" data-company="CDW CORP/DE">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CDW" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CDW</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CDW CORP/DE</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CDW demuestra su compromiso con los Servicios en the Nube. Las inversiones estratégicas de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CDW demuestra su compromiso con los Servicios en la Nube a través de su amplia gama de soluciones de TI que incluyen capacidades en la nube en infraestructura híbrida, experiencia digital y seguridad. Las inversiones estratégicas de la empresa se centran en la adopción y optimización de la nube, sie...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CTSH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTSH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant ha desarrollo e implementación de soluciones agentivas utilizando modelos LLM de Google....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cognizant con la IA en el sector de la salud es evidente a través de su desarrollo e implementación de soluciones agentivas utilizando modelos LLM de Google, abordando desafíos críticos de la atención médica como la eficiencia, la experiencia del cliente, la toma de decisiones cl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CTSH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTSH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant ayuda a los clientes a modernizar la tecnología, reimaginar los procesos y transformar...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Cognizant con la Transformación Digital es evidente a través de su papel como socio de transformación para clientes de diversas industrias, aprovechando la IA y otras tecnologías para impulsar la transformación del talento y la tecnología. Esto se destaca por su trabajo con un gran ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EPAM" data-company="EPAM SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/EPAM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EPAM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPAM SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EPAM AI/RUN, un SDLC nativo de IA, es part of EPAM's marco y kit de herramientas EPAM AI. EPAM...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de EPAM en el desarrollo de aplicaciones es evidente a través de su herencia en ingeniería de software y la provisión de servicios de transformación digital a sus clientes. La introducción en el tercer trimestre del marco y kit de herramientas EPAM AI/RUN, un SDLC nativo de IA, y su...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EPAM" data-company="EPAM SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/EPAM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EPAM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPAM SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EPAM es un proveedor global líder de servicios de transformación digital, en la nube and...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de EPAM con los Servicios en la Nube es evidente a través de su autoidentificación como un proveedor global líder de servicios de transformación digital, en la nube y habilitados por IA. Esto se ve respaldado aún más por las capacidades centrales de la empresa en plataformas, nube, dat...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EPAM" data-company="EPAM SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/EPAM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EPAM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPAM SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EPAM aborda los desafíos de transformación de los clientes integrando consultoría de estrategia,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de EPAM en la consultoría de TI es evidente en su oferta de servicios, ya que la compañía aborda los desafíos de transformación de los clientes integrando consultoría de estrategia, experiencia y tecnología. La compañía se identifica como un proveedor global líder de servicios de tr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM Z ofrece IA, seguridad y capacidad escalable. Los clientes invierten en IBM Z por su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de IBM en la ciberseguridad es evidente a través de su plataforma IBM Z, que ofrece IA, seguridad y capacidad escalable. Los clientes invierten en IBM Z por su fiabilidad, escalabilidad, seguridad y rendimiento, integrándose perfectamente con las estrategias de nube híbrida e IA. El próxi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IBM" data-company="INTL BUSINESS MACHINES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/IBM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IBM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">INTL BUSINESS MACHINES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IBM está aprovechando sus soluciones de software en la nube híbrida, automatización e IA para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IBM en software empresarial es evidente en su enfoque estratégico y generación de ingresos. El crecimiento de la empresa está impulsado notablemente por su división de software, que incluye Red Hat, Automation, Data y Transaction Processing, siendo el software una parte sustancia...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LDOS" data-company="LEIDOS HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/LDOS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LDOS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LEIDOS HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Leidos presta servicios al Departamento de Defensa de EE. UU., a la Comunidad de Inteligencia of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Leidos en la industria aeroespacial y de defensa es evidente a través de sus relaciones con entidades gubernamentales clave y su participación en diversos programas de defensa. La empresa presta servicios al Departamento de Defensa de EE. UU., a la Comunidad de Inteligencia de EE...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LDOS" data-company="LEIDOS HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/LDOS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LDOS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LEIDOS HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Leidos demuestra su enfoque en el Desarrollo de Aplicaciones. La empresa identifica los 'sistemas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Leidos demuestra su enfoque en el Desarrollo de Aplicaciones a través de varias iniciativas clave. La empresa identifica los 'sistemas de software de misión' como una de sus capacidades técnicas principales. Además, Leidos ha proporcionado a más de 1.000 desarrolladores de software herramientas de c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LDOS" data-company="LEIDOS HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/LDOS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LDOS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LEIDOS HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Leidos demuestra su enfoque en la Inteligencia Artificial al integrarla en sus productos, servicios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Leidos demuestra su enfoque en la Inteligencia Artificial al integrarla en sus productos, servicios y procesos internos. La compañía enfatiza la 'inteligencia artificial de misión confiable' como una de sus capacidades técnicas principales, que se está aplicando activamente para mejorar la efectivid...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LDOS" data-company="LEIDOS HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/LDOS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LDOS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LEIDOS HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Leidos ha invertido significativamente en esta área, incluyendo más de 75 millones de dólares en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Leidos demuestra su compromiso con la ciberseguridad a través de varias iniciativas clave. La empresa identifica las 'operaciones cibernéticas' como una de sus capacidades técnicas principales y como un componente clave de su estrategia North Star 2030, mencionando explícitamente la 'modernización d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RHI" data-company="ROBERT HALF INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/RHI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RHI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBERT HALF INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Robert Half ofrece soluciones de talento de colocación tanto temporal como permanente, incluyendo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Robert Half ofrece soluciones de talento de colocación tanto temporal como permanente, incluyendo personal para roles de marketing y creativos. Los segmentos de soluciones de talento temporal y colocación permanente de la empresa proporcionan profesionales de contratación y personal a tiempo complet...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WTY" data-company="WILLIS TOWERS WATSON PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/WTY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WTY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WILLIS TOWERS WATSON PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WTW ofrece una amplia gama de asesoramiento sobre riesgos y servicios de consultoría. Estos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de WTW en servicios de consultoría es evidente a través de la prestación de estos servicios, tecnología y soluciones destinadas a ayudar a los clientes a capitalizar las oportunidades en la gestión del capital humano. La empresa ofrece una amplia gama de asesoramiento sobre riesgos ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WTY" data-company="WILLIS TOWERS WATSON PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/WTY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WTY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WILLIS TOWERS WATSON PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WTW ayuda a los clientes a gestionar incidentes o crisis, incluidas auditorías de seguridad. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de WTW en el tema de la Ciberseguridad es evidente a través de su reconocimiento de los riesgos asociados con las brechas de ciberseguridad, las posibles brechas de los sistemas de información y la insuficiencia de la protección de datos del cliente. La empresa reconoce la importanc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WTY" data-company="WILLIS TOWERS WATSON PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/WTY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WTY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WILLIS TOWERS WATSON PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Willis Towers Watson ofrece soluciones basadas en datos en la gestión de personas, riesgos y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Willis Towers Watson con la industria de servicios financieros es evidente en su papel como empresa líder mundial de asesoramiento, corretaje y soluciones, que ofrece soluciones basadas en datos en la gestión de personas, riesgos y capital. La empresa opera en múltiples áreas de ser...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WTY" data-company="WILLIS TOWERS WATSON PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/WTY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WTY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WILLIS TOWERS WATSON PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Willis Towers Watson ofrece una amplia gama de asesoramiento sobre riesgos, corretaje de seguros y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Willis Towers Watson en Servicios de Seguros es evidente a través de su papel como corredor de seguros, actuando como intermediario entre clientes y aseguradoras. La empresa asesora sobre requisitos de gestión de riesgos, ayuda a los clientes a determinar los mejores medios para ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WTY" data-company="WILLIS TOWERS WATSON PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/WTY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WTY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WILLIS TOWERS WATSON PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WTW diseña y ofrece soluciones que gestionan el riesgo, optimizan los beneficios y amplían el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de WTW con las Soluciones de Seguros es evidente a través de sus ofertas integrales en gestión de riesgos y corretaje de seguros. La compañía diseña y ofrece soluciones que gestionan el riesgo, optimizan los beneficios y amplían el capital, actuando como intermediario entre los cliente...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WTY" data-company="WILLIS TOWERS WATSON PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/WTY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WTY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WILLIS TOWERS WATSON PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WTW combina consultoría y tecnología para crear valor para los clientes. La empresa utiliza Radar...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de WTW con las asociaciones de Insurtech es evidente a través de su negocio de Consultoría y Tecnología de Seguros (ICT), que combina consultoría y tecnología para crear valor para los clientes. La empresa utiliza Radar Vision, una herramienta de modelado impulsada por IA, para ayudar ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WTY" data-company="WILLIS TOWERS WATSON PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/WTY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WTY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WILLIS TOWERS WATSON PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WTW ofrece asesoramiento de inversión a los clientes. El segmento de Salud, Riqueza y Carrera de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de WTW en Gestión de Inversiones es evidente a través de su negocio de Wealth, que incluye servicios de gestión de inversiones, particularmente para fondos de beneficios definidos. El segmento de Salud, Riqueza y Carrera de la compañía abarca un negocio de Inversiones que ha mostrad...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WTY" data-company="WILLIS TOWERS WATSON PLC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/WTY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WTY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WILLIS TOWERS WATSON PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WTW ha vuelto a entrar en el sector de la intermediación de reaseguros a través of una empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">WTW ha vuelto a entrar en el sector de la intermediación de reaseguros a través de una empresa conjunta con Bain Capital, lo que indica un enfoque renovado en esta área. Esta medida incluye una inversión inicial y una opción para adquirir una participación mayoritaria en el futuro. Las actividades d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ASGN" data-company="ASGN INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/ASGN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ASGN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ASGN INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ASGN ofrece servicios creativos de marketing digital a empresas Fortune 1000. Este segmento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de ASGN en servicios de marketing es evidente a través de su Segmento Comercial, que ofrece servicios creativos de marketing digital a empresas Fortune 1000 y grandes empresas de mercado medio. Este segmento representa una parte importante de los ingresos totales de ASGN. Además, el...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CTSH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTSH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant recibió el premio Global Partner of the Year en Datos and Análisis. La compañía ayuda a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Cognizant en el análisis de datos es evidente a través de su apoyo a la transformación digital de los clientes en negocios basados en datos, con servicios digitales y mejorados por IA desempeñando un papel crucial en su cartera. Esto se ve respaldado además por el hecho de que la compa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CTSH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTSH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant se destaca a través de varias iniciativas clave, incluida una asociación estratégica con...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cognizant en Soluciones de TI se destaca a través de varias iniciativas clave, incluida una asociación estratégica con una importante empresa biofarmacéutica global para gestionar y transformar sus sistemas de TI utilizando IA Generativa e IA Agente. Esta colaboración tiene como ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EPAM" data-company="EPAM SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/EPAM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EPAM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPAM SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EPAM enfatiza la infraestructura en la nube como un componente importante de sus ofertas de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">EPAM enfatiza la infraestructura en la nube como un componente importante de sus ofertas de servicios, lo que se demuestra por su posición como proveedor global líder de servicios de ingeniería digital y transformación habilitada por la nube. La estrategia de asociación centrada en el cliente de la ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EPAM" data-company="EPAM SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/EPAM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EPAM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPAM SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El crecimiento de los ingresos en Servicios Financieros se ha atribuido a una mayor demanda de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de EPAM en Servicios de Seguros es evidente a través de su sector de Servicios Financieros, donde los ingresos se han visto influenciados por la demanda de clientes de seguros. Específicamente, el crecimiento de los ingresos en Servicios Financieros se ha atribuido a una mayor deman...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EPAM" data-company="EPAM SYSTEMS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/EPAM" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EPAM</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EPAM SYSTEMS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EPAM experimenta una demanda estable y de crecimiento modesto en América del Norte y Europa. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de EPAM con la industria de las Ciencias de la Vida es evidente a través de su vertical de 'Ciencias de la Vida y Atención Médica', que experimenta una demanda estable y de crecimiento modesto, particularmente en América del Norte y Europa. Este crecimiento está impulsado principalment...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IT" data-company="GARTNER INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/IT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GARTNER INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Gartner ayuda a numerosos ejecutivos a aprovechar la IA dentro of sus empresas. La empresa apoya a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Gartner con la Integración Empresarial de IA es evidente en sus esfuerzos por ayudar a numerosos ejecutivos a aprovechar la IA dentro de sus empresas, abordando un área significativa de incertidumbre para los clientes. La empresa apoya a los clientes en la ampliación de iniciativas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LDOS" data-company="LEIDOS HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/LDOS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LDOS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LEIDOS HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Aproximadamente el 87% of los ingresos totales de la empresa provienen de estos contratos. Leidos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Leidos con la contratación en defensa es evidente a través de sus importantes flujos de ingresos derivados de contratos con el gobierno de los EE. UU. Aproximadamente el 87% de los ingresos totales de la empresa provienen de estos contratos, con una parte sustancial originada en el ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LDOS" data-company="LEIDOS HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/LDOS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LDOS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LEIDOS HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Leidos ofrece innovaciones digitales y de misión a clientes gubernamentales y comerciales. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Leidos se identifica como un líder industrial y tecnológico que ofrece innovaciones digitales y de misión a clientes gubernamentales y comerciales. Las capacidades principales de la empresa, como la modernización digital y los sistemas de software de misión, destacan su participación en la provisión...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WTY" data-company="WILLIS TOWERS WATSON PLC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/WTY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WTY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WILLIS TOWERS WATSON PLC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WTW opera en la industria de corretaje de seguros. No suscribe riesgos asegurables por cuenta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">WTW demuestra su participación en productos de seguros a través de diversas actividades, incluido actuar como intermediario entre clientes y compañías de seguros asesorando sobre gestión de riesgos y negociando colocaciones de seguros. El negocio de Riesgos y Corretaje de la empresa ofrece solucione...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/CTSH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTSH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant demuestra un fuerte enfoque en la IA Generativa, integrándola tanto en las ofertas a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cognizant demuestra un fuerte enfoque en la IA Generativa, integrándola tanto en las ofertas a clientes como en las operaciones internas. Esto se evidencia en su asociación estratégica con una importante empresa biofarmacéutica para transformar los sistemas de TI utilizando IA Generativa e IA Agenti...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/CTSH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTSH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant está ayudando a un gran cliente sanitario a impulsar la productividad y financiar la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cognizant en la Automatización Sanitaria es evidente a través del avance de TriZetto de su estrategia de IA Agente, que incluye casi 30 agentes en funcionamiento o en fase piloto y otros 10 en desarrollo, optimizando los flujos de trabajo en la gestión de la atención, reclamacion...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/CTSH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTSH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant aprovecha la automatización para empoderar a los profesionales de atención al cliente. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cognizant con la Automatización Robótica de Procesos es evidente a través de sus servicios colaborativos, que incluyen servicios de procesos de negocio y automatización. La empresa aprovecha la automatización para empoderar a los profesionales de atención al cliente y mejorar las...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CTSH" data-company="COGNIZANT TECH SOLUTIONS-A">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/CTSH" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CTSH</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COGNIZANT TECH SOLUTIONS-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cognizant recibió un premio al Socio del Año de Soluciones para la Industria Minorista por...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cognizant en la gestión de almacenes se destaca por su colaboración con Lineage, el mayor propietario y operador de almacenes con temperatura controlada del mundo, donde aprovecha la logística, el servicio al cliente y la IA Agente. Esta colaboración implica el uso de IA, automat...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IT" data-company="GARTNER INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/IT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GARTNER INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Gartner asesorando tanto a usuarios finales sobre aplicaciones de IA como a proveedores de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de Gartner a la consultoría de IA es evidente a través de su papel como experto líder en el campo, asesorando tanto a empresas de usuarios finales sobre aplicaciones de IA como a proveedores de tecnología sobre cómo navegar por el mercado de la IA. La empresa declara explícitamente su ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IT" data-company="GARTNER INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/IT" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IT</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">GARTNER INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Gartner Consulting ayuda a los clientes a ejecutar iniciativas estratégicas. Esta rama de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Gartner en Consultoría de TI es evidente a través de su segmento de Consultoría, que atiende a altos ejecutivos en iniciativas estratégicas impulsadas por la tecnología. Gartner Consulting ayuda a los clientes a ejecutar iniciativas estratégicas con trabajo basado en proyectos, c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LDOS" data-company="LEIDOS HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/LDOS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LDOS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LEIDOS HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa desarrolla soluciones tecnológicas para el Departamento de Defensa de EE. UU. Leidos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Leidos demuestra su compromiso con la Tecnología de Defensa a través de varias iniciativas y capacidades clave. La empresa desarrolla soluciones tecnológicas para el Departamento de Defensa de EE. UU., aprovechando capacidades fundamentales en áreas como la modernización digital, las operaciones cib...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LDOS" data-company="LEIDOS HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/LDOS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LDOS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LEIDOS HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Leidos opera en sectores como Seguridad Nacional y Sistemas Digitales y de Defensa. El rendimiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Leidos en aplicaciones militares es evidente a través de su enfoque en abordar desafíos de seguridad nacional y sus asociaciones con entidades clave del gobierno de EE. UU., incluido el Departamento de Defensa y la Comunidad de Inteligencia. El rendimiento comercial de la empresa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LDOS" data-company="LEIDOS HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-06-30</td>
+            <td><a href="/profile/LDOS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LDOS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LEIDOS HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Sistemas de Defensa de la compañía experimentó un crecimiento debido al aumento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Leidos en la seguridad nacional está respaldado por sus capacidades técnicas en modernización digital, operaciones cibernéticas y sistemas integrados. El segmento de Sistemas de Defensa de la compañía experimentó un crecimiento debido al aumento de los volúmenes en programas como SDA W...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

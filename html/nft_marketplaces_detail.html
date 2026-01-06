@@ -1,0 +1,768 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>NFT Marketplaces - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">NFT Marketplaces</div>
+      <div class="sub-title">Investment Theme Detail - Technology Industry</div>
+    </div>
+    <a href="main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> NFT Marketplaces &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Technology &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 7
+    </div>
+
+    
+    <!-- Theme Chart Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Theme Chart</span>
+             <a href="equity_nft_marketplaces.html" target="_blank" class="btn-view-chart">View Full Chart ↗</a>
+        </div>
+        <div class="box-body" style="height: 600px; overflow:hidden;">
+            <iframe src="equity_nft_marketplaces.html" style="width:100%; height:100%; border:none; display:block;"></iframe>
+        </div>
+    </div>
+        
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">7</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">EBAY</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">EBAY INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona un mercado en línea para la venta de piezas y accesorios de automoción, facilitando transacciones dentro de la industria del mercado de re...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/EBAY" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">COIN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona un conjunto integral de servicios financieros basados en blockchain, que incluyen intercambio de criptomonedas, custodia y productos relac...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/COIN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">035720</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">KAKAO CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece una suite integral de servicios financieros digitales, incluyendo pagos móviles y banca, que son integrales para el avance de las soluciones fi...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/035720" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">4755</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">RAKUTEN GROUP INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Participa en el despliegue y operación de infraestructura de red 5G, contribuyendo a la expansión de la conectividad móvil de próxima generación....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/4755" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DKNG</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">DRAFTKINGS INC-CL A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Opera una importante plataforma de casino en línea, que ofrece una variedad de opciones de juego digital que amplían el alcance y la accesibilidad del...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DKNG" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">9888</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BAIDU INC-CLASS A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ocupa una posición destacada en la industria mundial de la conducción autónoma....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/9888" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">NKE</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">NIKE INC -CL B</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Diseña, desarrolla, comercializa y vende calzado deportivo, ropa, equipamiento y accesorios a nivel mundial, estableciéndose como una marca líder en l...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/NKE" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">37</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="NKE" data-company="NIKE INC -CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/NKE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NKE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NIKE INC -CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nike aprovecha los principales eventos deportivos como los majors de golf, la WNBA, la final de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Nike en el Entretenimiento Deportivo es evidente a través de su énfasis estratégico en atletas y actividades relacionadas con el deporte. La empresa se enfoca en cultivar relaciones más profundas con los atletas para obtener información e impulsar la innovación específica del dep...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NKE" data-company="NIKE INC -CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/NKE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NKE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NIKE INC -CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NIKE diseña, desarrolla, comercializa y vende ropa y accesorios deportivos. La empresa se enfoca en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NIKE en el tema de Ropa y Accesorios es evidente a través de sus operaciones globales, donde diseña, desarrolla, comercializa y vende ropa y accesorios deportivos. La empresa se enfoca en crear productos innovadores y codiciados para atletas específicos, con ejemplos como la Cole...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NKE" data-company="NIKE INC -CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/NKE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NKE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NIKE INC -CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NIKE diseña, desarrolla, comercializa y vende calzado deportivo, indumentaria, equipamiento,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de NIKE en Marcas de Consumo es evidente en su estrategia comercial principal, ya que la compañía diseña, desarrolla, comercializa y vende calzado deportivo, indumentaria, equipamiento, accesorios y servicios a nivel mundial. Una parte significativa de los ingresos de NIKE proviene de sus...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NKE" data-company="NIKE INC -CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/NKE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NKE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NIKE INC -CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NIKE Direct abarcan tiendas minoristas y plataformas digitales propiedad de NIKE. La compañía ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de NIKE está significativamente ligado al comercio minorista de artículos deportivos, como lo demuestran el diseño, desarrollo, marketing y venta de calzado, indumentaria, equipos y accesorios deportivos a nivel mundial. Su estrategia de distribución implica operaciones de NIKE Direct, qu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NKE" data-company="NIKE INC -CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/NKE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NKE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NIKE INC -CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Nike es el mayor vendedor de calzado deportivo. Esto está respaldado por su integración de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Nike en la innovación en calzado es evidente en su estrategia de crear productos innovadores y 'debe tener' y su posición como el mayor vendedor de calzado deportivo. Esto está respaldado por su integración de plataformas de innovación líderes en la industria como Nike Air, Flyknit, Zo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NKE" data-company="NIKE INC -CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/NKE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NKE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NIKE INC -CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NIKE Direct incluyen las plataformas digitales de la marca NIKE. La empresa enfatiza la entrega de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Nike con el comercio electrónico es evidente a través de sus operaciones NIKE Direct, que incluyen las plataformas digitales de la marca NIKE, un canal de distribución clave junto con las cuentas mayoristas. La empresa enfatiza la entrega de experiencias de consumo atractivas a trav...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NKE" data-company="NIKE INC -CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/NKE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NKE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NIKE INC -CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NIKE está innovando activamente en la industria de fabricación de prendas de vestir. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NIKE en la industria de fabricación de prendas de vestir es evidente a través de su diseño, desarrollo, comercialización y venta de prendas deportivas en todo el mundo, con ingresos de prendas de la marca NIKE que alcanzaron los $3,193 millones en el tercer trimestre del año fisc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NKE" data-company="NIKE INC -CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/NKE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NKE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NIKE INC -CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NIKE Direct incluyen tiendas minoristas propiedad de NIKE. La empresa rastrea las ventas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de NIKE con la presencia física es evidente a través de sus operaciones NIKE Direct, que incluyen tiendas minoristas propiedad de NIKE. La empresa rastrea las ventas comparables de tiendas, una métrica clave que comprende los ingresos de las tiendas en línea y de fábrica propiedad de N...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase aprovecha su infraestructura criptográfica para empoderar a las empresas a través of sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Coinbase demuestra su compromiso con la tecnología blockchain a través de varias iniciativas clave. La empresa aprovecha su infraestructura criptográfica para empoderar a las empresas a través de sus capacidades de Cripto como Servicio, que admiten custodia, comercio y pagos para más de 240 empresas...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase se centra en impulsar el crecimiento en negocios centrales como el comercio. Este...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de Coinbase al Comercio de Criptomonedas es sustancial, ya que es el núcleo de su modelo de negocio. Los ingresos de la empresa dependen en gran medida de los ingresos por transacciones derivados del comercio de criptomonedas, y están trabajando activamente para expandir su plataforma ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase almacena de forma segura el AOP adicional de los clientes. AOP representan el valor total...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Coinbase con los Servicios de Custodia es evidente a través de sus Activos en Plataforma (AOP), que representan el valor total de los activos de USDC y cripto mantenidos o administrados para los clientes, incluidos los servicios de custodia. Este AOP demuestra la confianza que los c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase está comprometido con las soluciones de pago. Esto incluye USDC, Base, aplicaciones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Coinbase está significativamente comprometido con las soluciones de pago, considerándolo un área de crecimiento central y el próximo caso de uso importante para las criptomonedas, con el objetivo de que la mayoría de los pagos se ejecuten en vías de stablecoin. Esto está respaldado por su pila de pa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase se enfoca en construir un 'exchange de todo' para facilitar la negociación of varios tipos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Coinbase se enfoca en construir un 'exchange de todo' para facilitar la negociación de varios tipos de activos en canales de criptomonedas, integrando exchanges descentralizados en su plataforma. Esta iniciativa incluye ofrecer un conjunto completo de derivados y futuros y opciones perpetuas, destac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DKNG" data-company="DRAFTKINGS INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DKNG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DKNG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DRAFTKINGS INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DraftKings tiene una presencia significativa en el mercado de juegos de casino. Los ingresos netos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">DraftKings tiene una presencia significativa en el mercado de juegos de casino a través de su oferta de productos de casino en línea (iGaming). Los ingresos netos de iGaming de la compañía han experimentado un crecimiento interanual sustancial, impulsado por un aumento en los clientes activos de iGa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DKNG" data-company="DRAFTKINGS INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DKNG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DKNG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DRAFTKINGS INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DraftKings es una empresa de entretenimiento deportivo digital y juegos. Ofrece principalmente...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">DraftKings se identifica como una empresa de entretenimiento deportivo digital y juegos, que ofrece principalmente apuestas deportivas en línea y minoristas, casino en línea y productos de deportes de fantasía diarios. Una parte importante de los ingresos de la empresa proviene de sus ofertas de pro...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DKNG" data-company="DRAFTKINGS INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DKNG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DKNG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DRAFTKINGS INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa tiene como objetivo aumentar la emoción a través oferta de juegos con dinero real. Esto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de la empresa con la Industria del Entretenimiento es evidente a través de su autoidentificación como una empresa de entretenimiento deportivo digital y juegos que compite en las industrias globales de entretenimiento y juegos. Esto se ve reforzado por su oferta de productos, que incluye...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DKNG" data-company="DRAFTKINGS INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DKNG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DKNG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DRAFTKINGS INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DraftKings es una empresa de entretenimiento deportivo digital y juegos. Ofrece a los usuarios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">DraftKings se identifica como una empresa de entretenimiento deportivo digital y juegos, que ofrece a los usuarios diversas ofertas de productos, que incluyen apuestas deportivas en línea y minoristas (Sportsbook), casino en línea (iGaming) y deportes de fantasía diarios (DFS). Una parte importante ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DKNG" data-company="DRAFTKINGS INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DKNG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DKNG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DRAFTKINGS INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DraftKings es una empresa de entretenimiento deportivo y juegos digitales. Ofrece apuestas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">DraftKings se identifica como una empresa de entretenimiento deportivo y juegos digitales, que ofrece apuestas deportivas en línea y minoristas (Sportsbook), casino en línea (iGaming) y ofertas de productos de deportes de fantasía diarios (DFS). La empresa declara explícitamente su capacidad para co...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase proporciona infraestructura de custodia, negociación y pago a más de 240 empresas. Esto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Coinbase con los servicios de Blockchain es evidente a través de su oferta de Cripto como Servicio (CaaS), que proporciona infraestructura de custodia, negociación y pago a más de 240 empresas. Esto incluye potenciar más del 80% de la custodia para los emisores de cripto ETFs y asoc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EBAY" data-company="EBAY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/EBAY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EBAY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EBAY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ebay adquirió Caramel, un proveedor de soluciones de transacciones automotrices en línea de extremo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de eBay en el tema del comercio electrónico automotriz es evidente a través de varias actividades clave. Las plataformas de Marketplace de la empresa facilitan las transacciones en línea de piezas y accesorios de vehículos, y se identifican las Piezas y Accesorios para Motores (P&A)...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EBAY" data-company="EBAY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/EBAY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EBAY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EBAY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ebay genera más de 10 mil millones de dólares en GMV anualmente. eBay ha ampliado sus servicios de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de eBay con el tema de Ropa y Accesorios es evidente a través de varias iniciativas y resultados financieros. La categoría de moda de la empresa genera más de 10 mil millones de dólares en GMV anualmente, y categorías de enfoque como artículos de lujo y ropa han contribuido positivamente...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EBAY" data-company="EBAY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/EBAY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EBAY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EBAY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ebay se identifica como líder mundial en comercio, conectando compradores y vendedores en más de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de eBay con el tema del Comercio Electrónico es fuerte, ya que la empresa se identifica como líder mundial en comercio, conectando compradores y vendedores en más de 190 mercados a través de sus plataformas de mercado en línea. Todo el modelo de negocio de la empresa gira en torno a sus ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EBAY" data-company="EBAY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/EBAY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EBAY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EBAY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ebay opera una plataforma de comercio global líder que conecta a millones of compradores. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de eBay con el tema del Mercado en Línea es fuerte, ya que la empresa opera una plataforma de comercio global líder que conecta a millones de compradores y vendedores en numerosos mercados. Las plataformas de mercado de la empresa, incluido su mercado en línea en www.ebay.com, mercados f...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NKE" data-company="NIKE INC -CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/NKE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NKE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NIKE INC -CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NIKE ofrece equipamiento y accesorios adecuados para actividades de ocio. Productos representan un...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de NIKE en la industria de productos de ocio se refleja en el diseño, desarrollo, comercialización y venta de calzado deportivo, ropa, equipamiento y accesorios en todo el mundo. Si bien NIKE ofrece equipamiento y accesorios adecuados para actividades de ocio, estos productos repres...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DKNG" data-company="DRAFTKINGS INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/DKNG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DKNG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DRAFTKINGS INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DraftKings obtiene una parte significativa de sus ingresos de los juegos en línea a través ofertas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">DraftKings se identifica como una empresa de entretenimiento deportivo digital y juegos de azar, que obtiene una parte significativa de sus ingresos de los juegos en línea a través de sus ofertas de productos Sportsbook e iGaming. La empresa se enfoca en expandir sus ofertas de productos Sportsbook ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DKNG" data-company="DRAFTKINGS INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/DKNG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DKNG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DRAFTKINGS INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DraftKings ofrece apuestas deportivas, casino en línea (iGaming) y deportes de fantasía diarios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">DraftKings se identifica como una empresa de entretenimiento deportivo digital y juegos, que ofrece apuestas deportivas en línea y minoristas, casino en línea (iGaming) y deportes de fantasía diarios (DFS). El enfoque de la empresa en expandir sus ofertas de productos Sportsbook e iGaming es una pri...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase ofrece capacidades de Criptomonedas como Servicio, que incluyen custodia, comercio y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Coinbase en las criptomonedas y la construcción de infraestructura financiera subraya su compromiso con las Soluciones Fintech, con el objetivo de ser la plataforma de servicios financieros número 1 a nivel mundial. La empresa proporciona infraestructura para nuevos participantes, vend...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="NKE" data-company="NIKE INC -CL B">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/NKE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">NKE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">NIKE INC -CL B</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">NIKE is el mayor vendedor mundial de calzado y ropa deportiva. Los productos de la compañía se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La posición de NIKE como el mayor vendedor mundial de calzado y ropa deportiva establece firmemente su importancia dentro del sector minorista. Los productos de la compañía se distribuyen a través de operaciones de NIKE Direct, que incluyen tiendas minoristas y plataformas digitales propiedad de NIK...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DKNG" data-company="DRAFTKINGS INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/DKNG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DKNG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DRAFTKINGS INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DraftKings es una empresa de entretenimiento y juegos deportivos digitales. El negocio principal...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">DraftKings se identifica como una empresa de entretenimiento y juegos deportivos digitales, con su negocio principal girando en torno al entretenimiento deportivo, específicamente su producto Sportsbook. El enfoque de la empresa en el entretenimiento deportivo es evidente en su análisis continuo de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EBAY" data-company="EBAY INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/EBAY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EBAY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EBAY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ebay está ampliando la adopción de su solución de envío gestionado para vendedores C2C del Reino...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de eBay con el tema de consumidor a consumidor (C2C) es evidente a través de varias iniciativas, particularmente en el Reino Unido, donde han introducido nuevas capacidades para mejorar la experiencia C2C, con el objetivo de reducir las fricciones y estimular la venta por parte de los ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EBAY" data-company="EBAY INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/EBAY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EBAY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EBAY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Ebay ofrece servicios financieros adicionales a compradores y vendedores dentro of su sistema de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Ebay con las Soluciones de Pago es evidente en su enfoque estratégico para mejorar la elección del comprador, reducir la fricción de conversión y expandir las soluciones para los vendedores. Esto se destaca por la expansión de su asociación con Klarna al mercado de EE. UU. Además, l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DKNG" data-company="DRAFTKINGS INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/DKNG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DKNG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DRAFTKINGS INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DraftKings ofrece casino en línea (iGaming) y deportes de fantasía diarios (DFS) a través ofertas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de DraftKings en el tema de los Juegos Móviles es evidente a través de sus ofertas de casino en línea (iGaming) y deportes de fantasía diarios (DFS), a las que se puede acceder desde dispositivos móviles. La compañía destaca su década de experiencia en juegos en línea y móviles en E...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase's volumen de trading institucional reportado constituye una parte importante de su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Coinbase en el trading institucional es evidente a través de su volumen de trading institucional reportado, que constituye una parte importante de su actividad de trading general. El enfoque de la empresa en 'profundizar la adopción institucional' indica un esfuerzo estratégico p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase se centra en profundizar la adopción institucional, escalar el crecimiento internacional....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Coinbase con la economía digital es evidente a través de sus esfuerzos para impulsar el crecimiento de los ingresos, mejorar la utilidad de las criptomonedas y lograr claridad regulatoria. La empresa se centra en profundizar la adopción institucional, escalar el crecimiento internac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase promueve las finanzas onchain a través of recompensas de USDC. El desarrollo de Base por...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Coinbase con las Finanzas Descentralizadas es evidente a través de varias iniciativas, incluida la integración de exchanges descentralizados en la aplicación Coinbase, con el objetivo de proporcionar acceso a millones de tokens. El desarrollo de Base por parte de la empresa, una sol...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EBAY" data-company="EBAY INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/EBAY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EBAY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EBAY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EBay opera plataformas de Marketplace, incluido su mercado en línea en www.ebay.com. eBay conecta a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">EBay opera plataformas de Marketplace, incluido su mercado en línea en www.ebay.com, que conecta a numerosos compradores y vendedores en más de 190 mercados. Estas plataformas facilitan las compras en línea al proporcionar una amplia selección de productos y valor, lo que permite a compradores y ven...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="EBAY" data-company="EBAY INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/EBAY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">EBAY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">EBAY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">EBay mejoró la elección del comprador, reducir la fricción en la conversión. Esto se demuestra a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de EBay en mejorar la elección del comprador, reducir la fricción en la conversión y expandir las soluciones para los vendedores es evidente en sus servicios de pago y financieros. Esto se demuestra a través de la expansión de su asociación con Klarna al mercado estadounidense, ofreciendo...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

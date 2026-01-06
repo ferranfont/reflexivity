@@ -1,0 +1,1221 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Pharmacy Benefit Management - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Pharmacy Benefit Management</div>
+      <div class="sub-title">Investment Theme Detail - Health Industry</div>
+    </div>
+    <a href="/main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Pharmacy Benefit Management &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Health &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 9
+    </div>
+
+    
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">9</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CVS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CVS HEALTH CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Integra inteligencia artificial en sus extensos servicios de atención médica para mejorar la atención al paciente, optimizar la eficiencia operativa y...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CVS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CI</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">THE CIGNA GROUP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Utiliza inteligencia artificial para optimizar la prestación de servicios de salud, mejorar los resultados de los pacientes y optimizar la eficiencia ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CI" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">UNH</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">UNITEDHEALTH GROUP INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aplica inteligencia artificial para optimizar las operaciones financieras dentro de sus servicios de atención médica, abarcando áreas como el procesam...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/UNH" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ELV</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ELEVANCE HEALTH INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha la inteligencia artificial para mejorar las operaciones de atención médica, personalizar las experiencias de los miembros y mejorar los resu...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ELV" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">HUM</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">HUMANA INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Utiliza inteligencia artificial para optimizar la prestación de servicios de atención médica, mejorar la eficiencia operativa y potenciar los resultad...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/HUM" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CNC</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CENTENE CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha la inteligencia artificial en el sector de la salud para mejorar la eficiencia operativa y la atención al paciente....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CNC" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">MCK</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">MCKESSON CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Tiene presencia en la industria de IA en la Salud....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/MCK" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CAH</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CARDINAL HEALTH INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha la inteligencia artificial para mejorar la eficiencia operativa y optimizar la gestión de la cadena de suministro dentro del sector de la sa...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CAH" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">PGNY</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">PROGYNY INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Tiene un enfoque empresarial en la interacción de salud digital....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/PGNY" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">80</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="MCK" data-company="MCKESSON CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MCKESSON CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento Internacional de la empresa abarca operaciones minoristas en Canadá y Noruega. McKesson...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de McKesson con el tema de Retail de Atención Médica se demuestra a través de sus operaciones internacionales y el apoyo a las farmacias comunitarias. El segmento Internacional de la empresa abarca operaciones minoristas en Canadá y Noruega, incluidas las farmacias minoristas de Rexall...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCK" data-company="MCKESSON CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MCKESSON CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">McKesson demuestra su compromiso con las Soluciones de Cadena de Suministro. La empresa invierte en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">McKesson demuestra su compromiso con las Soluciones de Cadena de Suministro a través de varias iniciativas clave. La empresa invierte en su red de distribución modernizando instalaciones e implementando tecnologías automatizadas como el almacenamiento y recuperación automatizados y sistemas de picki...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCK" data-company="MCKESSON CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MCKESSON CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">McKesson distribuye medicamentos biosimilares dentro of los Estados Unidos. Recientes lanzamientos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de McKesson con el tema de los Biosimilares es evidente a través de su segmento Farmacéutico de EE. UU., que distribuye medicamentos biosimilares dentro de los Estados Unidos. Si bien McKesson considera los biosimilares como un contribuyente constante a las ganancias y una oportunidad ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCK" data-company="MCKESSON CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MCKESSON CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">McKesson distribuye una amplia gama de medicamentos farmacéuticos. El papel de McKesson como...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de McKesson en el tema de Productos Farmacéuticos es evidente a través de su segmento de Productos Farmacéuticos de EE. UU., que distribuye una amplia gama de medicamentos farmacéuticos, incluidos productos de marca, genéricos, especializados y biosimilares. El enfoque estratégico d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCK" data-company="MCKESSON CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MCKESSON CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">McKesson es una unidad dedicada a proporcionar distribución de suministros médico-quirúrgicos,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de McKesson en el tema de la industria de Suministros Médicos es evidente a través de su segmento de Soluciones Médico-Quirúrgicas, una unidad dedicada a proporcionar distribución de suministros médico-quirúrgicos, logística y otros servicios a diversos proveedores de atención médic...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCK" data-company="MCKESSON CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MCKESSON CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">McKesson es una líder diversificado en servicios de atención médica dedicado a mejorar los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de McKesson con el tema de la industria de Servicios de Atención Médica es evidente a través de su posicionamiento estratégico como líder diversificado en servicios de atención médica dedicado a mejorar los resultados de salud. Este compromiso se demuestra a través del segmento de Prod...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCK" data-company="MCKESSON CORP">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MCKESSON CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">McKesson se asocia con empresas biofarmacéuticas, proveedores de atención, farmacias, fabricantes y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de McKesson en Soluciones de Atención Médica es evidente en su papel como líder diversificado en servicios de atención médica dedicado a mejorar los resultados de salud de los pacientes. La empresa se asocia con empresas biofarmacéuticas, proveedores de atención, farmacias, fabricantes y ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAH" data-company="CARDINAL HEALTH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CAH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARDINAL HEALTH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cardinal Health optimiza su huella global y aumenta la resiliencia de la cadena de suministro para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cardinal Health enfatiza su papel en la mejora de la eficiencia del sistema de atención médica y la cadena de suministro a través de sus servicios y soluciones. La empresa optimiza su huella global y aumenta la resiliencia de la cadena de suministro para sus clientes, incluidas las inversiones en ca...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAH" data-company="CARDINAL HEALTH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CAH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARDINAL HEALTH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cardinal Health ofrece soluciones integrales en todo el continuo de atención. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cardinal Health en Servicios de Salud es evidente en su papel como compañía global de servicios y productos de atención médica, que ofrece soluciones integrales en todo el continuo de atención. La compañía proporciona soluciones personalizadas para diversas instalaciones de atenc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAH" data-company="CARDINAL HEALTH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CAH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARDINAL HEALTH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cardinal Health está adquiriendo Advanced Diabetes Supply Group (ADSG), un proveedor de suministros...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cardinal Health en la industria de Dispositivos Médicos es evidente a través de su segmento de Productos y Distribución Médica Global (GMPD), que fabrica, adquiere y distribuye productos y dispositivos médicos, quirúrgicos y de laboratorio de marca Cardinal Health. Reforzando est...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAH" data-company="CARDINAL HEALTH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CAH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARDINAL HEALTH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cardinal Health es part of the Global Medical Products and Distribution (GMPD) segmento. GMPD...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cardinal Health en la industria de Suministros Médicos es evidente a través de la fabricación, adquisición y distribución de productos médicos, quirúrgicos y de laboratorio de marca Cardinal Health, vendidos en múltiples continentes a través del segmento Global Medical Products a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAH" data-company="CARDINAL HEALTH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CAH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARDINAL HEALTH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cardinal Health proporciona productos farmacéuticos y médicos. Su segmento de Soluciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cardinal Health en el tema de la industria farmacéutica es evidente a través de sus operaciones comerciales principales. La empresa proporciona explícitamente productos farmacéuticos y médicos, siendo su segmento de Soluciones Farmacéuticas y Especializadas su negocio más grande ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAH" data-company="CARDINAL HEALTH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CAH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARDINAL HEALTH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cardinal Health ofrece servicios de gestión de farmacias a hospitales. La participación de Cardinal...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cardinal Health en la Gestión de Beneficios Farmacéuticos se demuestra a través de su segmento Pharma, que ofrece servicios de gestión de farmacias a hospitales y opera un número limitado de farmacias, incluidas las de centros de salud comunitarios. La importancia de este tema se...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCK" data-company="MCKESSON CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MCKESSON CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La conexión de McKesson con el Segmento Minorista es multifacética. La empresa proporciona...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de McKesson con el Segmento Minorista es multifacética, derivada de su segmento Farmacéutico de EE. UU., que proporciona soluciones a diversas farmacias, y su apoyo a las farmacias comunitarias, incluida la franquicia Health Mart. Si bien McKesson se ha desprendido de algunos activos min...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCK" data-company="MCKESSON CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MCKESSON CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">McKesson Canada se enfoca en automatizar la entrega de medicamentos para tratamientos más rápidos y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de McKesson en Automatización de la Atención Médica es evidente a través de varias iniciativas, incluida la expansión del grupo dedicado a la automatización de McKesson Canada, que se enfoca en automatizar la entrega de medicamentos para tratamientos más rápidos y seguros. Además, M...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCK" data-company="MCKESSON CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MCKESSON CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">McKesson's segmento de Soluciones de Tecnología de Prescripción (RxTS) desempeña un papel crucial...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de McKesson con la gestión de beneficios farmacéuticos es evidente a través de su segmento de Soluciones de Tecnología de Prescripción (RxTS), que desempeña un papel crucial en la conexión de varios interesados, incluidos pacientes, farmacias, proveedores, administradores de beneficios...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCK" data-company="MCKESSON CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MCKESSON CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">McKesson ha llegado a un acuerdo para adquir una participación mayoritaria en Community Oncology...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de McKesson en la Investigación Oncológica es evidente a través de su segmento Farmacéutico de EE. UU., que apoya las prácticas oncológicas comunitarias al proporcionar tecnología, soporte clínico y soluciones empresariales. Reforzando este enfoque, McKesson ha llegado a un acuerdo ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAH" data-company="CARDINAL HEALTH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CAH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARDINAL HEALTH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cardinal Health brinda diversos servicios a fabricantes biofarmacéuticos y proveedores de atención...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cardinal Health en Soluciones Biológicas es evidente a través de su segmento BioPharma Solutions, que brinda diversos servicios a fabricantes biofarmacéuticos y proveedores de atención médica, incluidas redes especializadas, logística de terceros y programas de apoyo al paciente....</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCK" data-company="MCKESSON CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MCKESSON CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">McKesson tiene como objetivo mejorar los resultados de los pacientes. Este segmento se enfoca en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de McKesson con la participación en salud digital es evidente a través de su segmento de Soluciones de Tecnología de Prescripción, que aprovecha la automatización para conectar a pacientes, farmacias, proveedores, administradores de beneficios de farmacia, planes de salud y empresas bi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAH" data-company="CARDINAL HEALTH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CAH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARDINAL HEALTH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">ION, una red de oncología comunitaria independiente liderada by médicos, por 1.100 millones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de la empresa en la Investigación Oncológica se produce principalmente a través de la adquisición de ION, una red de oncología comunitaria independiente liderada por médicos, por 1.100 millones de dólares. ION apoya una gama de servicios que incluyen oncología médica, oncología radi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAH" data-company="CARDINAL HEALTH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CAH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARDINAL HEALTH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cardinal Health ofrece productos farmacéuticos y médicos, junto with soluciones rentables...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cardinal Health en la Gestión de la Cadena de Suministro es evidente en su provisión de productos farmacéuticos y médicos, junto con soluciones rentables destinadas a mejorar la eficiencia de la cadena de suministro. El enfoque de la empresa se extiende a conectar pacientes, prov...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MCK" data-company="MCKESSON CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">MCK</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MCKESSON CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">McKesson se enfoca en la distribución de suministros médicos-quirúrgicos. La compañía está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de McKesson con la Gestión de la Cadena de Suministro es evidente a través de su segmento de Soluciones Médicas-Quirúrgicas, que se enfoca en la distribución de suministros médicos-quirúrgicos, logística y otros servicios relacionados para proveedores de atención médica. La compañía es...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAH" data-company="CARDINAL HEALTH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CAH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARDINAL HEALTH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cardinal Health participa en la comercialización de medicamentos. La empresa distribuye productos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cardinal Health participa en la comercialización de medicamentos a través de varias actividades clave. La empresa distribuye productos farmacéuticos, incluyendo productos farmacéuticos especializados y de venta libre, y proporciona servicios a fabricantes biofarmacéuticos a través de su BioPharma So...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CAH" data-company="CARDINAL HEALTH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CAH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CARDINAL HEALTH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cardinal Health participa en la Red de Logística. OptiFreight Logistics de la empresa brinda...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cardinal Health en la Red de Logística es evidente a través de sus inversiones en capacidad de distribución y automatización, incluido el lanzamiento de un Centro de Logística de Salud del Consumidor y planes para un nuevo centro de distribución en la Costa Oeste. OptiFreight Log...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CVS" data-company="CVS HEALTH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CVS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CVS HEALTH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CVS Health ofrece servicios de atención médica a través de sus clínicas merdicas. La compañía se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de CVS Health con los servicios de atención médica es evidente a través de su enfoque multifacético para proporcionar soluciones de salud. La compañía se dedica a abordar importantes desafíos de atención médica, como la asequibilidad, el acceso y la coordinación de la atención, aprovec...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CI" data-company="THE CIGNA GROUP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">THE CIGNA GROUP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cigna demuestra su participación en el tema de los biosimilares a través de varias iniciativas....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cigna demuestra su participación en el tema de los biosimilares a través de varias iniciativas, incluida una mayor adopción de biosimilares intercambiables de HUMIRA y la introducción de biosimilares intercambiables de STELARA, ofrecidos a $0 de desembolso para pacientes elegibles. CuraScript de la ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CVS" data-company="CVS HEALTH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CVS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CVS HEALTH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CVS Health está profundamente involucrada en Soluciones de Atención Médica. La compañía se dedica a...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CVS Health está profundamente involucrada en Soluciones de Atención Médica, como lo demuestra su autoidentificación como una empresa líder en soluciones de salud enfocada en conectar la atención y construir un mundo de salud alrededor de cada consumidor. La compañía se dedica a transformar la experi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CI" data-company="THE CIGNA GROUP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">THE CIGNA GROUP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">The Cigna Group demuestra su participación en Servicios de Salud a través ofrecen una gama of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">The Cigna Group demuestra su participación en Servicios de Salud a través de sus subsidiarias, que ofrecen una gama de productos y servicios médicos, conductuales, dentales y relacionados. El segmento Cigna Healthcare enfatiza aún más este enfoque al proporcionar soluciones médicas integrales y coor...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CI" data-company="THE CIGNA GROUP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">THE CIGNA GROUP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">The Cigna Group participa en productos de seguros. Ofertas de sus filiales incluyen planes de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de The Cigna Group en productos de seguros es evidente a través de las ofertas de sus filiales, que incluyen planes de farmacia, médicos, conductuales y dentales. Estas ofertas se extienden a los negocios de U.S. Healthcare e International Health, proporcionando soluciones médicas i...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HUM" data-company="HUMANA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HUM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUMANA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Humana tiene como objetivo proporcionar atención médica asequible with una experiencia positiva...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Humana en Soluciones de Atención Médica es evidente a través de su enfoque integrado para la prestación de atención médica. La estrategia de la compañía se centra en un modelo de prestación de atención integrada que combina atención de calidad, participación de los miembros y aná...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CI" data-company="THE CIGNA GROUP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">THE CIGNA GROUP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">The Cigna Group reconoce la creciente importancia de la salud mental. La compañía notando su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de The Cigna Group con el tema de los Servicios de Salud Mental es evidente a través de las ofertas de sus subsidiarias, que incluyen productos y servicios conductuales. La compañía reconoce la creciente importancia de la salud mental, notando su interdependencia con los servicios médi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CI" data-company="THE CIGNA GROUP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">THE CIGNA GROUP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">The Cigna Group demuestra su participación en el tema de Gestión de Beneficios de Farmacia a través...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">The Cigna Group demuestra su participación en el tema de Gestión de Beneficios de Farmacia a través de sus subsidiarias, que ofrecen una gama de servicios farmacéuticos, médicos y relacionados. Los Servicios de Beneficios de Farmacia son un componente clave de Evernorth Health Services, con una sóli...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CI" data-company="THE CIGNA GROUP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">THE CIGNA GROUP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El movimiento de los clientes en la atención virtual se identifica como un factor clave que impacta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de la empresa con el tema de la telesalud es evidente a través de sus negocios de Servicios de Atención y Soluciones de Prestación y Gestión de Atención, que incluyen ofertas de atención virtual. El movimiento de los clientes en la atención virtual se identifica como un factor clave qu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CNC" data-company="CENTENE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CNC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CENTENE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque de Centene en Soluciones de Atención Médica es evidente. La empresa enfatiza la mejora...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Centene en Soluciones de Atención Médica es evidente en su compromiso de proporcionar servicios integrados, de alta calidad y rentables a programas de atención médica patrocinados por el gobierno y comerciales, particularmente para personas con seguro insuficiente y sin seguro. La empr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CNC" data-company="CENTENE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CNC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CENTENE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Centene se compromete a ayudar a las personas a vivir vidas más saludables. La empresa brinda...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Centene con el tema de la industria de Servicios de Salud es evidente a través de sus operaciones comerciales principales. Como empresa líder en atención médica, Centene se compromete a ayudar a las personas a vivir vidas más saludables al proporcionar servicios totalmente integrado...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CVS" data-company="CVS HEALTH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CVS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CVS HEALTH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CVS Health demuestra un fuerte compromiso con el comercio minorista de atención médica. CVS Health...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CVS Health demuestra un fuerte compromiso con el comercio minorista de atención médica a través de su extensa red de más de 9.000 ubicaciones minoristas y más de 1.000 clínicas médicas sin cita previa y de atención primaria. Esta sustancial presencia minorista permite al segmento de Farmacia y Biene...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CVS" data-company="CVS HEALTH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CVS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CVS HEALTH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CVS participa en el análisis de datos en el segmento Corporativo/Otros. La empresa aprovecha su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de CVS en el análisis de datos es evidente a través de su inclusión en el segmento Corporativo/Otros, que abarca tecnología de la información, iniciativas digitales y análisis de datos. La empresa aprovecha su modelo integrado para crear nuevas fuentes de valor a través de la presta...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UNH" data-company="UNITEDHEALTH GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UNH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITEDHEALTH GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UnitedHealth Group se dedica a promover un mejor sistema de salud. Iniciativas como la eliminación...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">UnitedHealth Group se dedica a promover un mejor sistema de salud a través de sus beneficios y servicios de salud proporcionados a miembros y pacientes. Este compromiso se refleja en los esfuerzos de la compañía para mejorar el acceso, la asequibilidad, los resultados y las experiencias dentro del s...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CNC" data-company="CENTENE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CNC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CENTENE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Centene brinda servicios de salud conductual para el programa de atención administrada de Medicaid...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Centene en Servicios de Salud Mental es evidente a través de múltiples contratos y programas. La subsidiaria de la empresa, NH Healthy Families, brinda servicios de salud conductual para el programa de atención administrada de Medicaid de New Hampshire, mientras que Carolina Comp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CNC" data-company="CENTENE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CNC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CENTENE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La compañía ha implementado un nuevo contrato de gestión de beneficios farmacéuticos. Centene...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Centene en la gestión de beneficios farmacéuticos es evidente a través de varias iniciativas. La compañía ha implementado un nuevo contrato de gestión de beneficios farmacéuticos (PBM) con un tercero, que comenzó en enero de 2024, impactando tanto los resultados operativos actual...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UNH" data-company="UNITEDHEALTH GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UNH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITEDHEALTH GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UnitedHealthcare is una empresa de atención médica. El crecimiento en Medicare Advantage y las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de UnitedHealth Group en "Healthcare Services" es evidente a través de las operaciones de UnitedHealthcare y Optum, ambas de las cuales brindan una gama de servicios de atención médica. La empresa se describe como una empresa de atención médica y bienestar con la misión de ayudar a las pe...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UNH" data-company="UNITEDHEALTH GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UNH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITEDHEALTH GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UnitedHealthcare ofrece varias opciones de seguros, incluidos planes para Empleadores e Individuos,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de UnitedHealth Group con el tema de Productos de Seguros es evidente a través de su operación de UnitedHealthcare, un proveedor importante de beneficios, productos y servicios de atención médica. UnitedHealthcare ofrece varias opciones de seguros, incluidos planes para Empleadores e Ind...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CVS" data-company="CVS HEALTH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CVS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CVS HEALTH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CVS Health vende una amplia variedad de productos de salud y bienestar. La compañía enfatiza la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de CVS Health con el tema de Productos de Salud del Consumidor es evidente a través de su segmento de Farmacia y Bienestar del Consumidor, que dispensa recetas, brinda servicios farmacéuticos auxiliares y vende una amplia variedad de productos de salud y bienestar y mercancía general. ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ELV" data-company="ELEVANCE HEALTH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ELV</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ELEVANCE HEALTH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Elevance Health es una de las aseguradoras de salud más grandes de los Estados Unidos. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Elevance Health en Servicios de Atención Médica es evidente a través de su propósito principal de mejorar la salud y su amplia prestación de servicios relacionados con la atención médica. Como una de las aseguradoras de salud más grandes de los Estados Unidos, Elevance Health ati...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ELV" data-company="ELEVANCE HEALTH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ELV</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ELEVANCE HEALTH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Elevance Health sirviendo a aproximadamente 46 millones de miembros médicos. Con licencia para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La fuerte conexión de Elevance Health con los Productos de Seguros es evidente a través de su operación como una de las aseguradoras de salud más grandes de los Estados Unidos, sirviendo a aproximadamente 46 millones de miembros médicos. Con licencia para realizar operaciones de seguros en los 50 es...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ELV" data-company="ELEVANCE HEALTH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ELV</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ELEVANCE HEALTH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Elevance Health es una de las mayores aseguradoras de salud en los Estados Unidos. La empresa tiene...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Elevance Health gira en torno a los servicios de seguros, como lo demuestra su condición de una de las mayores aseguradoras de salud en los Estados Unidos, que atiende a aproximadamente 45.6 millones de miembros médicos. La empresa tiene licencia para realizar operaciones de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ELV" data-company="ELEVANCE HEALTH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ELV</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ELEVANCE HEALTH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Elevance Health ofrece servicios de salud mental a través de Carelon Behavioral Health. Carelon...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Elevance Health demuestra su compromiso con la industria de servicios de salud mental a través de varias vías, especialmente a través de Carelon Behavioral Health, una subsidiaria que ofrece servicios de salud conductual. Las soluciones de defensa del paciente de la compañía apoyan a millones de mie...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ELV" data-company="ELEVANCE HEALTH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ELV</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ELEVANCE HEALTH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Elevance Health ofrece servicios farmacéuticos básicos. Paragon Healthcare mejora las capacidades...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Elevance Health está significativamente involucrada en la Gestión de Beneficios de Farmacia, principalmente a través de su segmento de negocio CarelonRx, que comercializa y ofrece servicios farmacéuticos tanto a clientes de planes de salud afiliados como a clientes externos en todo el país. El compl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ELV" data-company="ELEVANCE HEALTH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ELV</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ELEVANCE HEALTH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de Elv en la telesalud se refleja en sus servicios de farmacia a través of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Elv en la telesalud se refleja en sus servicios de farmacia a través de CarelonRx, que incluyen entrega a domicilio y servicios para miembros. Además, los ingresos operativos de la compañía aumentaron debido a la expansión de las capacidades basadas en el riesgo en soluciones de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UNH" data-company="UNITEDHEALTH GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UNH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITEDHEALTH GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UnitedHealth Group incluye servicios de salud conductual gestionada. OptumHealth observa una...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de UnitedHealth Group en Servicios de Salud Mental es evidente a través de varias menciones de salud conductual en sus operaciones. OptumHealth incluye servicios de salud conductual gestionada y observa una elevada utilización de servicios conductuales ambulatorios. Además, el aumen...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UNH" data-company="UNITEDHEALTH GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UNH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITEDHEALTH GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UnitedHealth Group desempeña un papel vital en la reducción of los precios de los medicamentos. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de UnitedHealth Group con el tema de la industria farmacéutica es evidente a través de su negocio Optum Rx, que desempeña un papel vital en la reducción de los precios de los medicamentos para los consumidores y en la contraposición de los altos precios fijados por los fabricantes de m...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UNH" data-company="UNITEDHEALTH GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UNH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITEDHEALTH GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Optum Rx administra programas de medicamentos recetados y surte recetas ajustadas. La compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de UnitedHealth Group con el tema de la Gestión de Beneficios de Farmacia es evidente a través de Optum Rx, un importante segmento informable. Optum Rx administra programas de medicamentos recetados y surte recetas ajustadas, con ingresos y ganancias en aumento debido a un mayor volumen ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HUM" data-company="HUMANA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HUM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUMANA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Humana y CenterWell tienen como objetivo mejorar la salud de millones de personas. CenterWell...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Humana con los Servicios de Atención Médica es evidente a través de sus servicios de seguros Humana y los servicios de atención médica CenterWell, que tienen como objetivo mejorar la salud de millones de personas. El segmento CenterWell, que abarca farmacia, atención primaria y solu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HUM" data-company="HUMANA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HUM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUMANA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Humana se extiende a los beneficios de seguros de salud comerciales para grupos de empleadores...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Humana con los Productos de Seguros es evidente a través de sus operaciones comerciales principales, centradas principalmente en su segmento de Seguros. Este segmento abarca una amplia gama de ofertas, que incluyen beneficios de Medicare comercializados a individuos y grupos, contra...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HUM" data-company="HUMANA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HUM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUMANA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Humana opera dentro de su segmento de Seguros. Este segmento también incluye la administración de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Humana en la gestión de beneficios farmacéuticos es evidente a través de su negocio de PBM, que opera dentro de su segmento de Seguros. Este segmento también incluye la administración de planes de medicamentos recetados, lo que enfatiza aún más la participación de la compañía en ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CVS" data-company="CVS HEALTH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CVS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CVS HEALTH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Servicios de Salud de CVS participa en la telesalud. Ofrece servicios de atención...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Servicios de Salud de CVS participa en la telesalud, ya que ofrece servicios de atención médica de forma virtual, en clínicas médicas y en el hogar. Esta prestación de servicios virtual es parte de una oferta más amplia que incluye la gestión de beneficios farmacéuticos y soluciones d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CVS" data-company="CVS HEALTH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CVS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CVS HEALTH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CVS Health está profundamente involucrada en la Gestión de Beneficios de Farmacia (PBM) a través of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CVS Health está profundamente involucrada en la Gestión de Beneficios de Farmacia (PBM) a través de sus operaciones de CVS Caremark. El segmento de Servicios de Salud proporciona un conjunto integral de soluciones PBM, incluyendo diseño de planes, gestión de formularios y servicios de red de farmaci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CVS" data-company="CVS HEALTH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CVS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CVS HEALTH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Beneficios de Atención Médica de CVS incluye planes de salud conductual. No se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El segmento de Beneficios de Atención Médica de CVS incluye planes de salud conductual como parte de su oferta de servicios. Si bien esto indica una participación en servicios de salud mental, no se destaca como una oferta principal o única. La inclusión de planes de salud conductual sugiere cierta ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CVS" data-company="CVS HEALTH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CVS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CVS HEALTH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CVS opera como un proveedor líder a través ofreciendo productos de seguros de salud. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de CVS en Servicios de Seguros es evidente a través de su segmento de Beneficios de Atención Médica, que opera como un proveedor líder a través de Aetna. Este segmento es central para CVS, ofreciendo una gama de productos de seguros de salud y servicios relacionados, que incluyen pl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CVS" data-company="CVS HEALTH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CVS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CVS HEALTH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CVS Health ofrece una diversa gama de opciones de seguro médico. El negocio Aetna de la compañía...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de CVS Health con los productos de seguros es significativa, principalmente a través de su segmento de Beneficios de Atención Médica, que ofrece una diversa gama de opciones de seguro médico. Esto incluye planes médicos, de farmacia, dentales y de salud conductual, junto con servici...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CI" data-company="THE CIGNA GROUP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">THE CIGNA GROUP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cigna Healthcare está integrando activamente la IA para mejorar sus operaciones. Los ejecutivos han...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cigna Healthcare está integrando activamente la IA para mejorar sus operaciones y la experiencia del cliente, como lo demuestra la introducción de un nuevo asistente virtual impulsado por IA diseñado para agilizar las interacciones comunes, como la verificación de beneficios y la búsqueda de atenció...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CI" data-company="THE CIGNA GROUP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">THE CIGNA GROUP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">The Cigna Group opera como una compañía global de salud. Ofrece una gama of productos y servicios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">The Cigna Group opera como una compañía global de salud, que ofrece una gama de productos y servicios farmacéuticos, médicos, conductuales y dentales a través de sus subsidiarias. La empresa se enfoca en construir un modelo de atención médica más sostenible y se compromete a ofrecer soluciones innov...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CVS" data-company="CVS HEALTH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CVS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CVS HEALTH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CVS Health utiliza recomendaciones impulsadas por IA para ayudar a los miembros a gestionar su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CVS Health utiliza recomendaciones impulsadas por IA para ayudar a los miembros a gestionar su salud y lograr mejores resultados, principalmente a través de su aplicación, que mejora la visibilidad del recorrido de atención médica. El modelo integrado de la empresa tiene como objetivo expandirse a l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CVS" data-company="CVS HEALTH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CVS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CVS HEALTH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CVS Health demuestra un compromiso significativo con la industria de los biosimilares. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CVS Health demuestra un compromiso significativo con la industria de los biosimilares, principalmente a través de su subsidiaria de propiedad total, Cordavis, que colabora directamente con los fabricantes farmacéuticos para comercializar y coproducir productos biosimilares. CVS Health ha impulsado l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HUM" data-company="HUMANA INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HUM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUMANA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Humana incorpora la IA en la atención médica a través of diversas iniciativas. El análisis de datos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Humana incorpora la IA en la atención médica a través de diversas iniciativas, incluyendo inversiones incrementales en IA y eficiencias operativas generales. El análisis de datos sofisticado es fundamental para el modelo de prestación de atención integrada de Humana, que une la atención de calidad y...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PGNY" data-company="PROGYNY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PGNY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PROGYNY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Progyny integra soluciones digitales para mejorar su modelo de prestación de atención de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Progyny integra soluciones digitales para mejorar su modelo de prestación de atención de conserjería, ofreciendo una participación digital personalizada para pacientes, proveedores y clientes. La empresa está invirtiendo en activos digitales e integrando adquisiciones para mejorar su modelo de prest...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PGNY" data-company="PROGYNY INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">PGNY</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PROGYNY INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Progyny Rx ofrece a los miembros acceso a los medicamentos necesarios durante el tratamiento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Progyny con la Gestión de Beneficios Farmacéuticos es evidente a través de su solución integrada de beneficios farmacéuticos, Progyny Rx, lanzada en 2018. Progyny Rx ofrece a los miembros acceso a los medicamentos necesarios durante el tratamiento de fertilidad, incluyendo servicios...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ELV" data-company="ELEVANCE HEALTH INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">ELV</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ELEVANCE HEALTH INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Elevance Health demuestra un fuerte compromiso con las Soluciones de Atención Médica. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Elevance Health demuestra un fuerte compromiso con las Soluciones de Atención Médica a través de su propósito principal de mejorar la salud de la humanidad y su enfoque en la entrega de soluciones de salud integral. La empresa integra experiencia médica, tecnología e innovación para mejorar los resu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CNC" data-company="CENTENE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CNC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CENTENE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Centene brinda acceso a la atención médica a través of Medicaid, Medicare y el Mercado de Seguros...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Centene está fuertemente involucrado con productos de seguros, específicamente a través de programas de atención médica patrocinados por el gobierno. La compañía brinda acceso a la atención médica a través de Medicaid, Medicare y el Mercado de Seguros Médicos, incluido su producto Ambe...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CNC" data-company="CENTENE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CNC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CENTENE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Centene opera como una empresa líder en atención médica. Brindando una amplia gama de soluciones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Centene opera como una empresa líder en atención médica, brindando una amplia gama de soluciones de salud y servicios de seguros a una base sustancial de miembros, incluidos aquellos inscritos en Medicaid, Medicare y el Mercado de Seguros de Salud. Las actividades de la compañía abarcan la gestión d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CNC" data-company="CENTENE CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CNC</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CENTENE CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Centene ofrece productos asequibles y de alta calidad. Ofrece soluciones de salud a una parte...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Centene participa en soluciones de seguros a través de la provisión de servicios integrados, de alta calidad y rentables tanto en programas de atención médica patrocinados por el gobierno como comerciales, con un enfoque particular en personas con seguro insuficiente y sin seguro. La empresa ofrece ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HUM" data-company="HUMANA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HUM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUMANA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Humana se ha asociado with Epic para integrar información del plan de salud directamente. Humana...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Humana en la participación digital en salud es evidente a través de varias iniciativas. La empresa se ha asociado con Epic para integrar información del plan de salud directamente en las cuentas de MyChart, con el objetivo de proporcionar una mayor transparencia en los costos de atenci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CVS" data-company="CVS HEALTH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CVS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CVS HEALTH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CVS Health mantiene una presencia significativa en el segmento minorista. Se ve subrayado por la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CVS Health mantiene una presencia significativa en el segmento minorista, lo que se ve subrayado por la operación de más de 9.000 tiendas minoristas y su organización en cuatro segmentos informables, incluido Pharmacy & Consumer Wellness. La estructura de la empresa, que incluye un segmento dedicado...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CI" data-company="THE CIGNA GROUP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CI</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">THE CIGNA GROUP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cigna Healthcare, una cartera de beneficios integrada, contribuye significativamente a los ingresos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cigna en Servicios de Seguros es evidente a través de sus subsidiarias, que brindan una gama de ofertas, que incluyen productos farmacéuticos, médicos, conductuales y dentales. Cigna Healthcare, una cartera de beneficios integrada, contribuye significativamente a los ingresos del...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HUM" data-company="HUMANA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HUM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUMANA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Los servicios de seguros de Humana tienen como objetivo mejorar la salud de millones. El modelo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Humana con las soluciones de seguros es evidente a través de su modelo integrado de prestación de atención, que combina atención de calidad, participación de los miembros y análisis de datos para ofrecer atención médica asequible. Los servicios de seguros de Humana tienen como objet...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HUM" data-company="HUMANA INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">HUM</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">HUMANA INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Humana compromiso con Servicios de Seguros evidente a través de sus operaciones comerciales...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Humana con los Servicios de Seguros es evidente a través de sus operaciones comerciales principales, que incluyen la suscripción y administración de pólizas de seguro como Medicare, Medicaid y ofertas comerciales. La compañía menciona explícitamente 'servicios de seguros de Humana' ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CVS" data-company="CVS HEALTH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CVS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CVS HEALTH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CVS opera una organización de compras grupales que negocia precios de productos farmacéuticos y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CVS demuestra su participación en la comercialización de medicamentos a través de varias iniciativas. La empresa opera una organización de compras grupales que negocia precios de productos farmacéuticos y reembolsos, y proporciona servicios administrativos, de gestión y de informes a los fabricantes...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CVS" data-company="CVS HEALTH CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">CVS</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CVS HEALTH CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">CVS Health mantiene una presencia física significativa, operando más de 9,000 ubicaciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">CVS Health mantiene una presencia física significativa, operando más de 9,000 ubicaciones minoristas junto con más de 1,000 clínicas médicas de atención primaria y sin cita previa. Estas ubicaciones forman parte del segmento de Farmacia y Bienestar del Consumidor, que también incluye sitios web de f...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UNH" data-company="UNITEDHEALTH GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UNH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITEDHEALTH GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UnitedHealth Group aprovecha el análisis de datos en diversas facetas operativas. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">UnitedHealth Group aprovecha el análisis de datos en diversas facetas operativas. La empresa utiliza información basada en datos para interactuar con socios estatales, abogando por ajustes de tarifas oportunos y empleando IA para refinar los procesos de pronóstico y toma de decisiones. Además, Unite...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="UNH" data-company="UNITEDHEALTH GROUP INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><span class="symbol-text action-link" style="font-size:1rem;">UNH</span></td>
+            <td><div style="color: #444; font-size: 0.9rem;">UNITEDHEALTH GROUP INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">UnitedHealth Group se enfoca en mejorar la participación en salud digital. La compañía está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">UnitedHealth Group se enfoca en mejorar la participación en salud digital a través de diversas iniciativas. La compañía está aprovechando nuevas tecnologías e IA para ser más amigable con los consumidores y proveedores, con esfuerzos para escalar la IA en las operaciones de los planes de salud para ...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

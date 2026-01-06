@@ -1,0 +1,1906 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Audio Solutions - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Audio Solutions</div>
+      <div class="sub-title">Investment Theme Detail - Entertainment and Media Industry</div>
+    </div>
+    <a href="main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Audio Solutions &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Entertainment and Media &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 21
+    </div>
+
+    
+    <!-- Theme Chart Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Theme Chart</span>
+             <a href="equity_audio_solutions.html" target="_blank" class="btn-view-chart">View Full Chart ↗</a>
+        </div>
+        <div class="box-body" style="height: 600px; overflow:hidden;">
+            <iframe src="equity_audio_solutions.html" style="width:100%; height:100%; border:none; display:block;"></iframe>
+        </div>
+    </div>
+        
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">21</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">AAPL</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">APPLE INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Integra la tecnología 5G en sus dispositivos de consumo, desempeñando un papel clave en el impulso de la adopción por parte de los consumidores y la u...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/AAPL" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">005930</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SAMSUNG ELECTRONICS CO LTD</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y suministra una amplia gama de equipos de red 5G y fabrica dispositivos móviles compatibles con 5G, lo que contribuye significativamente a...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/005930" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">DLB</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">DOLBY LABORATORIES INC-CL A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y licencia tecnologías de audio avanzadas que mejoran la calidad del sonido y las experiencias inmersivas en una amplia gama de plataformas...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/DLB" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">6758</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SONY GROUP CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y fabrica una amplia gama de productos de audio, incluyendo auriculares, altavoces y equipos de audio profesional, avanzando en la tecnolog...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/6758" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">5</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CRUS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CIRRUS LOGIC INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y suministra circuitos integrados y software de audio avanzados, lo que permite experiencias de audio de alto rendimiento en diversas aplic...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CRUS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">6</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SONO</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SONOS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece una amplia gama de sistemas de sonido para el hogar inalámbricos multi-habitación, altavoces y componentes, permitiendo experiencias de audio i...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SONO" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">7</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SIRI</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SIRIUS XM HOLDINGS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona servicios de radio satelital y audio en streaming, ofreciendo una diversa gama de contenido de entretenimiento, noticias, deportes y tertu...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SIRI" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">8</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">KN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">KNOWLES CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y suministra soluciones avanzadas de microacústica y procesamiento de audio que permiten experiencias de audio de alto rendimiento en una a...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/KN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">9</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">003550</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">LG CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla y ofrece una variedad de productos y tecnologías de audio, contribuyendo al mercado general de soluciones de audio....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/003550" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">10</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">WMG</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">WARNER MUSIC GROUP CORP-CL A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Juega un papel fundamental en la industria de las soluciones de audio a través de la producción, distribución y monetización de un vasto catálogo de m...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/WMG" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">11</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">MSI</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">MOTOROLA SOLUTIONS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona sistemas y dispositivos de comunicación de misión crítica que integran tecnologías de audio avanzadas para garantizar una transmisión de v...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/MSI" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">12</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">7951</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">YAMAHA CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona un amplio espectro de soluciones de audio a través de su desarrollo y fabricación de instrumentos musicales, equipos de audio profesional ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/7951" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">13</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">LOGN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">LOGITECH INTERNATIONAL-REG</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece una gama de soluciones de audio, incluyendo auriculares, audífonos y altavoces, para satisfacer tanto las necesidades de los consumidores como ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/LOGN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">14</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">SOUN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">SOUNDHOUND AI INC-A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Desarrolla tecnologías de inteligencia artificial que facilitan la generación de información basada en datos....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/SOUN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">15</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">RNG</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">RINGCENTRAL INC-CLASS A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona soluciones integrales de comunicación basadas en la nube, integrando audio de alta calidad para llamadas de voz, conferencias y mensajería...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/RNG" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">16</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">IMAX</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">IMAX CORP</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Integra tecnología de audio propietaria avanzada como componente central de su experiencia cinematográfica inmersiva, mejorando la calidad y la entreg...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/IMAX" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">17</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">ROKU</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/roku-Q225-10-Q.html'}</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/roku-Q125-10-Q.html'}...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/ROKU" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">18</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">GFS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">GLOBALFOUNDRIES INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Fabrica semiconductores especializados críticos para permitir el desarrollo y la implementación de componentes de infraestructura 5G....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/GFS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">19</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">BBY</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">BEST BUY CO INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Ofrece una diversa gama de productos de audio, que incluyen auriculares, altavoces y sistemas de cine en casa, brindando un amplio acceso de los consu...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/BBY" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">20</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CDNS</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CADENCE DESIGN SYS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona software esencial de automatización de diseño electrónico y propiedad intelectual para el desarrollo y la verificación de chips y sistemas...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CDNS" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">21</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">FLEX</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">FLEX LTD</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Apoya el desarrollo y la implementación de infraestructura de IA a través de sus soluciones de fabricación y cadena de suministro....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/FLEX" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">127</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="BBY" data-company="BEST BUY CO INC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/BBY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BBY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BEST BUY CO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Best Buy se identifica como el minorista especializado en electrónica de consumo más grande. Los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Best Buy se identifica como el minorista especializado en electrónica de consumo más grande y enfatiza su posición como destino omnicanal líder en tecnología. Los resultados financieros y las iniciativas estratégicas de la compañía están estrechamente ligados a la industria de la electrónica de cons...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BBY" data-company="BEST BUY CO INC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/BBY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BBY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BEST BUY CO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Best Buy reportó $2.6 mil millones en ingresos en línea, lo que constituye el 31.7% de los ingreso...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Best Buy con el comercio electrónico es evidente a través de su informe constante de datos de ventas en línea, donde los ingresos de las ventas en línea se incluyen en las ventas comparables y representan las ventas iniciadas en un sitio web o aplicación. El segmento Doméstico de la...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BBY" data-company="BEST BUY CO INC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/BBY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BBY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BEST BUY CO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación de Best Buy en el tema de mobiliario para el hogar es evidente a través of varias...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Best Buy en el tema de mobiliario para el hogar es evidente a través de varias iniciativas, sobre todo su asociación con IKEA U.S. para pilotar espacios dedicados que exhiben ambientes de cocina y lavandería con electrodomésticos Best Buy. Esta colaboración, que se lanza en tiend...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BBY" data-company="BEST BUY CO INC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/BBY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BBY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BEST BUY CO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Best Buy ha evolucionado su estrategia de transportistas, haciendo de FedEx su principal...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Best Buy con la logística de última milla es evidente a través de varias iniciativas, incluida la implementación de una solución de abastecimiento basada en datos destinada a optimizar el cumplimiento de los pedidos en línea. Se espera que esta solución, que procesó el 40% de todas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BBY" data-company="BEST BUY CO INC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/BBY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BBY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BEST BUY CO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La tasa de margen bruto del segmento nacional de la empresa aumentó debido al mejor rendimiento de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Best Buy con los programas de fidelización es evidente a través del crecimiento y el rendimiento financiero de sus 'Membresías My Best Buy'. La tasa de margen bruto del segmento nacional de la empresa aumentó debido al mejor rendimiento de su categoría de servicios, que incluye las ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BBY" data-company="BEST BUY CO INC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/BBY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BBY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BEST BUY CO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Best Buy está implementando un nuevo modelo operativo en asociación with Verizon and AT&T. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Best Buy con el tema de los teléfonos inteligentes es evidente a través de su crecimiento de ventas reportado en teléfonos móviles y su contribución a los ingresos de los segmentos nacional e internacional. La compañía está implementando un nuevo modelo operativo en asociación con V...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRUS" data-company="CIRRUS LOGIC INC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/CRUS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CRUS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CIRRUS LOGIC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cirrus Logic enfatiza su compromiso de mantener su posición de liderazgo en audio para smartphones....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cirrus Logic enfatiza su compromiso de mantener su posición de liderazgo en audio para smartphones, que es central para la estrategia a largo plazo de la empresa y un motor de ingresos principal. El enfoque de la empresa es evidente en su desarrollo y envío de productos de audio de nueva generación,...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRUS" data-company="CIRRUS LOGIC INC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/CRUS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CRUS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CIRRUS LOGIC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cirrus Logic está enviando muestras de productos de temporización diseñados para mejorar las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cirrus Logic en el tema de Electrónica Automotriz es evidente a través de sus iniciativas estratégicas y desarrollo de productos. La empresa está enviando muestras de productos de temporización diseñados para mejorar las experiencias de audio en aplicaciones automotrices, lo que ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRUS" data-company="CIRRUS LOGIC INC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/CRUS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CRUS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CIRRUS LOGIC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cirrus Logic está ligado a la industria de componentes electrónicos. Los ingresos de la empresa se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Cirrus Logic está significativamente ligado a la industria de componentes electrónicos, particularmente a través de sus soluciones de procesamiento de señales mixtas. Los ingresos de la empresa se impulsan por la demanda de componentes en teléfonos inteligentes, como lo demuestran los ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRUS" data-company="CIRRUS LOGIC INC">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/CRUS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CRUS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CIRRUS LOGIC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cirrus Logic es una de las principales empresas de semiconductores. La empresa ha diseñado códec...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Cirrus Logic en los chips semiconductores es evidente a través de su liderazgo en soluciones de procesamiento de señales mixtas de bajo consumo y alta precisión, que son integrales para crear experiencias de usuario innovadoras. El compromiso de la empresa se demuestra por el éxito y l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FLEX" data-company="FLEX LTD">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/FLEX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FLEX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FLEX LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Soluciones de Fiabilidad de Flex (FRS) abarca la automoción, incluida la movilidad...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Flex con la Tecnología Automotriz es evidente a través de sus asociaciones con clientes en la industria automotriz, centrándose en áreas como plataformas de computación, electrónica de potencia, movimiento e interfaz. El segmento de Soluciones de Fiabilidad de Flex (FRS) abarca la a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FLEX" data-company="FLEX LTD">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/FLEX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FLEX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FLEX LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Flex participa en la industria de la electrónica de consumo. El segmento de Soluciones de Agilidad...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Flex en la industria de la electrónica de consumo es evidente a través de sus asociaciones con clientes en este sector, incluidos aquellos en dispositivos de consumo y productos de estilo de vida. El segmento de Soluciones de Agilidad de Flex (FAS) incluye dispositivos de consumo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FLEX" data-company="FLEX LTD">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/FLEX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FLEX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FLEX LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El segmento de Soluciones de Fiabilidad de Flex abarca dispositivos industriales, equipos de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Flex con el tema de Aplicaciones Industriales es evidente a través de sus asociaciones con clientes de diversas industrias, incluido el sector industrial. El segmento de Soluciones de Fiabilidad de Flex abarca dispositivos industriales, equipos de capital, energías renovables, energ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FLEX" data-company="FLEX LTD">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/FLEX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FLEX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FLEX LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Flex es proveedor global de soluciones de cadena de suministro. Gestiona el diseño, la fabricación,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El papel de Flex en la industria de Distribución Industrial se ve subrayado por su posición como proveedor global de soluciones de cadena de suministro, gestionando el diseño, la fabricación, el envío y el servicio de productos a través de una extensa red de aproximadamente 100 instalaciones en unos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FLEX" data-company="FLEX LTD">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/FLEX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FLEX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FLEX LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Flex ofrece un conjunto integral de servicios que incluyen diseño e ingeniería, gestión de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Flex se identifica como un socio de fabricación avanzado de extremo a extremo, que ofrece un conjunto integral de servicios que incluyen diseño e ingeniería, gestión de la cadena de suministro, fabricación y soporte postventa. La empresa apoya el ciclo de vida completo de los productos de los client...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FLEX" data-company="FLEX LTD">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/FLEX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FLEX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FLEX LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La infraestructura de telecomunicaciones no es un motor de crecimiento principal para Flex. Si bien...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Flex en la Infraestructura de Telecomunicaciones es evidente a través de su segmento Flex Agility Solutions (FAS), que abarca Comunicaciones, Empresa y Nube (CEC), incluida la infraestructura de datos, de borde y de comunicaciones. Si bien la infraestructura de comunicaciones se ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LOGN" data-company="LOGITECH INTERNATIONAL-REG">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/LOGN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LOGN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LOGITECH INTERNATIONAL-REG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Logitech presenta productos para PC y VC, auriculares intrauditivos, inalámbricos premium, gaming y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Logitech en Soluciones de Audio es evidente a través de su diversa cartera de productos, que incluye auriculares, cámaras web y equipos de videoconferencia. La categoría de Auriculares de la empresa presenta auriculares para PC y VC, auriculares intrauditivos y auriculares inalám...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LOGN" data-company="LOGITECH INTERNATIONAL-REG">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/LOGN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LOGN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LOGITECH INTERNATIONAL-REG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Logitech incluye productos de colaboración por video, webcams y auriculares diseñados para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Logitech en Herramientas de Comunicación es evidente a través de su diversa cartera, que incluye productos de colaboración por video, webcams y auriculares diseñados para facilitar la comunicación en diversas plataformas como Zoom, Microsoft Teams y Google Meet. Estas ofertas ati...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LOGN" data-company="LOGITECH INTERNATIONAL-REG">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/LOGN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LOGN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LOGITECH INTERNATIONAL-REG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Logitech se centra en la electrónica de consumo. Su cartera de productos abarca...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Logitech se centra en la electrónica de consumo, como lo demuestra su diseño de soluciones de hardware habilitadas por software. Su cartera de productos, que abarca periféricos para juegos, teclados, dispositivos señaladores, webcams y auriculares, resalta este enfoque. Las ventas de l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LOGN" data-company="LOGITECH INTERNATIONAL-REG">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/LOGN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LOGN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LOGITECH INTERNATIONAL-REG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Logitech diseña soluciones de hardware habilitadas por software para soportar los videojuegos. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Logitech en el tema de Hardware para Videojuegos es evidente a través de su diversa cartera que incluye una variedad de productos de hardware para videojuegos como ratones para videojuegos, volantes, auriculares y teclados. La empresa diseña soluciones de hardware habilitadas por...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LOGN" data-company="LOGITECH INTERNATIONAL-REG">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/LOGN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LOGN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LOGITECH INTERNATIONAL-REG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Logitech está estratégicamente alineada with la industria de los videojuegos. La compañía reconoce...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Logitech está estratégicamente alineada con la industria de los videojuegos, ofreciendo soluciones de hardware habilitadas por software diseñadas para jugadores. La compañía reconoce la expansión continua del sector de los videojuegos, particularmente el auge de los juegos sociales, las plataformas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LOGN" data-company="LOGITECH INTERNATIONAL-REG">
+            <td style="color: #666; font-size: 0.9rem;">2026-03-31</td>
+            <td><a href="/profile/LOGN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LOGN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LOGITECH INTERNATIONAL-REG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa reconoce el crecimiento y la evolución continuos de los videojuegos. El enfoque de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Logitech con el tema de la Tecnología de Videojuegos es evidente a través de su diversa cartera, que incluye ratones para videojuegos, volantes, auriculares, teclados, auriculares para consolas, micrófonos y servicios de Streamlabs. La empresa reconoce el crecimiento y la evolución ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BBY" data-company="BEST BUY CO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/BBY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BBY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BEST BUY CO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Best Buy está significativamente invertido en su estrategia omnicanal, viéndola como un motor clave...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Best Buy está significativamente invertido en su estrategia omnicanal, viéndola como un motor clave para el crecimiento de las ventas. La empresa enfatiza una 'experiencia de cliente omnicanal fluida', con una parte sustancial de los pedidos en línea (45%) que se recogen en las tiendas, y la satisfa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BBY" data-company="BEST BUY CO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/BBY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BBY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BEST BUY CO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Best Buy integra las ventas en línea en sus métricas de ventas comparables. Los ingresos totales en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Best Buy integra las ventas en línea en sus métricas de ventas comparables, lo que refleja la importancia de los canales en línea, donde los ingresos de las ventas en línea incluyen transacciones iniciadas en el sitio web o la aplicación, independientemente del método de cumplimiento. Los ingresos t...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BBY" data-company="BEST BUY CO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/BBY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BBY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BEST BUY CO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Best Buy es un 'minorista especializado en electrónica de consumo más grande' La importante...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La prominencia de Best Buy en el tema de los gigantes minoristas está respaldada por su posición autodescrita como el 'minorista especializado en electrónica de consumo más grande', con operaciones que abarcan tanto a EE. UU. como a Canadá. La importante presencia minorista de la compañía se demuest...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRUS" data-company="CIRRUS LOGIC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/CRUS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CRUS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CIRRUS LOGIC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cirrus Logic está aumentando su presencia en la industria de fabricación de PC. Las soluciones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cirrus Logic está aumentando su presencia en la industria de fabricación de PC, particularmente dentro del mercado de computadoras portátiles. Las soluciones de audio de la empresa se han presentado en el diseño de referencia Intel Arrow Lake, y un OEM líder de computadoras portátiles ha incorporado...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FLEX" data-company="FLEX LTD">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/FLEX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FLEX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FLEX LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Flex se relaciona con la industria automotriz a través of su segmento Flex Reliability Solutions...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Flex se relaciona con la industria automotriz a través de su segmento Flex Reliability Solutions (FRS), que incluye plataformas de cómputo, electrónica de potencia, soluciones de movimiento e interfaz. Sin embargo, el negocio automotriz de la empresa experimentó presiones macroeconómicas y una dismi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FLEX" data-company="FLEX LTD">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/FLEX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FLEX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FLEX LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Flex demuestra diversificación industrial a través of varias iniciativas estratégicas. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Flex demuestra diversificación industrial a través de varias iniciativas estratégicas. La empresa se asocia con clientes de diversas industrias, incluidas la nube, las comunicaciones, las empresas, la automoción, la atención médica y la energía, y está expandiendo su cartera hacia productos propios ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FLEX" data-company="FLEX LTD">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/FLEX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FLEX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FLEX LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Flex Reliability Solutions (FRS) abarca dispositivos industriales y equipos de capital, energías...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Flex con el tema de Productos Industriales se demuestra a través de sus asociaciones con clientes de diversas industrias, incluido el sector industrial. El segmento de Flex Reliability Solutions (FRS) abarca dispositivos industriales y equipos de capital, energías renovables, energí...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FLEX" data-company="FLEX LTD">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/FLEX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FLEX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FLEX LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Flex ofrece innovación tecnológica, soluciones de cadena de suministro y fabricación en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Flex con las Soluciones de la Cadena de Suministro es evidente en su posición como uno de los mayores proveedores del mundo, que ofrece innovación tecnológica, soluciones de cadena de suministro y fabricación en aproximadamente 30 países. Esto se ve reforzado por la estrategia de Fl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LOGN" data-company="LOGITECH INTERNATIONAL-REG">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/LOGN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LOGN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LOGITECH INTERNATIONAL-REG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Logitech está ligado a la industria de productos de consumo. La dependencia of la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Logitech está significativamente ligado a la industria de productos de consumo, como lo demuestra su diversa cartera que abarca periféricos para juegos, teclados, dispositivos señaladores, herramientas de colaboración por video, webcams, accesorios para tabletas y auriculares, todos di...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LOGN" data-company="LOGITECH INTERNATIONAL-REG">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/LOGN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LOGN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LOGITECH INTERNATIONAL-REG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La categoría de videojuegos de Logitech experimentó un aumento de ventas del 9%. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Logitech con el tema de los Esports y los Videojuegos es evidente a través de su enfoque en proporcionar herramientas y soluciones para los jugadores. La empresa reconoce el crecimiento y la evolución continuos de los videojuegos, particularmente los videojuegos sociales y los espor...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="LOGN" data-company="LOGITECH INTERNATIONAL-REG">
+            <td style="color: #666; font-size: 0.9rem;">2025-12-31</td>
+            <td><a href="/profile/LOGN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">LOGN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">LOGITECH INTERNATIONAL-REG</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Logitech diseña productos de colaboración por video y cámaras web. Estos productos, compatibles...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Logitech con los eventos virtuales y el software de conferencias es evidente a través de sus líneas de productos de colaboración por video y cámaras web, que están diseñadas para mejorar las experiencias de videoconferencia tanto empresariales como de consumo. Estos productos, compa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AAPL" data-company="APPLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/AAPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AAPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La importante presencia de Apple en la industria de la electrónica de consumo es evidente. Estos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La importante presencia de Apple en la industria de la electrónica de consumo es evidente a través de su lanzamiento continuo de productos estrella, incluyendo MacBooks, iMacs, iPhones, Apple Watches y AirPods. Estos productos no solo representan una parte sustancial de los ingresos de la compañía, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AAPL" data-company="APPLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/AAPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AAPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Apple has constantes actualizaciones y lanzamientos en una serie of sistemas operativos, incluyendo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Apple en el tema de los Sistemas Operativos se ve subrayada por sus constantes actualizaciones y lanzamientos en una serie de sistemas operativos, incluyendo iOS, macOS, iPadOS, watchOS, visionOS y tvOS. El énfasis estratégico de la empresa es evidente en los anuncios explícitos ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AAPL" data-company="APPLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/AAPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AAPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El Mac mini fue el modelo de sobremesa más vendido en China. Apple se centra en el abastecimiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Apple en la fabricación de PC es evidente a través del aumento de las ventas netas de su línea Mac, que incluye tanto ordenadores portátiles como de sobremesa. Los ingresos de Mac de la empresa experimentaron un crecimiento interanual, impulsado por la fortaleza de modelos como e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AAPL" data-company="APPLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/AAPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AAPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa prevé obtener más de 19 mil millones de chips de varios estados. Sin embargo, las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Apple en la industria de los chips semiconductores es evidente a través de sus estrategias de diseño y abastecimiento, destacadas por el iPhone 16e, que funciona con el chip A18 e incluye el módem C1 diseñado por Apple. La empresa prevé obtener más de 19 mil millones de chips de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AAPL" data-company="APPLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/AAPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AAPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El iPhone is un motor de ingresos principal en varios segmentos geográficos, incluidas las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Apple en el tema de la industria de los teléfonos inteligentes es evidente a través de la presentación constante por parte de la empresa de las ventas de iPhone como un motor de ingresos principal en varios segmentos geográficos, incluidas las Américas, Europa, Gran China y Japón. El é...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AAPL" data-company="APPLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/AAPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AAPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El Apple Watch sigue siendo un producto clave, con la introducción of la Serie 10. La empresa ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Apple en el tema de los wearables es evidente a través de la mención constante de la categoría 'Wearables, Home and Accessories' en sus informes financieros. El Apple Watch sigue siendo un producto clave, con la introducción de la Serie 10 y la celebración de su décimo aniversari...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="BBY" data-company="BEST BUY CO INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/BBY" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">BBY</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">BEST BUY CO INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Best Buy reportó un crecimiento en videojuegos mayor de lo esperado debido al lanzamiento of Switch...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Best Buy con el tema de Hardware para Videojuegos es evidente a través de varias iniciativas, especialmente en torno al lanzamiento de Nintendo Switch 2. La compañía reportó un crecimiento en videojuegos mayor de lo esperado debido al lanzamiento de Switch 2, con fuertes resultados ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRUS" data-company="CIRRUS LOGIC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/CRUS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CRUS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CIRRUS LOGIC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cirrus Logic diseñado para aplicaciones automotrices para mejorar las experiencias de audio. Este...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cirrus Logic en el tema de Semiconductores Automotrices es evidente a través de sus muestras de productos de temporización diseñados específicamente para aplicaciones automotrices para mejorar las experiencias de audio. Este movimiento está respaldado por un considerable interés ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRUS" data-company="CIRRUS LOGIC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/CRUS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CRUS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CIRRUS LOGIC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cirrus Logic es una empresa en el tema de Electrónica de Consumo. Los ingresos se derivan de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cirrus Logic en el tema de Electrónica de Consumo es evidente en su liderazgo en el suministro de soluciones de procesamiento de señales mixtas de baja potencia y alta precisión para aplicaciones móviles y de consumo, particularmente en teléfonos inteligentes. Los ingresos de la ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CRUS" data-company="CIRRUS LOGIC INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/CRUS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CRUS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CIRRUS LOGIC INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cirrus Logic está significativamente ligado a la industria de los teléfonos inteligentes. Además,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Cirrus Logic está significativamente ligado a la industria de los teléfonos inteligentes, como lo demuestra su enfoque estratégico en mantener el liderazgo en audio para teléfonos inteligentes y aumentar el contenido de HPMS en estos dispositivos. Este compromiso se refleja en su estra...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio principal de Dolby se centra en soluciones de audio, como lo demuestra su enfoque en la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Dolby se centra en soluciones de audio, como lo demuestra su enfoque en la invención e innovación de tecnologías que avanzan la captura, transmisión y reproducción de audio. Tecnologías emblemáticas como Dolby Atmos y códecs de audio de marca como DD+ y Dolby AC-4 son compone...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dolby Atmos y Dolby Vision están disponibles en varios modelos de automóviles. Dolby ha establecido...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Dolby con el tema de la electrónica automotriz es evidente a través de la integración de Dolby Atmos y Dolby Vision en varios modelos de automóviles. La compañía ha establecido alianzas con numerosos fabricantes de equipos originales (OEM) automotrices, incluidos Porsche, Cadillac, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dolby genera ingresos de la industria automotriz a través ofrecer Dolby Atmos y Dolby Vision....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Dolby genera ingresos de la industria automotriz a través de la adopción de Dolby Atmos y Dolby Vision en automóviles, con asociaciones con más de 20 OEM. Varios fabricantes de automóviles importantes, incluidos Porsche y Cadillac, están integrando Dolby Atmos en sus modelos de vehículos, y Volvo, X...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa licencia su marca y patentes a aproximadamente 1.000 fabricantes. Dolby Atmos y Dolby...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dolby en el tema de la Electrónica de Consumo es evidente a través de la concesión de licencias de su tecnología de audio y video a fabricantes de electrónica, con una parte significativa de sus ingresos proveniente de este sector. Las tecnologías de Dolby son componentes crítico...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dolby mejorar las experiencias de audio y video en diversos formatos de contenido. Las tecnologías...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Dolby con el tema del entretenimiento digital es evidente a través de su enfoque en mejorar las experiencias de audio y video en diversos formatos de contenido. Las tecnologías de la empresa, como Dolby Atmos y Dolby Vision, son ampliamente adoptadas por los principales servicios de...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dolby trabaja con desarrolladores de tecnología para crear y promover tecnologies estandarizadas....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dolby con soluciones digitales es evidente en la provisión de tecnologías de marca que permiten experiencias de audio y video atractivas, ofreciendo una integración y fiabilidad perfectas en los dispositivos. Las tecnologías de la empresa forman parte de un amplio ecosistema que ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El enfoque principal de Dolby es mejorar las experiencias de entretenimiento. Las tecnologías de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque principal de Dolby es mejorar las experiencias de entretenimiento a través de sus tecnologías de audio y video. Las tecnologías de la empresa se integran en diversas formas de entretenimiento, incluidas películas, televisión, música, deportes en vivo y eGaming, y son utilizadas por creado...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa apoya la producción teatral y televisiva ofreciendo servicios. Dolby colabora with...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dolby en el tema de Servicios de Entretenimiento es evidente a través de su provisión de soluciones de audio, imagen y accesibilidad, junto con hardware y software, principalmente para el cine, pero también para la televisión, la radiodifusión y el entretenimiento en vivo. La emp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa colabora con los fabricantes de equipos originales de televisores. Dolby Atmos se está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dolby en la radiodifusión de medios es evidente a través de la amplia adopción de sus tecnologías de audio de marca y licencias de patentes en servicios y dispositivos de radiodifusión, incluyendo televisores y decodificadores. La empresa colabora con los fabricantes de equipos o...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">DD+ permite la experiencia de audio Dolby en teléfonos inteligentes. Dolby promueve activamente la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Dolby con el tema de los teléfonos inteligentes es evidente a través de la integración de sus tecnologías de audio y video en los principales ecosistemas móviles. DD+ permite la experiencia de audio Dolby en teléfonos inteligentes, y la empresa promueve activamente la adopción de su...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dolby Vision y Dolby Atmos mejoran el contenido. Las tecnologías de Dolby son integrales para el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dolby en el tema de Plataformas y Servicios de Streaming es evidente a través de su amplia integración con los principales socios de streaming como Netflix, Disney+, Apple TV+, Amazon, Max y Paramount+, donde Dolby Vision y Dolby Atmos mejoran el contenido. Las tecnologías de Dol...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FLEX" data-company="FLEX LTD">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/FLEX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FLEX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FLEX LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Flex ha visto gastos de capital para respaldar su negocio automotriz, aunque experimentó una...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Flex en Vehículos Autónomos es evidente a través de su segmento Flex Reliability Solutions (FRS), que incluye explícitamente 'Automotriz, incluida la movilidad de próxima generación, autónoma, conectividad, electrificación y tecnologías inteligentes'. Este segmento atiende al mer...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FLEX" data-company="FLEX LTD">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/FLEX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FLEX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FLEX LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Flex ha experimentado un fuerte rendimiento en su cartera de nube. La empresa ofrece soluciones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Flex demuestra su participación en el tema de Infraestructura en la Nube a través de su segmento Flex Agility Solutions (FAS), que incluye Comunicaciones, Empresa y Nube (CEC), con infraestructura de datos y de borde. La empresa ofrece soluciones de hardware e infraestructura de TI integradas vertic...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="FLEX" data-company="FLEX LTD">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/FLEX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">FLEX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">FLEX LTD</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Flex se identifica como uno of los mayores proveedores mundiales de soluciones para la cadena de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Flex se identifica como uno de los mayores proveedores mundiales de soluciones para la cadena de suministro global, con ingresos sustanciales de 12.900 millones de dólares para el período de seis meses finalizado el 27 de septiembre de 2024 y 26.400 millones de dólares en el año fiscal finalizado el...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SONO" data-company="SONOS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/SONO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SONO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SONOS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Sonos se centra en gran medida en soluciones de audio. La compañía genera...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Sonos se centra en gran medida en soluciones de audio, como lo demuestra su enfoque en altavoces Sonos, productos del sistema Sonos y auriculares. La compañía genera sustancialmente todos sus ingresos de estos productos y se identifica como una marca líder en experiencias de sonido, pi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WMG" data-company="WARNER MUSIC GROUP CORP-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/WMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER MUSIC GROUP CORP-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Warner Music Group se centra en gran medida en el entretenimiento digital. La compañía distribuye...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Warner Music Group se centra en gran medida en el entretenimiento digital, como lo demuestran sus operaciones principales en servicios de streaming y distribución digital. La compañía distribuye música en formato digital a varios socios, incluidos servicios de streaming, sitios de rede...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WMG" data-company="WARNER MUSIC GROUP CORP-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/WMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER MUSIC GROUP CORP-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Warner Music Group (WMG) se centra en la creación, distribución y comercialización of música. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Warner Music Group (WMG) con la Industria del Entretenimiento es evidente, ya que se identifica como una de las principales empresas de entretenimiento musical del mundo con operaciones que abarcan la música grabada y la edición musical. El negocio principal de la empresa se centra en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WMG" data-company="WARNER MUSIC GROUP CORP-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/WMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER MUSIC GROUP CORP-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Warner Music Group genera ingresos de servicios de artistas y derechos ampliados. WMG ha...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Warner Music Group con el tema de los servicios de entretenimiento es evidente a través de sus diversos flujos de ingresos y ofertas de servicios. La compañía genera ingresos de servicios de artistas y derechos ampliados, que abarcan actividades más allá de la grabación de música tr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WMG" data-company="WARNER MUSIC GROUP CORP-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/WMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER MUSIC GROUP CORP-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">WMG obtiene ingresos de transmisiones de televisión, radio y cable. Si bien la transmisión de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de WMG con el tema de Transmisión de Medios se deriva de las regalías e ingresos que la empresa recibe cuando sus grabaciones de sonido y composiciones musicales se interpretan públicamente a través de transmisiones de televisión, radio y cable. Como titular de derechos, WMG obtiene ingr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WMG" data-company="WARNER MUSIC GROUP CORP-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/WMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER MUSIC GROUP CORP-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Warner Music Group participa integral en la cadena de valor de la música grabada. Esto incluye la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Warner Music Group con el tema de Producción Musical es evidente a través de su participación integral en la cadena de valor de la música grabada, desde el descubrimiento y desarrollo de talentos hasta la producción, distribución y venta de música. Esto incluye la gestión de derecho...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WMG" data-company="WARNER MUSIC GROUP CORP-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-09-30</td>
+            <td><a href="/profile/WMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER MUSIC GROUP CORP-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de WMG está significativamente entrelazado with las plataformas y servicios de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de WMG está significativamente entrelazado con las plataformas y servicios de streaming, como lo demuestra la dependencia de la compañía de estas plataformas para la distribución de música y la generación de ingresos. La compañía distribuye su música a los principales servicios de streami...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CDNS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CDNS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cadence participa en el desarrollo de aplicaciones a través of la creación of software...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cadence participa en el desarrollo de aplicaciones a través de la creación de software computacional impulsado por IA, así como soluciones de propiedad intelectual. Estos recursos están diseñados para ingenieros y científicos, permitiéndoles crear productos nuevos e innovadores. El papel de la empre...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CDNS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CDNS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El gemelo digital de centro de datos de realidad de Cadence está impulsando un fuerte crecimiento...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Cadence con el tema del centro de datos es evidente a través de varias actividades clave. Los solucionadores Clarity y Celsius de la empresa están experimentando una expansión significativa en un importante hiperescalador, y Clarity ha asegurado una victoria clave en una destacada e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CDNS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CDNS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cadence's semiconductores son integrales para numerosos productos de consumo. Los clientes de the...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de Cadence con el tema de dispositivos electrónicos es evidente a través de sus semiconductores, que son integrales para numerosos productos de consumo, incluyendo teléfonos móviles, automóviles, computadoras y electrodomésticos. Los clientes de la empresa diseñan y construyen sistemas e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CDNS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CDNS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cadence experimentó un crecimiento sustancial, impulsado by oportunidades en IA, arquitecturas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cadence en la innovación de hardware tecnológico es evidente a través de su desarrollo de hardware acelerado y soluciones de propiedad intelectual (PI). El negocio de PI de la empresa experimentó un crecimiento sustancial, impulsado por oportunidades en IA, arquitecturas basadas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CDNS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CDNS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cadence proporciona software, hardware, propiedad intelectual y servicios de computación para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cadence en el Internet de las cosas es evidente a través de la provisión de software, hardware, propiedad intelectual y servicios de computación para diversos sectores, incluido el Internet de las cosas industrial (IIoT). La compañía identifica el IIoT como una de las industrias ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CDNS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CDNS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cadence ayuda a abordar desafíos intrincados tanto en los sectores de semiconductores como de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cadence en el tema de los chips semiconductores es evidente a través de sus estrechas colaboraciones con empresas de semiconductores, donde ayuda a abordar desafíos intrincados tanto en los sectores de semiconductores como de sistemas electrónicos. El software EDA y las ofertas d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dolby colabora con creadores de música, TV y cine para desarrollar tecnologías destinadas a mejorar...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Dolby en la Producción Cinematográfica es evidente a través de su provisión de soluciones diseñadas como herramientas creativas para cineastas, artistas musicales y mezcladores de sonido, permitiéndoles realizar plenamente sus visiones artísticas. La empresa apoya la producción teat...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Dolby Vision y Dolby Atmos integra en ordenadores personales de los principales fabricantes de PC....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dolby en el tema de fabricación de PC es evidente a través de la integración de las tecnologías Dolby Vision y Dolby Atmos en ordenadores personales de los principales fabricantes como Apple, Lenovo, Dell, Samsung, Microsoft y ASUS. Esto se ve reforzado por el lanzamiento del pri...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Las consolas de videojuegos como Sony PlayStation y Microsoft Xbox utilizan la tecnología DD+ de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Dolby en el tema de la Tecnología de Videojuegos es evidente a través de la integración de sus tecnologías de audio y video en las principales plataformas de videojuegos. Las consolas de videojuegos como Sony PlayStation y Microsoft Xbox utilizan la tecnología DD+ de Dolby para m...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KN" data-company="KNOWLES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/KN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">KN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KNOWLES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Knowles fabrica altavoces de armadura balanceada y micrófonos medtech avanzados. El segmento MSA de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Knowles en Soluciones de Audio es evidente a través de su papel como proveedor global, que fabrica altavoces de armadura balanceada y micrófonos medtech avanzados. El segmento MSA de la compañía diseña y fabrica estos altavoces y micrófonos, que son integrales para los mercados d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KN" data-company="KNOWLES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/KN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">KN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KNOWLES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se identifica como un fabricante líder de componentes electrónicos especializados. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Knowles en el tema de la industria de Componentes Electrónicos es evidente a través de sus operaciones comerciales principales. La empresa se identifica como un fabricante líder de componentes electrónicos especializados, diseñando piezas para tecnologías innovadoras en los merca...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSI" data-company="MOTOROLA SOLUTIONS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MSI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MSI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MOTOROLA SOLUTIONS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">MSI participa en redes empresariales a través de su adquisición de Silvus. Se especializa en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de MSI en redes empresariales se demuestra a través de su adquisición de Silvus, que se especializa en tecnología de redes móviles ad hoc (MANET) de alta velocidad definida por software. Esta adquisición aporta experiencia en redes móviles ad hoc y nuevas aplicaciones al portafolio ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSI" data-company="MOTOROLA SOLUTIONS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MSI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MSI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MOTOROLA SOLUTIONS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La adquisición de Silvus subraya la cartera de seguridad pública y empresarial de Motorola. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Motorola Solutions demuestra su compromiso con el tema de la Ciberseguridad a través de varias iniciativas clave. La adquisición de Silvus, una empresa especializada en tecnología de redes móviles ad hoc (MANET) seguras, subraya este enfoque, mejorando la cartera de seguridad pública y empresarial d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSI" data-company="MOTOROLA SOLUTIONS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MSI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MSI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MOTOROLA SOLUTIONS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La adquisición de Silvus proporciona a Motorola Solutions infraestructura de alta velocidad para...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Motorola Solutions demuestra su enfoque en la tecnología de defensa a través de varias iniciativas estratégicas. La adquisición de Silvus, líder en redes ad hoc móviles, proporciona a la empresa infraestructura de alta velocidad para sistemas no tripulados, crucial para las aplicaciones modernas de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSI" data-company="MOTOROLA SOLUTIONS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MSI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MSI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MOTOROLA SOLUTIONS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Motorola Solutions tiene un línea de productos de Comunicaciones LMR (Land Mobile Radio) El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Motorola Solutions en el tema de Equipos de Telecomunicaciones es evidente a través de su línea de productos de Comunicaciones LMR (Land Mobile Radio), que incluye infraestructura, dispositivos como radios bidireccionales y banda ancha, y software que permite las comunicaciones. ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSI" data-company="MOTOROLA SOLUTIONS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/MSI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MSI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MOTOROLA SOLUTIONS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Motorola Solutions demuestra una conexión significativa con el tema of Infraestructura de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Motorola Solutions demuestra una conexión significativa con el tema de Infraestructura de Telecomunicaciones, principalmente a través de su negocio de Comunicaciones de Radio Móvil Terrestre (LMR), que incluye infraestructura, dispositivos y software diseñados para comunicaciones seguras y resilient...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RNG" data-company="RINGCENTRAL INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RNG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RNG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RINGCENTRAL INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RingCentral se enfoca en mejorar la comunicación a través de soluciones impulsadas por IA como AIR....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de RingCentral con herramientas de comunicación es evidente en su cartera multiproducto impulsada por IA, que incluye Comunicaciones Unificadas como Servicio (UCaaS) y Centro de Contacto como Servicio (CCaaS). La plataforma RingEX de la empresa permite la colaboración a través de vo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RNG" data-company="RINGCENTRAL INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RNG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RNG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RINGCENTRAL INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RingCentral ofrece ofertas de UCaaS y CCaaS como RingEX and RingCX. Estas plataformas impulsadas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de RingCentral en software empresarial es evidente en su cartera de múltiples productos, que incluye ofertas de UCaaS y CCaaS como RingEX y RingCX. Estas plataformas impulsadas por IA están diseñadas para mejorar las comunicaciones empresariales, la colaboración de los empleados y optimiz...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RNG" data-company="RINGCENTRAL INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RNG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RNG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RINGCENTRAL INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RingCentral ofrece soluciones de interacción con la fuerza laboral y omnicanal impulsadas by IA...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de RingCentral en el tema de la Estrategia Omnicanal es evidente en su RingCentral Contact Center, que ofrece soluciones de interacción con la fuerza laboral y omnicanal impulsadas por IA integradas con RingEX. Esta solución de centro de contacto aprovecha la tecnología de Contact C...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RNG" data-company="RINGCENTRAL INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/RNG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RNG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RINGCENTRAL INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RingCentral es una plataforma diseñada para organizar eventos virtuales, híbridos y presenciales....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de RingCentral con el tema de Software de Eventos Virtuales y Conferencias es evidente a través de su cartera multiproducto impulsada por IA, que incluye soluciones de Video y Eventos. RingCentral Events, construido sobre la adquisición de Hopin Events y Session, sirve como una platafo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ROKU" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/roku-Q225-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ROKU" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ROKU</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/roku-Q225-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Roku con Audio Solutions es evidente a través oficial de ingresos por dispositivos. Productos de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Roku con Audio Solutions es evidente a través de su flujo de ingresos por dispositivos, que incluye la venta de productos de audio y accesorios relacionados. Si bien los productos de audio forman parte de la oferta de dispositivos de Roku, no son el foco estratégico principal en ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ROKU" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/roku-Q225-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ROKU" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ROKU</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/roku-Q225-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Roku genera ingresos por la venta de reproductores de streaming, televisores de marca Roku,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Roku en el tema de la electrónica de consumo es evidente a través de su segmento de dispositivos, que genera ingresos por la venta de reproductores de streaming, televisores de marca Roku, productos y servicios para el hogar inteligente, y productos de audio. La compañía distribu...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ROKU" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/roku-Q225-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/ROKU" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ROKU</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/roku-Q225-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Roku se centra en plataformas y servicios de streaming. La empresa enfatiza el crecimiento de los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Roku se centra en plataformas y servicios de streaming, como lo demuestra la generación de ingresos de su segmento de plataforma a partir de la distribución de servicios de streaming, incluidas suscripciones y publicidad digital. La empresa enfatiza el crecimiento de los ingresos y la ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SIRI" data-company="SIRIUS XM HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/SIRI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SIRI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SIRIUS XM HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SiriusXM ofrece una diversa gama de contenido de audio, que incluye música, deportes,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de SiriusXM con las Soluciones de Audio es evidente a través de la operación de dos negocios principales de entretenimiento de audio, SiriusXM y Pandora. SiriusXM ofrece una diversa gama de contenido de audio, que incluye música, deportes, entretenimiento, comedia, talk shows, noticias...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SIRI" data-company="SIRIUS XM HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/SIRI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SIRI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SIRIUS XM HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Sirius XM ofrece servicios de datos para vehículos conectados a varios fabricantes de automóviles....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Sirius XM con el tema de Vehículos Conectados es evidente a través de su provisión de servicios para vehículos conectados a varios fabricantes de automóviles, diseñados para mejorar la seguridad, protección y experiencia de conducción de los consumidores. La empresa ofrece servicios...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SIRI" data-company="SIRIUS XM HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/SIRI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SIRI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SIRIUS XM HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SiriusXM ofrece una amplia gama de contenido, que incluye música, deportes, entretenimiento,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Sirius XM gira en torno al entretenimiento digital, principalmente a través de sus plataformas SiriusXM y Pandora. SiriusXM ofrece una amplia gama de contenido, que incluye música, deportes, entretenimiento, comedia, tertulias, noticias, podcasts y servicios de infoentretenim...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SIRI" data-company="SIRIUS XM HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/SIRI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SIRI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SIRIUS XM HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SiriusXM depende en gran medida de las comunicaciones por satélite. La empresa incurre en costos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de SiriusXM depende en gran medida de las comunicaciones por satélite, como lo demuestra la distribución de su servicio a través de dos sistemas propietarios de radio por satélite. La empresa incurre en costos significativos asociados con la operación y el mantenimiento de sus satélites, ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SIRI" data-company="SIRIUS XM HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/SIRI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SIRI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SIRIUS XM HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SiriusXM se distribuye a través of sus two sistemas patentados de radio satelital. La dependencia...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de SiriusXM con la Tecnología Satelital está profundamente arraigado en su modelo de negocio principal, ya que el servicio SiriusXM se distribuye a través de sus dos sistemas patentados de radio satelital. La dependencia de la empresa de esta tecnología se ve subrayada por el hecho de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SIRI" data-company="SIRIUS XM HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/SIRI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SIRI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SIRIUS XM HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SiriusXM ofrece su contenido a través de radio satelital y aplicaciones de streaming. Pandora opera...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Sirius XM en el tema de las plataformas y servicios de streaming es evidente a través de la operación de dos negocios de entretenimiento de audio: SiriusXM y Pandora. SiriusXM ofrece su contenido, que incluye música, deportes, entretenimiento y noticias, a través de radio satelit...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SONO" data-company="SONOS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/SONO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SONO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SONOS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de Sonos se centra en gran medida en la industria de la electrónica de consumo. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de Sonos se centra en gran medida en la industria de la electrónica de consumo, como lo demuestra el hecho de que la empresa genera prácticamente todos sus ingresos de los altavoces Sonos y los productos del sistema Sonos. La línea de productos de la empresa, que incluye altavoces inalámb...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SOUN" data-company="SOUNDHOUND AI INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/SOUN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SOUN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SOUNDHOUND AI INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma Houndify permite a los desarrolladores utilizar la tecnología de IA de voz de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de SoundHound en el Desarrollo de Aplicaciones es evidente en su continua inversión en su plataforma de software a través de investigación y desarrollo dedicados. La plataforma Houndify de la empresa permite a los desarrolladores utilizar la tecnología de IA de voz de SoundHound. El éxito...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SOUN" data-company="SOUNDHOUND AI INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/SOUN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SOUN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SOUNDHOUND AI INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SoundHound está migrando sus soluciones a Polaris, su propio modelo fundacional multimodal y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de SoundHound en Soluciones de Audio es evidente en su tecnología central, que gira en torno a la IA de voz y la IA conversacional, particularmente el motor de reconocimiento de voz Polaris. La compañía enfatiza su posición como líder mundial en inteligencia conversacional, ofreciendo sol...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SOUN" data-company="SOUNDHOUND AI INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/SOUN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SOUN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SOUNDHOUND AI INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SoundHound se fortalece aún más con la adquisición of Amelia, una empresa de software de IA...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de SoundHound en IA Generativa y LLMs es evidente a través de su desarrollo e implementación de soluciones avanzadas de IA de voz. El compromiso de la compañía se destaca por su inversión en Polaris, un modelo fundacional multimodal y multilingüe, y el lanzamiento de SoundHound Chat...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SOUN" data-company="SOUNDHOUND AI INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/SOUN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SOUN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SOUNDHOUND AI INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La IA de voz ofrece velocidad y precisión en numerosos idiomas a los creadores de productos en IoT....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La tecnología de IA de voz de SoundHound está disponible para los creadores de productos en todo el Internet de las Cosas, además de automoción y televisión. SoundHound permite a las empresas habilitar por voz sus productos IoT, permitiendo a los consumidores utilizar comandos de voz para diversas t...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AAPL" data-company="APPLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/AAPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AAPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La App Store se destaca constantemente como un contribuyente clave al crecimiento de los ingresos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Apple en el tema del Mercado en Línea es evidente a través del aumento de las ventas netas en su segmento de Servicios, impulsado principalmente por la App Store. La App Store se destaca constantemente como un contribuyente clave al crecimiento de los ingresos por servicios, tant...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CDNS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CDNS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cadence proporciona software computacional, hardware, IP y servicios al sector automotriz. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cadence en Tecnología Automotriz es evidente a través de varias vías. La empresa proporciona software computacional, hardware, IP y servicios al sector automotriz, y los clientes automotrices están impulsando una fuerte demanda de su hardware. La adquisición de BETA CAE amplía la...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CDNS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CDNS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cadence se destaca por su adquisición de Invecas, una empresa especializada en ingeniería de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cadence en Servicios de Ingeniería se destaca por su adquisición de Invecas, una empresa especializada en ingeniería de diseño, software integrado y soluciones a nivel de sistema. Esta adquisición, alineada con la estrategia de Diseño Inteligente de Sistemas de Cadence, aporta un...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/CDNS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CDNS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La exposición de Cadence a la industria de dispositivos médicos está respaldada. La adquisición...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de Cadence a la industria de dispositivos médicos está respaldada por su provisión de soluciones de semiconductores que catalizan la innovación dentro de la tecnología médica. Esto se demuestra aún más con la adquisición de BETA CAE, que amplía la suite de análisis de sistemas multifís...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="DLB" data-company="DOLBY LABORATORIES INC-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/DLB" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">DLB</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">DOLBY LABORATORIES INC-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Porsche y Cadillac integrando Dolby Atmos en sus modelos de 2026. NIO y Zeekr implementando Dolby...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Dolby con las Pantallas Automotrices es evidente a través de sus colaboraciones e integraciones con los principales fabricantes de automóviles. La empresa enfatiza el sector automotriz como una parte cada vez más importante de su negocio, impulsada por la demanda de experiencias de ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IMAX" data-company="IMAX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/IMAX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IMAX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">IMAX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IMAX utiliza software propietario, arquitectura de auditorio y equipos especializados. Los sistemas...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IMAX en soluciones de audio es evidente en sus experiencias de contenido inmersivo de extremo a extremo, utilizando software propietario, arquitectura de auditorio y equipos especializados. Los sistemas IMAX de la compañía incorporan componentes avanzados de sistemas de sonido, q...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IMAX" data-company="IMAX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/IMAX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IMAX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">IMAX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IMAX opera como una plataforma tecnológica global profundamente integrada. La cartera de contenido...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">IMAX opera como una plataforma tecnológica global profundamente integrada en la industria del entretenimiento, ofreciendo soluciones de extremo a extremo para experiencias de contenido inmersivas. Los principales cineastas y estudios utilizan la tecnología de IMAX, lo que la convierte en una platafo...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="IMAX" data-company="IMAX CORP">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/IMAX" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">IMAX</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">IMAX CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">IMAX aprovecha su tecnología patentada en la remasterización digital de películas al formato IMAX....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de IMAX en la Producción Cinematográfica es evidente a través de su provisión de tecnología y servicios a cineastas y estudios. El proceso de remasterización de películas IMAX de la empresa mejora la fidelidad de imagen y sonido, mientras que su programa IMAX DNA y su programa de cá...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ROKU" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/roku-Q225-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/ROKU" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ROKU</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/roku-Q225-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Roku genera ingresos de la plataforma a partir of la distribución de servicios de streaming. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Roku con la creación de contenido es evidente en el costo de los ingresos de su plataforma, que incluye los costos de amortización de contenido tanto para contenido licenciado como producido. Esto indica que la creación y licencia de contenido son estratégicamente importantes para l...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ROKU" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/roku-Q225-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/ROKU" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ROKU</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/roku-Q225-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Roku se basa en la venta de publicidad digital, incluida la publicidad de video directa y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Roku con la Tecnología de Marketing Digital es evidente en la generación de ingresos de su plataforma, que se basa en la venta de publicidad digital, incluida la publicidad de video directa y programática, así como anuncios integrados en su interfaz de usuario. Los gastos de ventas ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SIRI" data-company="SIRIUS XM HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SIRI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SIRI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SIRIUS XM HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SiriusXM ofrece servicios de vehículos conectados a varios fabricantes de automóviles. Estos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de SiriusXM en Telemática Automotriz es evidente a través de su provisión de servicios de vehículos conectados a varios fabricantes de automóviles, diseñados para mejorar la seguridad, la protección y la experiencia de conducción. Estos servicios forman parte del flujo de ingresos d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SONO" data-company="SONOS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SONO" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SONO</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SONOS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa se enfoca principalmente en productos de audio, pero estos accesorios contribuyen al...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Sonos en el tema de Muebles para el Hogar se deriva de sus ventas de accesorios como soportes para altavoces y soportes de pared, así como de altavoces arquitectónicos a través de una asociación con Sonance. Si bien la empresa se enfoca principalmente en productos de audio, estos...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SOUN" data-company="SOUNDHOUND AI INC-A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/SOUN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SOUN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SOUNDHOUND AI INC-A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SoundHound se ha implementado en América del Norte con varias marcas globales. La empresa también...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de SoundHound con la Tecnología Automotriz es evidente a través de su solución de IA Generativa, Chat AI, que se ha implementado en América del Norte con varias marcas globales y ha asegurado acuerdos en China que representan millones de unidades. La empresa también se enfoca en soluci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="WMG" data-company="WARNER MUSIC GROUP CORP-CL A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/WMG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">WMG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">WARNER MUSIC GROUP CORP-CL A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El negocio de WMG está significativamente entrelazado with la economía digital. La empresa se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de WMG está significativamente entrelazado con la economía digital, como lo demuestra su dependencia de los canales de distribución digital, los servicios de streaming y los servicios de música digital para la generación de ingresos tanto en Grabación Musical como en Edición Musical. La e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AAPL" data-company="APPLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/AAPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AAPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Apple tiene como objetivo hacer accesibles las tecnologías avanzadas. La compañía está...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Apple con la Inteligencia Artificial es evidente a través de su integración en dispositivos y plataformas, destacado por la introducción de 'Apple Intelligence', un sistema de inteligencia personal que aprovecha modelos generativos. El compromiso de la compañía se ve subrayado por i...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="AAPL" data-company="APPLE INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/AAPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">AAPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">APPLE INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa está aumentando significativamente sus inversiones en IA y ha presentado 'Apple...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Apple con la IA Generativa y los LLM es evidente a través de su integración de IA en sus dispositivos y plataformas. La empresa está aumentando significativamente sus inversiones en IA y ha presentado 'Apple Intelligence', un sistema de inteligencia personal que utiliza modelos gene...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CDNS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CDNS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cadence colabora con NVIDIA, permitiendo la aceleración de los solucionadores de Cadence. Esta...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Cadence con la Computación Acelerada es evidente a través de su desarrollo de software impulsado por IA, hardware acelerado y soluciones de propiedad intelectual. La empresa colabora con NVIDIA, permitiendo la aceleración de los solucionadores de Cadence y desarrollando soluciones d...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CDNS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CDNS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cadence está integrando la IA Agente en sus plataformas de diseño en los flujos de trabajo...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El éxito financiero de Cadence en el segundo trimestre de 2025 se vio impulsado significativamente por su cartera de productos impulsada por IA, que impulsó los ingresos y las ganancias por acción por encima de las expectativas. La empresa está integrando la IA Agente en sus plataformas de diseño en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="KN" data-company="KNOWLES CORP">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/KN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">KN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">KNOWLES CORP</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Knowles está profundamente involucrada en la industria de fabricación de productos electrónicos. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Knowles está profundamente involucrada en la industria de fabricación de productos electrónicos, identificándose como un fabricante líder de componentes electrónicos especializados que desempeñan funciones críticas para tecnologías innovadoras. La empresa aprovecha la fiabilidad extrema, la ingenier...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSI" data-company="MOTOROLA SOLUTIONS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/MSI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MSI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MOTOROLA SOLUTIONS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Motorola Solutions ofrece soluciones LTE para seguridad pública, gubernamental y usuarios...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Motorola Solutions en la Contratación de Defensa es evidente a través de su provisión de tecnología de comunicaciones de Alta Frecuencia (HF) y Muy Alta Frecuencia (VHF) a clientes militares y gubernamentales, particularmente para comunicaciones de voz dinámicas y móviles punto a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSI" data-company="MOTOROLA SOLUTIONS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/MSI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MSI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MOTOROLA SOLUTIONS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Motorola Solutions ofrece soluciones LTE y tecnología de comunicaciones de alta frecuencia (HF) y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Motorola Solutions tiene presencia en la industria de la electrónica de defensa, particularmente a través de la adquisición de Silvus, líder en redes móviles ad hoc que son cruciales para sistemas no tripulados en aire, tierra y mar. Esta adquisición proporciona a la empresa una infraestructura de c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="MSI" data-company="MOTOROLA SOLUTIONS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/MSI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">MSI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">MOTOROLA SOLUTIONS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Motorola Solutions demuestra su compromiso con los Servicios Inalámbricos. La empresa facilita la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Motorola Solutions demuestra su compromiso con los Servicios Inalámbricos a través de su tecnología de Comunicaciones LMR, que incluye infraestructura y dispositivos para LMR, LTE de seguridad pública y LTE de operador público. La empresa facilita la colaboración de voz y multimedia a través de radi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="RNG" data-company="RINGCENTRAL INC-CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/RNG" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">RNG</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">RINGCENTRAL INC-CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">RingCentral se enfoca en la entrega de software como servicio. Estas ofertas abarcan Comunicaciones...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">RingCentral se enfoca en la entrega de software como servicio, ofreciendo soluciones insignia basadas en la nube como RingEX y RingCX bajo un modelo de suscripción. Estas ofertas abarcan Comunicaciones Unificadas como Servicio (UCaaS) y Centro de Contacto como Servicio (CCaaS), formando una cartera ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ROKU" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/roku-Q225-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/ROKU" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ROKU</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/roku-Q225-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Roku estructura de doble segmento abarca tanto un segmento de plataforma como de dispositivos. Los...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Roku con la diversificación de los medios es evidente en su estructura de doble segmento, que abarca tanto un segmento de plataforma como de dispositivos. Los ingresos de la plataforma se generan a través de la publicidad digital y la distribución de servicios de streaming, incluida...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SIRI" data-company="SIRIUS XM HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/SIRI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SIRI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SIRIUS XM HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SiriusXM ofrecen una amplia gama de entretenimiento de audio. Esto incluye música, deportes,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de SiriusXM está fuertemente involucrado en la industria del entretenimiento, principalmente a través de sus plataformas SiriusXM y Pandora, que ofrecen una amplia gama de entretenimiento de audio. Esto incluye música, deportes, comedia, charlas, noticias, podcasts y servicios de infoentr...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="SIRI" data-company="SIRIUS XM HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/SIRI" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">SIRI</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">SIRIUS XM HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">SiriusXM ofrece servicios de transmisión de música, comedia y podcasts. La empresa opera SiriusXM y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio de SiriusXM está fuertemente involucrado en la industria de las Redes de Medios, como lo demuestra su operación de plataformas de transmisión y digitales que ofrecen programación diversa, que incluye noticias, entretenimiento, deportes y contenido de estilo de vida, a una amplia audiencia...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/CDNS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CDNS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">El DSP Tensilica de Cadence se utiliza en sistemas automotrices ADAS e infoentretenimiento. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cadence en la electrónica automotriz es evidente a través de la provisión de software computacional, hardware, IP y servicios para el sector automotriz. El DSP Tensilica de la compañía se utiliza en sistemas automotrices ADAS e infoentretenimiento, y su conjunto de software de ve...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CDNS" data-company="CADENCE DESIGN SYS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/CDNS" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CDNS</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CADENCE DESIGN SYS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cadence está expandiendo su alcance en varios sectores de la electrónica. La suite de software de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cadence ha estado a la vanguardia de la innovación tecnológica, abordando desafíos complejos dentro de las industrias de semiconductores y sistemas electrónicos desde su creación. La suite de software de verificación de Cadence está expandiendo su alcance en varios sectores de la electrónica y se be...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="ROKU" data-company=" 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/roku-Q225-10-Q.html'}">
+            <td style="color: #666; font-size: 0.9rem;"></td>
+            <td><a href="/profile/ROKU" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">ROKU</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;"> 'url': 'https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/roku-Q225-10-Q.html'}</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">'name': 'roku-FY24-10-K' 'category': 'K', 'category' : 'k'</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">{'name': 'roku-FY24-10-K'</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    

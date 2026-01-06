@@ -1,0 +1,727 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Decentralized Finance - Need to Know</title>
+<style>
+    :root {
+        --header-bg: #2c3e50;
+        --header-text: #ffffff;
+        --body-bg: #f5f7fa; 
+        --accent-color: #3498db;
+        --text-color: #333;
+        --info-bar-bg: #e3f2fd;
+        --info-bar-text: #1565c0;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--body-bg); color: var(--text-color); }
+    
+    .main-header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 25px 40px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-content { flex: 1; }
+    .main-title { font-size: 2rem; font-weight: 700; margin: 0; }
+    .sub-title { font-size: 1rem; color: #bdc3c7; margin-top: 5px; font-weight: 400; }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .home-button:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
+
+    .home-button svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
+    
+    .nav-bar { margin-bottom: 25px; }
+    .btn-browse {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .btn-browse:hover { background-color: #34495e; }
+    
+    .info-bar {
+        background-color: var(--info-bar-bg);
+        color: var(--info-bar-text);
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 5px solid #2196f3;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-bar strong { font-weight: 700; color: #0d47a1; }
+
+    .count-badge { background-color: #3498db; color: white; border-radius: 12px; padding: 4px 10px; font-size: 0.85rem; font-weight: 600; }
+    
+    .content-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-bottom: 35px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    .section-header-clean {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        margin-bottom: 25px;
+    }
+    
+    .header-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    
+    .symbol-text { font-weight: 700; color: #2c3e50; }
+    .company-name { font-weight: 600; color: #2c3e50; }
+    .company-desc { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    
+    .action-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .action-link:hover { text-decoration: underline; }
+
+    .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+    .search-input:focus { border-color: #3498db; }
+    
+    .evidence-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .evidence-table th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #7f8c8d; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .evidence-table td { padding: 16px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .evidence-table tr:hover { background-color: #fcfcfc; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+
+    .btn-view-chart {
+        background-color: #3498db;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: background-color 0.2s;
+        margin-left: auto;
+    }
+    .btn-view-chart:hover {
+        background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main-header">
+    <div class="header-content">
+      <div class="main-title">Decentralized Finance</div>
+      <div class="sub-title">Investment Theme Detail - Financials Industry</div>
+    </div>
+    <a href="main_trends.html" class="home-button" title="Return to Main Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container">
+  
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="http://localhost:8000/industry_explorer.html" class="btn-browse">← Browse All Trends</a>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <strong>Theme:</strong> Decentralized Finance &nbsp;|&nbsp; 
+        <strong>Industry:</strong> Financials &nbsp;|&nbsp; 
+        <strong>Total Companies:</strong> 4
+    </div>
+
+    
+    <!-- Theme Chart Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Theme Chart</span>
+             <a href="equity_decentralized_finance.html" target="_blank" class="btn-view-chart">View Full Chart ↗</a>
+        </div>
+        <div class="box-body" style="height: 600px; overflow:hidden;">
+            <iframe src="equity_decentralized_finance.html" style="width:100%; height:100%; border:none; display:block;"></iframe>
+        </div>
+    </div>
+        
+
+
+
+    <!-- Companies Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">Companies</span>
+            <span class="count-badge">4</span>
+        </div>
+        
+        <table style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Rank</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Symbol</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Company Name</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Description</th>
+                    <th style="padding:10px; text-align:left; color:#7f8c8d; font-weight:600; font-size:0.85rem; text-transform:uppercase; border-bottom:2px solid #eee;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">1</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">COIN</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Proporciona un conjunto integral de servicios financieros basados en blockchain, que incluyen intercambio de criptomonedas, custodia y productos relac...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/COIN" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">2</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">HOOD</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">ROBINHOOD MARKETS INC - A</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aplica inteligencia artificial para mejorar sus servicios de tecnología financiera, contribuyendo a experiencias de usuario más personalizadas y opera...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/HOOD" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">3</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">CBOE</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">CBOE GLOBAL MARKETS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Se compromete con la tecnología blockchain para explorar oportunidades en activos digitales y mejorar la infraestructura del mercado....</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/CBOE" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">4</td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><span class="symbol-text">PYPL</span></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-name">PAYPAL HOLDINGS INC</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;"><div class="company-desc">Aprovecha la inteligencia artificial para mejorar sus ofertas de fintech, centrándose en áreas como la prevención de fraudes, la gestión de riesgos y ...</div></td>
+            <td style="padding:15px 10px; border-bottom:1px solid #eee;">
+                <a href="http://localhost:8000/profile/PYPL" target="_blank" title="View Profile" style="text-decoration:none; display:inline-block; color:#586069;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="border: 1px solid #d1d5da; border-radius: 4px; padding: 4px; transition: all 0.2s;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- All Evidence Section -->
+    <div class="content-box">
+        <div class="section-header-clean">
+            <span class="header-text">All Evidence</span>
+            <span class="count-badge">38</span>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; margin-top:0;">
+            All evidence entries sorted by date. Filter by company below.
+        </p>
+        
+        <input type="text" id="evidenceFilter" class="search-input" placeholder="Find Evidence by Company (symbol or name)..." onkeyup="filterEvidence()">
+        
+        <table class="evidence-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">Date</th>
+                    <th style="width:100px;">Symbol</th>
+                    <th style="width:200px;">Company</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody id="evidenceList">
+    
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CBOE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CBOE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cboe ofreciendo soluciones de negociación, compensación e inversión en América del Norte, Europa y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Las operaciones de Cboe están profundamente entrelazadas con los mercados de capitales, ya que funciona como una red líder de bolsas de derivados y valores, ofreciendo soluciones de negociación, compensación e inversión en América del Norte, Europa y Asia Pacífico. Los segmentos de negocio de la emp...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CBOE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CBOE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cboe tiene exposición al comercio de criptomonedas, como lo demuestra su negocio de activos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cboe tiene exposición al comercio de criptomonedas, como lo demuestra su negocio de activos digitales, que incluye una bolsa de futuros y una cámara de compensación reguladas. Aunque la compañía cerró su mercado spot Cboe Digital, continúa facilitando la compensación de contratos de futuros de Bitco...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal demuestra una presencia significativa en la industria de Crédito y Préstamos. Las...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">PayPal demuestra una presencia significativa en la industria de Crédito y Préstamos a través de sus carteras de préstamos para consumidores y comerciantes. Las actividades de la empresa incluyen la oferta de productos de crédito rotatorio y a plazos para consumidores, así como opciones de financiaci...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal introducido PYUSD, una moneda estable diseñada para facilitar el comercio global. PayPal...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de PayPal con el Trading de Criptomonedas es evidente a través de varias iniciativas, incluida la introducción de PYUSD, una moneda estable diseñada para facilitar el comercio global abordando problemas como las altas tarifas y la lentitud de las transacciones. La empresa genera ingres...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CBOE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CBOE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cboe participa en múltiples clases de activos, específicamente acciones, derivados y FX. El...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cboe en el tema de Productos Financieros es evidente a través de su provisión de soluciones y productos de negociación en múltiples clases de activos, específicamente acciones, derivados y FX, que abarcan América del Norte, Europa y Asia Pacífico. El enfoque de la empresa se ve a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CBOE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CBOE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La participación of Cboe en Soluciones Fintech es evidente. Aunque no se menciona explícitamente,...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cboe en Soluciones Fintech es evidente en su entrega de 'soluciones comerciales, de compensación y de inversión de vanguardia', lo que refleja los esfuerzos de la empresa para optimizar la prestación de servicios financieros. Aunque no se indica explícitamente, el enfoque de la e...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CBOE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CBOE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cboe ofrece soluciones de trading, compensación e inversión en acciones, derivados y divisas. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Cboe en el trading institucional es evidente a través de su negocio principal como una red de bolsas líder a nivel mundial, que ofrece soluciones de trading, compensación e inversión en acciones, derivados y divisas. Esto se destaca por la operación de la empresa de las principal...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/CBOE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CBOE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cboe Global Markets opera como una red líder de bolsas de derivados y valores. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cboe Global Markets opera como una red líder de bolsas de derivados y valores, ofreciendo soluciones de negociación, compensación e inversión en múltiples clases de activos, incluyendo renta variable, derivados y divisas, en América del Norte, Europa y Asia Pacífico. La empresa opera una red de bols...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase proporciona infraestructura de custodia, negociación y pago a más de 240 empresas. Esto...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Coinbase con los servicios de Blockchain es evidente a través de su oferta de Cripto como Servicio (CaaS), que proporciona infraestructura de custodia, negociación y pago a más de 240 empresas. Esto incluye potenciar más del 80% de la custodia para los emisores de cripto ETFs y asoc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase aprovecha su infraestructura criptográfica para empoderar a las empresas a través of sus...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Coinbase demuestra su compromiso con la tecnología blockchain a través de varias iniciativas clave. La empresa aprovecha su infraestructura criptográfica para empoderar a las empresas a través de sus capacidades de Cripto como Servicio, que admiten custodia, comercio y pagos para más de 240 empresas...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase se centra en impulsar el crecimiento en negocios centrales como el comercio. Este...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de Coinbase al Comercio de Criptomonedas es sustancial, ya que es el núcleo de su modelo de negocio. Los ingresos de la empresa dependen en gran medida de los ingresos por transacciones derivados del comercio de criptomonedas, y están trabajando activamente para expandir su plataforma ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal espera continuar invirtiendo recursos significativos para reforzar estas protecciones. Se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La ciberseguridad es un área crítica de enfoque para PayPal, especialmente dadas las crecientes amenazas para las empresas globales de pagos y tecnología. La compañía ha desarrollado sistemas y procesos diseñados para proteger los datos, prevenir la pérdida de datos y permitir respuestas efectivas a...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase almacena de forma segura el AOP adicional de los clientes. AOP representan el valor total...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Coinbase con los Servicios de Custodia es evidente a través de sus Activos en Plataforma (AOP), que representan el valor total de los activos de USDC y cripto mantenidos o administrados para los clientes, incluidos los servicios de custodia. Este AOP demuestra la confianza que los c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal está evolucionando de un procesador de pagos a una plataforma de comercio dinámica. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La misión principal de PayPal es revolucionar el comercio a nivel mundial al permitir pagos digitales y simplificar las experiencias comerciales para consumidores y comerciantes, tanto en línea como fuera de línea. La empresa está evolucionando de un procesador de pagos a una plataforma de comercio ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal demuestra su enfoque en los servicios financieros para PYMES. La empresa prioriza el...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">PayPal demuestra su enfoque en los servicios financieros para PYMES a través de varias iniciativas. La empresa prioriza el empoderamiento de los comerciantes al proporcionar herramientas para gestionar y acelerar el crecimiento, incluida la migración de transacciones a PayPal Complete Payments (PPCP...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal lanzamienta billetera móvil NFC sin contacto de PayPal en iOS and Android. Billeteras...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de PayPal con el tema de los Pagos Móviles es evidente en su misión de revolucionar el comercio a nivel mundial, permitiendo pagos digitales y simplificando las experiencias comerciales para consumidores y comerciantes, incluidas las transacciones móviles. Este compromiso se refleja en...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase está comprometido con las soluciones de pago. Esto incluye USDC, Base, aplicaciones de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Coinbase está significativamente comprometido con las soluciones de pago, considerándolo un área de crecimiento central y el próximo caso de uso importante para las criptomonedas, con el objetivo de que la mayoría de los pagos se ejecuten en vías de stablecoin. Esto está respaldado por su pila de pa...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase se enfoca en construir un 'exchange de todo' para facilitar la negociación of varios tipos...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Coinbase se enfoca en construir un 'exchange de todo' para facilitar la negociación de varios tipos de activos en canales de criptomonedas, integrando exchanges descentralizados en su plataforma. Esta iniciativa incluye ofrecer un conjunto completo de derivados y futuros y opciones perpetuas, destac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HOOD" data-company="ROBINHOOD MARKETS INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HOOD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HOOD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBINHOOD MARKETS INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Robinhood Banking ofrece servicios de crédito y funcionalidades de tarjetas de débito. La empresa...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Robinhood en los servicios bancarios es evidente a través de varias iniciativas, en particular el lanzamiento de Robinhood Banking, que tiene como objetivo proporcionar una experiencia bancaria privada a una amplia audiencia con características como cuentas de ahorro de alto rend...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal se enfoca en transformarse de una empresa de pagos tradicional a una plataforma de comercio...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de PayPal con las Soluciones de Pago está profundamente arraigado en su misión de revolucionar el comercio a nivel mundial al permitir pagos digitales y simplificar las experiencias comerciales para consumidores y comerciantes. La compañía se enfoca en transformarse de una empresa de p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HOOD" data-company="ROBINHOOD MARKETS INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HOOD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HOOD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBINHOOD MARKETS INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Robinhood tiene como objetivo democratizar las finanzas proporcionando acceso al sistema...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Robinhood en las finanzas del consumidor es evidente a través de sus ofertas como la Gold Card, préstamos con margen y el lanzamiento de Robinhood Banking con cuentas de ahorro y corrientes. El programa de tarjetas de crédito de la empresa genera ingresos por intereses e incluye ...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HOOD" data-company="ROBINHOOD MARKETS INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HOOD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HOOD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBINHOOD MARKETS INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La empresa facilita el comercio de criptomonedas en su plataforma. Robinhood está desarrollando...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La exposición de Robinhood al comercio de criptomonedas es significativa, ya que la empresa facilita el comercio de criptomonedas en su plataforma, generando ingresos basados en transacciones al dirigir las órdenes de los clientes a los creadores de mercado. La dedicación de la empresa a las criptom...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HOOD" data-company="ROBINHOOD MARKETS INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/HOOD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HOOD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBINHOOD MARKETS INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La misión principal de Robinhood es democratizar las finanzas. Robinhood innova constantemente en...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La misión principal de Robinhood es democratizar las finanzas, y lo logra creando plataformas de servicios financieros modernas y basadas en tecnología, accesibles para todos. Todo el modelo de negocio de la empresa gira en torno a la provisión de estos servicios tecnológicamente avanzados, que incl...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal demuestra su participación en las finanzas del consumidor a través de varias vías. Esto se...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">PayPal demuestra su participación en las finanzas del consumidor a través de varias vías, incluidos productos de crédito a plazos y revolventes que se ofrecen a los consumidores al momento del pago. Esto se ve reforzado aún más por su producto de crédito al consumidor revolvente en EE. UU., junto co...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-06-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal gestiona activamente esta cartera, como lo demuestran los acuerdos para vender cuentas por...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de PayPal en los préstamos al consumidor es evidente a través de su importante cartera, que incluye opciones de "compra ahora, paga después", productos de crédito a plazos y productos de crédito rotatorio. El saldo de préstamos al consumidor e intereses por cobrar de la empresa ha c...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase ofrece capacidades de Criptomonedas como Servicio, que incluyen custodia, comercio y...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El enfoque de Coinbase en las criptomonedas y la construcción de infraestructura financiera subraya su compromiso con las Soluciones Fintech, con el objetivo de ser la plataforma de servicios financieros número 1 a nivel mundial. La empresa proporciona infraestructura para nuevos participantes, vend...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HOOD" data-company="ROBINHOOD MARKETS INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/HOOD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HOOD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBINHOOD MARKETS INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">La plataforma de Robinhood, que permite operar con acciones, opciones y criptomonedas, funciona de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Robinhood en el tema de la industria de Bolsas Financieras es evidente a través de su facilitación de operaciones en diversas clases de activos y su misión de democratizar las finanzas para todos. La plataforma de la empresa, que permite operar con acciones, opciones y criptomone...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2025-03-31</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal se enfoca en crear experiencias innovadoras que simplifican el movimiento de dinero, la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de PayPal en Soluciones Fintech es evidente en su misión de revolucionar el comercio a nivel mundial, permitiendo pagos digitales y simplificando las experiencias comerciales para consumidores y comerciantes. La empresa se está transformando activamente de una empresa de pagos tradi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/CBOE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CBOE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cboe NL's Data Provider Agreement con Pyth Data Association. Este acuerdo facilita la creación of...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Cboe con las Finanzas Descentralizadas se demuestra a través de su subsidiaria Cboe NL's Data Provider Agreement con Pyth Data Association. Este acuerdo facilita la creación de un feed de datos para publicar datos derivados del mercado de acciones en la Red Pyth, una plataforma desc...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase promueve las finanzas onchain a través of recompensas de USDC. El desarrollo de Base por...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Coinbase con las Finanzas Descentralizadas es evidente a través de varias iniciativas, incluida la integración de exchanges descentralizados en la aplicación Coinbase, con el objetivo de proporcionar acceso a millones de tokens. El desarrollo de Base por parte de la empresa, una sol...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase se centra en profundizar la adopción institucional, escalar el crecimiento internacional....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de Coinbase con la economía digital es evidente a través de sus esfuerzos para impulsar el crecimiento de los ingresos, mejorar la utilidad de las criptomonedas y lograr claridad regulatoria. La empresa se centra en profundizar la adopción institucional, escalar el crecimiento internac...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="COIN" data-company="COINBASE GLOBAL INC -CLASS A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/COIN" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">COIN</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">COINBASE GLOBAL INC -CLASS A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Coinbase's volumen de trading institucional reportado constituye una parte importante de su...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La participación de Coinbase en el trading institucional es evidente a través de su volumen de trading institucional reportado, que constituye una parte importante de su actividad de trading general. El enfoque de la empresa en 'profundizar la adopción institucional' indica un esfuerzo estratégico p...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal se enfoca en expandir la base de usuarios de Venmo y aumentar las cuentas activas mensuales....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El compromiso de PayPal con la expansión de la banca digital es evidente a través de varias iniciativas. El enfoque de la empresa en habilitar pagos digitales y simplificar las experiencias comerciales es fundamental para sus operaciones, ya que sus productos están diseñados para facilitar las trans...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal ofreciendo una plataforma de doble cara que sirve a millones. El negocio principal de la...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El fuerte compromiso de PayPal con el tema de la industria de Servicios Financieros es evidente en su misión de revolucionar el comercio global a través de pagos digitales y experiencias comerciales simplificadas. El negocio principal de la empresa gira en torno a permitir pagos digitales y personal...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HOOD" data-company="ROBINHOOD MARKETS INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HOOD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HOOD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBINHOOD MARKETS INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Robinhood es una empresa que facilitates the negociación of acciones, opciones y futuros. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">El negocio principal de Robinhood gira en torno a facilitar la negociación de diversas clases de activos, incluidas acciones, opciones, futuros y criptomonedas, que son componentes integrales de los mercados de capitales. Esto se logra a través de una plataforma que dirige las órdenes de los cliente...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="HOOD" data-company="ROBINHOOD MARKETS INC - A">
+            <td style="color: #666; font-size: 0.9rem;">2024-12-31</td>
+            <td><a href="/profile/HOOD" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">HOOD</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">ROBINHOOD MARKETS INC - A</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Robinhood demuestra su compromiso con la tecnología blockchain a través de varias iniciativas....</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Robinhood demuestra su compromiso con la tecnología blockchain a través de varias iniciativas, incluida la facilitación del comercio de criptomonedas en su plataforma y la adquisición de Bitstamp, un intercambio de criptomonedas a escala mundial. Además, Robinhood está desarrollando activamente Robi...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="CBOE" data-company="CBOE GLOBAL MARKETS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/CBOE" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">CBOE</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">CBOE GLOBAL MARKETS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">Cboe Global Markets ofrece soluciones de negociación, compensación e inversión a nivel mundial. La...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">Cboe Global Markets está profundamente integrado en el tema de los mercados financieros, operando como una red de intercambio líder que ofrece soluciones de negociación, compensación e inversión a nivel mundial. La compañía proporciona soluciones de negociación en múltiples clases de activos, incluy...</div>
+            </td>
+        </tr>
+        
+        <tr class="evidence-item" data-symbol="PYPL" data-company="PAYPAL HOLDINGS INC">
+            <td style="color: #666; font-size: 0.9rem;">2024-09-30</td>
+            <td><a href="/profile/PYPL" class="symbol-text action-link" style="font-size:1rem; text-decoration:none;">PYPL</a></td>
+            <td><div style="color: #444; font-size: 0.9rem;">PAYPAL HOLDINGS INC</div></td>
+            <td>
+                <div style="font-weight: 700; color: #2c3e50; margin-bottom: 4px;">PayPal World tiene como objetivo mejorar las experiencias de marca dentro del ecosistema de...</div>
+                <div style="color: #555; font-size: 0.9rem; line-height: 1.5;">La conexión de PayPal con las billeteras digitales es evidente a través de varias iniciativas, incluido el desarrollo de una billetera inteligente dinámica diseñada para optimizar las opciones de pago y las recompensas para los consumidores. El enfoque de la empresa se demuestra aún más con el lanza...</div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 40px; color: #999; font-size: 0.8rem; text-align: center;">
+        Reflexivity Investment System &copy; 2026
+    </div>
+
+  </div>
+  
+  <script>
+    function filterEvidence() {
+      var q = document.getElementById('evidenceFilter').value.toLowerCase();
+      var rows = document.querySelectorAll('#evidenceList tr.evidence-item');
+      rows.forEach(function(row){
+        var sym = (row.getAttribute('data-symbol')||'').toLowerCase();
+        var comp = (row.getAttribute('data-company')||'').toLowerCase();
+        if (sym.indexOf(q) !== -1 || comp.indexOf(q) !== -1 || q === ''){
+          row.style.display = 'table-row';
+        } else { 
+          row.style.display = 'none'; 
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+    
