@@ -1,0 +1,939 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEHC - Company Profile</title>
+    <style>
+        
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --light-bg: #ecf0f1;
+    --border-color: #bdc3c7;
+    --text-color: #2c3e50;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: #fff;
+}
+
+.header {
+    padding: 20px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    background-color: white;
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.home-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
+}
+
+.home-button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.home-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+.company-subtitle {
+    font-size: 0.9rem;
+    font-weight: normal;
+    opacity: 0.9;
+    margin-top: 5px;
+}
+
+.company-subtitle a {
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(255,255,255,0.5);
+    transition: all 0.3s;
+}
+
+.company-subtitle a:hover {
+    border-bottom: 1px solid white;
+    opacity: 1;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.section-header {
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 2px solid var(--border-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+}
+
+.section-content {
+    padding: 20px;
+}
+
+/* Chart Section */
+#chart-container {
+    background-color: white;
+    padding: 0;
+}
+
+/* Info Cards Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.info-card {
+    background-color: var(--light-bg);
+    padding: 15px;
+    border-radius: 4px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.info-label {
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.info-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* Description */
+.description-text {
+    line-height: 1.6;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Rankings Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+    font-weight: 600;
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--border-color);
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.rank-badge {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: inline-block;
+}
+
+.rank-top3 {
+    background-color: #27ae60;
+}
+
+.rank-top10 {
+    background-color: #3498db;
+}
+
+.rank-other {
+    background-color: #95a5a6;
+}
+
+.check-icon {
+    color: #27ae60;
+    font-size: 1.2rem;
+}
+
+.no-icon {
+    color: #ccc;
+    font-size: 1.2rem;
+}
+
+/* Evidence Accordion */
+.evidence-item {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.evidence-header {
+    padding: 12px 15px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: background-color 0.2s;
+    gap: 10px;
+}
+
+.evidence-header span:first-child {
+    flex: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+}
+
+.evidence-header:hover {
+    background-color: #f0f0f0;
+}
+
+.evidence-content {
+    padding: 15px;
+    background-color: white;
+    line-height: 1.6;
+    color: #555;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.evidence-content.active {
+    display: block;
+}
+
+.toggle-icon {
+    transition: transform 0.3s;
+}
+
+.toggle-icon.active {
+    transform: rotate(180deg);
+}
+
+.no-data {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+    font-style: italic;
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <img src="data:image/png;base64,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" alt="GE HEALTHCARE TECHNOLOGY Logo" class="header-logo" />
+            <div>
+                <div>GEHC - GE HEALTHCARE TECHNOLOGY</div>
+                <div class="company-subtitle">
+                    <a href="https://gehealthcare.com" target="_blank">🌐 gehealthcare.com</a>
+                </div>
+            </div>
+        </div>
+        <a href="main_trends.html" class="home-button" title="Back to Home">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="9 22 9 12 15 12 15 22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+    </div>
+
+    <div class="container">
+        <!-- Price Chart Section -->
+        <div class="section" id="chart-container">
+            <div class="section-header">
+                Price Chart
+                <a href="stock_chart_gehc.html" target="_blank" style="float: right; font-size: 0.85rem; background-color: var(--accent-color); color: white; padding: 5px 10px; text-decoration: none; border-radius: 4px; margin-top: -3px;">View Full Chart ⤢</a>
+            </div>
+            <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>                <div id="interactive-chart" class="plotly-graph-div" style="height:450px; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("interactive-chart")) {                    Plotly.newPlot(                        "interactive-chart",                        [{"fill":"tozeroy","fillcolor":"rgba(0, 200, 83, 0.05)","fillgradient":{"colorscale":[[0,"rgba(0, 200, 83, 0.05)"],[1,"rgba(0, 200, 83, 0.6)"]],"type":"vertical"},"hoverinfo":"skip","mode":"none","showlegend":false,"x":["2022-12-15T00:00:00","2022-12-16T00:00:00","2022-12-19T00:00:00","2022-12-20T00:00:00","2022-12-21T00:00:00","2022-12-22T00:00:00","2022-12-23T00:00:00","2022-12-27T00:00:00","2022-12-28T00:00:00","2022-12-29T00:00:00","2022-12-30T00:00:00","2023-01-03T00:00:00","2023-01-04T00:00:00","2023-01-05T00:00:00","2023-01-06T00:00:00","2023-01-09T00:00:00","2023-01-10T00:00:00","2023-01-11T00:00:00","2023-01-12T00:00:00","2023-01-13T00:00:00","2023-01-17T00:00:00","2023-01-18T00:00:00","2023-01-19T00:00:00","2023-01-20T00:00:00","2023-01-23T00:00:00","2023-01-24T00:00:00","2023-01-25T00:00:00","2023-01-26T00:00:00","2023-01-27T00:00:00","2023-01-30T00:00:00","2023-01-31T00:00:00","2023-02-01T00:00:00","2023-02-02T00:00:00","2023-02-03T00:00:00","2023-02-06T00:00:00","2023-02-07T00:00:00","2023-02-08T00:00:00","2023-02-09T00:00:00","2023-02-10T00:00:00","2023-02-13T00:00:00","2023-02-14T00:00:00","2023-02-15T00:00:00","2023-02-16T00:00:00","2023-02-17T00:00:00","2023-02-21T00:00:00","2023-02-22T00:00:00","2023-02-23T00:00:00","2023-02-24T00:00:00","2023-02-27T00:00:00","2023-02-28T00:00:00","2023-03-01T00:00:00","2023-03-02T00:00:00","2023-03-03T00:00:00","2023-03-06T00:00:00","2023-03-07T00:00:00","2023-03-08T00:00:00","2023-03-09T00:00:00","2023-03-10T00:00:00","2023-03-13T00:00:00","2023-03-14T00:00:00","2023-03-15T00:00:00","2023-03-16T00:00:00","2023-03-17T00:00:00","2023-03-20T00:00:00","2023-03-21T00:00:00","2023-03-22T00:00:00","2023-03-23T00:00:00","2023-03-24T00:00:00","2023-03-27T00:00:00","2023-03-28T00:00:00","2023-03-29T00:00:00","2023-03-30T00:00:00","2023-03-31T00:00:00","2023-04-03T00:00:00","2023-04-04T00:00:00","2023-04-05T00:00:00","2023-04-06T00:00:00","2023-04-10T00:00:00","2023-04-11T00:00:00","2023-04-12T00:00:00","2023-04-13T00:00:00","2023-04-14T00:00:00","2023-04-17T00:00:00","2023-04-18T00:00:00","2023-04-19T00:00:00","2023-04-20T00:00:00","2023-04-21T00:00:00","2023-04-24T00:00:00","2023-04-25T00:00:00","2023-04-26T00:00:00","2023-04-27T00:00:00","2023-04-28T00:00:00","2023-05-01T00:00:00","2023-05-02T00:00:00","2023-05-03T00:00:00","2023-05-04T00:00:00","2023-05-05T00:00:00","2023-05-08T00:00:00","2023-05-09T00:00:00","2023-05-10T00:00:00","2023-05-11T00:00:00","2023-05-12T00:00:00","2023-05-15T00:00:00","2023-05-16T00:00:00","2023-05-17T00:00:00","2023-05-18T00:00:00","2023-05-19T00:00:00","2023-05-22T00:00:00","2023-05-23T00:00:00","2023-05-24T00:00:00","2023-05-25T00:00:00","2023-05-26T00:00:00","2023-05-30T00:00:00","2023-05-31T00:00:00","2023-06-01T00:00:00","2023-06-02T00:00:00","2023-06-05T00:00:00","2023-06-06T00:00:00","2023-06-07T00:00:00","2023-06-08T00:00:00","2023-06-09T00:00:00","2023-06-12T00:00:00","2023-06-13T00:00:00","2023-06-14T00:00:00","2023-06-15T00:00:00","2023-06-16T00:00:00","2023-06-20T00:00:00","2023-06-21T00:00:00","2023-06-22T00:00:00","2023-06-23T00:00:00","2023-06-26T00:00:00","2023-06-27T00:00:00","2023-06-28T00:00:00","2023-06-29T00:00:00","2023-06-30T00:00:00","2023-07-03T00:00:00","2023-07-05T00:00:00","2023-07-06T00:00:00","2023-07-07T00:00:00","2023-07-10T00:00:00","2023-07-11T00:00:00","2023-07-12T00:00:00","2023-07-13T00:00:00","2023-07-14T00:00:00","2023-07-17T00:00:00","2023-07-18T00:00:00","2023-07-19T00:00:00","2023-07-20T00:00:00","2023-07-21T00:00:00","2023-07-24T00:00:00","2023-07-25T00:00:00","2023-07-26T00:00:00","2023-07-27T00:00:00","2023-07-28T00:00:00","2023-07-31T00:00:00","2023-08-01T00:00:00","2023-08-02T00:00:00","2023-08-03T00:00:00","2023-08-04T00:00:00","2023-08-07T00:00:00","2023-08-08T00:00:00","2023-08-09T00:00:00","2023-08-10T00:00:00","2023-08-11T00:00:00","2023-08-14T00:00:00","2023-08-15T00:00:00","2023-08-16T00:00:00","2023-08-17T00:00:00","2023-08-18T00:00:00","2023-08-21T00:00:00","2023-08-22T00:00:00","2023-08-23T00:00:00","2023-08-24T00:00:00","2023-08-25T00:00:00","2023-08-28T00:00:00","2023-08-29T00:00:00","2023-08-30T00:00:00","2023-08-31T00:00:00","2023-09-01T00:00:00","2023-09-05T00:00:00","2023-09-06T00:00:00","2023-09-07T00:00:00","2023-09-08T00:00:00","2023-09-11T00:00:00","2023-09-12T00:00:00","2023-09-13T00:00:00","2023-09-14T00:00:00","2023-09-15T00:00:00","2023-09-18T00:00:00","2023-09-19T00:00:00","2023-09-20T00:00:00","2023-09-21T00:00:00","2023-09-22T00:00:00","2023-09-25T00:00:00","2023-09-26T00:00:00","2023-09-27T00:00:00","2023-09-28T00:00:00","2023-09-29T00:00:00","2023-10-02T00:00:00","2023-10-03T00:00:00","2023-10-04T00:00:00","2023-10-05T00:00:00","2023-10-06T00:00:00","2023-10-09T00:00:00","2023-10-10T00:00:00","2023-10-11T00:00:00","2023-10-12T00:00:00","2023-10-13T00:00:00","2023-10-16T00:00:00","2023-10-17T00:00:00","2023-10-18T00:00:00","2023-10-19T00:00:00","2023-10-20T00:00:00","2023-10-23T00:00:00","2023-10-24T00:00:00","2023-10-25T00:00:00","2023-10-26T00:00:00","2023-10-27T00:00:00","2023-10-30T00:00:00","2023-10-31T00:00:00","2023-11-01T00:00:00","2023-11-02T00:00:00","2023-11-03T00:00:00","2023-11-06T00:00:00","2023-11-07T00:00:00","2023-11-08T00:00:00","2023-11-09T00:00:00","2023-11-10T00:00:00","2023-11-13T00:00:00","2023-11-14T00:00:00","2023-11-15T00:00:00","2023-11-16T00:00:00","2023-11-17T00:00:00","2023-11-20T00:00:00","2023-11-21T00:00:00","2023-11-22T00:00:00","2023-11-24T00:00:00","2023-11-27T00:00:00","2023-11-28T00:00:00","2023-11-29T00:00:00","2023-11-30T00:00:00","2023-12-01T00:00:00","2023-12-04T00:00:00","2023-12-05T00:00:00","2023-12-06T00:00:00","2023-12-07T00:00:00","2023-12-08T00:00:00","2023-12-11T00:00:00","2023-12-12T00:00:00","2023-12-13T00:00:00","2023-12-14T00:00:00","2023-12-15T00:00:00","2023-12-18T00:00:00","2023-12-19T00:00:00","2023-12-20T00:00:00","2023-12-21T00:00:00","2023-12-22T00:00:00","2023-12-26T00:00:00","2023-12-27T00:00:00","2023-12-28T00:00:00","2023-12-29T00:00:00","2024-01-02T00:00:00","2024-01-03T00:00:00","2024-01-04T00:00:00","2024-01-05T00:00:00","2024-01-08T00:00:00","2024-01-09T00:00:00","2024-01-10T00:00:00","2024-01-11T00:00:00","2024-01-12T00:00:00","2024-01-16T00:00:00","2024-01-17T00:00:00","2024-01-18T00:00:00","2024-01-19T00:00:00","2024-01-22T00:00:00","2024-01-23T00:00:00","2024-01-24T00:00:00","2024-01-25T00:00:00","2024-01-26T00:00:00","2024-01-29T00:00:00","2024-01-30T00:00:00","2024-01-31T00:00:00","2024-02-01T00:00:00","2024-02-02T00:00:00","2024-02-05T00:00:00","2024-02-06T00:00:00","2024-02-07T00:00:00","2024-02-08T00:00:00","2024-02-09T00:00:00","2024-02-12T00:00:00","2024-02-13T00:00:00","2024-02-14T00:00:00","2024-02-15T00:00:00","2024-02-16T00:00:00","2024-02-20T00:00:00","2024-02-21T00:00:00","2024-02-22T00:00:00","2024-02-23T00:00:00","2024-02-26T00:00:00","2024-02-27T00:00:00","2024-02-28T00:00:00","2024-02-29T00:00:00","2024-03-01T00:00:00","2024-03-04T00:00:00","2024-03-05T00:00:00","2024-03-06T00:00:00","2024-03-07T00:00:00","2024-03-08T00:00:00","2024-03-11T00:00:00","2024-03-12T00:00:00","2024-03-13T00:00:00","2024-03-14T00:00:00","2024-03-15T00:00:00","2024-03-18T00:00:00","2024-03-19T00:00:00","2024-03-20T00:00:00","2024-03-21T00:00:00","2024-03-22T00:00:00","2024-03-25T00:00:00","2024-03-26T00:00:00","2024-03-27T00:00:00","2024-03-28T00:00:00","2024-04-01T00:00:00","2024-04-02T00:00:00","2024-04-03T00:00:00","2024-04-04T00:00:00","2024-04-05T00:00:00","2024-04-08T00:00:00","2024-04-09T00:00:00","2024-04-10T00:00:00","2024-04-11T00:00:00","2024-04-12T00:00:00","2024-04-15T00:00:00","2024-04-16T00:00:00","2024-04-17T00:00:00","2024-04-18T00:00:00","2024-04-19T00:00:00","2024-04-22T00:00:00","2024-04-23T00:00:00","2024-04-24T00:00:00","2024-04-25T00:00:00","2024-04-26T00:00:00","2024-04-29T00:00:00","2024-04-30T00:00:00","2024-05-01T00:00:00","2024-05-02T00:00:00","2024-05-03T00:00:00","2024-05-06T00:00:00","2024-05-07T00:00:00","2024-05-08T00:00:00","2024-05-09T00:00:00","2024-05-10T00:00:00","2024-05-13T00:00:00","2024-05-14T00:00:00","2024-05-15T00:00:00","2024-05-16T00:00:00","2024-05-17T00:00:00","2024-05-20T00:00:00","2024-05-21T00:00:00","2024-05-22T00:00:00","2024-05-23T00:00:00","2024-05-24T00:00:00","2024-05-28T00:00:00","2024-05-29T00:00:00","2024-05-30T00:00:00","2024-05-31T00:00:00","2024-06-03T00:00:00","2024-06-04T00:00:00","2024-06-05T00:00:00","2024-06-06T00:00:00","2024-06-07T00:00:00","2024-06-10T00:00:00","2024-06-11T00:00:00","2024-06-12T00:00:00","2024-06-13T00:00:00","2024-06-14T00:00:00","2024-06-17T00:00:00","2024-06-18T00:00:00","2024-06-20T00:00:00","2024-06-21T00:00:00","2024-06-24T00:00:00","2024-06-25T00:00:00","2024-06-26T00:00:00","2024-06-27T00:00:00","2024-06-28T00:00:00","2024-07-01T00:00:00","2024-07-02T00:00:00","2024-07-03T00:00:00","2024-07-05T00:00:00","2024-07-08T00:00:00","2024-07-09T00:00:00","2024-07-10T00:00:00","2024-07-11T00:00:00","2024-07-12T00:00:00","2024-07-15T00:00:00","2024-07-16T00:00:00","2024-07-17T00:00:00","2024-07-18T00:00:00","2024-07-19T00:00:00","2024-07-22T00:00:00","2024-07-23T00:00:00","2024-07-24T00:00:00","2024-07-25T00:00:00","2024-07-26T00:00:00","2024-07-29T00:00:00","2024-07-30T00:00:00","2024-07-31T00:00:00","2024-08-01T00:00:00","2024-08-02T00:00:00","2024-08-05T00:00:00","2024-08-06T00:00:00","2024-08-07T00:00:00","2024-08-08T00:00:00","2024-08-09T00:00:00","2024-08-12T00:00:00","2024-08-13T00:00:00","2024-08-14T00:00:00","2024-08-15T00:00:00","2024-08-16T00:00:00","2024-08-19T00:00:00","2024-08-20T00:00:00","2024-08-21T00:00:00","2024-08-22T00:00:00","2024-08-23T00:00:00","2024-08-26T00:00:00","2024-08-27T00:00:00","2024-08-28T00:00:00","2024-08-29T00:00:00","2024-08-30T00:00:00","2024-09-03T00:00:00","2024-09-04T00:00:00","2024-09-05T00:00:00","2024-09-06T00:00:00","2024-09-09T00:00:00","2024-09-10T00:00:00","2024-09-11T00:00:00","2024-09-12T00:00:00","2024-09-13T00:00:00","2024-09-16T00:00:00","2024-09-17T00:00:00","2024-09-18T00:00:00","2024-09-19T00:00:00","2024-09-20T00:00:00","2024-09-23T00:00:00","2024-09-24T00:00:00","2024-09-25T00:00:00","2024-09-26T00:00:00","2024-09-27T00:00:00","2024-09-30T00:00:00","2024-10-01T00:00:00","2024-10-02T00:00:00","2024-10-03T00:00:00","2024-10-04T00:00:00","2024-10-07T00:00:00","2024-10-08T00:00:00","2024-10-09T00:00:00","2024-10-10T00:00:00","2024-10-11T00:00:00","2024-10-14T00:00:00","2024-10-15T00:00:00","2024-10-16T00:00:00","2024-10-17T00:00:00","2024-10-18T00:00:00","2024-10-21T00:00:00","2024-10-22T00:00:00","2024-10-23T00:00:00","2024-10-24T00:00:00","2024-10-25T00:00:00","2024-10-28T00:00:00","2024-10-29T00:00:00","2024-10-30T00:00:00","2024-10-31T00:00:00","2024-11-01T00:00:00","2024-11-04T00:00:00","2024-11-05T00:00:00","2024-11-06T00:00:00","2024-11-07T00:00:00","2024-11-08T00:00:00","2024-11-11T00:00:00","2024-11-12T00:00:00","2024-11-13T00:00:00","2024-11-14T00:00:00","2024-11-15T00:00:00","2024-11-18T00:00:00","2024-11-19T00:00:00","2024-11-20T00:00:00","2024-11-21T00:00:00","2024-11-22T00:00:00","2024-11-25T00:00:00","2024-11-26T00:00:00","2024-11-27T00:00:00","2024-11-29T00:00:00","2024-12-02T00:00:00","2024-12-03T00:00:00","2024-12-04T00:00:00","2024-12-05T00:00:00","2024-12-06T00:00:00","2024-12-09T00:00:00","2024-12-10T00:00:00","2024-12-11T00:00:00","2024-12-12T00:00:00","2024-12-13T00:00:00","2024-12-16T00:00:00","2024-12-17T00:00:00","2024-12-18T00:00:00","2024-12-19T00:00:00","2024-12-20T00:00:00","2024-12-23T00:00:00","2024-12-24T00:00:00","2024-12-26T00:00:00","2024-12-27T00:00:00","2024-12-30T00:00:00","2024-12-31T00:00:00","2025-01-02T00:00:00","2025-01-03T00:00:00","2025-01-06T00:00:00","2025-01-07T00:00:00","2025-01-08T00:00:00","2025-01-10T00:00:00","2025-01-13T00:00:00","2025-01-14T00:00:00","2025-01-15T00:00:00","2025-01-16T00:00:00","2025-01-17T00:00:00","2025-01-21T00:00:00","2025-01-22T00:00:00","2025-01-23T00:00:00","2025-01-24T00:00:00","2025-01-27T00:00:00","2025-01-28T00:00:00","2025-01-29T00:00:00","2025-01-30T00:00:00","2025-01-31T00:00:00","2025-02-03T00:00:00","2025-02-04T00:00:00","2025-02-05T00:00:00","2025-02-06T00:00:00","2025-02-07T00:00:00","2025-02-10T00:00:00","2025-02-11T00:00:00","2025-02-12T00:00:00","2025-02-13T00:00:00","2025-02-14T00:00:00","2025-02-18T00:00:00","2025-02-19T00:00:00","2025-02-20T00:00:00","2025-02-21T00:00:00","2025-02-24T00:00:00","2025-02-25T00:00:00","2025-02-26T00:00:00","2025-02-27T00:00:00","2025-02-28T00:00:00","2025-03-03T00:00:00","2025-03-04T00:00:00","2025-03-05T00:00:00","2025-03-06T00:00:00","2025-03-07T00:00:00","2025-03-10T00:00:00","2025-03-11T00:00:00","2025-03-12T00:00:00","2025-03-13T00:00:00","2025-03-14T00:00:00","2025-03-17T00:00:00","2025-03-18T00:00:00","2025-03-19T00:00:00","2025-03-20T00:00:00","2025-03-21T00:00:00","2025-03-24T00:00:00","2025-03-25T00:00:00","2025-03-26T00:00:00","2025-03-27T00:00:00","2025-03-28T00:00:00","2025-03-31T00:00:00","2025-04-01T00:00:00","2025-04-02T00:00:00","2025-04-03T00:00:00","2025-04-04T00:00:00","2025-04-07T00:00:00","2025-04-08T00:00:00","2025-04-09T00:00:00","2025-04-10T00:00:00","2025-04-11T00:00:00","2025-04-14T00:00:00","2025-04-15T00:00:00","2025-04-16T00:00:00","2025-04-17T00:00:00","2025-04-21T00:00:00","2025-04-22T00:00:00","2025-04-23T00:00:00","2025-04-24T00:00:00","2025-04-25T00:00:00","2025-04-28T00:00:00","2025-04-29T00:00:00","2025-04-30T00:00:00","2025-05-01T00:00:00","2025-05-02T00:00:00","2025-05-05T00:00:00","2025-05-06T00:00:00","2025-05-07T00:00:00","2025-05-08T00:00:00","2025-05-09T00:00:00","2025-05-12T00:00:00","2025-05-13T00:00:00","2025-05-14T00:00:00","2025-05-15T00:00:00","2025-05-16T00:00:00","2025-05-19T00:00:00","2025-05-20T00:00:00","2025-05-21T00:00:00","2025-05-22T00:00:00","2025-05-23T00:00:00","2025-05-27T00:00:00","2025-05-28T00:00:00","2025-05-29T00:00:00","2025-05-30T00:00:00","2025-06-02T00:00:00","2025-06-03T00:00:00","2025-06-04T00:00:00","2025-06-05T00:00:00","2025-06-06T00:00:00","2025-06-09T00:00:00","2025-06-10T00:00:00","2025-06-11T00:00:00","2025-06-12T00:00:00","2025-06-13T00:00:00","2025-06-16T00:00:00","2025-06-17T00:00:00","2025-06-18T00:00:00","2025-06-20T00:00:00","2025-06-23T00:00:00","2025-06-24T00:00:00","2025-06-25T00:00:00","2025-06-26T00:00:00","2025-06-27T00:00:00","2025-06-30T00:00:00","2025-07-01T00:00:00","2025-07-02T00:00:00","2025-07-03T00:00:00","2025-07-07T00:00:00","2025-07-08T00:00:00","2025-07-09T00:00:00","2025-07-10T00:00:00","2025-07-11T00:00:00","2025-07-14T00:00:00","2025-07-15T00:00:00","2025-07-16T00:00:00","2025-07-17T00:00:00","2025-07-18T00:00:00","2025-07-21T00:00:00","2025-07-22T00:00:00","2025-07-23T00:00:00","2025-07-24T00:00:00","2025-07-25T00:00:00","2025-07-28T00:00:00","2025-07-29T00:00:00","2025-07-30T00:00:00","2025-07-31T00:00:00","2025-08-01T00:00:00","2025-08-04T00:00:00","2025-08-05T00:00:00","2025-08-06T00:00:00","2025-08-07T00:00:00","2025-08-08T00:00:00","2025-08-11T00:00:00","2025-08-12T00:00:00","2025-08-13T00:00:00","2025-08-14T00:00:00","2025-08-15T00:00:00","2025-08-18T00:00:00","2025-08-19T00:00:00","2025-08-20T00:00:00","2025-08-21T00:00:00","2025-08-22T00:00:00","2025-08-25T00:00:00","2025-08-26T00:00:00","2025-08-27T00:00:00","2025-08-28T00:00:00","2025-08-29T00:00:00","2025-09-02T00:00:00","2025-09-03T00:00:00","2025-09-04T00:00:00","2025-09-05T00:00:00","2025-09-08T00:00:00","2025-09-09T00:00:00","2025-09-10T00:00:00","2025-09-11T00:00:00","2025-09-12T00:00:00","2025-09-15T00:00:00","2025-09-16T00:00:00","2025-09-17T00:00:00","2025-09-18T00:00:00","2025-09-19T00:00:00","2025-09-22T00:00:00","2025-09-23T00:00:00","2025-09-24T00:00:00","2025-09-25T00:00:00","2025-09-26T00:00:00","2025-09-29T00:00:00","2025-09-30T00:00:00","2025-10-01T00:00:00","2025-10-02T00:00:00","2025-10-03T00:00:00","2025-10-06T00:00:00","2025-10-07T00:00:00","2025-10-08T00:00:00","2025-10-09T00:00:00","2025-10-10T00:00:00","2025-10-13T00:00:00","2025-10-14T00:00:00","2025-10-15T00:00:00","2025-10-16T00:00:00","2025-10-17T00:00:00","2025-10-20T00:00:00","2025-10-21T00:00:00","2025-10-22T00:00:00","2025-10-23T00:00:00","2025-10-24T00:00:00","2025-10-27T00:00:00","2025-10-28T00:00:00","2025-10-29T00:00:00","2025-10-30T00:00:00","2025-10-31T00:00:00","2025-11-03T00:00:00","2025-11-04T00:00:00","2025-11-05T00:00:00","2025-11-06T00:00:00","2025-11-07T00:00:00","2025-11-10T00:00:00","2025-11-11T00:00:00","2025-11-12T00:00:00","2025-11-13T00:00:00","2025-11-14T00:00:00","2025-11-17T00:00:00","2025-11-18T00:00:00","2025-11-19T00:00:00","2025-11-20T00:00:00","2025-11-21T00:00:00","2025-11-24T00:00:00","2025-11-25T00:00:00","2025-11-26T00:00:00","2025-11-28T00:00:00","2025-12-01T00:00:00","2025-12-02T00:00:00","2025-12-03T00:00:00","2025-12-04T00:00:00","2025-12-05T00:00:00","2025-12-08T00:00:00","2025-12-09T00:00:00","2025-12-10T00:00:00","2025-12-11T00:00:00","2025-12-12T00:00:00","2025-12-15T00:00:00","2025-12-16T00:00:00","2025-12-17T00:00:00","2025-12-18T00:00:00","2025-12-19T00:00:00","2025-12-22T00:00:00","2025-12-23T00:00:00","2025-12-24T00:00:00","2025-12-26T00:00:00","2025-12-29T00:00:00","2025-12-30T00:00:00","2025-12-31T00:00:00","2026-01-02T00:00:00","2026-01-05T00:00:00"],"y":[0.0,-5.4333595620364665,-5.833319381895508,-4.650014230466592,-5.066548358473821,-3.9999330330983907,-4.166680618104513,-4.250054410607563,-4.166680618104513,-3.3332775275819904,-2.6999380556160135,-6.666555055163981,0.8166613651202859,-1.6666387637909952,-1.750012556294056,-3.1666973598299064,0.0,8.316619510806778,9.416718286986647,9.066648808826239,5.550049388089939,3.4667090790376776,6.566774371766737,11.283420669334166,15.866635415445906,16.000066966901592,14.516750096264918,15.366727494935617,16.799986606619676,19.166764326731524,15.866635415445906,16.68346419782023,17.75007952319565,17.583331938189552,19.76662034789305,19.383402253436223,16.949992466223573,14.016674758500614,15.40004352848603,15.716629555842033,21.016724983676816,20.533391371314735,18.183355376605114,21.950076174850587,20.78334533156987,19.90005189934876,26.500142304665907,25.016658016775196,26.73335453951884,26.666722472418016,25.4999916291373,25.066715775727832,27.283487636235783,27.79996986489428,27.08342401767925,27.716763489645245,27.30006194438399,24.95002594967437,27.066682292277044,28.566740888315945,27.933401416349945,27.700021764243022,26.400026786760634,25.33341146138519,27.53344159649094,24.616698196916165,26.183388860055913,27.43332607858564,27.30006194438399,28.166781068456913,32.06676600090405,36.90010212452495,36.716780231370635,36.349969027808,35.98332524149939,35.19997990992951,33.60014063049339,34.3166864777084,34.3166864777084,36.25002092715675,38.23341313555775,37.28332021898175,37.86676934924913,39.43346001238888,42.91674339957476,41.666638763791,44.13336458455408,46.31665299425758,33.98335872495019,33.533341146138525,35.8666354154459,35.566791113492144,34.6334399223184,30.76677102342167,32.85011133247391,30.433443270663464,31.650064455642802,32.36677772011183,27.283487636235783,26.500142304665907,24.983341983224804,24.86665215717132,24.88339388257352,29.633356213691364,33.8333528653463,32.81662788166948,32.23334616865614,31.84996065694532,28.698665684485448,27.598232073797526,33.150457886189756,30.766101354405585,29.98258860558167,32.56684133866836,33.100400127237116,33.33377977934404,34.20083373792502,38.26907301066447,34.18409201252282,29.63235171016725,28.54865982488155,30.499405668748224,29.69915119452211,30.932848939411684,31.88327669049571,31.13291255796822,31.54978152048349,32.75033064907669,33.73390701645711,33.083658401834896,29.71572550267032,28.498602065928914,28.698665684485448,31.182970316920855,35.45127320821684,34.53432890793724,34.46752942358238,31.916592724046144,32.75033064907669,34.484271148984604,35.48458924176725,36.201469923490315,35.71796889387422,36.418275267449054,35.36789941571379,37.50213456998879,36.30158544139559,36.51839078535435,37.81939026636083,34.48360147996852,33.783127689139626,29.14633942174081,28.195576836148728,29.88012924612009,30.09693459007885,29.579950109658306,27.745224422829008,26.79446183723695,26.594398218680414,26.07724632100583,23.308499773986703,23.291925465838514,20.58981098592021,19.40566874822118,19.75590564363563,17.654316853894958,17.871122197853715,14.068406689993473,14.018348931040814,15.03574358373374,14.968944099378877,15.069059617284154,14.135038757094321,14.401901860005694,15.602785823106945,17.55420133598968,17.404195476385787,17.50431099429106,15.502837722455665,12.850781001489997,11.716529105489615,9.915286869464746,8.247308767641591,11.116170832565997,9.081381527180188,7.630208769315772,10.08203445447089,10.799249970701986,10.549128593192814,10.282265490281418,8.430798078049918,6.56275635767023,7.296713599303528,10.882623763205036,10.432271349885314,13.884917379585149,16.386800823692905,13.484622725218065,13.150960137951827,11.716529105489615,13.21775962230667,12.750665483584722,14.185096516046958,13.084328070850981,13.734744102727214,13.050844620046531,10.932681522157672,11.950076174850576,11.549781520483492,11.416349969027806,8.797776698866588,9.214980495889913,6.878840133264119,6.7787246153588665,7.913311345867302,7.6464482429559055,6.6451256466491415,5.293566154927909,5.410423398235409,11.083859302539722,13.937318980094071,15.555908991980715,19.427265573990038,18.62634143074786,17.975423147109538,16.790778657648463,13.98737673904673,16.00642882255443,16.824094691198855,20.49522023739767,19.343724364232973,20.011216956019485,21.81346369556847,22.364099044047457,22.44747283655053,22.814618874621218,22.99827560228358,18.70971522325089,13.687030185330906,12.986054142739945,14.237665533809896,15.822939512146107,15.756140027791265,13.353200180810632,13.553431216621181,12.452160519663158,14.337781051715194,18.692973497848687,20.228189717232258,23.782458020123553,26.685975456630562,25.167500962649214,25.250874755152243,26.302255110411664,25.885051313388363,28.80514305804356,29.45606134168188,30.39041703637977,29.606234618539773,29.38926185732702,29.02211581925631,27.436841840920124,27.00306373574861,27.770671845440397,27.854045637943447,29.088915303611174,27.92084512229831,27.103179253653884,27.236610805109574,27.153237012606525,25.149922150976867,21.443973815941455,22.72940349232393,23.7143191977365,24.59911938524384,22.97985970434111,19.440826371565834,21.64437226900604,22.11180124223602,24.165006445564295,23.53066247007416,22.462372972158494,24.114948686611637,23.38048919321625,22.545914181915585,36.818569921816135,36.60159716060338,36.985484924076275,35.783596457450905,38.83845909159396,37.402856138353634,38.83845909159396,42.94503691550449,43.59612261639685,44.21372486648474,41.86000569218662,46.30041352061745,48.68761614571997,51.275049806633064,54.44676968408364,55.28151211263832,52.37682275535316,54.78059968860389,54.79734141400612,53.2616229428605,55.41494366409401,54.68048417069864,56.70037334047646,55.24802866183389,53.27819725100866,47.702700440307375,47.452244228290176,49.255160636855244,51.258308081230844,51.54208032679848,51.72573705446084,52.243223786643455,49.78938909444006,47.3688704357871,48.68761614571997,50.75756307445045,51.75922050526527,49.45539167266577,47.08509819021949,48.620816661365104,46.834641978202264,47.685958714905155,46.41727076392495,45.13184108754247,42.54440742662937,47.25201319247962,44.0300681388224,43.77977934405921,43.36240812978185,42.21057742210912,41.89332172573705,41.09172791347875,40.79121394250891,44.01399608243626,44.81558989469454,43.52982538380405,44.01399608243626,48.522877567762144,27.31479466273794,30.688084914031233,29.970032311530037,32.70864375282516,33.259781353066245,35.98181848621318,35.44742261137432,38.152718019119035,39.271567527749404,35.3138236426646,34.46217207145368,36.78341229847148,35.78142003314861,36.699871088714396,36.51604694379802,36.83347005742412,34.62908707371382,32.47492926621018,33.34332256282333,31.506420451691742,31.005340610403298,31.205739063467885,30.25397197435169,28.83444107749744,29.452378162093385,28.517185381125376,28.58398486548024,27.481877082252094,26.546684301284085,24.81006512531181,26.86393999765617,28.567243140078013,27.732333294269296,29.502435921046022,30.704826639433435,32.65858599387252,32.207731328790736,31.67333545395188,31.606535969597015,30.25397197435169,31.623277694999242,30.120373005641966,27.348278113542392,27.465135356849867,28.98478177160937,28.684267800639528,27.498618807654317,28.366844687013447,32.157673569838096,33.49366325693526,34.06137516532453,33.911034471212595,38.00237732500711,37.71843766218546,35.230282432907536,34.37829602718856,35.69804624064554,35.013142254440744,33.125512715340435,33.50956789606736,34.478578962347854,37.067854213055185,38.070181312886085,41.37784400060269,39.32313204198823,39.38993152634309,36.1825517737858,36.23260953273844,32.540724247040906,37.51887629539101,39.32313204198823,37.602417505148075,40.60939880464078,39.43998928529573,42.49719576099511,41.661951080678385,42.98153387688135,40.22517620665986,41.12738778858549,40.94356364366911,41.62846762987393,41.1439620967337,41.010363128023975,40.20843448125764,40.45905811052886,41.69526711422877,41.661951080678385,46.255880531047524,45.82160017411394,42.1462891965646,42.196514372771254,42.91473439252649,45.65451775459979,46.10553983693559,45.18675394686178,44.73573186452595,44.98618807654316,47.89305385813061,51.384373273509574,50.81649394786625,51.81882104769717,54.04061542582579,55.377107364684996,54.5083792335638,53.673134553247046,56.780231370645055,53.138571261154155,52.0860189851166,50.148164269809634,52.720865212368786,50.44884565803351,51.50139793407109,51.63499690278079,50.7662687716596,52.069277259714376,53.05503005139709,51.53471396762151,50.71621101270696,51.718538112537885,52.63765883711975,50.064120808290504,49.24528301886792,49.21196698531749,48.56021161540909,47.758115551388734,43.59695970266695,42.494014833168706,45.719308231906375,45.96993186117761,45.301602183120984,45.368401667475844,47.340242085349324,45.01749510304531,47.60760744002277,43.61370142806915,42.694580703487304,41.909226364869156,40.672682526661184,38.567075722823986,36.628551338500934,38.23274346654166,37.89857862751336,41.87574291406471,37.029683079138124,37.76497965880363,38.13262794863637,37.88183690211113,38.700674691533706,39.068322981366464,38.83444107749745,37.982119837270425,38.71741641693591,36.30275736217374,35.75965579012572,36.862600659623965,37.631213272839894,38.28296864274834,36.41124374278013,35.52560646900269,34.17203797023323,32.43407945622876,28.824563459510145,29.39277761966148,31.865865296077402,32.48430463243543,32.61790360114514,33.2028594866987,32.868527230416355,31.347876312132716,30.646063183271654,30.98022802229996,34.55642798546816,36.561751854146074,39.31911402789172,44.14843213741606,41.64186101019571,42.64452294453467,40.64673285228775,39.86104367916159,42.101086537978595,41.66647134653696,46.01312551271535,45.99638378731312,47.38393798864911,48.23659406338416,48.77149218998511,46.748756926888866,46.86578158745041,49.707689474477235,47.61798730977213,46.29740001004503,45.32771927474846,45.728851015385644,48.03602819306558,46.51470760576586,46.280658284642804,45.49480169426261,43.60583281713011,56.277812191324436,54.154626575814916,54.92374144079288,54.67295039426763,53.95406070549629,52.28223200683062,51.41300162394735,51.814133364584535,51.64705094507038,49.457065845205996,46.029867238117546,44.525288376220054,40.94758165776567,41.69995479734141,42.7866601931995,44.74259597194086,42.702951566188396,43.087508998677414,40.07835127488237,36.16631230014564,37.03571010028293,37.87162444961576,37.3198171803586,37.75459978905427,36.76817732835544,36.23327920175454,36.58435318343909,37.85488272421355,35.414106577823915,36.51738628183019,33.75901960456045,34.929266210175626,33.02338819038688,32.67231420870233,20.367983124340803,1.1593644841037198,1.9617953826321255,-1.7829937553364372,8.632201034638642,4.118297031692086,5.004436557231573,7.645778573939821,5.489276924879882,2.7809680065627562,4.26880514305803,1.1091393078970668,3.0650750866384247,8.481692923272677,12.142940851484152,14.442751669987096,13.857293532671466,13.890776983475895,17.637575128492735,13.188294185598771,17.97207480202909,16.031876245165822,12.218111198540104,15.111918434313832,17.92184962582244,16.86812542900671,23.960255143895125,23.49182166714101,21.835897607607425,21.953089685422977,22.32090539250975,22.270847633557132,20.17997354807386,16.383117644104406,16.14890090572736,15.68063484622726,18.775007952319545,19.009057273442597,19.644740586964904,17.988816527431318,17.336558905760825,19.0257989988448,18.975741239892187,19.678224037769333,19.795248698330848,19.87895732534195,23.642329778506976,22.77259714386164,22.287589358959337,20.848972895146556,21.869381058411875,18.99248296529441,20.24694044968276,19.22653228641742,19.0257989988448,20.39744856104868,21.68538949624148,25.214712628283475,24.411779477993,23.893288242286246,27.037886524585232,27.322161021914916,27.23861981215785,24.796504327736013,25.783429040196882,26.301920275903633,27.957844335437198,25.66623696238135,24.528804138554516,24.428521203395228,26.201469923490308,27.522894309487533,27.054628249987456,24.043796353652212,27.941102610034996,29.212301819825548,28.409368669535073,29.87359997321324,30.0912424034421,30.05775895263765,19.883310173946533,19.34790979558354,16.88804808223534,18.209974719994637,18.377391974016845,17.072039644405734,18.979759253988714,20.48584487117242,22.159180325124296,24.51875910331318,26.058328171301337,23.26363194990875,22.82868192395908,22.443789656962032,23.782458020123553,23.615040766101348,22.410306206157603,25.874169191876927,24.81994274329913,23.983191307696174,24.26780063953391,23.364082302322075,23.3808240277243,19.81651068959167,21.121695601948744,24.033416483902826,26.727662352882085,30.794060035827297,31.714352681187318,27.16277979608579,30.459392945036925,27.915822604677643,30.12472585424655,29.656124960238394,28.233747970065792,23.83268319633021,25.355510538916135,25.121126383285052,24.836684468701332,23.79919974552578,19.649093435569466,21.2556294051665,22.309855853744274,25.67343590430431,26.359511811287284,28.551673335453962,28.11655589225026,27.865597428470966,24.652692906530937,25.72366108051096,24.20083373792503,18.829083725368733,20.218144681990925,21.054728700339844,22.52733086671912,22.79519847315463,23.91639182334131,26.30928663508061,27.346771358256184,27.413738259865063,29.28797441864357,30.819842292946696,31.171418526393314,32.92929969362643,29.54747116237799,25.562940516649647,25.47923188963854,24.675629070331983,24.391019738494247,26.584185766185065,24.173377308265387,22.298304063216754,23.01819825551221,22.901006177696658,25.529457065845218,23.838542800220996,22.465721317238962,18.24680651587951,18.89973380656609,21.05941638345248,25.144397381594153,27.99049069997155,30.987259546968904,33.866836316150724,34.988531918099476,33.917061492357384,32.6614320871909,34.302121176608445,39.94408263715658,38.152718019119035,43.0747852873717,39.106996367045596,39.00654601463227,41.41735447255193,44.06254708610269,40.563526477038714,41.383871021747495,37.70069143325912,37.91833386348795,38.152718019119035,38.77216185900119,40.53004302623429,39.49205605129664,39.609248129112174,39.977566087961016,39.20744671945891,39.50879777669887,37.31563174900805,38.654969781185635,42.37163282047849],"type":"scatter"},{"hovertemplate":"Benchmark: %{y:,.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#000000","width":1.5},"mode":"lines","name":"Benchmark (SP500)","x":["2022-12-15T00:00:00","2022-12-16T00:00:00","2022-12-19T00:00:00","2022-12-20T00:00:00","2022-12-21T00:00:00","2022-12-22T00:00:00","2022-12-23T00:00:00","2022-12-27T00:00:00","2022-12-28T00:00:00","2022-12-29T00:00:00","2022-12-30T00:00:00","2023-01-03T00:00:00","2023-01-04T00:00:00","2023-01-05T00:00:00","2023-01-06T00:00:00","2023-01-09T00:00:00","2023-01-10T00:00:00","2023-01-11T00:00:00","2023-01-12T00:00:00","2023-01-13T00:00:00","2023-01-17T00:00:00","2023-01-18T00:00:00","2023-01-19T00:00:00","2023-01-20T00:00:00","2023-01-23T00:00:00","2023-01-24T00:00:00","2023-01-25T00:00:00","2023-01-26T00:00:00","2023-01-27T00:00:00","2023-01-30T00:00:00","2023-01-31T00:00:00","2023-02-01T00:00:00","2023-02-02T00:00:00","2023-02-03T00:00:00","2023-02-06T00:00:00","2023-02-07T00:00:00","2023-02-08T00:00:00","2023-02-09T00:00:00","2023-02-10T00:00:00","2023-02-13T00:00:00","2023-02-14T00:00:00","2023-02-15T00:00:00","2023-02-16T00:00:00","2023-02-17T00:00:00","2023-02-21T00:00:00","2023-02-22T00:00:00","2023-02-23T00:00:00","2023-02-24T00:00:00","2023-02-27T00:00:00","2023-02-28T00:00:00","2023-03-01T00:00:00","2023-03-02T00:00:00","2023-03-03T00:00:00","2023-03-06T00:00:00","2023-03-07T00:00:00","2023-03-08T00:00:00","2023-03-09T00:00:00","2023-03-10T00:00:00","2023-03-13T00:00:00","2023-03-14T00:00:00","2023-03-15T00:00:00","2023-03-16T00:00:00","2023-03-17T00:00:00","2023-03-20T00:00:00","2023-03-21T00:00:00","2023-03-22T00:00:00","2023-03-23T00:00:00","2023-03-24T00:00:00","2023-03-27T00:00:00","2023-03-28T00:00:00","2023-03-29T00:00:00","2023-03-30T00:00:00","2023-03-31T00:00:00","2023-04-03T00:00:00","2023-04-04T00:00:00","2023-04-05T00:00:00","2023-04-06T00:00:00","2023-04-10T00:00:00","2023-04-11T00:00:00","2023-04-12T00:00:00","2023-04-13T00:00:00","2023-04-14T00:00:00","2023-04-17T00:00:00","2023-04-18T00:00:00","2023-04-19T00:00:00","2023-04-20T00:00:00","2023-04-21T00:00:00","2023-04-24T00:00:00","2023-04-25T00:00:00","2023-04-26T00:00:00","2023-04-27T00:00:00","2023-04-28T00:00:00","2023-05-01T00:00:00","2023-05-02T00:00:00","2023-05-03T00:00:00","2023-05-04T00:00:00","2023-05-05T00:00:00","2023-05-08T00:00:00","2023-05-09T00:00:00","2023-05-10T00:00:00","2023-05-11T00:00:00","2023-05-12T00:00:00","2023-05-15T00:00:00","2023-05-16T00:00:00","2023-05-17T00:00:00","2023-05-18T00:00:00","2023-05-19T00:00:00","2023-05-22T00:00:00","2023-05-23T00:00:00","2023-05-24T00:00:00","2023-05-25T00:00:00","2023-05-26T00:00:00","2023-05-30T00:00:00","2023-05-31T00:00:00","2023-06-01T00:00:00","2023-06-02T00:00:00","2023-06-05T00:00:00","2023-06-06T00:00:00","2023-06-07T00:00:00","2023-06-08T00:00:00","2023-06-09T00:00:00","2023-06-12T00:00:00","2023-06-13T00:00:00","2023-06-14T00:00:00","2023-06-15T00:00:00","2023-06-16T00:00:00","2023-06-20T00:00:00","2023-06-21T00:00:00","2023-06-22T00:00:00","2023-06-23T00:00:00","2023-06-26T00:00:00","2023-06-27T00:00:00","2023-06-28T00:00:00","2023-06-29T00:00:00","2023-06-30T00:00:00","2023-07-03T00:00:00","2023-07-05T00:00:00","2023-07-06T00:00:00","2023-07-07T00:00:00","2023-07-10T00:00:00","2023-07-11T00:00:00","2023-07-12T00:00:00","2023-07-13T00:00:00","2023-07-14T00:00:00","2023-07-17T00:00:00","2023-07-18T00:00:00","2023-07-19T00:00:00","2023-07-20T00:00:00","2023-07-21T00:00:00","2023-07-24T00:00:00","2023-07-25T00:00:00","2023-07-26T00:00:00","2023-07-27T00:00:00","2023-07-28T00:00:00","2023-07-31T00:00:00","2023-08-01T00:00:00","2023-08-02T00:00:00","2023-08-03T00:00:00","2023-08-04T00:00:00","2023-08-07T00:00:00","2023-08-08T00:00:00","2023-08-09T00:00:00","2023-08-10T00:00:00","2023-08-11T00:00:00","2023-08-14T00:00:00","2023-08-15T00:00:00","2023-08-16T00:00:00","2023-08-17T00:00:00","2023-08-18T00:00:00","2023-08-21T00:00:00","2023-08-22T00:00:00","2023-08-23T00:00:00","2023-08-24T00:00:00","2023-08-25T00:00:00","2023-08-28T00:00:00","2023-08-29T00:00:00","2023-08-30T00:00:00","2023-08-31T00:00:00","2023-09-01T00:00:00","2023-09-05T00:00:00","2023-09-06T00:00:00","2023-09-07T00:00:00","2023-09-08T00:00:00","2023-09-11T00:00:00","2023-09-12T00:00:00","2023-09-13T00:00:00","2023-09-14T00:00:00","2023-09-15T00:00:00","2023-09-18T00:00:00","2023-09-19T00:00:00","2023-09-20T00:00:00","2023-09-21T00:00:00","2023-09-22T00:00:00","2023-09-25T00:00:00","2023-09-26T00:00:00","2023-09-27T00:00:00","2023-09-28T00:00:00","2023-09-29T00:00:00","2023-10-02T00:00:00","2023-10-03T00:00:00","2023-10-04T00:00:00","2023-10-05T00:00:00","2023-10-06T00:00:00","2023-10-09T00:00:00","2023-10-10T00:00:00","2023-10-11T00:00:00","2023-10-12T00:00:00","2023-10-13T00:00:00","2023-10-16T00:00:00","2023-10-17T00:00:00","2023-10-18T00:00:00","2023-10-19T00:00:00","2023-10-20T00:00:00","2023-10-23T00:00:00","2023-10-24T00:00:00","2023-10-25T00:00:00","2023-10-26T00:00:00","2023-10-27T00:00:00","2023-10-30T00:00:00","2023-10-31T00:00:00","2023-11-01T00:00:00","2023-11-02T00:00:00","2023-11-03T00:00:00","2023-11-06T00:00:00","2023-11-07T00:00:00","2023-11-08T00:00:00","2023-11-09T00:00:00","2023-11-10T00:00:00","2023-11-13T00:00:00","2023-11-14T00:00:00","2023-11-15T00:00:00","2023-11-16T00:00:00","2023-11-17T00:00:00","2023-11-20T00:00:00","2023-11-21T00:00:00","2023-11-22T00:00:00","2023-11-24T00:00:00","2023-11-27T00:00:00","2023-11-28T00:00:00","2023-11-29T00:00:00","2023-11-30T00:00:00","2023-12-01T00:00:00","2023-12-04T00:00:00","2023-12-05T00:00:00","2023-12-06T00:00:00","2023-12-07T00:00:00","2023-12-08T00:00:00","2023-12-11T00:00:00","2023-12-12T00:00:00","2023-12-13T00:00:00","2023-12-14T00:00:00","2023-12-15T00:00:00","2023-12-18T00:00:00","2023-12-19T00:00:00","2023-12-20T00:00:00","2023-12-21T00:00:00","2023-12-22T00:00:00","2023-12-26T00:00:00","2023-12-27T00:00:00","2023-12-28T00:00:00","2023-12-29T00:00:00","2024-01-02T00:00:00","2024-01-03T00:00:00","2024-01-04T00:00:00","2024-01-05T00:00:00","2024-01-08T00:00:00","2024-01-09T00:00:00","2024-01-10T00:00:00","2024-01-11T00:00:00","2024-01-12T00:00:00","2024-01-16T00:00:00","2024-01-17T00:00:00","2024-01-18T00:00:00","2024-01-19T00:00:00","2024-01-22T00:00:00","2024-01-23T00:00:00","2024-01-24T00:00:00","2024-01-25T00:00:00","2024-01-26T00:00:00","2024-01-29T00:00:00","2024-01-30T00:00:00","2024-01-31T00:00:00","2024-02-01T00:00:00","2024-02-02T00:00:00","2024-02-05T00:00:00","2024-02-06T00:00:00","2024-02-07T00:00:00","2024-02-08T00:00:00","2024-02-09T00:00:00","2024-02-12T00:00:00","2024-02-13T00:00:00","2024-02-14T00:00:00","2024-02-15T00:00:00","2024-02-16T00:00:00","2024-02-20T00:00:00","2024-02-21T00:00:00","2024-02-22T00:00:00","2024-02-23T00:00:00","2024-02-26T00:00:00","2024-02-27T00:00:00","2024-02-28T00:00:00","2024-02-29T00:00:00","2024-03-01T00:00:00","2024-03-04T00:00:00","2024-03-05T00:00:00","2024-03-06T00:00:00","2024-03-07T00:00:00","2024-03-08T00:00:00","2024-03-11T00:00:00","2024-03-12T00:00:00","2024-03-13T00:00:00","2024-03-14T00:00:00","2024-03-15T00:00:00","2024-03-18T00:00:00","2024-03-19T00:00:00","2024-03-20T00:00:00","2024-03-21T00:00:00","2024-03-22T00:00:00","2024-03-25T00:00:00","2024-03-26T00:00:00","2024-03-27T00:00:00","2024-03-28T00:00:00","2024-04-01T00:00:00","2024-04-02T00:00:00","2024-04-03T00:00:00","2024-04-04T00:00:00","2024-04-05T00:00:00","2024-04-08T00:00:00","2024-04-09T00:00:00","2024-04-10T00:00:00","2024-04-11T00:00:00","2024-04-12T00:00:00","2024-04-15T00:00:00","2024-04-16T00:00:00","2024-04-17T00:00:00","2024-04-18T00:00:00","2024-04-19T00:00:00","2024-04-22T00:00:00","2024-04-23T00:00:00","2024-04-24T00:00:00","2024-04-25T00:00:00","2024-04-26T00:00:00","2024-04-29T00:00:00","2024-04-30T00:00:00","2024-05-01T00:00:00","2024-05-02T00:00:00","2024-05-03T00:00:00","2024-05-06T00:00:00","2024-05-07T00:00:00","2024-05-08T00:00:00","2024-05-09T00:00:00","2024-05-10T00:00:00","2024-05-13T00:00:00","2024-05-14T00:00:00","2024-05-15T00:00:00","2024-05-16T00:00:00","2024-05-17T00:00:00","2024-05-20T00:00:00","2024-05-21T00:00:00","2024-05-22T00:00:00","2024-05-23T00:00:00","2024-05-24T00:00:00","2024-05-28T00:00:00","2024-05-29T00:00:00","2024-05-30T00:00:00","2024-05-31T00:00:00","2024-06-03T00:00:00","2024-06-04T00:00:00","2024-06-05T00:00:00","2024-06-06T00:00:00","2024-06-07T00:00:00","2024-06-10T00:00:00","2024-06-11T00:00:00","2024-06-12T00:00:00","2024-06-13T00:00:00","2024-06-14T00:00:00","2024-06-17T00:00:00","2024-06-18T00:00:00","2024-06-20T00:00:00","2024-06-21T00:00:00","2024-06-24T00:00:00","2024-06-25T00:00:00","2024-06-26T00:00:00","2024-06-27T00:00:00","2024-06-28T00:00:00","2024-07-01T00:00:00","2024-07-02T00:00:00","2024-07-03T00:00:00","2024-07-05T00:00:00","2024-07-08T00:00:00","2024-07-09T00:00:00","2024-07-10T00:00:00","2024-07-11T00:00:00","2024-07-12T00:00:00","2024-07-15T00:00:00","2024-07-16T00:00:00","2024-07-17T00:00:00","2024-07-18T00:00:00","2024-07-19T00:00:00","2024-07-22T00:00:00","2024-07-23T00:00:00","2024-07-24T00:00:00","2024-07-25T00:00:00","2024-07-26T00:00:00","2024-07-29T00:00:00","2024-07-30T00:00:00","2024-07-31T00:00:00","2024-08-01T00:00:00","2024-08-02T00:00:00","2024-08-05T00:00:00","2024-08-06T00:00:00","2024-08-07T00:00:00","2024-08-08T00:00:00","2024-08-09T00:00:00","2024-08-12T00:00:00","2024-08-13T00:00:00","2024-08-14T00:00:00","2024-08-15T00:00:00","2024-08-16T00:00:00","2024-08-19T00:00:00","2024-08-20T00:00:00","2024-08-21T00:00:00","2024-08-22T00:00:00","2024-08-23T00:00:00","2024-08-26T00:00:00","2024-08-27T00:00:00","2024-08-28T00:00:00","2024-08-29T00:00:00","2024-08-30T00:00:00","2024-09-03T00:00:00","2024-09-04T00:00:00","2024-09-05T00:00:00","2024-09-06T00:00:00","2024-09-09T00:00:00","2024-09-10T00:00:00","2024-09-11T00:00:00","2024-09-12T00:00:00","2024-09-13T00:00:00","2024-09-16T00:00:00","2024-09-17T00:00:00","2024-09-18T00:00:00","2024-09-19T00:00:00","2024-09-20T00:00:00","2024-09-23T00:00:00","2024-09-24T00:00:00","2024-09-25T00:00:00","2024-09-26T00:00:00","2024-09-27T00:00:00","2024-09-30T00:00:00","2024-10-01T00:00:00","2024-10-02T00:00:00","2024-10-03T00:00:00","2024-10-04T00:00:00","2024-10-07T00:00:00","2024-10-08T00:00:00","2024-10-09T00:00:00","2024-10-10T00:00:00","2024-10-11T00:00:00","2024-10-14T00:00:00","2024-10-15T00:00:00","2024-10-16T00:00:00","2024-10-17T00:00:00","2024-10-18T00:00:00","2024-10-21T00:00:00","2024-10-22T00:00:00","2024-10-23T00:00:00","2024-10-24T00:00:00","2024-10-25T00:00:00","2024-10-28T00:00:00","2024-10-29T00:00:00","2024-10-30T00:00:00","2024-10-31T00:00:00","2024-11-01T00:00:00","2024-11-04T00:00:00","2024-11-05T00:00:00","2024-11-06T00:00:00","2024-11-07T00:00:00","2024-11-08T00:00:00","2024-11-11T00:00:00","2024-11-12T00:00:00","2024-11-13T00:00:00","2024-11-14T00:00:00","2024-11-15T00:00:00","2024-11-18T00:00:00","2024-11-19T00:00:00","2024-11-20T00:00:00","2024-11-21T00:00:00","2024-11-22T00:00:00","2024-11-25T00:00:00","2024-11-26T00:00:00","2024-11-27T00:00:00","2024-11-29T00:00:00","2024-12-02T00:00:00","2024-12-03T00:00:00","2024-12-04T00:00:00","2024-12-05T00:00:00","2024-12-06T00:00:00","2024-12-09T00:00:00","2024-12-10T00:00:00","2024-12-11T00:00:00","2024-12-12T00:00:00","2024-12-13T00:00:00","2024-12-16T00:00:00","2024-12-17T00:00:00","2024-12-18T00:00:00","2024-12-19T00:00:00","2024-12-20T00:00:00","2024-12-23T00:00:00","2024-12-24T00:00:00","2024-12-26T00:00:00","2024-12-27T00:00:00","2024-12-30T00:00:00","2024-12-31T00:00:00","2025-01-02T00:00:00","2025-01-03T00:00:00","2025-01-06T00:00:00","2025-01-07T00:00:00","2025-01-08T00:00:00","2025-01-10T00:00:00","2025-01-13T00:00:00","2025-01-14T00:00:00","2025-01-15T00:00:00","2025-01-16T00:00:00","2025-01-17T00:00:00","2025-01-21T00:00:00","2025-01-22T00:00:00","2025-01-23T00:00:00","2025-01-24T00:00:00","2025-01-27T00:00:00","2025-01-28T00:00:00","2025-01-29T00:00:00","2025-01-30T00:00:00","2025-01-31T00:00:00","2025-02-03T00:00:00","2025-02-04T00:00:00","2025-02-05T00:00:00","2025-02-06T00:00:00","2025-02-07T00:00:00","2025-02-10T00:00:00","2025-02-11T00:00:00","2025-02-12T00:00:00","2025-02-13T00:00:00","2025-02-14T00:00:00","2025-02-18T00:00:00","2025-02-19T00:00:00","2025-02-20T00:00:00","2025-02-21T00:00:00","2025-02-24T00:00:00","2025-02-25T00:00:00","2025-02-26T00:00:00","2025-02-27T00:00:00","2025-02-28T00:00:00","2025-03-03T00:00:00","2025-03-04T00:00:00","2025-03-05T00:00:00","2025-03-06T00:00:00","2025-03-07T00:00:00","2025-03-10T00:00:00","2025-03-11T00:00:00","2025-03-12T00:00:00","2025-03-13T00:00:00","2025-03-14T00:00:00","2025-03-17T00:00:00","2025-03-18T00:00:00","2025-03-19T00:00:00","2025-03-20T00:00:00","2025-03-21T00:00:00","2025-03-24T00:00:00","2025-03-25T00:00:00","2025-03-26T00:00:00","2025-03-27T00:00:00","2025-03-28T00:00:00","2025-03-31T00:00:00","2025-04-01T00:00:00","2025-04-02T00:00:00","2025-04-03T00:00:00","2025-04-04T00:00:00","2025-04-07T00:00:00","2025-04-08T00:00:00","2025-04-09T00:00:00","2025-04-10T00:00:00","2025-04-11T00:00:00","2025-04-14T00:00:00","2025-04-15T00:00:00","2025-04-16T00:00:00","2025-04-17T00:00:00","2025-04-21T00:00:00","2025-04-22T00:00:00","2025-04-23T00:00:00","2025-04-24T00:00:00","2025-04-25T00:00:00","2025-04-28T00:00:00","2025-04-29T00:00:00","2025-04-30T00:00:00","2025-05-01T00:00:00","2025-05-02T00:00:00","2025-05-05T00:00:00","2025-05-06T00:00:00","2025-05-07T00:00:00","2025-05-08T00:00:00","2025-05-09T00:00:00","2025-05-12T00:00:00","2025-05-13T00:00:00","2025-05-14T00:00:00","2025-05-15T00:00:00","2025-05-16T00:00:00","2025-05-19T00:00:00","2025-05-20T00:00:00","2025-05-21T00:00:00","2025-05-22T00:00:00","2025-05-23T00:00:00","2025-05-27T00:00:00","2025-05-28T00:00:00","2025-05-29T00:00:00","2025-05-30T00:00:00","2025-06-02T00:00:00","2025-06-03T00:00:00","2025-06-04T00:00:00","2025-06-05T00:00:00","2025-06-06T00:00:00","2025-06-09T00:00:00","2025-06-10T00:00:00","2025-06-11T00:00:00","2025-06-12T00:00:00","2025-06-13T00:00:00","2025-06-16T00:00:00","2025-06-17T00:00:00","2025-06-18T00:00:00","2025-06-20T00:00:00","2025-06-23T00:00:00","2025-06-24T00:00:00","2025-06-25T00:00:00","2025-06-26T00:00:00","2025-06-27T00:00:00","2025-06-30T00:00:00","2025-07-01T00:00:00","2025-07-02T00:00:00","2025-07-03T00:00:00","2025-07-07T00:00:00","2025-07-08T00:00:00","2025-07-09T00:00:00","2025-07-10T00:00:00","2025-07-11T00:00:00","2025-07-14T00:00:00","2025-07-15T00:00:00","2025-07-16T00:00:00","2025-07-17T00:00:00","2025-07-18T00:00:00","2025-07-21T00:00:00","2025-07-22T00:00:00","2025-07-23T00:00:00","2025-07-24T00:00:00","2025-07-25T00:00:00","2025-07-28T00:00:00","2025-07-29T00:00:00","2025-07-30T00:00:00","2025-07-31T00:00:00","2025-08-01T00:00:00","2025-08-04T00:00:00","2025-08-05T00:00:00","2025-08-06T00:00:00","2025-08-07T00:00:00","2025-08-08T00:00:00","2025-08-11T00:00:00","2025-08-12T00:00:00","2025-08-13T00:00:00","2025-08-14T00:00:00","2025-08-15T00:00:00","2025-08-18T00:00:00","2025-08-19T00:00:00","2025-08-20T00:00:00","2025-08-21T00:00:00","2025-08-22T00:00:00","2025-08-25T00:00:00","2025-08-26T00:00:00","2025-08-27T00:00:00","2025-08-28T00:00:00","2025-08-29T00:00:00","2025-09-02T00:00:00","2025-09-03T00:00:00","2025-09-04T00:00:00","2025-09-05T00:00:00","2025-09-08T00:00:00","2025-09-09T00:00:00","2025-09-10T00:00:00","2025-09-11T00:00:00","2025-09-12T00:00:00","2025-09-15T00:00:00","2025-09-16T00:00:00","2025-09-17T00:00:00","2025-09-18T00:00:00","2025-09-19T00:00:00","2025-09-22T00:00:00","2025-09-23T00:00:00","2025-09-24T00:00:00","2025-09-25T00:00:00","2025-09-26T00:00:00","2025-09-29T00:00:00","2025-09-30T00:00:00","2025-10-01T00:00:00","2025-10-02T00:00:00","2025-10-03T00:00:00","2025-10-06T00:00:00","2025-10-07T00:00:00","2025-10-08T00:00:00","2025-10-09T00:00:00","2025-10-10T00:00:00","2025-10-13T00:00:00","2025-10-14T00:00:00","2025-10-15T00:00:00","2025-10-16T00:00:00","2025-10-17T00:00:00","2025-10-20T00:00:00","2025-10-21T00:00:00","2025-10-22T00:00:00","2025-10-23T00:00:00","2025-10-24T00:00:00","2025-10-27T00:00:00","2025-10-28T00:00:00","2025-10-29T00:00:00","2025-10-30T00:00:00","2025-10-31T00:00:00","2025-11-03T00:00:00","2025-11-04T00:00:00","2025-11-05T00:00:00","2025-11-06T00:00:00","2025-11-07T00:00:00","2025-11-10T00:00:00","2025-11-11T00:00:00","2025-11-12T00:00:00","2025-11-13T00:00:00","2025-11-14T00:00:00","2025-11-17T00:00:00","2025-11-18T00:00:00","2025-11-19T00:00:00","2025-11-20T00:00:00","2025-11-21T00:00:00","2025-11-24T00:00:00","2025-11-25T00:00:00","2025-11-26T00:00:00","2025-11-28T00:00:00","2025-12-01T00:00:00","2025-12-02T00:00:00","2025-12-03T00:00:00","2025-12-04T00:00:00","2025-12-05T00:00:00","2025-12-08T00:00:00","2025-12-09T00:00:00","2025-12-10T00:00:00","2025-12-11T00:00:00","2025-12-12T00:00:00","2025-12-15T00:00:00","2025-12-16T00:00:00","2025-12-17T00:00:00","2025-12-18T00:00:00","2025-12-19T00:00:00","2025-12-22T00:00:00","2025-12-23T00:00:00","2025-12-24T00:00:00","2025-12-26T00:00:00","2025-12-29T00:00:00","2025-12-30T00:00:00","2025-12-31T00:00:00","2026-01-02T00:00:00","2026-01-05T00:00:00"],"y":[0.0,-1.180624381791684,-2.0185718696518085,-1.8844773522529112,-0.4174266883942068,-1.8380820571352818,-1.2734395284640265,-1.6627572818839975,-2.8848820423359567,-1.136782956130078,-1.3972121568115115,-1.8123059836833932,-1.054281513030142,-2.1835747558517027,0.05955754539093139,0.0028403612219118912,0.7041394622271158,1.977840926019958,2.3491096981882897,2.74615454380851,2.5579458245707842,0.938759847540549,0.2039412099251292,2.0706560726923007,3.2953674445163728,3.184495131113385,3.223163334030743,4.357629799596552,4.597423407654211,3.2850455554649605,4.80367292266457,5.917511981085655,7.459353366802124,6.317151623557016,5.6674046694556335,7.0494000207583785,5.878835592689247,4.960948716664237,5.205907361987094,6.440899695467439,6.391917788977697,6.737418673173146,5.267756841505222,5.004790142325843,2.898289856980041,2.75648461833895,3.303086351237594,2.199569181867922,2.547632120998422,2.168636256629819,1.7766991499216234,2.5682595281431686,4.2132215786252925,4.285450245548006,2.6868671192254334,2.8544566167974628,0.9568170142712162,-0.4999445024522098,-0.6417415556142725,1.0006584399328222,0.3689686525621072,2.1299434972753994,0.9357885186542125,1.9063325812515242,3.244421023060462,1.4844611777463657,1.7588138782505203,2.4265607007293966,2.6180927244515706,2.3877287882315024,3.875938915371635,4.484152748896686,5.956810465888007,6.360583775267337,5.770459850389087,5.493520538512842,5.905037311050498,6.013740472511686,6.0422177540420785,5.610016276006502,7.012786373076452,6.751374914911956,7.134430776877276,7.20430202584057,7.186195746235735,6.601285971496851,6.684090277320753,6.795371864675048,5.100126416538098,4.6549591397258006,6.738450043530375,7.649477488131895,7.540774326670685,6.332114679215994,5.602231885453057,4.8542591830433635,6.795371864675048,6.823840960726391,6.355394181565055,6.852310056777755,6.6659839977159185,6.5262087578731975,6.89373676612679,6.179398197033659,7.4683000953772005,8.503550369672608,8.345685221183107,8.389690356425227,7.173246318417115,6.396804519956034,7.318178410046006,8.708023635734419,8.749442159604403,8.14640973430263,9.173900174481675,10.7526826270411,10.54044952686295,10.781143537613435,10.398095861127143,11.06584268360602,11.265126355965528,12.274510516539738,13.014747941270176,13.14931721645256,14.55209549900156,14.161918270283858,13.569625193463786,12.9877113040483,13.395569167461474,12.538312134579744,12.078492850311484,13.307239663295235,13.364398863331651,13.811203235949044,15.154268449005603,15.286750427036445,15.115305568843308,14.213871505659936,13.925521636021877,14.213871505659936,14.941249542840996,15.866061334121762,16.785675346221197,16.71292280864085,17.118185875202883,17.988441448777404,18.250826978945955,17.466273370770445,17.466273370770445,17.991044431107596,18.31315940172662,18.331355721600715,17.54682666986227,18.6976395370424,18.923632427462735,18.58334569340667,16.933742476316958,16.59864533596316,16.07128766425392,17.084420774221897,16.575259422386758,15.795919964350592,15.837485826843057,15.76993106844402,16.40898778693789,15.052956775104608,14.208673726478626,13.338426338383114,13.392974370610332,14.130731595195979,13.821606979790712,15.089324858415786,13.494302415469384,14.294400248314698,15.019183488644616,16.68176887546906,17.16234653454649,16.990893490874328,17.209110176220264,16.70252725027823,15.918006384018813,15.562126312418778,15.736157781984028,16.497309105625103,15.858268758089311,15.99334553297127,16.99348828772549,15.583916057585178,15.6516918239179,15.411857288465125,14.350822755238779,12.460803833685485,12.207921644665731,12.679789954059828,11.024383232340917,11.06869123030696,11.712610123342081,11.441482501574086,11.397174503608,9.906001233060557,10.706336444797614,10.66463142916172,11.978523594970714,12.695424218998896,13.28197927502195,13.746030451946488,13.05258122532691,12.489493937670515,13.673032349995374,13.667810014376979,12.153193531899964,11.167751897475897,9.801726415752277,9.611422213883959,10.437819990838815,8.852792017782797,7.5493117812944766,7.061817392440339,8.341838046041051,9.022239619093654,10.184954172777116,12.296578567992999,13.321089493806703,13.581780629816942,13.905041567499588,13.98848434068749,13.09950857658122,14.8644042657478,14.754907112821103,16.98123462562402,17.228902664504385,17.372287700597443,17.51827571902067,18.422869377107975,18.164797594385938,18.620998896924856,18.693988813396945,18.480233214120023,18.5975311285582,18.514104726328327,18.98076707106209,19.68462822700232,19.05636815534337,19.032908572455742,18.55323131607114,19.457833159637474,19.971406484667465,20.438036087485088,20.98810027801161,22.656554653297476,23.050202525122042,22.84759554827811,23.53862187310609,24.28985239616801,22.567521197935037,23.72970369548184,23.978362177324342,24.501864488412473,24.72697334709806,24.77409714984895,24.412880145924177,23.716623299998794,22.706240510983445,22.311004656227883,22.478545040925766,24.227020659166797,24.0385663755583,24.740053742581082,24.6850964364026,24.771477796560724,24.313402019324926,23.622392065455045,24.721742826000614,26.276533639535728,26.543527594395776,26.912594472706196,27.051330156712638,27.74234829606157,27.580054803419163,28.590404850518425,28.49095128035628,26.394322682715465,28.048599808328834,29.396600865237875,28.925461063477087,29.299766648363935,30.378195324519886,30.435755613028537,31.189605489378703,31.132012458953916,29.32591925385102,30.50119033235992,31.40162576710217,30.747245831872227,30.027431177310902,30.145212035011593,32.838635722936594,32.93024760419214,32.44339168270203,32.68943081125628,32.51407329408886,32.9904518024261,34.238999289173,34.095033084069115,32.754881901545716,33.4275645678771,34.75203237258728,33.94323337553766,33.828047314688135,35.267692994768815,35.05566453156632,34.78867876218532,33.863146648750295,34.658717911694396,35.407026218744164,36.659445437070204,37.11107105683376,36.85111661393581,36.473045708697136,36.22095751114291,37.36576223671817,37.33950322000374,37.10055271628574,36.22886468388171,36.378495240471366,34.71385529841147,36.12120107825678,36.19733421867475,36.35488831896127,34.9895504174758,36.008282395097346,34.13096733699192,32.45056216232853,32.208992305322305,31.4265505507354,31.15610232372652,30.011322154588328,31.208620357155368,32.76562125002742,32.70260943248766,32.19848215025331,33.45091773953741,33.923530927522826,31.8020184736439,31.374040702785578,32.60283662864347,34.24648081700248,35.6328308431469,35.782502327131695,35.79560727905184,36.57806540459676,36.754004090775005,36.772339563792556,37.39986294233919,39.10132935453569,38.81509952396529,39.01466150261166,39.1748022142703,39.51612031868361,39.114426120976795,38.098313496643456,39.012042149323435,39.10915467248426,38.135049926510774,37.218710106021604,38.46850997105942,38.58142046873982,38.73633884478007,40.38523811067356,40.3826023864273,40.211951519699674,40.645192553571505,40.98390767565465,42.14179279671298,42.428006256325325,42.51464136633325,43.64890319492343,44.01389370467905,43.622644178209,43.43010534056668,42.96386045526324,43.514399403573265,43.693497684655405,43.920055373128505,43.35370207934086,43.648755856300966,44.615460929235226,45.26082046657884,46.09847327719405,46.26704503224914,46.409275915799576,47.8580402195149,46.58311911934723,47.50770171721528,47.91339042868663,48.79052999012177,46.70429695084357,45.57689455367693,44.61018948074267,46.10109263048228,45.87194833063704,42.566111658446815,41.82329580782329,43.41167164180082,43.495949333849346,42.76894782870346,45.08959661631942,43.03499226799652,40.37189577986169,36.28377287718605,37.54024390762982,36.6209245727753,39.779234356485475,40.395584556162035,40.46936846409963,42.77945798377245,43.22992126551435,45.68491013489997,46.01154348994119,47.40759330873105,47.167906111900734,47.6736704899402,46.51463940181828,48.071419286756644,47.71842868925269,47.92128123046739,47.06254262588203,47.075704876155335,48.47969460960013,45.424137144099475,45.1264803848092,44.773489787305245,42.33693461668548,43.930598270113606,44.557507737733324,46.04050371473409,47.270633873673184,48.03980696675942,48.258424740577624,48.31901365632578,47.8791260134851,50.402610971357696,50.1426074155856,50.51779703220725,50.948484196623056,50.61554802273205,51.212711459572404,50.993389734558,51.59846034413717,50.24035840611043,50.3037794976015,50.028992966709,51.39238272418636,50.023705147258404,51.442543339655785,52.49152884775632,52.22466586056069,53.13621717581982,54.38862820866686,53.1890626284097,53.85488586331757,53.86809722646504,54.45997284385478,54.20630484884859,54.12440094571751,52.7161056503052,53.0463897289919,52.993511534485904,53.46648488354846,53.71484868814602,53.249831624696434,50.245646225561025,50.8797752856814,50.554795397403375,52.37524593271732,56.16417320604585,57.37164595904183,58.053349023259535,58.20394546637422,57.71248930567165,57.789121760310195,56.77451526411759,54.76646992049281,55.40059898061318,55.96865485403817,56.02148393566999,56.85905489149492,57.34522323274689,57.87896557809618,58.70332517077366,58.22242827801423,59.2053242284613,59.490702769213044,59.56466675768919,60.55548625183314,60.29125898888379,60.59515308319163,59.768108653393746,59.2713974151567,60.50265717020131,59.67564548231954,59.643934936574006,60.32562162983366,59.66506984341833,54.9064907247063,54.85891672060896,56.71893586153314,57.65740103182875,59.409781123565054,59.42038950438233,57.742251707409075,55.94215027295297,55.3748310926403,54.99307672184006,56.931005252130774,57.83502592668626,56.05085343441418,56.2788517671958,53.892866485996784,54.1314731995957,54.34354259019334,57.15104729929943,56.84883941367087,58.42357823959159,59.87371770378323,60.77243418793008,61.64993391044236,61.1780410446112,58.89812320062708,60.26344473115448,59.54497249515338,60.40127182698909,59.54764096131575,58.4739516775157,59.537048951456505,60.18388187502477,60.74062541643626,59.269301932526105,60.35091476002303,60.4728620265478,59.95591628415924,61.644629720033706,61.63668980537877,62.11123476641427,62.49298913721451,61.81698316639868,59.049227143441364,58.3254834589477,57.538122231466346,57.617619603763885,55.10174714138516,57.52220966024042,54.762426293854105,52.93053245886223,54.574193018179294,51.83033859397699,52.68131736444601,48.61457493298549,47.37914058363775,48.16121399166848,46.18617249947532,49.20574659917902,50.35633027294644,48.73121800910161,50.35100971157973,49.91622980765107,49.9656864719243,52.65135851121199,53.018297164975706,51.191543810811964,50.790029693643724,47.75336431373436,48.745198807277475,49.165326703750154,50.10929251595104,42.711796814146076,34.35701752576543,34.11770686097029,32.01704282216981,45.881394373432684,39.48899364119247,41.97787039374445,43.3552736913138,42.953759574145536,39.77617298732985,39.97560399831184,36.64381935761016,40.19896934996492,42.3714118543417,45.36819758043789,46.418509136140564,46.474350474053836,47.39705041174596,47.45554384486357,48.50053483919954,50.70491708273457,49.84072694911808,48.588299545313006,49.21319538509241,50.25288218901973,50.06144020556684,55.0205799313664,56.044321422151675,56.24375243313364,57.00690101365697,58.00138760240443,58.17421580655291,57.64240523425368,54.98600446796187,55.047182738199886,53.988849413052044,57.1903867114969,56.28096362078443,56.89787043303476,56.72237376272391,57.605210417560926,58.503943272665836,58.461411523648344,57.69557810600456,59.31496053453142,59.45855020760011,60.36263636598782,59.90526453994824,60.54078513150301,58.745922403623354,60.25627425152798,58.886859981487724,58.862925640816584,58.48983150682554,60.05530437048918,61.82346606578702,61.91414480243365,63.18092953644978,63.99166849202849,64.7757391569415,64.72241894656814,65.46916382712399,66.77329071645532,65.53047306502641,65.43982707029592,66.43190712820982,66.90127886650106,66.31457647185555,66.63192749368163,65.91985630227862,66.47456984489173,67.49333456442939,67.37066697575035,67.6880343685345,67.71203419303782,69.13882867104819,69.19483371854199,69.90957337610737,69.86691065942547,69.41887027947517,69.20550758319149,68.5707727976232,65.80782983633297,68.32808971546946,67.4746716722508,68.75746720324119,68.61612035142552,69.93090473444832,69.5948744494856,71.40037830009864,71.98711343666027,72.00310786267647,71.60039866557047,71.5630728812133,70.63230206120184,70.17892474892679,69.49620668530991,72.09912353164785,71.34170478644248,72.05911291017027,72.45114824262677,73.06186683273366,72.02977615334218,70.75500239179698,71.6804035375676,73.11521978502313,72.61382645278339,73.0378833791884,73.43790773917395,73.93928470045567,75.38477481256072,75.32606855698845,76.25950784316228,76.01682476100858,75.79814150335818,76.61953795262835,77.49432009610406,78.33405201839179,77.36328694786079,76.79898002382957,75.98332978083545,76.991551603388,77.48896679282127,78.15754034868176,78.76462458610125,78.97052212551353,78.96787003030919,79.60969344071371,78.94378835101561,80.01084739680483,79.48935052807799,74.63814452871122,77.31780842639404,77.10118790945812,77.88743591179197,76.67598501598951,77.67885353525928,79.52679090914152,79.52410607202107,78.5907813825536,79.64981865889766,81.11801528982,83.25478547660279,83.7415104304285,83.82976626528351,81.80798568785363,82.40436331870752,82.74668005156197,80.58047488220276,81.206271124675,79.26203977553452,79.43853507428649,82.2385582555631,82.65573937958652,82.75737028716952,79.72468305006663,79.69528080940636,78.02115389715567,76.52622349173545,77.20817212032391,74.50711138046795,76.24541244828005,78.83948897727025,80.5216376589661,81.76787684062774,82.76003875333188,81.92566013432699,82.26262356389864,82.89375673869561,83.02747472405932,83.37512838923853,82.82422927985138,82.66642961519408,83.87791325291263,84.30578461254363,82.32412925329768,82.0486715131251,81.55125632369182,79.55354105459746,80.90940017137117,82.5490662169237,83.68632393083728,84.52585940162838,85.17495151740772,85.1561740285228,84.49634256426175,84.27104543955859,82.90578939286337,83.24106661375572,84.46147242361228],"type":"scatter"},{"hovertemplate":"GEHC: %{y:,.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#00c853","width":2},"mode":"lines","name":"GEHC","x":["2022-12-15T00:00:00","2022-12-16T00:00:00","2022-12-19T00:00:00","2022-12-20T00:00:00","2022-12-21T00:00:00","2022-12-22T00:00:00","2022-12-23T00:00:00","2022-12-27T00:00:00","2022-12-28T00:00:00","2022-12-29T00:00:00","2022-12-30T00:00:00","2023-01-03T00:00:00","2023-01-04T00:00:00","2023-01-05T00:00:00","2023-01-06T00:00:00","2023-01-09T00:00:00","2023-01-10T00:00:00","2023-01-11T00:00:00","2023-01-12T00:00:00","2023-01-13T00:00:00","2023-01-17T00:00:00","2023-01-18T00:00:00","2023-01-19T00:00:00","2023-01-20T00:00:00","2023-01-23T00:00:00","2023-01-24T00:00:00","2023-01-25T00:00:00","2023-01-26T00:00:00","2023-01-27T00:00:00","2023-01-30T00:00:00","2023-01-31T00:00:00","2023-02-01T00:00:00","2023-02-02T00:00:00","2023-02-03T00:00:00","2023-02-06T00:00:00","2023-02-07T00:00:00","2023-02-08T00:00:00","2023-02-09T00:00:00","2023-02-10T00:00:00","2023-02-13T00:00:00","2023-02-14T00:00:00","2023-02-15T00:00:00","2023-02-16T00:00:00","2023-02-17T00:00:00","2023-02-21T00:00:00","2023-02-22T00:00:00","2023-02-23T00:00:00","2023-02-24T00:00:00","2023-02-27T00:00:00","2023-02-28T00:00:00","2023-03-01T00:00:00","2023-03-02T00:00:00","2023-03-03T00:00:00","2023-03-06T00:00:00","2023-03-07T00:00:00","2023-03-08T00:00:00","2023-03-09T00:00:00","2023-03-10T00:00:00","2023-03-13T00:00:00","2023-03-14T00:00:00","2023-03-15T00:00:00","2023-03-16T00:00:00","2023-03-17T00:00:00","2023-03-20T00:00:00","2023-03-21T00:00:00","2023-03-22T00:00:00","2023-03-23T00:00:00","2023-03-24T00:00:00","2023-03-27T00:00:00","2023-03-28T00:00:00","2023-03-29T00:00:00","2023-03-30T00:00:00","2023-03-31T00:00:00","2023-04-03T00:00:00","2023-04-04T00:00:00","2023-04-05T00:00:00","2023-04-06T00:00:00","2023-04-10T00:00:00","2023-04-11T00:00:00","2023-04-12T00:00:00","2023-04-13T00:00:00","2023-04-14T00:00:00","2023-04-17T00:00:00","2023-04-18T00:00:00","2023-04-19T00:00:00","2023-04-20T00:00:00","2023-04-21T00:00:00","2023-04-24T00:00:00","2023-04-25T00:00:00","2023-04-26T00:00:00","2023-04-27T00:00:00","2023-04-28T00:00:00","2023-05-01T00:00:00","2023-05-02T00:00:00","2023-05-03T00:00:00","2023-05-04T00:00:00","2023-05-05T00:00:00","2023-05-08T00:00:00","2023-05-09T00:00:00","2023-05-10T00:00:00","2023-05-11T00:00:00","2023-05-12T00:00:00","2023-05-15T00:00:00","2023-05-16T00:00:00","2023-05-17T00:00:00","2023-05-18T00:00:00","2023-05-19T00:00:00","2023-05-22T00:00:00","2023-05-23T00:00:00","2023-05-24T00:00:00","2023-05-25T00:00:00","2023-05-26T00:00:00","2023-05-30T00:00:00","2023-05-31T00:00:00","2023-06-01T00:00:00","2023-06-02T00:00:00","2023-06-05T00:00:00","2023-06-06T00:00:00","2023-06-07T00:00:00","2023-06-08T00:00:00","2023-06-09T00:00:00","2023-06-12T00:00:00","2023-06-13T00:00:00","2023-06-14T00:00:00","2023-06-15T00:00:00","2023-06-16T00:00:00","2023-06-20T00:00:00","2023-06-21T00:00:00","2023-06-22T00:00:00","2023-06-23T00:00:00","2023-06-26T00:00:00","2023-06-27T00:00:00","2023-06-28T00:00:00","2023-06-29T00:00:00","2023-06-30T00:00:00","2023-07-03T00:00:00","2023-07-05T00:00:00","2023-07-06T00:00:00","2023-07-07T00:00:00","2023-07-10T00:00:00","2023-07-11T00:00:00","2023-07-12T00:00:00","2023-07-13T00:00:00","2023-07-14T00:00:00","2023-07-17T00:00:00","2023-07-18T00:00:00","2023-07-19T00:00:00","2023-07-20T00:00:00","2023-07-21T00:00:00","2023-07-24T00:00:00","2023-07-25T00:00:00","2023-07-26T00:00:00","2023-07-27T00:00:00","2023-07-28T00:00:00","2023-07-31T00:00:00","2023-08-01T00:00:00","2023-08-02T00:00:00","2023-08-03T00:00:00","2023-08-04T00:00:00","2023-08-07T00:00:00","2023-08-08T00:00:00","2023-08-09T00:00:00","2023-08-10T00:00:00","2023-08-11T00:00:00","2023-08-14T00:00:00","2023-08-15T00:00:00","2023-08-16T00:00:00","2023-08-17T00:00:00","2023-08-18T00:00:00","2023-08-21T00:00:00","2023-08-22T00:00:00","2023-08-23T00:00:00","2023-08-24T00:00:00","2023-08-25T00:00:00","2023-08-28T00:00:00","2023-08-29T00:00:00","2023-08-30T00:00:00","2023-08-31T00:00:00","2023-09-01T00:00:00","2023-09-05T00:00:00","2023-09-06T00:00:00","2023-09-07T00:00:00","2023-09-08T00:00:00","2023-09-11T00:00:00","2023-09-12T00:00:00","2023-09-13T00:00:00","2023-09-14T00:00:00","2023-09-15T00:00:00","2023-09-18T00:00:00","2023-09-19T00:00:00","2023-09-20T00:00:00","2023-09-21T00:00:00","2023-09-22T00:00:00","2023-09-25T00:00:00","2023-09-26T00:00:00","2023-09-27T00:00:00","2023-09-28T00:00:00","2023-09-29T00:00:00","2023-10-02T00:00:00","2023-10-03T00:00:00","2023-10-04T00:00:00","2023-10-05T00:00:00","2023-10-06T00:00:00","2023-10-09T00:00:00","2023-10-10T00:00:00","2023-10-11T00:00:00","2023-10-12T00:00:00","2023-10-13T00:00:00","2023-10-16T00:00:00","2023-10-17T00:00:00","2023-10-18T00:00:00","2023-10-19T00:00:00","2023-10-20T00:00:00","2023-10-23T00:00:00","2023-10-24T00:00:00","2023-10-25T00:00:00","2023-10-26T00:00:00","2023-10-27T00:00:00","2023-10-30T00:00:00","2023-10-31T00:00:00","2023-11-01T00:00:00","2023-11-02T00:00:00","2023-11-03T00:00:00","2023-11-06T00:00:00","2023-11-07T00:00:00","2023-11-08T00:00:00","2023-11-09T00:00:00","2023-11-10T00:00:00","2023-11-13T00:00:00","2023-11-14T00:00:00","2023-11-15T00:00:00","2023-11-16T00:00:00","2023-11-17T00:00:00","2023-11-20T00:00:00","2023-11-21T00:00:00","2023-11-22T00:00:00","2023-11-24T00:00:00","2023-11-27T00:00:00","2023-11-28T00:00:00","2023-11-29T00:00:00","2023-11-30T00:00:00","2023-12-01T00:00:00","2023-12-04T00:00:00","2023-12-05T00:00:00","2023-12-06T00:00:00","2023-12-07T00:00:00","2023-12-08T00:00:00","2023-12-11T00:00:00","2023-12-12T00:00:00","2023-12-13T00:00:00","2023-12-14T00:00:00","2023-12-15T00:00:00","2023-12-18T00:00:00","2023-12-19T00:00:00","2023-12-20T00:00:00","2023-12-21T00:00:00","2023-12-22T00:00:00","2023-12-26T00:00:00","2023-12-27T00:00:00","2023-12-28T00:00:00","2023-12-29T00:00:00","2024-01-02T00:00:00","2024-01-03T00:00:00","2024-01-04T00:00:00","2024-01-05T00:00:00","2024-01-08T00:00:00","2024-01-09T00:00:00","2024-01-10T00:00:00","2024-01-11T00:00:00","2024-01-12T00:00:00","2024-01-16T00:00:00","2024-01-17T00:00:00","2024-01-18T00:00:00","2024-01-19T00:00:00","2024-01-22T00:00:00","2024-01-23T00:00:00","2024-01-24T00:00:00","2024-01-25T00:00:00","2024-01-26T00:00:00","2024-01-29T00:00:00","2024-01-30T00:00:00","2024-01-31T00:00:00","2024-02-01T00:00:00","2024-02-02T00:00:00","2024-02-05T00:00:00","2024-02-06T00:00:00","2024-02-07T00:00:00","2024-02-08T00:00:00","2024-02-09T00:00:00","2024-02-12T00:00:00","2024-02-13T00:00:00","2024-02-14T00:00:00","2024-02-15T00:00:00","2024-02-16T00:00:00","2024-02-20T00:00:00","2024-02-21T00:00:00","2024-02-22T00:00:00","2024-02-23T00:00:00","2024-02-26T00:00:00","2024-02-27T00:00:00","2024-02-28T00:00:00","2024-02-29T00:00:00","2024-03-01T00:00:00","2024-03-04T00:00:00","2024-03-05T00:00:00","2024-03-06T00:00:00","2024-03-07T00:00:00","2024-03-08T00:00:00","2024-03-11T00:00:00","2024-03-12T00:00:00","2024-03-13T00:00:00","2024-03-14T00:00:00","2024-03-15T00:00:00","2024-03-18T00:00:00","2024-03-19T00:00:00","2024-03-20T00:00:00","2024-03-21T00:00:00","2024-03-22T00:00:00","2024-03-25T00:00:00","2024-03-26T00:00:00","2024-03-27T00:00:00","2024-03-28T00:00:00","2024-04-01T00:00:00","2024-04-02T00:00:00","2024-04-03T00:00:00","2024-04-04T00:00:00","2024-04-05T00:00:00","2024-04-08T00:00:00","2024-04-09T00:00:00","2024-04-10T00:00:00","2024-04-11T00:00:00","2024-04-12T00:00:00","2024-04-15T00:00:00","2024-04-16T00:00:00","2024-04-17T00:00:00","2024-04-18T00:00:00","2024-04-19T00:00:00","2024-04-22T00:00:00","2024-04-23T00:00:00","2024-04-24T00:00:00","2024-04-25T00:00:00","2024-04-26T00:00:00","2024-04-29T00:00:00","2024-04-30T00:00:00","2024-05-01T00:00:00","2024-05-02T00:00:00","2024-05-03T00:00:00","2024-05-06T00:00:00","2024-05-07T00:00:00","2024-05-08T00:00:00","2024-05-09T00:00:00","2024-05-10T00:00:00","2024-05-13T00:00:00","2024-05-14T00:00:00","2024-05-15T00:00:00","2024-05-16T00:00:00","2024-05-17T00:00:00","2024-05-20T00:00:00","2024-05-21T00:00:00","2024-05-22T00:00:00","2024-05-23T00:00:00","2024-05-24T00:00:00","2024-05-28T00:00:00","2024-05-29T00:00:00","2024-05-30T00:00:00","2024-05-31T00:00:00","2024-06-03T00:00:00","2024-06-04T00:00:00","2024-06-05T00:00:00","2024-06-06T00:00:00","2024-06-07T00:00:00","2024-06-10T00:00:00","2024-06-11T00:00:00","2024-06-12T00:00:00","2024-06-13T00:00:00","2024-06-14T00:00:00","2024-06-17T00:00:00","2024-06-18T00:00:00","2024-06-20T00:00:00","2024-06-21T00:00:00","2024-06-24T00:00:00","2024-06-25T00:00:00","2024-06-26T00:00:00","2024-06-27T00:00:00","2024-06-28T00:00:00","2024-07-01T00:00:00","2024-07-02T00:00:00","2024-07-03T00:00:00","2024-07-05T00:00:00","2024-07-08T00:00:00","2024-07-09T00:00:00","2024-07-10T00:00:00","2024-07-11T00:00:00","2024-07-12T00:00:00","2024-07-15T00:00:00","2024-07-16T00:00:00","2024-07-17T00:00:00","2024-07-18T00:00:00","2024-07-19T00:00:00","2024-07-22T00:00:00","2024-07-23T00:00:00","2024-07-24T00:00:00","2024-07-25T00:00:00","2024-07-26T00:00:00","2024-07-29T00:00:00","2024-07-30T00:00:00","2024-07-31T00:00:00","2024-08-01T00:00:00","2024-08-02T00:00:00","2024-08-05T00:00:00","2024-08-06T00:00:00","2024-08-07T00:00:00","2024-08-08T00:00:00","2024-08-09T00:00:00","2024-08-12T00:00:00","2024-08-13T00:00:00","2024-08-14T00:00:00","2024-08-15T00:00:00","2024-08-16T00:00:00","2024-08-19T00:00:00","2024-08-20T00:00:00","2024-08-21T00:00:00","2024-08-22T00:00:00","2024-08-23T00:00:00","2024-08-26T00:00:00","2024-08-27T00:00:00","2024-08-28T00:00:00","2024-08-29T00:00:00","2024-08-30T00:00:00","2024-09-03T00:00:00","2024-09-04T00:00:00","2024-09-05T00:00:00","2024-09-06T00:00:00","2024-09-09T00:00:00","2024-09-10T00:00:00","2024-09-11T00:00:00","2024-09-12T00:00:00","2024-09-13T00:00:00","2024-09-16T00:00:00","2024-09-17T00:00:00","2024-09-18T00:00:00","2024-09-19T00:00:00","2024-09-20T00:00:00","2024-09-23T00:00:00","2024-09-24T00:00:00","2024-09-25T00:00:00","2024-09-26T00:00:00","2024-09-27T00:00:00","2024-09-30T00:00:00","2024-10-01T00:00:00","2024-10-02T00:00:00","2024-10-03T00:00:00","2024-10-04T00:00:00","2024-10-07T00:00:00","2024-10-08T00:00:00","2024-10-09T00:00:00","2024-10-10T00:00:00","2024-10-11T00:00:00","2024-10-14T00:00:00","2024-10-15T00:00:00","2024-10-16T00:00:00","2024-10-17T00:00:00","2024-10-18T00:00:00","2024-10-21T00:00:00","2024-10-22T00:00:00","2024-10-23T00:00:00","2024-10-24T00:00:00","2024-10-25T00:00:00","2024-10-28T00:00:00","2024-10-29T00:00:00","2024-10-30T00:00:00","2024-10-31T00:00:00","2024-11-01T00:00:00","2024-11-04T00:00:00","2024-11-05T00:00:00","2024-11-06T00:00:00","2024-11-07T00:00:00","2024-11-08T00:00:00","2024-11-11T00:00:00","2024-11-12T00:00:00","2024-11-13T00:00:00","2024-11-14T00:00:00","2024-11-15T00:00:00","2024-11-18T00:00:00","2024-11-19T00:00:00","2024-11-20T00:00:00","2024-11-21T00:00:00","2024-11-22T00:00:00","2024-11-25T00:00:00","2024-11-26T00:00:00","2024-11-27T00:00:00","2024-11-29T00:00:00","2024-12-02T00:00:00","2024-12-03T00:00:00","2024-12-04T00:00:00","2024-12-05T00:00:00","2024-12-06T00:00:00","2024-12-09T00:00:00","2024-12-10T00:00:00","2024-12-11T00:00:00","2024-12-12T00:00:00","2024-12-13T00:00:00","2024-12-16T00:00:00","2024-12-17T00:00:00","2024-12-18T00:00:00","2024-12-19T00:00:00","2024-12-20T00:00:00","2024-12-23T00:00:00","2024-12-24T00:00:00","2024-12-26T00:00:00","2024-12-27T00:00:00","2024-12-30T00:00:00","2024-12-31T00:00:00","2025-01-02T00:00:00","2025-01-03T00:00:00","2025-01-06T00:00:00","2025-01-07T00:00:00","2025-01-08T00:00:00","2025-01-10T00:00:00","2025-01-13T00:00:00","2025-01-14T00:00:00","2025-01-15T00:00:00","2025-01-16T00:00:00","2025-01-17T00:00:00","2025-01-21T00:00:00","2025-01-22T00:00:00","2025-01-23T00:00:00","2025-01-24T00:00:00","2025-01-27T00:00:00","2025-01-28T00:00:00","2025-01-29T00:00:00","2025-01-30T00:00:00","2025-01-31T00:00:00","2025-02-03T00:00:00","2025-02-04T00:00:00","2025-02-05T00:00:00","2025-02-06T00:00:00","2025-02-07T00:00:00","2025-02-10T00:00:00","2025-02-11T00:00:00","2025-02-12T00:00:00","2025-02-13T00:00:00","2025-02-14T00:00:00","2025-02-18T00:00:00","2025-02-19T00:00:00","2025-02-20T00:00:00","2025-02-21T00:00:00","2025-02-24T00:00:00","2025-02-25T00:00:00","2025-02-26T00:00:00","2025-02-27T00:00:00","2025-02-28T00:00:00","2025-03-03T00:00:00","2025-03-04T00:00:00","2025-03-05T00:00:00","2025-03-06T00:00:00","2025-03-07T00:00:00","2025-03-10T00:00:00","2025-03-11T00:00:00","2025-03-12T00:00:00","2025-03-13T00:00:00","2025-03-14T00:00:00","2025-03-17T00:00:00","2025-03-18T00:00:00","2025-03-19T00:00:00","2025-03-20T00:00:00","2025-03-21T00:00:00","2025-03-24T00:00:00","2025-03-25T00:00:00","2025-03-26T00:00:00","2025-03-27T00:00:00","2025-03-28T00:00:00","2025-03-31T00:00:00","2025-04-01T00:00:00","2025-04-02T00:00:00","2025-04-03T00:00:00","2025-04-04T00:00:00","2025-04-07T00:00:00","2025-04-08T00:00:00","2025-04-09T00:00:00","2025-04-10T00:00:00","2025-04-11T00:00:00","2025-04-14T00:00:00","2025-04-15T00:00:00","2025-04-16T00:00:00","2025-04-17T00:00:00","2025-04-21T00:00:00","2025-04-22T00:00:00","2025-04-23T00:00:00","2025-04-24T00:00:00","2025-04-25T00:00:00","2025-04-28T00:00:00","2025-04-29T00:00:00","2025-04-30T00:00:00","2025-05-01T00:00:00","2025-05-02T00:00:00","2025-05-05T00:00:00","2025-05-06T00:00:00","2025-05-07T00:00:00","2025-05-08T00:00:00","2025-05-09T00:00:00","2025-05-12T00:00:00","2025-05-13T00:00:00","2025-05-14T00:00:00","2025-05-15T00:00:00","2025-05-16T00:00:00","2025-05-19T00:00:00","2025-05-20T00:00:00","2025-05-21T00:00:00","2025-05-22T00:00:00","2025-05-23T00:00:00","2025-05-27T00:00:00","2025-05-28T00:00:00","2025-05-29T00:00:00","2025-05-30T00:00:00","2025-06-02T00:00:00","2025-06-03T00:00:00","2025-06-04T00:00:00","2025-06-05T00:00:00","2025-06-06T00:00:00","2025-06-09T00:00:00","2025-06-10T00:00:00","2025-06-11T00:00:00","2025-06-12T00:00:00","2025-06-13T00:00:00","2025-06-16T00:00:00","2025-06-17T00:00:00","2025-06-18T00:00:00","2025-06-20T00:00:00","2025-06-23T00:00:00","2025-06-24T00:00:00","2025-06-25T00:00:00","2025-06-26T00:00:00","2025-06-27T00:00:00","2025-06-30T00:00:00","2025-07-01T00:00:00","2025-07-02T00:00:00","2025-07-03T00:00:00","2025-07-07T00:00:00","2025-07-08T00:00:00","2025-07-09T00:00:00","2025-07-10T00:00:00","2025-07-11T00:00:00","2025-07-14T00:00:00","2025-07-15T00:00:00","2025-07-16T00:00:00","2025-07-17T00:00:00","2025-07-18T00:00:00","2025-07-21T00:00:00","2025-07-22T00:00:00","2025-07-23T00:00:00","2025-07-24T00:00:00","2025-07-25T00:00:00","2025-07-28T00:00:00","2025-07-29T00:00:00","2025-07-30T00:00:00","2025-07-31T00:00:00","2025-08-01T00:00:00","2025-08-04T00:00:00","2025-08-05T00:00:00","2025-08-06T00:00:00","2025-08-07T00:00:00","2025-08-08T00:00:00","2025-08-11T00:00:00","2025-08-12T00:00:00","2025-08-13T00:00:00","2025-08-14T00:00:00","2025-08-15T00:00:00","2025-08-18T00:00:00","2025-08-19T00:00:00","2025-08-20T00:00:00","2025-08-21T00:00:00","2025-08-22T00:00:00","2025-08-25T00:00:00","2025-08-26T00:00:00","2025-08-27T00:00:00","2025-08-28T00:00:00","2025-08-29T00:00:00","2025-09-02T00:00:00","2025-09-03T00:00:00","2025-09-04T00:00:00","2025-09-05T00:00:00","2025-09-08T00:00:00","2025-09-09T00:00:00","2025-09-10T00:00:00","2025-09-11T00:00:00","2025-09-12T00:00:00","2025-09-15T00:00:00","2025-09-16T00:00:00","2025-09-17T00:00:00","2025-09-18T00:00:00","2025-09-19T00:00:00","2025-09-22T00:00:00","2025-09-23T00:00:00","2025-09-24T00:00:00","2025-09-25T00:00:00","2025-09-26T00:00:00","2025-09-29T00:00:00","2025-09-30T00:00:00","2025-10-01T00:00:00","2025-10-02T00:00:00","2025-10-03T00:00:00","2025-10-06T00:00:00","2025-10-07T00:00:00","2025-10-08T00:00:00","2025-10-09T00:00:00","2025-10-10T00:00:00","2025-10-13T00:00:00","2025-10-14T00:00:00","2025-10-15T00:00:00","2025-10-16T00:00:00","2025-10-17T00:00:00","2025-10-20T00:00:00","2025-10-21T00:00:00","2025-10-22T00:00:00","2025-10-23T00:00:00","2025-10-24T00:00:00","2025-10-27T00:00:00","2025-10-28T00:00:00","2025-10-29T00:00:00","2025-10-30T00:00:00","2025-10-31T00:00:00","2025-11-03T00:00:00","2025-11-04T00:00:00","2025-11-05T00:00:00","2025-11-06T00:00:00","2025-11-07T00:00:00","2025-11-10T00:00:00","2025-11-11T00:00:00","2025-11-12T00:00:00","2025-11-13T00:00:00","2025-11-14T00:00:00","2025-11-17T00:00:00","2025-11-18T00:00:00","2025-11-19T00:00:00","2025-11-20T00:00:00","2025-11-21T00:00:00","2025-11-24T00:00:00","2025-11-25T00:00:00","2025-11-26T00:00:00","2025-11-28T00:00:00","2025-12-01T00:00:00","2025-12-02T00:00:00","2025-12-03T00:00:00","2025-12-04T00:00:00","2025-12-05T00:00:00","2025-12-08T00:00:00","2025-12-09T00:00:00","2025-12-10T00:00:00","2025-12-11T00:00:00","2025-12-12T00:00:00","2025-12-15T00:00:00","2025-12-16T00:00:00","2025-12-17T00:00:00","2025-12-18T00:00:00","2025-12-19T00:00:00","2025-12-22T00:00:00","2025-12-23T00:00:00","2025-12-24T00:00:00","2025-12-26T00:00:00","2025-12-29T00:00:00","2025-12-30T00:00:00","2025-12-31T00:00:00","2026-01-02T00:00:00","2026-01-05T00:00:00"],"y":[0.0,-5.4333595620364665,-5.833319381895508,-4.650014230466592,-5.066548358473821,-3.9999330330983907,-4.166680618104513,-4.250054410607563,-4.166680618104513,-3.3332775275819904,-2.6999380556160135,-6.666555055163981,0.8166613651202859,-1.6666387637909952,-1.750012556294056,-3.1666973598299064,0.0,8.316619510806778,9.416718286986647,9.066648808826239,5.550049388089939,3.4667090790376776,6.566774371766737,11.283420669334166,15.866635415445906,16.000066966901592,14.516750096264918,15.366727494935617,16.799986606619676,19.166764326731524,15.866635415445906,16.68346419782023,17.75007952319565,17.583331938189552,19.76662034789305,19.383402253436223,16.949992466223573,14.016674758500614,15.40004352848603,15.716629555842033,21.016724983676816,20.533391371314735,18.183355376605114,21.950076174850587,20.78334533156987,19.90005189934876,26.500142304665907,25.016658016775196,26.73335453951884,26.666722472418016,25.4999916291373,25.066715775727832,27.283487636235783,27.79996986489428,27.08342401767925,27.716763489645245,27.30006194438399,24.95002594967437,27.066682292277044,28.566740888315945,27.933401416349945,27.700021764243022,26.400026786760634,25.33341146138519,27.53344159649094,24.616698196916165,26.183388860055913,27.43332607858564,27.30006194438399,28.166781068456913,32.06676600090405,36.90010212452495,36.716780231370635,36.349969027808,35.98332524149939,35.19997990992951,33.60014063049339,34.3166864777084,34.3166864777084,36.25002092715675,38.23341313555775,37.28332021898175,37.86676934924913,39.43346001238888,42.91674339957476,41.666638763791,44.13336458455408,46.31665299425758,33.98335872495019,33.533341146138525,35.8666354154459,35.566791113492144,34.6334399223184,30.76677102342167,32.85011133247391,30.433443270663464,31.650064455642802,32.36677772011183,27.283487636235783,26.500142304665907,24.983341983224804,24.86665215717132,24.88339388257352,29.633356213691364,33.8333528653463,32.81662788166948,32.23334616865614,31.84996065694532,28.698665684485448,27.598232073797526,33.150457886189756,30.766101354405585,29.98258860558167,32.56684133866836,33.100400127237116,33.33377977934404,34.20083373792502,38.26907301066447,34.18409201252282,29.63235171016725,28.54865982488155,30.499405668748224,29.69915119452211,30.932848939411684,31.88327669049571,31.13291255796822,31.54978152048349,32.75033064907669,33.73390701645711,33.083658401834896,29.71572550267032,28.498602065928914,28.698665684485448,31.182970316920855,35.45127320821684,34.53432890793724,34.46752942358238,31.916592724046144,32.75033064907669,34.484271148984604,35.48458924176725,36.201469923490315,35.71796889387422,36.418275267449054,35.36789941571379,37.50213456998879,36.30158544139559,36.51839078535435,37.81939026636083,34.48360147996852,33.783127689139626,29.14633942174081,28.195576836148728,29.88012924612009,30.09693459007885,29.579950109658306,27.745224422829008,26.79446183723695,26.594398218680414,26.07724632100583,23.308499773986703,23.291925465838514,20.58981098592021,19.40566874822118,19.75590564363563,17.654316853894958,17.871122197853715,14.068406689993473,14.018348931040814,15.03574358373374,14.968944099378877,15.069059617284154,14.135038757094321,14.401901860005694,15.602785823106945,17.55420133598968,17.404195476385787,17.50431099429106,15.502837722455665,12.850781001489997,11.716529105489615,9.915286869464746,8.247308767641591,11.116170832565997,9.081381527180188,7.630208769315772,10.08203445447089,10.799249970701986,10.549128593192814,10.282265490281418,8.430798078049918,6.56275635767023,7.296713599303528,10.882623763205036,10.432271349885314,13.884917379585149,16.386800823692905,13.484622725218065,13.150960137951827,11.716529105489615,13.21775962230667,12.750665483584722,14.185096516046958,13.084328070850981,13.734744102727214,13.050844620046531,10.932681522157672,11.950076174850576,11.549781520483492,11.416349969027806,8.797776698866588,9.214980495889913,6.878840133264119,6.7787246153588665,7.913311345867302,7.6464482429559055,6.6451256466491415,5.293566154927909,5.410423398235409,11.083859302539722,13.937318980094071,15.555908991980715,19.427265573990038,18.62634143074786,17.975423147109538,16.790778657648463,13.98737673904673,16.00642882255443,16.824094691198855,20.49522023739767,19.343724364232973,20.011216956019485,21.81346369556847,22.364099044047457,22.44747283655053,22.814618874621218,22.99827560228358,18.70971522325089,13.687030185330906,12.986054142739945,14.237665533809896,15.822939512146107,15.756140027791265,13.353200180810632,13.553431216621181,12.452160519663158,14.337781051715194,18.692973497848687,20.228189717232258,23.782458020123553,26.685975456630562,25.167500962649214,25.250874755152243,26.302255110411664,25.885051313388363,28.80514305804356,29.45606134168188,30.39041703637977,29.606234618539773,29.38926185732702,29.02211581925631,27.436841840920124,27.00306373574861,27.770671845440397,27.854045637943447,29.088915303611174,27.92084512229831,27.103179253653884,27.236610805109574,27.153237012606525,25.149922150976867,21.443973815941455,22.72940349232393,23.7143191977365,24.59911938524384,22.97985970434111,19.440826371565834,21.64437226900604,22.11180124223602,24.165006445564295,23.53066247007416,22.462372972158494,24.114948686611637,23.38048919321625,22.545914181915585,36.818569921816135,36.60159716060338,36.985484924076275,35.783596457450905,38.83845909159396,37.402856138353634,38.83845909159396,42.94503691550449,43.59612261639685,44.21372486648474,41.86000569218662,46.30041352061745,48.68761614571997,51.275049806633064,54.44676968408364,55.28151211263832,52.37682275535316,54.78059968860389,54.79734141400612,53.2616229428605,55.41494366409401,54.68048417069864,56.70037334047646,55.24802866183389,53.27819725100866,47.702700440307375,47.452244228290176,49.255160636855244,51.258308081230844,51.54208032679848,51.72573705446084,52.243223786643455,49.78938909444006,47.3688704357871,48.68761614571997,50.75756307445045,51.75922050526527,49.45539167266577,47.08509819021949,48.620816661365104,46.834641978202264,47.685958714905155,46.41727076392495,45.13184108754247,42.54440742662937,47.25201319247962,44.0300681388224,43.77977934405921,43.36240812978185,42.21057742210912,41.89332172573705,41.09172791347875,40.79121394250891,44.01399608243626,44.81558989469454,43.52982538380405,44.01399608243626,48.522877567762144,27.31479466273794,30.688084914031233,29.970032311530037,32.70864375282516,33.259781353066245,35.98181848621318,35.44742261137432,38.152718019119035,39.271567527749404,35.3138236426646,34.46217207145368,36.78341229847148,35.78142003314861,36.699871088714396,36.51604694379802,36.83347005742412,34.62908707371382,32.47492926621018,33.34332256282333,31.506420451691742,31.005340610403298,31.205739063467885,30.25397197435169,28.83444107749744,29.452378162093385,28.517185381125376,28.58398486548024,27.481877082252094,26.546684301284085,24.81006512531181,26.86393999765617,28.567243140078013,27.732333294269296,29.502435921046022,30.704826639433435,32.65858599387252,32.207731328790736,31.67333545395188,31.606535969597015,30.25397197435169,31.623277694999242,30.120373005641966,27.348278113542392,27.465135356849867,28.98478177160937,28.684267800639528,27.498618807654317,28.366844687013447,32.157673569838096,33.49366325693526,34.06137516532453,33.911034471212595,38.00237732500711,37.71843766218546,35.230282432907536,34.37829602718856,35.69804624064554,35.013142254440744,33.125512715340435,33.50956789606736,34.478578962347854,37.067854213055185,38.070181312886085,41.37784400060269,39.32313204198823,39.38993152634309,36.1825517737858,36.23260953273844,32.540724247040906,37.51887629539101,39.32313204198823,37.602417505148075,40.60939880464078,39.43998928529573,42.49719576099511,41.661951080678385,42.98153387688135,40.22517620665986,41.12738778858549,40.94356364366911,41.62846762987393,41.1439620967337,41.010363128023975,40.20843448125764,40.45905811052886,41.69526711422877,41.661951080678385,46.255880531047524,45.82160017411394,42.1462891965646,42.196514372771254,42.91473439252649,45.65451775459979,46.10553983693559,45.18675394686178,44.73573186452595,44.98618807654316,47.89305385813061,51.384373273509574,50.81649394786625,51.81882104769717,54.04061542582579,55.377107364684996,54.5083792335638,53.673134553247046,56.780231370645055,53.138571261154155,52.0860189851166,50.148164269809634,52.720865212368786,50.44884565803351,51.50139793407109,51.63499690278079,50.7662687716596,52.069277259714376,53.05503005139709,51.53471396762151,50.71621101270696,51.718538112537885,52.63765883711975,50.064120808290504,49.24528301886792,49.21196698531749,48.56021161540909,47.758115551388734,43.59695970266695,42.494014833168706,45.719308231906375,45.96993186117761,45.301602183120984,45.368401667475844,47.340242085349324,45.01749510304531,47.60760744002277,43.61370142806915,42.694580703487304,41.909226364869156,40.672682526661184,38.567075722823986,36.628551338500934,38.23274346654166,37.89857862751336,41.87574291406471,37.029683079138124,37.76497965880363,38.13262794863637,37.88183690211113,38.700674691533706,39.068322981366464,38.83444107749745,37.982119837270425,38.71741641693591,36.30275736217374,35.75965579012572,36.862600659623965,37.631213272839894,38.28296864274834,36.41124374278013,35.52560646900269,34.17203797023323,32.43407945622876,28.824563459510145,29.39277761966148,31.865865296077402,32.48430463243543,32.61790360114514,33.2028594866987,32.868527230416355,31.347876312132716,30.646063183271654,30.98022802229996,34.55642798546816,36.561751854146074,39.31911402789172,44.14843213741606,41.64186101019571,42.64452294453467,40.64673285228775,39.86104367916159,42.101086537978595,41.66647134653696,46.01312551271535,45.99638378731312,47.38393798864911,48.23659406338416,48.77149218998511,46.748756926888866,46.86578158745041,49.707689474477235,47.61798730977213,46.29740001004503,45.32771927474846,45.728851015385644,48.03602819306558,46.51470760576586,46.280658284642804,45.49480169426261,43.60583281713011,56.277812191324436,54.154626575814916,54.92374144079288,54.67295039426763,53.95406070549629,52.28223200683062,51.41300162394735,51.814133364584535,51.64705094507038,49.457065845205996,46.029867238117546,44.525288376220054,40.94758165776567,41.69995479734141,42.7866601931995,44.74259597194086,42.702951566188396,43.087508998677414,40.07835127488237,36.16631230014564,37.03571010028293,37.87162444961576,37.3198171803586,37.75459978905427,36.76817732835544,36.23327920175454,36.58435318343909,37.85488272421355,35.414106577823915,36.51738628183019,33.75901960456045,34.929266210175626,33.02338819038688,32.67231420870233,20.367983124340803,1.1593644841037198,1.9617953826321255,-1.7829937553364372,8.632201034638642,4.118297031692086,5.004436557231573,7.645778573939821,5.489276924879882,2.7809680065627562,4.26880514305803,1.1091393078970668,3.0650750866384247,8.481692923272677,12.142940851484152,14.442751669987096,13.857293532671466,13.890776983475895,17.637575128492735,13.188294185598771,17.97207480202909,16.031876245165822,12.218111198540104,15.111918434313832,17.92184962582244,16.86812542900671,23.960255143895125,23.49182166714101,21.835897607607425,21.953089685422977,22.32090539250975,22.270847633557132,20.17997354807386,16.383117644104406,16.14890090572736,15.68063484622726,18.775007952319545,19.009057273442597,19.644740586964904,17.988816527431318,17.336558905760825,19.0257989988448,18.975741239892187,19.678224037769333,19.795248698330848,19.87895732534195,23.642329778506976,22.77259714386164,22.287589358959337,20.848972895146556,21.869381058411875,18.99248296529441,20.24694044968276,19.22653228641742,19.0257989988448,20.39744856104868,21.68538949624148,25.214712628283475,24.411779477993,23.893288242286246,27.037886524585232,27.322161021914916,27.23861981215785,24.796504327736013,25.783429040196882,26.301920275903633,27.957844335437198,25.66623696238135,24.528804138554516,24.428521203395228,26.201469923490308,27.522894309487533,27.054628249987456,24.043796353652212,27.941102610034996,29.212301819825548,28.409368669535073,29.87359997321324,30.0912424034421,30.05775895263765,19.883310173946533,19.34790979558354,16.88804808223534,18.209974719994637,18.377391974016845,17.072039644405734,18.979759253988714,20.48584487117242,22.159180325124296,24.51875910331318,26.058328171301337,23.26363194990875,22.82868192395908,22.443789656962032,23.782458020123553,23.615040766101348,22.410306206157603,25.874169191876927,24.81994274329913,23.983191307696174,24.26780063953391,23.364082302322075,23.3808240277243,19.81651068959167,21.121695601948744,24.033416483902826,26.727662352882085,30.794060035827297,31.714352681187318,27.16277979608579,30.459392945036925,27.915822604677643,30.12472585424655,29.656124960238394,28.233747970065792,23.83268319633021,25.355510538916135,25.121126383285052,24.836684468701332,23.79919974552578,19.649093435569466,21.2556294051665,22.309855853744274,25.67343590430431,26.359511811287284,28.551673335453962,28.11655589225026,27.865597428470966,24.652692906530937,25.72366108051096,24.20083373792503,18.829083725368733,20.218144681990925,21.054728700339844,22.52733086671912,22.79519847315463,23.91639182334131,26.30928663508061,27.346771358256184,27.413738259865063,29.28797441864357,30.819842292946696,31.171418526393314,32.92929969362643,29.54747116237799,25.562940516649647,25.47923188963854,24.675629070331983,24.391019738494247,26.584185766185065,24.173377308265387,22.298304063216754,23.01819825551221,22.901006177696658,25.529457065845218,23.838542800220996,22.465721317238962,18.24680651587951,18.89973380656609,21.05941638345248,25.144397381594153,27.99049069997155,30.987259546968904,33.866836316150724,34.988531918099476,33.917061492357384,32.6614320871909,34.302121176608445,39.94408263715658,38.152718019119035,43.0747852873717,39.106996367045596,39.00654601463227,41.41735447255193,44.06254708610269,40.563526477038714,41.383871021747495,37.70069143325912,37.91833386348795,38.152718019119035,38.77216185900119,40.53004302623429,39.49205605129664,39.609248129112174,39.977566087961016,39.20744671945891,39.50879777669887,37.31563174900805,38.654969781185635,42.37163282047849],"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"title":{"font":{"size":16,"color":"#333"},"text":"Stock Performance: GEHC vs Benchmark (ROI %)\u003cbr\u003e\u003csub\u003ePerformance: \u003cspan style='color:#ff1744'\u003e-42.09% vs Benchmark\u003c\u002fspan\u003e\u003c\u002fsub\u003e","x":0.5,"xanchor":"center","y":0.95},"margin":{"t":60,"l":30,"r":20,"b":40},"xaxis":{"rangeselector":{"font":{"size":12},"buttons":[{"count":1,"label":"1M","step":"month","stepmode":"backward"},{"count":6,"label":"6M","step":"month","stepmode":"backward"},{"count":1,"label":"YTD","step":"year","stepmode":"todate"},{"count":1,"label":"1Y","step":"year","stepmode":"backward"},{"count":2,"label":"2Y","step":"year","stepmode":"backward"},{"count":3,"label":"3Y","step":"year","stepmode":"backward"},{"count":5,"label":"5Y","step":"year","stepmode":"backward"},{"count":10,"label":"10Y","step":"year","stepmode":"backward"},{"label":"MAX","step":"all"}],"bgcolor":"#f4f4f4","y":0.98},"range":["2022-12-15T00:00:00","2026-01-05T00:00:00"],"type":"date","showgrid":false,"showline":true,"linewidth":1,"linecolor":"lightgrey","mirror":false},"yaxis":{"showgrid":true,"gridcolor":"#f0f0f0","showline":true,"linewidth":1,"linecolor":"lightgrey","mirror":false,"tickformat":"+.0f","ticksuffix":"%","zeroline":true,"zerolinecolor":"#d3d3d3","zerolinewidth":1},"legend":{"orientation":"h","yanchor":"bottom","y":1.02,"xanchor":"right","x":1},"plot_bgcolor":"white","hovermode":"x unified","autosize":true,"height":450},                        {"displayModeBar": false, "responsive": true}                    )                };                            </script>        </div>
+    <script>
+    (function() {
+        var gd = document.getElementById('interactive-chart');
+        var debounceTimer;
+
+        function setupLogic() {
+            if(!gd || !gd.data) { setTimeout(setupLogic, 200); return; }
+            // Match traces: 0=Fill, 1=SPY, 2=Stock
+            if (gd.data.length < 3) return;
+            
+            gd._origTheme = gd.data[2].y.slice();
+            gd._origSpy = gd.data[1].y.slice();
+            
+            gd.on('plotly_relayout', function(eventdata){
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(recalc, 50);
+            });
+            recalc();
+        }
+        
+        function recalc() {
+            var xrange = gd.layout.xaxis.range;
+            if(!xrange || !gd._origTheme) return;
+            
+            var startDate = new Date(xrange[0]).getTime();
+            var endDate = new Date(xrange[1]).getTime();
+            var xData = gd.data[2].x; 
+            
+            var startIdx = 0;
+            for(var i=0; i<xData.length; i++) {
+                if(new Date(xData[i]).getTime() >= startDate) {
+                    startIdx = i;
+                    break;
+                }
+            }
+            
+            var t0 = gd._origTheme[startIdx]; 
+            var s0 = gd._origSpy[startIdx];   
+            if (s0 === undefined || s0 === null) s0 = 0;
+
+            var themeBase = (t0/100) + 1;
+            var spyBase = (s0/100) + 1;
+            
+            var newTheme = gd._origTheme.map(v => ( ((v/100+1)/themeBase) - 1 ) * 100);
+            var newSpy = gd._origSpy.map(function(v) {
+                 if (v === undefined || v === null) return 0;
+                 return ( ((v/100+1)/spyBase) - 1 ) * 100;
+            });
+            
+            var minVal = Infinity;
+            var maxVal = -Infinity;
+            var finalIdx = startIdx;
+
+            for(var i=0; i<xData.length; i++) {
+                var t = new Date(xData[i]).getTime();
+                if(t >= startDate && t <= endDate) {
+                    var v1 = newTheme[i];
+                    var v2 = newSpy[i];
+                    if(v1 < minVal) minVal = v1;
+                    if(v1 > maxVal) maxVal = v1;
+                    if(v2 < minVal) minVal = v2;
+                    if(v2 > maxVal) maxVal = v2;
+                    finalIdx = i;
+                }
+            }
+            
+            if (minVal === Infinity) { minVal = 0; maxVal = 10; }
+            
+            var range = maxVal - minVal;
+            var padding = range * 0.05; 
+            if (padding === 0) padding = 1;
+            
+            if (finalIdx >= newTheme.length) finalIdx = newTheme.length - 1;
+            var finalTheme = newTheme[finalIdx];
+            var finalSpy = newSpy[finalIdx];
+            var diff = finalTheme - finalSpy;
+            var color = diff >= 0 ? '#00c853' : '#ff1744';
+            var sign = diff >= 0 ? '+' : '';
+            var subtitle = 'Performance: <span style="color:'+color+'">' + sign + diff.toFixed(2) + '% vs Benchmark</span>';
+            
+            Plotly.relayout(gd, {
+                'title.text': 'Stock Performance: GEHC vs Benchmark (ROI %)<br><sub>' + subtitle + '</sub>',
+                'yaxis.range': [minVal - padding, maxVal + padding]
+            });
+            
+            Plotly.restyle(gd, {
+                y: [newTheme, newSpy, newTheme] 
+            }, [0, 1, 2]);
+        }
+        
+        var checkExist = setInterval(function() {
+           if (document.getElementById('interactive-chart')) {
+              gd = document.getElementById('interactive-chart');
+              setupLogic();
+              clearInterval(checkExist);
+           }
+        }, 100);
+    })();
+    </script>
+    
+        </div>
+
+        <!-- Company Details Section -->
+        <div class="section">
+            <div class="section-header">Company Details and Performance</div>
+            <div class="section-content">
+                
+    <div class="info-grid">
+        <div class="info-card">
+            <div class="info-label">Symbol</div>
+            <div class="info-value">GEHC</div>
+        </div>
+        <div class="info-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <div class="info-label" style="color: rgba(255,255,255,0.9);">Last Close</div>
+            <div class="info-value" style="color: white; font-size: 1.4rem;">$85.04</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Currency</div>
+            <div class="info-value">USD</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Exchange</div>
+            <div class="info-value">SMART</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Asset Type</div>
+            <div class="info-value">STK</div>
+        </div>
+    </div>
+    
+                
+        <div style="margin-top: 25px; padding-top: 20px; border-top: 2px solid #ecf0f1;">
+            <h3 style="margin: 0 0 15px 0; font-size: 1.1rem; color: var(--primary-color);">Performance Metrics</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-label">Day Change</div>
+                    <div class="info-value"><span style="color: #27ae60; font-weight: bold;">+2.68%</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">1 Month</div>
+                    <div class="info-value"><span style="color: #e74c3c; font-weight: bold;">-0.49%</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">Year to Date</div>
+                    <div class="info-value"><span style="color: #27ae60; font-weight: bold;">+3.68%</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">12 Months</div>
+                    <div class="info-value"><span style="color: #27ae60; font-weight: bold;">+5.81%</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">3 Years</div>
+                    <div class="info-value"><span style="color: #27ae60; font-weight: bold;">+44.91%</span></div>
+                </div>
+            </div>
+            <h3 style="margin: 20px 0 15px 0; font-size: 1.1rem; color: var(--primary-color);">Volatility (Annualized)</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-label">30 Days</div>
+                    <div class="info-value" style="color: #e67e22;">22.05%</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">90 Days</div>
+                    <div class="info-value" style="color: #e67e22;">27.84%</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">180 Days</div>
+                    <div class="info-value" style="color: #e67e22;">29.49%</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">1 Year</div>
+                    <div class="info-value" style="color: #e67e22;">38.05%</div>
+                </div>
+            </div>
+            <h3 style="margin: 20px 0 15px 0; font-size: 1.1rem; color: var(--primary-color);">52-Week Range</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-label">52-Week High</div>
+                    <div class="info-value" style="color: #27ae60;">$93.35</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">52-Week Low</div>
+                    <div class="info-value" style="color: #e74c3c;">$58.67</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">From 52w High</div>
+                    <div class="info-value"><span style="color: #e74c3c; font-weight: bold;">-8.90%</span></div>
+                </div>
+            </div>
+        </div>
+        
+            </div>
+        </div>
+
+        <!-- Description Section -->
+        <div class="section">
+            <div class="section-header">Description</div>
+            <div class="section-content">
+                <div class="description-text">Aprovecha la inteligencia artificial y las soluciones digitales para mejorar la imagenología médica, el diagnóstico y las vías de atención al paciente, impulsando avances en el soporte de decisiones clínicas y la eficiencia operativa dentro de la atención médica.</div>
+            </div>
+        </div>
+
+        <!-- Rankings Section -->
+        <div class="section">
+            <div class="section-header">Theme Rankings (19 themes)</div>
+            <div class="section-content" style="padding: 0;">
+                
+        <table>
+            <thead>
+                <tr>
+                    <th>Theme Name</th>
+                    <th style="text-align: center; width: 60px;">Theme</th>
+                    <th>Rank</th>
+                    <th style="text-align: center;">Evidence</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            <tr>
+                <td>medical_imaging_ai</td>
+                <td style="text-align: center;">
+                    <a href="medical_imaging_ai_detail.html" class="action-link" title="View medical_imaging_ai theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-top3">#1</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>healthcare_diagnosis</td>
+                <td style="text-align: center;">
+                    <a href="healthcare_diagnostics_detail.html" class="action-link" title="View healthcare_diagnosis theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-top10">#5</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>health_care_monitoring</td>
+                <td style="text-align: center;">
+                    <a href="healthcare_monitoring_detail.html" class="action-link" title="View health_care_monitoring theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-top10">#6</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>healthcare_automation</td>
+                <td style="text-align: center;">
+                    <a href="healthcare_automation_detail.html" class="action-link" title="View healthcare_automation theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-top10">#10</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>neuroscience</td>
+                <td style="text-align: center;">
+                    <a href="neuroscience_detail.html" class="action-link" title="View neuroscience theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#11</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>professional_visualization</td>
+                <td style="text-align: center;">
+                    <a href="professional_visualization_detail.html" class="action-link" title="View professional_visualization theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#12</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>healthcare_solutions</td>
+                <td style="text-align: center;">
+                    <a href="healthcare_solutions_detail.html" class="action-link" title="View healthcare_solutions theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#14</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>medical_devices</td>
+                <td style="text-align: center;">
+                    <a href="medical_devices_detail.html" class="action-link" title="View medical_devices theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#16</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>ai_in_healthcare</td>
+                <td style="text-align: center;">
+                    <a href="ai_in_healthcare_detail.html" class="action-link" title="View ai_in_healthcare theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#17</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>health_care_services</td>
+                <td style="text-align: center;">
+                    <a href="healthcare_services_detail.html" class="action-link" title="View health_care_services theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#19</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>cardiovascular_disease</td>
+                <td style="text-align: center;">
+                    <a href="cardiovascular_disease_detail.html" class="action-link" title="View cardiovascular_disease theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#22</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>medical_innovation</td>
+                <td style="text-align: center;">
+                    <a href="medical_innovation_detail.html" class="action-link" title="View medical_innovation theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#24</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>personalized_medicine</td>
+                <td style="text-align: center;">
+                    <a href="personalized_medicine_detail.html" class="action-link" title="View personalized_medicine theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#28</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>drug_development</td>
+                <td style="text-align: center;">
+                    <a href="drug_development_detail.html" class="action-link" title="View drug_development theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#32</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>biological_drugs</td>
+                <td style="text-align: center;">
+                    <a href="biologic_drugs_detail.html" class="action-link" title="View biological_drugs theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#35</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>pharmaceuticals</td>
+                <td style="text-align: center;">
+                    <a href="pharmaceuticals_detail.html" class="action-link" title="View pharmaceuticals theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#39</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>artificial_intelligence</td>
+                <td style="text-align: center;">
+                    <a href="artificial_intelligence_detail.html" class="action-link" title="View artificial_intelligence theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#46</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>enterprise_ai_integration</td>
+                <td style="text-align: center;">
+                    <a href="ai_enterprise_integration_detail.html" class="action-link" title="View enterprise_ai_integration theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#58</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>biotechnology_rd</td>
+                <td style="text-align: center;">
+                    <a href="biotechnology_leader_detail.html" class="action-link" title="View biotechnology_rd theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#59</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            </tbody>
+        </table>
+        
+            </div>
+        </div>
+
+        <!-- Evidence Section -->
+        <div class="section">
+            <div class="section-header">Evidence Details (8 entries)</div>
+            <div class="section-content">
+                
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(0)">
+                    <span>Evidence #1 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q4 2024)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- GE HealthCare demuestra su compromiso con la Enfermedad Cardiovascular a través of varias...</span></span>
+                    <span class="toggle-icon" id="icon-0">▼</span>
+                </div>
+                <div class="evidence-content" id="content-0">
+                    GE HealthCare demuestra su compromiso con la Enfermedad Cardiovascular a través de varias iniciativas clave. Los clientes están priorizando las inversiones en productos de imagen, particularmente en cardiología y oncología, lo que impulsa un crecimiento de pedidos de dos dígitos. Esto se apoya aún más en el lanzamiento de Flyrcado, un agente de imagen de perfusión miocárdica PET para detectar enfermedades de las arterias coronarias, y el Revolution Vibe, un sistema dedicado de TC cardíaca. La línea de productos CardioVascular y de Soluciones Intervencionistas de la empresa contribuye al crecimiento del segmento AVS, y Flyrcado ha recibido el premio "Cardiology Abstract of the Year".
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/gehc-FY24-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gehc-FY24-10-K</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(1)">
+                    <span>Evidence #2 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- GE HealthCare exhibe una fuerte conexión con el tema of Diagnóstico Médico. La cartera de...</span></span>
+                    <span class="toggle-icon" id="icon-1">▼</span>
+                </div>
+                <div class="evidence-content" id="content-1">
+                    GE HealthCare exhibe una fuerte conexión con el tema de Diagnóstico Médico, subrayada por su enfoque en productos de imagen, particularmente en cardiología y oncología, donde los clientes están invirtiendo activamente. El compromiso de la empresa se evidencia aún más en su segmento de Diagnóstico Farmacéutico (PDx), Imágenes Moleculares y Tomografía Computarizada (MI/CT), y líneas de productos de Resonancia Magnética (RM), junto con la adquisición de Nihon Medi-Physics Co., Ltd. (NMP). La cartera de innovación de GE HealthCare, que incluye Radiofármacos, PET de Cuerpo Completo, TC de Conteo de Fotones y el Laboratorio Vascular Intervencionista de próxima generación, junto con un crecimiento de pedidos de dos dígitos en agentes de diagnóstico por imagen y soluciones de imagen molecular, destaca el énfasis estratégico de la empresa en avanzar en el diagnóstico médico.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gehc-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gehc-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gehc-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gehc-Q324-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gehc-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gehc-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/gehc-FY24-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gehc-FY24-10-K</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(2)">
+                    <span>Evidence #3 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- GE Healthcare está en una transición estratégica hacia un proveedor de soluciones de atención...</span></span>
+                    <span class="toggle-icon" id="icon-2">▼</span>
+                </div>
+                <div class="evidence-content" id="content-2">
+                    GE Healthcare está en una transición estratégica hacia un proveedor de soluciones de atención médica, yendo más allá de su papel tradicional como empresa de imágenes y equipos. Este cambio está respaldado por el lanzamiento de nuevos productos destinados a permitir la atención personalizada y la cardiología, así como por el establecimiento de colaboraciones estratégicas con importantes redes de atención médica como Sutter Health, Ascension y St. Luke's University Health Network. Estas colaboraciones se alinean con la estrategia D3 de GE Healthcare, que se enfoca en ofrecer soluciones de clase mundial a través de dispositivos inteligentes, medicamentos, tecnologías digitales e IA, todo lo cual contribuye a soluciones para estados de enfermedades.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gehc-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gehc-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gehc-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gehc-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/gehc-FY24-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gehc-FY24-10-K</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(3)">
+                    <span>Evidence #4 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- El crecimiento en las soluciones de monitoreo ha contribuido a los aumentos de ingresos dentro del...</span></span>
+                    <span class="toggle-icon" id="icon-3">▼</span>
+                </div>
+                <div class="evidence-content" id="content-3">
+                    La participación de GE HealthCare en el Monitoreo de la Salud es evidente a través de su segmento de Soluciones de Atención al Paciente (PCS), que incluye Soluciones de Monitoreo. El enfoque de la empresa en la introducción de nuevos productos dentro de las soluciones de monitoreo, anestesia y parto resalta su compromiso en esta área. Si bien el crecimiento en las soluciones de monitoreo ha contribuido a los aumentos de ingresos dentro del segmento de PCS, también se ha visto compensado por desafíos en otras áreas como las soluciones de soporte vital. La empresa también está actualizando la capacidad de los sistemas de monitoreo, con mejoras de IA planificadas para cambiar la forma en que funcionan realmente esos sistemas.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/gehc-FY24-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gehc-FY24-10-K</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gehc-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gehc-Q225-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(4)">
+                    <span>Evidence #5 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- La participación de GE HealthCare en Servicios de Salud es evidente a través of su evolución...</span></span>
+                    <span class="toggle-icon" id="icon-4">▼</span>
+                </div>
+                <div class="evidence-content" id="content-4">
+                    La participación de GE HealthCare en Servicios de Salud es evidente a través de su evolución estratégica y enfoque operativo. La compañía está transitando hacia un proveedor de soluciones de atención médica, respaldado por la priorización de los clientes de productos de imagen, particularmente en cardiología y oncología. Esto se ve reforzado por el énfasis de la compañía en la experiencia clínica y un enfoque orientado a soluciones, lo que les permite satisfacer mejor las necesidades de los pacientes e impulsar el crecimiento a largo plazo para sus clientes. El aumento en las ventas de servicios, impulsado por acuerdos contractuales con clientes nuevos y existentes, también destaca el papel activo de la compañía en la prestación de servicios de atención médica.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gehc-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gehc-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gehc-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gehc-Q324-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/gehc-FY24-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gehc-FY24-10-K</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(5)">
+                    <span>Evidence #6 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q1 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- El enfoque de GE HealthCare en productos de imagen, particularmente en cardiología y oncología,...</span></span>
+                    <span class="toggle-icon" id="icon-5">▼</span>
+                </div>
+                <div class="evidence-content" id="content-5">
+                    La participación de GE HealthCare en el tema de la industria de Dispositivos Médicos es evidente a través de varias iniciativas estratégicas y segmentos operativos. El enfoque de la empresa en productos de imagen, particularmente en cardiología y oncología, está impulsado por la priorización de los clientes de las inversiones en estas áreas, y están en camino de entregar su cartera de innovación. Las colaboraciones estratégicas de GE HealthCare aprovechan su estrategia D3, que se centra en llevar al mercado soluciones de clase mundial con dispositivos y fármacos inteligentes, y han encabezado consistentemente la lista de dispositivos médicos habilitados para IA de la FDA. Las operaciones de la empresa se estructuran en torno a cuatro segmentos clave: Imagen, Soluciones de Visualización Avanzada, Soluciones de Atención al Paciente y Diagnóstico Farmacéutico, todos los cuales contribuyen a su presencia en el mercado de dispositivos médicos, y aseguraron su mayor pedido de sistemas PET/CT Omni Legend.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gehc-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gehc-Q324-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gehc-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gehc-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/gehc-FY24-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gehc-FY24-10-K</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(6)">
+                    <span>Evidence #7 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q1 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- GE HealthCare demuestra un compromiso significativo con la industria farmacéutica. El segmento de...</span></span>
+                    <span class="toggle-icon" id="icon-6">▼</span>
+                </div>
+                <div class="evidence-content" id="content-6">
+                    GE HealthCare demuestra un compromiso significativo con la industria farmacéutica, subrayado por su iniciativa estratégica D3 centrada en la integración de dispositivos inteligentes y medicamentos para soluciones de enfermedades. El segmento de Diagnóstico Farmacéutico (PDx) de la empresa es un impulsor clave de ingresos, mostrando un crecimiento constante en varias regiones y representando uno de los cuatro segmentos informables. Esto está respaldado además por el enfoque de la empresa en inversiones en radiofármacos y su cartera de innovación, que incluye radiofármacos, junto con la entrega de dosis comerciales de productos como Flyrcado y el crecimiento continuo de Vizamyl.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gehc-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gehc-Q324-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gehc-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gehc-Q125-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(7)">
+                    <span>Evidence #8 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q4 2024)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- El segmento AVS de GE HealthCare ha mostrado un aumento interanual del 2% en los ingresos...</span></span>
+                    <span class="toggle-icon" id="icon-7">▼</span>
+                </div>
+                <div class="evidence-content" id="content-7">
+                    GE HealthCare demuestra su enfoque en la visualización profesional a través de su segmento de Soluciones de Visualización Avanzada (AVS), anteriormente el segmento de Ultrasonido, que incluye la realineación de Terapias Guiadas por Imagen. Esta realineación tiene como objetivo mejorar el uso clínico y el impacto comercial al proporcionar guía por imagen en diversos entornos de atención, particularmente en entornos ambulatorios de cardiología y ortopedia. El segmento AVS de GE HealthCare ha mostrado un aumento interanual del 2% en los ingresos orgánicos, impulsado por las inversiones de los clientes en soluciones de ultrasonido mejoradas con IA.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/gehc-FY24-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gehc-FY24-10-K</a></div>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleEvidence(idx) {
+            const content = document.getElementById('content-' + idx);
+            const icon = document.getElementById('icon-' + idx);
+
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.classList.remove('active');
+            } else {
+                content.classList.add('active');
+                icon.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
+    

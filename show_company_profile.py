@@ -1453,9 +1453,12 @@ def main():
             print(f"{'='*60}\n")
 
             # Open in browser
-            print(f"Opening in browser...")
-            webbrowser.open(f'file://{os.path.abspath(output_path)}')
-            print("[OK] Done!")
+            if "--no-browser" not in sys.argv:
+                print(f"Opening in browser...")
+                webbrowser.open(f'file://{os.path.abspath(output_path)}')
+                print("[OK] Done!")
+            else:
+                print("[INFO] Browser opening skipped (--no-browser).")
 
     except Exception as e:
         print(f"\n{'='*60}")
