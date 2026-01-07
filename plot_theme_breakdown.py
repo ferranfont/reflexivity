@@ -301,6 +301,26 @@ def main():
         start_filter = full_df.index.min()
         
     full_df = full_df[full_df.index >= start_filter]
+
+    # --- Data Cleaning: Filter Unadjusted Splits ---
+    print("Applying outlier filter to prevent split errors...")
+    try:
+        daily_rets = full_df.pct_change()
+        # Filter outliers (>300% daily return)
+        daily_rets = daily_rets.mask(daily_rets > 3.0, 0.0)
+        
+        # Reconstruct each column
+        for col in full_df.columns:
+            valid_idx = full_df[col].first_valid_index()
+            if valid_idx is not None:
+                start_price = full_df.loc[valid_idx, col]
+                # Get relevant returns
+                series_rets = daily_rets.loc[valid_idx:, col].fillna(0)
+                # Reconstruct: Price_t = Price_0 * CumProd(1+r)
+                full_df.loc[valid_idx:, col] = start_price * (1 + series_rets).cumprod()
+    except Exception as e:
+        print(f"Warning: Data cleaning failed: {e}")
+    # -------------------------------------------------
     
     # 4. Calculate ROI for Ranking (Performance Contribution)
     roi_map = []

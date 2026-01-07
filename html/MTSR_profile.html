@@ -1,0 +1,618 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTSR - Company Profile</title>
+    <style>
+        
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --light-bg: #ecf0f1;
+    --border-color: #bdc3c7;
+    --text-color: #2c3e50;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: #fff;
+}
+
+.header {
+    padding: 20px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    background-color: white;
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.home-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
+}
+
+.home-button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.home-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+.company-subtitle {
+    font-size: 0.9rem;
+    font-weight: normal;
+    opacity: 0.9;
+    margin-top: 5px;
+}
+
+.company-subtitle a {
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(255,255,255,0.5);
+    transition: all 0.3s;
+}
+
+.company-subtitle a:hover {
+    border-bottom: 1px solid white;
+    opacity: 1;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.section-header {
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 2px solid var(--border-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+}
+
+.section-content {
+    padding: 20px;
+}
+
+/* Chart Section */
+#chart-container {
+    background-color: white;
+    padding: 0;
+}
+
+/* Info Cards Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.info-card {
+    background-color: var(--light-bg);
+    padding: 15px;
+    border-radius: 4px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.info-label {
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.info-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* Description */
+.description-text {
+    line-height: 1.6;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Rankings Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+    font-weight: 600;
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--border-color);
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.rank-badge {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: inline-block;
+}
+
+.rank-top3 {
+    background-color: #27ae60;
+}
+
+.rank-top10 {
+    background-color: #3498db;
+}
+
+.rank-other {
+    background-color: #95a5a6;
+}
+
+.check-icon {
+    color: #27ae60;
+    font-size: 1.2rem;
+}
+
+.no-icon {
+    color: #ccc;
+    font-size: 1.2rem;
+}
+
+/* Evidence Accordion */
+.evidence-item {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.evidence-header {
+    padding: 12px 15px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: background-color 0.2s;
+    gap: 10px;
+}
+
+.evidence-header span:first-child {
+    flex: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+}
+
+.evidence-header:hover {
+    background-color: #f0f0f0;
+}
+
+.evidence-content {
+    padding: 15px;
+    background-color: white;
+    line-height: 1.6;
+    color: #555;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.evidence-content.active {
+    display: block;
+}
+
+.toggle-icon {
+    transition: transform 0.3s;
+}
+
+.toggle-icon.active {
+    transform: rotate(180deg);
+}
+
+.no-data {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+    font-style: italic;
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <img src="data:image/png;base64,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" alt="METSERA INC Logo" class="header-logo" />
+            <div>
+                <div>MTSR - METSERA INC</div>
+                <div class="company-subtitle">
+                    <a href="https://metsera.com" target="_blank">🌐 metsera.com</a>
+                </div>
+            </div>
+        </div>
+        <a href="main_trends.html" class="home-button" title="Back to Home">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="9 22 9 12 15 12 15 22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+    </div>
+
+    <div class="container">
+        <!-- Price Chart Section -->
+        <div class="section" id="chart-container">
+            <div class="section-header">
+                Price Chart
+                <a href="stock_chart_mtsr.html" target="_blank" style="float: right; font-size: 0.85rem; background-color: var(--accent-color); color: white; padding: 5px 10px; text-decoration: none; border-radius: 4px; margin-top: -3px;">View Full Chart ⤢</a>
+            </div>
+            <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>                <div id="interactive-chart" class="plotly-graph-div" style="height:450px; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("interactive-chart")) {                    Plotly.newPlot(                        "interactive-chart",                        [{"fill":"tozeroy","fillcolor":"rgba(0, 200, 83, 0.05)","fillgradient":{"colorscale":[[0,"rgba(0, 200, 83, 0.05)"],[1,"rgba(0, 200, 83, 0.6)"]],"type":"vertical"},"hoverinfo":"skip","mode":"none","showlegend":false,"x":["2025-11-13T00:00:00"],"y":[0.0],"type":"scatter"},{"hovertemplate":"Benchmark: %{y:,.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#000000","width":1.5},"mode":"lines","name":"Benchmark (SP500)","x":["2025-11-13T00:00:00"],"y":[0.0],"type":"scatter"},{"hovertemplate":"MTSR: %{y:,.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#00c853","width":2},"mode":"lines","name":"MTSR","x":["2025-11-13T00:00:00"],"y":[0.0],"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"title":{"font":{"size":16,"color":"#333"},"text":"Stock Performance: MTSR vs Benchmark (ROI %)\u003cbr\u003e\u003csub\u003ePerformance: \u003cspan style='color:#00c853'\u003e+0.00% vs Benchmark\u003c\u002fspan\u003e\u003c\u002fsub\u003e","x":0.5,"xanchor":"center","y":0.95},"margin":{"t":60,"l":30,"r":20,"b":40},"xaxis":{"rangeselector":{"font":{"size":12},"buttons":[{"count":1,"label":"1M","step":"month","stepmode":"backward"},{"count":6,"label":"6M","step":"month","stepmode":"backward"},{"count":1,"label":"YTD","step":"year","stepmode":"todate"},{"count":1,"label":"1Y","step":"year","stepmode":"backward"},{"count":2,"label":"2Y","step":"year","stepmode":"backward"},{"count":3,"label":"3Y","step":"year","stepmode":"backward"},{"count":5,"label":"5Y","step":"year","stepmode":"backward"},{"count":10,"label":"10Y","step":"year","stepmode":"backward"},{"label":"MAX","step":"all"}],"bgcolor":"#f4f4f4","y":0.98},"range":["2025-11-13T00:00:00","2025-11-13T00:00:00"],"type":"date","showgrid":false,"showline":true,"linewidth":1,"linecolor":"lightgrey","mirror":false},"yaxis":{"showgrid":true,"gridcolor":"#f0f0f0","showline":true,"linewidth":1,"linecolor":"lightgrey","mirror":false,"tickformat":"+.0f","ticksuffix":"%","zeroline":true,"zerolinecolor":"#d3d3d3","zerolinewidth":1},"legend":{"orientation":"h","yanchor":"bottom","y":1.02,"xanchor":"right","x":1},"plot_bgcolor":"white","hovermode":"x unified","autosize":true,"height":450},                        {"displayModeBar": false, "responsive": true}                    )                };                            </script>        </div>
+    <script>
+    (function() {
+        var gd = document.getElementById('interactive-chart');
+        var debounceTimer;
+
+        function setupLogic() {
+            if(!gd || !gd.data) { setTimeout(setupLogic, 200); return; }
+            // Match traces: 0=Fill, 1=SPY, 2=Stock
+            if (gd.data.length < 3) return;
+            
+            gd._origTheme = gd.data[2].y.slice();
+            gd._origSpy = gd.data[1].y.slice();
+            
+            gd.on('plotly_relayout', function(eventdata){
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(recalc, 50);
+            });
+            recalc();
+        }
+        
+        function recalc() {
+            var xrange = gd.layout.xaxis.range;
+            if(!xrange || !gd._origTheme) return;
+            
+            var startDate = new Date(xrange[0]).getTime();
+            var endDate = new Date(xrange[1]).getTime();
+            var xData = gd.data[2].x; 
+            
+            var startIdx = 0;
+            for(var i=0; i<xData.length; i++) {
+                if(new Date(xData[i]).getTime() >= startDate) {
+                    startIdx = i;
+                    break;
+                }
+            }
+            
+            var t0 = gd._origTheme[startIdx]; 
+            var s0 = gd._origSpy[startIdx];   
+            if (s0 === undefined || s0 === null) s0 = 0;
+
+            var themeBase = (t0/100) + 1;
+            var spyBase = (s0/100) + 1;
+            
+            var newTheme = gd._origTheme.map(v => ( ((v/100+1)/themeBase) - 1 ) * 100);
+            var newSpy = gd._origSpy.map(function(v) {
+                 if (v === undefined || v === null) return 0;
+                 return ( ((v/100+1)/spyBase) - 1 ) * 100;
+            });
+            
+            var minVal = Infinity;
+            var maxVal = -Infinity;
+            var finalIdx = startIdx;
+
+            for(var i=0; i<xData.length; i++) {
+                var t = new Date(xData[i]).getTime();
+                if(t >= startDate && t <= endDate) {
+                    var v1 = newTheme[i];
+                    var v2 = newSpy[i];
+                    if(v1 < minVal) minVal = v1;
+                    if(v1 > maxVal) maxVal = v1;
+                    if(v2 < minVal) minVal = v2;
+                    if(v2 > maxVal) maxVal = v2;
+                    finalIdx = i;
+                }
+            }
+            
+            if (minVal === Infinity) { minVal = 0; maxVal = 10; }
+            
+            var range = maxVal - minVal;
+            var padding = range * 0.05; 
+            if (padding === 0) padding = 1;
+            
+            if (finalIdx >= newTheme.length) finalIdx = newTheme.length - 1;
+            var finalTheme = newTheme[finalIdx];
+            var finalSpy = newSpy[finalIdx];
+            var diff = finalTheme - finalSpy;
+            var color = diff >= 0 ? '#00c853' : '#ff1744';
+            var sign = diff >= 0 ? '+' : '';
+            var subtitle = 'Performance: <span style="color:'+color+'">' + sign + diff.toFixed(2) + '% vs Benchmark</span>';
+            
+            Plotly.relayout(gd, {
+                'title.text': 'Stock Performance: MTSR vs Benchmark (ROI %)<br><sub>' + subtitle + '</sub>',
+                'yaxis.range': [minVal - padding, maxVal + padding]
+            });
+            
+            Plotly.restyle(gd, {
+                y: [newTheme, newSpy, newTheme] 
+            }, [0, 1, 2]);
+        }
+        
+        var checkExist = setInterval(function() {
+           if (document.getElementById('interactive-chart')) {
+              gd = document.getElementById('interactive-chart');
+              setupLogic();
+              clearInterval(checkExist);
+           }
+        }, 100);
+    })();
+    </script>
+    
+        </div>
+
+        <!-- Company Details Section -->
+        <div class="section">
+            <div class="section-header">Company Details and Performance</div>
+            <div class="section-content">
+                
+    <div class="info-grid">
+        <div class="info-card">
+            <div class="info-label">Symbol</div>
+            <div class="info-value">MTSR</div>
+        </div>
+        <div class="info-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <div class="info-label" style="color: rgba(255,255,255,0.9);">Last Close</div>
+            <div class="info-value" style="color: white; font-size: 1.4rem;">$70.50</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Currency</div>
+            <div class="info-value">USD</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Exchange</div>
+            <div class="info-value">VALUE</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Asset Type</div>
+            <div class="info-value">STK</div>
+        </div>
+    </div>
+    
+                
+        <div style="margin-top: 25px; padding-top: 20px; border-top: 2px solid #ecf0f1;">
+            <h3 style="margin: 0 0 15px 0; font-size: 1.1rem; color: var(--primary-color);">Performance Metrics</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-label">Day Change</div>
+                    <div class="info-value"><span style="color: #27ae60; font-weight: bold;">+0.00%</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">1 Month</div>
+                    <div class="info-value"><span style="color: #999;">N/A</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">Year to Date</div>
+                    <div class="info-value"><span style="color: #999;">N/A</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">12 Months</div>
+                    <div class="info-value"><span style="color: #999;">N/A</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">3 Years</div>
+                    <div class="info-value"><span style="color: #999;">N/A</span></div>
+                </div>
+            </div>
+            <h3 style="margin: 20px 0 15px 0; font-size: 1.1rem; color: var(--primary-color);">Volatility (Annualized)</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-label">30 Days</div>
+                    <div class="info-value" style="color: #e67e22;">N/A</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">90 Days</div>
+                    <div class="info-value" style="color: #e67e22;">N/A</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">180 Days</div>
+                    <div class="info-value" style="color: #e67e22;">N/A</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">1 Year</div>
+                    <div class="info-value" style="color: #e67e22;">N/A</div>
+                </div>
+            </div>
+            <h3 style="margin: 20px 0 15px 0; font-size: 1.1rem; color: var(--primary-color);">52-Week Range</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-label">52-Week High</div>
+                    <div class="info-value" style="color: #27ae60;">$70.50</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">52-Week Low</div>
+                    <div class="info-value" style="color: #e74c3c;">$70.50</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">From 52w High</div>
+                    <div class="info-value"><span style="color: #27ae60; font-weight: bold;">+0.00%</span></div>
+                </div>
+            </div>
+        </div>
+        
+            </div>
+        </div>
+
+        <!-- Description Section -->
+        <div class="section">
+            <div class="section-header">Description</div>
+            <div class="section-content">
+                <div class="description-text">Lleva a cabo actividades de investigación y desarrollo centradas en el descubrimiento y avance de soluciones y terapias biotecnológicas.</div>
+            </div>
+        </div>
+
+        <!-- Rankings Section -->
+        <div class="section">
+            <div class="section-header">Theme Rankings (2 themes)</div>
+            <div class="section-content" style="padding: 0;">
+                
+        <table>
+            <thead>
+                <tr>
+                    <th>Theme Name</th>
+                    <th style="text-align: center; width: 60px;">Theme</th>
+                    <th>Rank</th>
+                    <th style="text-align: center;">Evidence</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            <tr>
+                <td>treatments_for_obesity</td>
+                <td style="text-align: center;">
+                    <a href="treatments_for_obesity_detail.html" class="action-link" title="View treatments_for_obesity theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#16</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>biotechnology_rd</td>
+                <td style="text-align: center;">
+                    <a href="biotechnology_leader_detail.html" class="action-link" title="View biotechnology_rd theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#54</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            </tbody>
+        </table>
+        
+            </div>
+        </div>
+
+        <!-- Evidence Section -->
+        <div class="section">
+            <div class="section-header">Evidence Details (2 entries)</div>
+            <div class="section-content">
+                
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(0)">
+                    <span>Evidence #1 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Metsera es una empresa de biotecnología en etapa clínica dedicada a desarrollar péptidos análogos...</span></span>
+                    <span class="toggle-icon" id="icon-0">▼</span>
+                </div>
+                <div class="evidence-content" id="content-0">
+                    El enfoque de Metsera en la I+D de biotecnología es evidente a través de su identidad como una empresa de biotecnología en etapa clínica dedicada a desarrollar péptidos análogos de hormonas estimuladas por nutrientes inyectables y orales de próxima generación para el tratamiento de la obesidad y enfermedades metabólicas. Esto está respaldado además por la implementación por parte de la empresa de métodos patentados y tecnologías de plataforma, como la biblioteca de péptidos MINT, la plataforma de extensión de vida media HALO y la plataforma de administración de péptidos análogos NuSH orales MOMENTUM, para avanzar en una cartera diversa de terapias. El aumento de los gastos de investigación y desarrollo de la empresa también resalta su fuerte inversión en investigación y desarrollo de biotecnología.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/mtsr-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 mtsr-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/mtsr-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 mtsr-Q125-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(1)">
+                    <span>Evidence #2 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Metsera se dedica a desarrollar péptidos análogos de hormonas estimuladas por nutrientes (NuSH)...</span></span>
+                    <span class="toggle-icon" id="icon-1">▼</span>
+                </div>
+                <div class="evidence-content" id="content-1">
+                    El enfoque de Metsera en los tratamientos para la obesidad es evidente, ya que la empresa se dedica a desarrollar péptidos análogos de hormonas estimuladas por nutrientes (NuSH) inyectables y orales de próxima generación para la obesidad, el sobrepeso y afecciones relacionadas. Están avanzando en una amplia cartera de terapias incretinas, no incretinas y combinadas, orales e inyectables, utilizando su biblioteca patentada de péptidos MINT, la plataforma de extensión de vida media HALO y la plataforma de administración de péptidos análogos de NuSH orales MOMENTUM. Además, Metsera está desarrollando tratamientos específicos como MET-097i y MET-233i para la obesidad y el sobrepeso, al tiempo que reconoce el panorama competitivo del mercado de tratamientos para la obesidad.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/mtsr-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 mtsr-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/mtsr-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 mtsr-Q125-10-Q</a></div>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleEvidence(idx) {
+            const content = document.getElementById('content-' + idx);
+            const icon = document.getElementById('icon-' + idx);
+
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.classList.remove('active');
+            } else {
+                content.classList.add('active');
+                icon.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
+    

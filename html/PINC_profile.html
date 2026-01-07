@@ -1,0 +1,722 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PINC - Company Profile</title>
+    <style>
+        
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --light-bg: #ecf0f1;
+    --border-color: #bdc3c7;
+    --text-color: #2c3e50;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: #fff;
+}
+
+.header {
+    padding: 20px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    background-color: white;
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.home-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
+}
+
+.home-button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.home-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+.company-subtitle {
+    font-size: 0.9rem;
+    font-weight: normal;
+    opacity: 0.9;
+    margin-top: 5px;
+}
+
+.company-subtitle a {
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(255,255,255,0.5);
+    transition: all 0.3s;
+}
+
+.company-subtitle a:hover {
+    border-bottom: 1px solid white;
+    opacity: 1;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.section-header {
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 2px solid var(--border-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+}
+
+.section-content {
+    padding: 20px;
+}
+
+/* Chart Section */
+#chart-container {
+    background-color: white;
+    padding: 0;
+}
+
+/* Info Cards Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.info-card {
+    background-color: var(--light-bg);
+    padding: 15px;
+    border-radius: 4px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.info-label {
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.info-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* Description */
+.description-text {
+    line-height: 1.6;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Rankings Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+    font-weight: 600;
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--border-color);
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.rank-badge {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: inline-block;
+}
+
+.rank-top3 {
+    background-color: #27ae60;
+}
+
+.rank-top10 {
+    background-color: #3498db;
+}
+
+.rank-other {
+    background-color: #95a5a6;
+}
+
+.check-icon {
+    color: #27ae60;
+    font-size: 1.2rem;
+}
+
+.no-icon {
+    color: #ccc;
+    font-size: 1.2rem;
+}
+
+/* Evidence Accordion */
+.evidence-item {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.evidence-header {
+    padding: 12px 15px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: background-color 0.2s;
+    gap: 10px;
+}
+
+.evidence-header span:first-child {
+    flex: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+}
+
+.evidence-header:hover {
+    background-color: #f0f0f0;
+}
+
+.evidence-content {
+    padding: 15px;
+    background-color: white;
+    line-height: 1.6;
+    color: #555;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.evidence-content.active {
+    display: block;
+}
+
+.toggle-icon {
+    transition: transform 0.3s;
+}
+
+.toggle-icon.active {
+    transform: rotate(180deg);
+}
+
+.no-data {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+    font-style: italic;
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <img src="data:image/png;base64,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" alt="PREMIER INC-CLASS A Logo" class="header-logo" />
+            <div>
+                <div>PINC - PREMIER INC-CLASS A</div>
+                <div class="company-subtitle">
+                    <a href="https://premierinc.com" target="_blank">🌐 premierinc.com</a>
+                </div>
+            </div>
+        </div>
+        <a href="main_trends.html" class="home-button" title="Back to Home">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="9 22 9 12 15 12 15 22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+    </div>
+
+    <div class="container">
+        <!-- Price Chart Section -->
+        <div class="section" id="chart-container">
+            <div class="section-header">
+                Price Chart
+                <a href="stock_chart_pinc.html" target="_blank" style="float: right; font-size: 0.85rem; background-color: var(--accent-color); color: white; padding: 5px 10px; text-decoration: none; border-radius: 4px; margin-top: -3px;">View Full Chart ⤢</a>
+            </div>
+            <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>                <div id="interactive-chart" class="plotly-graph-div" style="height:450px; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("interactive-chart")) {                    Plotly.newPlot(                        "interactive-chart",                        [{"fill":"tozeroy","fillcolor":"rgba(0, 200, 83, 0.05)","fillgradient":{"colorscale":[[0,"rgba(0, 200, 83, 0.05)"],[1,"rgba(0, 200, 83, 0.6)"]],"type":"vertical"},"hoverinfo":"skip","mode":"none","showlegend":false,"x":["2025-11-25T00:00:00"],"y":[0.0],"type":"scatter"},{"hovertemplate":"Benchmark: %{y:,.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#000000","width":1.5},"mode":"lines","name":"Benchmark (SP500)","x":["2025-11-25T00:00:00"],"y":[0.0],"type":"scatter"},{"hovertemplate":"PINC: %{y:,.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#00c853","width":2},"mode":"lines","name":"PINC","x":["2025-11-25T00:00:00"],"y":[0.0],"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"title":{"font":{"size":16,"color":"#333"},"text":"Stock Performance: PINC vs Benchmark (ROI %)\u003cbr\u003e\u003csub\u003ePerformance: \u003cspan style='color:#00c853'\u003e+0.00% vs Benchmark\u003c\u002fspan\u003e\u003c\u002fsub\u003e","x":0.5,"xanchor":"center","y":0.95},"margin":{"t":60,"l":30,"r":20,"b":40},"xaxis":{"rangeselector":{"font":{"size":12},"buttons":[{"count":1,"label":"1M","step":"month","stepmode":"backward"},{"count":6,"label":"6M","step":"month","stepmode":"backward"},{"count":1,"label":"YTD","step":"year","stepmode":"todate"},{"count":1,"label":"1Y","step":"year","stepmode":"backward"},{"count":2,"label":"2Y","step":"year","stepmode":"backward"},{"count":3,"label":"3Y","step":"year","stepmode":"backward"},{"count":5,"label":"5Y","step":"year","stepmode":"backward"},{"count":10,"label":"10Y","step":"year","stepmode":"backward"},{"label":"MAX","step":"all"}],"bgcolor":"#f4f4f4","y":0.98},"range":["2025-11-25T00:00:00","2025-11-25T00:00:00"],"type":"date","showgrid":false,"showline":true,"linewidth":1,"linecolor":"lightgrey","mirror":false},"yaxis":{"showgrid":true,"gridcolor":"#f0f0f0","showline":true,"linewidth":1,"linecolor":"lightgrey","mirror":false,"tickformat":"+.0f","ticksuffix":"%","zeroline":true,"zerolinecolor":"#d3d3d3","zerolinewidth":1},"legend":{"orientation":"h","yanchor":"bottom","y":1.02,"xanchor":"right","x":1},"plot_bgcolor":"white","hovermode":"x unified","autosize":true,"height":450},                        {"displayModeBar": false, "responsive": true}                    )                };                            </script>        </div>
+    <script>
+    (function() {
+        var gd = document.getElementById('interactive-chart');
+        var debounceTimer;
+
+        function setupLogic() {
+            if(!gd || !gd.data) { setTimeout(setupLogic, 200); return; }
+            // Match traces: 0=Fill, 1=SPY, 2=Stock
+            if (gd.data.length < 3) return;
+            
+            gd._origTheme = gd.data[2].y.slice();
+            gd._origSpy = gd.data[1].y.slice();
+            
+            gd.on('plotly_relayout', function(eventdata){
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(recalc, 50);
+            });
+            recalc();
+        }
+        
+        function recalc() {
+            var xrange = gd.layout.xaxis.range;
+            if(!xrange || !gd._origTheme) return;
+            
+            var startDate = new Date(xrange[0]).getTime();
+            var endDate = new Date(xrange[1]).getTime();
+            var xData = gd.data[2].x; 
+            
+            var startIdx = 0;
+            for(var i=0; i<xData.length; i++) {
+                if(new Date(xData[i]).getTime() >= startDate) {
+                    startIdx = i;
+                    break;
+                }
+            }
+            
+            var t0 = gd._origTheme[startIdx]; 
+            var s0 = gd._origSpy[startIdx];   
+            if (s0 === undefined || s0 === null) s0 = 0;
+
+            var themeBase = (t0/100) + 1;
+            var spyBase = (s0/100) + 1;
+            
+            var newTheme = gd._origTheme.map(v => ( ((v/100+1)/themeBase) - 1 ) * 100);
+            var newSpy = gd._origSpy.map(function(v) {
+                 if (v === undefined || v === null) return 0;
+                 return ( ((v/100+1)/spyBase) - 1 ) * 100;
+            });
+            
+            var minVal = Infinity;
+            var maxVal = -Infinity;
+            var finalIdx = startIdx;
+
+            for(var i=0; i<xData.length; i++) {
+                var t = new Date(xData[i]).getTime();
+                if(t >= startDate && t <= endDate) {
+                    var v1 = newTheme[i];
+                    var v2 = newSpy[i];
+                    if(v1 < minVal) minVal = v1;
+                    if(v1 > maxVal) maxVal = v1;
+                    if(v2 < minVal) minVal = v2;
+                    if(v2 > maxVal) maxVal = v2;
+                    finalIdx = i;
+                }
+            }
+            
+            if (minVal === Infinity) { minVal = 0; maxVal = 10; }
+            
+            var range = maxVal - minVal;
+            var padding = range * 0.05; 
+            if (padding === 0) padding = 1;
+            
+            if (finalIdx >= newTheme.length) finalIdx = newTheme.length - 1;
+            var finalTheme = newTheme[finalIdx];
+            var finalSpy = newSpy[finalIdx];
+            var diff = finalTheme - finalSpy;
+            var color = diff >= 0 ? '#00c853' : '#ff1744';
+            var sign = diff >= 0 ? '+' : '';
+            var subtitle = 'Performance: <span style="color:'+color+'">' + sign + diff.toFixed(2) + '% vs Benchmark</span>';
+            
+            Plotly.relayout(gd, {
+                'title.text': 'Stock Performance: PINC vs Benchmark (ROI %)<br><sub>' + subtitle + '</sub>',
+                'yaxis.range': [minVal - padding, maxVal + padding]
+            });
+            
+            Plotly.restyle(gd, {
+                y: [newTheme, newSpy, newTheme] 
+            }, [0, 1, 2]);
+        }
+        
+        var checkExist = setInterval(function() {
+           if (document.getElementById('interactive-chart')) {
+              gd = document.getElementById('interactive-chart');
+              setupLogic();
+              clearInterval(checkExist);
+           }
+        }, 100);
+    })();
+    </script>
+    
+        </div>
+
+        <!-- Company Details Section -->
+        <div class="section">
+            <div class="section-header">Company Details and Performance</div>
+            <div class="section-content">
+                
+    <div class="info-grid">
+        <div class="info-card">
+            <div class="info-label">Symbol</div>
+            <div class="info-value">PINC</div>
+        </div>
+        <div class="info-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <div class="info-label" style="color: rgba(255,255,255,0.9);">Last Close</div>
+            <div class="info-value" style="color: white; font-size: 1.4rem;">$28.26</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Currency</div>
+            <div class="info-value">USD</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Exchange</div>
+            <div class="info-value">VALUE</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Asset Type</div>
+            <div class="info-value">STK</div>
+        </div>
+    </div>
+    
+                
+        <div style="margin-top: 25px; padding-top: 20px; border-top: 2px solid #ecf0f1;">
+            <h3 style="margin: 0 0 15px 0; font-size: 1.1rem; color: var(--primary-color);">Performance Metrics</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-label">Day Change</div>
+                    <div class="info-value"><span style="color: #27ae60; font-weight: bold;">+0.00%</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">1 Month</div>
+                    <div class="info-value"><span style="color: #999;">N/A</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">Year to Date</div>
+                    <div class="info-value"><span style="color: #999;">N/A</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">12 Months</div>
+                    <div class="info-value"><span style="color: #999;">N/A</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">3 Years</div>
+                    <div class="info-value"><span style="color: #999;">N/A</span></div>
+                </div>
+            </div>
+            <h3 style="margin: 20px 0 15px 0; font-size: 1.1rem; color: var(--primary-color);">Volatility (Annualized)</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-label">30 Days</div>
+                    <div class="info-value" style="color: #e67e22;">N/A</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">90 Days</div>
+                    <div class="info-value" style="color: #e67e22;">N/A</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">180 Days</div>
+                    <div class="info-value" style="color: #e67e22;">N/A</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">1 Year</div>
+                    <div class="info-value" style="color: #e67e22;">N/A</div>
+                </div>
+            </div>
+            <h3 style="margin: 20px 0 15px 0; font-size: 1.1rem; color: var(--primary-color);">52-Week Range</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-label">52-Week High</div>
+                    <div class="info-value" style="color: #27ae60;">$28.26</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">52-Week Low</div>
+                    <div class="info-value" style="color: #e74c3c;">$28.26</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">From 52w High</div>
+                    <div class="info-value"><span style="color: #27ae60; font-weight: bold;">+0.00%</span></div>
+                </div>
+            </div>
+        </div>
+        
+            </div>
+        </div>
+
+        <!-- Description Section -->
+        <div class="section">
+            <div class="section-header">Description</div>
+            <div class="section-content">
+                <div class="description-text">Proporciona servicios de consultoría para apoyar diversos aspectos de las operaciones de sus clientes.</div>
+            </div>
+        </div>
+
+        <!-- Rankings Section -->
+        <div class="section">
+            <div class="section-header">Theme Rankings (6 themes)</div>
+            <div class="section-content" style="padding: 0;">
+                
+        <table>
+            <thead>
+                <tr>
+                    <th>Theme Name</th>
+                    <th style="text-align: center; width: 60px;">Theme</th>
+                    <th>Rank</th>
+                    <th style="text-align: center;">Evidence</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            <tr>
+                <td>supply_chain_solutions</td>
+                <td style="text-align: center;">
+                    <a href="supply_chain_solutions_detail.html" class="action-link" title="View supply_chain_solutions theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#24</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>healthcare_automation</td>
+                <td style="text-align: center;">
+                    <a href="healthcare_automation_detail.html" class="action-link" title="View healthcare_automation theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#41</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>life_sciences</td>
+                <td style="text-align: center;">
+                    <a href="life_sciences_detail.html" class="action-link" title="View life_sciences theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#55</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>healthcare_solutions</td>
+                <td style="text-align: center;">
+                    <a href="healthcare_solutions_detail.html" class="action-link" title="View healthcare_solutions theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#67</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>consulting_services</td>
+                <td style="text-align: center;">
+                    <a href="consulting_services_detail.html" class="action-link" title="View consulting_services theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#70</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>health_care_services</td>
+                <td style="text-align: center;">
+                    <a href="healthcare_services_detail.html" class="action-link" title="View health_care_services theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#75</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            </tbody>
+        </table>
+        
+            </div>
+        </div>
+
+        <!-- Evidence Section -->
+        <div class="section">
+            <div class="section-header">Evidence Details (6 entries)</div>
+            <div class="section-content">
+                
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(0)">
+                    <span>Evidence #1 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q4 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Premier ha invertido en su negocio de servicios de asesoramiento, reclutando líderes de la...</span></span>
+                    <span class="toggle-icon" id="icon-0">▼</span>
+                </div>
+                <div class="evidence-content" id="content-0">
+                    El compromiso de Premier con los servicios de consultoría es evidente a través de su completa plataforma habilitada por la tecnología, que ofrece estos servicios junto con soluciones de cadena de suministro, servicios clínicos y financieros, y ofertas de SaaS. La empresa aporta valor a través de servicios de consultoría, así como datos y análisis integrados, y programas colaborativos destinados a mejorar las operaciones de atención médica. Premier ha invertido en su negocio de servicios de asesoramiento, reclutando líderes de la industria y experimentando resultados positivos como un embudo de ventas saludable, un aumento de las reservas y un crecimiento de los ingresos en consultoría. Sin embargo, los ingresos por consultoría han experimentado una disminución en comparación con el año anterior y representan el 6,7% de los ingresos netos totales.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/pinc-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 pinc-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/pinc-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 pinc-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/pinc-Q325-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 pinc-Q325-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/pinc-FY25-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 pinc-FY25-10-K</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(1)">
+                    <span>Evidence #2 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q3 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Premier aprovecha la IA, el aprendizaje automático y la automatización. Están invirtiendo en...</span></span>
+                    <span class="toggle-icon" id="icon-1">▼</span>
+                </div>
+                <div class="evidence-content" id="content-1">
+                    La participación de Premier en la automatización de la atención médica es evidente a través de sus servicios de cadena de suministro, que incluyen una organización de compras grupales y automatización de facturación digital a través de Remitra. La empresa aprovecha la IA, el aprendizaje automático y la automatización para mejorar la optimización de la cadena de suministro, la planificación de la fuerza laboral y la transformación clínica. También reconocen que las presiones financieras sobre los sistemas de salud suelen impulsar una mayor demanda de tecnologías de automatización para gestionar los costos laborales, y están invirtiendo en tecnología para automatizar procesos y proporcionar soporte de decisiones habilitado por IA.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/pinc-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 pinc-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/pinc-Q325-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 pinc-Q325-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(2)">
+                    <span>Evidence #3 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q4 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Premier ofrece una plataforma integrada de soluciones que abordan la inteligencia clínica, la...</span></span>
+                    <span class="toggle-icon" id="icon-2">▼</span>
+                </div>
+                <div class="evidence-content" id="content-2">
+                    Premier está profundamente involucrada en Soluciones de Atención Médica, identificándose como una empresa de mejora de la atención médica impulsada por la tecnología que une a los proveedores de atención médica para transformar la atención médica. La empresa ofrece una plataforma integrada de soluciones que abordan la inteligencia clínica, la mejora de márgenes y la atención basada en el valor a través de sus segmentos de Servicios de Cadena de Suministro y Servicios de Rendimiento. El modelo de negocio y las soluciones de Premier están diseñados para brindar a los miembros acceso a eficiencias de escala e inteligencia procesable, apoyando su transformación hacia una atención médica de mayor calidad y más rentable, y co-desarrollan soluciones integradas que abordan necesidades operativas y clínicas críticas.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/pinc-Q325-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 pinc-Q325-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/pinc-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 pinc-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/pinc-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 pinc-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/pinc-FY25-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 pinc-FY25-10-K</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(3)">
+                    <span>Evidence #4 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q4 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Premier, Inc. ofrece servicios habilitados por tecnología que mejoran la prestación de atención....</span></span>
+                    <span class="toggle-icon" id="icon-3">▼</span>
+                </div>
+                <div class="evidence-content" id="content-3">
+                    Premier, Inc. se identifica como una empresa de mejora de la atención médica impulsada por la tecnología que une a hospitales, sistemas de salud y otros proveedores de EE. UU. para transformar la atención médica. La empresa proporciona soluciones a los proveedores de atención médica y une a proveedores, proveedores y pagadores para mejorar la atención médica con escala nacional y tecnologías novedosas. Premier también se asocia con varias entidades de atención médica para mejorar e innovar en áreas clínicas, financieras y operativas para satisfacer las demandas de la industria de la atención médica en evolución. Además, Premier ofrece servicios habilitados por tecnología que mejoran la prestación de atención y optimizan el costo total de la atención para proveedores, pagadores y proveedores.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/pinc-Q325-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 pinc-Q325-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/pinc-FY25-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 pinc-FY25-10-K</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/pinc-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 pinc-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/pinc-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 pinc-Q225-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(4)">
+                    <span>Evidence #5 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q4 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- El segmento de Servicios de Rendimiento de Premier ofrece tecnología y servicios destinados a...</span></span>
+                    <span class="toggle-icon" id="icon-4">▼</span>
+                </div>
+                <div class="evidence-content" id="content-4">
+                    El segmento de Servicios de Rendimiento de Premier ofrece tecnología y servicios destinados a optimizar el rendimiento, particularmente dentro de los mercados de ciencias de la vida. Esto incluye el uso de análisis avanzados para identificar oportunidades de mejora, consultoría, servicios administrados para diseño clínico y operativo, y soluciones de flujo de trabajo. La empresa también está ampliando sus capacidades para abordar y coordinar la mejora y estandarización de la atención en los mercados de empleadores, pagadores y ciencias de la vida, lo que indica la continua participación de la empresa en el tema.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/pinc-Q325-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 pinc-Q325-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/pinc-FY25-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 pinc-FY25-10-K</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(5)">
+                    <span>Evidence #6 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q4 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Premier en Soluciones de Cadena de Suministro ofrece servicios críticos de cadena de suministsro....</span></span>
+                    <span class="toggle-icon" id="icon-5">▼</span>
+                </div>
+                <div class="evidence-content" id="content-5">
+                    El enfoque de Premier en Soluciones de Cadena de Suministro es evidente a través de su plataforma integral habilitada por tecnología que ofrece servicios críticos de cadena de suministro. El compromiso de la empresa se ve subrayado por su plataforma integrada que aborda la inteligencia clínica, la mejora de márgenes y la atención basada en el valor, junto con inversiones en habilitación tecnológica y estudios de evidencia del mundo real. Premier se distingue como la única empresa de atención médica que ofrece una solución de cadena de suministro digital totalmente integrada, desde la obtención hasta la compra y los pagos, y se dedica a la excelencia en la cadena de suministro a través de la diversificación, la resiliencia y las estrategias digitales, incluida la automatización de facturación y pagos.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/pinc-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 pinc-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/pinc-Q325-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 pinc-Q325-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/pinc-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 pinc-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/pinc-FY25-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 pinc-FY25-10-K</a></div>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleEvidence(idx) {
+            const content = document.getElementById('content-' + idx);
+            const icon = document.getElementById('icon-' + idx);
+
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.classList.remove('active');
+            } else {
+                content.classList.add('active');
+                icon.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
+    

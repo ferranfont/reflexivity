@@ -1,0 +1,602 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QM1 - Company Profile</title>
+    <style>
+        
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --light-bg: #ecf0f1;
+    --border-color: #bdc3c7;
+    --text-color: #2c3e50;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: #fff;
+}
+
+.header {
+    padding: 20px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    background-color: white;
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.home-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
+}
+
+.home-button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.home-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+.company-subtitle {
+    font-size: 0.9rem;
+    font-weight: normal;
+    opacity: 0.9;
+    margin-top: 5px;
+}
+
+.company-subtitle a {
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(255,255,255,0.5);
+    transition: all 0.3s;
+}
+
+.company-subtitle a:hover {
+    border-bottom: 1px solid white;
+    opacity: 1;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.section-header {
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 2px solid var(--border-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+}
+
+.section-content {
+    padding: 20px;
+}
+
+/* Chart Section */
+#chart-container {
+    background-color: white;
+    padding: 0;
+}
+
+/* Info Cards Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.info-card {
+    background-color: var(--light-bg);
+    padding: 15px;
+    border-radius: 4px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.info-label {
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.info-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* Description */
+.description-text {
+    line-height: 1.6;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Rankings Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+    font-weight: 600;
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--border-color);
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.rank-badge {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: inline-block;
+}
+
+.rank-top3 {
+    background-color: #27ae60;
+}
+
+.rank-top10 {
+    background-color: #3498db;
+}
+
+.rank-other {
+    background-color: #95a5a6;
+}
+
+.check-icon {
+    color: #27ae60;
+    font-size: 1.2rem;
+}
+
+.no-icon {
+    color: #ccc;
+    font-size: 1.2rem;
+}
+
+/* Evidence Accordion */
+.evidence-item {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.evidence-header {
+    padding: 12px 15px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: background-color 0.2s;
+    gap: 10px;
+}
+
+.evidence-header span:first-child {
+    flex: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+}
+
+.evidence-header:hover {
+    background-color: #f0f0f0;
+}
+
+.evidence-content {
+    padding: 15px;
+    background-color: white;
+    line-height: 1.6;
+    color: #555;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.evidence-content.active {
+    display: block;
+}
+
+.toggle-icon {
+    transition: transform 0.3s;
+}
+
+.toggle-icon.active {
+    transform: rotate(180deg);
+}
+
+.no-data {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+    font-style: italic;
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            
+            <div>
+                <div>QM1 - FEDERAL REALTY INVS TRUST</div>
+                <div class="company-subtitle">
+                    Company Investment Profile
+                </div>
+            </div>
+        </div>
+        <a href="main_trends.html" class="home-button" title="Back to Home">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="9 22 9 12 15 12 15 22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+    </div>
+
+    <div class="container">
+        <!-- Price Chart Section -->
+        <div class="section" id="chart-container">
+            <div class="section-header">
+                Price Chart
+                
+            </div>
+            <div class="no-data">No price data available for chart</div>
+        </div>
+
+        <!-- Company Details Section -->
+        <div class="section">
+            <div class="section-header">Company Details and Performance</div>
+            <div class="section-content">
+                
+    <div class="info-grid">
+        <div class="info-card">
+            <div class="info-label">Symbol</div>
+            <div class="info-value">QM1</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Currency</div>
+            <div class="info-value">EUR</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Exchange</div>
+            <div class="info-value">VALUE</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Asset Type</div>
+            <div class="info-value">STK</div>
+        </div>
+    </div>
+    
+                <div class="no-data" style="margin-top: 20px;">No performance data available</div>
+            </div>
+        </div>
+
+        <!-- Description Section -->
+        <div class="section">
+            <div class="section-header">Description</div>
+            <div class="section-content">
+                <div class="description-text">Posee, opera y redesarrolla propiedades de alta calidad basadas en el comercio minorista, desempeñando un papel importante en el sector inmobiliario comercial a través de su gestión estratégica de cartera y actividades de inversión.</div>
+            </div>
+        </div>
+
+        <!-- Rankings Section -->
+        <div class="section">
+            <div class="section-header">Theme Rankings (9 themes)</div>
+            <div class="section-content" style="padding: 0;">
+                
+        <table>
+            <thead>
+                <tr>
+                    <th>Theme Name</th>
+                    <th style="text-align: center; width: 60px;">Theme</th>
+                    <th>Rank</th>
+                    <th style="text-align: center;">Evidence</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            <tr>
+                <td>property_redevelopment</td>
+                <td style="text-align: center;">
+                    <a href="property_redevelopment_detail.html" class="action-link" title="View property_redevelopment theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-top3">#1</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>leasing_of_commercial_spaces</td>
+                <td style="text-align: center;">
+                    <a href="leasing_of_commercial_spaces_detail.html" class="action-link" title="View leasing_of_commercial_spaces theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-top10">#5</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>retail_reit</td>
+                <td style="text-align: center;">
+                    <a href="retail_reit_detail.html" class="action-link" title="View retail_reit theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-top10">#5</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>urban_property_development</td>
+                <td style="text-align: center;">
+                    <a href="urban_property_development_detail.html" class="action-link" title="View urban_property_development theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#17</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>urban_real_estate</td>
+                <td style="text-align: center;">
+                    <a href="urban_real_estate_detail.html" class="action-link" title="View urban_real_estate theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#17</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>real_estate_development</td>
+                <td style="text-align: center;">
+                    <a href="real_estate_development_detail.html" class="action-link" title="View real_estate_development theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#31</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>grocery_retailer</td>
+                <td style="text-align: center;">
+                    <a href="grocery_retail_detail.html" class="action-link" title="View grocery_retailer theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#35</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>commercial_real_estate</td>
+                <td style="text-align: center;">
+                    <a href="commercial_real_estate_detail.html" class="action-link" title="View commercial_real_estate theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#49</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>real_estate_investment_fund</td>
+                <td style="text-align: center;">
+                    <a href="real_estate_investment_fund_detail.html" class="action-link" title="View real_estate_investment_fund theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#62</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            </tbody>
+        </table>
+        
+            </div>
+        </div>
+
+        <!-- Evidence Section -->
+        <div class="section">
+            <div class="section-header">Evidence Details (6 entries)</div>
+            <div class="section-content">
+                
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(0)">
+                    <span>Evidence #1 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- El negocio de Federal Realty Investment Trust se centra en bienes raíces comerciales. Al 31 de...</span></span>
+                    <span class="toggle-icon" id="icon-0">▼</span>
+                </div>
+                <div class="evidence-content" id="content-0">
+                    El negocio de Federal Realty Investment Trust se centra en bienes raíces comerciales, particularmente la propiedad, gestión y reurbanización de propiedades minoristas y de uso mixto. Al 31 de marzo de 2025, la empresa tenía participaciones en 103 proyectos de bienes raíces minoristas, que abarcan aproximadamente 27.5 millones de pies cuadrados comerciales, y al 31 de diciembre de 2024, los proyectos inmobiliarios de la empresa estaban alquilados en un 96.2% y ocupados en un 94.1%. La empresa también invierte en proyectos de desarrollo, incluyendo edificios de oficinas y espacios comerciales, y ha adquirido propiedades como Virginia Gateway y Del Monte Shopping Center, lo que demuestra un enfoque significativo y continuo en bienes raíces comerciales.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/frt-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 frt-Q324-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/frt-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 frt-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/frt-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 frt-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/frt-FY24-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 frt-FY24-10-K</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(1)">
+                    <span>Evidence #2 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q1 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- La empresa tenía participaciones en 103 proyectos inmobiliarios predominantemente comerciales. El...</span></span>
+                    <span class="toggle-icon" id="icon-1">▼</span>
+                </div>
+                <div class="evidence-content" id="content-1">
+                    El enfoque de la empresa en el arrendamiento de espacios comerciales es evidente a través de la propiedad y gestión de numerosos proyectos inmobiliarios comerciales. Al 31 de marzo de 2025, la empresa tenía participaciones en 103 proyectos inmobiliarios predominantemente comerciales, que comprenden aproximadamente 27.5 millones de pies cuadrados comerciales, con altas tasas de ocupación y arrendamiento. Las actividades de arrendamiento de la empresa son sustanciales, como lo demuestra el arrendamiento de casi 2.4 millones de pies cuadrados de espacio comparable en 2024 y 649,000 pies cuadrados en un solo trimestre, con aumentos notables en los alquileres en efectivo y lineales. Este énfasis se ve reforzado por la capitalización de los costos relacionados con las actividades de arrendamiento y la reurbanización activa de las propiedades para mejorar su oferta comercial.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/frt-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 frt-Q324-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/frt-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 frt-Q125-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(2)">
+                    <span>Evidence #3 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- La empresa se enfoca en la reurbanización de propiedades, especializándose en la propiedad, gestión...</span></span>
+                    <span class="toggle-icon" id="icon-2">▼</span>
+                </div>
+                <div class="evidence-content" id="content-2">
+                    La empresa se enfoca en la reurbanización de propiedades, especializándose en la propiedad, gestión y reurbanización de propiedades minoristas y de uso mixto. Esto es evidente a través de sus proyectos de reurbanización en curso con una inversión de capital significativa asignada, incluida la reurbanización transformacional del Centro Comercial Andorra. Estos proyectos, con costos proyectados que alcanzan aproximadamente $307 millones, son parte de su estrategia de crecimiento a largo plazo e involucran costos externos e internos relacionados con las actividades de desarrollo y reurbanización.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/frt-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 frt-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/frt-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 frt-Q324-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(3)">
+                    <span>Evidence #4 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q1 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Federal Realty Investment Trust es un fideicomiso de inversión inmobiliaria de capital (REIT) La...</span></span>
+                    <span class="toggle-icon" id="icon-3">▼</span>
+                </div>
+                <div class="evidence-content" id="content-3">
+                    Federal Realty Investment Trust se identifica como un fideicomiso de inversión inmobiliaria de capital (REIT), lo cual es fundamental para su modelo de negocio y operaciones. La empresa lleva a cabo sus operaciones y posee sus activos a través de Federal Realty OP LP, al tiempo que se enfoca en mantener su estatus de REIT según la Sección 856(c) del Código, lo que influye en sus operaciones financieras, obligaciones fiscales y distribuciones a accionistas. Para mantener este estatus, la empresa generalmente distribuye al menos el 90% de sus ingresos imponibles a los accionistas, y gestiona activamente sus programas de capital y líneas de crédito en línea con los requisitos de REIT. La empresa se especializa en la propiedad, gestión y reurbanización de propiedades minoristas y de uso mixto, lo que enfatiza aún más su enfoque en la inversión inmobiliaria.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/frt-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 frt-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/frt-FY24-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 frt-FY24-10-K</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(4)">
+                    <span>Evidence #5 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Federal Realty Investment Trust es un fideicomiso de inversión inmobiliaria de capital...</span></span>
+                    <span class="toggle-icon" id="icon-4">▼</span>
+                </div>
+                <div class="evidence-content" id="content-4">
+                    Federal Realty Investment Trust está fundamentalmente vinculado a la industria de REIT minoristas, ya que opera como un fideicomiso de inversión inmobiliaria de capital especializado en propiedades minoristas. El negocio principal de la empresa implica la propiedad, gestión y reurbanización de estas propiedades, con una cartera que incluye centros comerciales comunitarios y de barrio. Según informes recientes, Federal Realty poseía o tenía una participación mayoritaria en 102 proyectos inmobiliarios predominantemente minoristas, que abarcan millones de pies cuadrados comerciales. La empresa se centra en bienes raíces minoristas, generando ingresos del alquiler de espacios e invirtiendo estratégicamente en ubicaciones con alta demanda.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/frt-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 frt-Q324-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/frt-FY24-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 frt-FY24-10-K</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/frt-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 frt-Q225-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(5)">
+                    <span>Evidence #6 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q4 2024)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Federal Realty Investment Trust demuestra su compromiso con el desarrollo de propiedades urbanas....</span></span>
+                    <span class="toggle-icon" id="icon-5">▼</span>
+                </div>
+                <div class="evidence-content" id="content-5">
+                    Federal Realty Investment Trust demuestra su compromiso con el desarrollo de propiedades urbanas a través de su especialización en la propiedad, gestión y reurbanización de propiedades minoristas y de uso mixto de alta calidad, particularmente en mercados metropolitanos seleccionados estratégicamente. Varios proyectos de desarrollo están en marcha, incluida la Fase IV en Pike & Rose y la construcción en Santana West, con proyectos de reurbanización en toda la cartera que se proyecta que costarán aproximadamente $ 307 millones. La empresa también está desarrollando un proyecto residencial sobre minorista en Bala Cynwyd Shopping Center y ha aprobado una nueva construcción de 45 unidades residenciales con locales comerciales en la planta baja en Hoboken, Nueva Jersey, lo que ilustra aún más su compromiso con el desarrollo de propiedades urbanas.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/frt-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 frt-Q324-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/frt-FY24-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 frt-FY24-10-K</a></div>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleEvidence(idx) {
+            const content = document.getElementById('content-' + idx);
+            const icon = document.getElementById('icon-' + idx);
+
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.classList.remove('active');
+            } else {
+                content.classList.add('active');
+                icon.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
+    

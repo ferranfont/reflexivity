@@ -1,0 +1,821 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOG A - Company Profile</title>
+    <style>
+        
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --light-bg: #ecf0f1;
+    --border-color: #bdc3c7;
+    --text-color: #2c3e50;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: #fff;
+}
+
+.header {
+    padding: 20px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    background-color: white;
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.home-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
+}
+
+.home-button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.home-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+.company-subtitle {
+    font-size: 0.9rem;
+    font-weight: normal;
+    opacity: 0.9;
+    margin-top: 5px;
+}
+
+.company-subtitle a {
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(255,255,255,0.5);
+    transition: all 0.3s;
+}
+
+.company-subtitle a:hover {
+    border-bottom: 1px solid white;
+    opacity: 1;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.section-header {
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 2px solid var(--border-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+}
+
+.section-content {
+    padding: 20px;
+}
+
+/* Chart Section */
+#chart-container {
+    background-color: white;
+    padding: 0;
+}
+
+/* Info Cards Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.info-card {
+    background-color: var(--light-bg);
+    padding: 15px;
+    border-radius: 4px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.info-label {
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.info-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* Description */
+.description-text {
+    line-height: 1.6;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Rankings Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+    font-weight: 600;
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--border-color);
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.rank-badge {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: inline-block;
+}
+
+.rank-top3 {
+    background-color: #27ae60;
+}
+
+.rank-top10 {
+    background-color: #3498db;
+}
+
+.rank-other {
+    background-color: #95a5a6;
+}
+
+.check-icon {
+    color: #27ae60;
+    font-size: 1.2rem;
+}
+
+.no-icon {
+    color: #ccc;
+    font-size: 1.2rem;
+}
+
+/* Evidence Accordion */
+.evidence-item {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.evidence-header {
+    padding: 12px 15px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: background-color 0.2s;
+    gap: 10px;
+}
+
+.evidence-header span:first-child {
+    flex: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+}
+
+.evidence-header:hover {
+    background-color: #f0f0f0;
+}
+
+.evidence-content {
+    padding: 15px;
+    background-color: white;
+    line-height: 1.6;
+    color: #555;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.evidence-content.active {
+    display: block;
+}
+
+.toggle-icon {
+    transition: transform 0.3s;
+}
+
+.toggle-icon.active {
+    transform: rotate(180deg);
+}
+
+.no-data {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+    font-style: italic;
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            
+            <div>
+                <div>MOG A - MOOG INC-CLASS A</div>
+                <div class="company-subtitle">
+                    Company Investment Profile
+                </div>
+            </div>
+        </div>
+        <a href="main_trends.html" class="home-button" title="Back to Home">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="9 22 9 12 15 12 15 22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+    </div>
+
+    <div class="container">
+        <!-- Price Chart Section -->
+        <div class="section" id="chart-container">
+            <div class="section-header">
+                Price Chart
+                
+            </div>
+            <div class="no-data">No price data available for chart</div>
+        </div>
+
+        <!-- Company Details Section -->
+        <div class="section">
+            <div class="section-header">Company Details and Performance</div>
+            <div class="section-content">
+                
+    <div class="info-grid">
+        <div class="info-card">
+            <div class="info-label">Symbol</div>
+            <div class="info-value">MOG A</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Currency</div>
+            <div class="info-value">USD</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Exchange</div>
+            <div class="info-value">SMART</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Asset Type</div>
+            <div class="info-value">STK</div>
+        </div>
+    </div>
+    
+                <div class="no-data" style="margin-top: 20px;">No performance data available</div>
+            </div>
+        </div>
+
+        <!-- Description Section -->
+        <div class="section">
+            <div class="section-header">Description</div>
+            <div class="section-content">
+                <div class="description-text">Opera en el sector Aeroespacial y de Defensa.</div>
+            </div>
+        </div>
+
+        <!-- Rankings Section -->
+        <div class="section">
+            <div class="section-header">Theme Rankings (17 themes)</div>
+            <div class="section-content" style="padding: 0;">
+                
+        <table>
+            <thead>
+                <tr>
+                    <th>Theme Name</th>
+                    <th style="text-align: center; width: 60px;">Theme</th>
+                    <th>Rank</th>
+                    <th style="text-align: center;">Evidence</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            <tr>
+                <td>space_exploration</td>
+                <td style="text-align: center;">
+                    <a href="space_exploration_detail.html" class="action-link" title="View space_exploration theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#15</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>aviation_systems</td>
+                <td style="text-align: center;">
+                    <a href="aviation_systems_detail.html" class="action-link" title="View aviation_systems theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#16</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>missile_defense</td>
+                <td style="text-align: center;">
+                    <a href="missile_defense_detail.html" class="action-link" title="View missile_defense theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#16</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>defense_electronics</td>
+                <td style="text-align: center;">
+                    <a href="defense_electronics_detail.html" class="action-link" title="View defense_electronics theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#21</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>satellite_technology</td>
+                <td style="text-align: center;">
+                    <a href="satellite_technology_detail.html" class="action-link" title="View satellite_technology theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#22</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>defense_technology</td>
+                <td style="text-align: center;">
+                    <a href="defense_technology_detail.html" class="action-link" title="View defense_technology theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#24</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>satellite_communications</td>
+                <td style="text-align: center;">
+                    <a href="satellite_communications_detail.html" class="action-link" title="View satellite_communications theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#24</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>military_applications</td>
+                <td style="text-align: center;">
+                    <a href="military_applications_detail.html" class="action-link" title="View military_applications theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#30</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>aerospace_defense</td>
+                <td style="text-align: center;">
+                    <a href="aerospace_defense_detail.html" class="action-link" title="View aerospace_defense theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#31</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>heavy_industry_supply</td>
+                <td style="text-align: center;">
+                    <a href="heavy_industry_supply_detail.html" class="action-link" title="View heavy_industry_supply theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#33</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>industrial_automation</td>
+                <td style="text-align: center;">
+                    <a href="industrial_automation_detail.html" class="action-link" title="View industrial_automation theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#34</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>industrial_machinery</td>
+                <td style="text-align: center;">
+                    <a href="industrial_machinery_detail.html" class="action-link" title="View industrial_machinery theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#34</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>airlines</td>
+                <td style="text-align: center;">
+                    <a href="airlines_detail.html" class="action-link" title="View airlines theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#35</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>aerospace_manufacturing</td>
+                <td style="text-align: center;">
+                    <a href="aerospace_manufacturing_detail.html" class="action-link" title="View aerospace_manufacturing theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#39</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>industrial_technologies</td>
+                <td style="text-align: center;">
+                    <a href="industrial_technologies_detail.html" class="action-link" title="View industrial_technologies theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#41</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>energy_exploration</td>
+                <td style="text-align: center;">
+                    <a href="energy_exploration_detail.html" class="action-link" title="View energy_exploration theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#44</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>defense_contracting</td>
+                <td style="text-align: center;">
+                    <a href="defense_contracting_detail.html" class="action-link" title="View defense_contracting theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#51</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            </tbody>
+        </table>
+        
+            </div>
+        </div>
+
+        <!-- Evidence Section -->
+        <div class="section">
+            <div class="section-header">Evidence Details (15 entries)</div>
+            <div class="section-content">
+                
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(0)">
+                    <span>Evidence #1 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q3 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- La empresa opera bajo los segmentos de Espacio y Defensa y Aeronaves Militares. Una parte...</span></span>
+                    <span class="toggle-icon" id="icon-0">▼</span>
+                </div>
+                <div class="evidence-content" id="content-0">
+                    La importante participación de la empresa en la industria aeroespacial y de defensa es evidente a través de su papel como diseñador, fabricante e integrador de sistemas de control de movimiento y fluidos de precisión para este mercado. Sus ofertas incluyen controles de vuelo primarios y secundarios y componentes para aeronaves militares, sistemas de armas con torretas y controles de dirección de misiles. La empresa opera bajo los segmentos de Espacio y Defensa y Aeronaves Militares. Una parte sustancial de los ingresos de la empresa, con el 51% de las ventas de 2024, se deriva del mercado de defensa, que se ve directamente afectado por los niveles de financiación de defensa y la demanda de productos.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q325-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q325-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/moga-FY24-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-FY24-10-K</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(1)">
+                    <span>Evidence #2 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q3 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- La empresa es diseñador, fabricante e integrador de sistemas de controles de movimiento y fluidos...</span></span>
+                    <span class="toggle-icon" id="icon-1">▼</span>
+                </div>
+                <div class="evidence-content" id="content-1">
+                    La participación de la empresa en el tema de Fabricación Aeroespacial es evidente a través de su papel como diseñador, fabricante e integrador de sistemas de controles de movimiento y fluidos de precisión para aplicaciones aeroespaciales. Producen controles de vuelo y componentes para aeronaves comerciales y militares, así como componentes de aviónica de satélites y vehículos espaciales, operando instalaciones de fabricación a nivel mundial. Una parte significativa de los ingresos de la empresa se reconoce a lo largo del tiempo en los segmentos de Espacio y Defensa, Aeronaves Militares y Aeronaves Comerciales, y los negocios aeroespaciales y de defensa representan una parte sustancial de las ventas generales.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q325-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q325-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/moga-FY24-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-FY24-10-K</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q225-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(2)">
+                    <span>Evidence #3 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- La empresa suministra sistemas de control de vuelo para la formación of aerolíneas. La 22% de sus...</span></span>
+                    <span class="toggle-icon" id="icon-2">▼</span>
+                </div>
+                <div class="evidence-content" id="content-2">
+                    La conexión de la empresa con el tema de las Aerolíneas se deriva de su participación en el mercado de aviones comerciales, con el 22% de sus ventas de 2024 atribuidas a este sector, lo que se alinea con los planes de los clientes y está influenciado por la demanda mundial de viajes aéreos y los precios del combustible. El aumento de las ventas netas de aviones comerciales y las ventas de posventa, impulsado por una fuerte utilización de la flota, resalta aún más esta relación. Además, la empresa suministra sistemas de control de vuelo y proporciona sistemas de simulación de vuelo para la formación de aerolíneas, creando un vínculo indirecto con la industria de las aerolíneas a través de su apoyo a fabricantes de aviones como Boeing y Airbus.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q125-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(3)">
+                    <span>Evidence #4 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q3 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- La empresa atiende a múltiples mercados. Su enfoque en los sistemas de control de vuelo resalta la...</span></span>
+                    <span class="toggle-icon" id="icon-3">▼</span>
+                </div>
+                <div class="evidence-content" id="content-3">
+                    La participación de la empresa en Sistemas de Aviación es evidente a través de su diseño, fabricación e integración de controles de vuelo y componentes tanto para aeronaves militares como comerciales. Estos productos y sistemas, que incluyen controles de vuelo primarios y secundarios, son una parte clave de las ofertas de la empresa dentro del mercado aeroespacial y de defensa. La empresa también fabrica aviónica y componentes de satélites, lo que demuestra aún más su compromiso con el sector de la aviación. Si bien la empresa atiende a múltiples mercados, su enfoque en los sistemas de control de vuelo resalta la importancia de los sistemas de aviación para su negocio.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q325-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q325-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/moga-FY24-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-FY24-10-K</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(4)">
+                    <span>Evidence #5 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q3 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- La empresa diseña, fabrica e integra sistemas para los mercados aeroespacial y de defensa. Su...</span></span>
+                    <span class="toggle-icon" id="icon-4">▼</span>
+                </div>
+                <div class="evidence-content" id="content-4">
+                    La empresa demuestra una fuerte conexión con la industria de la contratación de defensa, ya que diseña, fabrica e integra sistemas para los mercados aeroespacial y de defensa. Su participación incluye el suministro de controles de vuelo primarios y secundarios y componentes para aeronaves militares, sistemas de armas con torretas y controles de dirección de misiles. La empresa obtiene una parte sustancial de sus ingresos de contratos del gobierno de EE. UU. dentro del sector de defensa, representando el mercado de defensa el 51% de las ventas de 2024, y mantiene posiciones en programas de alta prioridad como el Lockheed Martin F-35 Lightning II.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q325-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q325-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/moga-FY24-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-FY24-10-K</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(5)">
+                    <span>Evidence #6 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q1 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- La empresa diseña y fabrica sistemas para controles de dirección de misiles tácticos y...</span></span>
+                    <span class="toggle-icon" id="icon-5">▼</span>
+                </div>
+                <div class="evidence-content" id="content-5">
+                    La participación de la empresa en el tema "Tecnología de Defensa" es evidente a través de su desarrollo de controles de movimiento y fluidos de precisión, junto con sistemas de control adaptados para aplicaciones de defensa, con el 51% de las ventas de 2024 provenientes del mercado de defensa. La empresa diseña y fabrica sistemas para controles de dirección de misiles tácticos y estratégicos, sistemas de armas con torretas y aviónica de satélites, integrando sus tecnologías en programas militares de alto rendimiento, incluido el Textron Bell FLRAA. Además, la empresa desarrolla y produce controles de vuelo y dirección para aplicaciones militares, reforzando su papel en el avance de la tecnología de defensa.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q125-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(6)">
+                    <span>Evidence #7 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q3 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- La conexión de la empresa con el tema de la exploración energética se deriva del uso of sus...</span></span>
+                    <span class="toggle-icon" id="icon-6">▼</span>
+                </div>
+                <div class="evidence-content" id="content-6">
+                    La conexión de la empresa con el tema de la exploración energética se deriva del uso de sus productos en la exploración y generación de energía, que forman parte de su mercado industrial. Los productos de la empresa sirven a un mercado influenciado por los precios del petróleo y el gas natural, la urbanización global y los cambios en la oferta y la demanda de energía. Si bien la empresa reconoce que sus productos se utilizan en la exploración y generación de energía, esta aplicación representa una pequeña parte de su mercado industrial, sin detalles específicos sobre tecnología patentada o posicionamiento único.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q325-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q325-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/moga-FY24-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-FY24-10-K</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(7)">
+                    <span>Evidence #8 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q3 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Los productos de la empresa se utilizan en maquinaria industrial pesada para conformado y prensado...</span></span>
+                    <span class="toggle-icon" id="icon-7">▼</span>
+                </div>
+                <div class="evidence-content" id="content-7">
+                    Los productos de la empresa se utilizan en maquinaria industrial pesada para conformado y prensado de metales dentro del mercado industrial. Si bien la empresa proporciona componentes y sistemas para estas aplicaciones, su participación en el suministro de la industria pesada es limitada. Aunque el segmento industrial representa una parte importante de las ventas netas, solo una fracción de esto es atribuible directamente al suministro de la industria pesada.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q325-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q325-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/moga-FY24-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-FY24-10-K</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(8)">
+                    <span>Evidence #9 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q3 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- La empresa participa en el mercado de la automatización industrial. La ventas de automatization...</span></span>
+                    <span class="toggle-icon" id="icon-8">▼</span>
+                </div>
+                <div class="evidence-content" id="content-8">
+                    La empresa participa en el mercado de la automatización industrial, como lo demuestra su segmento industrial que incluye productos de automatización industrial. La empresa invierte en tecnologías de automatización para mejorar las operaciones comerciales, y sus programas se han beneficiado de una mayor demanda de pedidos dentro de la automatización industrial. Sin embargo, las ventas de automatización industrial han disminuido debido a desinversiones, salidas de productos y menor demanda, lo que influye en las cifras de ventas generales de la empresa.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q325-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q325-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/moga-FY24-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-FY24-10-K</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(9)">
+                    <span>Evidence #10 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q3 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- El segmento Industrial contribuye con $240 millones de los $971 millones totales en ventas netas....</span></span>
+                    <span class="toggle-icon" id="icon-9">▼</span>
+                </div>
+                <div class="evidence-content" id="content-9">
+                    La conexión de la empresa con el tema de Maquinaria Industrial se deriva de que sus productos se utilizan en maquinaria industrial pesada, específicamente para el conformado y prensado de metales. La empresa proporciona varios componentes y sistemas para estas aplicaciones dentro del mercado industrial. Si bien la empresa menciona constantemente esta aplicación, no parece ser un enfoque estratégico principal, y el segmento Industrial contribuye con $240 millones de los $971 millones totales en ventas netas.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/moga-FY24-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-FY24-10-K</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q325-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q325-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q125-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(10)">
+                    <span>Evidence #11 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q3 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Empresa diseña, fabrica e integra sistemas de control y controles de movimiento. Esto se ve...</span></span>
+                    <span class="toggle-icon" id="icon-10">▼</span>
+                </div>
+                <div class="evidence-content" id="content-10">
+                    El compromiso de la empresa con el tema de Tecnologías Industriales es evidente en su enfoque en productos tecnológicamente avanzados y el uso de nuevas tecnologías para mejorar la productividad en sus negocios. Esto se ve respaldado además por inversiones en automatización y tecnologías destinadas a mejorar las operaciones comerciales y proporcionar soluciones a los desafíos técnicos de los clientes. La empresa diseña, fabrica e integra sistemas de control y controles de movimiento y fluidos de precisión de alto rendimiento para mercados industriales, destacando su papel como integrador de sistemas tanto en los sectores aeroespacial, de defensa e industrial.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q325-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q325-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(11)">
+                    <span>Evidence #12 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q1 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- La empresa participa en el tema de la industria de 'Aplicaciones Militares' Sus productos incluyen...</span></span>
+                    <span class="toggle-icon" id="icon-11">▼</span>
+                </div>
+                <div class="evidence-content" id="content-11">
+                    La participación de la empresa en el tema de la industria de 'Aplicaciones Militares' es sustancial, como lo demuestra el diseño, la fabricación y la integración de sistemas para los mercados aeroespacial y de defensa. Sus productos incluyen controles de vuelo y componentes para aeronaves militares, sistemas de armas con torretas y controles de dirección de misiles, con una parte significativa de sus ingresos proveniente del mercado de defensa. La empresa también participa en programas de alta prioridad como el Lockheed Martin F-35 Lightning II, y su segmento de Espacio y Defensa ha experimentado un aumento en las ventas debido a la fuerte demanda de aplicaciones de defensa.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/moga-FY24-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-FY24-10-K</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(12)">
+                    <span>Evidence #13 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q3 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- La empresa diseña, fabrica e integra sistemas para aeroespacial y defensa, incluidos componentes...</span></span>
+                    <span class="toggle-icon" id="icon-12">▼</span>
+                </div>
+                <div class="evidence-content" id="content-12">
+                    La participación de la empresa en el tema de Defensa de Misiles se deriva de su producción de controles de dirección de misiles tácticos y estratégicos y varios componentes de productos de defensa, que son integrales para los sistemas de misiles. La empresa diseña, fabrica e integra sistemas para aeroespacial y defensa, incluidos componentes para satélites y misiles. La empresa también reconoce que el mercado de defensa de misiles comparte dependencias similares con los aviones militares en cuanto a las condiciones del mercado, el gasto militar general y los niveles de financiación de programas.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q325-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q325-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/moga-FY24-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-FY24-10-K</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(13)">
+                    <span>Evidence #14 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q3 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- La empresa demuestra su compromiso con la Tecnología Satelital a través ofertas clave dentro del...</span></span>
+                    <span class="toggle-icon" id="icon-13">▼</span>
+                </div>
+                <div class="evidence-content" id="content-13">
+                    La empresa demuestra su compromiso con la Tecnología Satelital a través de su producción de aviónica satelital, controles de posicionamiento y componentes relacionados. Estos productos son ofertas clave dentro del mercado espacial de la empresa, que incluye clientes espaciales civiles, del Departamento de Defensa de EE. UU. y comerciales. La empresa ha visto un aumento en las ventas y una mayor demanda de componentes satelitales y vehículos de lanzamiento, particularmente dentro de su segmento Espacial y de Defensa, lo que indica la importancia de este tema para su negocio.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q325-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q325-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/moga-FY24-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-FY24-10-K</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(14)">
+                    <span>Evidence #15 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q1 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- La empresa demuestra su participación en la Exploración Espacial a través of su segmento de mercado...</span></span>
+                    <span class="toggle-icon" id="icon-14">▼</span>
+                </div>
+                <div class="evidence-content" id="content-14">
+                    La empresa demuestra su participación en la Exploración Espacial a través de su segmento de mercado Espacial, que incluye vehículos espaciales integrados, controles de vector de empuje de lanzadores y componentes relacionados. Además, la empresa apoya las actividades comerciales y de exploración de la NASA, incluido el regreso de la NASA a la Luna, proporcionando aviónica de satélites, controles de posicionamiento y componentes para vehículos de lanzamiento. La empresa anticipa beneficios continuos de las mayores inversiones en estos mercados, destacando la importancia de las actividades relacionadas con el espacio para su negocio.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/moga-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-k/moga-FY24-10-K.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 moga-FY24-10-K</a></div>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleEvidence(idx) {
+            const content = document.getElementById('content-' + idx);
+            const icon = document.getElementById('icon-' + idx);
+
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.classList.remove('active');
+            } else {
+                content.classList.add('active');
+                icon.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
+    

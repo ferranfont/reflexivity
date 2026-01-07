@@ -1,0 +1,1518 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NONE - Company Profile</title>
+    <style>
+        
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --light-bg: #ecf0f1;
+    --border-color: #bdc3c7;
+    --text-color: #2c3e50;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: #fff;
+}
+
+.header {
+    padding: 20px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    background-color: white;
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.home-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
+}
+
+.home-button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.home-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+.company-subtitle {
+    font-size: 0.9rem;
+    font-weight: normal;
+    opacity: 0.9;
+    margin-top: 5px;
+}
+
+.company-subtitle a {
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(255,255,255,0.5);
+    transition: all 0.3s;
+}
+
+.company-subtitle a:hover {
+    border-bottom: 1px solid white;
+    opacity: 1;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.section-header {
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 2px solid var(--border-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+}
+
+.section-content {
+    padding: 20px;
+}
+
+/* Chart Section */
+#chart-container {
+    background-color: white;
+    padding: 0;
+}
+
+/* Info Cards Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.info-card {
+    background-color: var(--light-bg);
+    padding: 15px;
+    border-radius: 4px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.info-label {
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.info-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* Description */
+.description-text {
+    line-height: 1.6;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Rankings Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+    font-weight: 600;
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--border-color);
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.rank-badge {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: inline-block;
+}
+
+.rank-top3 {
+    background-color: #27ae60;
+}
+
+.rank-top10 {
+    background-color: #3498db;
+}
+
+.rank-other {
+    background-color: #95a5a6;
+}
+
+.check-icon {
+    color: #27ae60;
+    font-size: 1.2rem;
+}
+
+.no-icon {
+    color: #ccc;
+    font-size: 1.2rem;
+}
+
+/* Evidence Accordion */
+.evidence-item {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.evidence-header {
+    padding: 12px 15px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: background-color 0.2s;
+    gap: 10px;
+}
+
+.evidence-header span:first-child {
+    flex: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+}
+
+.evidence-header:hover {
+    background-color: #f0f0f0;
+}
+
+.evidence-content {
+    padding: 15px;
+    background-color: white;
+    line-height: 1.6;
+    color: #555;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.evidence-content.active {
+    display: block;
+}
+
+.toggle-icon {
+    transition: transform 0.3s;
+}
+
+.toggle-icon.active {
+    transform: rotate(180deg);
+}
+
+.no-data {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+    font-style: italic;
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            
+            <div>
+                <div>NONE - None</div>
+                <div class="company-subtitle">
+                    Company Investment Profile
+                </div>
+            </div>
+        </div>
+        <a href="main_trends.html" class="home-button" title="Back to Home">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="9 22 9 12 15 12 15 22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+    </div>
+
+    <div class="container">
+        <!-- Price Chart Section -->
+        <div class="section" id="chart-container">
+            <div class="section-header">
+                Price Chart
+                
+            </div>
+            <div class="no-data">No price data available for chart</div>
+        </div>
+
+        <!-- Company Details Section -->
+        <div class="section">
+            <div class="section-header">Company Details and Performance</div>
+            <div class="section-content">
+                
+    <div class="info-grid">
+        <div class="info-card">
+            <div class="info-label">Symbol</div>
+            <div class="info-value">NONE</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Currency</div>
+            <div class="info-value">None</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Exchange</div>
+            <div class="info-value">None</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Asset Type</div>
+            <div class="info-value">None</div>
+        </div>
+    </div>
+    
+                <div class="no-data" style="margin-top: 20px;">No performance data available</div>
+            </div>
+        </div>
+
+        <!-- Description Section -->
+        <div class="section">
+            <div class="section-header">Description</div>
+            <div class="section-content">
+                <div class="description-text">No description available.</div>
+            </div>
+        </div>
+
+        <!-- Rankings Section -->
+        <div class="section">
+            <div class="section-header">Theme Rankings (7 themes)</div>
+            <div class="section-content" style="padding: 0;">
+                
+        <table>
+            <thead>
+                <tr>
+                    <th>Theme Name</th>
+                    <th style="text-align: center; width: 60px;">Theme</th>
+                    <th>Rank</th>
+                    <th style="text-align: center;">Evidence</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            <tr>
+                <td>electrical_components_and_equipment</td>
+                <td style="text-align: center;">
+                    <a href="electrical_components_and_equipment_detail.html" class="action-link" title="View electrical_components_and_equipment theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#6207</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>electrical_components_and_equipment</td>
+                <td style="text-align: center;">
+                    <a href="electrical_components_and_equipment_detail.html" class="action-link" title="View electrical_components_and_equipment theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#9720</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>electrical_components_and_equipment</td>
+                <td style="text-align: center;">
+                    <a href="electrical_components_and_equipment_detail.html" class="action-link" title="View electrical_components_and_equipment theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#11697</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>electrical_components_and_equipment</td>
+                <td style="text-align: center;">
+                    <a href="electrical_components_and_equipment_detail.html" class="action-link" title="View electrical_components_and_equipment theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#11899</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>electrical_components_and_equipment</td>
+                <td style="text-align: center;">
+                    <a href="electrical_components_and_equipment_detail.html" class="action-link" title="View electrical_components_and_equipment theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#13904</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>electrical_components_and_equipment</td>
+                <td style="text-align: center;">
+                    <a href="electrical_components_and_equipment_detail.html" class="action-link" title="View electrical_components_and_equipment theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#6607563</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>electrical_components_and_equipment</td>
+                <td style="text-align: center;">
+                    <a href="electrical_components_and_equipment_detail.html" class="action-link" title="View electrical_components_and_equipment theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#151137271</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            </tbody>
+        </table>
+        
+            </div>
+        </div>
+
+        <!-- Evidence Section -->
+        <div class="section">
+            <div class="section-header">Evidence Details (92 entries)</div>
+            <div class="section-content">
+                
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(0)">
+                    <span>Evidence #1 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-0">▼</span>
+                </div>
+                <div class="evidence-content" id="content-0">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(1)">
+                    <span>Evidence #2 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-1">▼</span>
+                </div>
+                <div class="evidence-content" id="content-1">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(2)">
+                    <span>Evidence #3 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-2">▼</span>
+                </div>
+                <div class="evidence-content" id="content-2">
+                    SMART
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(3)">
+                    <span>Evidence #4 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-3">▼</span>
+                </div>
+                <div class="evidence-content" id="content-3">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(4)">
+                    <span>Evidence #5 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-4">▼</span>
+                </div>
+                <div class="evidence-content" id="content-4">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(5)">
+                    <span>Evidence #6 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-5">▼</span>
+                </div>
+                <div class="evidence-content" id="content-5">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(6)">
+                    <span>Evidence #7 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-6">▼</span>
+                </div>
+                <div class="evidence-content" id="content-6">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(7)">
+                    <span>Evidence #8 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-7">▼</span>
+                </div>
+                <div class="evidence-content" id="content-7">
+                    SMART
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(8)">
+                    <span>Evidence #9 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-8">▼</span>
+                </div>
+                <div class="evidence-content" id="content-8">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(9)">
+                    <span>Evidence #10 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-9">▼</span>
+                </div>
+                <div class="evidence-content" id="content-9">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(10)">
+                    <span>Evidence #11 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-10">▼</span>
+                </div>
+                <div class="evidence-content" id="content-10">
+                    SMART
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(11)">
+                    <span>Evidence #12 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-11">▼</span>
+                </div>
+                <div class="evidence-content" id="content-11">
+                    True
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(12)">
+                    <span>Evidence #13 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-12">▼</span>
+                </div>
+                <div class="evidence-content" id="content-12">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(13)">
+                    <span>Evidence #14 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-13">▼</span>
+                </div>
+                <div class="evidence-content" id="content-13">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(14)">
+                    <span>Evidence #15 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-14">▼</span>
+                </div>
+                <div class="evidence-content" id="content-14">
+                    SMART
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(15)">
+                    <span>Evidence #16 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-15">▼</span>
+                </div>
+                <div class="evidence-content" id="content-15">
+                    False
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(16)">
+                    <span>Evidence #17 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-16">▼</span>
+                </div>
+                <div class="evidence-content" id="content-16">
+                    SMART
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(17)">
+                    <span>Evidence #18 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-17">▼</span>
+                </div>
+                <div class="evidence-content" id="content-17">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(18)">
+                    <span>Evidence #19 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-18">▼</span>
+                </div>
+                <div class="evidence-content" id="content-18">
+                    ADV
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(19)">
+                    <span>Evidence #20 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-19">▼</span>
+                </div>
+                <div class="evidence-content" id="content-19">
+                    STK
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(20)">
+                    <span>Evidence #21 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-20">▼</span>
+                </div>
+                <div class="evidence-content" id="content-20">
+                    STK
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(21)">
+                    <span>Evidence #22 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-21">▼</span>
+                </div>
+                <div class="evidence-content" id="content-21">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(22)">
+                    <span>Evidence #23 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-22">▼</span>
+                </div>
+                <div class="evidence-content" id="content-22">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(23)">
+                    <span>Evidence #24 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-23">▼</span>
+                </div>
+                <div class="evidence-content" id="content-23">
+                    SMART
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(24)">
+                    <span>Evidence #25 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-24">▼</span>
+                </div>
+                <div class="evidence-content" id="content-24">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(25)">
+                    <span>Evidence #26 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-25">▼</span>
+                </div>
+                <div class="evidence-content" id="content-25">
+                    False
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(26)">
+                    <span>Evidence #27 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-26">▼</span>
+                </div>
+                <div class="evidence-content" id="content-26">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(27)">
+                    <span>Evidence #28 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-27">▼</span>
+                </div>
+                <div class="evidence-content" id="content-27">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(28)">
+                    <span>Evidence #29 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-28">▼</span>
+                </div>
+                <div class="evidence-content" id="content-28">
+                    False
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(29)">
+                    <span>Evidence #30 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-29">▼</span>
+                </div>
+                <div class="evidence-content" id="content-29">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(30)">
+                    <span>Evidence #31 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-30">▼</span>
+                </div>
+                <div class="evidence-content" id="content-30">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(31)">
+                    <span>Evidence #32 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-31">▼</span>
+                </div>
+                <div class="evidence-content" id="content-31">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(32)">
+                    <span>Evidence #33 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-32">▼</span>
+                </div>
+                <div class="evidence-content" id="content-32">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(33)">
+                    <span>Evidence #34 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-33">▼</span>
+                </div>
+                <div class="evidence-content" id="content-33">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(34)">
+                    <span>Evidence #35 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-34">▼</span>
+                </div>
+                <div class="evidence-content" id="content-34">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(35)">
+                    <span>Evidence #36 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-35">▼</span>
+                </div>
+                <div class="evidence-content" id="content-35">
+                    SMART
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(36)">
+                    <span>Evidence #37 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-36">▼</span>
+                </div>
+                <div class="evidence-content" id="content-36">
+                    STK
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(37)">
+                    <span>Evidence #38 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-37">▼</span>
+                </div>
+                <div class="evidence-content" id="content-37">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(38)">
+                    <span>Evidence #39 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-38">▼</span>
+                </div>
+                <div class="evidence-content" id="content-38">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(39)">
+                    <span>Evidence #40 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-39">▼</span>
+                </div>
+                <div class="evidence-content" id="content-39">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(40)">
+                    <span>Evidence #41 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-40">▼</span>
+                </div>
+                <div class="evidence-content" id="content-40">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(41)">
+                    <span>Evidence #42 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-41">▼</span>
+                </div>
+                <div class="evidence-content" id="content-41">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(42)">
+                    <span>Evidence #43 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-42">▼</span>
+                </div>
+                <div class="evidence-content" id="content-42">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(43)">
+                    <span>Evidence #44 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-43">▼</span>
+                </div>
+                <div class="evidence-content" id="content-43">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(44)">
+                    <span>Evidence #45 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-44">▼</span>
+                </div>
+                <div class="evidence-content" id="content-44">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(45)">
+                    <span>Evidence #46 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-45">▼</span>
+                </div>
+                <div class="evidence-content" id="content-45">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(46)">
+                    <span>Evidence #47 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-46">▼</span>
+                </div>
+                <div class="evidence-content" id="content-46">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(47)">
+                    <span>Evidence #48 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-47">▼</span>
+                </div>
+                <div class="evidence-content" id="content-47">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(48)">
+                    <span>Evidence #49 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-48">▼</span>
+                </div>
+                <div class="evidence-content" id="content-48">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(49)">
+                    <span>Evidence #50 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-49">▼</span>
+                </div>
+                <div class="evidence-content" id="content-49">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(50)">
+                    <span>Evidence #51 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-50">▼</span>
+                </div>
+                <div class="evidence-content" id="content-50">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(51)">
+                    <span>Evidence #52 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-51">▼</span>
+                </div>
+                <div class="evidence-content" id="content-51">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(52)">
+                    <span>Evidence #53 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-52">▼</span>
+                </div>
+                <div class="evidence-content" id="content-52">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(53)">
+                    <span>Evidence #54 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-53">▼</span>
+                </div>
+                <div class="evidence-content" id="content-53">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(54)">
+                    <span>Evidence #55 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-54">▼</span>
+                </div>
+                <div class="evidence-content" id="content-54">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(55)">
+                    <span>Evidence #56 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-55">▼</span>
+                </div>
+                <div class="evidence-content" id="content-55">
+                    SMART
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(56)">
+                    <span>Evidence #57 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-56">▼</span>
+                </div>
+                <div class="evidence-content" id="content-56">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(57)">
+                    <span>Evidence #58 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-57">▼</span>
+                </div>
+                <div class="evidence-content" id="content-57">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(58)">
+                    <span>Evidence #59 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-58">▼</span>
+                </div>
+                <div class="evidence-content" id="content-58">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(59)">
+                    <span>Evidence #60 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-59">▼</span>
+                </div>
+                <div class="evidence-content" id="content-59">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(60)">
+                    <span>Evidence #61 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-60">▼</span>
+                </div>
+                <div class="evidence-content" id="content-60">
+                    STK
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(61)">
+                    <span>Evidence #62 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-61">▼</span>
+                </div>
+                <div class="evidence-content" id="content-61">
+                    ROK
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(62)">
+                    <span>Evidence #63 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-62">▼</span>
+                </div>
+                <div class="evidence-content" id="content-62">
+                    False
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(63)">
+                    <span>Evidence #64 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-63">▼</span>
+                </div>
+                <div class="evidence-content" id="content-63">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(64)">
+                    <span>Evidence #65 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-64">▼</span>
+                </div>
+                <div class="evidence-content" id="content-64">
+                    True
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(65)">
+                    <span>Evidence #66 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-65">▼</span>
+                </div>
+                <div class="evidence-content" id="content-65">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(66)">
+                    <span>Evidence #67 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-66">▼</span>
+                </div>
+                <div class="evidence-content" id="content-66">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(67)">
+                    <span>Evidence #68 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-67">▼</span>
+                </div>
+                <div class="evidence-content" id="content-67">
+                    EIX
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(68)">
+                    <span>Evidence #69 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-68">▼</span>
+                </div>
+                <div class="evidence-content" id="content-68">
+                    SMART
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(69)">
+                    <span>Evidence #70 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-69">▼</span>
+                </div>
+                <div class="evidence-content" id="content-69">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(70)">
+                    <span>Evidence #71 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-70">▼</span>
+                </div>
+                <div class="evidence-content" id="content-70">
+                    DNOW
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(71)">
+                    <span>Evidence #72 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-71">▼</span>
+                </div>
+                <div class="evidence-content" id="content-71">
+                    SMART
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(72)">
+                    <span>Evidence #73 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-72">▼</span>
+                </div>
+                <div class="evidence-content" id="content-72">
+                    SMART
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(73)">
+                    <span>Evidence #74 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-73">▼</span>
+                </div>
+                <div class="evidence-content" id="content-73">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(74)">
+                    <span>Evidence #75 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-74">▼</span>
+                </div>
+                <div class="evidence-content" id="content-74">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(75)">
+                    <span>Evidence #76 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-75">▼</span>
+                </div>
+                <div class="evidence-content" id="content-75">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(76)">
+                    <span>Evidence #77 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-76">▼</span>
+                </div>
+                <div class="evidence-content" id="content-76">
+                    STK
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(77)">
+                    <span>Evidence #78 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-77">▼</span>
+                </div>
+                <div class="evidence-content" id="content-77">
+                    SMART
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(78)">
+                    <span>Evidence #79 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-78">▼</span>
+                </div>
+                <div class="evidence-content" id="content-78">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(79)">
+                    <span>Evidence #80 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-79">▼</span>
+                </div>
+                <div class="evidence-content" id="content-79">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(80)">
+                    <span>Evidence #81 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-80">▼</span>
+                </div>
+                <div class="evidence-content" id="content-80">
+                    True
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(81)">
+                    <span>Evidence #82 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-81">▼</span>
+                </div>
+                <div class="evidence-content" id="content-81">
+                    MMM
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(82)">
+                    <span>Evidence #83 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-82">▼</span>
+                </div>
+                <div class="evidence-content" id="content-82">
+                    True
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(83)">
+                    <span>Evidence #84 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-83">▼</span>
+                </div>
+                <div class="evidence-content" id="content-83">
+                    AZZ
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(84)">
+                    <span>Evidence #85 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-84">▼</span>
+                </div>
+                <div class="evidence-content" id="content-84">
+                    CMI
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(85)">
+                    <span>Evidence #86 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-85">▼</span>
+                </div>
+                <div class="evidence-content" id="content-85">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(86)">
+                    <span>Evidence #87 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-86">▼</span>
+                </div>
+                <div class="evidence-content" id="content-86">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(87)">
+                    <span>Evidence #88 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-87">▼</span>
+                </div>
+                <div class="evidence-content" id="content-87">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(88)">
+                    <span>Evidence #89 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-88">▼</span>
+                </div>
+                <div class="evidence-content" id="content-88">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(89)">
+                    <span>Evidence #90 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-89">▼</span>
+                </div>
+                <div class="evidence-content" id="content-89">
+                    WSO
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(90)">
+                    <span>Evidence #91 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-90">▼</span>
+                </div>
+                <div class="evidence-content" id="content-90">
+                    None
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(91)">
+                    <span>Evidence #92 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Sin descripción disponible</span></span>
+                    <span class="toggle-icon" id="icon-91">▼</span>
+                </div>
+                <div class="evidence-content" id="content-91">
+                    None
+                    
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleEvidence(idx) {
+            const content = document.getElementById('content-' + idx);
+            const icon = document.getElementById('icon-' + idx);
+
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.classList.remove('active');
+            } else {
+                content.classList.add('active');
+                icon.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
+    

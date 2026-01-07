@@ -107,23 +107,59 @@ def load_theme(theme_name):
     if not csv:
         print(f"Theme CSV for '{theme_name}' not found in {DATA_DIR}")
         return None
-    df = pd.read_csv(csv, on_bad_lines='skip')
-    # ensure columns
-    df.columns = [c.strip() for c in df.columns]
-    # expected: symbol, name, rank, description maybe
-    df['symbol'] = df.get('symbol') if 'symbol' in df.columns else df.iloc[:,0]
-    df['name'] = df.get('name') if 'name' in df.columns else df.get('company_name', df['symbol'])
-    if 'rank' not in df.columns:
-        df['rank'] = range(1, len(df)+1)
-    df = df[['symbol', 'name', 'rank'] + [c for c in df.columns if c not in ('symbol','name','rank')]]
     
-    # Sanitize Rank: Coerce to numeric, fill NaNs with safe defaults
-    df['rank'] = pd.to_numeric(df['rank'], errors='coerce').fillna(0).astype(int)
-    # If all ranks are 0 (bad parse), regenerate
-    if (df['rank'] == 0).all():
+    # Read CSV
+    try:
+        df = pd.read_csv(csv, on_bad_lines='skip', engine='python')
+    except Exception as e:
+        print(f"Error reading {csv}: {e}")
+        return None
+
+    # Normalize columns
+    df.columns = [str(c).strip().lower() for c in df.columns]
+    
+    # Identify Symbol Column
+    sym_col = None
+    if 'symbol' in df.columns: sym_col = 'symbol'
+    elif 'ticker' in df.columns: sym_col = 'ticker'
+    else: 
+        # Fallback: assume first column if it looks like a ticker
+        sym_col = df.columns[0]
+        
+    # Identify Name Column
+    name_col = None
+    if 'company_name' in df.columns: name_col = 'company_name'
+    elif 'name' in df.columns: name_col = 'name'
+    elif 'company' in df.columns: name_col = 'company'
+    
+    # Identify Rank Column
+    rank_col = None
+    if 'rank' in df.columns: rank_col = 'rank'
+    
+    # Extract & Clean
+    df['symbol'] = df[sym_col].astype(str).str.strip().str.upper()
+    
+    # Filter valid symbols
+    df = df[df['symbol'] != 'NAN']
+    df = df[df['symbol'].str.len() > 0]
+    
+    # Set Name
+    if name_col:
+        df['name'] = df[name_col].astype(str).str.strip()
+    else:
+        df['name'] = df['symbol'] # Default to symbol if no name
+        
+    # Set Rank
+    if rank_col:
+        df['rank'] = pd.to_numeric(df[rank_col], errors='coerce').fillna(0).astype(int)
+    else:
         df['rank'] = range(1, len(df) + 1)
         
-    return df
+    # If all ranks are 0, regenerate
+    if (df['rank'] == 0).all():
+         df['rank'] = range(1, len(df) + 1)
+         
+    return df[['symbol', 'name', 'rank']]
 
 def get_company_info(symbol):
     connection_string = f"mysql+mysqlconnector://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
@@ -235,6 +271,27 @@ def generate_breakdown_assets(theme_name, all_symbols):
     full_df = full_df[full_df.index >= start_filter]
     
     if full_df.empty: return None, []
+    
+    # --- Data Cleaning: Filter Unadjusted Splits ---
+    # Calculate returns, mask outliers (>300%), and reconstruct prices
+    try:
+        daily_rets = full_df.pct_change()
+        # Filter outliers
+        daily_rets = daily_rets.mask(daily_rets > 3.0, 0.0)
+        
+        # Reconstruct each column
+        for col in full_df.columns:
+            valid_idx = full_df[col].first_valid_index()
+            if valid_idx is not None:
+                start_price = full_df.loc[valid_idx, col]
+                # Get relevant returns (fill NaNs with 0 for cumulative calc, though strictly they shouldn't exist after ffill)
+                series_rets = daily_rets.loc[valid_idx:, col].fillna(0)
+                # Reconstruct: Price_t = Price_0 * CumProd(1+r)
+                # We need to ensure alignment.
+                full_df.loc[valid_idx:, col] = start_price * (1 + series_rets).cumprod()
+    except Exception as e:
+        print(f"Warning: Data cleaning failed: {e}")
+
 
     # 2. Calculate ROI & Rank
     roi_map = []
@@ -430,13 +487,42 @@ def generate_theme_html(theme_name):
                 print(f"Error generating profile for {sym}: {e}")
     # --------------------------------------
     companies = []
+    companies = []
     for _, r in df_theme.sort_values('rank').iterrows():
         sym = str(r['symbol']).upper()
         info = get_company_info(sym)
+        
+        # Determine Name (Priority: DB Name if valid > CSV Name > Symbol)
+        db_name = None
+        if info and info.get('name') and str(info['name']).strip().lower() != 'nan':
+             clean_db_name = str(info['name']).strip()
+             # Validate DB Name integrity
+             if len(clean_db_name) < 60 and 'http' not in clean_db_name and '{' not in clean_db_name:
+                 db_name = clean_db_name
+        
+        csv_name = str(r.get('name', '')).strip()
+        if csv_name.lower() == 'nan' or csv_name == '':
+            csv_name = None
+            
+        # Decision Logic
+        if db_name:
+            company_name = db_name
+        elif csv_name:
+            # Fallback to CSV name, but clean it too just in case
+            if len(csv_name) < 60 and 'http' not in csv_name:
+                company_name = csv_name
+            else:
+                company_name = sym # CSV name also bad? Use symbol.
+        else:
+            company_name = sym
+
+        # Formatting Name: Remove quotes if they exist
+        company_name = company_name.strip("'").strip('"')
+
         companies.append({
             'symbol': sym,
-            'name': info['name'] if info and info.get('name') else r.get('name', sym),
-            'description': info.get('description','')[:150] + '...' if info and info.get('description') else 'No description available.',
+            'name': company_name,
+            'description': info.get('description', '')[:150] + '...' if info and info.get('description') else 'No description available.',
             'rank': int(r['rank']) if not pd.isnull(r['rank']) else ''
         })
 
@@ -748,10 +834,7 @@ def generate_theme_html(theme_name):
         </div>
         """
     
-    html += """
-
-
-
+    html += f"""
     <!-- Companies Section -->
     <div class="content-box">
         <div class="section-header-clean">

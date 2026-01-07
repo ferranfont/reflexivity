@@ -72,18 +72,22 @@ def get_spy_data(start_date, end_date):
 
 def get_theme_symbols(theme_name):
     target = theme_name.lower().replace(" ", "_").replace("-", "_")
+    # Try alternate with 'and' for '&'
+    target_and = target.replace("&", "and")
 
     if THEMES_DIR.exists():
         # First pass: exact matches
         for f in os.listdir(THEMES_DIR):
             if f.lower().endswith(".csv"):
                 fname = f.lower()[:-4].replace("-", "_")
-                if fname == target:
+                # Check both variants
+                if fname == target or fname == target_and:
                     try:
                         df = pd.read_csv(THEMES_DIR / f, on_bad_lines='skip')
                         for col in df.columns:
                             if 'symbol' in col.lower() or 'ticker' in col.lower():
-                                return df[col].dropna().unique().tolist()
+                                raw_symbols = df[col].dropna().unique().tolist()
+                                return [s.strip().upper() for s in raw_symbols if isinstance(s, str)]
                     except:
                         continue
 
@@ -117,7 +121,8 @@ def get_theme_symbols(theme_name):
                 df = pd.read_csv(THEMES_DIR / best_match, on_bad_lines='skip')
                 for col in df.columns:
                     if 'symbol' in col.lower() or 'ticker' in col.lower():
-                        return df[col].dropna().unique().tolist()
+                        raw_symbols = df[col].dropna().unique().tolist()
+                        return [s.strip().upper() for s in raw_symbols if isinstance(s, str)]
             except:
                 pass
 
@@ -469,6 +474,11 @@ def main():
     # full.dropna(how='all', inplace=True) but we want continuous
     
     daily_ret = full.pct_change()
+    
+    # --- Data Cleaning ---
+    # Filter out extreme outliers (>300% daily)
+    daily_ret = daily_ret.mask(daily_ret > 3.0, 0.0)
+    
     avg_daily_ret = daily_ret.mean(axis=1).fillna(0)
     equity_curve = (1 + avg_daily_ret).cumprod()
     

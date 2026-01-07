@@ -299,6 +299,9 @@ def generate_html(industries, themes):
             </div>
             <p style="color:#666; margin-bottom:15px;">Explore all investment themes. Click on a theme to view detailed analysis.</p>
             
+            <a href="industry_explorer.html" class="browse-btn">Browse Trends Explorer</a>
+            <br>
+            
             <input type="text" id="themeFilter" class="filter-input" placeholder="Filter themes..." onkeyup="filterThemes()">
             
             <div class="grid" id="themesGrid">
@@ -314,8 +317,7 @@ def generate_html(industries, themes):
             </div>
             <p style="color:#666; margin-bottom:15px;">Browse companies by industry sector. Click on an industry to explore all investment themes.</p>
             
-            <a href="industry_explorer.html" class="browse-btn">Browse Trends Explorer</a>
-            <br>
+
 
             <div class="grid">
                 {ind_html}

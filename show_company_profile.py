@@ -374,6 +374,23 @@ def calculate_performance_metrics(symbol):
 
     # Convert date to datetime
     df['date'] = pd.to_datetime(df['date'])
+    
+    # --- Data Cleaning ---
+    # Sort Ascending for calculation
+    df = df.sort_values('date', ascending=True)
+    
+    try:
+        daily_ret = df['close'].pct_change()
+        # Filter > 300%
+        daily_ret = daily_ret.mask(daily_ret > 3.0, 0.0)
+        
+        # Reconstruct
+        if not df.empty:
+            start_price = df.iloc[0]['close']
+            df['close'] = start_price * (1 + daily_ret.fillna(0)).cumprod()
+    except: pass
+    
+    # Sort Descending as expected by rest of function
     df = df.sort_values('date', ascending=False).reset_index(drop=True)
 
     # Get latest data point
@@ -609,8 +626,12 @@ def generate_interactive_stock_chart(symbol, height=450):
         equity_df = portfolio_df.copy()
 
     # Calculation
-    t0 = equity_df['portfolio'].iloc[0]
-    equity_df['roi'] = (equity_df['portfolio'] / t0 - 1) * 100
+    # Calculation with Data Cleaning
+    daily_ret = equity_df['portfolio'].pct_change()
+    daily_ret = daily_ret.mask(daily_ret > 3.0, 0.0)
+    
+    # Reconstruct Cumulative ROI
+    equity_df['roi'] = ((1 + daily_ret.fillna(0)).cumprod() - 1) * 100
     
     subtitle_init = "Performance: N/A"
     

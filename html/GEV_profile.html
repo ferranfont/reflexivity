@@ -1,0 +1,1153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEV - Company Profile</title>
+    <style>
+        
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --light-bg: #ecf0f1;
+    --border-color: #bdc3c7;
+    --text-color: #2c3e50;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: #fff;
+}
+
+.header {
+    padding: 20px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    background-color: white;
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.home-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
+}
+
+.home-button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.home-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+.company-subtitle {
+    font-size: 0.9rem;
+    font-weight: normal;
+    opacity: 0.9;
+    margin-top: 5px;
+}
+
+.company-subtitle a {
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(255,255,255,0.5);
+    transition: all 0.3s;
+}
+
+.company-subtitle a:hover {
+    border-bottom: 1px solid white;
+    opacity: 1;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.section-header {
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 2px solid var(--border-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+}
+
+.section-content {
+    padding: 20px;
+}
+
+/* Chart Section */
+#chart-container {
+    background-color: white;
+    padding: 0;
+}
+
+/* Info Cards Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.info-card {
+    background-color: var(--light-bg);
+    padding: 15px;
+    border-radius: 4px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.info-label {
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.info-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* Description */
+.description-text {
+    line-height: 1.6;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Rankings Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+    font-weight: 600;
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--border-color);
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.rank-badge {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: inline-block;
+}
+
+.rank-top3 {
+    background-color: #27ae60;
+}
+
+.rank-top10 {
+    background-color: #3498db;
+}
+
+.rank-other {
+    background-color: #95a5a6;
+}
+
+.check-icon {
+    color: #27ae60;
+    font-size: 1.2rem;
+}
+
+.no-icon {
+    color: #ccc;
+    font-size: 1.2rem;
+}
+
+/* Evidence Accordion */
+.evidence-item {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.evidence-header {
+    padding: 12px 15px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: background-color 0.2s;
+    gap: 10px;
+}
+
+.evidence-header span:first-child {
+    flex: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+}
+
+.evidence-header:hover {
+    background-color: #f0f0f0;
+}
+
+.evidence-content {
+    padding: 15px;
+    background-color: white;
+    line-height: 1.6;
+    color: #555;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.evidence-content.active {
+    display: block;
+}
+
+.toggle-icon {
+    transition: transform 0.3s;
+}
+
+.toggle-icon.active {
+    transform: rotate(180deg);
+}
+
+.no-data {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+    font-style: italic;
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <img src="data:image/png;base64,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" alt="GE VERNOVA INC Logo" class="header-logo" />
+            <div>
+                <div>GEV - GE VERNOVA INC</div>
+                <div class="company-subtitle">
+                    <a href="https://gevernova.com" target="_blank">🌐 gevernova.com</a>
+                </div>
+            </div>
+        </div>
+        <a href="main_trends.html" class="home-button" title="Back to Home">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="9 22 9 12 15 12 15 22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+    </div>
+
+    <div class="container">
+        <!-- Price Chart Section -->
+        <div class="section" id="chart-container">
+            <div class="section-header">
+                Price Chart
+                <a href="stock_chart_gev.html" target="_blank" style="float: right; font-size: 0.85rem; background-color: var(--accent-color); color: white; padding: 5px 10px; text-decoration: none; border-radius: 4px; margin-top: -3px;">View Full Chart ⤢</a>
+            </div>
+            <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>                <div id="interactive-chart" class="plotly-graph-div" style="height:450px; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("interactive-chart")) {                    Plotly.newPlot(                        "interactive-chart",                        [{"fill":"tozeroy","fillcolor":"rgba(0, 200, 83, 0.05)","fillgradient":{"colorscale":[[0,"rgba(0, 200, 83, 0.05)"],[1,"rgba(0, 200, 83, 0.6)"]],"type":"vertical"},"hoverinfo":"skip","mode":"none","showlegend":false,"x":["2024-03-27T00:00:00","2024-03-28T00:00:00","2024-04-01T00:00:00","2024-04-02T00:00:00","2024-04-03T00:00:00","2024-04-04T00:00:00","2024-04-05T00:00:00","2024-04-08T00:00:00","2024-04-09T00:00:00","2024-04-10T00:00:00","2024-04-11T00:00:00","2024-04-12T00:00:00","2024-04-15T00:00:00","2024-04-16T00:00:00","2024-04-17T00:00:00","2024-04-18T00:00:00","2024-04-19T00:00:00","2024-04-22T00:00:00","2024-04-23T00:00:00","2024-04-24T00:00:00","2024-04-25T00:00:00","2024-04-26T00:00:00","2024-04-29T00:00:00","2024-04-30T00:00:00","2024-05-01T00:00:00","2024-05-02T00:00:00","2024-05-03T00:00:00","2024-05-06T00:00:00","2024-05-07T00:00:00","2024-05-08T00:00:00","2024-05-09T00:00:00","2024-05-10T00:00:00","2024-05-13T00:00:00","2024-05-14T00:00:00","2024-05-15T00:00:00","2024-05-16T00:00:00","2024-05-17T00:00:00","2024-05-20T00:00:00","2024-05-21T00:00:00","2024-05-22T00:00:00","2024-05-23T00:00:00","2024-05-24T00:00:00","2024-05-28T00:00:00","2024-05-29T00:00:00","2024-05-30T00:00:00","2024-05-31T00:00:00","2024-06-03T00:00:00","2024-06-04T00:00:00","2024-06-05T00:00:00","2024-06-06T00:00:00","2024-06-07T00:00:00","2024-06-10T00:00:00","2024-06-11T00:00:00","2024-06-12T00:00:00","2024-06-13T00:00:00","2024-06-14T00:00:00","2024-06-17T00:00:00","2024-06-18T00:00:00","2024-06-20T00:00:00","2024-06-21T00:00:00","2024-06-24T00:00:00","2024-06-25T00:00:00","2024-06-26T00:00:00","2024-06-27T00:00:00","2024-06-28T00:00:00","2024-07-01T00:00:00","2024-07-02T00:00:00","2024-07-03T00:00:00","2024-07-05T00:00:00","2024-07-08T00:00:00","2024-07-09T00:00:00","2024-07-10T00:00:00","2024-07-11T00:00:00","2024-07-12T00:00:00","2024-07-15T00:00:00","2024-07-16T00:00:00","2024-07-17T00:00:00","2024-07-18T00:00:00","2024-07-19T00:00:00","2024-07-22T00:00:00","2024-07-23T00:00:00","2024-07-24T00:00:00","2024-07-25T00:00:00","2024-07-26T00:00:00","2024-07-29T00:00:00","2024-07-30T00:00:00","2024-07-31T00:00:00","2024-08-01T00:00:00","2024-08-02T00:00:00","2024-08-05T00:00:00","2024-08-06T00:00:00","2024-08-07T00:00:00","2024-08-08T00:00:00","2024-08-09T00:00:00","2024-08-12T00:00:00","2024-08-13T00:00:00","2024-08-14T00:00:00","2024-08-15T00:00:00","2024-08-16T00:00:00","2024-08-19T00:00:00","2024-08-20T00:00:00","2024-08-21T00:00:00","2024-08-22T00:00:00","2024-08-23T00:00:00","2024-08-26T00:00:00","2024-08-27T00:00:00","2024-08-28T00:00:00","2024-08-29T00:00:00","2024-08-30T00:00:00","2024-09-03T00:00:00","2024-09-04T00:00:00","2024-09-05T00:00:00","2024-09-06T00:00:00","2024-09-09T00:00:00","2024-09-10T00:00:00","2024-09-11T00:00:00","2024-09-12T00:00:00","2024-09-13T00:00:00","2024-09-16T00:00:00","2024-09-17T00:00:00","2024-09-18T00:00:00","2024-09-19T00:00:00","2024-09-20T00:00:00","2024-09-23T00:00:00","2024-09-24T00:00:00","2024-09-25T00:00:00","2024-09-26T00:00:00","2024-09-27T00:00:00","2024-09-30T00:00:00","2024-10-01T00:00:00","2024-10-02T00:00:00","2024-10-03T00:00:00","2024-10-04T00:00:00","2024-10-07T00:00:00","2024-10-08T00:00:00","2024-10-09T00:00:00","2024-10-10T00:00:00","2024-10-11T00:00:00","2024-10-14T00:00:00","2024-10-15T00:00:00","2024-10-16T00:00:00","2024-10-17T00:00:00","2024-10-18T00:00:00","2024-10-21T00:00:00","2024-10-22T00:00:00","2024-10-23T00:00:00","2024-10-24T00:00:00","2024-10-25T00:00:00","2024-10-28T00:00:00","2024-10-29T00:00:00","2024-10-30T00:00:00","2024-10-31T00:00:00","2024-11-01T00:00:00","2024-11-04T00:00:00","2024-11-05T00:00:00","2024-11-06T00:00:00","2024-11-07T00:00:00","2024-11-08T00:00:00","2024-11-11T00:00:00","2024-11-12T00:00:00","2024-11-13T00:00:00","2024-11-14T00:00:00","2024-11-15T00:00:00","2024-11-18T00:00:00","2024-11-19T00:00:00","2024-11-20T00:00:00","2024-11-21T00:00:00","2024-11-22T00:00:00","2024-11-25T00:00:00","2024-11-26T00:00:00","2024-11-27T00:00:00","2024-11-29T00:00:00","2024-12-02T00:00:00","2024-12-03T00:00:00","2024-12-04T00:00:00","2024-12-05T00:00:00","2024-12-06T00:00:00","2024-12-09T00:00:00","2024-12-10T00:00:00","2024-12-11T00:00:00","2024-12-12T00:00:00","2024-12-13T00:00:00","2024-12-16T00:00:00","2024-12-17T00:00:00","2024-12-18T00:00:00","2024-12-19T00:00:00","2024-12-20T00:00:00","2024-12-23T00:00:00","2024-12-24T00:00:00","2024-12-26T00:00:00","2024-12-27T00:00:00","2024-12-30T00:00:00","2024-12-31T00:00:00","2025-01-02T00:00:00","2025-01-03T00:00:00","2025-01-06T00:00:00","2025-01-07T00:00:00","2025-01-08T00:00:00","2025-01-10T00:00:00","2025-01-13T00:00:00","2025-01-14T00:00:00","2025-01-15T00:00:00","2025-01-16T00:00:00","2025-01-17T00:00:00","2025-01-21T00:00:00","2025-01-22T00:00:00","2025-01-23T00:00:00","2025-01-24T00:00:00","2025-01-27T00:00:00","2025-01-28T00:00:00","2025-01-29T00:00:00","2025-01-30T00:00:00","2025-01-31T00:00:00","2025-02-03T00:00:00","2025-02-04T00:00:00","2025-02-05T00:00:00","2025-02-06T00:00:00","2025-02-07T00:00:00","2025-02-10T00:00:00","2025-02-11T00:00:00","2025-02-12T00:00:00","2025-02-13T00:00:00","2025-02-14T00:00:00","2025-02-18T00:00:00","2025-02-19T00:00:00","2025-02-20T00:00:00","2025-02-21T00:00:00","2025-02-24T00:00:00","2025-02-25T00:00:00","2025-02-26T00:00:00","2025-02-27T00:00:00","2025-02-28T00:00:00","2025-03-03T00:00:00","2025-03-04T00:00:00","2025-03-05T00:00:00","2025-03-06T00:00:00","2025-03-07T00:00:00","2025-03-10T00:00:00","2025-03-11T00:00:00","2025-03-12T00:00:00","2025-03-13T00:00:00","2025-03-14T00:00:00","2025-03-17T00:00:00","2025-03-18T00:00:00","2025-03-19T00:00:00","2025-03-20T00:00:00","2025-03-21T00:00:00","2025-03-24T00:00:00","2025-03-25T00:00:00","2025-03-26T00:00:00","2025-03-27T00:00:00","2025-03-28T00:00:00","2025-03-31T00:00:00","2025-04-01T00:00:00","2025-04-02T00:00:00","2025-04-03T00:00:00","2025-04-04T00:00:00","2025-04-07T00:00:00","2025-04-08T00:00:00","2025-04-09T00:00:00","2025-04-10T00:00:00","2025-04-11T00:00:00","2025-04-14T00:00:00","2025-04-15T00:00:00","2025-04-16T00:00:00","2025-04-17T00:00:00","2025-04-21T00:00:00","2025-04-22T00:00:00","2025-04-23T00:00:00","2025-04-24T00:00:00","2025-04-25T00:00:00","2025-04-28T00:00:00","2025-04-29T00:00:00","2025-04-30T00:00:00","2025-05-01T00:00:00","2025-05-02T00:00:00","2025-05-05T00:00:00","2025-05-06T00:00:00","2025-05-07T00:00:00","2025-05-08T00:00:00","2025-05-09T00:00:00","2025-05-12T00:00:00","2025-05-13T00:00:00","2025-05-14T00:00:00","2025-05-15T00:00:00","2025-05-16T00:00:00","2025-05-19T00:00:00","2025-05-20T00:00:00","2025-05-21T00:00:00","2025-05-22T00:00:00","2025-05-23T00:00:00","2025-05-27T00:00:00","2025-05-28T00:00:00","2025-05-29T00:00:00","2025-05-30T00:00:00","2025-06-02T00:00:00","2025-06-03T00:00:00","2025-06-04T00:00:00","2025-06-05T00:00:00","2025-06-06T00:00:00","2025-06-09T00:00:00","2025-06-10T00:00:00","2025-06-11T00:00:00","2025-06-12T00:00:00","2025-06-13T00:00:00","2025-06-16T00:00:00","2025-06-17T00:00:00","2025-06-18T00:00:00","2025-06-20T00:00:00","2025-06-23T00:00:00","2025-06-24T00:00:00","2025-06-25T00:00:00","2025-06-26T00:00:00","2025-06-27T00:00:00","2025-06-30T00:00:00","2025-07-01T00:00:00","2025-07-02T00:00:00","2025-07-03T00:00:00","2025-07-07T00:00:00","2025-07-08T00:00:00","2025-07-09T00:00:00","2025-07-10T00:00:00","2025-07-11T00:00:00","2025-07-14T00:00:00","2025-07-15T00:00:00","2025-07-16T00:00:00","2025-07-17T00:00:00","2025-07-18T00:00:00","2025-07-21T00:00:00","2025-07-22T00:00:00","2025-07-23T00:00:00","2025-07-24T00:00:00","2025-07-25T00:00:00","2025-07-28T00:00:00","2025-07-29T00:00:00","2025-07-30T00:00:00","2025-07-31T00:00:00","2025-08-01T00:00:00","2025-08-04T00:00:00","2025-08-05T00:00:00","2025-08-06T00:00:00","2025-08-07T00:00:00","2025-08-08T00:00:00","2025-08-11T00:00:00","2025-08-12T00:00:00","2025-08-13T00:00:00","2025-08-14T00:00:00","2025-08-15T00:00:00","2025-08-18T00:00:00","2025-08-19T00:00:00","2025-08-20T00:00:00","2025-08-21T00:00:00","2025-08-22T00:00:00","2025-08-25T00:00:00","2025-08-26T00:00:00","2025-08-27T00:00:00","2025-08-28T00:00:00","2025-08-29T00:00:00","2025-09-02T00:00:00","2025-09-03T00:00:00","2025-09-04T00:00:00","2025-09-05T00:00:00","2025-09-08T00:00:00","2025-09-09T00:00:00","2025-09-10T00:00:00","2025-09-11T00:00:00","2025-09-12T00:00:00","2025-09-15T00:00:00","2025-09-16T00:00:00","2025-09-17T00:00:00","2025-09-18T00:00:00","2025-09-19T00:00:00","2025-09-22T00:00:00","2025-09-23T00:00:00","2025-09-24T00:00:00","2025-09-25T00:00:00","2025-09-26T00:00:00","2025-09-29T00:00:00","2025-09-30T00:00:00","2025-10-01T00:00:00","2025-10-02T00:00:00","2025-10-03T00:00:00","2025-10-06T00:00:00","2025-10-07T00:00:00","2025-10-08T00:00:00","2025-10-09T00:00:00","2025-10-10T00:00:00","2025-10-13T00:00:00","2025-10-14T00:00:00","2025-10-15T00:00:00","2025-10-16T00:00:00","2025-10-17T00:00:00","2025-10-20T00:00:00","2025-10-21T00:00:00","2025-10-22T00:00:00","2025-10-23T00:00:00","2025-10-24T00:00:00","2025-10-27T00:00:00","2025-10-28T00:00:00","2025-10-29T00:00:00","2025-10-30T00:00:00","2025-10-31T00:00:00","2025-11-03T00:00:00","2025-11-04T00:00:00","2025-11-05T00:00:00","2025-11-06T00:00:00","2025-11-07T00:00:00","2025-11-10T00:00:00","2025-11-11T00:00:00","2025-11-12T00:00:00","2025-11-13T00:00:00","2025-11-14T00:00:00","2025-11-17T00:00:00","2025-11-18T00:00:00","2025-11-19T00:00:00","2025-11-20T00:00:00","2025-11-21T00:00:00","2025-11-24T00:00:00","2025-11-25T00:00:00","2025-11-26T00:00:00","2025-11-28T00:00:00","2025-12-01T00:00:00","2025-12-02T00:00:00","2025-12-03T00:00:00","2025-12-04T00:00:00","2025-12-05T00:00:00","2025-12-08T00:00:00","2025-12-09T00:00:00","2025-12-10T00:00:00","2025-12-11T00:00:00","2025-12-12T00:00:00","2025-12-15T00:00:00","2025-12-16T00:00:00","2025-12-17T00:00:00","2025-12-18T00:00:00","2025-12-19T00:00:00","2025-12-22T00:00:00","2025-12-23T00:00:00","2025-12-24T00:00:00","2025-12-26T00:00:00","2025-12-29T00:00:00","2025-12-30T00:00:00","2025-12-31T00:00:00","2026-01-02T00:00:00","2026-01-05T00:00:00","2026-01-06T00:00:00","2026-01-07T00:00:00"],"y":[0.0,4.190468917061252,8.20528486329617,6.666412097143759,4.6395295555216265,-3.954482969298889,-6.514434091950482,-0.9828929280586207,0.7010844661677451,5.42462196425848,4.05300137467548,2.0948526042462445,0.3810905758362848,-0.8988849854895009,2.666870322285031,4.54864823583323,2.9334046127997837,4.144646402932661,12.632503436688602,11.375439132427111,12.998319841148653,16.624408125859212,21.150145104628095,17.11241790132889,15.558270963800247,17.204062929586115,26.67404918283185,28.868183901023393,27.51260119138539,24.952650068733796,26.780968382465264,27.44386742019247,23.07010844661679,26.194440201619074,27.900565144340938,26.780968382465264,23.90102336948221,22.62868489384453,24.899190468917087,24.838093783412262,23.177027646250224,35.184817473652096,35.68733771192918,35.10080953108299,33.39392087979232,34.018634489079005,29.805254314953466,24.221017259813692,24.56392240720944,22.14067511837485,23.489384450893546,26.963494730410886,28.175500229112572,35.25355124484497,34.224835802657715,29.6532763097602,28.578738353444333,36.81533526806173,34.99389033144955,33.889567740950085,35.725523140369674,38.24728883458075,37.142966244081286,34.30808003665806,30.674354666259383,27.634030853826207,29.3791049335574,31.565602566060846,34.270658316786374,32.85321521307476,31.79395142813508,36.9367649305026,34.62883763555833,37.485871391477076,35.19245455934021,39.23018176263944,26.346418206812316,23.03956010386441,24.449366121887948,27.055139758668155,29.89689934321069,24.1140980601803,21.904689170612592,31.893233542080424,31.085229876279307,23.962120054987125,35.80189399725076,32.594318008248166,25.50862990682767,23.611577821903285,25.219184359248636,26.529708263326835,35.01680158851397,36.464793034978,34.43027340766778,36.876431953566644,40.31235680464349,43.862837941041846,40.23598594776247,41.25706430426164,40.190163433633884,40.388727661524506,41.714525736978935,39.649457766916306,38.76584695280296,41.371620589583166,40.19016343363386,45.79807545440675,53.142660760653925,46.704597525584425,52.09867114709046,51.19214907591283,51.1081411333437,53.75973728425254,53.91247899801457,59.35237513364924,64.01481594623515,71.87795937070437,75.18481747365232,80.68581029479176,79.55781273865918,86.24713609286725,87.01695433022788,91.64197342294212,94.65098518405408,94.32335420803453,91.40522376661096,90.36963494730439,94.27065831678658,95.45135176416709,92.22086451810017,94.04154574614358,102.35374980907315,100.03054834275274,101.34870933251902,103.12356804643383,101.6152436230338,103.34427982282,105.33297693600163,102.94104169848825,109.34855659080536,107.23766610661416,107.78677256758864,110.61325798075497,110.60562089506685,113.24194287459947,126.2853215213079,123.64899954177528,120.36581640446049,127.63403085382663,126.74278295402517,129.8358026577062,129.40201619062205,125.11226515961545,140.58652818084659,156.2280433786471,156.59385978310715,159.94654040018366,166.23949900717923,146.6358637543917,153.91247899801476,148.4114861768753,151.24560867572973,147.9005651443413,159.04765541469413,161.1577821903165,158.9330991293726,166.02642431648115,150.65144340919537,158.20146632045245,155.48953719260763,154.5677409500538,157.17275087826516,152.8914006415155,161.90468917061276,165.24133190774432,164.0071788605471,155.42844050710278,149.4394379104936,161.9428745990533,151.35940125248231,152.96013441270838,157.30258133496284,150.16343363372567,141.6152436230337,153.5619367649308,161.2700473499316,162.99373758973607,164.80067206354093,161.58316786314379,154.5150450588059,151.815335268062,150.80189399725094,158.43363372537073,169.93966702306435,183.12280433786506,180.9882388880407,179.4325645333745,179.90530013746792,179.683824652513,191.46479303497824,195.1015732396521,198.1281502978467,206.06613716205925,217.19031617534785,225.65373453490184,233.74369940430773,220.61402168932375,151.6175347487402,170.77058194592976,169.34473804796121,191.9825874446315,184.3126622880712,175.79578432870048,171.8458836108144,180.53841454101146,185.79883916297572,188.1930655261955,193.55353597067392,184.32793645944736,181.84970215365848,182.35298610050438,180.27875362761603,184.59447074996214,186.0814113334355,174.24774705972234,150.00076370856908,140.87368260271904,142.23155643806354,155.61249427218607,148.78112112417935,155.5666717580575,140.92714220253586,138.70856881014237,141.55261952039132,123.56575530777488,120.58423705514008,105.96761875668275,116.7038338170157,127.73636780204698,128.92622575225317,139.1354819001072,153.1121124179016,143.17702764625045,156.03940736215088,156.8252634794565,154.56850465862257,161.96425843898004,156.344890789675,142.2391935237516,131.03024285932517,130.97678325950838,132.76920727050583,140.6682449977091,152.22697418665066,126.95891247899826,106.9970979074387,118.12204062929604,118.74675423858277,149.18512295707978,136.32961661829864,145.08324423400046,145.74614327172765,150.519321826791,150.21460210783576,146.88712387353002,138.8979685352071,148.8101420497939,156.45639224072104,175.07484343974352,184.17824957996044,182.3774247747061,183.23965174889278,182.95707957843302,191.70917977699725,202.41561020314666,206.06231861921506,206.1616007331604,210.42003971284578,200.64457003207593,204.65862226974204,217.91278448144203,230.6560256606081,230.28180846189113,225.80265770581966,226.63433633725393,240.78203757446187,243.40690392546227,245.6881014204982,250.10615549106484,254.3569573850621,259.78921643500865,270.09088131968866,259.53031923018204,260.91110432259075,270.2054376050102,276.1646555674358,272.4713609286699,269.55704903009047,270.08324423400063,266.26775622422514,255.05880555979866,268.91553383228984,272.120818695586,265.08553535970697,272.28119749503617,272.8761264701393,274.0438368718499,271.57858561173083,281.4372995265009,289.80067206354073,283.56651901634365,286.72521765694233,296.53047197189574,303.77195662135347,286.10737742477494,285.39789216435025,294.5318466473196,304.6341835955401,304.4211089048421,308.82388880403255,311.56331144035454,311.41056972659254,323.5275698793342,327.0146632045213,328.20528486329624,335.07255231403707,338.4534901481596,332.0100809531084,319.09347792882244,380.1955093936155,376.33267145257383,392.0734687643197,394.41729036199797,382.97388116694674,400.02062013135793,404.059111043226,401.16541927600434,405.9523445853063,395.98976630517797,407.3109821292195,393.04337864670833,395.5093936153964,396.78402321674054,401.88330533068586,384.22636321979536,377.3247288834581,374.7601955093936,377.1345654498243,360.42385825568965,361.5381090575836,362.6141744310371,363.43134259966405,359.79761722926537,377.81350236749665,375.1267756224226,383.7528639071332,367.9356957385063,342.52176569421124,340.50633878112126,357.1254009469987,344.35390255078676,358.2098671147092,362.38582556896296,391.2876126470141,384.10416984878583,377.538567282725,379.9282113945319,371.70612494272194,369.32488162517194,366.4311898579503,376.48541316633583,391.90621658775024,383.5390255078663,380.1496868794869,363.77501145562866,361.9810600274936,359.8892622575226,369.408889567741,362.72873071635877,362.78982740186353,354.2095616312816,360.4925920268826,362.70581945929433,377.4621964258439,384.1958148770429,361.51519780051933,394.8678784175959,391.9360012219338,370.2100198564229,359.5608675729343,358.0342141438829,353.6963494730413,347.0215365816407,339.896135634642,354.52115472735625,346.30365052695913,346.30365052695913,336.0623186192151,341.400641515198,338.4221780968384,346.8764319535667,343.91324270658333,318.4817473652056,327.4476859630367,320.169543302276,339.2317091797771,342.7982281961205,339.95723232014683,339.43791049335584,326.2792118527571,341.66030242859335,340.6751183748283,323.80479608981216,354.68917061249437,326.17229265312363,324.4997708874295,343.3251871085995,337.268978157935,350.37421719871713,358.049488315259,340.5834733465711,359.4318008248055,359.72964716664154,380.4566977241488,382.14449366121926,374.9503589430277,377.5469680769821,452.1612952497331,437.80357415610246,412.9906827554609,420.35283335879063,424.072094088896,369.0621658775015,388.3381701542694,402.73407667634064,405.4299679242404,405.1550328394688,409.6380021383844,406.6900870627772,406.6900870627772,403.7727203299224,399.1370093172448,418.97815793493226,419.9786161600735,420.2535512448452,419.9518863601652],"type":"scatter"},{"hovertemplate":"Benchmark: %{y:,.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#000000","width":1.5},"mode":"lines","name":"Benchmark (SP500)","x":["2024-03-27T00:00:00","2024-03-28T00:00:00","2024-04-01T00:00:00","2024-04-02T00:00:00","2024-04-03T00:00:00","2024-04-04T00:00:00","2024-04-05T00:00:00","2024-04-08T00:00:00","2024-04-09T00:00:00","2024-04-10T00:00:00","2024-04-11T00:00:00","2024-04-12T00:00:00","2024-04-15T00:00:00","2024-04-16T00:00:00","2024-04-17T00:00:00","2024-04-18T00:00:00","2024-04-19T00:00:00","2024-04-22T00:00:00","2024-04-23T00:00:00","2024-04-24T00:00:00","2024-04-25T00:00:00","2024-04-26T00:00:00","2024-04-29T00:00:00","2024-04-30T00:00:00","2024-05-01T00:00:00","2024-05-02T00:00:00","2024-05-03T00:00:00","2024-05-06T00:00:00","2024-05-07T00:00:00","2024-05-08T00:00:00","2024-05-09T00:00:00","2024-05-10T00:00:00","2024-05-13T00:00:00","2024-05-14T00:00:00","2024-05-15T00:00:00","2024-05-16T00:00:00","2024-05-17T00:00:00","2024-05-20T00:00:00","2024-05-21T00:00:00","2024-05-22T00:00:00","2024-05-23T00:00:00","2024-05-24T00:00:00","2024-05-28T00:00:00","2024-05-29T00:00:00","2024-05-30T00:00:00","2024-05-31T00:00:00","2024-06-03T00:00:00","2024-06-04T00:00:00","2024-06-05T00:00:00","2024-06-06T00:00:00","2024-06-07T00:00:00","2024-06-10T00:00:00","2024-06-11T00:00:00","2024-06-12T00:00:00","2024-06-13T00:00:00","2024-06-14T00:00:00","2024-06-17T00:00:00","2024-06-18T00:00:00","2024-06-20T00:00:00","2024-06-21T00:00:00","2024-06-24T00:00:00","2024-06-25T00:00:00","2024-06-26T00:00:00","2024-06-27T00:00:00","2024-06-28T00:00:00","2024-07-01T00:00:00","2024-07-02T00:00:00","2024-07-03T00:00:00","2024-07-05T00:00:00","2024-07-08T00:00:00","2024-07-09T00:00:00","2024-07-10T00:00:00","2024-07-11T00:00:00","2024-07-12T00:00:00","2024-07-15T00:00:00","2024-07-16T00:00:00","2024-07-17T00:00:00","2024-07-18T00:00:00","2024-07-19T00:00:00","2024-07-22T00:00:00","2024-07-23T00:00:00","2024-07-24T00:00:00","2024-07-25T00:00:00","2024-07-26T00:00:00","2024-07-29T00:00:00","2024-07-30T00:00:00","2024-07-31T00:00:00","2024-08-01T00:00:00","2024-08-02T00:00:00","2024-08-05T00:00:00","2024-08-06T00:00:00","2024-08-07T00:00:00","2024-08-08T00:00:00","2024-08-09T00:00:00","2024-08-12T00:00:00","2024-08-13T00:00:00","2024-08-14T00:00:00","2024-08-15T00:00:00","2024-08-16T00:00:00","2024-08-19T00:00:00","2024-08-20T00:00:00","2024-08-21T00:00:00","2024-08-22T00:00:00","2024-08-23T00:00:00","2024-08-26T00:00:00","2024-08-27T00:00:00","2024-08-28T00:00:00","2024-08-29T00:00:00","2024-08-30T00:00:00","2024-09-03T00:00:00","2024-09-04T00:00:00","2024-09-05T00:00:00","2024-09-06T00:00:00","2024-09-09T00:00:00","2024-09-10T00:00:00","2024-09-11T00:00:00","2024-09-12T00:00:00","2024-09-13T00:00:00","2024-09-16T00:00:00","2024-09-17T00:00:00","2024-09-18T00:00:00","2024-09-19T00:00:00","2024-09-20T00:00:00","2024-09-23T00:00:00","2024-09-24T00:00:00","2024-09-25T00:00:00","2024-09-26T00:00:00","2024-09-27T00:00:00","2024-09-30T00:00:00","2024-10-01T00:00:00","2024-10-02T00:00:00","2024-10-03T00:00:00","2024-10-04T00:00:00","2024-10-07T00:00:00","2024-10-08T00:00:00","2024-10-09T00:00:00","2024-10-10T00:00:00","2024-10-11T00:00:00","2024-10-14T00:00:00","2024-10-15T00:00:00","2024-10-16T00:00:00","2024-10-17T00:00:00","2024-10-18T00:00:00","2024-10-21T00:00:00","2024-10-22T00:00:00","2024-10-23T00:00:00","2024-10-24T00:00:00","2024-10-25T00:00:00","2024-10-28T00:00:00","2024-10-29T00:00:00","2024-10-30T00:00:00","2024-10-31T00:00:00","2024-11-01T00:00:00","2024-11-04T00:00:00","2024-11-05T00:00:00","2024-11-06T00:00:00","2024-11-07T00:00:00","2024-11-08T00:00:00","2024-11-11T00:00:00","2024-11-12T00:00:00","2024-11-13T00:00:00","2024-11-14T00:00:00","2024-11-15T00:00:00","2024-11-18T00:00:00","2024-11-19T00:00:00","2024-11-20T00:00:00","2024-11-21T00:00:00","2024-11-22T00:00:00","2024-11-25T00:00:00","2024-11-26T00:00:00","2024-11-27T00:00:00","2024-11-29T00:00:00","2024-12-02T00:00:00","2024-12-03T00:00:00","2024-12-04T00:00:00","2024-12-05T00:00:00","2024-12-06T00:00:00","2024-12-09T00:00:00","2024-12-10T00:00:00","2024-12-11T00:00:00","2024-12-12T00:00:00","2024-12-13T00:00:00","2024-12-16T00:00:00","2024-12-17T00:00:00","2024-12-18T00:00:00","2024-12-19T00:00:00","2024-12-20T00:00:00","2024-12-23T00:00:00","2024-12-24T00:00:00","2024-12-26T00:00:00","2024-12-27T00:00:00","2024-12-30T00:00:00","2024-12-31T00:00:00","2025-01-02T00:00:00","2025-01-03T00:00:00","2025-01-06T00:00:00","2025-01-07T00:00:00","2025-01-08T00:00:00","2025-01-10T00:00:00","2025-01-13T00:00:00","2025-01-14T00:00:00","2025-01-15T00:00:00","2025-01-16T00:00:00","2025-01-17T00:00:00","2025-01-21T00:00:00","2025-01-22T00:00:00","2025-01-23T00:00:00","2025-01-24T00:00:00","2025-01-27T00:00:00","2025-01-28T00:00:00","2025-01-29T00:00:00","2025-01-30T00:00:00","2025-01-31T00:00:00","2025-02-03T00:00:00","2025-02-04T00:00:00","2025-02-05T00:00:00","2025-02-06T00:00:00","2025-02-07T00:00:00","2025-02-10T00:00:00","2025-02-11T00:00:00","2025-02-12T00:00:00","2025-02-13T00:00:00","2025-02-14T00:00:00","2025-02-18T00:00:00","2025-02-19T00:00:00","2025-02-20T00:00:00","2025-02-21T00:00:00","2025-02-24T00:00:00","2025-02-25T00:00:00","2025-02-26T00:00:00","2025-02-27T00:00:00","2025-02-28T00:00:00","2025-03-03T00:00:00","2025-03-04T00:00:00","2025-03-05T00:00:00","2025-03-06T00:00:00","2025-03-07T00:00:00","2025-03-10T00:00:00","2025-03-11T00:00:00","2025-03-12T00:00:00","2025-03-13T00:00:00","2025-03-14T00:00:00","2025-03-17T00:00:00","2025-03-18T00:00:00","2025-03-19T00:00:00","2025-03-20T00:00:00","2025-03-21T00:00:00","2025-03-24T00:00:00","2025-03-25T00:00:00","2025-03-26T00:00:00","2025-03-27T00:00:00","2025-03-28T00:00:00","2025-03-31T00:00:00","2025-04-01T00:00:00","2025-04-02T00:00:00","2025-04-03T00:00:00","2025-04-04T00:00:00","2025-04-07T00:00:00","2025-04-08T00:00:00","2025-04-09T00:00:00","2025-04-10T00:00:00","2025-04-11T00:00:00","2025-04-14T00:00:00","2025-04-15T00:00:00","2025-04-16T00:00:00","2025-04-17T00:00:00","2025-04-21T00:00:00","2025-04-22T00:00:00","2025-04-23T00:00:00","2025-04-24T00:00:00","2025-04-25T00:00:00","2025-04-28T00:00:00","2025-04-29T00:00:00","2025-04-30T00:00:00","2025-05-01T00:00:00","2025-05-02T00:00:00","2025-05-05T00:00:00","2025-05-06T00:00:00","2025-05-07T00:00:00","2025-05-08T00:00:00","2025-05-09T00:00:00","2025-05-12T00:00:00","2025-05-13T00:00:00","2025-05-14T00:00:00","2025-05-15T00:00:00","2025-05-16T00:00:00","2025-05-19T00:00:00","2025-05-20T00:00:00","2025-05-21T00:00:00","2025-05-22T00:00:00","2025-05-23T00:00:00","2025-05-27T00:00:00","2025-05-28T00:00:00","2025-05-29T00:00:00","2025-05-30T00:00:00","2025-06-02T00:00:00","2025-06-03T00:00:00","2025-06-04T00:00:00","2025-06-05T00:00:00","2025-06-06T00:00:00","2025-06-09T00:00:00","2025-06-10T00:00:00","2025-06-11T00:00:00","2025-06-12T00:00:00","2025-06-13T00:00:00","2025-06-16T00:00:00","2025-06-17T00:00:00","2025-06-18T00:00:00","2025-06-20T00:00:00","2025-06-23T00:00:00","2025-06-24T00:00:00","2025-06-25T00:00:00","2025-06-26T00:00:00","2025-06-27T00:00:00","2025-06-30T00:00:00","2025-07-01T00:00:00","2025-07-02T00:00:00","2025-07-03T00:00:00","2025-07-07T00:00:00","2025-07-08T00:00:00","2025-07-09T00:00:00","2025-07-10T00:00:00","2025-07-11T00:00:00","2025-07-14T00:00:00","2025-07-15T00:00:00","2025-07-16T00:00:00","2025-07-17T00:00:00","2025-07-18T00:00:00","2025-07-21T00:00:00","2025-07-22T00:00:00","2025-07-23T00:00:00","2025-07-24T00:00:00","2025-07-25T00:00:00","2025-07-28T00:00:00","2025-07-29T00:00:00","2025-07-30T00:00:00","2025-07-31T00:00:00","2025-08-01T00:00:00","2025-08-04T00:00:00","2025-08-05T00:00:00","2025-08-06T00:00:00","2025-08-07T00:00:00","2025-08-08T00:00:00","2025-08-11T00:00:00","2025-08-12T00:00:00","2025-08-13T00:00:00","2025-08-14T00:00:00","2025-08-15T00:00:00","2025-08-18T00:00:00","2025-08-19T00:00:00","2025-08-20T00:00:00","2025-08-21T00:00:00","2025-08-22T00:00:00","2025-08-25T00:00:00","2025-08-26T00:00:00","2025-08-27T00:00:00","2025-08-28T00:00:00","2025-08-29T00:00:00","2025-09-02T00:00:00","2025-09-03T00:00:00","2025-09-04T00:00:00","2025-09-05T00:00:00","2025-09-08T00:00:00","2025-09-09T00:00:00","2025-09-10T00:00:00","2025-09-11T00:00:00","2025-09-12T00:00:00","2025-09-15T00:00:00","2025-09-16T00:00:00","2025-09-17T00:00:00","2025-09-18T00:00:00","2025-09-19T00:00:00","2025-09-22T00:00:00","2025-09-23T00:00:00","2025-09-24T00:00:00","2025-09-25T00:00:00","2025-09-26T00:00:00","2025-09-29T00:00:00","2025-09-30T00:00:00","2025-10-01T00:00:00","2025-10-02T00:00:00","2025-10-03T00:00:00","2025-10-06T00:00:00","2025-10-07T00:00:00","2025-10-08T00:00:00","2025-10-09T00:00:00","2025-10-10T00:00:00","2025-10-13T00:00:00","2025-10-14T00:00:00","2025-10-15T00:00:00","2025-10-16T00:00:00","2025-10-17T00:00:00","2025-10-20T00:00:00","2025-10-21T00:00:00","2025-10-22T00:00:00","2025-10-23T00:00:00","2025-10-24T00:00:00","2025-10-27T00:00:00","2025-10-28T00:00:00","2025-10-29T00:00:00","2025-10-30T00:00:00","2025-10-31T00:00:00","2025-11-03T00:00:00","2025-11-04T00:00:00","2025-11-05T00:00:00","2025-11-06T00:00:00","2025-11-07T00:00:00","2025-11-10T00:00:00","2025-11-11T00:00:00","2025-11-12T00:00:00","2025-11-13T00:00:00","2025-11-14T00:00:00","2025-11-17T00:00:00","2025-11-18T00:00:00","2025-11-19T00:00:00","2025-11-20T00:00:00","2025-11-21T00:00:00","2025-11-24T00:00:00","2025-11-25T00:00:00","2025-11-26T00:00:00","2025-11-28T00:00:00","2025-12-01T00:00:00","2025-12-02T00:00:00","2025-12-03T00:00:00","2025-12-04T00:00:00","2025-12-05T00:00:00","2025-12-08T00:00:00","2025-12-09T00:00:00","2025-12-10T00:00:00","2025-12-11T00:00:00","2025-12-12T00:00:00","2025-12-15T00:00:00","2025-12-16T00:00:00","2025-12-17T00:00:00","2025-12-18T00:00:00","2025-12-19T00:00:00","2025-12-22T00:00:00","2025-12-23T00:00:00","2025-12-24T00:00:00","2025-12-26T00:00:00","2025-12-29T00:00:00","2025-12-30T00:00:00","2025-12-31T00:00:00","2026-01-02T00:00:00","2026-01-05T00:00:00","2026-01-06T00:00:00","2026-01-07T00:00:00"],"y":[0.0,-0.019104213784137958,-0.19306220286720022,-0.8276486478852707,-0.7186902732617573,-1.9305326452638272,-0.9060021435333021,-0.8505844304352195,-0.7358876410038184,-1.7298251815466403,-0.9882050846288015,-2.354871437460393,-3.5781787212904925,-3.7540375975217644,-4.3236423047619095,-4.520518199713286,-5.353899303512566,-4.482291895463364,-3.3488149368971043,-3.3946865019969907,-3.761682858371751,-2.8499303822427824,-2.5058757673118714,-4.050295924629054,-4.361862650117942,-3.4673194595187917,-2.270767609216684,-1.2615276291861433,-1.1525752134565193,-1.1430231065644447,-0.5734303171120669,-0.44534985202279165,-0.4319780941526741,0.02484858748592611,1.2634761874853906,1.0551055862365821,1.2003953368556752,1.316963218965883,1.565461011612812,1.273010417695808,0.5333090846078248,1.198464655238074,1.2691728900361188,0.5600526003480599,-0.10703961079365776,0.802806019293234,0.8850030014948551,0.9977691093086438,2.1981406105887835,2.196221846758939,2.0719908271171095,2.387371244690173,2.6339502735072795,3.476883484198612,3.685230249871907,3.748334936077158,4.574035025663159,4.839730186052149,4.554930811879032,4.41475379221028,4.075335196719165,4.4761303991898815,4.606522915105193,4.771429344382239,4.359145394507968,4.573915847785548,5.277673132980221,5.747484244386625,6.357281690857586,6.479999151453519,6.583564727114233,7.638217437415817,6.7101197153698555,7.383164861499214,7.678499560054863,8.317042710610245,6.798335180391812,5.977569054939691,5.2738356053205315,6.35920045468743,6.192363343792784,3.7857806252286075,3.24502292326887,4.401346280976859,4.4626871345931685,3.9334420156125427,5.622836102173112,4.127106066761788,2.188439531349684,-0.7876704288341863,0.12701978197837693,-0.542229548748463,1.7569798609647025,2.205684570242794,2.2593861219029954,3.9411051531441643,4.269023083443946,6.056214536387916,6.294010155623675,7.310311424903815,7.1358111764775245,7.503999311628573,6.660255691369343,7.793541965331396,7.536594461160462,7.684255851544419,7.059108294434657,7.068690195796146,8.090771592141355,5.866376095110626,5.649686878003202,5.392715538256754,3.618931596546182,4.77909248191386,5.23547224651133,6.315092722176474,7.210607212478304,7.770528717160974,7.929702690524021,7.9737985052472204,7.653567548054596,9.4906230249991,9.301356637534418,9.574476579699787,9.88800974016959,9.645649608220609,10.080338999089356,9.920700232003576,10.361181667725173,9.37252966605524,9.418675340273698,9.21863527267124,10.211148637576372,9.214785827223771,10.247700492645585,11.011308907986205,10.81703704966106,11.480643307882099,12.392365989541654,11.519125844568933,12.003822272891362,12.013451845403878,12.444303708612958,12.259661422800328,12.200024812834132,11.174797120519454,11.41523848863859,11.376767869739535,11.72107275821348,11.901889434154157,11.563352754957524,9.37636719371493,9.837990784928152,9.60141078004424,10.926680697080936,13.684933496956608,14.563977604569956,15.060222369234765,15.169854098866864,14.812105945796228,14.867881192527221,14.129252460337893,12.667416613324644,13.129075957901136,13.542587439914989,13.5810699766018,14.190819751921712,14.544730377332659,14.933274093982952,15.533406214578104,15.183333116826848,15.898865176331412,16.106592217041026,16.160448699942155,16.881737050936273,16.689407792016485,16.910601932898327,16.30855104847333,15.946941532167468,16.843278349824974,16.241239383187732,16.21816654607853,16.714411310743316,16.233540492292818,12.769373287637364,12.73472827861022,14.088803488670187,14.772002589973642,16.047694509916145,16.055429154174348,14.833748648373902,13.5233044593144,13.110305442174353,12.83240646711603,14.243186511352457,14.901298669414743,13.602450487848694,13.768417600236639,12.031471540501592,12.205173297147741,12.359568237617813,14.403373496675353,14.183371134569821,15.329755057283446,16.385444615120413,17.039695409947477,17.67848883404588,17.334946683988782,15.675215971170386,16.669135635031584,16.146123519051002,16.769495325784046,16.148054200668604,15.36642609023029,16.140331474198177,16.611227104291014,17.016527230536127,15.945416055333816,16.732812375049445,16.821611811671787,16.445271909690828,17.674627470810655,17.668847343745586,18.01429633984477,18.29220723269087,17.800097940379842,15.785217152223163,15.258343673007357,14.685145752756679,14.743042365709469,12.91152866007479,14.673561663051004,12.664496755322684,11.33092014021515,12.52746603162338,10.529985213600712,11.149483739310796,8.188962245520969,7.289598309771672,7.858934866787148,6.421113362116371,8.619325479431739,9.456943356780778,8.273876483332554,9.453081993545553,9.136545550559493,9.172561105179366,11.12767418770444,11.394811400412763,10.064941217299527,9.772645554623448,7.562015102459019,8.284054274082187,8.589888543657054,9.27710393943666,3.8918251007440396,-2.1903046651345903,-2.3645248455484547,-3.8937617412555303,6.1992518251198225,1.5457013195017133,3.357550675327392,4.360277584345451,4.067970003881616,1.754751234653007,1.8999337251822457,-0.5255625225618621,2.06255193920879,3.644042375362888,5.825653014324339,6.590274441624833,6.630914097896756,7.302624451796658,7.34521862526174,8.105954853751474,9.710696893831216,9.081568795608618,8.169834196161307,8.62474807286393,9.38162293811844,9.242244410229805,12.85242835055791,13.597707208318987,13.742889698848227,14.29843737542187,15.022395310874902,15.148223314076969,14.76107397859494,12.827269900590155,12.871782837885082,12.101357447944006,14.43201194066992,13.769978830433605,14.219064908920087,14.091318141888177,14.733984847009562,15.388271395199915,15.357285147016043,14.799782953249263,15.978666683192655,16.083197599662192,16.74134551108777,16.408410192139765,16.87104679531284,15.564416298337513,16.663915643991366,15.667016533189425,15.649592727479877,15.37797442657267,16.51762479920018,17.804817384333994,17.870830010753423,18.793028427856683,19.38323303124523,19.954035476155553,19.915207323623598,20.458813376858686,21.408196267849423,20.50346932760676,20.437468618975085,21.159686557414716,21.501393368156307,21.074259854729327,21.305286170515657,20.786921991762664,21.190744312325172,21.932388244818533,21.843088261110143,22.074126494684254,22.09159797154485,23.130292764031736,23.171051598181293,23.691370294127424,23.660312539216967,23.33413460593061,23.17882199580279,22.716757446442347,20.70536857010026,22.540064325067675,21.918790048980917,22.852655980304192,22.74974588297043,23.706899171582663,23.462274659958695,24.776663636767758,25.203785232406982,25.21542891105146,24.92227516765646,24.895078775981226,24.217504870501916,23.88745365619256,23.390434235323166,25.285326736281633,24.73392644984953,25.2561996629888,25.541594926550083,25.986187999049903,25.234842987317442,24.306816771998065,24.980505478666615,26.02501615158186,25.660021983551307,25.968716522189304,26.259939583966705,26.62494566978504,27.67722674032178,27.634501471191307,28.314017976076002,28.13734869027684,27.97815088133828,28.576125882348325,29.212940953678057,29.824251959194914,29.11755098042277,28.706744836231124,28.11296489651367,28.846933773687656,29.20904383707954,29.695754371533933,30.137701695150376,30.287591711846005,30.285661030228404,30.752897899477993,30.26812996442898,31.04493137082327,30.665290241631958,27.133692193813253,29.084443366017076,28.926747198336656,29.499122791231702,28.617206496767487,29.347278257342936,30.692546222245998,30.69059170505286,30.011146706894753,30.782108397285167,31.850931357237002,33.4064648516432,33.76079259962586,33.825041393456345,32.35321844029766,32.78737153071709,33.03657247284204,31.459610796037918,31.91518015106749,30.499811758542283,30.628297428415507,32.666668176253125,32.97036916181841,33.0443547882513,30.83660844072551,30.815204093903105,29.596467281680127,28.50818257431127,29.004629941368055,27.038302220557963,28.30375676081203,30.192201738590718,31.41677826681757,32.32401986027824,33.04629738765668,32.43888349873831,32.68418732426477,33.1436418781051,33.24098636855353,33.494072509489236,33.09302703347552,32.97815147722767,33.86009160726742,34.171574908241965,32.72896245289048,32.528433755989724,32.16632369259782,30.712019887450804,31.6990629877727,32.8927128567545,33.72061773707669,34.33178572914039,34.804314096156766,34.790644393592565,34.31029795780365,34.14628536260882,33.15240145211094,33.39647774549779,34.28491306986838,35.083535945656784,35.083535945656784],"type":"scatter"},{"hovertemplate":"GEV: %{y:,.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#00c853","width":2},"mode":"lines","name":"GEV","x":["2024-03-27T00:00:00","2024-03-28T00:00:00","2024-04-01T00:00:00","2024-04-02T00:00:00","2024-04-03T00:00:00","2024-04-04T00:00:00","2024-04-05T00:00:00","2024-04-08T00:00:00","2024-04-09T00:00:00","2024-04-10T00:00:00","2024-04-11T00:00:00","2024-04-12T00:00:00","2024-04-15T00:00:00","2024-04-16T00:00:00","2024-04-17T00:00:00","2024-04-18T00:00:00","2024-04-19T00:00:00","2024-04-22T00:00:00","2024-04-23T00:00:00","2024-04-24T00:00:00","2024-04-25T00:00:00","2024-04-26T00:00:00","2024-04-29T00:00:00","2024-04-30T00:00:00","2024-05-01T00:00:00","2024-05-02T00:00:00","2024-05-03T00:00:00","2024-05-06T00:00:00","2024-05-07T00:00:00","2024-05-08T00:00:00","2024-05-09T00:00:00","2024-05-10T00:00:00","2024-05-13T00:00:00","2024-05-14T00:00:00","2024-05-15T00:00:00","2024-05-16T00:00:00","2024-05-17T00:00:00","2024-05-20T00:00:00","2024-05-21T00:00:00","2024-05-22T00:00:00","2024-05-23T00:00:00","2024-05-24T00:00:00","2024-05-28T00:00:00","2024-05-29T00:00:00","2024-05-30T00:00:00","2024-05-31T00:00:00","2024-06-03T00:00:00","2024-06-04T00:00:00","2024-06-05T00:00:00","2024-06-06T00:00:00","2024-06-07T00:00:00","2024-06-10T00:00:00","2024-06-11T00:00:00","2024-06-12T00:00:00","2024-06-13T00:00:00","2024-06-14T00:00:00","2024-06-17T00:00:00","2024-06-18T00:00:00","2024-06-20T00:00:00","2024-06-21T00:00:00","2024-06-24T00:00:00","2024-06-25T00:00:00","2024-06-26T00:00:00","2024-06-27T00:00:00","2024-06-28T00:00:00","2024-07-01T00:00:00","2024-07-02T00:00:00","2024-07-03T00:00:00","2024-07-05T00:00:00","2024-07-08T00:00:00","2024-07-09T00:00:00","2024-07-10T00:00:00","2024-07-11T00:00:00","2024-07-12T00:00:00","2024-07-15T00:00:00","2024-07-16T00:00:00","2024-07-17T00:00:00","2024-07-18T00:00:00","2024-07-19T00:00:00","2024-07-22T00:00:00","2024-07-23T00:00:00","2024-07-24T00:00:00","2024-07-25T00:00:00","2024-07-26T00:00:00","2024-07-29T00:00:00","2024-07-30T00:00:00","2024-07-31T00:00:00","2024-08-01T00:00:00","2024-08-02T00:00:00","2024-08-05T00:00:00","2024-08-06T00:00:00","2024-08-07T00:00:00","2024-08-08T00:00:00","2024-08-09T00:00:00","2024-08-12T00:00:00","2024-08-13T00:00:00","2024-08-14T00:00:00","2024-08-15T00:00:00","2024-08-16T00:00:00","2024-08-19T00:00:00","2024-08-20T00:00:00","2024-08-21T00:00:00","2024-08-22T00:00:00","2024-08-23T00:00:00","2024-08-26T00:00:00","2024-08-27T00:00:00","2024-08-28T00:00:00","2024-08-29T00:00:00","2024-08-30T00:00:00","2024-09-03T00:00:00","2024-09-04T00:00:00","2024-09-05T00:00:00","2024-09-06T00:00:00","2024-09-09T00:00:00","2024-09-10T00:00:00","2024-09-11T00:00:00","2024-09-12T00:00:00","2024-09-13T00:00:00","2024-09-16T00:00:00","2024-09-17T00:00:00","2024-09-18T00:00:00","2024-09-19T00:00:00","2024-09-20T00:00:00","2024-09-23T00:00:00","2024-09-24T00:00:00","2024-09-25T00:00:00","2024-09-26T00:00:00","2024-09-27T00:00:00","2024-09-30T00:00:00","2024-10-01T00:00:00","2024-10-02T00:00:00","2024-10-03T00:00:00","2024-10-04T00:00:00","2024-10-07T00:00:00","2024-10-08T00:00:00","2024-10-09T00:00:00","2024-10-10T00:00:00","2024-10-11T00:00:00","2024-10-14T00:00:00","2024-10-15T00:00:00","2024-10-16T00:00:00","2024-10-17T00:00:00","2024-10-18T00:00:00","2024-10-21T00:00:00","2024-10-22T00:00:00","2024-10-23T00:00:00","2024-10-24T00:00:00","2024-10-25T00:00:00","2024-10-28T00:00:00","2024-10-29T00:00:00","2024-10-30T00:00:00","2024-10-31T00:00:00","2024-11-01T00:00:00","2024-11-04T00:00:00","2024-11-05T00:00:00","2024-11-06T00:00:00","2024-11-07T00:00:00","2024-11-08T00:00:00","2024-11-11T00:00:00","2024-11-12T00:00:00","2024-11-13T00:00:00","2024-11-14T00:00:00","2024-11-15T00:00:00","2024-11-18T00:00:00","2024-11-19T00:00:00","2024-11-20T00:00:00","2024-11-21T00:00:00","2024-11-22T00:00:00","2024-11-25T00:00:00","2024-11-26T00:00:00","2024-11-27T00:00:00","2024-11-29T00:00:00","2024-12-02T00:00:00","2024-12-03T00:00:00","2024-12-04T00:00:00","2024-12-05T00:00:00","2024-12-06T00:00:00","2024-12-09T00:00:00","2024-12-10T00:00:00","2024-12-11T00:00:00","2024-12-12T00:00:00","2024-12-13T00:00:00","2024-12-16T00:00:00","2024-12-17T00:00:00","2024-12-18T00:00:00","2024-12-19T00:00:00","2024-12-20T00:00:00","2024-12-23T00:00:00","2024-12-24T00:00:00","2024-12-26T00:00:00","2024-12-27T00:00:00","2024-12-30T00:00:00","2024-12-31T00:00:00","2025-01-02T00:00:00","2025-01-03T00:00:00","2025-01-06T00:00:00","2025-01-07T00:00:00","2025-01-08T00:00:00","2025-01-10T00:00:00","2025-01-13T00:00:00","2025-01-14T00:00:00","2025-01-15T00:00:00","2025-01-16T00:00:00","2025-01-17T00:00:00","2025-01-21T00:00:00","2025-01-22T00:00:00","2025-01-23T00:00:00","2025-01-24T00:00:00","2025-01-27T00:00:00","2025-01-28T00:00:00","2025-01-29T00:00:00","2025-01-30T00:00:00","2025-01-31T00:00:00","2025-02-03T00:00:00","2025-02-04T00:00:00","2025-02-05T00:00:00","2025-02-06T00:00:00","2025-02-07T00:00:00","2025-02-10T00:00:00","2025-02-11T00:00:00","2025-02-12T00:00:00","2025-02-13T00:00:00","2025-02-14T00:00:00","2025-02-18T00:00:00","2025-02-19T00:00:00","2025-02-20T00:00:00","2025-02-21T00:00:00","2025-02-24T00:00:00","2025-02-25T00:00:00","2025-02-26T00:00:00","2025-02-27T00:00:00","2025-02-28T00:00:00","2025-03-03T00:00:00","2025-03-04T00:00:00","2025-03-05T00:00:00","2025-03-06T00:00:00","2025-03-07T00:00:00","2025-03-10T00:00:00","2025-03-11T00:00:00","2025-03-12T00:00:00","2025-03-13T00:00:00","2025-03-14T00:00:00","2025-03-17T00:00:00","2025-03-18T00:00:00","2025-03-19T00:00:00","2025-03-20T00:00:00","2025-03-21T00:00:00","2025-03-24T00:00:00","2025-03-25T00:00:00","2025-03-26T00:00:00","2025-03-27T00:00:00","2025-03-28T00:00:00","2025-03-31T00:00:00","2025-04-01T00:00:00","2025-04-02T00:00:00","2025-04-03T00:00:00","2025-04-04T00:00:00","2025-04-07T00:00:00","2025-04-08T00:00:00","2025-04-09T00:00:00","2025-04-10T00:00:00","2025-04-11T00:00:00","2025-04-14T00:00:00","2025-04-15T00:00:00","2025-04-16T00:00:00","2025-04-17T00:00:00","2025-04-21T00:00:00","2025-04-22T00:00:00","2025-04-23T00:00:00","2025-04-24T00:00:00","2025-04-25T00:00:00","2025-04-28T00:00:00","2025-04-29T00:00:00","2025-04-30T00:00:00","2025-05-01T00:00:00","2025-05-02T00:00:00","2025-05-05T00:00:00","2025-05-06T00:00:00","2025-05-07T00:00:00","2025-05-08T00:00:00","2025-05-09T00:00:00","2025-05-12T00:00:00","2025-05-13T00:00:00","2025-05-14T00:00:00","2025-05-15T00:00:00","2025-05-16T00:00:00","2025-05-19T00:00:00","2025-05-20T00:00:00","2025-05-21T00:00:00","2025-05-22T00:00:00","2025-05-23T00:00:00","2025-05-27T00:00:00","2025-05-28T00:00:00","2025-05-29T00:00:00","2025-05-30T00:00:00","2025-06-02T00:00:00","2025-06-03T00:00:00","2025-06-04T00:00:00","2025-06-05T00:00:00","2025-06-06T00:00:00","2025-06-09T00:00:00","2025-06-10T00:00:00","2025-06-11T00:00:00","2025-06-12T00:00:00","2025-06-13T00:00:00","2025-06-16T00:00:00","2025-06-17T00:00:00","2025-06-18T00:00:00","2025-06-20T00:00:00","2025-06-23T00:00:00","2025-06-24T00:00:00","2025-06-25T00:00:00","2025-06-26T00:00:00","2025-06-27T00:00:00","2025-06-30T00:00:00","2025-07-01T00:00:00","2025-07-02T00:00:00","2025-07-03T00:00:00","2025-07-07T00:00:00","2025-07-08T00:00:00","2025-07-09T00:00:00","2025-07-10T00:00:00","2025-07-11T00:00:00","2025-07-14T00:00:00","2025-07-15T00:00:00","2025-07-16T00:00:00","2025-07-17T00:00:00","2025-07-18T00:00:00","2025-07-21T00:00:00","2025-07-22T00:00:00","2025-07-23T00:00:00","2025-07-24T00:00:00","2025-07-25T00:00:00","2025-07-28T00:00:00","2025-07-29T00:00:00","2025-07-30T00:00:00","2025-07-31T00:00:00","2025-08-01T00:00:00","2025-08-04T00:00:00","2025-08-05T00:00:00","2025-08-06T00:00:00","2025-08-07T00:00:00","2025-08-08T00:00:00","2025-08-11T00:00:00","2025-08-12T00:00:00","2025-08-13T00:00:00","2025-08-14T00:00:00","2025-08-15T00:00:00","2025-08-18T00:00:00","2025-08-19T00:00:00","2025-08-20T00:00:00","2025-08-21T00:00:00","2025-08-22T00:00:00","2025-08-25T00:00:00","2025-08-26T00:00:00","2025-08-27T00:00:00","2025-08-28T00:00:00","2025-08-29T00:00:00","2025-09-02T00:00:00","2025-09-03T00:00:00","2025-09-04T00:00:00","2025-09-05T00:00:00","2025-09-08T00:00:00","2025-09-09T00:00:00","2025-09-10T00:00:00","2025-09-11T00:00:00","2025-09-12T00:00:00","2025-09-15T00:00:00","2025-09-16T00:00:00","2025-09-17T00:00:00","2025-09-18T00:00:00","2025-09-19T00:00:00","2025-09-22T00:00:00","2025-09-23T00:00:00","2025-09-24T00:00:00","2025-09-25T00:00:00","2025-09-26T00:00:00","2025-09-29T00:00:00","2025-09-30T00:00:00","2025-10-01T00:00:00","2025-10-02T00:00:00","2025-10-03T00:00:00","2025-10-06T00:00:00","2025-10-07T00:00:00","2025-10-08T00:00:00","2025-10-09T00:00:00","2025-10-10T00:00:00","2025-10-13T00:00:00","2025-10-14T00:00:00","2025-10-15T00:00:00","2025-10-16T00:00:00","2025-10-17T00:00:00","2025-10-20T00:00:00","2025-10-21T00:00:00","2025-10-22T00:00:00","2025-10-23T00:00:00","2025-10-24T00:00:00","2025-10-27T00:00:00","2025-10-28T00:00:00","2025-10-29T00:00:00","2025-10-30T00:00:00","2025-10-31T00:00:00","2025-11-03T00:00:00","2025-11-04T00:00:00","2025-11-05T00:00:00","2025-11-06T00:00:00","2025-11-07T00:00:00","2025-11-10T00:00:00","2025-11-11T00:00:00","2025-11-12T00:00:00","2025-11-13T00:00:00","2025-11-14T00:00:00","2025-11-17T00:00:00","2025-11-18T00:00:00","2025-11-19T00:00:00","2025-11-20T00:00:00","2025-11-21T00:00:00","2025-11-24T00:00:00","2025-11-25T00:00:00","2025-11-26T00:00:00","2025-11-28T00:00:00","2025-12-01T00:00:00","2025-12-02T00:00:00","2025-12-03T00:00:00","2025-12-04T00:00:00","2025-12-05T00:00:00","2025-12-08T00:00:00","2025-12-09T00:00:00","2025-12-10T00:00:00","2025-12-11T00:00:00","2025-12-12T00:00:00","2025-12-15T00:00:00","2025-12-16T00:00:00","2025-12-17T00:00:00","2025-12-18T00:00:00","2025-12-19T00:00:00","2025-12-22T00:00:00","2025-12-23T00:00:00","2025-12-24T00:00:00","2025-12-26T00:00:00","2025-12-29T00:00:00","2025-12-30T00:00:00","2025-12-31T00:00:00","2026-01-02T00:00:00","2026-01-05T00:00:00","2026-01-06T00:00:00","2026-01-07T00:00:00"],"y":[0.0,4.190468917061252,8.20528486329617,6.666412097143759,4.6395295555216265,-3.954482969298889,-6.514434091950482,-0.9828929280586207,0.7010844661677451,5.42462196425848,4.05300137467548,2.0948526042462445,0.3810905758362848,-0.8988849854895009,2.666870322285031,4.54864823583323,2.9334046127997837,4.144646402932661,12.632503436688602,11.375439132427111,12.998319841148653,16.624408125859212,21.150145104628095,17.11241790132889,15.558270963800247,17.204062929586115,26.67404918283185,28.868183901023393,27.51260119138539,24.952650068733796,26.780968382465264,27.44386742019247,23.07010844661679,26.194440201619074,27.900565144340938,26.780968382465264,23.90102336948221,22.62868489384453,24.899190468917087,24.838093783412262,23.177027646250224,35.184817473652096,35.68733771192918,35.10080953108299,33.39392087979232,34.018634489079005,29.805254314953466,24.221017259813692,24.56392240720944,22.14067511837485,23.489384450893546,26.963494730410886,28.175500229112572,35.25355124484497,34.224835802657715,29.6532763097602,28.578738353444333,36.81533526806173,34.99389033144955,33.889567740950085,35.725523140369674,38.24728883458075,37.142966244081286,34.30808003665806,30.674354666259383,27.634030853826207,29.3791049335574,31.565602566060846,34.270658316786374,32.85321521307476,31.79395142813508,36.9367649305026,34.62883763555833,37.485871391477076,35.19245455934021,39.23018176263944,26.346418206812316,23.03956010386441,24.449366121887948,27.055139758668155,29.89689934321069,24.1140980601803,21.904689170612592,31.893233542080424,31.085229876279307,23.962120054987125,35.80189399725076,32.594318008248166,25.50862990682767,23.611577821903285,25.219184359248636,26.529708263326835,35.01680158851397,36.464793034978,34.43027340766778,36.876431953566644,40.31235680464349,43.862837941041846,40.23598594776247,41.25706430426164,40.190163433633884,40.388727661524506,41.714525736978935,39.649457766916306,38.76584695280296,41.371620589583166,40.19016343363386,45.79807545440675,53.142660760653925,46.704597525584425,52.09867114709046,51.19214907591283,51.1081411333437,53.75973728425254,53.91247899801457,59.35237513364924,64.01481594623515,71.87795937070437,75.18481747365232,80.68581029479176,79.55781273865918,86.24713609286725,87.01695433022788,91.64197342294212,94.65098518405408,94.32335420803453,91.40522376661096,90.36963494730439,94.27065831678658,95.45135176416709,92.22086451810017,94.04154574614358,102.35374980907315,100.03054834275274,101.34870933251902,103.12356804643383,101.6152436230338,103.34427982282,105.33297693600163,102.94104169848825,109.34855659080536,107.23766610661416,107.78677256758864,110.61325798075497,110.60562089506685,113.24194287459947,126.2853215213079,123.64899954177528,120.36581640446049,127.63403085382663,126.74278295402517,129.8358026577062,129.40201619062205,125.11226515961545,140.58652818084659,156.2280433786471,156.59385978310715,159.94654040018366,166.23949900717923,146.6358637543917,153.91247899801476,148.4114861768753,151.24560867572973,147.9005651443413,159.04765541469413,161.1577821903165,158.9330991293726,166.02642431648115,150.65144340919537,158.20146632045245,155.48953719260763,154.5677409500538,157.17275087826516,152.8914006415155,161.90468917061276,165.24133190774432,164.0071788605471,155.42844050710278,149.4394379104936,161.9428745990533,151.35940125248231,152.96013441270838,157.30258133496284,150.16343363372567,141.6152436230337,153.5619367649308,161.2700473499316,162.99373758973607,164.80067206354093,161.58316786314379,154.5150450588059,151.815335268062,150.80189399725094,158.43363372537073,169.93966702306435,183.12280433786506,180.9882388880407,179.4325645333745,179.90530013746792,179.683824652513,191.46479303497824,195.1015732396521,198.1281502978467,206.06613716205925,217.19031617534785,225.65373453490184,233.74369940430773,220.61402168932375,151.6175347487402,170.77058194592976,169.34473804796121,191.9825874446315,184.3126622880712,175.79578432870048,171.8458836108144,180.53841454101146,185.79883916297572,188.1930655261955,193.55353597067392,184.32793645944736,181.84970215365848,182.35298610050438,180.27875362761603,184.59447074996214,186.0814113334355,174.24774705972234,150.00076370856908,140.87368260271904,142.23155643806354,155.61249427218607,148.78112112417935,155.5666717580575,140.92714220253586,138.70856881014237,141.55261952039132,123.56575530777488,120.58423705514008,105.96761875668275,116.7038338170157,127.73636780204698,128.92622575225317,139.1354819001072,153.1121124179016,143.17702764625045,156.03940736215088,156.8252634794565,154.56850465862257,161.96425843898004,156.344890789675,142.2391935237516,131.03024285932517,130.97678325950838,132.76920727050583,140.6682449977091,152.22697418665066,126.95891247899826,106.9970979074387,118.12204062929604,118.74675423858277,149.18512295707978,136.32961661829864,145.08324423400046,145.74614327172765,150.519321826791,150.21460210783576,146.88712387353002,138.8979685352071,148.8101420497939,156.45639224072104,175.07484343974352,184.17824957996044,182.3774247747061,183.23965174889278,182.95707957843302,191.70917977699725,202.41561020314666,206.06231861921506,206.1616007331604,210.42003971284578,200.64457003207593,204.65862226974204,217.91278448144203,230.6560256606081,230.28180846189113,225.80265770581966,226.63433633725393,240.78203757446187,243.40690392546227,245.6881014204982,250.10615549106484,254.3569573850621,259.78921643500865,270.09088131968866,259.53031923018204,260.91110432259075,270.2054376050102,276.1646555674358,272.4713609286699,269.55704903009047,270.08324423400063,266.26775622422514,255.05880555979866,268.91553383228984,272.120818695586,265.08553535970697,272.28119749503617,272.8761264701393,274.0438368718499,271.57858561173083,281.4372995265009,289.80067206354073,283.56651901634365,286.72521765694233,296.53047197189574,303.77195662135347,286.10737742477494,285.39789216435025,294.5318466473196,304.6341835955401,304.4211089048421,308.82388880403255,311.56331144035454,311.41056972659254,323.5275698793342,327.0146632045213,328.20528486329624,335.07255231403707,338.4534901481596,332.0100809531084,319.09347792882244,380.1955093936155,376.33267145257383,392.0734687643197,394.41729036199797,382.97388116694674,400.02062013135793,404.059111043226,401.16541927600434,405.9523445853063,395.98976630517797,407.3109821292195,393.04337864670833,395.5093936153964,396.78402321674054,401.88330533068586,384.22636321979536,377.3247288834581,374.7601955093936,377.1345654498243,360.42385825568965,361.5381090575836,362.6141744310371,363.43134259966405,359.79761722926537,377.81350236749665,375.1267756224226,383.7528639071332,367.9356957385063,342.52176569421124,340.50633878112126,357.1254009469987,344.35390255078676,358.2098671147092,362.38582556896296,391.2876126470141,384.10416984878583,377.538567282725,379.9282113945319,371.70612494272194,369.32488162517194,366.4311898579503,376.48541316633583,391.90621658775024,383.5390255078663,380.1496868794869,363.77501145562866,361.9810600274936,359.8892622575226,369.408889567741,362.72873071635877,362.78982740186353,354.2095616312816,360.4925920268826,362.70581945929433,377.4621964258439,384.1958148770429,361.51519780051933,394.8678784175959,391.9360012219338,370.2100198564229,359.5608675729343,358.0342141438829,353.6963494730413,347.0215365816407,339.896135634642,354.52115472735625,346.30365052695913,346.30365052695913,336.0623186192151,341.400641515198,338.4221780968384,346.8764319535667,343.91324270658333,318.4817473652056,327.4476859630367,320.169543302276,339.2317091797771,342.7982281961205,339.95723232014683,339.43791049335584,326.2792118527571,341.66030242859335,340.6751183748283,323.80479608981216,354.68917061249437,326.17229265312363,324.4997708874295,343.3251871085995,337.268978157935,350.37421719871713,358.049488315259,340.5834733465711,359.4318008248055,359.72964716664154,380.4566977241488,382.14449366121926,374.9503589430277,377.5469680769821,452.1612952497331,437.80357415610246,412.9906827554609,420.35283335879063,424.072094088896,369.0621658775015,388.3381701542694,402.73407667634064,405.4299679242404,405.1550328394688,409.6380021383844,406.6900870627772,406.6900870627772,403.7727203299224,399.1370093172448,418.97815793493226,419.9786161600735,420.2535512448452,419.9518863601652],"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"title":{"font":{"size":16,"color":"#333"},"text":"Stock Performance: GEV vs Benchmark (ROI %)\u003cbr\u003e\u003csub\u003ePerformance: \u003cspan style='color:#00c853'\u003e+384.87% vs Benchmark\u003c\u002fspan\u003e\u003c\u002fsub\u003e","x":0.5,"xanchor":"center","y":0.95},"margin":{"t":60,"l":30,"r":20,"b":40},"xaxis":{"rangeselector":{"font":{"size":12},"buttons":[{"count":1,"label":"1M","step":"month","stepmode":"backward"},{"count":6,"label":"6M","step":"month","stepmode":"backward"},{"count":1,"label":"YTD","step":"year","stepmode":"todate"},{"count":1,"label":"1Y","step":"year","stepmode":"backward"},{"count":2,"label":"2Y","step":"year","stepmode":"backward"},{"count":3,"label":"3Y","step":"year","stepmode":"backward"},{"count":5,"label":"5Y","step":"year","stepmode":"backward"},{"count":10,"label":"10Y","step":"year","stepmode":"backward"},{"label":"MAX","step":"all"}],"bgcolor":"#f4f4f4","y":0.98},"range":["2024-03-27T00:00:00","2026-01-07T00:00:00"],"type":"date","showgrid":false,"showline":true,"linewidth":1,"linecolor":"lightgrey","mirror":false},"yaxis":{"showgrid":true,"gridcolor":"#f0f0f0","showline":true,"linewidth":1,"linecolor":"lightgrey","mirror":false,"tickformat":"+.0f","ticksuffix":"%","zeroline":true,"zerolinecolor":"#d3d3d3","zerolinewidth":1},"legend":{"orientation":"h","yanchor":"bottom","y":1.02,"xanchor":"right","x":1},"plot_bgcolor":"white","hovermode":"x unified","autosize":true,"height":450},                        {"displayModeBar": false, "responsive": true}                    )                };                            </script>        </div>
+    <script>
+    (function() {
+        var gd = document.getElementById('interactive-chart');
+        var debounceTimer;
+
+        function setupLogic() {
+            if(!gd || !gd.data) { setTimeout(setupLogic, 200); return; }
+            // Match traces: 0=Fill, 1=SPY, 2=Stock
+            if (gd.data.length < 3) return;
+            
+            gd._origTheme = gd.data[2].y.slice();
+            gd._origSpy = gd.data[1].y.slice();
+            
+            gd.on('plotly_relayout', function(eventdata){
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(recalc, 50);
+            });
+            recalc();
+        }
+        
+        function recalc() {
+            var xrange = gd.layout.xaxis.range;
+            if(!xrange || !gd._origTheme) return;
+            
+            var startDate = new Date(xrange[0]).getTime();
+            var endDate = new Date(xrange[1]).getTime();
+            var xData = gd.data[2].x; 
+            
+            var startIdx = 0;
+            for(var i=0; i<xData.length; i++) {
+                if(new Date(xData[i]).getTime() >= startDate) {
+                    startIdx = i;
+                    break;
+                }
+            }
+            
+            var t0 = gd._origTheme[startIdx]; 
+            var s0 = gd._origSpy[startIdx];   
+            if (s0 === undefined || s0 === null) s0 = 0;
+
+            var themeBase = (t0/100) + 1;
+            var spyBase = (s0/100) + 1;
+            
+            var newTheme = gd._origTheme.map(v => ( ((v/100+1)/themeBase) - 1 ) * 100);
+            var newSpy = gd._origSpy.map(function(v) {
+                 if (v === undefined || v === null) return 0;
+                 return ( ((v/100+1)/spyBase) - 1 ) * 100;
+            });
+            
+            var minVal = Infinity;
+            var maxVal = -Infinity;
+            var finalIdx = startIdx;
+
+            for(var i=0; i<xData.length; i++) {
+                var t = new Date(xData[i]).getTime();
+                if(t >= startDate && t <= endDate) {
+                    var v1 = newTheme[i];
+                    var v2 = newSpy[i];
+                    if(v1 < minVal) minVal = v1;
+                    if(v1 > maxVal) maxVal = v1;
+                    if(v2 < minVal) minVal = v2;
+                    if(v2 > maxVal) maxVal = v2;
+                    finalIdx = i;
+                }
+            }
+            
+            if (minVal === Infinity) { minVal = 0; maxVal = 10; }
+            
+            var range = maxVal - minVal;
+            var padding = range * 0.05; 
+            if (padding === 0) padding = 1;
+            
+            if (finalIdx >= newTheme.length) finalIdx = newTheme.length - 1;
+            var finalTheme = newTheme[finalIdx];
+            var finalSpy = newSpy[finalIdx];
+            var diff = finalTheme - finalSpy;
+            var color = diff >= 0 ? '#00c853' : '#ff1744';
+            var sign = diff >= 0 ? '+' : '';
+            var subtitle = 'Performance: <span style="color:'+color+'">' + sign + diff.toFixed(2) + '% vs Benchmark</span>';
+            
+            Plotly.relayout(gd, {
+                'title.text': 'Stock Performance: GEV vs Benchmark (ROI %)<br><sub>' + subtitle + '</sub>',
+                'yaxis.range': [minVal - padding, maxVal + padding]
+            });
+            
+            Plotly.restyle(gd, {
+                y: [newTheme, newSpy, newTheme] 
+            }, [0, 1, 2]);
+        }
+        
+        var checkExist = setInterval(function() {
+           if (document.getElementById('interactive-chart')) {
+              gd = document.getElementById('interactive-chart');
+              setupLogic();
+              clearInterval(checkExist);
+           }
+        }, 100);
+    })();
+    </script>
+    
+        </div>
+
+        <!-- Company Details Section -->
+        <div class="section">
+            <div class="section-header">Company Details and Performance</div>
+            <div class="section-content">
+                
+    <div class="info-grid">
+        <div class="info-card">
+            <div class="info-label">Symbol</div>
+            <div class="info-value">GEV</div>
+        </div>
+        <div class="info-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <div class="info-label" style="color: rgba(255,255,255,0.9);">Last Close</div>
+            <div class="info-value" style="color: white; font-size: 1.4rem;">$680.83</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Currency</div>
+            <div class="info-value">USD</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Exchange</div>
+            <div class="info-value">SMART</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Asset Type</div>
+            <div class="info-value">STK</div>
+        </div>
+    </div>
+    
+                
+        <div style="margin-top: 25px; padding-top: 20px; border-top: 2px solid #ecf0f1;">
+            <h3 style="margin: 0 0 15px 0; font-size: 1.1rem; color: var(--primary-color);">Performance Metrics</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-label">Day Change</div>
+                    <div class="info-value"><span style="color: #e74c3c; font-weight: bold;">-0.06%</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">1 Month</div>
+                    <div class="info-value"><span style="color: #27ae60; font-weight: bold;">+9.47%</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">Year to Date</div>
+                    <div class="info-value"><span style="color: #27ae60; font-weight: bold;">+4.17%</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">12 Months</div>
+                    <div class="info-value"><span style="color: #27ae60; font-weight: bold;">+85.04%</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">3 Years</div>
+                    <div class="info-value"><span style="color: #999;">N/A</span></div>
+                </div>
+            </div>
+            <h3 style="margin: 20px 0 15px 0; font-size: 1.1rem; color: var(--primary-color);">Volatility (Annualized)</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-label">30 Days</div>
+                    <div class="info-value" style="color: #e67e22;">72.11%</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">90 Days</div>
+                    <div class="info-value" style="color: #e67e22;">57.96%</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">180 Days</div>
+                    <div class="info-value" style="color: #e67e22;">50.65%</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">1 Year</div>
+                    <div class="info-value" style="color: #e67e22;">59.87%</div>
+                </div>
+            </div>
+            <h3 style="margin: 20px 0 15px 0; font-size: 1.1rem; color: var(--primary-color);">52-Week Range</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-label">52-Week High</div>
+                    <div class="info-value" style="color: #27ae60;">$723.00</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">52-Week Low</div>
+                    <div class="info-value" style="color: #e74c3c;">$269.69</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">From 52w High</div>
+                    <div class="info-value"><span style="color: #e74c3c; font-weight: bold;">-5.83%</span></div>
+                </div>
+            </div>
+        </div>
+        
+            </div>
+        </div>
+
+        <!-- Description Section -->
+        <div class="section">
+            <div class="section-header">Description</div>
+            <div class="section-content">
+                <div class="description-text">Desarrolla soluciones y tecnologías para la captura de carbono.</div>
+            </div>
+        </div>
+
+        <!-- Rankings Section -->
+        <div class="section">
+            <div class="section-header">Theme Rankings (23 themes)</div>
+            <div class="section-content" style="padding: 0;">
+                
+        <table>
+            <thead>
+                <tr>
+                    <th>Theme Name</th>
+                    <th style="text-align: center; width: 60px;">Theme</th>
+                    <th>Rank</th>
+                    <th style="text-align: center;">Evidence</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            <tr>
+                <td>electricity_generation</td>
+                <td style="text-align: center;">
+                    <a href="electricity_generation_detail.html" class="action-link" title="View electricity_generation theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-top3">#1</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>energy_services</td>
+                <td style="text-align: center;">
+                    <a href="energy_services_detail.html" class="action-link" title="View energy_services theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-top3">#1</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>industrial_gas_turbine</td>
+                <td style="text-align: center;">
+                    <a href="industrial_gas_turbine_detail.html" class="action-link" title="View industrial_gas_turbine theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-top3">#1</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>integration_of_renewable_energy</td>
+                <td style="text-align: center;">
+                    <a href="integration_of_renewable_energy_detail.html" class="action-link" title="View integration_of_renewable_energy theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-top3">#1</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>climate_technology</td>
+                <td style="text-align: center;">
+                    <a href="climate_technology_detail.html" class="action-link" title="View climate_technology theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-top3">#2</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>renewable_energy</td>
+                <td style="text-align: center;">
+                    <a href="renewable_energy_detail.html" class="action-link" title="View renewable_energy theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-top3">#2</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>renewable_energy_equipment</td>
+                <td style="text-align: center;">
+                    <a href="renewable_energy_equipment_detail.html" class="action-link" title="View renewable_energy_equipment theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-top3">#2</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>wind_energy</td>
+                <td style="text-align: center;">
+                    <a href="wind_energy_detail.html" class="action-link" title="View wind_energy theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-top3">#2</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>energy_transition</td>
+                <td style="text-align: center;">
+                    <a href="energy_transition_detail.html" class="action-link" title="View energy_transition theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-top3">#3</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>nuclear_power</td>
+                <td style="text-align: center;">
+                    <a href="nuclear_power_detail.html" class="action-link" title="View nuclear_power theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-top3">#3</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>clean_energy</td>
+                <td style="text-align: center;">
+                    <a href="clean_energy_detail.html" class="action-link" title="View clean_energy theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-top10">#4</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>electricity_transmission</td>
+                <td style="text-align: center;">
+                    <a href="electricity_transmission_detail.html" class="action-link" title="View electricity_transmission theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-top10">#5</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>smart_infrastructure</td>
+                <td style="text-align: center;">
+                    <a href="smart_infrastructure_detail.html" class="action-link" title="View smart_infrastructure theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-top10">#5</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>clean_energy_technology</td>
+                <td style="text-align: center;">
+                    <a href="clean_energy_technology_detail.html" class="action-link" title="View clean_energy_technology theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-top10">#6</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>energy_investments</td>
+                <td style="text-align: center;">
+                    <a href="energy_investments_detail.html" class="action-link" title="View energy_investments theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-top10">#9</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>energy_infrastructure</td>
+                <td style="text-align: center;">
+                    <a href="energy_infrastructure_detail.html" class="action-link" title="View energy_infrastructure theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#13</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>energy_storage</td>
+                <td style="text-align: center;">
+                    <a href="energy_storage_detail.html" class="action-link" title="View energy_storage theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#13</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>public_services_infrastructure</td>
+                <td style="text-align: center;">
+                    <a href="public_services_infrastructure_detail.html" class="action-link" title="View public_services_infrastructure theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#13</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>energy_sector</td>
+                <td style="text-align: center;">
+                    <a href="energy_sector_detail.html" class="action-link" title="View energy_sector theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#22</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>electrical_service</td>
+                <td style="text-align: center;">
+                    <a href="electrical_service_detail.html" class="action-link" title="View electrical_service theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#23</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>industrial_software</td>
+                <td style="text-align: center;">
+                    <a href="industrial_software_detail.html" class="action-link" title="View industrial_software theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#24</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>carbon_capture</td>
+                <td style="text-align: center;">
+                    <a href="carbon_capture_detail.html" class="action-link" title="View carbon_capture theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#25</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>natural_gas</td>
+                <td style="text-align: center;">
+                    <a href="natural_gas_detail.html" class="action-link" title="View natural_gas theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#45</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            </tbody>
+        </table>
+        
+            </div>
+        </div>
+
+        <!-- Evidence Section -->
+        <div class="section">
+            <div class="section-header">Evidence Details (22 entries)</div>
+            <div class="section-content">
+                
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(0)">
+                    <span>Evidence #1 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- GE Vernova apoya la energía renovable a través oferta de productos y servicios. Está ayudando a los...</span></span>
+                    <span class="toggle-icon" id="icon-0">▼</span>
+                </div>
+                <div class="evidence-content" id="content-0">
+                    La participación de GE Vernova en Energía Limpia es evidente a través de su enfoque en la descarbonización y la creciente demanda de alternativas de energía renovable, a medida que la industria energética cambia del carbón a fuentes de energía de cero o bajas emisiones de carbono. La empresa simplifica su oferta de productos para centrarse en productos clave, incluidas las turbinas eólicas, que desempeñan un papel crucial en la transición energética. GE Vernova apoya la energía renovable a través de sus productos y servicios, como los condensadores síncronos que ayudan a equilibrar la red con la intermitencia renovable, y está ayudando a los clientes a transitar hacia una combinación de gas y energías renovables.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q324-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(1)">
+                    <span>Evidence #2 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- GEV participa en Tecnología de Energía Limpia. La empresa reconoce la importancia de la transición...</span></span>
+                    <span class="toggle-icon" id="icon-1">▼</span>
+                </div>
+                <div class="evidence-content" id="content-1">
+                    La participación de GEV en Tecnología de Energía Limpia se refleja en su enfoque en avances tecnológicos que mejoran la viabilidad y eficiencia de las alternativas de energía renovable, así como en sus Soluciones de Red en el segmento de Electrificación. La empresa reconoce la importancia de la transición a un sector energético más sostenible, incluidas las tecnologías de turbinas eólicas, y se refiere a los subsidios para tecnologías de energía renovable. Si bien GEV reconoce la urgencia de combatir el cambio climático, su compromiso con la tecnología de energía limpia parece secundario, careciendo de detalles financieros específicos.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q225-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(2)">
+                    <span>Evidence #3 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q3 2024)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- GE Vernova demuestra un compromiso con el tema de Tecnología Climática. La empresa participa en la...</span></span>
+                    <span class="toggle-icon" id="icon-2">▼</span>
+                </div>
+                <div class="evidence-content" id="content-2">
+                    GE Vernova demuestra un compromiso con el tema de Tecnología Climática a través de su enfoque en permitir la electrificación y la descarbonización, así como en innovar e invertir en tecnologías para reducir la intensidad de carbono de las redes eléctricas. El compromiso de la empresa se evidencia aún más en el desarrollo de nuevas tecnologías, como compensadores síncronos estáticos formadores de red y aparamenta sin SF6, destinados a crear una red eléctrica más resiliente y eficiente con menores emisiones de gases de efecto invernadero. Además, la empresa participa en la provisión de soluciones para la intermitencia renovable, como condensadores síncronos, y está invirtiendo en la fiabilidad y resiliencia de la red, alineándose con la tendencia más amplia de electrificación y descarbonización aceleradas.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q324-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(3)">
+                    <span>Evidence #4 <span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- 'name': 'gev-Q125-10-Q' 'type': 'text/plain' 'url': 'http://www.gev.com/gev/Q125/10/Q'</span></span>
+                    <span class="toggle-icon" id="icon-3">▼</span>
+                </div>
+                <div class="evidence-content" id="content-3">
+                    {'name': 'gev-Q125-10-Q'
+                    
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(4)">
+                    <span>Evidence #5 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q3 2024)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- GE Vernova desempeña un papel importante en el sector de los servicios eléctricos. El segmento de...</span></span>
+                    <span class="toggle-icon" id="icon-4">▼</span>
+                </div>
+                <div class="evidence-content" id="content-4">
+                    GE Vernova desempeña un papel importante en el sector de los servicios eléctricos, centrándose en la electrificación y la descarbonización a través de sus productos y servicios que generan, transfieren, orquestan, convierten y almacenan electricidad. El enfoque de la empresa en la energía y la electrificación es evidente en sus sólidos mercados finales, impulsados por el crecimiento de la fabricación, la electrificación industrial, los vehículos eléctricos y las necesidades de los centros de datos, lo que requiere inversiones en energía de carga base confiable e infraestructura de red. El segmento de Electrificación de GE Vernova, que incluye soluciones de red, conversión de energía y software de electrificación, apoya aún más la cadena de valor de los servicios eléctricos, y aproximadamente el 25% de la electricidad mundial se genera utilizando la base instalada de tecnologías de GE Vernova.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q324-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(5)">
+                    <span>Evidence #6 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- GE Vernova es un líder mundial en la industria de la energía eléctrica. Una parte sustancial de la...</span></span>
+                    <span class="toggle-icon" id="icon-5">▼</span>
+                </div>
+                <div class="evidence-content" id="content-5">
+                    La participación de GE Vernova en la generación de electricidad es evidente a través de sus diversas actividades y enfoque estratégico. La empresa es un líder mundial en la industria de la energía eléctrica, y una parte sustancial de la electricidad mundial se genera utilizando sus tecnologías. GE Vernova se enfoca en ayudar a los clientes a electrificar el mundo, impulsada por el crecimiento de la fabricación, la electrificación industrial, los vehículos eléctricos y las necesidades de los centros de datos, lo que requiere inversiones en energía de carga base confiable. Este compromiso se demuestra aún más con importantes pedidos de turbinas de gas e inversiones en la fabricación en EE. UU., lo que respalda la creciente demanda de generación de electricidad y la transición a fuentes de energía bajas en carbono.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q324-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q225-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(6)">
+                    <span>Evidence #7 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- GEV se enfoca en las tecnologías necesarias para la transmisión de electricidad. La empresa...</span></span>
+                    <span class="toggle-icon" id="icon-6">▼</span>
+                </div>
+                <div class="evidence-content" id="content-6">
+                    La participación de GEV en la Transmisión de Electricidad es evidente a través de su segmento de Electrificación, particularmente Grid Solutions, que se enfoca en las tecnologías necesarias para la transmisión de electricidad desde la generación hasta el consumo. La empresa anticipa pedidos significativos de equipos de estabilización de red, incluidos condensadores síncronos, y ha experimentado un crecimiento en el volumen de equipos de HVDC, aparamenta y transformadores. Además, GEV participa en los mercados de interconexión renovable en tierra y mar, apoyando la expansión y modernización de la red a nivel mundial con soluciones como su estándar HVDC de 2 GW. La empresa también destaca la creciente demanda de equipos relacionados con la transmisión para integrar energías renovables y mover energía a granel, enfatizando la necesidad de modernización e inversión en la red.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q324-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(7)">
+                    <span>Evidence #8 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- GEV participa en inversiones energéticas. La empresa reconoce que el acceso al capital y la...</span></span>
+                    <span class="toggle-icon" id="icon-7">▼</span>
+                </div>
+                <div class="evidence-content" id="content-7">
+                    La participación de GEV en inversiones energéticas es evidente en su enfoque en las dinámicas financieras y de inversión, que son cruciales para avanzar en iniciativas estratégicas y desplegar nuevos proyectos de generación de energía. La empresa reconoce que el acceso al capital y la comprensión de las tendencias de inversión en el sector energético son importantes para el desarrollo de proyectos. Las actividades de inversión de GEV incluyen proyectos en Energía de Gas y Energía Nuclear, junto con consideraciones de recompra de acciones y dividendos. Si bien estas inversiones son significativas, no representan el enfoque principal de la empresa.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q225-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(8)">
+                    <span>Evidence #9 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q3 2024)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- GE Vernova ofreciendo una amplia gama de productos y servicios que generan, transfieren, orquestan,...</span></span>
+                    <span class="toggle-icon" id="icon-8">▼</span>
+                </div>
+                <div class="evidence-content" id="content-8">
+                    La posición de GE Vernova como líder mundial en la industria de la energía eléctrica resalta su fuerte conexión con el sector energético, ofreciendo una amplia gama de productos y servicios que generan, transfieren, orquestan, convierten y almacenan electricidad. La empresa diseña, fabrica, entrega y presta servicios de tecnologías que tienen como objetivo crear un sistema de energía eléctrica más confiable y sostenible, permitiendo la electrificación y la descarbonización. Esto demuestra un enfoque significativo en el avance del progreso y la prosperidad dentro de las comunidades a las que sirve.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q324-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(9)">
+                    <span>Evidence #10 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- La participación de GE Vernova en la industria de servicios energéticos es evidente a través of sus...</span></span>
+                    <span class="toggle-icon" id="icon-9">▼</span>
+                </div>
+                <div class="evidence-content" id="content-9">
+                    La participación de GE Vernova en la industria de servicios energéticos es evidente a través de sus importantes ingresos por servicios en los segmentos de Energía, Eólica y Electrificación, y los servicios representan una parte sustancial de su cartera de pedidos. Esto está respaldado además por la creciente demanda de energía de carga base confiable, infraestructura de red y soluciones de descarbonización, lo que impulsa la necesidad de invertir en la base instalada y en las actualizaciones de equipos. El enfoque de la empresa en mejorar la solidez y la resiliencia de la generación y transmisión de energía, junto con la creciente utilización de su base instalada, crea oportunidades de ingresos adicionales por servicios, incluidas las actualizaciones. Además, las operaciones mundiales de la empresa se ven afectadas por tendencias de la industria como la descarbonización y la creciente demanda de energía renovable, que impulsan el crecimiento en sus segmentos de negocio.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q125-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(10)">
+                    <span>Evidence #11 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- El segmento de Electrificación de la empresa incluye tecnologías de soluciones solares y de...</span></span>
+                    <span class="toggle-icon" id="icon-10">▼</span>
+                </div>
+                <div class="evidence-content" id="content-10">
+                    GE Vernova demuestra su participación en el almacenamiento de energía a través de varias actividades clave. El segmento de Electrificación de la empresa incluye tecnologías de soluciones solares y de almacenamiento, lo que indica una dedicación de recursos a esta área. Para consolidar aún más este compromiso, GE Vernova combinó sus unidades de negocio de Power Conversion y Solar & Storage Solutions para formar una nueva unidad centrada en Power Conversion & Storage. La empresa proporciona productos y servicios que almacenan electricidad, e integra soluciones avanzadas de generación y almacenamiento para modernizar la infraestructura obsoleta.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q324-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q125-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(11)">
+                    <span>Evidence #12 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q3 2024)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- GE Vernova diseña, fabrica, entrega y da servicio a tecnologías para un sistema de energía...</span></span>
+                    <span class="toggle-icon" id="icon-11">▼</span>
+                </div>
+                <div class="evidence-content" id="content-11">
+                    El compromiso de GE Vernova con la transición energética es evidente en su enfoque en la innovación e inversión en tecnologías que reducen la intensidad de carbono de las redes eléctricas, al tiempo que garantizan la fiabilidad y la asequibilidad. La estructura especialmente diseñada de la compañía está posicionada de manera única para acelerar la transición energética a través de la electrificación y la descarbonización, ya que diseña, fabrica, entrega y da servicio a tecnologías para un sistema de energía eléctrica más fiable y sostenible. El papel de GE Vernova como líder mundial en la industria de la energía eléctrica solidifica aún más su dedicación a permitir el progreso y la prosperidad a través de soluciones sostenibles.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q324-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(12)">
+                    <span>Evidence #13 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- El segmento de Energía de GE Vernova incluye tecnologías de gas. La compañía reservó 20 turbinas de...</span></span>
+                    <span class="toggle-icon" id="icon-12">▼</span>
+                </div>
+                <div class="evidence-content" id="content-12">
+                    El compromiso de GE Vernova con el tema de las turbinas de gas industriales es significativo, como lo demuestra su importante participación en la tecnología de turbinas de gas. El segmento de Energía de la compañía incluye tecnologías de gas, que proporcionan una base crítica de energía despachable y confiable, respaldada por una gran base instalada de aproximadamente 7,000 unidades de turbinas de gas. Esto se ve reforzado aún más por contratos sustanciales y acuerdos de reserva de ranuras, con 50 gigavatios de turbinas de gas bajo contrato o con reserva de ranuras. La compañía reservó 20 turbinas de gas de servicio pesado, incluidas 7 unidades HA, y aseguró pedidos de 27 unidades aeroderivadas, lo que demuestra una fuerte presencia en el mercado y un enfoque estratégico en el sector de las turbinas de gas.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q324-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(13)">
+                    <span>Evidence #14 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- La empresa demuestra su participación en Software Industrial a través of su segmento de Software de...</span></span>
+                    <span class="toggle-icon" id="icon-13">▼</span>
+                </div>
+                <div class="evidence-content" id="content-13">
+                    La empresa demuestra su participación en Software Industrial a través de su segmento de Software de Electrificación, que es un componente del segmento más amplio de Electrificación. Esto se evidencia en la presentación de ingresos y EBITDA del segmento para Software de Electrificación. Si bien la empresa se enfoca en la digitalización y sostenibilidad de la infraestructura eléctrica, los ingresos de Software de Electrificación representan menos del 10% de los ingresos totales, aproximadamente el 2,6% durante los seis meses que finalizaron el 30 de junio de 2025 (444 millones de dólares de 17.143 millones de dólares).
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q225-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(14)">
+                    <span>Evidence #15 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- GE Vernova diseña, fabrica y ofrece servicios de tecnologías que contribuyen a un sistema de...</span></span>
+                    <span class="toggle-icon" id="icon-14">▼</span>
+                </div>
+                <div class="evidence-content" id="content-14">
+                    La participación de GE Vernova en la Integración de Energías Renovables es evidente a través de sus tecnologías e innovación, que posicionan a la empresa para capitalizar la creciente demanda de alternativas de energía renovable y el cambio de la generación de carbón a fuentes de energía bajas en carbono. La empresa diseña, fabrica y ofrece servicios de tecnologías que contribuyen a un sistema de energía eléctrica más confiable y sostenible, permitiendo la electrificación y la descarbonización. Esto incluye el suministro de equipos a gran escala relacionados con la transmisión, cruciales para interconectar energías renovables y mover energía a granel, así como la integración de soluciones avanzadas de generación y almacenamiento que requieren actualizaciones de infraestructura obsoleta con nuevas soluciones de integración y automatización de redes. Las soluciones de red, la conversión de energía, el software de electrificación y las tecnologías de soluciones solares y de almacenamiento de la empresa facilitan la transmisión, distribución, conversión, almacenamiento y orquestación de electricidad.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q324-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q125-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(15)">
+                    <span>Evidence #16 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- GE Vernova firmó contratos por 9 gigavatios de nuevo equipo de gas. Enfatiza el papel crítico de la...</span></span>
+                    <span class="toggle-icon" id="icon-15">▼</span>
+                </div>
+                <div class="evidence-content" id="content-15">
+                    GE Vernova demuestra una conexión significativa con la industria del Gas Natural, subrayada por la considerable contribución de ingresos de su segmento Gas Power. La empresa firmó contratos por 9 gigavatios de nuevo equipo de gas y enfatiza el papel crítico de la energía del gas en la transición energética, particularmente para garantizar la estabilidad de la red y la seguridad energética. GE Vernova anticipa un crecimiento en el mercado de energía del gas durante la próxima década y destaca la creciente demanda de gas, lo que solidifica aún más su posición en la industria.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q324-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q225-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(16)">
+                    <span>Evidence #17 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- GE Vernova participa en el proyecto de reactor modular pequeño (SMR) de 300 megavatios. El segmento...</span></span>
+                    <span class="toggle-icon" id="icon-16">▼</span>
+                </div>
+                <div class="evidence-content" id="content-16">
+                    La participación de GE Vernova en la Energía Nuclear es evidente a través de varias actividades, incluido el progreso de su proyecto de reactor modular pequeño (SMR) de 300 megavatios, con la construcción en marcha en Ontario y la NRC aceptando la solicitud de TVA para construir en el sitio de Clinch River. El segmento de Energía incluye tecnologías nucleares, proporcionando una base de energía despachable, flexible, estable y confiable. Sin embargo, la empresa completó la venta de parte de sus actividades nucleares a Electricité de France S.A. (EDF), y si bien los pedidos de servicios de vapor aumentaron, apoyando extensiones y mejoras nucleares, esta actividad se equilibra con gastos adicionales para apoyar inversiones en Energía Nuclear.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q324-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q225-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(17)">
+                    <span>Evidence #18 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q1 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- GEV participa en proyectos de HVDC de líneas de transmisión largas. La empresa proporciona equipos...</span></span>
+                    <span class="toggle-icon" id="icon-17">▼</span>
+                </div>
+                <div class="evidence-content" id="content-17">
+                    El compromiso de GEV con el tema de Infraestructura de Servicios Públicos es evidente a través de sus inversiones en infraestructura de red, impulsadas por la electrificación acelerada. La empresa proporciona equipos de estabilización de red, productos de aparamenta y participa en proyectos de HVDC de líneas de transmisión largas. Además, GEV reconoce la necesidad de actualizar la infraestructura envejecida con nuevas soluciones de integración y automatización de red, junto con inversiones en energía y equipos confiables, como condensadores síncronos para soporte de voltaje y regulación de frecuencia.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q125-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(18)">
+                    <span>Evidence #19 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- La participación de la empresa en el tema of las Energías Renovables es multifacética. La creciente...</span></span>
+                    <span class="toggle-icon" id="icon-18">▼</span>
+                </div>
+                <div class="evidence-content" id="content-18">
+                    La participación de la empresa en el tema de las Energías Renovables es multifacética, demostrada a través de su segmento Eólico, equipos de energía hidroeléctrica y soluciones de estabilización de red como condensadores síncronos, que abordan la intermitencia renovable. La creciente demanda de alternativas de energía renovable y las políticas gubernamentales también se mencionan como factores que impactan las operaciones de la empresa. Además, la empresa participa tanto en la energía eólica como en la solar, y se observan aumentos de actividad en estos sectores. Sin embargo, la empresa también tiene operaciones significativas en fuentes de energía no renovables, lo que sugiere que la energía renovable es de importancia secundaria.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q125-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(19)">
+                    <span>Evidence #20 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q3 2024)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- GE Vernova se enfoca en tecnologías de generación eólica. La empresa también señala una fuerte...</span></span>
+                    <span class="toggle-icon" id="icon-19">▼</span>
+                </div>
+                <div class="evidence-content" id="content-19">
+                    El compromiso de GE Vernova con el tema de Equipos de Energía Renovable es evidente a través de su segmento de Energía Eólica, que se enfoca en tecnologías de generación eólica, incluidas turbinas eólicas y palas terrestres y marinas. Además, el segmento de Electrificación de la empresa aporta tecnologías para soluciones de red, conversión de energía, software de electrificación y soluciones solares y de almacenamiento, facilitando la transmisión, distribución, conversión, almacenamiento y orquestación de electricidad. La empresa también señala una fuerte demanda de equipos relacionados con la transmisión a gran escala, esenciales para interconectar energías renovables y mover energía a granel.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q324-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(20)">
+                    <span>Evidence #21 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- GEV apoya la expansión y modernización of las redes a nivel mundial. La empresa reconoce la...</span></span>
+                    <span class="toggle-icon" id="icon-20">▼</span>
+                </div>
+                <div class="evidence-content" id="content-20">
+                    La participación de GEV en Infraestructura Inteligente es evidente a través de su negocio de Soluciones de Redes Eléctricas, que apoya la expansión y modernización de las redes a nivel mundial. La empresa reconoce la necesidad de actualizar la infraestructura obsoleta con nuevas soluciones de integración y automatización de redes, impulsada por una mayor demanda y la integración de soluciones avanzadas de generación y almacenamiento. Esto se enfatiza aún más por el creciente enfoque en la digitalización y sostenibilidad de la infraestructura eléctrica. Además, la empresa está posicionada para apoyar las necesidades de expansión y modernización de las redes a nivel mundial, participando en los mercados de interconexión renovable en tierra y en alta mar con nuevos productos y tecnología.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q324-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q225-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(21)">
+                    <span>Evidence #22 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q2 2025)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- GE Vernova se centra tanto en turbinas eólicas y palas en tierra como en alta mar. Los ingresos del...</span></span>
+                    <span class="toggle-icon" id="icon-21">▼</span>
+                </div>
+                <div class="evidence-content" id="content-21">
+                    El compromiso de GE Vernova con la energía eólica es evidente a través de su segmento dedicado a la Eólica, que se centra tanto en turbinas eólicas y palas en tierra como en alta mar. La empresa simplifica su oferta de productos, enfatizando productos robustos como las unidades mar adentro Haliade-X de 220 m y varias unidades en tierra, que representan aproximadamente el 70% del RPO de equipos en Eólica Terrestre y Marina. Los ingresos del segmento Eólica contribuyen significativamente al total, con $4.095 millones para los seis meses finalizados el 30 de junio de 2025, y la empresa trabaja activamente para mejorar el rendimiento de la flota y abordar desafíos como los retrasos en los permisos y los impactos arancelarios.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q225-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q225-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q125-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q125-10-Q</a><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/gev-Q324-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 gev-Q324-10-Q</a></div>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleEvidence(idx) {
+            const content = document.getElementById('content-' + idx);
+            const icon = document.getElementById('icon-' + idx);
+
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.classList.remove('active');
+            } else {
+                content.classList.add('active');
+                icon.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
+    

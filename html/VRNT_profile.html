@@ -1,0 +1,678 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VRNT - Company Profile</title>
+    <style>
+        
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --light-bg: #ecf0f1;
+    --border-color: #bdc3c7;
+    --text-color: #2c3e50;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: #fff;
+}
+
+.header {
+    padding: 20px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    background-color: white;
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.home-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
+}
+
+.home-button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.home-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+.company-subtitle {
+    font-size: 0.9rem;
+    font-weight: normal;
+    opacity: 0.9;
+    margin-top: 5px;
+}
+
+.company-subtitle a {
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(255,255,255,0.5);
+    transition: all 0.3s;
+}
+
+.company-subtitle a:hover {
+    border-bottom: 1px solid white;
+    opacity: 1;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.section-header {
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 2px solid var(--border-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+}
+
+.section-content {
+    padding: 20px;
+}
+
+/* Chart Section */
+#chart-container {
+    background-color: white;
+    padding: 0;
+}
+
+/* Info Cards Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.info-card {
+    background-color: var(--light-bg);
+    padding: 15px;
+    border-radius: 4px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.info-label {
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.info-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* Description */
+.description-text {
+    line-height: 1.6;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Rankings Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+    font-weight: 600;
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--border-color);
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.rank-badge {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: inline-block;
+}
+
+.rank-top3 {
+    background-color: #27ae60;
+}
+
+.rank-top10 {
+    background-color: #3498db;
+}
+
+.rank-other {
+    background-color: #95a5a6;
+}
+
+.check-icon {
+    color: #27ae60;
+    font-size: 1.2rem;
+}
+
+.no-icon {
+    color: #ccc;
+    font-size: 1.2rem;
+}
+
+/* Evidence Accordion */
+.evidence-item {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.evidence-header {
+    padding: 12px 15px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: background-color 0.2s;
+    gap: 10px;
+}
+
+.evidence-header span:first-child {
+    flex: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+}
+
+.evidence-header:hover {
+    background-color: #f0f0f0;
+}
+
+.evidence-content {
+    padding: 15px;
+    background-color: white;
+    line-height: 1.6;
+    color: #555;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.evidence-content.active {
+    display: block;
+}
+
+.toggle-icon {
+    transition: transform 0.3s;
+}
+
+.toggle-icon.active {
+    transform: rotate(180deg);
+}
+
+.no-data {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+    font-style: italic;
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <img src="data:image/png;base64,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" alt="VERINT SYSTEMS INC Logo" class="header-logo" />
+            <div>
+                <div>VRNT - VERINT SYSTEMS INC</div>
+                <div class="company-subtitle">
+                    <a href="https://verint.com" target="_blank">🌐 verint.com</a>
+                </div>
+            </div>
+        </div>
+        <a href="main_trends.html" class="home-button" title="Back to Home">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="9 22 9 12 15 12 15 22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+    </div>
+
+    <div class="container">
+        <!-- Price Chart Section -->
+        <div class="section" id="chart-container">
+            <div class="section-header">
+                Price Chart
+                <a href="stock_chart_vrnt.html" target="_blank" style="float: right; font-size: 0.85rem; background-color: var(--accent-color); color: white; padding: 5px 10px; text-decoration: none; border-radius: 4px; margin-top: -3px;">View Full Chart ⤢</a>
+            </div>
+            <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>                <div id="interactive-chart" class="plotly-graph-div" style="height:450px; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("interactive-chart")) {                    Plotly.newPlot(                        "interactive-chart",                        [{"fill":"tozeroy","fillcolor":"rgba(0, 200, 83, 0.05)","fillgradient":{"colorscale":[[0,"rgba(0, 200, 83, 0.05)"],[1,"rgba(0, 200, 83, 0.6)"]],"type":"vertical"},"hoverinfo":"skip","mode":"none","showlegend":false,"x":["2025-11-25T00:00:00"],"y":[0.0],"type":"scatter"},{"hovertemplate":"Benchmark: %{y:,.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#000000","width":1.5},"mode":"lines","name":"Benchmark (SP500)","x":["2025-11-25T00:00:00"],"y":[0.0],"type":"scatter"},{"hovertemplate":"VRNT: %{y:,.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#00c853","width":2},"mode":"lines","name":"VRNT","x":["2025-11-25T00:00:00"],"y":[0.0],"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"title":{"font":{"size":16,"color":"#333"},"text":"Stock Performance: VRNT vs Benchmark (ROI %)\u003cbr\u003e\u003csub\u003ePerformance: \u003cspan style='color:#00c853'\u003e+0.00% vs Benchmark\u003c\u002fspan\u003e\u003c\u002fsub\u003e","x":0.5,"xanchor":"center","y":0.95},"margin":{"t":60,"l":30,"r":20,"b":40},"xaxis":{"rangeselector":{"font":{"size":12},"buttons":[{"count":1,"label":"1M","step":"month","stepmode":"backward"},{"count":6,"label":"6M","step":"month","stepmode":"backward"},{"count":1,"label":"YTD","step":"year","stepmode":"todate"},{"count":1,"label":"1Y","step":"year","stepmode":"backward"},{"count":2,"label":"2Y","step":"year","stepmode":"backward"},{"count":3,"label":"3Y","step":"year","stepmode":"backward"},{"count":5,"label":"5Y","step":"year","stepmode":"backward"},{"count":10,"label":"10Y","step":"year","stepmode":"backward"},{"label":"MAX","step":"all"}],"bgcolor":"#f4f4f4","y":0.98},"range":["2025-11-25T00:00:00","2025-11-25T00:00:00"],"type":"date","showgrid":false,"showline":true,"linewidth":1,"linecolor":"lightgrey","mirror":false},"yaxis":{"showgrid":true,"gridcolor":"#f0f0f0","showline":true,"linewidth":1,"linecolor":"lightgrey","mirror":false,"tickformat":"+.0f","ticksuffix":"%","zeroline":true,"zerolinecolor":"#d3d3d3","zerolinewidth":1},"legend":{"orientation":"h","yanchor":"bottom","y":1.02,"xanchor":"right","x":1},"plot_bgcolor":"white","hovermode":"x unified","autosize":true,"height":450},                        {"displayModeBar": false, "responsive": true}                    )                };                            </script>        </div>
+    <script>
+    (function() {
+        var gd = document.getElementById('interactive-chart');
+        var debounceTimer;
+
+        function setupLogic() {
+            if(!gd || !gd.data) { setTimeout(setupLogic, 200); return; }
+            // Match traces: 0=Fill, 1=SPY, 2=Stock
+            if (gd.data.length < 3) return;
+            
+            gd._origTheme = gd.data[2].y.slice();
+            gd._origSpy = gd.data[1].y.slice();
+            
+            gd.on('plotly_relayout', function(eventdata){
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(recalc, 50);
+            });
+            recalc();
+        }
+        
+        function recalc() {
+            var xrange = gd.layout.xaxis.range;
+            if(!xrange || !gd._origTheme) return;
+            
+            var startDate = new Date(xrange[0]).getTime();
+            var endDate = new Date(xrange[1]).getTime();
+            var xData = gd.data[2].x; 
+            
+            var startIdx = 0;
+            for(var i=0; i<xData.length; i++) {
+                if(new Date(xData[i]).getTime() >= startDate) {
+                    startIdx = i;
+                    break;
+                }
+            }
+            
+            var t0 = gd._origTheme[startIdx]; 
+            var s0 = gd._origSpy[startIdx];   
+            if (s0 === undefined || s0 === null) s0 = 0;
+
+            var themeBase = (t0/100) + 1;
+            var spyBase = (s0/100) + 1;
+            
+            var newTheme = gd._origTheme.map(v => ( ((v/100+1)/themeBase) - 1 ) * 100);
+            var newSpy = gd._origSpy.map(function(v) {
+                 if (v === undefined || v === null) return 0;
+                 return ( ((v/100+1)/spyBase) - 1 ) * 100;
+            });
+            
+            var minVal = Infinity;
+            var maxVal = -Infinity;
+            var finalIdx = startIdx;
+
+            for(var i=0; i<xData.length; i++) {
+                var t = new Date(xData[i]).getTime();
+                if(t >= startDate && t <= endDate) {
+                    var v1 = newTheme[i];
+                    var v2 = newSpy[i];
+                    if(v1 < minVal) minVal = v1;
+                    if(v1 > maxVal) maxVal = v1;
+                    if(v2 < minVal) minVal = v2;
+                    if(v2 > maxVal) maxVal = v2;
+                    finalIdx = i;
+                }
+            }
+            
+            if (minVal === Infinity) { minVal = 0; maxVal = 10; }
+            
+            var range = maxVal - minVal;
+            var padding = range * 0.05; 
+            if (padding === 0) padding = 1;
+            
+            if (finalIdx >= newTheme.length) finalIdx = newTheme.length - 1;
+            var finalTheme = newTheme[finalIdx];
+            var finalSpy = newSpy[finalIdx];
+            var diff = finalTheme - finalSpy;
+            var color = diff >= 0 ? '#00c853' : '#ff1744';
+            var sign = diff >= 0 ? '+' : '';
+            var subtitle = 'Performance: <span style="color:'+color+'">' + sign + diff.toFixed(2) + '% vs Benchmark</span>';
+            
+            Plotly.relayout(gd, {
+                'title.text': 'Stock Performance: VRNT vs Benchmark (ROI %)<br><sub>' + subtitle + '</sub>',
+                'yaxis.range': [minVal - padding, maxVal + padding]
+            });
+            
+            Plotly.restyle(gd, {
+                y: [newTheme, newSpy, newTheme] 
+            }, [0, 1, 2]);
+        }
+        
+        var checkExist = setInterval(function() {
+           if (document.getElementById('interactive-chart')) {
+              gd = document.getElementById('interactive-chart');
+              setupLogic();
+              clearInterval(checkExist);
+           }
+        }, 100);
+    })();
+    </script>
+    
+        </div>
+
+        <!-- Company Details Section -->
+        <div class="section">
+            <div class="section-header">Company Details and Performance</div>
+            <div class="section-content">
+                
+    <div class="info-grid">
+        <div class="info-card">
+            <div class="info-label">Symbol</div>
+            <div class="info-value">VRNT</div>
+        </div>
+        <div class="info-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <div class="info-label" style="color: rgba(255,255,255,0.9);">Last Close</div>
+            <div class="info-value" style="color: white; font-size: 1.4rem;">$20.51</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Currency</div>
+            <div class="info-value">USD</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Exchange</div>
+            <div class="info-value">VALUE</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Asset Type</div>
+            <div class="info-value">STK</div>
+        </div>
+    </div>
+    
+                
+        <div style="margin-top: 25px; padding-top: 20px; border-top: 2px solid #ecf0f1;">
+            <h3 style="margin: 0 0 15px 0; font-size: 1.1rem; color: var(--primary-color);">Performance Metrics</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-label">Day Change</div>
+                    <div class="info-value"><span style="color: #27ae60; font-weight: bold;">+0.00%</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">1 Month</div>
+                    <div class="info-value"><span style="color: #999;">N/A</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">Year to Date</div>
+                    <div class="info-value"><span style="color: #999;">N/A</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">12 Months</div>
+                    <div class="info-value"><span style="color: #999;">N/A</span></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">3 Years</div>
+                    <div class="info-value"><span style="color: #999;">N/A</span></div>
+                </div>
+            </div>
+            <h3 style="margin: 20px 0 15px 0; font-size: 1.1rem; color: var(--primary-color);">Volatility (Annualized)</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-label">30 Days</div>
+                    <div class="info-value" style="color: #e67e22;">N/A</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">90 Days</div>
+                    <div class="info-value" style="color: #e67e22;">N/A</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">180 Days</div>
+                    <div class="info-value" style="color: #e67e22;">N/A</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">1 Year</div>
+                    <div class="info-value" style="color: #e67e22;">N/A</div>
+                </div>
+            </div>
+            <h3 style="margin: 20px 0 15px 0; font-size: 1.1rem; color: var(--primary-color);">52-Week Range</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-label">52-Week High</div>
+                    <div class="info-value" style="color: #27ae60;">$20.51</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">52-Week Low</div>
+                    <div class="info-value" style="color: #e74c3c;">$20.51</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">From 52w High</div>
+                    <div class="info-value"><span style="color: #27ae60; font-weight: bold;">+0.00%</span></div>
+                </div>
+            </div>
+        </div>
+        
+            </div>
+        </div>
+
+        <!-- Description Section -->
+        <div class="section">
+            <div class="section-header">Description</div>
+            <div class="section-content">
+                <div class="description-text">Se enfoca en aprovechar la inteligencia artificial para generar información procesable, ayudando a las empresas a optimizar sus operaciones y tomar decisiones estratégicas informadas.</div>
+            </div>
+        </div>
+
+        <!-- Rankings Section -->
+        <div class="section">
+            <div class="section-header">Theme Rankings (6 themes)</div>
+            <div class="section-content" style="padding: 0;">
+                
+        <table>
+            <thead>
+                <tr>
+                    <th>Theme Name</th>
+                    <th style="text-align: center; width: 60px;">Theme</th>
+                    <th>Rank</th>
+                    <th style="text-align: center;">Evidence</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            <tr>
+                <td>robotic_process_automation</td>
+                <td style="text-align: center;">
+                    <a href="robotic_process_automation_detail.html" class="action-link" title="View robotic_process_automation theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#12</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>machine_learning</td>
+                <td style="text-align: center;">
+                    <a href="machine_learning_detail.html" class="action-link" title="View machine_learning theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#23</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>insurance_solutions</td>
+                <td style="text-align: center;">
+                    <a href="insurance_solutions_detail.html" class="action-link" title="View insurance_solutions theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#57</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>digital_solutions</td>
+                <td style="text-align: center;">
+                    <a href="digital_solutions_detail.html" class="action-link" title="View digital_solutions theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#58</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>aipowered_insights</td>
+                <td style="text-align: center;">
+                    <a href="aipowered_insights_detail.html" class="action-link" title="View aipowered_insights theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#60</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            <tr>
+                <td>ai_in_fintech</td>
+                <td style="text-align: center;">
+                    <a href="ai_in_fintech_detail.html" class="action-link" title="View ai_in_fintech theme details" style="font-size: 1.2rem; text-decoration: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </td>
+                <td><span class="rank-badge rank-other">#60</span></td>
+                <td style="text-align: center;"><span class="check-icon">✓</span></td>
+            </tr>
+            
+            </tbody>
+        </table>
+        
+            </div>
+        </div>
+
+        <!-- Evidence Section -->
+        <div class="section">
+            <div class="section-header">Evidence Details (2 entries)</div>
+            <div class="section-content">
+                
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(0)">
+                    <span>Evidence #1 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q1 2026)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Verint enfatiza sus capacidades de IA, particularmente dentro of sus soluciones de automatización...</span></span>
+                    <span class="toggle-icon" id="icon-0">▼</span>
+                </div>
+                <div class="evidence-content" id="content-0">
+                    Verint enfatiza sus capacidades de IA, particularmente dentro de sus soluciones de automatización de la experiencia del cliente, como lo demuestran su Plataforma Abierta impulsada por IA y su equipo de bots impulsados por IA. La compañía destaca que una parte de sus ingresos recurrentes anuales (ARR) es directamente atribuible a suscripciones de sus soluciones de IA y basadas en IA, lo que refleja la importancia comercial de esta tecnología. Verint también cree que las empresas están priorizando las inversiones en IA, especialmente en la participación del cliente, lo que impulsa la demanda de sus soluciones impulsadas por IA que aumentan las fuerzas laborales y mejoran la comprensión del cliente.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/vrnt-Q126-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 vrnt-Q126-10-Q</a></div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <div class="evidence-header" onclick="toggleEvidence(1)">
+                    <span>Evidence #2 <span style="color: #666; font-size: 0.9rem; margin-left: 10px;">(Q1 2026)</span><span style="color: #2c3e50; font-weight: 500; margin-left: 5px;">- Verint se centra en soluciones digitales, particularmente en la automatización de la experiencia...</span></span>
+                    <span class="toggle-icon" id="icon-1">▼</span>
+                </div>
+                <div class="evidence-content" id="content-1">
+                    Verint se centra en soluciones digitales, particularmente en la automatización de la experiencia del cliente, como lo demuestra su plataforma abierta impulsada por IA que utilizan numerosas empresas Fortune 100. La plataforma y los bots impulsados por IA de la empresa están diseñados para resolver desafíos comerciales relacionados con la participación del cliente, ayudando a las marcas a aumentar el nivel de su automatización de CX. Las soluciones de Verint abordan la creciente complejidad de los recorridos del cliente a través de varios canales de comunicación, proporcionando una comprensión unificada de la relación con el cliente a través de herramientas especializadas impulsadas por IA. El aumento de los ingresos por SaaS empaquetados se debe a nuevos contratos de clientes y a que los clientes existentes amplían el uso de la plataforma en la nube de Verint y la demanda de sus soluciones impulsadas por IA.
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;"><strong style="font-size: 0.9rem; color: #666;">Source Documents:</strong><br><a href="https://storage.googleapis.com/reflexivity-documents-prod/edgar/filing/10-q/vrnt-Q126-10-Q.html" target="_blank" style="display: inline-block; margin: 5px 5px 5px 0; padding: 5px 10px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-size: 0.85rem;">📄 vrnt-Q126-10-Q</a></div>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleEvidence(idx) {
+            const content = document.getElementById('content-' + idx);
+            const icon = document.getElementById('icon-' + idx);
+
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.classList.remove('active');
+            } else {
+                content.classList.add('active');
+                icon.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
+    

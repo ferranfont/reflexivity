@@ -364,6 +364,19 @@ def main():
     df['date'] = pd.to_datetime(df['date'])
     df = df.set_index('date').rename(columns={'close': 'portfolio'}) # 'portfolio' is just the column name expected by plotter
     
+    # --- Data Cleaning (Fix for Unadjusted Splits) ---
+    # Calculate daily returns
+    daily_ret = df['portfolio'].pct_change()
+    
+    # Filter out extreme outliers (>300% daily return) which are likely data errors or splits
+    daily_ret = daily_ret.mask(daily_ret > 3.0, 0.0)
+    
+    # Reconstruct the price curve
+    start_price = df['portfolio'].iloc[0]
+    daily_ret = daily_ret.fillna(0)
+    df['portfolio'] = start_price * (1 + daily_ret).cumprod()
+    # -------------------------------------------------
+
     portfolio_df = df.reset_index()
 
     # SPY Benchmark
